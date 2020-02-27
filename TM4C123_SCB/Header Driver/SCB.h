@@ -301,6 +301,8 @@ typedef volatile struct
 #define SCB_SYSPRI3_OFFSET     (0x0D20)
 #define SCB_SYSHNDCTRL_OFFSET  (0x0D24)
 #define SCB_FAULTSTAT_OFFSET   (0x0D28)
+#define SCB_BFAULTSTAT_OFFSET   (0x0D28)
+#define SCB_UFAULTSTAT_OFFSET   (0x0D2A)
 #define SCB_HFAULTSTAT_OFFSET  (0x0D2C)
 #define SCB_MMADDR_OFFSET      (0x0D34)
 #define SCB_FAULTADDR_OFFSET   (0x0D34)
@@ -2037,8 +2039,21 @@ typedef enum
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 #define SCB_FAULTSTAT            (((FAULTSTAT_TypeDef*)(SCB_BASE+SCB_FAULTSTAT_OFFSET )))
+#define SCB_MFAULTSTAT_R          (*((volatile uint8_t *)(SCB_BASE+SCB_FAULTSTAT_OFFSET)))
+#define SCB_BFAULTSTAT_R          (*((volatile uint8_t *)(SCB_BASE+SCB_BFAULTSTAT_OFFSET)))
+#define SCB_UFAULTSTAT_R          (*((volatile uint16_t *)(SCB_BASE+SCB_UFAULTSTAT_OFFSET)))
 #define SCB_FAULTSTAT_R          (*((volatile uint32_t *)(SCB_BASE+SCB_FAULTSTAT_OFFSET)))
 
+
+typedef enum
+{
+    SCB_enUFAULTSTAT_UNDEF=0x0001,
+    SCB_enUFAULTSTAT_INVSTAT=0x0002,
+    SCB_enUFAULTSTAT_INVPC=0x0004,
+    SCB_enUFAULTSTAT_NOCP=0x0008,
+    SCB_enUFAULTSTAT_UNALIGN=0x0100,
+    SCB_enUFAULTSTAT_DIV0=0x0200,
+}SCB_nUFAULTSTAT;
 
 //--------
 #define SCB_FAULTSTAT_R_IERR_MASK      (0x00000001)
@@ -2426,8 +2441,8 @@ void SCB_MemoryFault__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_MemoryFault__enGetPriority(void);
 void SCB_SVCall__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_SVCall__enGetPriority(void);
-void SCB_TICK__vSetPriority(SCB_nSYSPRI enPriority);
-SCB_nSYSPRI SCB_TICK__enGetPriority(void);
+void SCB_SysTick__vSetPriority(SCB_nSYSPRI enPriority);
+SCB_nSYSPRI SCB_SysTick__enGetPriority(void);
 void SCB_PENDSV__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_PENDSV__enGetPriority(void);
 
@@ -2436,13 +2451,35 @@ void SCB_UsageFault__vEnable(void);
 void SCB_UsageFault__vDisable(void);
 void SCB_BusFault__vEnable(void);
 void SCB_BusFault__vDisable(void);
-void SCB_MPUFault__vEnable(void);
-void SCB_MPUFault__vDisable(void);
+void SCB_MemoryFault__vEnable(void);
+void SCB_MemoryFault__vDisable(void);
 
-void PendSVHandler(void);
-void UsageFaultHandler(void);
-void BusFaultHandler(void);
-void MPUFaultHandler(void);
-void FaultISR(void);
+
+void SCB_SVCall__vSetPending(void);
+void SCB_SVCall__vClearPending(void);
+SCB_nPENDSTATE SCB_SVCall__enGetPending(void);
+void SCB_BusFault__vSetPending(void);
+void SCB_BusFault__vClearPending(void);
+SCB_nPENDSTATE SCB_BusFault__enGetPending(void);
+void SCB_MemoryFault__vSetPending(void);
+void SCB_MemoryFault__vClearPending(void);
+SCB_nPENDSTATE SCB_MemoryFault__enGetPending(void);
+void SCB_UsageFault__vSetPending(void);
+void SCB_UsageFault__vClearPending(void);
+SCB_nPENDSTATE SCB_UsageFault__enGetPending(void);
+
+uint32_t SCB_MemoryFault_u32GetAddress(void);
+uint32_t SCB_BusFault_u32GetAddress(void);
+
+void SCB__vEnableExceptions(void);
+void SCB__vEnableTraps(void);
+
+void NMIISR(void);
+void PendSVISR(void);
+void UsageFaultISR(void);
+void BusFaultISR(void);
+void MemoryFaultISR(void);
+void HardFaultISR(void);
+void SVCallISR(void);
 
 #endif /* SCB_H_ */

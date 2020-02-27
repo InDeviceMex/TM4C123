@@ -23,6 +23,7 @@
 //*****************************************************************************
 
 #include <stdint.h>
+#include <SCB.h>
 
 //*****************************************************************************
 //
@@ -30,8 +31,7 @@
 //
 //*****************************************************************************
 void ResetISR(void);
-static void NmiSR(void);
-static void FaultISR(void);
+static void SysTickISR(void);
 static void IntDefaultHandler(void);
 
 //*****************************************************************************
@@ -69,20 +69,20 @@ void (* const g_pfnVectors[])(void) =
     (void (*)(void))((uint32_t)&__STACK_TOP),
                                             // The initial stack pointer
     ResetISR,                               // The reset handler
-    NmiSR,                                  // The NMI handler
-    FaultISR,                               // The hard fault handler
-    IntDefaultHandler,                      // The MPU fault handler
-    IntDefaultHandler,                      // The bus fault handler
-    IntDefaultHandler,                      // The usage fault handler
+    NMIISR,                                  // The NMI handler
+    HardFaultISR,                               // The hard fault handler
+    MemoryFaultISR,                      // The MPU fault handler
+    BusFaultISR,                      // The bus fault handler
+    UsageFaultISR,                      // The usage fault handler
     0,                                      // Reserved
     0,                                      // Reserved
     0,                                      // Reserved
     0,                                      // Reserved
-    IntDefaultHandler,                      // SVCall handler
+    SVCallISR,                      // SVCall handler
     IntDefaultHandler,                      // Debug monitor handler
     0,                                      // Reserved
-    IntDefaultHandler,                      // The PendSV handler
-    IntDefaultHandler,                      // The SysTick handler
+    PendSVISR,                      // The PendSV handler
+    SysTickISR,                      // The SysTick handler
     IntDefaultHandler,                      // GPIO Port A
     IntDefaultHandler,                      // GPIO Port B
     IntDefaultHandler,                      // GPIO Port C
@@ -245,49 +245,7 @@ ResetISR(void)
           "    b.w     _c_int00");
 }
 
-//*****************************************************************************
-//
-// This is the code that gets called when the processor receives a NMI.  This
-// simply enters an infinite loop, preserving the system state for examination
-// by a debugger.
-//
-//*****************************************************************************
-static void
-NmiSR(void)
-{
-    //
-    // Enter an infinite loop.
-    //
-    while(1)
-    {
-    }
-}
 
-//*****************************************************************************
-//
-// This is the code that gets called when the processor receives a fault
-// interrupt.  This simply enters an infinite loop, preserving the system state
-// for examination by a debugger.
-//
-//*****************************************************************************
-static void
-FaultISR(void)
-{
-    //
-    // Enter an infinite loop.
-    //
-    while(1)
-    {
-    }
-}
-
-//*****************************************************************************
-//
-// This is the code that gets called when the processor receives an unexpected
-// interrupt.  This simply enters an infinite loop, preserving the system state
-// for examination by a debugger.
-//
-//*****************************************************************************
 static void
 IntDefaultHandler(void)
 {
@@ -298,3 +256,14 @@ IntDefaultHandler(void)
     {
     }
 }
+static void
+SysTickISR(void)
+{
+    //
+    // Go into an infinite loop.
+    //
+    while(1)
+    {
+    }
+}
+

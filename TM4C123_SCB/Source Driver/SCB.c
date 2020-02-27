@@ -286,11 +286,11 @@ SCB_nSYSPRI SCB_SVCall__enGetPriority(void)
 {
     return (SCB_nSYSPRI)(SCB_SYSPRI2->SVC &SCB_SYSPRI2_SVC_MASK);
 }
-void SCB_TICK__vSetPriority(SCB_nSYSPRI enPriority)
+void SCB_SysTick__vSetPriority(SCB_nSYSPRI enPriority)
 {
     SCB_SYSPRI3->TICK=(uint32_t)enPriority &SCB_SYSPRI3_TICK_MASK;
 }
-SCB_nSYSPRI SCB_TICK__enGetPriority(void)
+SCB_nSYSPRI SCB_SysTick__enGetPriority(void)
 {
     return (SCB_nSYSPRI)(SCB_SYSPRI3->TICK &SCB_SYSPRI3_TICK_MASK);
 }
@@ -317,29 +317,211 @@ void SCB_UsageFault__vEnable(void)
 {
     SCB_SYSHNDCTRL->USAGE=SCB_SYSHNDCTRL_USAGE_EN;
 }
-
 void SCB_UsageFault__vDisable(void)
 {
     SCB_SYSHNDCTRL->USAGE=SCB_SYSHNDCTRL_USAGE_DIS;
 }
-
 void SCB_BusFault__vEnable(void)
 {
     SCB_SYSHNDCTRL->BUS=SCB_SYSHNDCTRL_BUS_EN;
 }
-
 void SCB_BusFault__vDisable(void)
 {
     SCB_SYSHNDCTRL->BUS=SCB_SYSHNDCTRL_BUS_DIS;
 }
-
-void SCB_MPUFault__vEnable(void)
+void SCB_MemoryFault__vEnable(void)
 {
     SCB_SYSHNDCTRL->MEM=SCB_SYSHNDCTRL_MEM_EN;
 }
-
-void SCB_MPUFault__vDisable(void)
+void SCB_MemoryFault__vDisable(void)
 {
     SCB_SYSHNDCTRL->MEM=SCB_SYSHNDCTRL_MEM_DIS;
 }
+
+
+void SCB_SVCall__vSetPending(void)
+{
+    SCB_SYSHNDCTRL->SVC=SCB_SYSHNDCTRL_SVC_PEND;
+}
+void SCB_SVCall__vClearPending(void)
+{
+    SCB_SYSHNDCTRL->SVC=SCB_SYSHNDCTRL_SVC_NOPEND;
+}
+SCB_nPENDSTATE SCB_SVCall__enGetPending(void)
+{
+    SCB_nPENDSTATE enReturn= (SCB_nPENDSTATE) SCB_SYSHNDCTRL->SVC;
+    return enReturn;
+}
+void SCB_BusFault__vSetPending(void)
+{
+    SCB_SYSHNDCTRL->BUSP=SCB_SYSHNDCTRL_BUSP_PEND;
+}
+void SCB_BusFault__vClearPending(void)
+{
+    SCB_SYSHNDCTRL->BUSP=SCB_SYSHNDCTRL_BUSP_NOPEND;
+}
+SCB_nPENDSTATE SCB_BusFault__enGetPending(void)
+{
+    SCB_nPENDSTATE enReturn= (SCB_nPENDSTATE) SCB_SYSHNDCTRL->BUSP;
+    return enReturn;
+}
+void SCB_MemoryFault__vSetPending(void)
+{
+    SCB_SYSHNDCTRL->MEMP=SCB_SYSHNDCTRL_MEMP_PEND;
+}
+void SCB_MemoryFault__vClearPending(void)
+{
+    SCB_SYSHNDCTRL->MEMP=SCB_SYSHNDCTRL_MEMP_NOPEND;
+}
+SCB_nPENDSTATE SCB_MemoryFault__enGetPending(void)
+{
+    SCB_nPENDSTATE enReturn= (SCB_nPENDSTATE) SCB_SYSHNDCTRL->MEMP;
+    return enReturn;
+}
+void SCB_UsageFault__vSetPending(void)
+{
+    SCB_SYSHNDCTRL->USAGEP=SCB_SYSHNDCTRL_USAGEP_PEND;
+}
+void SCB_UsageFault__vClearPending(void)
+{
+    SCB_SYSHNDCTRL->USAGEP=SCB_SYSHNDCTRL_USAGEP_NOPEND;
+}
+SCB_nPENDSTATE SCB_UsageFault__enGetPending(void)
+{
+    SCB_nPENDSTATE enReturn= (SCB_nPENDSTATE) SCB_SYSHNDCTRL->USAGEP;
+    return enReturn;
+}
+
+uint32_t SCB_MemoryFault_u32GetAddress(void)
+{
+    return SCB_MMADDR_R;
+}
+
+uint32_t SCB_BusFault_u32GetAddress(void)
+{
+    return SCB_FAULTADDR_R;
+}
+void SCB__vEnableExceptions(void)
+{
+    SCB_UsageFault__vEnable();
+    SCB_BusFault__vEnable();
+    SCB_MemoryFault__vEnable();
+}
+
+void SCB__vEnableTraps(void)
+{
+    SCB__vEnDIV0Trap();
+    SCB__vEnUnAlignTrap();
+    SCB__vEnUnprivilegedSWTRIGGER();
+}
+
+/*
+ * ISR
+ */
+void NMIISR(void)
+{
+    //use for GPIO activation
+    while(1);
+}
+
+void PendSVISR(void)
+{
+    //context switch, lower priority
+    while(1);
+}
+void UsageFaultISR(void)
+{
+
+    uint16_t u16UsageFault=0;
+    u16UsageFault =SCB_UFAULTSTAT_R;
+    switch(u16UsageFault)
+    {
+        case SCB_enUFAULTSTAT_UNDEF:
+            while(1);
+        case SCB_enUFAULTSTAT_INVSTAT:
+            while(1);
+        case SCB_enUFAULTSTAT_INVPC:
+            while(1);
+        case SCB_enUFAULTSTAT_NOCP:
+            //while(1);
+            //example 7 INVPC
+            //SCB_FAULTSTAT->NOCP=1;
+            //__asm(" mov R14, #0xFFE0 \n");
+            //__asm(" movt R14, #0xFFFF \n");
+            //break;
+            //example 8 INVSTATE
+//            SCB_FAULTSTAT->NOCP=1;
+//            __asm(" pop {R0} \n");
+//            __asm(" pop {R0} \n");
+//            __asm(" pop {R0} \n");
+//            __asm(" pop {R1} \n");
+//            __asm(" pop {R2} \n");
+//            __asm(" pop {R3} \n");
+//            __asm(" pop {R12} \n");
+//            __asm(" pop {R4} \n");
+//            __asm(" pop {R5} \n");
+//            __asm(" pop {R6} \n");
+//            __asm(" bic R7,R6,#0x01000000 \n");
+//            __asm(" push {R7} \n");
+//            __asm(" push {R5} \n");
+//            __asm(" push {R4} \n");
+//            __asm(" push {R12} \n");
+//            __asm(" push {R3} \n");
+//            __asm(" push {R2} \n");
+//            __asm(" push {R1} \n");
+//            __asm(" push {R0} \n");
+//            __asm(" push {R0} \n");
+//            __asm(" push {R0} \n");
+//            break;
+            //example 9 UNDEF
+            SCB_FAULTSTAT->NOCP=1;
+            __asm(" pop {R0} \n");
+            __asm(" pop {R0} \n");
+            __asm(" pop {R0} \n");
+            __asm(" pop {R1} \n");
+            __asm(" pop {R2} \n");
+            __asm(" pop {R3} \n");
+            __asm(" pop {R12} \n");
+            __asm(" pop {R4} \n");
+            __asm(" pop {R5} \n");
+            __asm(" mov R5,#0x0A00 \n");
+            __asm(" push {R5} \n");
+            __asm(" push {R4} \n");
+            __asm(" push {R12} \n");
+            __asm(" push {R3} \n");
+            __asm(" push {R2} \n");
+            __asm(" push {R1} \n");
+            __asm(" push {R0} \n");
+            __asm(" push {R0} \n");
+            __asm(" push {R0} \n");
+            break;
+        case SCB_enUFAULTSTAT_UNALIGN:
+            while(1);
+        case SCB_enUFAULTSTAT_DIV0:
+            while(1);
+        default:
+            while(1);
+    }
+}
+void BusFaultISR(void)
+{
+    while(1);
+}
+void MemoryFaultISR(void)
+{
+    while(1);
+}
+void HardFaultISR(void)
+{
+    while(1);
+}
+void SVCallISR(void)
+{
+    while(1);
+}
+
+
+
+
+
 
