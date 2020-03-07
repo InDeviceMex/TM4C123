@@ -491,168 +491,7 @@ typedef volatile struct
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 #define SCB_INTCTRL            (((INTCTRL_TypeDef*)(SCB_BASE+SCB_INTCTRL_OFFSET )))
-#define SCB_INTCTRL_R          (*((volatile const uint32_t *)(SCB_BASE+SCB_INTCTRL_OFFSET)))
-
-typedef enum
-{
- SCB_enVECISR_THREAD      =(0x00000000),
- SCB_enVECISR_RESET      =(0x00000001),
- SCB_enVECISR_NMI        =(0x00000002),
- SCB_enVECISR_HARDFAULT  =(0x00000003),
- SCB_enVECISR_MEMMANAGE  =(0x00000004),
- SCB_enVECISR_BUSFAULT   =(0x00000005),
- SCB_enVECISR_USAGEFAULT =(0x00000006),
- SCB_enVECISR_RES7       =(0x00000007),
- SCB_enVECISR_RES8       =(0x00000008),
- SCB_enVECISR_RES9       =(0x00000009),
- SCB_enVECISR_RES10      =(0x0000000A),
- SCB_enVECISR_SVCALL     =(0x0000000B),
- SCB_enVECISR_DEBUGMON   =(0x0000000C),
- SCB_enVECISR_RES13      =(0x0000000D),
- SCB_enVECISR_PENDSV     =(0x0000000E),
- SCB_enVECISR_SYSTICK    =(0x0000000F),
- SCB_enVECISR_GPIOA      =(0x00000010),
- SCB_enVECISR_GPIOB      =(0x00000011),
- SCB_enVECISR_GPIOC      =(0x00000012),
- SCB_enVECISR_GPIOD      =(0x00000013),
- SCB_enVECISR_GPIOE      =(0x00000014),
- SCB_enVECISR_UART0      =(0x00000015),
- SCB_enVECISR_UART1      =(0x00000016),
- SCB_enVECISR_SSI0       =(0x00000017),
- SCB_enVECISR_I2C0       =(0x00000018),
- SCB_enVECISR_PWMFAULT   =(0x00000019),
- SCB_enVECISR_PWMGEN0    =(0x0000001A),
- SCB_enVECISR_PWMGEN1    =(0x0000001B),
- SCB_enVECISR_PWMGEN2    =(0x0000001C),
- SCB_enVECISR_QEI0       =(0x0000001D),
- SCB_enVECISR_ADC0SEQ0   =(0x0000001E),
- SCB_enVECISR_ADC0SEQ1   =(0x0000001F),
- SCB_enVECISR_ADC0SEQ2   =(0x00000020),
- SCB_enVECISR_ADC0SEQ3   =(0x00000021),
- SCB_enVECISR_WDT01      =(0x00000022),
- SCB_enVECISR_TIMER0A    =(0x00000023),
- SCB_enVECISR_TIMER0B    =(0x00000024),
- SCB_enVECISR_TIMER1A    =(0x00000025),
- SCB_enVECISR_TIMER1B    =(0x00000026),
- SCB_enVECISR_TIMER2A    =(0x00000027),
- SCB_enVECISR_TIMER2B    =(0x00000028),
- SCB_enVECISR_ACOMP0     =(0x00000029),
- SCB_enVECISR_ACOMP1     =(0x0000002A),
- SCB_enVECISR_RES43      =(0x0000002B),
- SCB_enVECISR_SYSCTL     =(0x0000002C),
- SCB_enVECISR_FLASH      =(0x0000002D),
- SCB_enVECISR_PORTF      =(0x0000002E),
- SCB_enVECISR_RES47      =(0x0000002F),
- SCB_enVECISR_RES48      =(0x00000030),
- SCB_enVECISR_UART2      =(0x00000031),
- SCB_enVECISR_SSI1       =(0x00000032),
- SCB_enVECISR_TIMER3A    =(0x00000033),
- SCB_enVECISR_TIMER3B    =(0x00000034),
- SCB_enVECISR_I2C1       =(0x00000035),
- SCB_enVECISR_QEI1       =(0x00000036),
- SCB_enVECISR_CAN0       =(0x00000037),
- SCB_enVECISR_CAN1       =(0x00000038),
- SCB_enVECISR_RES57      =(0x00000039),
- SCB_enVECISR_RES58      =(0x0000003A),
- SCB_enVECISR_HIB        =(0x0000003B),
- SCB_enVECISR_USB        =(0x0000003C),
- SCB_enVECISR_PWM0GEN3   =(0x0000003D),
- SCB_enVECISR_UDMASOFT   =(0x0000003E),
- SCB_enVECISR_UDMAERROR  =(0x0000003F),
- SCB_enVECISR_ADC1SEQ0   =(0x00000040),
- SCB_enVECISR_ADC1SEQ1   =(0x00000041),
- SCB_enVECISR_ADC1SEQ2   =(0x00000042),
- SCB_enVECISR_ADC1SEQ3   =(0x00000043),
- SCB_enVECISR_RES68      =(0x00000044),
- SCB_enVECISR_RES69      =(0x00000045),
- SCB_enVECISR_RES70      =(0x00000046),
- SCB_enVECISR_RES71      =(0x00000047),
- SCB_enVECISR_RES72      =(0x00000048),
- SCB_enVECISR_SSI2       =(0x00000049),
- SCB_enVECISR_SSI3       =(0x0000004A),
- SCB_enVECISR_UART3      =(0x0000004B),
- SCB_enVECISR_UART4      =(0x0000004C),
- SCB_enVECISR_UART5      =(0x0000004D),
- SCB_enVECISR_UART6      =(0x0000004E),
- SCB_enVECISR_UART7      =(0x0000004F),
- SCB_enVECISR_RES80      =(0x00000050),
- SCB_enVECISR_RES81      =(0x00000051),
- SCB_enVECISR_RES82      =(0x00000052),
- SCB_enVECISR_RES83      =(0x00000053),
- SCB_enVECISR_I2C2       =(0x00000054),
- SCB_enVECISR_I2C3       =(0x00000055),
- SCB_enVECISR_TIMER4A    =(0x00000056),
- SCB_enVECISR_TIMER4B    =(0x00000057),
- SCB_enVECISR_RES88      =(0x00000058),
- SCB_enVECISR_RES89      =(0x00000059),
- SCB_enVECISR_RES90      =(0x0000005A),
- SCB_enVECISR_RES91      =(0x0000005B),
- SCB_enVECISR_RES92      =(0x0000005C),
- SCB_enVECISR_RES93      =(0x0000005D),
- SCB_enVECISR_RES94      =(0x0000005E),
- SCB_enVECISR_RES95      =(0x0000005F),
- SCB_enVECISR_RES96      =(0x00000060),
- SCB_enVECISR_RES97      =(0x00000061),
- SCB_enVECISR_RES98      =(0x00000062),
- SCB_enVECISR_RES99      =(0x00000063),
- SCB_enVECISR_RES100     =(0x00000064),
- SCB_enVECISR_RES101     =(0x00000065),
- SCB_enVECISR_RES102     =(0x00000066),
- SCB_enVECISR_RES103     =(0x00000067),
- SCB_enVECISR_RES104     =(0x00000068),
- SCB_enVECISR_RES105     =(0x00000069),
- SCB_enVECISR_RES106     =(0x0000006A),
- SCB_enVECISR_RES107     =(0x0000006B),
- SCB_enVECISR_TIMER5A    =(0x0000006C),
- SCB_enVECISR_TIMER5B    =(0x0000006D),
- SCB_enVECISR_WTIMER0A   =(0x0000006E),
- SCB_enVECISR_WTIMER0B   =(0x0000006F),
- SCB_enVECISR_WTIMER1A   =(0x00000070),
- SCB_enVECISR_WTIMER1B   =(0x00000071),
- SCB_enVECISR_WTIMER2A   =(0x00000072),
- SCB_enVECISR_WTIMER2B   =(0x00000073),
- SCB_enVECISR_WTIMER3A   =(0x00000074),
- SCB_enVECISR_WTIMER3B   =(0x00000075),
- SCB_enVECISR_WTIMER4A   =(0x00000076),
- SCB_enVECISR_WTIMER4B   =(0x00000077),
- SCB_enVECISR_WTIMER5A   =(0x00000078),
- SCB_enVECISR_WTIMER5B   =(0x00000079),
- SCB_enVECISR_SYSEXC     =(0x0000007A),
- SCB_enVECISR_RES123     =(0x0000007B),
- SCB_enVECISR_RES124     =(0x0000007C),
- SCB_enVECISR_RES125     =(0x0000007D),
- SCB_enVECISR_RES126     =(0x0000007E),
- SCB_enVECISR_RES127     =(0x0000007F),
- SCB_enVECISR_RES128     =(0x00000080),
- SCB_enVECISR_RES129     =(0x00000081),
- SCB_enVECISR_RES130     =(0x00000082),
- SCB_enVECISR_RES131     =(0x00000083),
- SCB_enVECISR_RES132     =(0x00000084),
- SCB_enVECISR_RES133     =(0x00000085),
- SCB_enVECISR_RES134     =(0x00000086),
- SCB_enVECISR_RES135     =(0x00000087),
- SCB_enVECISR_RES136     =(0x00000088),
- SCB_enVECISR_RES137     =(0x00000089),
- SCB_enVECISR_RES138     =(0x0000008A),
- SCB_enVECISR_RES139     =(0x0000008B),
- SCB_enVECISR_RES140     =(0x0000008C),
- SCB_enVECISR_RES141     =(0x0000008D),
- SCB_enVECISR_RES142     =(0x0000008E),
- SCB_enVECISR_RES143     =(0x0000008F),
- SCB_enVECISR_RES144     =(0x00000090),
- SCB_enVECISR_RES145     =(0x00000091),
- SCB_enVECISR_RES146     =(0x00000092),
- SCB_enVECISR_RES147     =(0x00000093),
- SCB_enVECISR_RES148     =(0x00000094),
- SCB_enVECISR_RES149     =(0x00000095),
- SCB_enVECISR_PWM1GEN0   =(0x00000096),
- SCB_enVECISR_PWM1GEN1   =(0x00000097),
- SCB_enVECISR_PWM1GEN2   =(0x00000098),
- SCB_enVECISR_PWM1GEN3   =(0x00000099),
- SCB_enVECISR_PWM1FAULT  =(0x0000009A),
-}SCB_nVECISR;
-
-
+#define SCB_INTCTRL_R          (*((volatile uint32_t *)(SCB_BASE+SCB_INTCTRL_OFFSET)))
 
 //--------
 #define SCB_INTCTRL_R_VECACT_MASK       (0x000000FF)
@@ -1516,12 +1355,6 @@ typedef enum
 
 
 //--------
-typedef enum
-{
-    SCB_enSLEEPEXIT_NOSLEEP =0,
-    SCB_enSLEEPEXIT_SLEEP   =1,
-    SCB_enSLEEPEXIT_ERROR   =0xFF,
-}SCB_nSLEEPEXIT;
 #define SCB_SYSCTRL_R_SLEEPEXIT_MASK      (0x00000002)
 #define SCB_SYSCTRL_R_SLEEPEXIT_BIT       (1)
 #define SCB_SYSCTRL_R_SLEEPEXIT_SLEEP     (0x00000002)
@@ -1533,13 +1366,6 @@ typedef enum
 //--------
 
 //--------
-typedef enum
-{
-    SCB_enSleepDeep_Sleep=0,
-    SCB_enSleepDeep_DeepSleep=1,
-    SCB_enSleepDeep_ERROR=0xFF,
-}SCB_nSleepDeep;
-
 #define SCB_SLEEPDEEP_SLEEP     (0)
 #define SCB_SLEEPDEEP_DEEPSLEEP (1)
 
@@ -1555,13 +1381,6 @@ typedef enum
 
 
 //--------
-typedef enum
-{
-    SCB_enWAKEUP_ONLY =0,
-    SCB_enWAKEUP_ALL   =1,
-    SCB_enWAKEUP_ERROR   =0xFF,
-}SCB_nWAKEUPSOURCE;
-
 #define SCB_SYSCTRL_R_SEVONPEND_MASK      (0x00000010)
 #define SCB_SYSCTRL_R_SEVONPEND_BIT       (4)
 #define SCB_SYSCTRL_R_SEVONPEND_ALL       (0x00000010)
@@ -1641,13 +1460,6 @@ typedef enum
 
 
 //--------
-
-typedef enum
-{
-    SCB_enALIGN_4BYTE =0,
-    SCB_enALIGN_8BYTE =1,
-    SCB_enALIGN_ERROR =0xFF,
-}SCB_nAlignment;
 #define SCB_CFGCTRL_R_STKALIGN_MASK      (0x00000200)
 #define SCB_CFGCTRL_R_STKALIGN_BIT       (9)
 #define SCB_CFGCTRL_R_STKALIGN_8BYTE     (0x00000200)
@@ -1665,17 +1477,6 @@ typedef enum
 #define SCB_SYSPRI1            (((SYSPRI1_TypeDef*)(SCB_BASE+SCB_SYSPRI1_OFFSET )))
 #define SCB_SYSPRI1_R          (*((volatile uint32_t *)(SCB_BASE+SCB_SYSPRI1_OFFSET)))
 
-typedef enum
-{
-    SCB_enSYSPRI0 =0,
-    SCB_enSYSPRI1 =1,
-    SCB_enSYSPRI2 =2,
-    SCB_enSYSPRI3 =3,
-    SCB_enSYSPRI4 =4,
-    SCB_enSYSPRI5 =5,
-    SCB_enSYSPRI6 =6,
-    SCB_enSYSPRI7 =7,
-}SCB_nSYSPRI;
 //--------
 #define SCB_SYSPRI1_R_MEM_MASK      (0x000000E0)
 #define SCB_SYSPRI1_R_MEM_BIT       (5)
@@ -2044,17 +1845,6 @@ typedef enum
 #define SCB_UFAULTSTAT_R          (*((volatile uint16_t *)(SCB_BASE+SCB_UFAULTSTAT_OFFSET)))
 #define SCB_FAULTSTAT_R          (*((volatile uint32_t *)(SCB_BASE+SCB_FAULTSTAT_OFFSET)))
 
-
-typedef enum
-{
-    SCB_enUFAULTSTAT_UNDEF=0x0001,
-    SCB_enUFAULTSTAT_INVSTAT=0x0002,
-    SCB_enUFAULTSTAT_INVPC=0x0004,
-    SCB_enUFAULTSTAT_NOCP=0x0008,
-    SCB_enUFAULTSTAT_UNALIGN=0x0100,
-    SCB_enUFAULTSTAT_DIV0=0x0200,
-}SCB_nUFAULTSTAT;
-
 //--------
 #define SCB_FAULTSTAT_R_IERR_MASK      (0x00000001)
 #define SCB_FAULTSTAT_R_IERR_BIT       (0)
@@ -2394,14 +2184,226 @@ typedef enum
     SCB_enPENDING=1,
 }SCB_nPENDSTATE;
 
-void SCB_NMI__vSetPending(void);
+typedef enum
+{
+    SCB_enUFAULTSTAT_UNDEF=0x0001,
+    SCB_enUFAULTSTAT_INVSTAT=0x0002,
+    SCB_enUFAULTSTAT_INVPC=0x0004,
+    SCB_enUFAULTSTAT_NOCP=0x0008,
+    SCB_enUFAULTSTAT_UNALIGN=0x0100,
+    SCB_enUFAULTSTAT_DIV0=0x0200,
+}SCB_nUFAULTSTAT;
 
-void SCB_SysTick__vSetPending(void);
-void SCB_SysTick__vClearPending(void);
+typedef enum
+{
+    SCB_enSYSPRI0 =0,
+    SCB_enSYSPRI1 =1,
+    SCB_enSYSPRI2 =2,
+    SCB_enSYSPRI3 =3,
+    SCB_enSYSPRI4 =4,
+    SCB_enSYSPRI5 =5,
+    SCB_enSYSPRI6 =6,
+    SCB_enSYSPRI7 =7,
+}SCB_nSYSPRI;
+
+typedef enum
+{
+    SCB_enALIGN_4BYTE =0,
+    SCB_enALIGN_8BYTE =1,
+    SCB_enALIGN_ERROR =0xFF,
+}SCB_nAlignment;
+
+typedef enum
+{
+    SCB_enWAKEUP_ONLY =0,
+    SCB_enWAKEUP_ALL   =1,
+    SCB_enWAKEUP_ERROR   =0xFF,
+}SCB_nWAKEUPSOURCE;
+
+typedef enum
+{
+    SCB_enSLEEPEXIT_NOSLEEP =0,
+    SCB_enSLEEPEXIT_SLEEP   =1,
+    SCB_enSLEEPEXIT_ERROR   =0xFF,
+}SCB_nSLEEPEXIT;
+
+typedef enum
+{
+    SCB_enSleepDeep_Sleep=0,
+    SCB_enSleepDeep_DeepSleep=1,
+    SCB_enSleepDeep_ERROR=0xFF,
+}SCB_nSleepDeep;
+
+typedef enum
+{
+ SCB_enVECISR_THREAD      =(0x00000000),
+ SCB_enVECISR_RESET      =(0x00000001),
+ SCB_enVECISR_NMI        =(0x00000002),
+ SCB_enVECISR_HARDFAULT  =(0x00000003),
+ SCB_enVECISR_MEMMANAGE  =(0x00000004),
+ SCB_enVECISR_BUSFAULT   =(0x00000005),
+ SCB_enVECISR_USAGEFAULT =(0x00000006),
+ SCB_enVECISR_RES7       =(0x00000007),
+ SCB_enVECISR_RES8       =(0x00000008),
+ SCB_enVECISR_RES9       =(0x00000009),
+ SCB_enVECISR_RES10      =(0x0000000A),
+ SCB_enVECISR_SVCALL     =(0x0000000B),
+ SCB_enVECISR_DEBUGMON   =(0x0000000C),
+ SCB_enVECISR_RES13      =(0x0000000D),
+ SCB_enVECISR_PENDSV     =(0x0000000E),
+ SCB_enVECISR_SYSTICK    =(0x0000000F),
+ SCB_enVECISR_GPIOA      =(0x00000010),
+ SCB_enVECISR_GPIOB      =(0x00000011),
+ SCB_enVECISR_GPIOC      =(0x00000012),
+ SCB_enVECISR_GPIOD      =(0x00000013),
+ SCB_enVECISR_GPIOE      =(0x00000014),
+ SCB_enVECISR_UART0      =(0x00000015),
+ SCB_enVECISR_UART1      =(0x00000016),
+ SCB_enVECISR_SSI0       =(0x00000017),
+ SCB_enVECISR_I2C0       =(0x00000018),
+ SCB_enVECISR_PWMFAULT   =(0x00000019),
+ SCB_enVECISR_PWMGEN0    =(0x0000001A),
+ SCB_enVECISR_PWMGEN1    =(0x0000001B),
+ SCB_enVECISR_PWMGEN2    =(0x0000001C),
+ SCB_enVECISR_QEI0       =(0x0000001D),
+ SCB_enVECISR_ADC0SEQ0   =(0x0000001E),
+ SCB_enVECISR_ADC0SEQ1   =(0x0000001F),
+ SCB_enVECISR_ADC0SEQ2   =(0x00000020),
+ SCB_enVECISR_ADC0SEQ3   =(0x00000021),
+ SCB_enVECISR_WDT01      =(0x00000022),
+ SCB_enVECISR_TIMER0A    =(0x00000023),
+ SCB_enVECISR_TIMER0B    =(0x00000024),
+ SCB_enVECISR_TIMER1A    =(0x00000025),
+ SCB_enVECISR_TIMER1B    =(0x00000026),
+ SCB_enVECISR_TIMER2A    =(0x00000027),
+ SCB_enVECISR_TIMER2B    =(0x00000028),
+ SCB_enVECISR_ACOMP0     =(0x00000029),
+ SCB_enVECISR_ACOMP1     =(0x0000002A),
+ SCB_enVECISR_RES43      =(0x0000002B),
+ SCB_enVECISR_SYSCTL     =(0x0000002C),
+ SCB_enVECISR_FLASH      =(0x0000002D),
+ SCB_enVECISR_PORTF      =(0x0000002E),
+ SCB_enVECISR_RES47      =(0x0000002F),
+ SCB_enVECISR_RES48      =(0x00000030),
+ SCB_enVECISR_UART2      =(0x00000031),
+ SCB_enVECISR_SSI1       =(0x00000032),
+ SCB_enVECISR_TIMER3A    =(0x00000033),
+ SCB_enVECISR_TIMER3B    =(0x00000034),
+ SCB_enVECISR_I2C1       =(0x00000035),
+ SCB_enVECISR_QEI1       =(0x00000036),
+ SCB_enVECISR_CAN0       =(0x00000037),
+ SCB_enVECISR_CAN1       =(0x00000038),
+ SCB_enVECISR_RES57      =(0x00000039),
+ SCB_enVECISR_RES58      =(0x0000003A),
+ SCB_enVECISR_HIB        =(0x0000003B),
+ SCB_enVECISR_USB        =(0x0000003C),
+ SCB_enVECISR_PWM0GEN3   =(0x0000003D),
+ SCB_enVECISR_UDMASOFT   =(0x0000003E),
+ SCB_enVECISR_UDMAERROR  =(0x0000003F),
+ SCB_enVECISR_ADC1SEQ0   =(0x00000040),
+ SCB_enVECISR_ADC1SEQ1   =(0x00000041),
+ SCB_enVECISR_ADC1SEQ2   =(0x00000042),
+ SCB_enVECISR_ADC1SEQ3   =(0x00000043),
+ SCB_enVECISR_RES68      =(0x00000044),
+ SCB_enVECISR_RES69      =(0x00000045),
+ SCB_enVECISR_RES70      =(0x00000046),
+ SCB_enVECISR_RES71      =(0x00000047),
+ SCB_enVECISR_RES72      =(0x00000048),
+ SCB_enVECISR_SSI2       =(0x00000049),
+ SCB_enVECISR_SSI3       =(0x0000004A),
+ SCB_enVECISR_UART3      =(0x0000004B),
+ SCB_enVECISR_UART4      =(0x0000004C),
+ SCB_enVECISR_UART5      =(0x0000004D),
+ SCB_enVECISR_UART6      =(0x0000004E),
+ SCB_enVECISR_UART7      =(0x0000004F),
+ SCB_enVECISR_RES80      =(0x00000050),
+ SCB_enVECISR_RES81      =(0x00000051),
+ SCB_enVECISR_RES82      =(0x00000052),
+ SCB_enVECISR_RES83      =(0x00000053),
+ SCB_enVECISR_I2C2       =(0x00000054),
+ SCB_enVECISR_I2C3       =(0x00000055),
+ SCB_enVECISR_TIMER4A    =(0x00000056),
+ SCB_enVECISR_TIMER4B    =(0x00000057),
+ SCB_enVECISR_RES88      =(0x00000058),
+ SCB_enVECISR_RES89      =(0x00000059),
+ SCB_enVECISR_RES90      =(0x0000005A),
+ SCB_enVECISR_RES91      =(0x0000005B),
+ SCB_enVECISR_RES92      =(0x0000005C),
+ SCB_enVECISR_RES93      =(0x0000005D),
+ SCB_enVECISR_RES94      =(0x0000005E),
+ SCB_enVECISR_RES95      =(0x0000005F),
+ SCB_enVECISR_RES96      =(0x00000060),
+ SCB_enVECISR_RES97      =(0x00000061),
+ SCB_enVECISR_RES98      =(0x00000062),
+ SCB_enVECISR_RES99      =(0x00000063),
+ SCB_enVECISR_RES100     =(0x00000064),
+ SCB_enVECISR_RES101     =(0x00000065),
+ SCB_enVECISR_RES102     =(0x00000066),
+ SCB_enVECISR_RES103     =(0x00000067),
+ SCB_enVECISR_RES104     =(0x00000068),
+ SCB_enVECISR_RES105     =(0x00000069),
+ SCB_enVECISR_RES106     =(0x0000006A),
+ SCB_enVECISR_RES107     =(0x0000006B),
+ SCB_enVECISR_TIMER5A    =(0x0000006C),
+ SCB_enVECISR_TIMER5B    =(0x0000006D),
+ SCB_enVECISR_WTIMER0A   =(0x0000006E),
+ SCB_enVECISR_WTIMER0B   =(0x0000006F),
+ SCB_enVECISR_WTIMER1A   =(0x00000070),
+ SCB_enVECISR_WTIMER1B   =(0x00000071),
+ SCB_enVECISR_WTIMER2A   =(0x00000072),
+ SCB_enVECISR_WTIMER2B   =(0x00000073),
+ SCB_enVECISR_WTIMER3A   =(0x00000074),
+ SCB_enVECISR_WTIMER3B   =(0x00000075),
+ SCB_enVECISR_WTIMER4A   =(0x00000076),
+ SCB_enVECISR_WTIMER4B   =(0x00000077),
+ SCB_enVECISR_WTIMER5A   =(0x00000078),
+ SCB_enVECISR_WTIMER5B   =(0x00000079),
+ SCB_enVECISR_SYSEXC     =(0x0000007A),
+ SCB_enVECISR_RES123     =(0x0000007B),
+ SCB_enVECISR_RES124     =(0x0000007C),
+ SCB_enVECISR_RES125     =(0x0000007D),
+ SCB_enVECISR_RES126     =(0x0000007E),
+ SCB_enVECISR_RES127     =(0x0000007F),
+ SCB_enVECISR_RES128     =(0x00000080),
+ SCB_enVECISR_RES129     =(0x00000081),
+ SCB_enVECISR_RES130     =(0x00000082),
+ SCB_enVECISR_RES131     =(0x00000083),
+ SCB_enVECISR_RES132     =(0x00000084),
+ SCB_enVECISR_RES133     =(0x00000085),
+ SCB_enVECISR_RES134     =(0x00000086),
+ SCB_enVECISR_RES135     =(0x00000087),
+ SCB_enVECISR_RES136     =(0x00000088),
+ SCB_enVECISR_RES137     =(0x00000089),
+ SCB_enVECISR_RES138     =(0x0000008A),
+ SCB_enVECISR_RES139     =(0x0000008B),
+ SCB_enVECISR_RES140     =(0x0000008C),
+ SCB_enVECISR_RES141     =(0x0000008D),
+ SCB_enVECISR_RES142     =(0x0000008E),
+ SCB_enVECISR_RES143     =(0x0000008F),
+ SCB_enVECISR_RES144     =(0x00000090),
+ SCB_enVECISR_RES145     =(0x00000091),
+ SCB_enVECISR_RES146     =(0x00000092),
+ SCB_enVECISR_RES147     =(0x00000093),
+ SCB_enVECISR_RES148     =(0x00000094),
+ SCB_enVECISR_RES149     =(0x00000095),
+ SCB_enVECISR_PWM1GEN0   =(0x00000096),
+ SCB_enVECISR_PWM1GEN1   =(0x00000097),
+ SCB_enVECISR_PWM1GEN2   =(0x00000098),
+ SCB_enVECISR_PWM1GEN3   =(0x00000099),
+ SCB_enVECISR_PWM1FAULT  =(0x0000009A),
+}SCB_nVECISR;
+
+
+
+
+inline void SCB_NMI__vSetPending(void);
+
+inline void SCB_SysTick__vSetPending(void);
+inline void SCB_SysTick__vClearPending(void);
 SCB_nPENDSTATE SCB_SysTick__enGetPending(void);
 
-void SCB_PENDSV__vSetPending(void);
-void SCB_PENDSV__vClearPending(void);
+inline void SCB_PENDSV__vSetPending(void);
+inline void SCB_PENDSV__vClearPending(void);
 SCB_nPENDSTATE SCB_PENDSV__enGetPending(void);
 
 
@@ -2410,9 +2412,9 @@ SCB_nVECISR SCB_ISR__enGetVectorPending(void);
 SCB_nVECISR SCB_ISR__enGetVectorActive(void);
 
 
-void SCB__vSetVectorOffset(uint32_t u32Offset);
+inline void SCB__vSetVectorOffset(uint32_t u32Offset);
 
-void SCB__vReqSysReset(void);
+inline void SCB__vReqSysReset(void);
 SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup);
 SCB_nPRIGROUP SCB__enGetPriorityGroup(void);
 SCB_nSTATUS SCB__enSetWakeUpSource(SCB_nWAKEUPSOURCE enSource);
@@ -2425,54 +2427,54 @@ SCB_nSLEEPEXIT SCB__enGetSleepExit(void);
 
 SCB_nSTATUS SCB__enSetStackAligment(SCB_nAlignment enAlign);
 SCB_nAlignment SCB__enGetStackAligment(void);
-void SCB__vEnDIV0Trap(void);
-void SCB__vDisDIV0Trap(void);
-void SCB__vEnUnAlignTrap(void);
-void SCB__vDisUnAlignTrap(void);
-void SCB__vEnUnprivilegedSWTRIGGER(void);
-void SCB__vDisUnprivilegedSWTRIGGER(void);
+inline void SCB__vEnDIV0Trap(void);
+inline void SCB__vDisDIV0Trap(void);
+inline void SCB__vEnUnAlignTrap(void);
+inline void SCB__vDisUnAlignTrap(void);
+inline void SCB__vEnUnprivilegedSWTRIGGER(void);
+inline void SCB__vDisUnprivilegedSWTRIGGER(void);
 
 
-void SCB_UsageFault__vSetPriority(SCB_nSYSPRI enPriority);
+inline void SCB_UsageFault__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_UsageFault__enGetPriority(void);
-void SCB_BusFault__vSetPriority(SCB_nSYSPRI enPriority);
+inline void SCB_BusFault__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_BusFault__enGetPriority(void);
-void SCB_MemoryFault__vSetPriority(SCB_nSYSPRI enPriority);
+inline void SCB_MemoryFault__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_MemoryFault__enGetPriority(void);
-void SCB_SVCall__vSetPriority(SCB_nSYSPRI enPriority);
+inline void SCB_SVCall__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_SVCall__enGetPriority(void);
-void SCB_SysTick__vSetPriority(SCB_nSYSPRI enPriority);
+inline void SCB_SysTick__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_SysTick__enGetPriority(void);
-void SCB_PENDSV__vSetPriority(SCB_nSYSPRI enPriority);
+inline void SCB_PENDSV__vSetPriority(SCB_nSYSPRI enPriority);
 SCB_nSYSPRI SCB_PENDSV__enGetPriority(void);
 
 
-void SCB_UsageFault__vEnable(void);
-void SCB_UsageFault__vDisable(void);
-void SCB_BusFault__vEnable(void);
-void SCB_BusFault__vDisable(void);
-void SCB_MemoryFault__vEnable(void);
-void SCB_MemoryFault__vDisable(void);
+inline void SCB_UsageFault__vEnable(void);
+inline void SCB_UsageFault__vDisable(void);
+inline void SCB_BusFault__vEnable(void);
+inline void SCB_BusFault__vDisable(void);
+inline void SCB_MemoryFault__vEnable(void);
+inline void SCB_MemoryFault__vDisable(void);
 
 
-void SCB_SVCall__vSetPending(void);
-void SCB_SVCall__vClearPending(void);
+inline void SCB_SVCall__vSetPending(void);
+inline void SCB_SVCall__vClearPending(void);
 SCB_nPENDSTATE SCB_SVCall__enGetPending(void);
-void SCB_BusFault__vSetPending(void);
-void SCB_BusFault__vClearPending(void);
+inline void SCB_BusFault__vSetPending(void);
+inline void SCB_BusFault__vClearPending(void);
 SCB_nPENDSTATE SCB_BusFault__enGetPending(void);
-void SCB_MemoryFault__vSetPending(void);
-void SCB_MemoryFault__vClearPending(void);
+inline void SCB_MemoryFault__vSetPending(void);
+inline void SCB_MemoryFault__vClearPending(void);
 SCB_nPENDSTATE SCB_MemoryFault__enGetPending(void);
-void SCB_UsageFault__vSetPending(void);
-void SCB_UsageFault__vClearPending(void);
+inline void SCB_UsageFault__vSetPending(void);
+inline void SCB_UsageFault__vClearPending(void);
 SCB_nPENDSTATE SCB_UsageFault__enGetPending(void);
 
-uint32_t SCB_MemoryFault_u32GetAddress(void);
-uint32_t SCB_BusFault_u32GetAddress(void);
+inline uint32_t SCB_MemoryFault_u32GetAddress(void);
+inline uint32_t SCB_BusFault_u32GetAddress(void);
 
-void SCB__vEnableExceptions(void);
-void SCB__vEnableTraps(void);
+inline void SCB__vEnableExceptions(void);
+inline void SCB__vEnableTraps(void);
 
 void NMIISR(void);
 void PendSVISR(void);
