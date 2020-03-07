@@ -1,0 +1,1 @@
+"./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "./Driver_Source/example.obj" "../tm4c123gh6pm.cmd" -llibc.a 
