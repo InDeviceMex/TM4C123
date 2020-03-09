@@ -9,7 +9,7 @@
 #define SCB_H_
 
 
-#define SCB_BASE            (0xE000E000)
+#define SCB_BASE            (0xE000E000ul)
 
 #include <stdint.h>
 
@@ -301,7 +301,7 @@ typedef volatile struct
 #define SCB_SYSPRI3_OFFSET     (0x0D20)
 #define SCB_SYSHNDCTRL_OFFSET  (0x0D24)
 #define SCB_FAULTSTAT_OFFSET   (0x0D28)
-#define SCB_BFAULTSTAT_OFFSET   (0x0D28)
+#define SCB_BFAULTSTAT_OFFSET   (0x0D29)
 #define SCB_UFAULTSTAT_OFFSET   (0x0D2A)
 #define SCB_HFAULTSTAT_OFFSET  (0x0D2C)
 #define SCB_MMADDR_OFFSET      (0x0D34)
@@ -348,9 +348,9 @@ typedef volatile struct
 //--------
 
 //--------
-#define SCB_ACTLR_R_DISFPCA_MASK    (0x00000010)
-#define SCB_ACTLR_R_DISFPCA_BIT     (4)
-#define SCB_ACTLR_R_DISFPCA_DIS     (0x00000010)
+#define SCB_ACTLR_R_DISFPCA_MASK    (0x00000100)
+#define SCB_ACTLR_R_DISFPCA_BIT     (8)
+#define SCB_ACTLR_R_DISFPCA_DIS     (0x00000100)
 #define SCB_ACTLR_R_DISFPCA_NE      (0x00000000)
 
 #define SCB_ACTLR_DISFPCA_MASK    (1)
@@ -359,9 +359,9 @@ typedef volatile struct
 //--------
 
 //--------
-#define SCB_ACTLR_R_DISOOFP_MASK    (0x00000020)
-#define SCB_ACTLR_R_DISOOFP_BIT     (5)
-#define SCB_ACTLR_R_DISOOFP_DIS     (0x00000020)
+#define SCB_ACTLR_R_DISOOFP_MASK    (0x00000200)
+#define SCB_ACTLR_R_DISOOFP_BIT     (9)
+#define SCB_ACTLR_R_DISOOFP_DIS     (0x00000200)
 #define SCB_ACTLR_R_DISOOFP_NE      (0x00000000)
 
 #define SCB_ACTLR_DISOOFP_MASK    (1)
@@ -1293,15 +1293,6 @@ typedef volatile struct
 
 
 //--------
-typedef enum
-{
-    SCB_enPRIGROUP_XXX =0,
-    SCB_enPRIGROUP_XXY =1,
-    SCB_enPRIGROUP_XYY =2,
-    SCB_enPRIGROUP_YYY =3,
-    SCB_enPRIGROUP_ERROR =0xFF,
-}SCB_nPRIGROUP;
-
 #define SCB_PRIGROUP_XXX (0)
 #define SCB_PRIGROUP_XXY (1)
 #define SCB_PRIGROUP_XYY (2)
@@ -2180,6 +2171,15 @@ typedef enum
 
 typedef enum
 {
+    SCB_enPRIGROUP_XXX =0,
+    SCB_enPRIGROUP_XXY =1,
+    SCB_enPRIGROUP_XYY =2,
+    SCB_enPRIGROUP_YYY =3,
+    SCB_enPRIGROUP_ERROR =0xFF,
+}SCB_nPRIGROUP;
+
+typedef enum
+{
     SCB_enNOPENDING=0,
     SCB_enPENDING=1,
 }SCB_nPENDSTATE;
@@ -2193,6 +2193,27 @@ typedef enum
     SCB_enUFAULTSTAT_UNALIGN=0x0100,
     SCB_enUFAULTSTAT_DIV0=0x0200,
 }SCB_nUFAULTSTAT;
+
+typedef enum
+{
+    SCB_enBFAULTSTAT_BFARV=0x80,
+    SCB_enBFAULTSTAT_BLSPERR=0x20,
+    SCB_enBFAULTSTAT_BSTKE=0x10,
+    SCB_enBFAULTSTAT_BUSTKE=0x08,
+    SCB_enBFAULTSTAT_IMPRE=0x04,
+    SCB_enBFAULTSTAT_PRECISE=0x02,
+    SCB_enBFAULTSTAT_IBUS=0x01,
+}SCB_nBFAULTSTAT;
+
+typedef enum
+{
+    SCB_enMFAULTSTAT_MMARV=0x80,
+    SCB_enMFAULTSTAT_MLSPERR=0x20,
+    SCB_enMFAULTSTAT_MSTKE=0x10,
+    SCB_enMFAULTSTAT_MUSTKE=0x08,
+    SCB_enMFAULTSTAT_DERR=0x02,
+    SCB_enMFAULTSTAT_IERR=0x01,
+}SCB_nMFAULTSTAT;
 
 typedef enum
 {

@@ -86,37 +86,59 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {
     u32Offset&=~0x3FF;
     SCB_VTABLE_R= u32Offset;
+
 }
 
 
 inline void SCB__vReqSysReset(void)
 {
-    SCB_APINT_R=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_SYSRESREQ_RESET;
+    uint32_t u32Reg=SCB_APINT_R;
+    if((u32Reg &SCB_APINT_R_VECTKEY_MASK)==SCB_APINT_R_VECTKEY_READ)
+    {
+        u32Reg&=~SCB_APINT_R_VECTKEY_MASK;
+        u32Reg|=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_SYSRESREQ_RESET;
+        __asm(" DSB");
+        SCB_APINT_R=u32Reg;
+        __asm(" DSB");
+
+        while(1)
+        {
+            __asm(" NOP");
+        }
+
+    }
+
 }
 SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup)
 {
     SCB_nSTATUS enReturn=SCB_enERROR;
+    uint32_t u32Reg=SCB_APINT_R;
+    u32Reg&=~(SCB_APINT_R_VECTKEY_MASK|SCB_APINT_R_PRIGROUP_MASK);
     switch(enGroup)
     {
         case SCB_enPRIGROUP_XXX:
-            SCB_APINT_R=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_XXX;
+            u32Reg|=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_XXX;
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_XXY:
-            SCB_APINT_R=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_XXY;
+            u32Reg|=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_XXY;
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_XYY:
-            SCB_APINT_R=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_XYY;
+            u32Reg|=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_XYY;
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_YYY:
-            SCB_APINT_R=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_YYY;
+            u32Reg|=SCB_APINT_R_VECTKEY_WRITE|SCB_APINT_R_PRIGROUP_YYY;
             enReturn=SCB_enOK;
             break;
         default:
-            break;
+            return enReturn;
     }
+
+    __asm(" DSB");
+    SCB_APINT_R=u32Reg;
+    __asm(" DSB");
     return enReturn;
 }
 SCB_nPRIGROUP SCB__enGetPriorityGroup(void)
@@ -520,6 +542,19 @@ inline void SCB__vEnableTraps(void)
 /*
  * ISR
  */
+typedef enum
+{
+    ISR_enR0=0,
+    ISR_enR1,
+    ISR_enR2,
+    ISR_enR3,
+    ISR_enR12,
+    ISR_enLR,
+    ISR_enPC,
+    ISR_enPSR,
+}ISR_nContext;
+
+
 void NMIISR(void)
 {
     //use for GPIO activation
@@ -531,12 +566,33 @@ void PendSVISR(void)
     //context switch, lower priority
     while(1);
 }
+
+uint32_t SCB_pu32Context[8];
 void UsageFaultISR(void)
 {
-
-    uint16_t u16UsageFault=0;
-    u16UsageFault =SCB_UFAULTSTAT_R;
-    switch(u16UsageFault)
+    uint16_t SCB_u16UsageFault=0;
+    __asm(
+    " MRS R0, MSP\n"
+    " movw R2, SCB_pu32Context\n"
+    " movt R2, SCB_pu32Context\n"
+    " ldr R1, [R0, #0X0]\n"
+    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " ldr R1, [R0, #0x4]\n"
+    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " ldr R1, [R0, #0x8]\n"
+    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " ldr R1, [R0, #0xC]\n"
+    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " ldr R1, [R0, #0x10]\n"
+    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " ldr R1, [R0, #0x14]\n"
+    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " ldr R1, [R0, #0x18]\n"
+    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " ldr R1, [R0, #0x1C]\n"
+    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    SCB_u16UsageFault =SCB_UFAULTSTAT_R;
+    switch(SCB_u16UsageFault)
     {
         case SCB_enUFAULTSTAT_UNDEF:
             while(1);
@@ -546,57 +602,6 @@ void UsageFaultISR(void)
             while(1);
         case SCB_enUFAULTSTAT_NOCP:
             while(1);
-            //example 7 INVPC
-            //SCB_FAULTSTAT->NOCP=1;
-            //__asm(" mov R14, #0xFFE0 \n");
-            //__asm(" movt R14, #0xFFFF \n");
-            //break;
-            //example 8 INVSTATE
-//            SCB_FAULTSTAT->NOCP=1;
-//            __asm(" pop {R0} \n");
-//            __asm(" pop {R0} \n");
-//            __asm(" pop {R0} \n");
-//            __asm(" pop {R1} \n");
-//            __asm(" pop {R2} \n");
-//            __asm(" pop {R3} \n");
-//            __asm(" pop {R12} \n");
-//            __asm(" pop {R4} \n");
-//            __asm(" pop {R5} \n");
-//            __asm(" pop {R6} \n");
-//            __asm(" bic R7,R6,#0x01000000 \n");
-//            __asm(" push {R7} \n");
-//            __asm(" push {R5} \n");
-//            __asm(" push {R4} \n");
-//            __asm(" push {R12} \n");
-//            __asm(" push {R3} \n");
-//            __asm(" push {R2} \n");
-//            __asm(" push {R1} \n");
-//            __asm(" push {R0} \n");
-//            __asm(" push {R0} \n");
-//            __asm(" push {R0} \n");
-//            break;
-            //example 9 UNDEF
-//            SCB_FAULTSTAT->NOCP=1;
-//            __asm(" pop {R0} \n");
-//            __asm(" pop {R0} \n");
-//            __asm(" pop {R0} \n");
-//            __asm(" pop {R1} \n");
-//            __asm(" pop {R2} \n");
-//            __asm(" pop {R3} \n");
-//            __asm(" pop {R12} \n");
-//            __asm(" pop {R4} \n");
-//            __asm(" pop {R5} \n");
-//            __asm(" mov R5,#0x0A00 \n");
-//            __asm(" push {R5} \n");
-//            __asm(" push {R4} \n");
-//            __asm(" push {R12} \n");
-//            __asm(" push {R3} \n");
-//            __asm(" push {R2} \n");
-//            __asm(" push {R1} \n");
-//            __asm(" push {R0} \n");
-//            __asm(" push {R0} \n");
-//            __asm(" push {R0} \n");
-//            break;
         case SCB_enUFAULTSTAT_UNALIGN:
             while(1);
         case SCB_enUFAULTSTAT_DIV0:
@@ -607,14 +612,122 @@ void UsageFaultISR(void)
 }
 void BusFaultISR(void)
 {
-    while(1);
+
+    uint8_t SCB_u8BusFault=0;
+    //uint32_t SCB_u32MemoryBus=0;
+    __asm(
+    " MRS R0, MSP\n"
+    " movw R2, SCB_pu32Context\n"
+    " movt R2, SCB_pu32Context\n"
+    " ldr R1, [R0, #0X0]\n"
+    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " ldr R1, [R0, #0x4]\n"
+    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " ldr R1, [R0, #0x8]\n"
+    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " ldr R1, [R0, #0xC]\n"
+    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " ldr R1, [R0, #0x10]\n"
+    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " ldr R1, [R0, #0x14]\n"
+    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " ldr R1, [R0, #0x18]\n"
+    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " ldr R1, [R0, #0x1C]\n"
+    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    SCB_u8BusFault =SCB_BFAULTSTAT_R;
+    if((SCB_u8BusFault & (uint8_t)SCB_enBFAULTSTAT_BFARV) == (uint8_t)SCB_enBFAULTSTAT_BFARV)
+    {
+        //SCB_u32MemoryBus=SCB_FAULTADDR_R;
+    }
+
+    switch(SCB_u8BusFault)
+    {
+        case SCB_enBFAULTSTAT_BLSPERR:
+            while(1);
+        case SCB_enBFAULTSTAT_BSTKE:
+            while(1);
+        case SCB_enBFAULTSTAT_BUSTKE:
+            while(1);
+        case SCB_enBFAULTSTAT_IMPRE:
+            while(1);
+        case SCB_enBFAULTSTAT_PRECISE:
+            while(1);
+        case SCB_enBFAULTSTAT_IBUS:
+            while(1);
+        default:
+            while(1);
+    }
 }
 void MemoryFaultISR(void)
 {
-    while(1);
+
+    uint8_t SCB_u8MemFault=0;
+    //uint32_t SCB_u32MemoryMem=0;
+    __asm(
+    " MRS R0, MSP\n"
+    " movw R2, SCB_pu32Context\n"
+    " movt R2, SCB_pu32Context\n"
+    " ldr R1, [R0, #0X0]\n"
+    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " ldr R1, [R0, #0x4]\n"
+    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " ldr R1, [R0, #0x8]\n"
+    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " ldr R1, [R0, #0xC]\n"
+    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " ldr R1, [R0, #0x10]\n"
+    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " ldr R1, [R0, #0x14]\n"
+    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " ldr R1, [R0, #0x18]\n"
+    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " ldr R1, [R0, #0x1C]\n"
+    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    SCB_u8MemFault =SCB_MFAULTSTAT_R;
+    if((SCB_u8MemFault & (uint8_t)SCB_enMFAULTSTAT_MMARV) == (uint8_t)SCB_enMFAULTSTAT_MMARV)
+    {
+        //SCB_u32MemoryMem=SCB_MMADDR_R;
+    }
+
+    switch(SCB_u8MemFault)
+    {
+        case SCB_enMFAULTSTAT_MLSPERR:
+            while(1);
+        case SCB_enMFAULTSTAT_MSTKE:
+            while(1);
+        case SCB_enMFAULTSTAT_MUSTKE:
+            while(1);
+        case SCB_enMFAULTSTAT_DERR:
+            while(1);
+        case SCB_enMFAULTSTAT_IERR:
+            while(1);
+        default:
+            while(1);
+    }
 }
 void HardFaultISR(void)
 {
+    __asm(
+    " MRS R0, MSP\n"
+    " movw R2, SCB_pu32Context\n"
+    " movt R2, SCB_pu32Context\n"
+    " ldr R1, [R0, #0X0]\n"
+    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " ldr R1, [R0, #0x4]\n"
+    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " ldr R1, [R0, #0x8]\n"
+    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " ldr R1, [R0, #0xC]\n"
+    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " ldr R1, [R0, #0x10]\n"
+    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " ldr R1, [R0, #0x14]\n"
+    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " ldr R1, [R0, #0x18]\n"
+    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " ldr R1, [R0, #0x1C]\n"
+    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
     while(1);
 }
 void SVCallISR(void)
