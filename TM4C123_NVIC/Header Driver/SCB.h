@@ -806,7 +806,7 @@ typedef volatile struct
 #define SCB_ICSR_R_VECTACTIVE_SVCALL     (0x0000000B)
 #define SCB_ICSR_R_VECTACTIVE_DEBUGMON   (0x0000000C)
 #define SCB_ICSR_R_VECTACTIVE_RES13      (0x0000000D)
-#define SCB_ICSR_R_VECTACTIVE_PENDSVSET     (0x0000000E)
+#define SCB_ICSR_R_VECTACTIVE_PENDSV     (0x0000000E)
 #define SCB_ICSR_R_VECTACTIVE_SYSTICK    (0x0000000F)
 #define SCB_ICSR_R_VECTACTIVE_GPIOA      (0x00000010)
 #define SCB_ICSR_R_VECTACTIVE_GPIOB      (0x00000011)
@@ -963,7 +963,7 @@ typedef volatile struct
 #define SCB_ICSR_VECTACTIVE_SVCALL     (0x0000000B)
 #define SCB_ICSR_VECTACTIVE_DEBUGMON   (0x0000000C)
 #define SCB_ICSR_VECTACTIVE_RES13      (0x0000000D)
-#define SCB_ICSR_VECTACTIVE_PENDSVSET     (0x0000000E)
+#define SCB_ICSR_VECTACTIVE_PENDSV     (0x0000000E)
 #define SCB_ICSR_VECTACTIVE_SYSTICK    (0x0000000F)
 #define SCB_ICSR_VECTACTIVE_GPIOA      (0x00000010)
 #define SCB_ICSR_VECTACTIVE_GPIOB      (0x00000011)
@@ -1135,7 +1135,7 @@ typedef volatile struct
 #define SCB_ICSR_R_VECTPENDING_SVCALL     (0x0000B000)
 #define SCB_ICSR_R_VECTPENDING_DEBUGMON   (0x0000C000)
 #define SCB_ICSR_R_VECTPENDING_RES13      (0x0000D000)
-#define SCB_ICSR_R_VECTPENDING_PENDSVSET     (0x0000E000)
+#define SCB_ICSR_R_VECTPENDING_PENDSV     (0x0000E000)
 #define SCB_ICSR_R_VECTPENDING_SYSTICK    (0x0000F000)
 #define SCB_ICSR_R_VECTPENDING_GPIOA      (0x00010000)
 #define SCB_ICSR_R_VECTPENDING_GPIOB      (0x00011000)
@@ -1292,7 +1292,7 @@ typedef volatile struct
 #define SCB_ICSR_VECTPENDING_SVCALL     (0x0000000B)
 #define SCB_ICSR_VECTPENDING_DEBUGMON   (0x0000000C)
 #define SCB_ICSR_VECTPENDING_RES13      (0x0000000D)
-#define SCB_ICSR_VECTPENDING_PENDSVSET     (0x0000000E)
+#define SCB_ICSR_VECTPENDING_PENDSV     (0x0000000E)
 #define SCB_ICSR_VECTPENDING_SYSTICK    (0x0000000F)
 #define SCB_ICSR_VECTPENDING_GPIOA      (0x00000010)
 #define SCB_ICSR_VECTPENDING_GPIOB      (0x00000011)
@@ -2943,7 +2943,7 @@ typedef enum
  SCB_enVECISR_SVCALL     =(0x0000000B),
  SCB_enVECISR_DEBUGMON   =(0x0000000C),
  SCB_enVECISR_RES13      =(0x0000000D),
- SCB_enVECISR_PENDSVSET     =(0x0000000E),
+ SCB_enVECISR_PENDSV     =(0x0000000E),
  SCB_enVECISR_SYSTICK    =(0x0000000F),
  SCB_enVECISR_GPIOA      =(0x00000010),
  SCB_enVECISR_GPIOB      =(0x00000011),
@@ -3095,9 +3095,9 @@ inline void SCB_SysTick__vSetPending(void);
 inline void SCB_SysTick__vClearPending(void);
 SCB_nPENDSTATE SCB_SysTick__enGetPending(void);
 
-inline void SCB_PENDSVSET__vSetPending(void);
-inline void SCB_PENDSVSET__vClearPending(void);
-SCB_nPENDSTATE SCB_PENDSVSET__enGetPending(void);
+inline void SCB_PENDSV__vSetPending(void);
+inline void SCB_PENDSV__vClearPending(void);
+SCB_nPENDSTATE SCB_PENDSV__enGetPending(void);
 
 
 SCB_nPENDSTATE SCB_ISR__enGetPendingState(void);
@@ -3138,8 +3138,8 @@ inline void SCB_SVCall__vSetPriority(SCB_nSHPR enPriority);
 SCB_nSHPR SCB_SVCall__enGetPriority(void);
 inline void SCB_SysTick__vSetPriority(SCB_nSHPR enPriority);
 SCB_nSHPR SCB_SysTick__enGetPriority(void);
-inline void SCB_PENDSVSET__vSetPriority(SCB_nSHPR enPriority);
-SCB_nSHPR SCB_PENDSVSET__enGetPriority(void);
+inline void SCB_PENDSV__vSetPriority(SCB_nSHPR enPriority);
+SCB_nSHPR SCB_PENDSV__enGetPriority(void);
 
 
 inline void SCB_UsageFault__vEnable(void);

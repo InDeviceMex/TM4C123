@@ -201,7 +201,7 @@ NVIC_nSTATUS    NVIC__enTriggerIRQ(NVIC_nSTIR enIRQ)
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
-        NVIC->STIR|=(uint32_t)enIRQ;
+        NVIC_STIR_R|=(uint32_t)enIRQ;
         enStatus= NVIC_enOK;
     }
     return enStatus;

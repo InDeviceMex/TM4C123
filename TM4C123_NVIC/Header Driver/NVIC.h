@@ -13325,8 +13325,6 @@ typedef enum
       PWM1FAULT_IRQn            = 138,
 } IRQn_Type;
 
-//todo functions
-
 NVIC_nSTATUS    NVIC__enSetPriorityIRQ(NVIC_nSTIR enIRQ,NVIC_nPRIORITY enPriority);
 NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ);
 
