@@ -20,8 +20,9 @@ void main(void)
     SCB__enSetStackAligment(SCB_enALIGN_4BYTE);
 
 
-    NVIC__enEnableIRQ(NVIC_enSTIR_PWM0GEN3,NVIC_enPRI2);
+    NVIC__enSetEnableIRQ(NVIC_enSTIR_PWM0GEN3,NVIC_enPRI2);
     NVIC__enTriggerIRQ(NVIC_enSTIR_PWM0GEN3);
+
     __asm(" cpsie i");
     while(1)
     {

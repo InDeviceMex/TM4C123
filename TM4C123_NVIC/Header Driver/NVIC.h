@@ -729,8 +729,8 @@ typedef volatile struct
 
 typedef volatile struct
 {
-     const uint32_t reserved    :5;
-     volatile uint32_t IP    	:3;//0
+     const uint8_t reserved    :5;
+     volatile uint8_t IP    	:3;//0
 }IPRb_TypeDef;
 
 
@@ -13002,6 +13002,11 @@ typedef enum
     NVIC_enOK =0,
     NVIC_enERROR=1
 }NVIC_nSTATUS;
+typedef enum
+{
+    NVIC_enENABLE =0,
+    NVIC_enDISABLE=1
+}NVIC_nENABLE;
 
 typedef enum
 {
@@ -13328,8 +13333,9 @@ typedef enum
 NVIC_nSTATUS    NVIC__enSetPriorityIRQ(NVIC_nSTIR enIRQ,NVIC_nPRIORITY enPriority);
 NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ);
 
-NVIC_nSTATUS    NVIC__enEnableIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority);
-NVIC_nSTATUS    NVIC__enDisableIRQ(NVIC_nSTIR enIRQ);
+NVIC_nENABLE    NVIC__enGetEnableIRQ(NVIC_nSTIR enIRQ);
+NVIC_nSTATUS    NVIC__enSetEnableIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority);
+NVIC_nSTATUS    NVIC__enClearEnableIRQ(NVIC_nSTIR enIRQ);
 
 NVIC_nPENDING   NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ);
 NVIC_nSTATUS    NVIC__enSetPendingIRQ(NVIC_nSTIR enIRQ);

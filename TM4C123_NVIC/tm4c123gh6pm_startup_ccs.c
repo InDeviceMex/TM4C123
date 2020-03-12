@@ -33,6 +33,8 @@
 void ResetISR(void);
 static void SysTickISR(void);
 static void IntDefaultHandler(void);
+static void PWMHandler(void);
+
 
 //*****************************************************************************
 //
@@ -128,7 +130,7 @@ void (* const g_pfnVectors[])(void) =
     0,                                      // Reserved
     IntDefaultHandler,                      // Hibernate
     IntDefaultHandler,                      // USB0
-    IntDefaultHandler,                      // PWM Generator 3
+    PWMHandler,                      // PWM Generator 3
     IntDefaultHandler,                      // uDMA Software Transfer
     IntDefaultHandler,                      // uDMA Error
     IntDefaultHandler,                      // ADC1 Sequence 0
@@ -248,6 +250,16 @@ ResetISR(void)
 
 static void
 IntDefaultHandler(void)
+{
+    //
+    // Go into an infinite loop.
+    //
+    while(1)
+    {
+    }
+}
+
+static void PWMHandler(void)
 {
     //
     // Go into an infinite loop.
