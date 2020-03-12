@@ -13104,7 +13104,7 @@ typedef enum
      NVIC_enSTIR_RES88      =(0x00000048),
      NVIC_enSTIR_RES89      =(0x00000049),
      NVIC_enSTIR_RES90      =(0x0000004A),
-     NVINVIC_nACTIVEC_enSTIR_RES91      =(0x0000004B),
+     NVIC_enSTIR_RES91      =(0x0000004B),
      NVIC_enSTIR_RES92      =(0x0000004C),
      NVIC_enSTIR_RES93      =(0x0000004D),
      NVIC_enSTIR_RES94      =(0x0000004E),
