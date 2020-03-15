@@ -124,34 +124,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-Tm4C123_FPU.out \
+TM4C123_FPU.out \
 
 EXE_OUTPUTS__QUOTED += \
-"Tm4C123_FPU.out" \
+"TM4C123_FPU.out" \
 
 BIN_OUTPUTS += \
-Tm4C123_FPU.hex \
+TM4C123_FPU.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"Tm4C123_FPU.hex" \
+"TM4C123_FPU.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "Tm4C123_FPU.out"
+	@$(MAKE) --no-print-directory -Onone "TM4C123_FPU.out"
 
 # Tool invocations
-Tm4C123_FPU.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+TM4C123_FPU.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
-	"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Tm4C123_FPU.map" --heap_size=0 --stack_size=512 -i"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/lib" -i"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Tm4C123_FPU_linkInfo.xml" --rom_model -o "Tm4C123_FPU.out" $(ORDERED_OBJS)
+	"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"TM4C123_FPU.map" --heap_size=0 --stack_size=512 -i"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/lib" -i"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="TM4C123_FPU_linkInfo.xml" --rom_model -o "TM4C123_FPU.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-Tm4C123_FPU.hex: $(EXE_OUTPUTS)
+TM4C123_FPU.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo 'Invoking: ARM Hex Utility'
-	"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/bin/armhex"  -o "Tm4C123_FPU.hex" $(EXE_OUTPUTS__QUOTED)
+	"/home/vyldram/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_19.6.0.STS/bin/armhex"  -o "TM4C123_FPU.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 
