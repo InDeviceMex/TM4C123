@@ -102,6 +102,8 @@ FPU_nHALF_PRECISION FPU__enGetHalfPrecision(void)
     enReturn= (FPU_nHALF_PRECISION)u32Reg;
     return enReturn;
 }
+
+/*ToDo use the correct register. FPSCR instead FPDSCR*/
 void FPU__vSetHalfPrecision(FPU_nHALF_PRECISION enHalfPrecision)
 {
     uint32_t u32HalfPrecision= (uint32_t)enHalfPrecision &FPU_FPDSCR_AHP_MASK;
