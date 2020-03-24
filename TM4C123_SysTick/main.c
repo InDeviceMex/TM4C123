@@ -11,8 +11,6 @@
 #include "MPU.h"
 #include "SysTick.h"
 
-volatile uint32_t Variable1 = 100;
-volatile const uint32_t Variable2 = 100;
 
 void main(void)
 {
@@ -31,7 +29,6 @@ void main(void)
     }
     while(1)
     {
-        SysTick__vDelayUs(6250);
-        //Variable1+=Variable2;
+        SysTick__vDelayUs(62.5);
     }
 }

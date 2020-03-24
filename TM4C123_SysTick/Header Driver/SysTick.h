@@ -14,6 +14,8 @@
 
 #define SysTick_BASE            ((uint32_t)0xE000E000)
 #define SysTick_VALUEMAX        ((uint32_t)0xFFFFFF)
+#define SysTick_PIOSC4          ((uint32_t)4000000u)
+#define SysTick_PIOSC           ((uint32_t)16000000u)
 
 typedef volatile struct
 {
