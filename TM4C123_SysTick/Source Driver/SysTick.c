@@ -36,7 +36,7 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         u32SysTickFrequency=SysTick_PIOSC;//RCC_GetSysClockFreq();
     }
 
-    if(u32Tick >30 )
+    if(u32Tick >40 )
     {
         if(u32Tick>(SysTick_VALUEMAX+1))
         {
@@ -90,7 +90,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
     fCountTick=fSysTickFrequency/fFrequency;
     u32CountTick=(uint32_t)fCountTick;
 
-    if(u32CountTick>30)
+    if(u32CountTick>40)
     {
         if(u32CountTick>(SysTick_VALUEMAX+1))
         {
@@ -162,7 +162,7 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
     fCountTick=fSysTickFrequency*fTimeUs;
     u32CountTick=(uint32_t)fCountTick;
 
-    if(u32CountTick>10)
+    if(u32CountTick>40)
     {
         if(u32CountTick>(SysTick_VALUEMAX+1))
         {
@@ -266,12 +266,12 @@ inline uint32_t SysTick__u32GetMaxTick(void)
 
 inline void SysTick__vDelayUs(float fTimeUs)
 {
-    uint64_t u64CountInitial = SysTick__u64GetCurrentCountTick();
+    float fCount=0.0;
     uint64_t u64CountDelta = 0;
     uint64_t u64CountCurrent = 0;
     uint64_t u64CountMax=0;
     uint64_t u64Count= 0;
-    float fCount=0.0;
+    uint64_t u64CountInitial = SysTick__u64GetCurrentCountTick();
 
     fCount= fTimeUs/SysTick_fUsTick;
     u64CountMax= (uint32_t)fCount;

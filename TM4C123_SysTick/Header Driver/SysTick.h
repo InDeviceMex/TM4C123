@@ -233,6 +233,7 @@ inline uint32_t SysTick__u32GetCount(void);
 inline uint32_t SysTick__u32GetCurrentTick(void);
 inline uint64_t SysTick__u64GetCurrentCountTick(void);
 inline uint32_t SysTick__u32GetMaxTick(void);
+
 inline void SysTick__vDelayUs(float fTimeUs);
 
 void SysTickISR(void);

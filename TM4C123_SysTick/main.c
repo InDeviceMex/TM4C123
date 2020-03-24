@@ -29,6 +29,6 @@ void main(void)
     }
     while(1)
     {
-        SysTick__vDelayUs(62.5);
+        SysTick__vDelayUs(6250);
     }
 }
