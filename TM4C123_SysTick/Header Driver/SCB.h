@@ -3108,6 +3108,7 @@ SCB_nVECISR SCB_ISR__enGetVectorActive(void);
 inline void SCB__vSetVectorOffset(uint32_t u32Offset);
 
 inline void SCB__vReqSysReset(void);
+inline void SCB__vReqSysReset_Peripheral(void);
 SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup);
 SCB_nPRIGROUP SCB__enGetPriorityGroup(void);
 SCB_nSTATUS SCB__enSetWakeUpSource(SCB_nWAKEUPSOURCE enSource);

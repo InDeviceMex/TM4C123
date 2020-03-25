@@ -96,6 +96,26 @@ inline void SCB__vReqSysReset(void)
     if((u32Reg &SCB_AIRCR_R_VECTKEY_MASK)==SCB_AIRCR_R_VECTKEY_READ)
     {
         u32Reg&=~SCB_AIRCR_R_VECTKEY_MASK;
+        u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_VECTRESET_NOUSE;
+        __asm(" DSB");
+        SCB_AIRCR_R=u32Reg;
+        __asm(" DSB");
+
+        while(1)
+        {
+            __asm(" NOP");
+        }
+
+    }
+
+}
+
+inline void SCB__vReqSysReset_Peripheral(void)
+{
+    uint32_t u32Reg=SCB_AIRCR_R;
+    if((u32Reg &SCB_AIRCR_R_VECTKEY_MASK)==SCB_AIRCR_R_VECTKEY_READ)
+    {
+        u32Reg&=~SCB_AIRCR_R_VECTKEY_MASK;
         u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_SYSRESETREQ_RESET;
         __asm(" DSB");
         SCB_AIRCR_R=u32Reg;
