@@ -62,12 +62,164 @@ typedef volatile struct
     const           uint32_t reserved4  :20;
 }RIS_TypeDef;
 
+typedef volatile struct
+{
+    const       uint32_t reserved   :1;
+    volatile    uint32_t BOR1IM     :1;
+    const       uint32_t reserved1  :1;
+    volatile    uint32_t MOFIM      :1;
+    const       uint32_t reserved2  :2;
+    volatile    uint32_t PLLLIM     :1;
+    volatile    uint32_t USBPLLLIM  :1;
+    volatile    uint32_t MOSCPUPIM  :1;
+    const       uint32_t reserved3  :1;
+    volatile    uint32_t VDDAIM     :1;
+    volatile    uint32_t BOR0IM     :1;
+    const       uint32_t reserved4  :20;
+}IMC_TypeDef;
+
+
+typedef volatile struct
+{
+    const       uint32_t reserved   :1;
+    volatile    uint32_t BOR1MIS    :1;
+    const       uint32_t reserved1  :1;
+    volatile    uint32_t MOFMIS     :1;
+    const       uint32_t reserved2  :2;
+    volatile    uint32_t PLLLMIS    :1;
+    volatile    uint32_t USBPLLLMIS :1;
+    volatile    uint32_t MOSCPUPMIS :1;
+    const       uint32_t reserved3  :1;
+    volatile    uint32_t VDDAMIS    :1;
+    volatile    uint32_t BOR0MIS    :1;
+    const       uint32_t reserved4  :20;
+}MISC_TypeDef;
+
+typedef volatile struct
+{
+    volatile    uint32_t EXT      :1;
+    volatile    uint32_t POR      :1;
+    volatile    uint32_t BOR      :1;
+    volatile    uint32_t WDT0     :1;
+    volatile    uint32_t SW       :1;
+    volatile    uint32_t WDT1     :1;
+    const       uint32_t reserved :10;
+    volatile    uint32_t MOSCFAIL :1;
+    const       uint32_t reserved1:15;
+}RESC_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile    uint32_t MOSCDIS        :1;
+    const       uint32_t reserved       :3;
+    volatile    uint32_t OSCSRC         :2;
+    volatile    uint32_t XTAL           :5;
+    volatile    uint32_t BYPASS         :1;
+    const       uint32_t reserved1      :1;
+    volatile    uint32_t PWRDN          :1;
+    const       uint32_t reserved2      :3;
+    volatile    uint32_t PWMDIV         :3;
+    volatile    uint32_t USEPWMDIV      :1;
+    const       uint32_t reserved3      :1;
+    volatile    uint32_t USESYSDIV      :1;
+    volatile    uint32_t SYSDIV         :4;
+    volatile    uint32_t ACG            :1;
+    const       uint32_t reserved4      :4;
+}RCC_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t PORTA        :1;
+    volatile uint32_t PORTB        :1;
+    volatile uint32_t PORTC        :1;
+    volatile uint32_t PORTD        :1;
+    volatile uint32_t PORTE        :1;
+    volatile uint32_t PORTF        :1;
+    const    uint32_t reserved     :26;
+}GPIOHBCTL_TypeDef;
+
+
+typedef volatile struct
+{
+    const    uint32_t reserved  :4;
+    volatile uint32_t OSCSRC2   :3;
+    const    uint32_t reserved1 :4;
+    volatile uint32_t BYPASS2   :1;
+    const    uint32_t reserved2 :1;
+    volatile uint32_t PWRDN2    :1;
+    volatile uint32_t USBPWRDN  :1;
+    const    uint32_t reserved3 :7;
+    volatile uint32_t SYSDIV2LSB:1;
+    volatile uint32_t SYSDIV2   :6;
+    const    uint32_t reserved4 :1;
+    volatile uint32_t DIV400    :1;
+    volatile uint32_t USERCC2   :1;
+}RCC2_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t CVAL         :1;
+    volatile uint32_t MOSCIM       :1;
+    volatile uint32_t NOXTAL       :1;
+    const    uint32_t reserved     :29;
+}MOSCCTL_TypeDef;
+
+
+typedef volatile struct
+{
+    const    uint32_t reserved      :1;
+    volatile uint32_t PIOSCPD       :1;
+    const    uint32_t reserved1     :2;
+    volatile uint32_t DSOSCSRC      :3;
+    const    uint32_t reserved2     :16;
+    volatile uint32_t DSDIVORIDE    :6;
+    const    uint32_t reserved3     :3;
+}DSLPCLKCFG_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile const  uint32_t FPU_         :1;
+    const           uint32_t reserved    :7;
+    volatile const  uint32_t FLASHLPM    :1;
+    const           uint32_t reserved1   :1;
+    volatile const  uint32_t SRAMLPM     :1;
+    volatile const  uint32_t SRAMSM      :1;
+    volatile const  uint32_t PIOSCPDE    :1;
+    const           uint32_t reserved2   :19;
+}SYSPROP_TypeDef;
+
+
+typedef volatile struct
+{
+volatile uint32_t UT          :7;
+volatile uint32_t res         :1;
+volatile uint32_t UPDATE      :1;
+volatile uint32_t CAL         :1;
+volatile uint32_t res2        :21;
+volatile uint32_t UTEN        :1;
+}PIOSCCAL_TypeDef;
+
+
+
 
 
 #define SYSCTL_DID0_OFFSET          (0x0000)
 #define SYSCTL_DID1_OFFSET          (0x0004)
 #define SYSCTL_PBORCTL_OFFSET       (0x0030)
 #define SYSCTL_RIS_OFFSET           (0x0050)
+#define SYSCTL_IMC_OFFSET           (0x0054)
+#define SYSCTL_MISC_OFFSET          (0x0058)
+#define SYSCTL_RESC_OFFSET          (0x005C)
+#define SYSCTL_RCC_OFFSET           (0x0060)
+#define SYSCTL_GPIOHBCTL_OFFSET     (0x006C)
+#define SYSCTL_RCC2_OFFSET          (0x0070)
+#define SYSCTL_MOSCCTL_OFFSET       (0x007C)
+#define SYSCTL_DSLPCLKCFG_OFFSET    (0x0144)
+#define SYSCTL_SYSPROP_OFFSET       (0x014C)
+#define SYSCTL_PIOSCCAL_OFFSET      (0x0150)
 
 /*******************************************************************************************
 ************************************ 1 DID0 *********************************************
@@ -257,8 +409,8 @@ typedef volatile struct
 #define SYSCTL_PBORCTL_BOR0_RESET   ((uint32_t)0x00000001)
 /*--------*/
 
-#define SYSCTL_PBORCTL_BOR1_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32)+(1*4))))
-#define SYSCTL_PBORCTL_BOR0_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32)+(2*4))))
+#define SYSCTL_PBORCTL_BOR1_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32)+(SYSCTL_PBORCTL_R_BOR1_BIT*4))))
+#define SYSCTL_PBORCTL_BOR0_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32)+(SYSCTL_PBORCTL_R_BOR0_BIT*4))))
 
 /******************************************************************************************
 ************************************ 4 RIS *********************************************
@@ -267,414 +419,879 @@ typedef volatile struct
 #define SYSCTL_RIS_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RIS_OFFSET)))
 
 /*--------*/
-#define SYSCTL_RIS_R_BOR1RIS (0x00000002)
+#define SYSCTL_RIS_R_BOR1RIS_MASK       ((uint32_t)0x00000002)
+#define SYSCTL_RIS_R_BOR1RIS_BIT        (1)
+#define SYSCTL_RIS_R_BOR1RIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_BOR1RIS_ACTIVE     ((uint32_t)0x00000002)
+
+#define SYSCTL_RIS_BOR1RIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_BOR1RIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_BOR1RIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_RIS_R_MOFRIS  (0x00000008)
+#define SYSCTL_RIS_R_MOFRIS_MASK       ((uint32_t)0x00000008)
+#define SYSCTL_RIS_R_MOFRIS_BIT        (3)
+#define SYSCTL_RIS_R_MOFRIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_MOFRIS_ACTIVE     ((uint32_t)0x00000008)
+
+#define SYSCTL_RIS_MOFRIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_MOFRIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_MOFRIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_RIS_R_PLLLRIS (0x00000040)
+#define SYSCTL_RIS_R_PLLLRIS_MASK       ((uint32_t)0x00000040)
+#define SYSCTL_RIS_R_PLLLRIS_BIT        (6)
+#define SYSCTL_RIS_R_PLLLRIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_PLLLRIS_ACTIVE     ((uint32_t)0x00000040)
+
+#define SYSCTL_RIS_PLLLRIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_PLLLRIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_PLLLRIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_RIS_R_USBPLLLRIS (0x00000080)
+#define SYSCTL_RIS_R_USBPLLLRIS_MASK       ((uint32_t)0x00000080)
+#define SYSCTL_RIS_R_USBPLLLRIS_BIT        (7)
+#define SYSCTL_RIS_R_USBPLLLRIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_USBPLLLRIS_ACTIVE     ((uint32_t)0x00000080)
+
+#define SYSCTL_RIS_USBPLLLRIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_USBPLLLRIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_USBPLLLRIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_RIS_R_MOSCPUPRIS (0x00000100)
+#define SYSCTL_RIS_R_MOSCPUPRIS_MASK       ((uint32_t)0x00000100)
+#define SYSCTL_RIS_R_MOSCPUPRIS_BIT        (8)
+#define SYSCTL_RIS_R_MOSCPUPRIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_MOSCPUPRIS_ACTIVE     ((uint32_t)0x00000100)
+
+#define SYSCTL_RIS_MOSCPUPRIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_MOSCPUPRIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_MOSCPUPRIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_RIS_R_VDDARIS  (0x00000400)
+#define SYSCTL_RIS_R_VDDARIS_MASK       ((uint32_t)0x00000400)
+#define SYSCTL_RIS_R_VDDARIS_BIT        (10)
+#define SYSCTL_RIS_R_VDDARIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_VDDARIS_ACTIVE     ((uint32_t)0x00000400)
+
+#define SYSCTL_RIS_VDDARIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_VDDARIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_VDDARIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_RIS_R_BOR0RIS  (0x00000800)
+#define SYSCTL_RIS_R_BOR0RIS_MASK       ((uint32_t)0x00000800)
+#define SYSCTL_RIS_R_BOR0RIS_BIT        (11)
+#define SYSCTL_RIS_R_BOR0RIS_NOACTIVE   ((uint32_t)0x00000000)
+#define SYSCTL_RIS_R_BOR0RIS_ACTIVE     ((uint32_t)0x00000800)
+
+#define SYSCTL_RIS_BOR0RIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_RIS_BOR0RIS_NOACTIVE     ((uint32_t)0x00000000)
+#define SYSCTL_RIS_BOR0RIS_ACTIVE       ((uint32_t)0x00000001)
 /*--------*/
 
 
-#define SYSCTL_RIS_BOR1RIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(1*4))))
-#define SYSCTL_RIS_MOFRIS_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(3*4))))
-#define SYSCTL_RIS_PLLLRIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(6*4))))
-#define SYSCTL_RIS_USBPLLLRIS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(7*4))))
-#define SYSCTL_RIS_MOSCPUPRIS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(8*4))))
-#define SYSCTL_RIS_VDDARIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(10*4))))
-#define SYSCTL_RIS_BOR0RIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(11*4))))
+#define SYSCTL_RIS_BOR1RIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_BOR1RIS_BIT*4))))
+#define SYSCTL_RIS_MOFRIS_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_MOFRIS_BIT*4))))
+#define SYSCTL_RIS_PLLLRIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_PLLLRIS_BIT*4))))
+#define SYSCTL_RIS_USBPLLLRIS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_USBPLLLRIS_BIT*4))))
+#define SYSCTL_RIS_MOSCPUPRIS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_MOSCPUPRIS_BIT*4))))
+#define SYSCTL_RIS_VDDARIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_VDDARIS_BIT*4))))
+#define SYSCTL_RIS_BOR0RIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_BOR0RIS_BIT*4))))
 
 
 /******************************************************************************************
 ************************************ 5 IMC *********************************************
 ******************************************************************************************/
-
-
-typedef volatile struct
-{
-volatile uint32_t res      :1;
-volatile uint32_t BOR1IM  :1;
-volatile uint32_t res1     :1;
-volatile uint32_t MOFIM   :1;
-volatile uint32_t res2     :2;
-volatile uint32_t PLLLIM  :1;
-volatile uint32_t USBPLLLIM :1;
-volatile uint32_t MOSCPUPIM :1;
-volatile uint32_t res3     :1;
-volatile uint32_t VDDAIM  :1;
-volatile uint32_t BOR0IM  :1;
-volatile uint32_t res4     :20;
-}IMC_t;
-
-
-#define SYSCTL_IMC_OFFSET     (0x0054)
-#define SYSCTL_IMC            (((IMC_t*)(SYSCTL_BASE+SYSCTL_IMC_OFFSET )))
+#define SYSCTL_IMC            (((IMC_TypeDef*)(SYSCTL_BASE+SYSCTL_IMC_OFFSET )))
 #define SYSCTL_IMC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_IMC_OFFSET)))
 
-#define SYSCTL_IMC_R_BOR1IM (0x00000002)
-#define SYSCTL_IMC_R_MOFIM  (0x00000008)
-#define SYSCTL_IMC_R_PLLLIM (0x00000040)
-#define SYSCTL_IMC_R_USBPLLLIM (0x00000080)
-#define SYSCTL_IMC_R_MOSCPUPIM (0x00000100)
-#define SYSCTL_IMC_R_VDDAIM  (0x00000400)
-#define SYSCTL_IMC_R_BOR0IM  (0x00000800)
+/*--------*/
+#define SYSCTL_IMC_R_BOR1IM_MASK    ((uint32_t)0x00000002)
+#define SYSCTL_IMC_R_BOR1IM_BIT     (1)
+#define SYSCTL_IMC_R_BOR1IM_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_BOR1IM_EN      ((uint32_t)0x00000002)
 
+#define SYSCTL_IMC_BOR1IM_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_IMC_BOR1IM_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_IMC_BOR1IM_EN        ((uint32_t)0x00000001)
+/*--------*/
 
-#define SYSCTL_IMC_BOR1IM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(1*4))))
-#define SYSCTL_IMC_MOFIM_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(3*4))))
-#define SYSCTL_IMC_PLLLIM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(6*4))))
-#define SYSCTL_IMC_USBPLLLIM_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(7*4))))
-#define SYSCTL_IMC_MOSCPUPIM_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(8*4))))
-#define SYSCTL_IMC_VDDAIM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(10*4))))
-#define SYSCTL_IMC_BOR0IM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(11*4))))
+/*--------*/
+#define SYSCTL_IMC_R_MOFIM_MASK     ((uint32_t)0x00000008)
+#define SYSCTL_IMC_R_MOFIM_BIT      (3)
+#define SYSCTL_IMC_R_MOFIM_DIS      ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_MOFIM_EN       ((uint32_t)0x00000008)
 
+#define SYSCTL_IMC_MOFIM_MASK       ((uint32_t)0x00000001)
+#define SYSCTL_IMC_MOFIM_DIS        ((uint32_t)0x00000000)
+#define SYSCTL_IMC_MOFIM_EN         ((uint32_t)0x00000001)
+/*--------*/
 
+/*--------*/
+#define SYSCTL_IMC_R_PLLLIM_MASK    ((uint32_t)0x00000040)
+#define SYSCTL_IMC_R_PLLLIM_BIT     (6)
+#define SYSCTL_IMC_R_PLLLIM_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_PLLLIM_EN      ((uint32_t)0x00000040)
+
+#define SYSCTL_IMC_PLLLIM_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_IMC_PLLLIM_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_IMC_PLLLIM_EN        ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_IMC_R_USBPLLLIM_MASK ((uint32_t)0x00000080)
+#define SYSCTL_IMC_R_USBPLLLIM_BIT  (7)
+#define SYSCTL_IMC_R_USBPLLLIM_DIS  ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_USBPLLLIM_EN   ((uint32_t)0x00000080)
+
+#define SYSCTL_IMC_USBPLLLIM_MASK   ((uint32_t)0x00000001)
+#define SYSCTL_IMC_USBPLLLIM_DIS    ((uint32_t)0x00000000)
+#define SYSCTL_IMC_USBPLLLIM_EN     ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_IMC_R_MOSCPUPIM_MASK ((uint32_t)0x00000100)
+#define SYSCTL_IMC_R_MOSCPUPIM_BIT  (8)
+#define SYSCTL_IMC_R_MOSCPUPIM_DIS  ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_MOSCPUPIM_EN   ((uint32_t)0x00000100)
+
+#define SYSCTL_IMC_MOSCPUPIM_MASK   ((uint32_t)0x00000001)
+#define SYSCTL_IMC_MOSCPUPIM_DIS    ((uint32_t)0x00000000)
+#define SYSCTL_IMC_MOSCPUPIM_EN     ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_IMC_R_VDDAIM_MASK    ((uint32_t)0x00000400)
+#define SYSCTL_IMC_R_VDDAIM_BIT     (10)
+#define SYSCTL_IMC_R_VDDAIM_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_VDDAIM_EN      ((uint32_t)0x00000400)
+
+#define SYSCTL_IMC_VDDAIM_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_IMC_VDDAIM_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_IMC_VDDAIM_EN        ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_IMC_R_BOR0IM_MASK    ((uint32_t)0x00000800)
+#define SYSCTL_IMC_R_BOR0IM_BIT     (11)
+#define SYSCTL_IMC_R_BOR0IM_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_IMC_R_BOR0IM_EN      ((uint32_t)0x00000800)
+
+#define SYSCTL_IMC_BOR0IM_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_IMC_BOR0IM_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_IMC_BOR0IM_EN        ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_IMC_BOR1IM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_BOR1IM_BIT*4))))
+#define SYSCTL_IMC_MOFIM_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_MOFIM_BIT*4))))
+#define SYSCTL_IMC_PLLLIM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_PLLLIM_BIT*4))))
+#define SYSCTL_IMC_USBPLLLIM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_USBPLLLIM_BIT*4))))
+#define SYSCTL_IMC_MOSCPUPIM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_MOSCPUPIM_BIT*4))))
+#define SYSCTL_IMC_VDDAIM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_VDDAIM_BIT*4))))
+#define SYSCTL_IMC_BOR0IM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_BOR0IM_BIT*4))))
 
 /******************************************************************************************
 ************************************ 6 MISC *********************************************
 ******************************************************************************************/
-
-
-typedef volatile struct
-{
-volatile uint32_t res      :1;
-volatile uint32_t BOR1MIS  :1;
-volatile uint32_t res1     :1;
-volatile uint32_t MOFMIS   :1;
-volatile uint32_t res2     :2;
-volatile uint32_t PLLLMIS  :1;
-volatile uint32_t USBPLLLMIS :1;
-volatile uint32_t MOSCPUPMIS :1;
-volatile uint32_t res3     :1;
-volatile uint32_t VDDAMIS  :1;
-volatile uint32_t BOR0MIS  :1;
-volatile uint32_t res4     :20;
-}MISC_t;
-
-
-#define SYSCTL_MISC_OFFSET     (0x0058)
-#define SYSCTL_MISC            (((MISC_t*)(SYSCTL_BASE+SYSCTL_MISC_OFFSET )))
+#define SYSCTL_MISC            (((MISC_TypeDef*)(SYSCTL_BASE+SYSCTL_MISC_OFFSET )))
 #define SYSCTL_MISC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_MISC_OFFSET)))
 
-#define SYSCTL_MISC_R_BOR1MIS (0x00000002)
-#define SYSCTL_MISC_R_MOFMIS  (0x00000008)
-#define SYSCTL_MISC_R_PLLLMIS (0x00000040)
-#define SYSCTL_MISC_R_USBPLLLMIS (0x00000080)
-#define SYSCTL_MISC_R_MOSCPUPMIS (0x00000100)
-#define SYSCTL_MISC_R_VDDAMIS  (0x00000400)
-#define SYSCTL_MISC_R_BOR0MIS  (0x00000800)
+/*--------*/
+#define SYSCTL_MISC_R_BOR1MIS_MASK      ((uint32_t)0x00000002)
+#define SYSCTL_MISC_R_BOR1MIS_BIT       (1)
+#define SYSCTL_MISC_R_BOR1MIS_NOOCCUR   ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_BOR1MIS_OCCUR     ((uint32_t)0x00000002)
 
-#define SYSCTL_MISC_BOR1MIS_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(1*4))))
-#define SYSCTL_MISC_MOFMIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(3*4))))
-#define SYSCTL_MISC_PLLLMIS_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(6*4))))
-#define SYSCTL_MISC_USBPLLLMIS_BITBANDING   (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(7*4))))
-#define SYSCTL_MISC_MOSCPUPMIS_BITBANDING   (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(8*4))))
-#define SYSCTL_MISC_VDDAMIS_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(10*4))))
-#define SYSCTL_MISC_BOR0MIS_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(11*4))))
+#define SYSCTL_MISC_BOR1MIS_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_MISC_BOR1MIS_NOOCCUR     ((uint32_t)0x00000000)
+#define SYSCTL_MISC_BOR1MIS_OCCUR       ((uint32_t)0x00000001)
+/*--------*/
 
+/*--------*/
+#define SYSCTL_MISC_R_MOFMIS_MASK       ((uint32_t)0x00000008)
+#define SYSCTL_MISC_R_MOFMIS_BIT        (3)
+#define SYSCTL_MISC_R_MOFMIS_NOOCCUR    ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_MOFMIS_OCCUR      ((uint32_t)0x00000008)
 
+#define SYSCTL_MISC_MOFMIS_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_MISC_MOFMIS_NOOCCUR      ((uint32_t)0x00000000)
+#define SYSCTL_MISC_MOFMIS_OCCUR        ((uint32_t)0x00000001)
+/*--------*/
 
-******************************************************************************************
+/*--------*/
+#define SYSCTL_MISC_R_PLLLMIS_MASK      ((uint32_t)0x00000040)
+#define SYSCTL_MISC_R_PLLLMIS_BIT       (6)
+#define SYSCTL_MISC_R_PLLLMIS_NOOCCUR   ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_PLLLMIS_OCCUR     ((uint32_t)0x00000040)
+
+#define SYSCTL_MISC_PLLLMIS_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_MISC_PLLLMIS_NOOCCUR     ((uint32_t)0x00000000)
+#define SYSCTL_MISC_PLLLMIS_OCCUR       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_MISC_R_USBPLLLMIS_MASK   ((uint32_t)0x00000080)
+#define SYSCTL_MISC_R_USBPLLLMIS_BIT    (7)
+#define SYSCTL_MISC_R_USBPLLLMIS_NOOCCUR  ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_USBPLLLMIS_OCCUR   ((uint32_t)0x00000080)
+
+#define SYSCTL_MISC_USBPLLLMIS_MASK     ((uint32_t)0x00000001)
+#define SYSCTL_MISC_USBPLLLMIS_NOOCCUR  ((uint32_t)0x00000000)
+#define SYSCTL_MISC_USBPLLLMIS_OCCUR    ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_MISC_R_MOSCPUPMIS_MASK   ((uint32_t)0x00000100)
+#define SYSCTL_MISC_R_MOSCPUPMIS_BIT    (8)
+#define SYSCTL_MISC_R_MOSCPUPMIS_NOOCCUR  ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_MOSCPUPMIS_OCCUR   ((uint32_t)0x00000100)
+
+#define SYSCTL_MISC_MOSCPUPMIS_MASK     ((uint32_t)0x00000001)
+#define SYSCTL_MISC_MOSCPUPMIS_NOOCCUR  ((uint32_t)0x00000000)
+#define SYSCTL_MISC_MOSCPUPMIS_OCCUR    ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_MISC_R_VDDAMIS_MASK      ((uint32_t)0x00000400)
+#define SYSCTL_MISC_R_VDDAMIS_BIT       (10)
+#define SYSCTL_MISC_R_VDDAMIS_NOOCCUR   ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_VDDAMIS_OCCUR     ((uint32_t)0x00000400)
+
+#define SYSCTL_MISC_VDDAMIS_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_MISC_VDDAMIS_NOOCCUR     ((uint32_t)0x00000000)
+#define SYSCTL_MISC_VDDAMIS_OCCUR       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_MISC_R_BOR0MIS_MASK      ((uint32_t)0x00000800)
+#define SYSCTL_MISC_R_BOR0MIS_BIT       (11)
+#define SYSCTL_MISC_R_BOR0MIS_NOOCCUR   ((uint32_t)0x00000000)
+#define SYSCTL_MISC_R_BOR0MIS_OCCUR     ((uint32_t)0x00000800)
+
+#define SYSCTL_MISC_BOR0MIS_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_MISC_BOR0MIS_NOOCCUR     ((uint32_t)0x00000000)
+#define SYSCTL_MISC_BOR0MIS_OCCUR       ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_MISC_BOR1MIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_BOR1MIS_BIT*4))))
+#define SYSCTL_MISC_MOFMIS_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_MOFMIS_BIT*4))))
+#define SYSCTL_MISC_PLLLMIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_PLLLMIS_BIT*4))))
+#define SYSCTL_MISC_USBPLLLMIS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_USBPLLLMIS_BIT*4))))
+#define SYSCTL_MISC_MOSCPUPMIS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_MOSCPUPMIS_BIT*4))))
+#define SYSCTL_MISC_VDDAMIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_VDDAMIS_BIT*4))))
+#define SYSCTL_MISC_BOR0MIS_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_BOR0MIS_BIT*4))))
+
+/******************************************************************************************
 ************************************ 7 RESC *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t EXT      :1;
-volatile uint32_t POR      :1;
-volatile uint32_t BOR      :1;
-volatile uint32_t WDT0     :1;
-volatile uint32_t SW       :1;
-volatile uint32_t WDT1     :1;
-volatile uint32_t res      :10;
-volatile uint32_t MOSCFAIL :1;
-volatile uint32_t res1     :15;
-}RESC_t;
-
-
-#define SYSCTL_RESC_OFFSET     (0x005C)
-#define SYSCTL_RESC            (((RESC_t*)(SYSCTL_BASE+SYSCTL_RESC_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_RESC            (((RESC_TypeDef*)(SYSCTL_BASE+SYSCTL_RESC_OFFSET )))
 #define SYSCTL_RESC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RESC_OFFSET)))
 
-#define SYSCTL_RESC_R_EXT   (0x00000001)
-#define SYSCTL_RESC_R_POR   (0x00000002)
-#define SYSCTL_RESC_R_BOR   (0x00000004)
-#define SYSCTL_RESC_R_WDT0  (0x00000008)
-#define SYSCTL_RESC_R_SW    (0x00000010)
-#define SYSCTL_RESC_R_WDT1  (0x00000020)
-#define SYSCTL_RESC_R_MOSCFAIL  (0x00010000)
+/*--------*/
+#define SYSCTL_RESC_R_EXT_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RESC_R_EXT_BIT       (0)
+#define SYSCTL_RESC_R_EXT_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_EXT_RESET     ((uint32_t)0x00000001)
 
-#define SYSCTL_RESC_EXT_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(0*4))))
-#define SYSCTL_RESC_POR_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(1*4))))
-#define SYSCTL_RESC_BOR_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(2*4))))
-#define SYSCTL_RESC_WDT0_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(3*4))))
-#define SYSCTL_RESC_SW_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(4*4))))
-#define SYSCTL_RESC_WDT1_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(5*4))))
-#define SYSCTL_RESC_MOSCFAIL_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(16*4))))
+#define SYSCTL_RESC_EXT_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_EXT_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_EXT_RESET       ((uint32_t)0x00000001)
+/*--------*/
 
+/*--------*/
+#define SYSCTL_RESC_R_POR_MASK      ((uint32_t)0x00000002)
+#define SYSCTL_RESC_R_POR_BIT       (1)
+#define SYSCTL_RESC_R_POR_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_POR_RESET     ((uint32_t)0x00000002)
 
+#define SYSCTL_RESC_POR_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_POR_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_POR_RESET       ((uint32_t)0x00000001)
+/*--------*/
 
-******************************************************************************************
+/*--------*/
+#define SYSCTL_RESC_R_BOR_MASK      ((uint32_t)0x00000004)
+#define SYSCTL_RESC_R_BOR_BIT       (2)
+#define SYSCTL_RESC_R_BOR_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_BOR_RESET     ((uint32_t)0x00000004)
+
+#define SYSCTL_RESC_BOR_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_BOR_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_BOR_RESET       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RESC_R_WDT0_MASK      ((uint32_t)0x00000008)
+#define SYSCTL_RESC_R_WDT0_BIT       (3)
+#define SYSCTL_RESC_R_WDT0_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_WDT0_RESET     ((uint32_t)0x00000008)
+
+#define SYSCTL_RESC_WDT0_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_WDT0_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_WDT0_RESET       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RESC_R_SW_MASK      ((uint32_t)0x00000010)
+#define SYSCTL_RESC_R_SW_BIT       (4)
+#define SYSCTL_RESC_R_SW_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_SW_RESET     ((uint32_t)0x00000010)
+
+#define SYSCTL_RESC_SW_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_SW_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_SW_RESET       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RESC_R_WDT1_MASK      ((uint32_t)0x00000020)
+#define SYSCTL_RESC_R_WDT1_BIT       (5)
+#define SYSCTL_RESC_R_WDT1_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_WDT1_RESET     ((uint32_t)0x00000020)
+
+#define SYSCTL_RESC_WDT1_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_WDT1_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_WDT1_RESET       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RESC_R_MOSCFAIL_MASK      ((uint32_t)0x00010000)
+#define SYSCTL_RESC_R_MOSCFAIL_BIT       (16)
+#define SYSCTL_RESC_R_MOSCFAIL_NORESET   ((uint32_t)0x00000000)
+#define SYSCTL_RESC_R_MOSCFAIL_RESET     ((uint32_t)0x00010000)
+
+#define SYSCTL_RESC_MOSCFAIL_MASK        ((uint32_t)0x00000001)
+#define SYSCTL_RESC_MOSCFAIL_NORESET     ((uint32_t)0x00000000)
+#define SYSCTL_RESC_MOSCFAIL_RESET       ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_RESC_EXT_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_EXT_BIT*4))))
+#define SYSCTL_RESC_POR_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_POR_BIT*4))))
+#define SYSCTL_RESC_BOR_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_BOR_BIT*4))))
+#define SYSCTL_RESC_WDT0_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_WDT0_BIT*4))))
+#define SYSCTL_RESC_SW_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_SW_BIT*4))))
+#define SYSCTL_RESC_WDT1_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_WDT1_BIT*4))))
+#define SYSCTL_RESC_MOSCFAIL_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_MOSCFAIL_BIT*4))))
+
+/******************************************************************************************
 ************************************ 8 RCC *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t MOSCDIS      :1;
-volatile uint32_t res          :3;
-volatile uint32_t OSCSRC       :2;
-volatile uint32_t XTAL         :5;
-volatile uint32_t BYPASS       :1;
-volatile uint32_t res2         :1;
-volatile uint32_t PWRDN        :1;
-volatile uint32_t res3         :3;
-volatile uint32_t PWMDIV       :3;
-volatile uint32_t USEPWMDIV    :1;
-volatile uint32_t res4         :1;
-volatile uint32_t USESYSDIV    :1;
-volatile uint32_t SYSDIV       :4;
-volatile uint32_t ACG          :1;
-volatile uint32_t res5         :4;
-}RCC_t;
-
-
-#define SYSCTL_RCC_OFFSET     (0x0060)
-#define SYSCTL_RCC            (((RCC_t*)(SYSCTL_BASE+SYSCTL_RCC_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_RCC            (((RCC_TypeDef*)(SYSCTL_BASE+SYSCTL_RCC_OFFSET )))
 #define SYSCTL_RCC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCC_OFFSET)))
 
-#define SYSCTL_RCC_R_MOSCDIS        (0x00000001)
-#define SYSCTL_RCC_R_OSCSRC_MASK    (0x00000030)
-#define SYSCTL_RCC_R_XTAL_MASK      (0x000007C0)
-#define SYSCTL_RCC_R_BYPASS         (0x00000800)
-#define SYSCTL_RCC_R_PWRDN          (0x00002000)
-#define SYSCTL_RCC_R_PWMDIV_MASK    (0x000E0000)
-#define SYSCTL_RCC_R_USEPWMDIV      (0x00100000)
-#define SYSCTL_RCC_R_USESYSDIV      (0x00400000)
-#define SYSCTL_RCC_R_SYSDIV_MASK    (0x07800000)
-#define SYSCTL_RCC_R_ACG            (0x08000000)
+/*--------*/
+#define SYSCTL_RCC_R_MOSCDIS_MASK    ((uint32_t)0x00000001)
+#define SYSCTL_RCC_R_MOSCDIS_BIT     (0)
+#define SYSCTL_RCC_R_MOSCDIS_EN      ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_MOSCDIS_DIS     ((uint32_t)0x00000001)
 
-#define SYSCTL_RCC_MOSCDIS_BITBANDING   (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(0*4))))
-#define SYSCTL_RCC_BYPASS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(11*4))))
-#define SYSCTL_RCC_PWRDN_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(13*4))))
-#define SYSCTL_RCC_USEPWMDIV_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(20*4))))
-#define SYSCTL_RCC_USESYSDIV_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(22*4))))
-#define SYSCTL_RCC_ACG_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(27*4))))
+#define SYSCTL_RCC_MOSCDIS_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC_MOSCDIS_EN        ((uint32_t)0x00000000)
+#define SYSCTL_RCC_MOSCDIS_DIS       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_OSCSRC_MASK    ((uint32_t)0x00000030)
+#define SYSCTL_RCC_R_OSCSRC_BIT     (4)
+#define SYSCTL_RCC_R_OSCSRC_MOSC    ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_OSCSRC_PIOSC   ((uint32_t)0x00000010)
+#define SYSCTL_RCC_R_OSCSRC_PIOSC4  ((uint32_t)0x00000020)
+#define SYSCTL_RCC_R_OSCSRC_LFIOSC  ((uint32_t)0x00000030)
+
+#define SYSCTL_RCC_OSCSRC_MASK      ((uint32_t)0x00000003)
+#define SYSCTL_RCC_OSCSRC_MOSC      ((uint32_t)0x00000000)
+#define SYSCTL_RCC_OSCSRC_PIOSC     ((uint32_t)0x00000001)
+#define SYSCTL_RCC_OSCSRC_PIOSC4    ((uint32_t)0x00000002)
+#define SYSCTL_RCC_OSCSRC_LFIOSC    ((uint32_t)0x00000003)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_XTAL_MASK      ((uint32_t)0x000007C0)
+#define SYSCTL_RCC_R_XTAL_BIT       (6)
+#define SYSCTL_RCC_R_XTAL_4MHZ      ((uint32_t)0x00000180)
+#define SYSCTL_RCC_R_XTAL_4_096MHZ  ((uint32_t)0x000001C0)
+#define SYSCTL_RCC_R_XTAL_4_9152MHZ ((uint32_t)0x00000200)
+#define SYSCTL_RCC_R_XTAL_5MHZ      ((uint32_t)0x00000240)
+#define SYSCTL_RCC_R_XTAL_5_12MHZ   ((uint32_t)0x00000280)
+#define SYSCTL_RCC_R_XTAL_6MHZ      ((uint32_t)0x000002C0)
+#define SYSCTL_RCC_R_XTAL_6_144MHZ  ((uint32_t)0x00000300)
+#define SYSCTL_RCC_R_XTAL_7_3728MHZ ((uint32_t)0x00000340)
+#define SYSCTL_RCC_R_XTAL_8MHZ      ((uint32_t)0x00000380)
+#define SYSCTL_RCC_R_XTAL_8_192MHZ  ((uint32_t)0x000003C0)
+#define SYSCTL_RCC_R_XTAL_10MHZ     ((uint32_t)0x00000400)
+#define SYSCTL_RCC_R_XTAL_12MHZ     ((uint32_t)0x00000440)
+#define SYSCTL_RCC_R_XTAL_12_288MHZ ((uint32_t)0x00000480)
+#define SYSCTL_RCC_R_XTAL_13_56MHZ  ((uint32_t)0x000004C0)
+#define SYSCTL_RCC_R_XTAL_14_31818MHZ     ((uint32_t)0x00000500)
+#define SYSCTL_RCC_R_XTAL_16MHZ     ((uint32_t)0x00000540)
+#define SYSCTL_RCC_R_XTAL_16_384MHZ ((uint32_t)0x00000580)
+#define SYSCTL_RCC_R_XTAL_18MHZ     ((uint32_t)0x000005C0)
+#define SYSCTL_RCC_R_XTAL_20MHZ     ((uint32_t)0x00000600)
+#define SYSCTL_RCC_R_XTAL_24MHZ     ((uint32_t)0x00000640)
+#define SYSCTL_RCC_R_XTAL_25MHZ     ((uint32_t)0x00000680)
+
+#define SYSCTL_RCC_XTAL_MASK      ((uint32_t)0x0000001F)
+#define SYSCTL_RCC_XTAL_4MHZ      ((uint32_t)0x00000006)
+#define SYSCTL_RCC_XTAL_4_096MHZ  ((uint32_t)0x00000007)
+#define SYSCTL_RCC_XTAL_4_9152MHZ ((uint32_t)0x00000008)
+#define SYSCTL_RCC_XTAL_5MHZ      ((uint32_t)0x00000009)
+#define SYSCTL_RCC_XTAL_5_12MHZ   ((uint32_t)0x0000000A)
+#define SYSCTL_RCC_XTAL_6MHZ      ((uint32_t)0x0000000B)
+#define SYSCTL_RCC_XTAL_6_144MHZ  ((uint32_t)0x0000000C)
+#define SYSCTL_RCC_XTAL_7_3728MHZ ((uint32_t)0x0000000D)
+#define SYSCTL_RCC_XTAL_8MHZ      ((uint32_t)0x0000000E)
+#define SYSCTL_RCC_XTAL_8_192MHZ  ((uint32_t)0x0000000F)
+#define SYSCTL_RCC_XTAL_10MHZ     ((uint32_t)0x00000010)
+#define SYSCTL_RCC_XTAL_12MHZ     ((uint32_t)0x00000011)
+#define SYSCTL_RCC_XTAL_12_288MHZ ((uint32_t)0x00000012)
+#define SYSCTL_RCC_XTAL_13_56MHZ  ((uint32_t)0x00000013)
+#define SYSCTL_RCC_XTAL_14_31818MHZ     ((uint32_t)0x00000014)
+#define SYSCTL_RCC_XTAL_16MHZ     ((uint32_t)0x00000015)
+#define SYSCTL_RCC_XTAL_16_384MHZ ((uint32_t)0x00000016)
+#define SYSCTL_RCC_XTAL_18MHZ     ((uint32_t)0x00000017)
+#define SYSCTL_RCC_XTAL_20MHZ     ((uint32_t)0x00000018)
+#define SYSCTL_RCC_XTAL_24MHZ     ((uint32_t)0x00000019)
+#define SYSCTL_RCC_XTAL_25MHZ     ((uint32_t)0x0000001A)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_BYPASS_MASK    ((uint32_t)0x00000800)
+#define SYSCTL_RCC_R_BYPASS_BIT     (11)
+#define SYSCTL_RCC_R_BYPASS_PLL     ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_BYPASS_OSC     ((uint32_t)0x00000800)
+
+#define SYSCTL_RCC_BYPASS_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC_BYPASS_PLL       ((uint32_t)0x00000000)
+#define SYSCTL_RCC_BYPASS_OSC       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_PWRDN_MASK    ((uint32_t)0x00002000)
+#define SYSCTL_RCC_R_PWRDN_BIT     (13)
+#define SYSCTL_RCC_R_PWRDN_ON      ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_PWRDN_DOWN    ((uint32_t)0x00002000)
+
+#define SYSCTL_RCC_PWRDN_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC_PWRDN_ON        ((uint32_t)0x00000000)
+#define SYSCTL_RCC_PWRDN_DOWN      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_PWMDIV_MASK    ((uint32_t)0x000E0000)
+#define SYSCTL_RCC_R_PWMDIV_BIT     (17)
+#define SYSCTL_RCC_R_PWMDIV_2       ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_PWMDIV_4       ((uint32_t)0x00020000)
+#define SYSCTL_RCC_R_PWMDIV_8       ((uint32_t)0x00040000)
+#define SYSCTL_RCC_R_PWMDIV_16      ((uint32_t)0x00060000)
+#define SYSCTL_RCC_R_PWMDIV_32      ((uint32_t)0x00080000)
+#define SYSCTL_RCC_R_PWMDIV_64      ((uint32_t)0x000E0000)
+
+#define SYSCTL_RCC_PWMDIV_MASK      ((uint32_t)0x00000007)
+#define SYSCTL_RCC_PWMDIV_2         ((uint32_t)0x00000000)
+#define SYSCTL_RCC_PWMDIV_4         ((uint32_t)0x00000001)
+#define SYSCTL_RCC_PWMDIV_8         ((uint32_t)0x00000002)
+#define SYSCTL_RCC_PWMDIV_16        ((uint32_t)0x00000003)
+#define SYSCTL_RCC_PWMDIV_32        ((uint32_t)0x00000004)
+#define SYSCTL_RCC_PWMDIV_64        ((uint32_t)0x00000007)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_USEPWMDIV_MASK    ((uint32_t)0x00100000)
+#define SYSCTL_RCC_R_USEPWMDIV_BIT     (20)
+#define SYSCTL_RCC_R_USEPWMDIV_SYSCLK  ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_USEPWMDIV_PWMDIV  ((uint32_t)0x00100000)
+
+#define SYSCTL_RCC_USEPWMDIV_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC_USEPWMDIV_SYSCLK    ((uint32_t)0x00000000)
+#define SYSCTL_RCC_USEPWMDIV_PWMDIV    ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_USESYSDIV_MASK    ((uint32_t)0x00400000)
+#define SYSCTL_RCC_R_USESYSDIV_BIT     (22)
+#define SYSCTL_RCC_R_USESYSDIV_SYSCLK  ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_USESYSDIV_SYSDIV  ((uint32_t)0x00400000)
+
+#define SYSCTL_RCC_USESYSDIV_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC_USESYSDIV_SYSCLK    ((uint32_t)0x00000000)
+#define SYSCTL_RCC_USESYSDIV_SYSDIV    ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC_R_SYSDIV_MASK    ((uint32_t)0x07800000)
+#define SYSCTL_RCC_R_SYSDIV_BIT     (23)
+
+#define SYSCTL_RCC_SYSDIV_MASK      ((uint32_t)0x0000000F)
+/*--------*/
 
 
+/*--------*/
+#define SYSCTL_RCC_R_ACG_MASK    ((uint32_t)0x08000000)
+#define SYSCTL_RCC_R_ACG_BIT     (27)
+#define SYSCTL_RCC_R_ACG_RCGCn  ((uint32_t)0x00000000)
+#define SYSCTL_RCC_R_ACG_SCGCn  ((uint32_t)0x08000000)
 
+#define SYSCTL_RCC_ACG_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC_ACG_RCGCn    ((uint32_t)0x00000000)
+#define SYSCTL_RCC_ACG_SCGCn    ((uint32_t)0x00000001)
+/*--------*/
 
-******************************************************************************************
+#define SYSCTL_RCC_MOSCDIS_BITBANDING   (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_MOSCDIS_BIT*4))))
+#define SYSCTL_RCC_BYPASS_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_BYPASS_BIT*4))))
+#define SYSCTL_RCC_PWRDN_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_PWRDN_BIT*4))))
+#define SYSCTL_RCC_USEPWMDIV_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_USEPWMDIV_BIT*4))))
+#define SYSCTL_RCC_USESYSDIV_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_USESYSDIV_BIT*4))))
+#define SYSCTL_RCC_ACG_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_ACG_BIT*4))))
+
+/******************************************************************************************
 ************************************ 9 GPIOHBCTL *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t PORTA        :1;
-volatile uint32_t PORTB        :1;
-volatile uint32_t PORTC        :1;
-volatile uint32_t PORTD        :1;
-volatile uint32_t PORTE        :1;
-volatile uint32_t PORTF        :1;
-volatile uint32_t res          :26;
-}GPIOHBCTL_t;
-
-
-#define SYSCTL_GPIOHBCTL_OFFSET     (0x006C)
-#define SYSCTL_GPIOHBCTL            (((GPIOHBCTL_t*)(SYSCTL_BASE+SYSCTL_GPIOHBCTL_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_GPIOHBCTL            (((GPIOHBCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_GPIOHBCTL_OFFSET )))
 #define SYSCTL_GPIOHBCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_GPIOHBCTL_OFFSET)))
 
-#define SYSCTL_GPIOHBCTL_R_PORTA   (0x00000001)
-#define SYSCTL_GPIOHBCTL_R_PORTB   (0x00000002)
-#define SYSCTL_GPIOHBCTL_R_PORTC   (0x00000004)
-#define SYSCTL_GPIOHBCTL_R_PORTD   (0x00000008)
-#define SYSCTL_GPIOHBCTL_R_PORTE   (0x00000010)
-#define SYSCTL_GPIOHBCTL_R_PORTF   (0x00000020)
+/*--------*/
+#define SYSCTL_GPIOHBCTL_R_PORTA_MASK    ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_R_PORTA_BIT     (0)
+#define SYSCTL_GPIOHBCTL_R_PORTA_APB      ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_R_PORTA_AHB     ((uint32_t)0x00000001)
+
+#define SYSCTL_GPIOHBCTL_PORTA_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_PORTA_APB        ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_PORTA_AHB       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_GPIOHBCTL_R_PORTB_MASK    ((uint32_t)0x00000002)
+#define SYSCTL_GPIOHBCTL_R_PORTB_BIT     (1)
+#define SYSCTL_GPIOHBCTL_R_PORTB_APB      ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_R_PORTB_AHB     ((uint32_t)0x00000002)
+
+#define SYSCTL_GPIOHBCTL_PORTB_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_PORTB_APB        ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_PORTB_AHB       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_GPIOHBCTL_R_PORTC_MASK    ((uint32_t)0x00000004)
+#define SYSCTL_GPIOHBCTL_R_PORTC_BIT     (2)
+#define SYSCTL_GPIOHBCTL_R_PORTC_APB      ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_R_PORTC_AHB     ((uint32_t)0x00000004)
+
+#define SYSCTL_GPIOHBCTL_PORTC_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_PORTC_APB        ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_PORTC_AHB       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_GPIOHBCTL_R_PORTD_MASK    ((uint32_t)0x00000008)
+#define SYSCTL_GPIOHBCTL_R_PORTD_BIT     (3)
+#define SYSCTL_GPIOHBCTL_R_PORTD_APB      ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_R_PORTD_AHB     ((uint32_t)0x00000008)
+
+#define SYSCTL_GPIOHBCTL_PORTD_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_PORTD_APB        ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_PORTD_AHB       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_GPIOHBCTL_R_PORTE_MASK    ((uint32_t)0x00000010)
+#define SYSCTL_GPIOHBCTL_R_PORTE_BIT     (4)
+#define SYSCTL_GPIOHBCTL_R_PORTE_APB      ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_R_PORTE_AHB     ((uint32_t)0x00000010)
+
+#define SYSCTL_GPIOHBCTL_PORTE_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_PORTE_APB        ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_PORTE_AHB       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_GPIOHBCTL_R_PORTF_MASK    ((uint32_t)0x00000020)
+#define SYSCTL_GPIOHBCTL_R_PORTF_BIT     (5)
+#define SYSCTL_GPIOHBCTL_R_PORTF_APB      ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_R_PORTF_AHB     ((uint32_t)0x00000020)
+
+#define SYSCTL_GPIOHBCTL_PORTF_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_GPIOHBCTL_PORTF_APB        ((uint32_t)0x00000000)
+#define SYSCTL_GPIOHBCTL_PORTF_AHB       ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_GPIOHBCTL_PORTA_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTA_BIT*4))))
+#define SYSCTL_GPIOHBCTL_PORTB_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTB_BIT*4))))
+#define SYSCTL_GPIOHBCTL_PORTC_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTC_BIT*4))))
+#define SYSCTL_GPIOHBCTL_PORTD_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTD_BIT*4))))
+#define SYSCTL_GPIOHBCTL_PORTE_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTE_BIT*4))))
+#define SYSCTL_GPIOHBCTL_PORTF_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTF_BIT*4))))
 
 
-#define SYSCTL_GPIOHBCTL_PORTA_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(0*4))))
-#define SYSCTL_GPIOHBCTL_PORTB_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(1*4))))
-#define SYSCTL_GPIOHBCTL_PORTC_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(2*4))))
-#define SYSCTL_GPIOHBCTL_PORTD_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(3*4))))
-#define SYSCTL_GPIOHBCTL_PORTE_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(4*4))))
-#define SYSCTL_GPIOHBCTL_PORTF_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(5*4))))
 
-
-
-******************************************************************************************
+/******************************************************************************************
 ************************************ 10 RCC2 *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t res          :4;
-volatile uint32_t OSCSRC2      :3;
-volatile uint32_t res2         :4;
-volatile uint32_t BYPASS2      :1;
-volatile uint32_t res3         :1;
-volatile uint32_t PWRDN2       :1;
-volatile uint32_t USBPWRDN     :1;
-volatile uint32_t res4         :7;
-volatile uint32_t SYSDIV2LSB   :1;
-volatile uint32_t SYSDIV2      :6;
-volatile uint32_t res5         :1;
-volatile uint32_t DIV400       :1;
-volatile uint32_t USERCC2       :1;
-}RCC2_t;
-
-
-#define SYSCTL_RCC2_OFFSET     (0x0070)
-#define SYSCTL_RCC2            (((RCC2_t*)(SYSCTL_BASE+SYSCTL_RCC2_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_RCC2            (((RCC2_TypeDef*)(SYSCTL_BASE+SYSCTL_RCC2_OFFSET )))
 #define SYSCTL_RCC2_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCC2_OFFSET)))
 
-#define SYSCTL_RCC2_R_OSCSRC2       (0x00000070)
-#define SYSCTL_RCC2_R_BYPASS2       (0x00000800)
-#define SYSCTL_RCC2_R_PWRDN2        (0x00002000)
-#define SYSCTL_RCC2_R_USBPWRDN      (0x00004000)
-#define SYSCTL_RCC2_R_SYSDIV2LSB    (0x00400000)
-#define SYSCTL_RCC2_R_SYSDIV2_MASK    (0x1F800000)
-#define SYSCTL_RCC2_R_DIV400        (0x40000000)
-#define SYSCTL_RCC2_R_USERCC2       (0x80000000)
 
-#define SYSCTL_RCC2_BYPASS2_BITBANDING   (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(11*4))))
-#define SYSCTL_RCC2_PWRDN2_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_RCC2_USBPWRDN_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(14*4))))
-#define SYSCTL_RCC2_SYSDIV2LSB_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(22*4))))
-#define SYSCTL_RCC2_DIV400_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(30*4))))
-#define SYSCTL_RCC2_USERCC2_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(31*4))))
+/*--------*/
+#define SYSCTL_RCC2_R_OSCSRC2_MASK    ((uint32_t)0x00000070)
+#define SYSCTL_RCC2_R_OSCSRC2_BIT     (4)
+#define SYSCTL_RCC2_R_OSCSRC2_MOSC    ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_OSCSRC2_PIOSC   ((uint32_t)0x00000010)
+#define SYSCTL_RCC2_R_OSCSRC2_PIOSC4  ((uint32_t)0x00000020)
+#define SYSCTL_RCC2_R_OSCSRC2_LFIOSC  ((uint32_t)0x00000030)
+#define SYSCTL_RCC2_R_OSCSRC2_32_768KHZ  ((uint32_t)0x00000070)
+
+#define SYSCTL_RCC2_OSCSRC2_MASK      ((uint32_t)0x00000007)
+#define SYSCTL_RCC2_OSCSRC2_MOSC      ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_OSCSRC2_PIOSC     ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_OSCSRC2_PIOSC4    ((uint32_t)0x00000002)
+#define SYSCTL_RCC2_OSCSRC2_LFIOSC    ((uint32_t)0x00000003)
+#define SYSCTL_RCC2_OSCSRC2_32_768KHZ    ((uint32_t)0x00000007)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_BYPASS2_MASK    ((uint32_t)0x00000800)
+#define SYSCTL_RCC2_R_BYPASS2_BIT     (11)
+#define SYSCTL_RCC2_R_BYPASS2_PLL     ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_BYPASS2_OSC     ((uint32_t)0x00000800)
+
+#define SYSCTL_RCC2_BYPASS2_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_BYPASS2_PLL       ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_BYPASS2_OSC       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_PWRDN2_MASK    ((uint32_t)0x00002000)
+#define SYSCTL_RCC2_R_PWRDN2_BIT     (13)
+#define SYSCTL_RCC2_R_PWRDN2_ON      ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_PWRDN2_DOWN    ((uint32_t)0x00002000)
+
+#define SYSCTL_RCC2_PWRDN2_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_PWRDN2_ON        ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_PWRDN2_DOWN      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_USBPWRDN_MASK    ((uint32_t)0x00004000)
+#define SYSCTL_RCC2_R_USBPWRDN_BIT     (14)
+#define SYSCTL_RCC2_R_USBPWRDN_ON      ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_USBPWRDN_DOWN    ((uint32_t)0x00004000)
+
+#define SYSCTL_RCC2_USBPWRDN_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_USBPWRDN_ON        ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_USBPWRDN_DOWN      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_SYSDIV2LSB_MASK    ((uint32_t)0x00400000)
+#define SYSCTL_RCC2_R_SYSDIV2LSB_BIT     (22)
+#define SYSCTL_RCC2_R_SYSDIV2LSB_CLEAR   ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_SYSDIV2LSB_SET     ((uint32_t)0x00400000)
+
+#define SYSCTL_RCC2_SYSDIV2LSB_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_SYSDIV2LSB_CLEAR     ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_SYSDIV2LSB_SET       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_SYSDIV2_MASK    ((uint32_t)0x1F800000)
+#define SYSCTL_RCC2_R_SYSDIV2_BIT     (23)
+
+#define SYSCTL_RCC2_SYSDIV2_MASK      ((uint32_t)0x0000003F)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_DIV400_MASK    ((uint32_t)0x40000000)
+#define SYSCTL_RCC2_R_DIV400_BIT     (30)
+#define SYSCTL_RCC2_R_DIV400_200MHZ  ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_DIV400_400MHZ  ((uint32_t)0x40000000)
+
+#define SYSCTL_RCC2_DIV400_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_DIV400_200MHZ    ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_DIV400_400MHZ    ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_RCC2_R_USERCC2_MASK    ((uint32_t)0x80000000)
+#define SYSCTL_RCC2_R_USERCC2_BIT     (31)
+#define SYSCTL_RCC2_R_USERCC2_RCC     ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_R_USERCC2_RCC2    ((uint32_t)0x80000000)
+
+#define SYSCTL_RCC2_USERCC2_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RCC2_USERCC2_RCC       ((uint32_t)0x00000000)
+#define SYSCTL_RCC2_USERCC2_RCC2      ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_RCC2_BYPASS2_BITBANDING   (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_BYPASS2_BIT*4))))
+#define SYSCTL_RCC2_PWRDN2_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_PWRDN2_BIT*4))))
+#define SYSCTL_RCC2_USBPWRDN_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_USBPWRDN_BIT*4))))
+#define SYSCTL_RCC2_SYSDIV2LSB_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_SYSDIV2LSB_BIT*4))))
+#define SYSCTL_RCC2_DIV400_BITBANDING (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_DIV400_BIT*4))))
+#define SYSCTL_RCC2_USERCC2_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_USERCC2_BIT*4))))
 
 
-******************************************************************************************
+/******************************************************************************************
 ************************************ 11 MOSCCTL *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t CVAL         :1;
-volatile uint32_t MOSCIM       :1;
-volatile uint32_t NOXTAL       :1;
-volatile uint32_t res          :29;
-}MOSCCTL_t;
-
-
-#define SYSCTL_MOSCCTL_OFFSET     (0x007C)
-#define SYSCTL_MOSCCTL            (((MOSCCTL_t*)(SYSCTL_BASE+SYSCTL_MOSCCTL_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_MOSCCTL            (((MOSCCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_MOSCCTL_OFFSET )))
 #define SYSCTL_MOSCCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_MOSCCTL_OFFSET)))
 
-#define SYSCTL_MOSCCTL_R_CVAL     (0x00000001)
-#define SYSCTL_MOSCCTL_R_MOSCIM   (0x00000002)
-#define SYSCTL_MOSCCTL_R_NOXTAL   (0x00000004)
+/*--------*/
+#define SYSCTL_MOSCCTL_R_CVAL_MASK    ((uint32_t)0x00000001)
+#define SYSCTL_MOSCCTL_R_CVAL_BIT     (0)
+#define SYSCTL_MOSCCTL_R_CVAL_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_MOSCCTL_R_CVAL_EN      ((uint32_t)0x00000001)
 
-#define SYSCTL_MOSCCTL_CVAL_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(0*4))))
-#define SYSCTL_MOSCCTL_MOSCIM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(1*4))))
-#define SYSCTL_MOSCCTL_NOXTAL_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(2*4))))
+#define SYSCTL_MOSCCTL_CVAL_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_MOSCCTL_CVAL_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_MOSCCTL_CVAL_EN        ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_MOSCCTL_R_MOSCIM_MASK    ((uint32_t)0x00000002)
+#define SYSCTL_MOSCCTL_R_MOSCIM_BIT     (1)
+#define SYSCTL_MOSCCTL_R_MOSCIM_RESET   ((uint32_t)0x00000000)
+#define SYSCTL_MOSCCTL_R_MOSCIM_INT     ((uint32_t)0x00000002)
+
+#define SYSCTL_MOSCCTL_MOSCIM_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_MOSCCTL_MOSCIM_RESET     ((uint32_t)0x00000000)
+#define SYSCTL_MOSCCTL_MOSCIM_INT       ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_MOSCCTL_R_NOXTAL_MASK        ((uint32_t)0x00000004)
+#define SYSCTL_MOSCCTL_R_NOXTAL_BIT         (2)
+#define SYSCTL_MOSCCTL_R_NOXTAL_PRESENT     ((uint32_t)0x00000000)
+#define SYSCTL_MOSCCTL_R_NOXTAL_NOPRESENT   ((uint32_t)0x00000004)
+
+#define SYSCTL_MOSCCTL_NOXTAL_MASK          ((uint32_t)0x00000001)
+#define SYSCTL_MOSCCTL_NOXTAL_PRESENT       ((uint32_t)0x00000000)
+#define SYSCTL_MOSCCTL_NOXTAL_NOPRESENT     ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_MOSCCTL_CVAL_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_CVAL_BIT*4))))
+#define SYSCTL_MOSCCTL_MOSCIM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_MOSCIM_BIT*4))))
+#define SYSCTL_MOSCCTL_NOXTAL_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_NOXTAL_BIT*4))))
 
 
-
-
-******************************************************************************************
+/******************************************************************************************
 ************************************12 DSLPCLKCFG *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t res         :1;
-volatile uint32_t PIOSCPD     :1;
-volatile uint32_t res2        :2;
-volatile uint32_t DSOSCSRC    :3;
-volatile uint32_t re3         :16;
-volatile uint32_t DSDIVORIDE  :6;
-volatile uint32_t re4         :3;
-}DSLPCLKCFG_t;
-
-
-#define SYSCTL_DSLPCLKCFG_OFFSET     (0x0144)
-#define SYSCTL_DSLPCLKCFG            (((DSLPCLKCFG_t*)(SYSCTL_BASE+SYSCTL_DSLPCLKCFG_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_DSLPCLKCFG            (((DSLPCLKCFG_TypeDef*)(SYSCTL_BASE+SYSCTL_DSLPCLKCFG_OFFSET )))
 #define SYSCTL_DSLPCLKCFG_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DSLPCLKCFG_OFFSET)))
 
-#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_MASK    (0x00000002)
-#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_MASK   (0x00000070)
-#define SYSCTL_DSLPCLKCFG_R_DSDIVORIDE_MASK (0x1F800000)
+/*--------*/
+#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_MASK    ((uint32_t)0x00000002)
+#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_BIT     (1)
+#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_NOACTION ((uint32_t)0x00000000)
+#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_DOWN    ((uint32_t)0x00000002)
+
+#define SYSCTL_DSLPCLKCFG_PIOSCPD_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_DSLPCLKCFG_PIOSCPD_NOACTION  ((uint32_t)0x00000000)
+#define SYSCTL_DSLPCLKCFG_PIOSCPD_DOWN      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_MASK    ((uint32_t)0x00000070)
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_BIT     (4)
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_MOSC    ((uint32_t)0x00000000)
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_PIOSC   ((uint32_t)0x00000010)
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_LFIOSC  ((uint32_t)0x00000030)
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_32_768KHZ  ((uint32_t)0x00000070)
+
+#define SYSCTL_DSLPCLKCFG_DSOSCSRC_MASK         ((uint32_t)0x00000007)
+#define SYSCTL_DSLPCLKCFG_DSOSCSRC_MOSC         ((uint32_t)0x00000000)
+#define SYSCTL_DSLPCLKCFG_DSOSCSRC_PIOSC        ((uint32_t)0x00000001)
+#define SYSCTL_DSLPCLKCFG_DSOSCSRC_LFIOSC       ((uint32_t)0x00000003)
+#define SYSCTL_DSLPCLKCFG_DSOSCSRC_32_768KHZ    ((uint32_t)0x00000007)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_DSLPCLKCFG_R_DSDIVORIDE_MASK    ((uint32_t)0x1F800000)
+#define SYSCTL_DSLPCLKCFG_R_DSDIVORIDE_BIT     (23)
+
+#define SYSCTL_DSLPCLKCFG_DSDIVORIDE_MASK      ((uint32_t)0x0000003F)
+/*--------*/
+
+#define SYSCTL_DSLPCLKCFG_PIOSCPD_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_DSLPCLKCFG_OFFSET)*32)+(SYSCTL_DSLPCLKCFG_R_PIOSCPD_BIT*4))))
 
 
-******************************************************************************************
+/******************************************************************************************
 ************************************13 SYSPROP *********************************************
-******************************************************************************************
+******************************************************************************************/
+#define SYSCTL_SYSPROP            (((SYSPROP_TypeDef*)(SYSCTL_BASE+SYSCTL_SYSPROP_OFFSET )))
+#define SYSCTL_SYSPROP_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SYSPROP_OFFSET)))
+
+/*--------*/
+#define SYSCTL_SYSPROP_R_FPU_MASK       ((uint32_t)0x00000001)
+#define SYSCTL_SYSPROP_R_FPU_BIT        (0)
+#define SYSCTL_SYSPROP_R_FPU_NOPRESENT  ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_R_FPU_PRESENT    ((uint32_t)0x00000001)
+
+#define SYSCTL_SYSPROP_FPU_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_SYSPROP_FPU_NOPRESENT    ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_FPU_PRESENT      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_SYSPROP_R_FLASHLPM_MASK       ((uint32_t)0x00000100)
+#define SYSCTL_SYSPROP_R_FLASHLPM_BIT        (8)
+#define SYSCTL_SYSPROP_R_FLASHLPM_NOPRESENT  ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_R_FLASHLPM_PRESENT    ((uint32_t)0x00000100)
+
+#define SYSCTL_SYSPROP_FLASHLPM_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_SYSPROP_FLASHLPM_NOPRESENT    ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_FLASHLPM_PRESENT      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_SYSPROP_R_SRAMLPM_MASK       ((uint32_t)0x00000400)
+#define SYSCTL_SYSPROP_R_SRAMLPM_BIT        (10)
+#define SYSCTL_SYSPROP_R_SRAMLPM_NOPRESENT  ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_R_SRAMLPM_PRESENT    ((uint32_t)0x00000400)
+
+#define SYSCTL_SYSPROP_SRAMLPM_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_SYSPROP_SRAMLPM_NOPRESENT    ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_SRAMLPM_PRESENT      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_SYSPROP_R_SRAMSM_MASK       ((uint32_t)0x00000800)
+#define SYSCTL_SYSPROP_R_SRAMSM_BIT        (11)
+#define SYSCTL_SYSPROP_R_SRAMSM_NOPRESENT  ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_R_SRAMSM_PRESENT    ((uint32_t)0x00000800)
+
+#define SYSCTL_SYSPROP_SRAMSM_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_SYSPROP_SRAMSM_NOPRESENT    ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_SRAMSM_PRESENT      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_SYSPROP_R_PIOSCPDE_MASK       ((uint32_t)0x00001000)
+#define SYSCTL_SYSPROP_R_PIOSCPDE_BIT        (12)
+#define SYSCTL_SYSPROP_R_PIOSCPDE_NOPRESENT  ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_R_PIOSCPDE_PRESENT    ((uint32_t)0x00001000)
+
+#define SYSCTL_SYSPROP_PIOSCPDE_MASK         ((uint32_t)0x00000001)
+#define SYSCTL_SYSPROP_PIOSCPDE_NOPRESENT    ((uint32_t)0x00000000)
+#define SYSCTL_SYSPROP_PIOSCPDE_PRESENT      ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_SYSPROP_FPU_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_FPU_BIT*4))))
+#define SYSCTL_SYSPROP_FLASHLPM_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_FLASHLPM_BIT*4))))
+#define SYSCTL_SYSPROP_SRAMLPM_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_SRAMLPM_BIT*4))))
+#define SYSCTL_SYSPROP_SRAMSM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_SRAMSM_BIT*4))))
+#define SYSCTL_SYSPROP_PIOSCPDE_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_PIOSCPDE_BIT*4))))
 
 
-typedef volatile struct
-{
-volatile uint32_t FPU_PROP    :1;
-volatile uint32_t res         :7;
-volatile uint32_t FLASHLPM    :1;
-volatile uint32_t res1        :1;
-volatile uint32_t SRAMLPM     :1;
-volatile uint32_t SRAMSM      :1;
-volatile uint32_t PIOSCPDE    :1;
-volatile uint32_t res2        :19;
-}SYSPROP_t;
-
-
-#define SYSCTL_SYSPROP_OFFSET     (0x014C)
-#define SYSCTL_SYSPROP            (((SYSPROP_t*)(SYSCTL_BASE+SYSCTL_SYSPROP_OFFSET )))
-#define SYSCTL_SYSPROP_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SYSPROP_OFFSET)))
-
-#define SYSCTL_SYSPROP_R_FPU        (0x00000001)
-#define SYSCTL_SYSPROP_R_FLASHLPM   (0x00000100)
-#define SYSCTL_SYSPROP_R_SRAMLPM    (0x00000400)
-#define SYSCTL_SYSPROP_R_SRAMSM     (0x00000800)
-#define SYSCTL_SYSPROP_R_PIOSCPDE   (0x00001000)
-
-
-#define SYSCTL_SYSPROP_FPU_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(0*4))))
-#define SYSCTL_SYSPROP_FLASHLPM_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(8*4))))
-#define SYSCTL_SYSPROP_SRAMLPM_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(10*4))))
-#define SYSCTL_SYSPROP_SRAMSM_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(11*4))))
-#define SYSCTL_SYSPROP_PIOSCPDE_BITBANDING    (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(12*4))))
-
-
-******************************************************************************************
+/******************************************************************************************
 ************************************14 PIOSCCAL *********************************************
-******************************************************************************************
-
-
-typedef volatile struct
-{
-volatile uint32_t UT          :7;
-volatile uint32_t res         :1;
-volatile uint32_t UPDATE      :1;
-volatile uint32_t CAL         :1;
-volatile uint32_t res2        :21;
-volatile uint32_t UTEN        :1;
-}PIOSCCAL_t;
-
-
-#define SYSCTL_PIOSCCAL_OFFSET     (0x014C)
-#define SYSCTL_PIOSCCAL            (((PIOSCCAL_t*)(SYSCTL_BASE+SYSCTL_PIOSCCAL_OFFSET )))
+******************************************************************************************/
+#define SYSCTL_PIOSCCAL            (((PIOSCCAL_TypeDef*)(SYSCTL_BASE+SYSCTL_PIOSCCAL_OFFSET )))
 #define SYSCTL_PIOSCCAL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PIOSCCAL_OFFSET)))
 
 #define SYSCTL_PIOSCCA_R_UT_MASK    (0x0000007F)
