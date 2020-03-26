@@ -20,6 +20,7 @@ void main(void)
     FPU__vInit();
     SCB__vInit();
     MPU__vInit();
+    SYSCTL__enInit();
     SysTick__enInitUs(10,SCB_enSHPR0);
 
     memalloc =memalign(16,1000);
@@ -30,6 +31,6 @@ void main(void)
     }
     while(1)
     {
-        SysTick__vDelayUs(6250);
+        SysTick__vDelayUs(12500);
     }
 }

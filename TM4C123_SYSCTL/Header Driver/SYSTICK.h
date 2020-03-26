@@ -10,7 +10,7 @@
 
 #include <stdint.h>                             /* standard types definitions                      */
 #include "SCB.h"
-//#include "RCC.h" //ToDo uncomment when RCC was implemented
+#include "SYSCTL.h"
 
 #define SysTick_BASE            ((uint32_t)0xE000E000)
 #define SysTick_VALUEMAX        ((uint32_t)0xFFFFFF)

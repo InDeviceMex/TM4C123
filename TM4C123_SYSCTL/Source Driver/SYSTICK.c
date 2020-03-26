@@ -33,7 +33,7 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
     }
     else
     {
-        u32SysTickFrequency=SysTick_PIOSC;//RCC_GetSysClockFreq();
+        u32SysTickFrequency=SYSCTL__u32GetClock();
     }
 
     if(u32Tick >40 )
@@ -84,7 +84,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
 
     SysTick_CSR_R=0;
     SysTick_CSR->CLKSOURCE=(uint8_t)SysTick_enSYSCLK;
-    u32SysTickFrequency=SysTick_PIOSC;//RCC_GetSysClockFreq();
+    u32SysTickFrequency=SYSCTL__u32GetClock();
 
     fSysTickFrequency=(float)u32SysTickFrequency;
     fCountTick=fSysTickFrequency/fFrequency;
@@ -155,7 +155,7 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
 
     SysTick_CSR_R=0;
     SysTick_CSR->CLKSOURCE=(uint8_t)SysTick_enSYSCLK;
-    u32SysTickFrequency=SysTick_PIOSC;//RCC_GetSysClockFreq();
+    u32SysTickFrequency=SYSCTL__u32GetClock();
 
     fSysTickFrequency=(float)u32SysTickFrequency;
     fSysTickFrequency/=1000000.0;
