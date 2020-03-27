@@ -38,40 +38,6 @@ typedef volatile struct
     volatile const uint32_t VER       :4;
 }DID1_TypeDef;
 
-
-typedef volatile struct
-{
-    volatile const uint32_t FLASHSZ      :16;
-    volatile const uint32_t SRAMSZ       :16;
-}DC0_TypeDef;
-
-
-typedef volatile struct
-{
-    volatile const uint32_t JTAG_      :1;
-    volatile const uint32_t SWD_       :1;
-    volatile const uint32_t SWO_       :1;
-    volatile const uint32_t WDT0_      :1;
-    volatile const uint32_t PLL       :1;
-    volatile const uint32_t TEMPSNS   :1;
-    volatile const uint32_t HIB_       :1;
-    volatile const uint32_t MPU_       :1;
-    volatile const uint32_t MAXADC0SPD:2;
-    volatile const uint32_t MAXADC1SPD:2;
-    volatile const uint32_t MINSYSDIV :4;
-    volatile const uint32_t ADC0_      :1;
-    volatile const uint32_t ADC1_      :1;
-             const uint32_t reserved  :2;
-    volatile const uint32_t PWM0_      :1;
-    volatile const uint32_t PWM1_      :1;
-             const uint32_t reserved1 :2;
-    volatile const uint32_t CAN0_      :1;
-    volatile const uint32_t CAN1_      :1;
-             const uint32_t reserved2 :2;
-    volatile const uint32_t WDT1_      :1;
-            const uint32_t reserved3 :3;
-}DC1_TypeDef;
-
 typedef volatile struct
 {
     const       uint32_t reserved   :1;
@@ -521,6 +487,524 @@ typedef volatile struct
     const    uint32_t reserved  :26;
 }PERIPHERAL_WTIMER_TypeDef;
 
+typedef volatile struct
+{
+    volatile const uint32_t SRAMSZ    :16;
+    volatile const uint32_t FLASHSZ   :16;
+}DC0_TypeDef;//0x00000008
+
+typedef volatile struct
+{
+    volatile const uint32_t DCJTAG      :1;
+    volatile const uint32_t DCSWD       :1;
+    volatile const uint32_t DCSWO       :1;
+    volatile const uint32_t DCWDT0      :1;
+    volatile const uint32_t DCPLL       :1;
+    volatile const uint32_t DCTEMPSNS   :1;
+    volatile const uint32_t DCHIB       :1;
+    volatile const uint32_t DCMPU       :1;
+    volatile const uint32_t DCMAXADC0SPD:2;
+    volatile const uint32_t DCMAXADC1SPD:2;
+    volatile const uint32_t DCMINSYSDIV :4;
+    volatile const uint32_t DCADC0      :1;
+    volatile const uint32_t DCADC1      :1;
+    const    uint32_t       reserved    :2;
+    volatile const uint32_t DCPWM0      :1;
+    volatile const uint32_t DCPWM1      :1;
+    const    uint32_t       reserved1   :2;
+    volatile const uint32_t DCCAN0      :1;
+    volatile const uint32_t DCCAN1      :1;
+    const    uint32_t       reserved2   :2;
+    volatile const uint32_t DCWDT1      :1;
+    const    uint32_t       reserved3   :3;
+}DC1_TypeDef;//0x00000010
+
+typedef volatile struct
+{
+    volatile const uint32_t DCUART0      :1;
+    volatile const uint32_t DCUART1      :1;
+    volatile const uint32_t DCUART2      :1;
+    const    uint32_t       reserved     :1;
+    volatile const uint32_t DCSSI0       :1;
+    volatile const uint32_t DCSSI1       :1;
+    const    uint32_t       reserved1    :2;
+    volatile const uint32_t DCQEI0       :1;
+    volatile const uint32_t DCQEI1       :1;
+    const    uint32_t       reserved2    :2;
+    volatile const uint32_t DCI2C0       :1;
+    volatile const uint32_t DCI2C0HS     :1;
+    volatile const uint32_t DCI2C1       :1;
+    volatile const uint32_t DCI2C1HS     :1;
+    volatile const uint32_t DCTIMER0     :1;
+    volatile const uint32_t DCTIMER1     :1;
+    volatile const uint32_t DCTIMER2     :1;
+    volatile const uint32_t DCTIMER3     :1;
+    const    uint32_t       reserved3    :4;
+    volatile const uint32_t DCCOMP0      :1;
+    volatile const uint32_t DCCOMP1      :1;
+    volatile const uint32_t DCCOMP2      :1;
+    const    uint32_t       reserved4    :1;
+    volatile const uint32_t DCI2S0       :1;
+    const    uint32_t       reserved5    :1;
+    volatile const uint32_t DCEPI0       :1;
+    const    uint32_t       reserved6    :1;
+}DC2_TypeDef;//0x00000014
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCPWM0       :1;
+    volatile const uint32_t DCPWM1       :1;
+    volatile const uint32_t DCPWM2       :1;
+    volatile const uint32_t DCPWM3       :1;
+    volatile const uint32_t DCPWM4       :1;
+    volatile const uint32_t DCPWM5       :1;
+    volatile const uint32_t DCC0MINUS    :1;
+    volatile const uint32_t DCC0PLUS     :1;
+    volatile const uint32_t DCC0O        :1;
+    volatile const uint32_t DCC1MINUS    :1;
+    volatile const uint32_t DCC1PLUS     :1;
+    volatile const uint32_t DCC1O        :1;
+    volatile const uint32_t DCC2MINUS    :1;
+    volatile const uint32_t DCC2PLUS     :1;
+    volatile const uint32_t DCC2O        :1;
+    volatile const uint32_t DCPWMFAULT   :1;
+    volatile const uint32_t DCADC0AIN0   :1;
+    volatile const uint32_t DCADC0AIN1   :1;
+    volatile const uint32_t DCADC0AIN2   :1;
+    volatile const uint32_t DCADC0AIN3   :1;
+    volatile const uint32_t DCADC0AIN4   :1;
+    volatile const uint32_t DCADC0AIN5   :1;
+    volatile const uint32_t DCADC0AIN6   :1;
+    volatile const uint32_t DCADC0AIN7   :1;
+    volatile const uint32_t DCCCP0       :1;
+    volatile const uint32_t DCCCP1       :1;
+    volatile const uint32_t DCCCP2       :1;
+    volatile const uint32_t DCCCP3       :1;
+    volatile const uint32_t DCCCP4       :1;
+    volatile const uint32_t DCCCP5       :1;
+    const    uint32_t       reserved     :1;
+    volatile const uint32_t DCHZ32       :1;
+}DC3_TypeDef;//0x00000018
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCGPIOA      :1;
+    volatile const uint32_t DCGPIOB      :1;
+    volatile const uint32_t DCGPIOC      :1;
+    volatile const uint32_t DCGPIOD      :1;
+    volatile const uint32_t DCGPIOE      :1;
+    volatile const uint32_t DCGPIOF      :1;
+    volatile const uint32_t DCGPIOG      :1;
+    volatile const uint32_t DCGPIOH      :1;
+    volatile const uint32_t DCGPIOJ      :1;
+    const    uint32_t       reserved     :3;
+    volatile const uint32_t DCROM        :1;
+    volatile const uint32_t DCUDMA       :1;
+    volatile const uint32_t DCCCP6       :1;
+    volatile const uint32_t DCCCP7       :1;
+    const    uint32_t       reserved1    :2;
+    volatile const uint32_t DCPICAL      :1;
+    const    uint32_t       reserved2    :5;
+    volatile const uint32_t DCE1588      :1;
+    const    uint32_t       reserved3    :3;
+    volatile const uint32_t DCEMAC0      :1;
+    const    uint32_t       reserved4    :1;
+    volatile const uint32_t DCEPHY0      :1;
+    const    uint32_t       reserved5    :1;
+}DC4_TypeDef;//0x0000001C
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCPWM0      :1;
+    volatile const uint32_t DCPWM1      :1;
+    volatile const uint32_t DCPWM2      :1;
+    volatile const uint32_t DCPWM3      :1;
+    volatile const uint32_t DCPWM4      :1;
+    volatile const uint32_t DCPWM5      :1;
+    volatile const uint32_t DCPWM6      :1;
+    volatile const uint32_t DCPWM7      :1;
+    const    uint32_t       reserved    :12;
+    volatile const uint32_t DCPWMESYNC  :1;
+    volatile const uint32_t DCPWMEFLT   :1;
+    const    uint32_t       reserved1   :2;
+    volatile const uint32_t DCPWMFAULT0 :1;
+    volatile const uint32_t DCPWMFAULT1 :1;
+    volatile const uint32_t DCPWMFAULT2 :1;
+    volatile const uint32_t DCPWMFAULT3 :1;
+    const    uint32_t       reserved2   :4;
+}DC5_TypeDef;//0x00000020
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCUSB0      :2;
+    const    uint32_t       reserved    :2;
+    volatile const uint32_t DCUSB0PHY   :1;
+    const    uint32_t       reserved1   :27;
+}DC6_TypeDef;//0x00000024
+
+typedef volatile struct
+{
+    volatile const uint32_t DCDMACH0        :1;
+    volatile const uint32_t DCDMACH1        :1;
+    volatile const uint32_t DCDMACH2        :1;
+    volatile const uint32_t DCDMACH3        :1;
+    volatile const uint32_t DCDMACH4        :1;
+    volatile const uint32_t DCDMACH5        :1;
+    volatile const uint32_t DCDMACH6        :1;
+    volatile const uint32_t DCDMACH7        :1;
+    volatile const uint32_t DCDMACH8        :1;
+    volatile const uint32_t DCDMACH9        :1;
+    volatile const uint32_t DCDMACH10       :1;
+    volatile const uint32_t DCDMACH11       :1;
+    volatile const uint32_t DCDMACH12       :1;
+    volatile const uint32_t DCDMACH13       :1;
+    volatile const uint32_t DCDMACH14       :1;
+    volatile const uint32_t DCDMACH15       :1;
+    volatile const uint32_t DCDMACH16       :1;
+    volatile const uint32_t DCDMACH17       :1;
+    volatile const uint32_t DCDMACH18       :1;
+    volatile const uint32_t DCDMACH19       :1;
+    volatile const uint32_t DCDMACH20       :1;
+    volatile const uint32_t DCDMACH21       :1;
+    volatile const uint32_t DCDMACH22       :1;
+    volatile const uint32_t DCDMACH23       :1;
+    volatile const uint32_t DCDMACH24       :1;
+    volatile const uint32_t DCDMACH25       :1;
+    volatile const uint32_t DCDMACH26       :1;
+    volatile const uint32_t DCDMACH27       :1;
+    volatile const uint32_t DCDMACH28       :1;
+    volatile const uint32_t DCDMACH29       :1;
+    volatile const uint32_t DCDMACH30       :1;
+    const    uint32_t       reserved        :1;
+}DC7_TypeDef;//0x00000028
+
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCADC0AIN0        :1;
+    volatile const uint32_t DCADC0AIN1        :1;
+    volatile const uint32_t DCADC0AIN2        :1;
+    volatile const uint32_t DCADC0AIN3        :1;
+    volatile const uint32_t DCADC0AIN4        :1;
+    volatile const uint32_t DCADC0AIN5        :1;
+    volatile const uint32_t DCADC0AIN6        :1;
+    volatile const uint32_t DCADC0AIN7        :1;
+    volatile const uint32_t DCADC0AIN8        :1;
+    volatile const uint32_t DCADC0AIN9        :1;
+    volatile const uint32_t DCADC0AIN10       :1;
+    volatile const uint32_t DCADC0AIN11       :1;
+    volatile const uint32_t DCADC0AIN12       :1;
+    volatile const uint32_t DCADC0AIN13       :1;
+    volatile const uint32_t DCADC0AIN14       :1;
+    volatile const uint32_t DCADC0AIN15       :1;
+    volatile const uint32_t DCADC1AIN0        :1;
+    volatile const uint32_t DCADC1AIN1        :1;
+    volatile const uint32_t DCADC1AIN2        :1;
+    volatile const uint32_t DCADC1AIN3        :1;
+    volatile const uint32_t DCADC1AIN4        :1;
+    volatile const uint32_t DCADC1AIN5        :1;
+    volatile const uint32_t DCADC1AIN6        :1;
+    volatile const uint32_t DCADC1AIN7        :1;
+    volatile const uint32_t DCADC1AIN8        :1;
+    volatile const uint32_t DCADC1AIN9        :1;
+    volatile const uint32_t DCADC1AIN10       :1;
+    volatile const uint32_t DCADC1AIN11       :1;
+    volatile const uint32_t DCADC1AIN12       :1;
+    volatile const uint32_t DCADC1AIN13       :1;
+    volatile const uint32_t DCADC1AIN14       :1;
+    volatile const uint32_t DCADC1AIN15       :1;
+}DC8_TypeDef;//0x0000002C
+
+typedef volatile struct
+{
+    const    uint32_t       reserved  :3;
+    volatile const uint32_t SRCRWDT0      :1;
+    const    uint32_t       reserved1 :2;
+    volatile const uint32_t SRCRHIB       :1;
+    const    uint32_t       reserved2 :9;
+    volatile const uint32_t SRCRADC0      :1;
+    volatile const uint32_t SRCRADC1      :1;
+    const    uint32_t       reserved3 :2;
+    volatile const uint32_t SRCRPWM0      :1;
+    const    uint32_t       reserved4 :3;
+    volatile const uint32_t SRCRCAN0      :1;
+    volatile const uint32_t SRCRCAN1      :1;
+    const    uint32_t       reserved5 :2;
+    volatile const uint32_t SRCRWDT1      :1;
+    const    uint32_t       reserved6 :3;
+}SRCR0_TypeDef;//0x00000040
+
+
+typedef volatile struct
+{
+    volatile const uint32_t SRCRUART0      :1;
+    volatile const uint32_t SRCRUART1      :1;
+    volatile const uint32_t SRCRUART2      :1;
+    const    uint32_t       reserved   :1;
+    volatile const uint32_t SRCRSSI0       :1;
+    volatile const uint32_t SRCRSSI1       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t SRCRQEI0       :1;
+    volatile const uint32_t SRCRQEI1       :1;
+    const    uint32_t       reserved2  :2;
+    volatile const uint32_t SRCRI2C0       :1;
+    const    uint32_t       reserved3  :1;
+    volatile const uint32_t SRCRI2C1       :1;
+    const    uint32_t       reserved4  :1;
+    volatile const uint32_t SRCRTIMER0     :1;
+    volatile const uint32_t SRCRTIMER1     :1;
+    volatile const uint32_t SRCRTIMER2     :1;
+    volatile const uint32_t SRCRTIMER3     :1;
+    const    uint32_t       reserved5  :4;
+    volatile const uint32_t SRCRCOMP0      :1;
+    volatile const uint32_t SRCRCOMP1      :1;
+    const    uint32_t       reserved6  :6;
+}SRCR1_TypeDef;//0x00000044
+
+
+typedef volatile struct
+{
+    volatile const uint32_t SRCRGPIOA      :1;
+    volatile const uint32_t SRCRGPIOB      :1;
+    volatile const uint32_t SRCRGPIOC      :1;
+    volatile const uint32_t SRCRGPIOD      :1;
+    volatile const uint32_t SRCRGPIOE      :1;
+    volatile const uint32_t SRCRGPIOF      :1;
+    const    uint32_t       reserved   :7;
+    volatile const uint32_t SRCRUDMA       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t SRCRUSB0       :1;
+    const    uint32_t       reserved2  :15;
+}SRCR2_TypeDef;//0x00000048
+
+
+typedef volatile struct
+{
+    const    uint32_t       reserved  :3;
+    volatile const uint32_t RCGCWDT0      :1;
+    const    uint32_t       reserved1 :2;
+    volatile const uint32_t RCGCHIB       :1;
+    const    uint32_t       reserved2 :1;
+    volatile const uint32_t RCGCMAXADC0SPD:2;
+    volatile const uint32_t RCGCMAXADC1SPD:2;
+    const    uint32_t       reserved3 :4;
+    volatile const uint32_t RCGCADC0      :1;
+    volatile const uint32_t RCGCADC1      :1;
+    const    uint32_t       reserved5 :2;
+    volatile const uint32_t RCGCPWM0      :1;
+    const    uint32_t       reserved6 :3;
+    volatile const uint32_t RCGCCAN0      :1;
+    volatile const uint32_t RCGCCAN1      :1;
+    const    uint32_t       reserved7 :2;
+    volatile const uint32_t RCGCWDT1      :1;
+    const    uint32_t       reserved8 :3;
+}RCGC0_TypeDef;//0x00000100
+
+
+typedef volatile struct
+{
+    volatile const uint32_t RCGCUART0      :1;
+    volatile const uint32_t RCGCUART1      :1;
+    volatile const uint32_t RCGCUART2      :1;
+    const    uint32_t       reserved   :1;
+    volatile const uint32_t RCGCSSI0       :1;
+    volatile const uint32_t RCGCSSI1       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t RCGCQEI0       :1;
+    volatile const uint32_t RCGCQEI1       :1;
+    const    uint32_t       reserved2  :2;
+    volatile const uint32_t RCGCI2C0       :1;
+    const    uint32_t       reserved3  :1;
+    volatile const uint32_t RCGCI2C1       :1;
+    const    uint32_t       reserved4  :1;
+    volatile const uint32_t RCGCTIMER0     :1;
+    volatile const uint32_t RCGCTIMER1     :1;
+    volatile const uint32_t RCGCTIMER2     :1;
+    volatile const uint32_t RCGCTIMER3     :1;
+    const    uint32_t       reserved5  :4;
+    volatile const uint32_t RCGCCOMP0      :1;
+    volatile const uint32_t RCGCCOMP1      :1;
+    const    uint32_t       reserved6  :6;
+}RCGC1_TypeDef;//0x00000104
+
+
+typedef volatile struct
+{
+    volatile const uint32_t RCGCGPIOA      :1;
+    volatile const uint32_t RCGCGPIOB      :1;
+    volatile const uint32_t RCGCGPIOC      :1;
+    volatile const uint32_t RCGCGPIOD      :1;
+    volatile const uint32_t RCGCGPIOE      :1;
+    volatile const uint32_t RCGCGPIOF      :1;
+    const    uint32_t       reserved   :7;
+    volatile const uint32_t RCGCUDMA       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t RCGCUSB0       :1;
+    const    uint32_t       reserved2  :15;
+}RCGC2_TypeDef;//0x00000108
+
+
+
+typedef volatile struct
+{
+    const    uint32_t       reserved  :3;
+    volatile const uint32_t SCGCWDT0      :1;
+    const    uint32_t       reserved1 :2;
+    volatile const uint32_t SCGCHIB       :1;
+    const    uint32_t       reserved2 :9;
+    volatile const uint32_t SCGCADC0      :1;
+    volatile const uint32_t SCGCADC1      :1;
+    const    uint32_t       reserved3 :2;
+    volatile const uint32_t SCGCPWM0      :1;
+    const    uint32_t       reserved4 :3;
+    volatile const uint32_t SCGCCAN0      :1;
+    volatile const uint32_t SCGCCAN1      :1;
+    const    uint32_t       reserved5 :2;
+    volatile const uint32_t SCGCWDT1      :1;
+    const    uint32_t       reserved6 :3;
+}SCGC0_TypeDef;//0x00000110
+
+
+typedef volatile struct
+{
+    volatile const uint32_t SCGCUART0      :1;
+    volatile const uint32_t SCGCUART1      :1;
+    volatile const uint32_t SCGCUART2      :1;
+    const    uint32_t       reserved   :1;
+    volatile const uint32_t SCGCSSI0       :1;
+    volatile const uint32_t SCGCSSI1       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t SCGCQEI0       :1;
+    volatile const uint32_t SCGCQEI1       :1;
+    const    uint32_t       reserved2  :2;
+    volatile const uint32_t SCGCI2C0       :1;
+    const    uint32_t       reserved3  :1;
+    volatile const uint32_t SCGCI2C1       :1;
+    const    uint32_t       reserved4  :1;
+    volatile const uint32_t SCGCTIMER0     :1;
+    volatile const uint32_t SCGCTIMER1     :1;
+    volatile const uint32_t SCGCTIMER2     :1;
+    volatile const uint32_t SCGCTIMER3     :1;
+    const    uint32_t       reserved5  :4;
+    volatile const uint32_t SCGCCOMP0      :1;
+    volatile const uint32_t SCGCCOMP1      :1;
+    const    uint32_t       reserved6  :6;
+}SCGC1_TypeDef;//0x00000104
+
+
+typedef volatile struct
+{
+    volatile const uint32_t SCGCGPIOA      :1;
+    volatile const uint32_t SCGCGPIOB      :1;
+    volatile const uint32_t SCGCGPIOC      :1;
+    volatile const uint32_t SCGCGPIOD      :1;
+    volatile const uint32_t SCGCGPIOE      :1;
+    volatile const uint32_t SCGCGPIOF      :1;
+    const    uint32_t       reserved   :7;
+    volatile const uint32_t SCGCUDMA       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t SCGCUSB0       :1;
+    const    uint32_t       reserved2  :15;
+}SCGC2_TypeDef;//0x00000108
+
+
+
+typedef volatile struct
+{
+    const    uint32_t       reserved  :3;
+    volatile const uint32_t DCGCWDT0      :1;
+    const    uint32_t       reserved1 :2;
+    volatile const uint32_t DCGCHIB       :1;
+    const    uint32_t       reserved2 :9;
+    volatile const uint32_t DCGCADC0      :1;
+    volatile const uint32_t DCGCADC1      :1;
+    const    uint32_t       reserved3 :2;
+    volatile const uint32_t DCGCPWM0      :1;
+    const    uint32_t       reserved4 :3;
+    volatile const uint32_t DCGCCAN0      :1;
+    volatile const uint32_t DCGCCAN1      :1;
+    const    uint32_t       reserved5 :2;
+    volatile const uint32_t DCGCWDT1      :1;
+    const    uint32_t       reserved6 :3;
+}DCGC0_TypeDef;//0x00000120
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCGCUART0      :1;
+    volatile const uint32_t DCGCUART1      :1;
+    volatile const uint32_t DCGCUART2      :1;
+    const    uint32_t       reserved   :1;
+    volatile const uint32_t DCGCSSI0       :1;
+    volatile const uint32_t DCGCSSI1       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t DCGCQEI0       :1;
+    volatile const uint32_t DCGCQEI1       :1;
+    const    uint32_t       reserved2  :2;
+    volatile const uint32_t DCGCI2C0       :1;
+    const    uint32_t       reserved3  :1;
+    volatile const uint32_t DCGCI2C1       :1;
+    const    uint32_t       reserved4  :1;
+    volatile const uint32_t DCGCTIMER0     :1;
+    volatile const uint32_t DCGCTIMER1     :1;
+    volatile const uint32_t DCGCTIMER2     :1;
+    volatile const uint32_t DCGCTIMER3     :1;
+    const    uint32_t       reserved5  :4;
+    volatile const uint32_t DCGCCOMP0      :1;
+    volatile const uint32_t DCGCCOMP1      :1;
+    const    uint32_t       reserved6  :6;
+}DCGC1_TypeDef;//0x00000124
+
+
+typedef volatile struct
+{
+    volatile const uint32_t DCGCGPIOA      :1;
+    volatile const uint32_t DCGCGPIOB      :1;
+    volatile const uint32_t DCGCGPIOC      :1;
+    volatile const uint32_t DCGCGPIOD      :1;
+    volatile const uint32_t DCGCGPIOE      :1;
+    volatile const uint32_t DCGCGPIOF      :1;
+    const    uint32_t       reserved   :7;
+    volatile const uint32_t DCGCUDMA       :1;
+    const    uint32_t       reserved1  :2;
+    volatile const uint32_t DCGCUSB0       :1;
+    const    uint32_t       reserved2  :15;
+}DCGC2_TypeDef;//0x00000128
+
+typedef volatile struct
+{
+    volatile const uint32_t DCADC0DC0        :1;
+    volatile const uint32_t DCADC0DC1        :1;
+    volatile const uint32_t DCADC0DC2        :1;
+    volatile const uint32_t DCADC0DC3        :1;
+    volatile const uint32_t DCADC0DC4        :1;
+    volatile const uint32_t DCADC0DC5        :1;
+    volatile const uint32_t DCADC0DC6        :1;
+    volatile const uint32_t DCADC0DC7        :1;
+    const    uint32_t       reserved       :8;
+    volatile const uint32_t DCADC1DC0        :1;
+    volatile const uint32_t DCADC1DC1        :1;
+    volatile const uint32_t DCADC1DC2        :1;
+    volatile const uint32_t DCADC1DC3        :1;
+    volatile const uint32_t DCADC1DC4        :1;
+    volatile const uint32_t DCADC1DC5        :1;
+    volatile const uint32_t DCADC1DC6        :1;
+    volatile const uint32_t DCADC1DC7        :1;
+    const    uint32_t       reserved1      :8;
+}DC9_TypeDef;//0x00000190
+
+
+typedef volatile struct
+{
+    volatile const uint32_t FWB            :1;
+    const    uint32_t       reserved       :31;
+}NVMSTAT_TypeDef;//0x000001A0
+
 
 typedef volatile struct
 {
@@ -534,13 +1018,74 @@ typedef volatile struct
         volatile uint32_t       DID1;
         DID1_TypeDef            DID1_Bit;
     };
-    const uint32_t reserved[10];
+    union
+    {
+        volatile const uint32_t         DC0;
+        DC0_TypeDef                     DC0_Bit;
+    };
+    const uint32_t reserved[1];
+    union
+    {
+        volatile const uint32_t         DC1;
+        DC1_TypeDef                     DC1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC2;
+        DC2_TypeDef                     DC2_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC3;
+        DC3_TypeDef                     DC3_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC4;
+        DC4_TypeDef                     DC4_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC5;
+        DC5_TypeDef                     DC5_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC6;
+        DC6_TypeDef                     DC6_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC7;
+        DC7_TypeDef                     DC7_Bit;
+    };
+    union
+    {
+        volatile const uint32_t         DC8;
+        DC8_TypeDef                     DC8_Bit;
+    };
     union
     {
         volatile uint32_t       PBORCTL;
         PBORCTL_TypeDef         PBORCTL_Bit;
     };
-    const uint32_t reserved1[7];
+    const uint32_t             reserved1[3];
+    union
+    {
+        volatile const uint32_t     SRCR0;
+        SRCR0_TypeDef               SRCR0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     SRCR1;
+        SRCR1_TypeDef               SRCR1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     SRCR2;
+        SRCR2_TypeDef               SRCR2_Bit;
+    };
+    const uint32_t             reserved2[1];
     union
     {
         volatile uint32_t       RIS;
@@ -566,7 +1111,7 @@ typedef volatile struct
         volatile uint32_t       RCC;
         RCC_TypeDef             RCC_Bit;
     };
-    const uint32_t reserved2[2];
+    const uint32_t reserved3[2];
     union
     {
         volatile uint32_t       GPIOHBCTL;
@@ -577,19 +1122,67 @@ typedef volatile struct
         volatile uint32_t       RCC2;
         RCC2_TypeDef            RCC2_Bit;
     };
-    const uint32_t reserved3[2];
+    const uint32_t reserved4[2];
     union
     {
         volatile uint32_t       MOSCCTL;
         MOSCCTL_TypeDef         MOSCCTL_Bit;
     };
-    const uint32_t reserved4[49];
+    const uint32_t             reserved5[32];
+    union
+    {
+        volatile const uint32_t RCGC0;
+        RCGC0_TypeDef           RCGC0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t RCGC1;
+        RCGC1_TypeDef           RCGC1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t RCGC2;
+        RCGC2_TypeDef           RCGC2_Bit;
+    };
+    const uint32_t             reserved6[1];
+    union
+    {
+        volatile const uint32_t SCGC0;
+        SCGC0_TypeDef           SCGC0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t SCGC1;
+        SCGC1_TypeDef           SCGC1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t SCGC2;
+        SCGC2_TypeDef           SCGC2_Bit;
+    };
+    const uint32_t             reserved7[1];
+    union
+    {
+        volatile const uint32_t DCGC0;
+        DCGC0_TypeDef           DCGC0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t DCGC1;
+        DCGC1_TypeDef           DCGC1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t DCGC2;
+        DCGC2_TypeDef           DCGC2_Bit;
+    };
+    const uint32_t             reserved8[6];
     union
     {
         volatile uint32_t       DSLPCLKCFG;
         DSLPCLKCFG_TypeDef      DSLPCLKCFG_Bit;
     };
-    const uint32_t reserved5[1];
+    const uint32_t reserved9[1];
     union
     {
         volatile uint32_t       SYSPROP;
@@ -605,7 +1198,7 @@ typedef volatile struct
         volatile uint32_t       PIOSCSTAT;
         PIOSCSTAT_TypeDef       PIOSCSTAT_Bit;
     };
-    const uint32_t reserved6[2];
+    const uint32_t reserved10[2];
     union
     {
         volatile uint32_t       PLLFREQ0;
@@ -621,7 +1214,7 @@ typedef volatile struct
         volatile uint32_t       PLLSTAT;
         PLLSTAT_TypeDef         PLLSTAT_Bit;
     };
-    const uint32_t reserved7[7];
+    const uint32_t reserved11[7];
     union
     {
         volatile uint32_t       SLSRWRCFG;
@@ -632,7 +1225,18 @@ typedef volatile struct
         volatile uint32_t       DSLSRWRCFG;
         DSLSRWRCFG_TypeDef      DSLSRWRCFG_Bit;
     };
-    const uint32_t reserved8[9];
+    union
+    {
+        volatile uint32_t       DC9;
+        DC9_TypeDef             DC9_Bit;
+    };
+    const uint32_t             reserved12[3];
+    union
+    {
+        volatile uint32_t       NVMSTAT;
+        NVMSTAT_TypeDef         NVMSTAT_Bit;
+    };
+    const uint32_t             reserved13[4];
     union
     {
         volatile uint32_t       LDOSPCTL;
@@ -653,43 +1257,43 @@ typedef volatile struct
         volatile uint32_t       LDODPCAL;
         LDODPCAL_TypeDef        LDODPCAL_Bit;
     };
-    const uint32_t reserved9[2];
+    const uint32_t reserved14[2];
     union
     {
         volatile uint32_t       SDPMST;
         SDPMST_TypeDef          SDPMST_Bit;
     };
-    const uint32_t reserved10[76];
+    const uint32_t reserved15[76];
     union
     {
         volatile const uint32_t       PP[24];
         const PERIPHERAL_TypeDef      PP_Bit[24];
     };
-    const uint32_t reserved11[104];
+    const uint32_t reserved16[104];
     union
     {
         volatile uint32_t       SR[24];
         PERIPHERAL_TypeDef      SR_Bit[24];
     };
-    const uint32_t reserved12[40];
+    const uint32_t reserved17[40];
     union
     {
         volatile uint32_t       RCGC[24];
         PERIPHERAL_TypeDef      RCGC_Bit[24];
     };
-    const uint32_t reserved13[40];
+    const uint32_t reserved18[40];
     union
     {
         volatile uint32_t       SCGC[24];
         PERIPHERAL_TypeDef      SCGC_Bit[24];
     };
-    const uint32_t reserved14[40];
+    const uint32_t reserved19[40];
     union
     {
         volatile uint32_t       DCGC[24];
         PERIPHERAL_TypeDef      DCGC_Bit[24];
     };
-    const uint32_t reserved15[104];
+    const uint32_t reserved20[104];
     union
     {
         volatile uint32_t       PR[24];
@@ -827,6 +1431,29 @@ typedef volatile struct
 #define SYSCTL_PRQEI_OFFSET         (0x0A44)
 #define SYSCTL_PREEPROM_OFFSET      (0x0A58)
 #define SYSCTL_PRWTIMER_OFFSET      (0x0A5C)
+#define SYSCTL_DC0_OFFSET     (0x0008)
+#define SYSCTL_DC1_OFFSET     (0x0010)
+#define SYSCTL_DC2_OFFSET     (0x0014)
+#define SYSCTL_DC3_OFFSET     (0x0018)
+#define SYSCTL_DC4_OFFSET     (0x001C)
+#define SYSCTL_DC5_OFFSET     (0x0020)
+#define SYSCTL_DC6_OFFSET     (0x0024)
+#define SYSCTL_DC7_OFFSET     (0x0028)
+#define SYSCTL_DC8_OFFSET     (0x002C)
+#define SYSCTL_SRCR0_OFFSET     (0x0040)
+#define SYSCTL_SRCR1_OFFSET     (0x0044)
+#define SYSCTL_SRCR2_OFFSET     (0x0048)
+#define SYSCTL_RCGC0_OFFSET     (0x0100)
+#define SYSCTL_RCGC1_OFFSET     (0x0104)
+#define SYSCTL_RCGC2_OFFSET     (0x0108)
+#define SYSCTL_SCGC0_OFFSET     (0x0110)
+#define SYSCTL_SCGC1_OFFSET     (0x0114)
+#define SYSCTL_SCGC2_OFFSET     (0x0118)
+#define SYSCTL_DCGC0_OFFSET     (0x0120)
+#define SYSCTL_DCGC1_OFFSET     (0x0124)
+#define SYSCTL_DCGC2_OFFSET     (0x0128)
+#define SYSCTL_DC9_OFFSET     (0x0190)
+#define SYSCTL_NVMSTAT_OFFSET     (0x01A0)
 
 
 
@@ -7381,15 +8008,9 @@ typedef volatile struct
 #define SYSCTL_PRWTIMER_WTIMER4_BITBANDING    (*((volatile const uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER4_BIT*4))))
 #define SYSCTL_PRWTIMER_WTIMER5_BITBANDING    (*((volatile const uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER5_BIT*4))))
 
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3 DC0 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC0_OFFSET     (0x0008)
+/**********************************************************************************
+************************************122 DC0 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC0            (((DC0_TypeDef*)(SYSCTL_BASE+SYSCTL_DC0_OFFSET )))
 #define SYSCTL_DC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC0_OFFSET)))
 
@@ -7442,13 +8063,9 @@ typedef volatile struct
 #define SYSCTL_DC0_SRAMSZ_32K        (0x0000007F)
 //--------
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4 DC1 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC1_OFFSET     (0x0010)
+/**********************************************************************************
+************************************123 DC1 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC1            (((DC1_TypeDef*)(SYSCTL_BASE+SYSCTL_DC1_OFFSET )))
 #define SYSCTL_DC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC1_OFFSET)))
 
@@ -7666,29 +8283,25 @@ typedef volatile struct
 //--------
 
 
-#define SYSCTL_DC1_DCJTAG_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC1_DCSWD_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC1_DCSWO_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC1_DCWDT0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC1_DCPLL_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC1_DCTEMPSNS_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC1_DCHIB_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC1_DCMPU_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC1_DCADC0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_DC1_DCADC1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_DC1_DCPWM0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(20*4))))
-#define SYSCTL_DC1_DCPWM1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(21*4))))
-#define SYSCTL_DC1_DCCAN0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC1_DCCAN1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(25*4))))
-#define SYSCTL_DC1_DCWDT1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(28*4))))
+#define SYSCTL_DC1_DCJTAG_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC1_DCSWD_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC1_DCSWO_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC1_DCWDT0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC1_DCPLL_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC1_DCTEMPSNS_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC1_DCHIB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC1_DCMPU_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC1_DCADC0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(16*4))))
+#define SYSCTL_DC1_DCADC1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(17*4))))
+#define SYSCTL_DC1_DCPWM0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(20*4))))
+#define SYSCTL_DC1_DCPWM1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(21*4))))
+#define SYSCTL_DC1_DCCAN0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC1_DCCAN1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(25*4))))
+#define SYSCTL_DC1_DCWDT1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(28*4))))
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5 DC2 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC2_OFFSET     (0x0014)
+/**********************************************************************************
+************************************124 DC2 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC2            (((DC2_TypeDef*)(SYSCTL_BASE+SYSCTL_DC2_OFFSET )))
 #define SYSCTL_DC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC2_OFFSET)))
 
@@ -7914,34 +8527,30 @@ typedef volatile struct
 #define SYSCTL_DC2_DCEPI0_PRESENT    (0x00000001)
 //--------
 
-#define SYSCTL_DC2_DCUART0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC2_DCUART1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC2_DCUART2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC2_DCSSI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC2_DCSSI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC2_DCQEI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(8*4))))
-#define SYSCTL_DC2_DCQEI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(9*4))))
-#define SYSCTL_DC2_DCI2C0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(12*4))))
-#define SYSCTL_DC2_DCI2C0HS_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_DC2_DCI2C1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(14*4))))
-#define SYSCTL_DC2_DCI2C1HS_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(15*4))))
-#define SYSCTL_DC2_DCTIMER0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(16*4))))
-#define SYSCTL_DC2_DCTIMER1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(17*4))))
-#define SYSCTL_DC2_DCTIMER2_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(18*4))))
-#define SYSCTL_DC2_DCTIMER3_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(19*4))))
-#define SYSCTL_DC2_DCCOMP0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC2_DCCOMP1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(25*4))))
-#define SYSCTL_DC2_DCCOMP2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(26*4))))
-#define SYSCTL_DC2_DCI2S0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(28*4))))
-#define SYSCTL_DC2_DCEPI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(29*4))))
+#define SYSCTL_DC2_DCUART0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC2_DCUART1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC2_DCUART2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC2_DCSSI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC2_DCSSI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC2_DCQEI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(8*4))))
+#define SYSCTL_DC2_DCQEI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(9*4))))
+#define SYSCTL_DC2_DCI2C0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(12*4))))
+#define SYSCTL_DC2_DCI2C0HS_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(13*4))))
+#define SYSCTL_DC2_DCI2C1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(14*4))))
+#define SYSCTL_DC2_DCI2C1HS_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(15*4))))
+#define SYSCTL_DC2_DCTIMER0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(16*4))))
+#define SYSCTL_DC2_DCTIMER1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(17*4))))
+#define SYSCTL_DC2_DCTIMER2_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(18*4))))
+#define SYSCTL_DC2_DCTIMER3_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(19*4))))
+#define SYSCTL_DC2_DCCOMP0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC2_DCCOMP1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(25*4))))
+#define SYSCTL_DC2_DCCOMP2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(26*4))))
+#define SYSCTL_DC2_DCI2S0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(28*4))))
+#define SYSCTL_DC2_DCEPI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(29*4))))
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 6 DC3 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC3_OFFSET     (0x0018)
+/**********************************************************************************
+************************************125 DC3 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC3            (((DC3_TypeDef*)(SYSCTL_BASE+SYSCTL_DC3_OFFSET )))
 #define SYSCTL_DC3_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC3_OFFSET)))
 
@@ -8287,44 +8896,41 @@ typedef volatile struct
 #define SYSCTL_DC3_DC32KHZ_PRESENT    (0x00000001)
 //--------
 
-#define SYSCTL_DC3_DCPWM0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC3_DCPWM1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC3_DCPWM2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC3_DCPWM3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC3_DCPWM4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC3_DCPWM5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC3_DCC0MINUS_BB    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC3_DCC0PLUS_BB     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC3_DCC0O_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(8*4))))
-#define SYSCTL_DC3_DCC1MINUS_BB    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(9*4))))
-#define SYSCTL_DC3_DCC1PLUS_BB     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(10*4))))
-#define SYSCTL_DC3_DCC1O_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(11*4))))
-#define SYSCTL_DC3_DCC2MINUS_BB    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(12*4))))
-#define SYSCTL_DC3_DCC2PLUS_BB     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(13*4))))
-#define SYSCTL_DC3_DCC2O_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(14*4))))
-#define SYSCTL_DC3_DCPWMFAULT_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(15*4))))
-#define SYSCTL_DC3_DCADC0AIN0_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(16*4))))
-#define SYSCTL_DC3_DCADC0AIN1_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(17*4))))
-#define SYSCTL_DC3_DCADC0AIN2_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(18*4))))
-#define SYSCTL_DC3_DCADC0AIN3_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(19*4))))
-#define SYSCTL_DC3_DCADC0AIN4_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(20*4))))
-#define SYSCTL_DC3_DCADC0AIN5_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(21*4))))
-#define SYSCTL_DC3_DCADC0AIN6_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(22*4))))
-#define SYSCTL_DC3_DCADC0AIN7_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(23*4))))
-#define SYSCTL_DC3_DCCCP0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC3_DCCCP1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(25*4))))
-#define SYSCTL_DC3_DCCCP2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(26*4))))
-#define SYSCTL_DC3_DCCCP3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(27*4))))
-#define SYSCTL_DC3_DCCCP4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(28*4))))
-#define SYSCTL_DC3_DCCCP5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(29*4))))
-#define SYSCTL_DC3_DC32KHZ_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(31*4))))
+#define SYSCTL_DC3_DCPWM0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC3_DCPWM1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC3_DCPWM2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC3_DCPWM3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC3_DCPWM4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC3_DCPWM5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC3_DCC0MINUS_BITBANDING    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC3_DCC0PLUS_BITBANDING     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC3_DCC0O_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(8*4))))
+#define SYSCTL_DC3_DCC1MINUS_BITBANDING    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(9*4))))
+#define SYSCTL_DC3_DCC1PLUS_BITBANDING     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(10*4))))
+#define SYSCTL_DC3_DCC1O_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(11*4))))
+#define SYSCTL_DC3_DCC2MINUS_BITBANDING    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(12*4))))
+#define SYSCTL_DC3_DCC2PLUS_BITBANDING     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(13*4))))
+#define SYSCTL_DC3_DCC2O_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(14*4))))
+#define SYSCTL_DC3_DCPWMFAULT_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(15*4))))
+#define SYSCTL_DC3_DCADC0AIN0_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(16*4))))
+#define SYSCTL_DC3_DCADC0AIN1_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(17*4))))
+#define SYSCTL_DC3_DCADC0AIN2_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(18*4))))
+#define SYSCTL_DC3_DCADC0AIN3_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(19*4))))
+#define SYSCTL_DC3_DCADC0AIN4_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(20*4))))
+#define SYSCTL_DC3_DCADC0AIN5_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(21*4))))
+#define SYSCTL_DC3_DCADC0AIN6_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(22*4))))
+#define SYSCTL_DC3_DCADC0AIN7_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(23*4))))
+#define SYSCTL_DC3_DCCCP0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC3_DCCCP1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(25*4))))
+#define SYSCTL_DC3_DCCCP2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(26*4))))
+#define SYSCTL_DC3_DCCCP3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(27*4))))
+#define SYSCTL_DC3_DCCCP4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(28*4))))
+#define SYSCTL_DC3_DCCCP5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(29*4))))
+#define SYSCTL_DC3_DC32KHZ_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(31*4))))
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 7 DC4 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC4_OFFSET     (0x001C)
+/**********************************************************************************
+************************************126 DC4 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC4            (((DC4_TypeDef*)(SYSCTL_BASE+SYSCTL_DC4_OFFSET )))
 #define SYSCTL_DC4_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC4_OFFSET)))
 
@@ -8516,32 +9122,27 @@ typedef volatile struct
 #define SYSCTL_DC4_DCEPHY0_PRESENT    (0x00000001)
 //--------
 
-#define SYSCTL_DC4_DCGPIOA_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC4_DCGPIOB_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC4_DCGPIOC_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC4_DCGPIOD_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC4_DCGPIOE_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC4_DCGPIOF_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC4_DCGPIOG_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC4_DCGPIOH_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC4_DCGPIOJ_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(8*4))))
-#define SYSCTL_DC4_DCROM_BB         (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(12*4))))
-#define SYSCTL_DC4_DCUDMA_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(13*4))))
-#define SYSCTL_DC4_DCCCP6_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(14*4))))
-#define SYSCTL_DC4_DCCCP7_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(15*4))))
-#define SYSCTL_DC4_DCPICAL_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(18*4))))
-#define SYSCTL_DC4_DCE1588_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC4_DCEMAC0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(28*4))))
-#define SYSCTL_DC4_DCEPHY0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(30*4))))
+#define SYSCTL_DC4_DCGPIOA_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC4_DCGPIOB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC4_DCGPIOC_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC4_DCGPIOD_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC4_DCGPIOE_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC4_DCGPIOF_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC4_DCGPIOG_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC4_DCGPIOH_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC4_DCGPIOJ_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(8*4))))
+#define SYSCTL_DC4_DCROM_BITBANDING         (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(12*4))))
+#define SYSCTL_DC4_DCUDMA_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(13*4))))
+#define SYSCTL_DC4_DCCCP6_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(14*4))))
+#define SYSCTL_DC4_DCCCP7_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(15*4))))
+#define SYSCTL_DC4_DCPICAL_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(18*4))))
+#define SYSCTL_DC4_DCE1588_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC4_DCEMAC0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(28*4))))
+#define SYSCTL_DC4_DCEPHY0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(30*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 8 DC5 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC5_OFFSET     (0x0020)
+/**********************************************************************************
+************************************127 DC5 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC5            (((DC5_TypeDef*)(SYSCTL_BASE+SYSCTL_DC5_OFFSET )))
 #define SYSCTL_DC5_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC5_OFFSET)))
 
@@ -8701,29 +9302,24 @@ typedef volatile struct
 //--------
 
 
-#define SYSCTL_DC5_DCPWM0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC5_DCPWM1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC5_DCPWM2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC5_DCPWM3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC5_DCPWM4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC5_DCPWM5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC5_DCPWM6_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC5_DCPWM7_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC5_DCPWMESYNC_BB   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(20*4))))
-#define SYSCTL_DC5_DCPWMEFLT_BB    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(21*4))))
-#define SYSCTL_DC5_DCPWMFAULT0_BB  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC5_DCPWMFAULT1_BB  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(25*4))))
-#define SYSCTL_DC5_DCPWMFAULT2_BB  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(26*4))))
-#define SYSCTL_DC5_DCPWMFAULT3_BB  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(27*4))))
+#define SYSCTL_DC5_DCPWM0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC5_DCPWM1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC5_DCPWM2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC5_DCPWM3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC5_DCPWM4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC5_DCPWM5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC5_DCPWM6_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC5_DCPWM7_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC5_DCPWMESYNC_BITBANDING   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(20*4))))
+#define SYSCTL_DC5_DCPWMEFLT_BITBANDING    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(21*4))))
+#define SYSCTL_DC5_DCPWMFAULT0_BITBANDING  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC5_DCPWMFAULT1_BITBANDING  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(25*4))))
+#define SYSCTL_DC5_DCPWMFAULT2_BITBANDING  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(26*4))))
+#define SYSCTL_DC5_DCPWMFAULT3_BITBANDING  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(27*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 9 DC6 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC6_OFFSET     (0x0024)
+/**********************************************************************************
+************************************128 DC6 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC6            (((DC6_TypeDef*)(SYSCTL_BASE+SYSCTL_DC6_OFFSET )))
 #define SYSCTL_DC6_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC6_OFFSET)))
 
@@ -8755,18 +9351,11 @@ typedef volatile struct
 //--------
 
 
-#define SYSCTL_DC6_DCUSB0PHY_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC6_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC6_DCUSB0PHY_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC6_OFFSET)*32)+(4*4))))
 
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 10 DC7 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC7_OFFSET     (0x0028)
+/**********************************************************************************
+************************************129 DC7 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC7            (((DC7_TypeDef*)(SYSCTL_BASE+SYSCTL_DC7_OFFSET )))
 #define SYSCTL_DC7_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC7_OFFSET)))
 
@@ -9112,46 +9701,41 @@ typedef volatile struct
 #define SYSCTL_DC7_DCDMACH30_PRESENT    (0x00000001)
 //--------
 
-#define SYSCTL_DC7_DCDMACH0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC7_DCDMACH1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC7_DCDMACH2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC7_DCDMACH3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC7_DCDMACH4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC7_DCDMACH5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC7_DCDMACH6_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC7_DCDMACH7_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC7_DCDMACH8_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(8*4))))
-#define SYSCTL_DC7_DCDMACH9_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(9*4))))
-#define SYSCTL_DC7_DCDMACH10_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(10*4))))
-#define SYSCTL_DC7_DCDMACH11_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(11*4))))
-#define SYSCTL_DC7_DCDMACH12_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(12*4))))
-#define SYSCTL_DC7_DCDMACH13_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(13*4))))
-#define SYSCTL_DC7_DCDMACH14_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(14*4))))
-#define SYSCTL_DC7_DCDMACH15_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(15*4))))
-#define SYSCTL_DC7_DCDMACH16_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(16*4))))
-#define SYSCTL_DC7_DCDMACH17_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(17*4))))
-#define SYSCTL_DC7_DCDMACH18_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(18*4))))
-#define SYSCTL_DC7_DCDMACH19_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(19*4))))
-#define SYSCTL_DC7_DCDMACH20_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(20*4))))
-#define SYSCTL_DC7_DCDMACH21_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(21*4))))
-#define SYSCTL_DC7_DCDMACH22_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(22*4))))
-#define SYSCTL_DC7_DCDMACH23_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(23*4))))
-#define SYSCTL_DC7_DCDMACH24_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC7_DCDMACH25_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(25*4))))
-#define SYSCTL_DC7_DCDMACH26_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(26*4))))
-#define SYSCTL_DC7_DCDMACH27_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(27*4))))
-#define SYSCTL_DC7_DCDMACH28_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(28*4))))
-#define SYSCTL_DC7_DCDMACH29_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(29*4))))
-#define SYSCTL_DC7_DCDMACH30_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(30*4))))
+#define SYSCTL_DC7_DCDMACH0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC7_DCDMACH1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC7_DCDMACH2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC7_DCDMACH3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC7_DCDMACH4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC7_DCDMACH5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC7_DCDMACH6_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC7_DCDMACH7_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC7_DCDMACH8_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(8*4))))
+#define SYSCTL_DC7_DCDMACH9_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(9*4))))
+#define SYSCTL_DC7_DCDMACH10_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(10*4))))
+#define SYSCTL_DC7_DCDMACH11_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(11*4))))
+#define SYSCTL_DC7_DCDMACH12_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(12*4))))
+#define SYSCTL_DC7_DCDMACH13_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(13*4))))
+#define SYSCTL_DC7_DCDMACH14_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(14*4))))
+#define SYSCTL_DC7_DCDMACH15_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(15*4))))
+#define SYSCTL_DC7_DCDMACH16_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(16*4))))
+#define SYSCTL_DC7_DCDMACH17_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(17*4))))
+#define SYSCTL_DC7_DCDMACH18_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(18*4))))
+#define SYSCTL_DC7_DCDMACH19_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(19*4))))
+#define SYSCTL_DC7_DCDMACH20_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(20*4))))
+#define SYSCTL_DC7_DCDMACH21_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(21*4))))
+#define SYSCTL_DC7_DCDMACH22_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(22*4))))
+#define SYSCTL_DC7_DCDMACH23_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(23*4))))
+#define SYSCTL_DC7_DCDMACH24_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC7_DCDMACH25_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(25*4))))
+#define SYSCTL_DC7_DCDMACH26_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(26*4))))
+#define SYSCTL_DC7_DCDMACH27_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(27*4))))
+#define SYSCTL_DC7_DCDMACH28_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(28*4))))
+#define SYSCTL_DC7_DCDMACH29_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(29*4))))
+#define SYSCTL_DC7_DCDMACH30_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(30*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 11 DC8 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC8_OFFSET     (0x002C)
+/**********************************************************************************
+************************************130 DC8 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC8            (((DC8_TypeDef*)(SYSCTL_BASE+SYSCTL_DC8_OFFSET )))
 #define SYSCTL_DC8_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC8_OFFSET)))
 
@@ -9509,45 +10093,42 @@ typedef volatile struct
 #define SYSCTL_DC8_DCADC1AIN15_PRESENT    (0x00000001)
 //--------
 
-#define SYSCTL_DC8_DCADC0AIN0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC8_DCADC0AIN1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC8_DCADC0AIN2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC8_DCADC0AIN3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC8_DCADC0AIN4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC8_DCADC0AIN5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC8_DCADC0AIN6_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC8_DCADC0AIN7_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC8_DCADC0AIN8_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(8*4))))
-#define SYSCTL_DC8_DCADC0AIN9_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(9*4))))
-#define SYSCTL_DC8_DCADC0AIN10_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(10*4))))
-#define SYSCTL_DC8_DCADC0AIN11_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(11*4))))
-#define SYSCTL_DC8_DCADC0AIN12_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(12*4))))
-#define SYSCTL_DC8_DCADC0AIN13_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(13*4))))
-#define SYSCTL_DC8_DCADC0AIN14_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(14*4))))
-#define SYSCTL_DC8_DCADC0AIN15_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(15*4))))
-#define SYSCTL_DC8_DCADC1AIN0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(16*4))))
-#define SYSCTL_DC8_DCADC1AIN1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(17*4))))
-#define SYSCTL_DC8_DCADC1AIN2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(18*4))))
-#define SYSCTL_DC8_DCADC1AIN3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(19*4))))
-#define SYSCTL_DC8_DCADC1AIN4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(20*4))))
-#define SYSCTL_DC8_DCADC1AIN5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(21*4))))
-#define SYSCTL_DC8_DCADC1AIN6_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(22*4))))
-#define SYSCTL_DC8_DCADC1AIN7_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(23*4))))
-#define SYSCTL_DC8_DCADC1AIN8_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(24*4))))
-#define SYSCTL_DC8_DCADC1AIN9_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(25*4))))
-#define SYSCTL_DC8_DCADC1AIN10_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(26*4))))
-#define SYSCTL_DC8_DCADC1AIN11_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(27*4))))
-#define SYSCTL_DC8_DCADC1AIN12_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(28*4))))
-#define SYSCTL_DC8_DCADC1AIN13_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(29*4))))
-#define SYSCTL_DC8_DCADC1AIN14_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(30*4))))
-#define SYSCTL_DC8_DCADC1AIN15_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(31*4))))
+#define SYSCTL_DC8_DCADC0AIN0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC8_DCADC0AIN1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC8_DCADC0AIN2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC8_DCADC0AIN3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC8_DCADC0AIN4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC8_DCADC0AIN5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC8_DCADC0AIN6_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC8_DCADC0AIN7_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC8_DCADC0AIN8_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(8*4))))
+#define SYSCTL_DC8_DCADC0AIN9_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(9*4))))
+#define SYSCTL_DC8_DCADC0AIN10_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(10*4))))
+#define SYSCTL_DC8_DCADC0AIN11_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(11*4))))
+#define SYSCTL_DC8_DCADC0AIN12_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(12*4))))
+#define SYSCTL_DC8_DCADC0AIN13_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(13*4))))
+#define SYSCTL_DC8_DCADC0AIN14_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(14*4))))
+#define SYSCTL_DC8_DCADC0AIN15_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(15*4))))
+#define SYSCTL_DC8_DCADC1AIN0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(16*4))))
+#define SYSCTL_DC8_DCADC1AIN1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(17*4))))
+#define SYSCTL_DC8_DCADC1AIN2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(18*4))))
+#define SYSCTL_DC8_DCADC1AIN3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(19*4))))
+#define SYSCTL_DC8_DCADC1AIN4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(20*4))))
+#define SYSCTL_DC8_DCADC1AIN5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(21*4))))
+#define SYSCTL_DC8_DCADC1AIN6_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(22*4))))
+#define SYSCTL_DC8_DCADC1AIN7_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(23*4))))
+#define SYSCTL_DC8_DCADC1AIN8_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(24*4))))
+#define SYSCTL_DC8_DCADC1AIN9_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(25*4))))
+#define SYSCTL_DC8_DCADC1AIN10_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(26*4))))
+#define SYSCTL_DC8_DCADC1AIN11_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(27*4))))
+#define SYSCTL_DC8_DCADC1AIN12_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(28*4))))
+#define SYSCTL_DC8_DCADC1AIN13_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(29*4))))
+#define SYSCTL_DC8_DCADC1AIN14_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(30*4))))
+#define SYSCTL_DC8_DCADC1AIN15_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(31*4))))
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 13 SRCR0 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_SRCR0_OFFSET     (0x0040)
+/**********************************************************************************
+************************************131 SRCR0 *********************************************
+******************************************************************************************/
 #define SYSCTL_SRCR0            (((SRCR0_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCR0_OFFSET )))
 #define SYSCTL_SRCR0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SRCR0_OFFSET)))
 
@@ -9639,23 +10220,18 @@ typedef volatile struct
 #define SYSCTL_SRCR0_SRCRWDT1_RESET    (0x00000001)
 //--------
 
-#define SYSCTL_SRCR0_SRCRWDT0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(3*4))))
-#define SYSCTL_SRCR0_SRCRHIB_BB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(6*4))))
-#define SYSCTL_SRCR0_SRCRADC0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(16*4))))
-#define SYSCTL_SRCR0_SRCRADC1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(17*4))))
-#define SYSCTL_SRCR0_SRCRPWM0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(20*4))))
-#define SYSCTL_SRCR0_SRCRCAN0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(24*4))))
-#define SYSCTL_SRCR0_SRCRCAN1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(25*4))))
-#define SYSCTL_SRCR0_SRCRWDT1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(28*4))))
+#define SYSCTL_SRCR0_SRCRWDT0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(3*4))))
+#define SYSCTL_SRCR0_SRCRHIB_BITBANDING       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(6*4))))
+#define SYSCTL_SRCR0_SRCRADC0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(16*4))))
+#define SYSCTL_SRCR0_SRCRADC1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(17*4))))
+#define SYSCTL_SRCR0_SRCRPWM0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(20*4))))
+#define SYSCTL_SRCR0_SRCRCAN0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(24*4))))
+#define SYSCTL_SRCR0_SRCRCAN1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(25*4))))
+#define SYSCTL_SRCR0_SRCRWDT1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(28*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 14 SRCR1 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_SRCR1_OFFSET     (0x0044)
+/**********************************************************************************
+************************************132 SRCR1 *********************************************
+******************************************************************************************/
 #define SYSCTL_SRCR1            (((SRCR1_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCR1_OFFSET )))
 #define SYSCTL_SRCR1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SRCR1_OFFSET)))
 
@@ -9827,30 +10403,25 @@ typedef volatile struct
 //--------
 
 
-#define SYSCTL_SRCR1_SRCRUART0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(0*4))))
-#define SYSCTL_SRCR1_SRCRUART1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(1*4))))
-#define SYSCTL_SRCR1_SRCRUART2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(2*4))))
-#define SYSCTL_SRCR1_SRCRSSI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(4*4))))
-#define SYSCTL_SRCR1_SRCRSSI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(5*4))))
-#define SYSCTL_SRCR1_SRCRQEI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(8*4))))
-#define SYSCTL_SRCR1_SRCRQEI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(9*4))))
-#define SYSCTL_SRCR1_SRCRI2C0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(12*4))))
-#define SYSCTL_SRCR1_SRCRI2C1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(14*4))))
-#define SYSCTL_SRCR1_SRCRTIMER0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(16*4))))
-#define SYSCTL_SRCR1_SRCRTIMER1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(17*4))))
-#define SYSCTL_SRCR1_SRCRTIMER2_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(18*4))))
-#define SYSCTL_SRCR1_SRCRTIMER3_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(19*4))))
-#define SYSCTL_SRCR1_SRCRCOMP0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(24*4))))
-#define SYSCTL_SRCR1_SRCRCOMP1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(25*4))))
+#define SYSCTL_SRCR1_SRCRUART0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(0*4))))
+#define SYSCTL_SRCR1_SRCRUART1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(1*4))))
+#define SYSCTL_SRCR1_SRCRUART2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(2*4))))
+#define SYSCTL_SRCR1_SRCRSSI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(4*4))))
+#define SYSCTL_SRCR1_SRCRSSI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(5*4))))
+#define SYSCTL_SRCR1_SRCRQEI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(8*4))))
+#define SYSCTL_SRCR1_SRCRQEI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(9*4))))
+#define SYSCTL_SRCR1_SRCRI2C0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(12*4))))
+#define SYSCTL_SRCR1_SRCRI2C1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(14*4))))
+#define SYSCTL_SRCR1_SRCRTIMER0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(16*4))))
+#define SYSCTL_SRCR1_SRCRTIMER1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(17*4))))
+#define SYSCTL_SRCR1_SRCRTIMER2_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(18*4))))
+#define SYSCTL_SRCR1_SRCRTIMER3_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(19*4))))
+#define SYSCTL_SRCR1_SRCRCOMP0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(24*4))))
+#define SYSCTL_SRCR1_SRCRCOMP1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(25*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 15 SRCR2 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_SRCR2_OFFSET     (0x0048)
+/**********************************************************************************
+************************************133 SRCR2 *********************************************
+******************************************************************************************/
 #define SYSCTL_SRCR2            (((SRCR2_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCR2_OFFSET )))
 #define SYSCTL_SRCR2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SRCR2_OFFSET)))
 
@@ -9943,30 +10514,578 @@ typedef volatile struct
 #define SYSCTL_SRCR2_SRCRUSB0_RESET    (0x00000001)
 //--------
 
-#define SYSCTL_SRCR2_SRCRGPIOA_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(0*4))))
-#define SYSCTL_SRCR2_SRCRGPIOB_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(1*4))))
-#define SYSCTL_SRCR2_SRCRGPIOC_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(2*4))))
-#define SYSCTL_SRCR2_SRCRGPIOD_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(3*4))))
-#define SYSCTL_SRCR2_SRCRGPIOE_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(4*4))))
-#define SYSCTL_SRCR2_SRCRGPIOF_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(5*4))))
-#define SYSCTL_SRCR2_SRCRUDMA_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(13*4))))
-#define SYSCTL_SRCR2_SRCRUSB0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(16*4))))
+#define SYSCTL_SRCR2_SRCRGPIOA_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(0*4))))
+#define SYSCTL_SRCR2_SRCRGPIOB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(1*4))))
+#define SYSCTL_SRCR2_SRCRGPIOC_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(2*4))))
+#define SYSCTL_SRCR2_SRCRGPIOD_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(3*4))))
+#define SYSCTL_SRCR2_SRCRGPIOE_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(4*4))))
+#define SYSCTL_SRCR2_SRCRGPIOF_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(5*4))))
+#define SYSCTL_SRCR2_SRCRUDMA_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(13*4))))
+#define SYSCTL_SRCR2_SRCRUSB0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(16*4))))
 
-#define SCTL_SCGC0_SCGCADC0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(16*4))))
-#define SYSCTL_SCGC0_SCGCADC1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(17*4))))
-#define SYSCTL_SCGC0_SCGCPWM0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(20*4))))
-#define SYSCTL_SCGC0_SCGCCAN0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(24*4))))
-#define SYSCTL_SCGC0_SCGCCAN1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(25*4))))
-#define SYSCTL_SCGC0_SCGCWDT1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(28*4))))
+/**********************************************************************************
+************************************134 RCGC0 *********************************************
+******************************************************************************************/
+#define SYSCTL_RCGC0            (((RCGC0_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGC0_OFFSET )))
+#define SYSCTL_RCGC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RCGC0_OFFSET)))
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCWDT0_MASK       (0x00000008)
+#define SYSCTL_RCGC0_R_RCGCWDT0_BIT        (3)
+#define SYSCTL_RCGC0_R_RCGCWDT0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCWDT0_CLOCK         (0x00000008)
+
+#define SYSCTL_RCGC0_RCGCWDT0_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCWDT0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCWDT0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCHIB_MASK       (0x00000040)
+#define SYSCTL_RCGC0_R_RCGCHIB_BIT        (6)
+#define SYSCTL_RCGC0_R_RCGCHIB_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCHIB_CLOCK         (0x00000040)
+
+#define SYSCTL_RCGC0_RCGCHIB_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCHIB_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCHIB_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_MASK       (0x00000030)
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_BIT        (8)
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_125K       (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_250K       (0x00000010)
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_500K       (0x00000020)
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_1M         (0x00000030)
+
+#define SYSCTL_RCGC0_RCGCMAXADC0SPD_MASK         (0x00000003)
+#define SYSCTL_RCGC0_RCGCMAXADC0SPD_125K         (0x00000000)
+#define SYSCTL_RCGC0_RCGCMAXADC0SPD_250K         (0x00000001)
+#define SYSCTL_RCGC0_RCGCMAXADC0SPD_500K         (0x00000002)
+#define SYSCTL_RCGC0_RCGCMAXADC0SPD_1M           (0x00000003)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_MASK       (0x000000C0)
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_BIT        (10)
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_125K       (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_250K       (0x00000040)
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_500K       (0x00000080)
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_1M         (0x000000C0)
+
+#define SYSCTL_RCGC0_RCGCMAXADC1SPD_MASK         (0x00000003)
+#define SYSCTL_RCGC0_RCGCMAXADC1SPD_125K         (0x00000000)
+#define SYSCTL_RCGC0_RCGCMAXADC1SPD_250K         (0x00000001)
+#define SYSCTL_RCGC0_RCGCMAXADC1SPD_500K         (0x00000002)
+#define SYSCTL_RCGC0_RCGCMAXADC1SPD_1M           (0x00000003)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCADC0_MASK       (0x00010000)
+#define SYSCTL_RCGC0_R_RCGCADC0_BIT        (16)
+#define SYSCTL_RCGC0_R_RCGCADC0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCADC0_CLOCK         (0x00010000)
+
+#define SYSCTL_RCGC0_RCGCADC0_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCADC0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCADC0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCADC1_MASK       (0x00020000)
+#define SYSCTL_RCGC0_R_RCGCADC1_BIT        (17)
+#define SYSCTL_RCGC0_R_RCGCADC1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCADC1_CLOCK         (0x00020000)
+
+#define SYSCTL_RCGC0_RCGCADC1_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCADC1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCADC1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCPWM0_MASK       (0x00100000)
+#define SYSCTL_RCGC0_R_RCGCPWM0_BIT        (20)
+#define SYSCTL_RCGC0_R_RCGCPWM0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCPWM0_CLOCK         (0x00100000)
+
+#define SYSCTL_RCGC0_RCGCPWM0_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCPWM0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCPWM0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCCAN0_MASK       (0x01000000)
+#define SYSCTL_RCGC0_R_RCGCCAN0_BIT        (24)
+#define SYSCTL_RCGC0_R_RCGCCAN0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCCAN0_CLOCK         (0x01000000)
+
+#define SYSCTL_RCGC0_RCGCCAN0_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCCAN0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCCAN0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCCAN1_MASK       (0x02000000)
+#define SYSCTL_RCGC0_R_RCGCCAN1_BIT        (25)
+#define SYSCTL_RCGC0_R_RCGCCAN1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCCAN1_CLOCK         (0x02000000)
+
+#define SYSCTL_RCGC0_RCGCCAN1_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCCAN1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCCAN1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC0_R_RCGCWDT1_MASK       (0x10000000)
+#define SYSCTL_RCGC0_R_RCGCWDT1_BIT        (28)
+#define SYSCTL_RCGC0_R_RCGCWDT1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_R_RCGCWDT1_CLOCK         (0x10000000)
+
+#define SYSCTL_RCGC0_RCGCWDT1_MASK       (0x00000001)
+#define SYSCTL_RCGC0_RCGCWDT1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC0_RCGCWDT1_CLOCK         (0x00000001)
+//--------
+
+#define SYSCTL_RCGC0_RCGCWDT0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(3*4))))
+#define SYSCTL_RCGC0_RCGCHIB_BITBANDING       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(6*4))))
+#define SYSCTL_RCGC0_RCGCADC0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(16*4))))
+#define SYSCTL_RCGC0_RCGCADC1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(17*4))))
+#define SYSCTL_RCGC0_RCGCPWM0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(20*4))))
+#define SYSCTL_RCGC0_RCGCCAN0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(24*4))))
+#define SYSCTL_RCGC0_RCGCCAN1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(25*4))))
+#define SYSCTL_RCGC0_RCGCWDT1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(28*4))))
+
+/**********************************************************************************
+************************************135 RCGC1 *********************************************
+******************************************************************************************/
+#define SYSCTL_RCGC1            (((RCGC1_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGC1_OFFSET )))
+#define SYSCTL_RCGC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RCGC1_OFFSET)))
 
 
+//--------
+#define SYSCTL_RCGC1_R_RCGCUART0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_R_RCGCUART0_BIT        (0)
+#define SYSCTL_RCGC1_R_RCGCUART0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCUART0_CLOCK         (0x00000001)
+
+#define SYSCTL_RCGC1_RCGCUART0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCUART0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCUART0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCUART1_MASK       (0x00000002)
+#define SYSCTL_RCGC1_R_RCGCUART1_BIT        (1)
+#define SYSCTL_RCGC1_R_RCGCUART1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCUART1_CLOCK         (0x00000002)
+
+#define SYSCTL_RCGC1_RCGCUART1_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCUART1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCUART1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCUART2_MASK       (0x00000004)
+#define SYSCTL_RCGC1_R_RCGCUART2_BIT        (2)
+#define SYSCTL_RCGC1_R_RCGCUART2_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCUART2_CLOCK         (0x00000004)
+
+#define SYSCTL_RCGC1_RCGCUART2_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCUART2_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCUART2_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCSSI0_MASK       (0x00000010)
+#define SYSCTL_RCGC1_R_RCGCSSI0_BIT        (4)
+#define SYSCTL_RCGC1_R_RCGCSSI0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCSSI0_CLOCK         (0x00000010)
+
+#define SYSCTL_RCGC1_RCGCSSI0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCSSI0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCSSI0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCSSI1_MASK       (0x00000020)
+#define SYSCTL_RCGC1_R_RCGCSSI1_BIT        (5)
+#define SYSCTL_RCGC1_R_RCGCSSI1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCSSI1_CLOCK         (0x00000010)
+
+#define SYSCTL_RCGC1_RCGCSSI1_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCSSI1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCSSI1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCQEI0_MASK       (0x00000100)
+#define SYSCTL_RCGC1_R_RCGCQEI0_BIT        (8)
+#define SYSCTL_RCGC1_R_RCGCQEI0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCQEI0_CLOCK         (0x00000100)
+
+#define SYSCTL_RCGC1_RCGCQEI0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCQEI0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCQEI0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCQEI1_MASK       (0x00000200)
+#define SYSCTL_RCGC1_R_RCGCQEI1_BIT        (9)
+#define SYSCTL_RCGC1_R_RCGCQEI1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCQEI1_CLOCK         (0x00000200)
+
+#define SYSCTL_RCGC1_RCGCQEI1_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCQEI1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCQEI1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCI2C0_MASK       (0x00001000)
+#define SYSCTL_RCGC1_R_RCGCI2C0_BIT        (12)
+#define SYSCTL_RCGC1_R_RCGCI2C0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCI2C0_CLOCK         (0x00001000)
+
+#define SYSCTL_RCGC1_RCGCI2C0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCI2C0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCI2C0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCI2C1_MASK       (0x00004000)
+#define SYSCTL_RCGC1_R_RCGCI2C1_BIT        (14)
+#define SYSCTL_RCGC1_R_RCGCI2C1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCI2C1_CLOCK         (0x00004000)
+
+#define SYSCTL_RCGC1_RCGCI2C1_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCI2C1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCI2C1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCTIMER0_MASK       (0x00010000)
+#define SYSCTL_RCGC1_R_RCGCTIMER0_BIT        (16)
+#define SYSCTL_RCGC1_R_RCGCTIMER0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCTIMER0_CLOCK         (0x00010000)
+
+#define SYSCTL_RCGC1_RCGCTIMER0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCTIMER0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCTIMER0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCTIMER1_MASK       (0x00020000)
+#define SYSCTL_RCGC1_R_RCGCTIMER1_BIT        (17)
+#define SYSCTL_RCGC1_R_RCGCTIMER1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCTIMER1_CLOCK         (0x00020000)
+
+#define SYSCTL_RCGC1_RCGCTIMER1_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCTIMER1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCTIMER1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCTIMER2_MASK       (0x00040000)
+#define SYSCTL_RCGC1_R_RCGCTIMER2_BIT        (18)
+#define SYSCTL_RCGC1_R_RCGCTIMER2_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCTIMER2_CLOCK         (0x00040000)
+
+#define SYSCTL_RCGC1_RCGCTIMER2_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCTIMER2_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCTIMER2_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCTIMER3_MASK       (0x00080000)
+#define SYSCTL_RCGC1_R_RCGCTIMER3_BIT        (19)
+#define SYSCTL_RCGC1_R_RCGCTIMER3_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCTIMER3_CLOCK         (0x00080000)
+
+#define SYSCTL_RCGC1_RCGCTIMER3_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCTIMER3_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCTIMER3_CLOCK         (0x00000001)
+//--------
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 28 SCGC1 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+//--------
+#define SYSCTL_RCGC1_R_RCGCCOMP0_MASK       (0x01000000)
+#define SYSCTL_RCGC1_R_RCGCCOMP0_BIT        (24)
+#define SYSCTL_RCGC1_R_RCGCCOMP0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCCOMP0_CLOCK         (0x01000000)
 
-#define SYSCTL_SCGC1_OFFSET     (0x0114)
+#define SYSCTL_RCGC1_RCGCCOMP0_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCCOMP0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCCOMP0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC1_R_RCGCCOMP1_MASK       (0x02000000)
+#define SYSCTL_RCGC1_R_RCGCCOMP1_BIT        (25)
+#define SYSCTL_RCGC1_R_RCGCCOMP1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_R_RCGCCOMP1_CLOCK         (0x02000000)
+
+#define SYSCTL_RCGC1_RCGCCOMP1_MASK       (0x00000001)
+#define SYSCTL_RCGC1_RCGCCOMP1_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC1_RCGCCOMP1_CLOCK         (0x00000001)
+//--------
+
+
+#define SYSCTL_RCGC1_RCGCUART0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(0*4))))
+#define SYSCTL_RCGC1_RCGCUART1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(1*4))))
+#define SYSCTL_RCGC1_RCGCUART2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(2*4))))
+#define SYSCTL_RCGC1_RCGCSSI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(4*4))))
+#define SYSCTL_RCGC1_RCGCSSI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(5*4))))
+#define SYSCTL_RCGC1_RCGCQEI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(8*4))))
+#define SYSCTL_RCGC1_RCGCQEI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(9*4))))
+#define SYSCTL_RCGC1_RCGCI2C0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(12*4))))
+#define SYSCTL_RCGC1_RCGCI2C1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(14*4))))
+#define SYSCTL_RCGC1_RCGCTIMER0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(16*4))))
+#define SYSCTL_RCGC1_RCGCTIMER1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(17*4))))
+#define SYSCTL_RCGC1_RCGCTIMER2_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(18*4))))
+#define SYSCTL_RCGC1_RCGCTIMER3_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(19*4))))
+#define SYSCTL_RCGC1_RCGCCOMP0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(24*4))))
+#define SYSCTL_RCGC1_RCGCCOMP1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(25*4))))
+
+/**********************************************************************************
+************************************136 RCGC2 *********************************************
+******************************************************************************************/
+#define SYSCTL_RCGC2            (((RCGC2_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGC2_OFFSET )))
+#define SYSCTL_RCGC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RCGC2_OFFSET)))
+
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCGPIOA_MASK       (0x00000001)
+#define SYSCTL_RCGC2_R_RCGCGPIOA_BIT        (0)
+#define SYSCTL_RCGC2_R_RCGCGPIOA_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCGPIOA_CLOCK         (0x00000001)
+
+#define SYSCTL_RCGC2_RCGCGPIOA_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCGPIOA_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCGPIOA_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCGPIOB_MASK       (0x00000002)
+#define SYSCTL_RCGC2_R_RCGCGPIOB_BIT        (1)
+#define SYSCTL_RCGC2_R_RCGCGPIOB_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCGPIOB_CLOCK         (0x00000002)
+
+#define SYSCTL_RCGC2_RCGCGPIOB_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCGPIOB_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCGPIOB_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCGPIOC_MASK       (0x00000004)
+#define SYSCTL_RCGC2_R_RCGCGPIOC_BIT        (2)
+#define SYSCTL_RCGC2_R_RCGCGPIOC_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCGPIOC_CLOCK         (0x00000004)
+
+#define SYSCTL_RCGC2_RCGCGPIOC_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCGPIOC_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCGPIOC_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCGPIOD_MASK       (0x00000008)
+#define SYSCTL_RCGC2_R_RCGCGPIOD_BIT        (3)
+#define SYSCTL_RCGC2_R_RCGCGPIOD_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCGPIOD_CLOCK         (0x00000008)
+
+#define SYSCTL_RCGC2_RCGCGPIOD_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCGPIOD_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCGPIOD_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCGPIOE_MASK       (0x00000010)
+#define SYSCTL_RCGC2_R_RCGCGPIOE_BIT        (4)
+#define SYSCTL_RCGC2_R_RCGCGPIOE_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCGPIOE_CLOCK         (0x00000010)
+
+#define SYSCTL_RCGC2_RCGCGPIOE_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCGPIOE_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCGPIOE_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCGPIOF_MASK       (0x00000020)
+#define SYSCTL_RCGC2_R_RCGCGPIOF_BIT        (5)
+#define SYSCTL_RCGC2_R_RCGCGPIOF_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCGPIOF_CLOCK         (0x00000020)
+
+#define SYSCTL_RCGC2_RCGCGPIOF_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCGPIOF_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCGPIOF_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCUDMA_MASK       (0x00002000)
+#define SYSCTL_RCGC2_R_RCGCUDMA_BIT        (13)
+#define SYSCTL_RCGC2_R_RCGCUDMA_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCUDMA_CLOCK         (0x00002000)
+
+#define SYSCTL_RCGC2_RCGCUDMA_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCUDMA_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCUDMA_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_RCGC2_R_RCGCUSB0_MASK       (0x00010000)
+#define SYSCTL_RCGC2_R_RCGCUSB0_BIT        (16)
+#define SYSCTL_RCGC2_R_RCGCUSB0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_R_RCGCUSB0_CLOCK         (0x00010000)
+
+#define SYSCTL_RCGC2_RCGCUSB0_MASK       (0x00000001)
+#define SYSCTL_RCGC2_RCGCUSB0_UNCLOCK        (0x00000000)
+#define SYSCTL_RCGC2_RCGCUSB0_CLOCK         (0x00000001)
+//--------
+
+#define SYSCTL_RCGC2_RCGCGPIOA_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(0*4))))
+#define SYSCTL_RCGC2_RCGCGPIOB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(1*4))))
+#define SYSCTL_RCGC2_RCGCGPIOC_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(2*4))))
+#define SYSCTL_RCGC2_RCGCGPIOD_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(3*4))))
+#define SYSCTL_RCGC2_RCGCGPIOE_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(4*4))))
+#define SYSCTL_RCGC2_RCGCGPIOF_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(5*4))))
+#define SYSCTL_RCGC2_RCGCUDMA_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(13*4))))
+#define SYSCTL_RCGC2_RCGCUSB0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(16*4))))
+
+/**********************************************************************************
+************************************137 SCGC0 *********************************************
+******************************************************************************************/
+#define SYSCTL_SCGC0            (((SCGC0_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGC0_OFFSET )))
+#define SYSCTL_SCGC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SCGC0_OFFSET)))
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCWDT0_MASK       (0x00000008)
+#define SYSCTL_SCGC0_R_SCGCWDT0_BIT        (3)
+#define SYSCTL_SCGC0_R_SCGCWDT0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCWDT0_CLOCK         (0x00000008)
+
+#define SYSCTL_SCGC0_SCGCWDT0_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCWDT0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCWDT0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCHIB_MASK       (0x00000040)
+#define SYSCTL_SCGC0_R_SCGCHIB_BIT        (6)
+#define SYSCTL_SCGC0_R_SCGCHIB_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCHIB_CLOCK         (0x00000040)
+
+#define SYSCTL_SCGC0_SCGCHIB_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCHIB_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCHIB_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_MASK       (0x00000030)
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_BIT        (8)
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_125K       (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_250K       (0x00000010)
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_500K       (0x00000020)
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_1M         (0x00000030)
+
+#define SYSCTL_SCGC0_SCGCMAXADC0SPD_MASK         (0x00000003)
+#define SYSCTL_SCGC0_SCGCMAXADC0SPD_125K         (0x00000000)
+#define SYSCTL_SCGC0_SCGCMAXADC0SPD_250K         (0x00000001)
+#define SYSCTL_SCGC0_SCGCMAXADC0SPD_500K         (0x00000002)
+#define SYSCTL_SCGC0_SCGCMAXADC0SPD_1M           (0x00000003)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_MASK       (0x000000C0)
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_BIT        (10)
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_125K       (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_250K       (0x00000040)
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_500K       (0x00000080)
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_1M         (0x000000C0)
+
+#define SYSCTL_SCGC0_SCGCMAXADC1SPD_MASK         (0x00000003)
+#define SYSCTL_SCGC0_SCGCMAXADC1SPD_125K         (0x00000000)
+#define SYSCTL_SCGC0_SCGCMAXADC1SPD_250K         (0x00000001)
+#define SYSCTL_SCGC0_SCGCMAXADC1SPD_500K         (0x00000002)
+#define SYSCTL_SCGC0_SCGCMAXADC1SPD_1M           (0x00000003)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCADC0_MASK       (0x00010000)
+#define SYSCTL_SCGC0_R_SCGCADC0_BIT        (16)
+#define SYSCTL_SCGC0_R_SCGCADC0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCADC0_CLOCK         (0x00010000)
+
+#define SYSCTL_SCGC0_SCGCADC0_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCADC0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCADC0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCADC1_MASK       (0x00020000)
+#define SYSCTL_SCGC0_R_SCGCADC1_BIT        (17)
+#define SYSCTL_SCGC0_R_SCGCADC1_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCADC1_CLOCK         (0x00020000)
+
+#define SYSCTL_SCGC0_SCGCADC1_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCADC1_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCADC1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCPWM0_MASK       (0x00100000)
+#define SYSCTL_SCGC0_R_SCGCPWM0_BIT        (20)
+#define SYSCTL_SCGC0_R_SCGCPWM0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCPWM0_CLOCK         (0x00100000)
+
+#define SYSCTL_SCGC0_SCGCPWM0_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCPWM0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCPWM0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCCAN0_MASK       (0x01000000)
+#define SYSCTL_SCGC0_R_SCGCCAN0_BIT        (24)
+#define SYSCTL_SCGC0_R_SCGCCAN0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCCAN0_CLOCK         (0x01000000)
+
+#define SYSCTL_SCGC0_SCGCCAN0_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCCAN0_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCCAN0_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCCAN1_MASK       (0x02000000)
+#define SYSCTL_SCGC0_R_SCGCCAN1_BIT        (25)
+#define SYSCTL_SCGC0_R_SCGCCAN1_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCCAN1_CLOCK         (0x02000000)
+
+#define SYSCTL_SCGC0_SCGCCAN1_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCCAN1_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCCAN1_CLOCK         (0x00000001)
+//--------
+
+//--------
+#define SYSCTL_SCGC0_R_SCGCWDT1_MASK       (0x10000000)
+#define SYSCTL_SCGC0_R_SCGCWDT1_BIT        (28)
+#define SYSCTL_SCGC0_R_SCGCWDT1_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_R_SCGCWDT1_CLOCK         (0x10000000)
+
+#define SYSCTL_SCGC0_SCGCWDT1_MASK       (0x00000001)
+#define SYSCTL_SCGC0_SCGCWDT1_UNCLOCK        (0x00000000)
+#define SYSCTL_SCGC0_SCGCWDT1_CLOCK         (0x00000001)
+//--------
+
+#define SYSCTL_SCGC0_SCGCWDT0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(3*4))))
+#define SYSCTL_SCGC0_SCGCHIB_BITBANDING       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(6*4))))
+#define SYSCTL_SCGC0_SCGCADC0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(16*4))))
+#define SYSCTL_SCGC0_SCGCADC1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(17*4))))
+#define SYSCTL_SCGC0_SCGCPWM0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(20*4))))
+#define SYSCTL_SCGC0_SCGCCAN0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(24*4))))
+#define SYSCTL_SCGC0_SCGCCAN1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(25*4))))
+#define SYSCTL_SCGC0_SCGCWDT1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(28*4))))
+
+/**********************************************************************************
+************************************138 SCGC1 *********************************************
+******************************************************************************************/
 #define SYSCTL_SCGC1            (((SCGC1_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGC1_OFFSET )))
 #define SYSCTL_SCGC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SCGC1_OFFSET)))
 
@@ -10138,30 +11257,25 @@ typedef volatile struct
 //--------
 
 
-#define SYSCTL_SCGC1_SCGCUART0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_SCGC1_SCGCUART1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_SCGC1_SCGCUART2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_SCGC1_SCGCSSI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_SCGC1_SCGCSSI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_SCGC1_SCGCQEI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(8*4))))
-#define SYSCTL_SCGC1_SCGCQEI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(9*4))))
-#define SYSCTL_SCGC1_SCGCI2C0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(12*4))))
-#define SYSCTL_SCGC1_SCGCI2C1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(14*4))))
-#define SYSCTL_SCGC1_SCGCTIMER0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_SCGC1_SCGCTIMER1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_SCGC1_SCGCTIMER2_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(18*4))))
-#define SYSCTL_SCGC1_SCGCTIMER3_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(19*4))))
-#define SYSCTL_SCGC1_SCGCCOMP0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_SCGC1_SCGCCOMP1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(25*4))))
+#define SYSCTL_SCGC1_SCGCUART0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(0*4))))
+#define SYSCTL_SCGC1_SCGCUART1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(1*4))))
+#define SYSCTL_SCGC1_SCGCUART2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(2*4))))
+#define SYSCTL_SCGC1_SCGCSSI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(4*4))))
+#define SYSCTL_SCGC1_SCGCSSI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(5*4))))
+#define SYSCTL_SCGC1_SCGCQEI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(8*4))))
+#define SYSCTL_SCGC1_SCGCQEI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(9*4))))
+#define SYSCTL_SCGC1_SCGCI2C0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(12*4))))
+#define SYSCTL_SCGC1_SCGCI2C1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(14*4))))
+#define SYSCTL_SCGC1_SCGCTIMER0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(16*4))))
+#define SYSCTL_SCGC1_SCGCTIMER1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(17*4))))
+#define SYSCTL_SCGC1_SCGCTIMER2_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(18*4))))
+#define SYSCTL_SCGC1_SCGCTIMER3_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(19*4))))
+#define SYSCTL_SCGC1_SCGCCOMP0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(24*4))))
+#define SYSCTL_SCGC1_SCGCCOMP1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(25*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 29 SCGC2 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_SCGC2_OFFSET     (0x0118)
+/**********************************************************************************
+************************************139 SCGC2 *********************************************
+******************************************************************************************/
 #define SYSCTL_SCGC2            (((SCGC2_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGC2_OFFSET )))
 #define SYSCTL_SCGC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SCGC2_OFFSET)))
 
@@ -10254,22 +11368,18 @@ typedef volatile struct
 #define SYSCTL_SCGC2_SCGCUSB0_CLOCK         (0x00000001)
 //--------
 
-#define SYSCTL_SCGC2_SCGCGPIOA_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(0*4))))
-#define SYSCTL_SCGC2_SCGCGPIOB_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(1*4))))
-#define SYSCTL_SCGC2_SCGCGPIOC_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(2*4))))
-#define SYSCTL_SCGC2_SCGCGPIOD_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(3*4))))
-#define SYSCTL_SCGC2_SCGCGPIOE_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(4*4))))
-#define SYSCTL_SCGC2_SCGCGPIOF_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(5*4))))
-#define SYSCTL_SCGC2_SCGCUDMA_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_SCGC2_SCGCUSB0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(16*4))))
+#define SYSCTL_SCGC2_SCGCGPIOA_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(0*4))))
+#define SYSCTL_SCGC2_SCGCGPIOB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(1*4))))
+#define SYSCTL_SCGC2_SCGCGPIOC_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(2*4))))
+#define SYSCTL_SCGC2_SCGCGPIOD_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(3*4))))
+#define SYSCTL_SCGC2_SCGCGPIOE_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(4*4))))
+#define SYSCTL_SCGC2_SCGCGPIOF_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(5*4))))
+#define SYSCTL_SCGC2_SCGCUDMA_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(13*4))))
+#define SYSCTL_SCGC2_SCGCUSB0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(16*4))))
 
-//ToDO
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 30 DCGC0 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DCGC0_OFFSET     (0x0120)
+/**********************************************************************************
+************************************140 DCGC0 *********************************************
+******************************************************************************************/
 #define SYSCTL_DCGC0            (((DCGC0_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGC0_OFFSET )))
 #define SYSCTL_DCGC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DCGC0_OFFSET)))
 
@@ -10391,23 +11501,18 @@ typedef volatile struct
 #define SYSCTL_DCGC0_DCGCWDT1_CLOCK         (0x00000001)
 //--------
 
-#define SYSCTL_DCGC0_DCGCWDT0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(3*4))))
-#define SYSCTL_DCGC0_DCGCHIB_BB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(6*4))))
-#define SYSCTL_DCGC0_DCGCADC0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(16*4))))
-#define SYSCTL_DCGC0_DCGCADC1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(17*4))))
-#define SYSCTL_DCGC0_DCGCPWM0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(20*4))))
-#define SYSCTL_DCGC0_DCGCCAN0_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(24*4))))
-#define SYSCTL_DCGC0_DCGCCAN1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(25*4))))
-#define SYSCTL_DCGC0_DCGCWDT1_BB      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(28*4))))
+#define SYSCTL_DCGC0_DCGCWDT0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(3*4))))
+#define SYSCTL_DCGC0_DCGCHIB_BITBANDING       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(6*4))))
+#define SYSCTL_DCGC0_DCGCADC0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(16*4))))
+#define SYSCTL_DCGC0_DCGCADC1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(17*4))))
+#define SYSCTL_DCGC0_DCGCPWM0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(20*4))))
+#define SYSCTL_DCGC0_DCGCCAN0_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(24*4))))
+#define SYSCTL_DCGC0_DCGCCAN1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(25*4))))
+#define SYSCTL_DCGC0_DCGCWDT1_BITBANDING      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(28*4))))
 
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 31 DCGC1 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DCGC1_OFFSET     (0x0124)
+/**********************************************************************************
+************************************141 DCGC1 *********************************************
+******************************************************************************************/
 #define SYSCTL_DCGC1            (((DCGC1_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGC1_OFFSET )))
 #define SYSCTL_DCGC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DCGC1_OFFSET)))
 
@@ -10579,27 +11684,25 @@ typedef volatile struct
 //--------
 
 
-#define SYSCTL_DCGC1_DCGCUART0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_DCGC1_DCGCUART1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_DCGC1_DCGCUART2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_DCGC1_DCGCSSI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_DCGC1_DCGCSSI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_DCGC1_DCGCQEI0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(8*4))))
-#define SYSCTL_DCGC1_DCGCQEI1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(9*4))))
-#define SYSCTL_DCGC1_DCGCI2C0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(12*4))))
-#define SYSCTL_DCGC1_DCGCI2C1_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(14*4))))
-#define SYSCTL_DCGC1_DCGCTIMER0_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_DCGC1_DCGCTIMER1_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_DCGC1_DCGCTIMER2_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(18*4))))
-#define SYSCTL_DCGC1_DCGCTIMER3_BB      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(19*4))))
-#define SYSCTL_DCGC1_DCGCCOMP0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_DCGC1_DCGCCOMP1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(25*4))))
+#define SYSCTL_DCGC1_DCGCUART0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(0*4))))
+#define SYSCTL_DCGC1_DCGCUART1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(1*4))))
+#define SYSCTL_DCGC1_DCGCUART2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(2*4))))
+#define SYSCTL_DCGC1_DCGCSSI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(4*4))))
+#define SYSCTL_DCGC1_DCGCSSI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(5*4))))
+#define SYSCTL_DCGC1_DCGCQEI0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(8*4))))
+#define SYSCTL_DCGC1_DCGCQEI1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(9*4))))
+#define SYSCTL_DCGC1_DCGCI2C0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(12*4))))
+#define SYSCTL_DCGC1_DCGCI2C1_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(14*4))))
+#define SYSCTL_DCGC1_DCGCTIMER0_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(16*4))))
+#define SYSCTL_DCGC1_DCGCTIMER1_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(17*4))))
+#define SYSCTL_DCGC1_DCGCTIMER2_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(18*4))))
+#define SYSCTL_DCGC1_DCGCTIMER3_BITBANDING      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(19*4))))
+#define SYSCTL_DCGC1_DCGCCOMP0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(24*4))))
+#define SYSCTL_DCGC1_DCGCCOMP1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(25*4))))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 32 DCGC2 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DCGC2_OFFSET     (0x0128)
+/**********************************************************************************
+************************************142 DCGC2 *********************************************
+******************************************************************************************/
 #define SYSCTL_DCGC2            (((DCGC2_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGC2_OFFSET )))
 #define SYSCTL_DCGC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DCGC2_OFFSET)))
 
@@ -10692,21 +11795,18 @@ typedef volatile struct
 #define SYSCTL_DCGC2_DCGCUSB0_CLOCK         (0x00000001)
 //--------
 
-#define SYSCTL_DCGC2_DCGCGPIOA_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(0*4))))
-#define SYSCTL_DCGC2_DCGCGPIOB_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(1*4))))
-#define SYSCTL_DCGC2_DCGCGPIOC_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(2*4))))
-#define SYSCTL_DCGC2_DCGCGPIOD_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(3*4))))
-#define SYSCTL_DCGC2_DCGCGPIOE_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(4*4))))
-#define SYSCTL_DCGC2_DCGCGPIOF_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(5*4))))
-#define SYSCTL_DCGC2_DCGCUDMA_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_DCGC2_DCGCUSB0_BB        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(16*4))))
+#define SYSCTL_DCGC2_DCGCGPIOA_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(0*4))))
+#define SYSCTL_DCGC2_DCGCGPIOB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(1*4))))
+#define SYSCTL_DCGC2_DCGCGPIOC_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(2*4))))
+#define SYSCTL_DCGC2_DCGCGPIOD_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(3*4))))
+#define SYSCTL_DCGC2_DCGCGPIOE_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(4*4))))
+#define SYSCTL_DCGC2_DCGCGPIOF_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(5*4))))
+#define SYSCTL_DCGC2_DCGCUDMA_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(13*4))))
+#define SYSCTL_DCGC2_DCGCUSB0_BITBANDING        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(16*4))))
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 42 DC9 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_DC9_OFFSET     (0x0190)
+/**********************************************************************************
+************************************143 DC9 *********************************************
+******************************************************************************************/
 #define SYSCTL_DC9            (((DC9_TypeDef*)(SYSCTL_BASE+SYSCTL_DC9_OFFSET )))
 #define SYSCTL_DC9_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC9_OFFSET)))
 
@@ -10886,29 +11986,26 @@ typedef volatile struct
 #define SYSCTL_DC9_DCADC1DC7_NOPRESENT  (0x00000000)
 #define SYSCTL_DC9_DCADC1DC7_PRESENT    (0x00000001)
 //--------
-#define SYSCTL_DC9_DCADC0DC0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(0*4))))
-#define SYSCTL_DC9_DCADC0DC1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(1*4))))
-#define SYSCTL_DC9_DCADC0DC2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(2*4))))
-#define SYSCTL_DC9_DCADC0DC3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(3*4))))
-#define SYSCTL_DC9_DCADC0DC4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(4*4))))
-#define SYSCTL_DC9_DCADC0DC5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(5*4))))
-#define SYSCTL_DC9_DCADC0DC6_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(6*4))))
-#define SYSCTL_DC9_DCADC0DC7_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(7*4))))
-#define SYSCTL_DC9_DCADC1DC0_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(16*4))))
-#define SYSCTL_DC9_DCADC1DC1_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(17*4))))
-#define SYSCTL_DC9_DCADC1DC2_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(18*4))))
-#define SYSCTL_DC9_DCADC1DC3_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(19*4))))
-#define SYSCTL_DC9_DCADC1DC4_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(20*4))))
-#define SYSCTL_DC9_DCADC1DC5_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(21*4))))
-#define SYSCTL_DC9_DCADC1DC6_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(22*4))))
-#define SYSCTL_DC9_DCADC1DC7_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(23*4))))
+#define SYSCTL_DC9_DCADC0DC0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(0*4))))
+#define SYSCTL_DC9_DCADC0DC1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(1*4))))
+#define SYSCTL_DC9_DCADC0DC2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(2*4))))
+#define SYSCTL_DC9_DCADC0DC3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(3*4))))
+#define SYSCTL_DC9_DCADC0DC4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(4*4))))
+#define SYSCTL_DC9_DCADC0DC5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(5*4))))
+#define SYSCTL_DC9_DCADC0DC6_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(6*4))))
+#define SYSCTL_DC9_DCADC0DC7_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(7*4))))
+#define SYSCTL_DC9_DCADC1DC0_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(16*4))))
+#define SYSCTL_DC9_DCADC1DC1_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(17*4))))
+#define SYSCTL_DC9_DCADC1DC2_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(18*4))))
+#define SYSCTL_DC9_DCADC1DC3_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(19*4))))
+#define SYSCTL_DC9_DCADC1DC4_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(20*4))))
+#define SYSCTL_DC9_DCADC1DC5_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(21*4))))
+#define SYSCTL_DC9_DCADC1DC6_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(22*4))))
+#define SYSCTL_DC9_DCADC1DC7_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(23*4))))
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 43 NVMSTAT ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define SYSCTL_NVMSTAT_OFFSET     (0x01A0)
+/**********************************************************************************
+************************************144 NVMSTAT *********************************************
+******************************************************************************************/
 #define SYSCTL_NVMSTAT            (((NVMSTAT_TypeDef*)(SYSCTL_BASE+SYSCTL_NVMSTAT_OFFSET )))
 #define SYSCTL_NVMSTAT_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_NVMSTAT_OFFSET)))
 
@@ -10923,7 +12020,7 @@ typedef volatile struct
 #define SYSCTL_NVMSTAT_FWB_PRESENT    (0x00000001)
 //--------
 
-#define SYSCTL_NVMSTAT_FWB_BB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32)+(0*4))))
+#define SYSCTL_NVMSTAT_FWB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32)+(0*4))))
 
 
 
