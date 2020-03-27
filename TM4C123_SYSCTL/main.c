@@ -22,6 +22,7 @@ void main(void)
     MPU__vInit();
     SYSCTL__enInit();
     SysTick__enInitUs(10,SCB_enSHPR0);
+    SYSCTL__vEnRunModePeripheral(SYSCTL_enGPIOE);
 
     memalloc =memalign(16,1000);
     __asm(" cpsie i");
