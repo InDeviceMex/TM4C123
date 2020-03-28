@@ -20,9 +20,11 @@ void main(void)
     FPU__vInit();
     SCB__vInit();
     MPU__vInit();
-    SYSCTL__enInit();
+    SYSCTL__enInit(); // system clock 80MHz
     SysTick__enInitUs(10,SCB_enSHPR0);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enGPIOE);
+    SYSCTL__vEnRunModePeripheral(SYSCTL_enUDMA);
+    SYSCTL__vDisRunModePeripheral(SYSCTL_enGPIOE);
 
     memalloc =memalign(16,1000);
     __asm(" cpsie i");

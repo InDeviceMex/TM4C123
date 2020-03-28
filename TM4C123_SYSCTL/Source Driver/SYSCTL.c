@@ -7,7 +7,7 @@
 
 #include <SYSCTL.h>
 
-unsigned long SYSCTL_u32FreqXtal[27]=
+uint32_t SYSCTL_u32FreqXtal[27]=
 { 0       ,0       ,0       ,0       ,0       ,0       ,
   4000000 ,4096000 ,4915200 ,5000000 ,5120000 ,6000000 ,
   6144000 ,7372800 ,8000000 ,8192000 ,10000000,12000000,
@@ -482,14 +482,14 @@ void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
 
-    if(0==(SYSCTL->RCGC[u32NoRegister]&&(1<<u32NoPeripheral)))
+    if(0==(SYSCTL->RCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->RCGC[u32NoRegister]|=(1<<u32NoPeripheral);
         __asm(" NOP");
         __asm(" NOP");
         __asm(" NOP");
         __asm(" NOP");
-        while(0==(SYSCTL->PR[u32NoRegister]&&(1<<u32NoPeripheral)));
+        while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
     }
 }
 
@@ -498,8 +498,9 @@ void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
-    if((1<<u32NoPeripheral)==(SYSCTL->RCGC[u32NoRegister]&&(1<<u32NoPeripheral)))
+    if((1<<u32NoPeripheral)==(SYSCTL->RCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
+        SYSCTL__vResetPeripheral(enPeripheral);
         SYSCTL->RCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
         __asm(" NOP");
         __asm(" NOP");
@@ -514,14 +515,14 @@ void SYSCTL__vEnSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
 
-    if(0==(SYSCTL->SCGC[u32NoRegister]&&(1<<u32NoPeripheral)))
+    if(0==(SYSCTL->SCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->SCGC[u32NoRegister]|=(1<<u32NoPeripheral);
         __asm(" NOP");
         __asm(" NOP");
         __asm(" NOP");
         __asm(" NOP");
-        while(0==(SYSCTL->PR[u32NoRegister]&&(1<<u32NoPeripheral)));
+        while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
     }
 }
 
@@ -530,7 +531,7 @@ void SYSCTL__vDisSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
-    if((1<<u32NoPeripheral)==(SYSCTL->SCGC[u32NoRegister]&&(1<<u32NoPeripheral)))
+    if((1<<u32NoPeripheral)==(SYSCTL->SCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->SCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
         __asm(" NOP");
@@ -546,14 +547,14 @@ void SYSCTL__vEnDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
 
-    if(0==(SYSCTL->DCGC[u32NoRegister]&&(1<<u32NoPeripheral)))
+    if(0==(SYSCTL->DCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->DCGC[u32NoRegister]|=(1<<u32NoPeripheral);
         __asm(" NOP");
         __asm(" NOP");
         __asm(" NOP");
         __asm(" NOP");
-        while(0==(SYSCTL->PR[u32NoRegister]&&(1<<u32NoPeripheral)));
+        while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
     }
 }
 
@@ -562,7 +563,7 @@ void SYSCTL__vDisDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
-    if((1<<u32NoPeripheral)==(SYSCTL->DCGC[u32NoRegister]&&(1<<u32NoPeripheral)))
+    if((1<<u32NoPeripheral)==(SYSCTL->DCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->DCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
         __asm(" NOP");

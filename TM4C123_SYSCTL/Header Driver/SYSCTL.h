@@ -2,7 +2,7 @@
  * SYSCTL.h
  *
  *  Created on: Jan 22, 2018
- *      Author: GOS_TD
+ *      Author: Vyldram
  */
 
 #ifndef SYSCTL_H_
@@ -12154,6 +12154,7 @@ SYSCTL_nSTATUS SYSCTL__enInit(void);
 uint32_t SYSCTL__u32GetClock(void);
 
 SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPeripheral);
+SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeripheral);
 void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral);
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral);
 void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral);
