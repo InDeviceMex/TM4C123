@@ -1,0 +1,81 @@
+/*
+ * SYSEXC.c
+ *
+ *  Created on: 27/03/2020
+ *      Author: vyldram
+ */
+
+
+#include "SYSEXC.h"
+
+void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt)
+{
+    uint32_t u32Reg= (uint32_t)enInt & 0x3F;
+    SYSEXC_SYSEXCIM_R&=~(SYSEXC_SYSEXCIM_R_FPIDCIM_MASK|
+            SYSEXC_SYSEXCIM_R_FPDZCIM_MASK|
+            SYSEXC_SYSEXCIM_R_FPIOCIM_MASK|
+            SYSEXC_SYSEXCIM_R_FPUFCIM_MASK|
+            SYSEXC_SYSEXCIM_R_FPOFCIM_MASK|
+            SYSEXC_SYSEXCIM_R_FPIXCIM_MASK);
+
+    SYSEXC_SYSEXCIM_R|=(u32Reg);
+    NVIC__enSetEnableIRQ(NVIC_enSTIR_SYSEXC,NVIC_enPRI7);
+}
+void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt)
+{
+    uint32_t u32Reg= (uint32_t)enInt & 0x3F;
+    SYSEXC_SYSEXCIM_R|=(u32Reg);
+}
+void SYSEXC__vDisInterrupt(SYSEXC_nINTERRUPT enInt)
+{
+    uint32_t u32Reg= (uint32_t)enInt & 0x3F;
+    SYSEXC_SYSEXCIM_R&=~(u32Reg);
+}
+void SYSEXC__vClearInterrupt(SYSEXC_nINTERRUPT enInt)
+{
+    uint32_t u32Reg= (uint32_t)enInt & 0x3F;
+    SYSEXC_SYSEXCIC_R|=(u32Reg);
+}
+SYSEXC_nSTATUS SYSEXC__enStatusInt(SYSEXC_nINTERRUPT enInt)
+{
+    SYSEXC_nSTATUS enStatus=SYSEXC_enNOOCCUR;
+    uint32_t u32Reg= (uint32_t)enInt & 0x3F;
+    if(0!=(SYSEXC_SYSEXCRIS_R&u32Reg))
+        enStatus=SYSEXC_enOCCUR;
+    return enStatus;
+}
+
+void SYSEXCISR(void)
+{
+    uint32_t u32Reg=SYSEXC_SYSEXCMIS_R;
+    if(SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK))
+    {
+        SYSEXC_SYSEXCIC_R|=SYSEXC_SYSEXCIC_R_FPIDCIC_MASK;
+        while(1);
+    }
+    if(SYSEXC_SYSEXCMIS_R_FPDZCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPDZCMIS_MASK))
+    {
+        SYSEXC_SYSEXCIC_R|=SYSEXC_SYSEXCIC_R_FPDZCIC_MASK;
+        while(1);
+    }
+    if(SYSEXC_SYSEXCMIS_R_FPIOCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIOCMIS_MASK))
+    {
+        SYSEXC_SYSEXCIC_R|=SYSEXC_SYSEXCIC_R_FPIOCIC_MASK;
+        while(1);
+    }
+    if(SYSEXC_SYSEXCMIS_R_FPUFCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPUFCMIS_MASK))
+    {
+        SYSEXC_SYSEXCIC_R|=SYSEXC_SYSEXCIC_R_FPUFCIC_MASK;
+        while(1);
+    }
+    if(SYSEXC_SYSEXCMIS_R_FPOFCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPOFCMIS_MASK))
+    {
+        SYSEXC_SYSEXCIC_R|=SYSEXC_SYSEXCIC_R_FPOFCIC_MASK;
+        while(1);
+    }
+    if(SYSEXC_SYSEXCMIS_R_FPIXCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIXCMIS_MASK))
+    {
+        SYSEXC_SYSEXCIC_R|=SYSEXC_SYSEXCIC_R_FPIXCIC_MASK;
+        while(1);
+    }
+}

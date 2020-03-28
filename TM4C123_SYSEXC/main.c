@@ -1,0 +1,42 @@
+
+
+/**
+ * main.c
+ */
+
+#include "stdlib.h"
+#include "SCB.h"
+#include "NVIC.h"
+#include "FPU.h"
+#include "MPU.h"
+#include "SYSTICK.h"
+#include "SYSCTL.h"
+#include "SYSEXC.h"
+
+
+void main(void)
+{
+    volatile float a=1.0;
+    volatile float b=0.0;
+    uint32_t memory=0;
+    volatile uint32_t* memalloc;
+    __asm(" cpsie i");
+    FPU__vInit();
+    SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0));
+    SCB__vInit();
+    MPU__vInit();
+    SYSCTL__enInit(); // system clock 80MHz
+    SysTick__enInitUs(100,SCB_enSHPR0);
+    SYSCTL__vEnRunModePeripheral(SYSCTL_enGPIOE);
+    SYSCTL__vEnRunModePeripheral(SYSCTL_enUDMA);
+    SYSCTL__vDisRunModePeripheral(SYSCTL_enGPIOE);
+    memalloc =memalign(16,1000);
+    for(memory=0; memory<(1000>>2); memory++)
+    {
+       *(memalloc+memory)=memory;
+    }
+    while(1)
+    {
+        SysTick__vDelayUs(12500);
+    }
+}
