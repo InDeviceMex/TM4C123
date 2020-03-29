@@ -21,6 +21,7 @@ void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt)
     SYSEXC_SYSEXCIM_R|=(u32Reg);
     NVIC__enSetEnableIRQ(NVIC_enSTIR_SYSEXC,NVIC_enPRI7);
 }
+
 void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt)
 {
     uint32_t u32Reg= (uint32_t)enInt & 0x3F;
@@ -45,8 +46,30 @@ SYSEXC_nSTATUS SYSEXC__enStatusInt(SYSEXC_nINTERRUPT enInt)
     return enStatus;
 }
 
+uint32_t SYSEXC_pu32Context[8];
 void SYSEXCISR(void)
 {
+    __asm(
+            " MRS R0, MSP\n"
+            " movw R2, SYSEXC_pu32Context\n"
+            " movt R2, SYSEXC_pu32Context\n"
+            " ldr R1, [R0, #0X0]\n"
+            " str R1, [R2, #0x0]\n"//SYSEXC_pu32Context[0] R0
+            " ldr R1, [R0, #0x4]\n"
+            " str R1, [R2, #0x4]\n"//SYSEXC_pu32Context[1] R1
+            " ldr R1, [R0, #0x8]\n"
+            " str R1, [R2, #0x8]\n"//SYSEXC_pu32Context[2] R2
+            " ldr R1, [R0, #0xC]\n"
+            " str R1, [R2, #0xC]\n"//SYSEXC_pu32Context[3] R3
+            " ldr R1, [R0, #0x10]\n"
+            " str R1, [R2, #0x10]\n"//SYSEXC_pu32Context[4] R12
+            " ldr R1, [R0, #0x14]\n"
+            " str R1, [R2, #0x14]\n"//SYSEXC_pu32Context[5] LR
+            " ldr R1, [R0, #0x18]\n"
+            " str R1, [R2, #0x18]\n"//SYSEXC_pu32Context[6] PC
+            " ldr R1, [R0, #0x1C]\n"
+            " str R1, [R2, #0x1C]\n");//SYSEXC_pu32Context[7] PSR
+
     uint32_t u32Reg=SYSEXC_SYSEXCMIS_R;
     if(SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK))
     {

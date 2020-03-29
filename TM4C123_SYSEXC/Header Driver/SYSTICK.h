@@ -226,15 +226,15 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
 SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority);
 SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority);
 
-inline float SysTick__fGetTimeUs(void);
-inline float SysTick__fGetFrequency(void);
-inline void SysTick__vClearCount(void);
-inline uint32_t SysTick__u32GetCount(void);
-inline uint32_t SysTick__u32GetCurrentTick(void);
-inline uint64_t SysTick__u64GetCurrentCountTick(void);
-inline uint32_t SysTick__u32GetMaxTick(void);
+float SysTick__fGetTimeUs(void);
+float SysTick__fGetFrequency(void);
+void SysTick__vClearCount(void);
+uint32_t SysTick__u32GetCount(void);
+uint32_t SysTick__u32GetCurrentTick(void);
+uint64_t SysTick__u64GetCurrentCountTick(void);
+uint32_t SysTick__u32GetMaxTick(void);
 
-inline void SysTick__vDelayUs(float fTimeUs);
+void SysTick__vDelayUs(float fTimeUs);
 
 void SysTick__vRegisterISR(void (*Isr) (void));
 void SysTickISR(void);

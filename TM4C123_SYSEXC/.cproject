@@ -50,6 +50,7 @@
 									<listOptionValue builtIn="false" value="${CG_TOOL_ROOT}/include"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compilerID.LITTLE_ENDIAN.2118513353" name="Little endian code [See 'General' page to edit] (--little_endian, -me)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compilerID.LITTLE_ENDIAN" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compilerID.OPT_LEVEL.1245344094" superClass="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compilerID.OPT_LEVEL" value="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compilerID.OPT_LEVEL.4" valueType="enumerated"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compiler.inputType__C_SRCS.870277051" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compiler.inputType__CPP_SRCS.289336799" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compiler.inputType__ASM_SRCS.1073818145" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_19.6.compiler.inputType__ASM_SRCS"/>

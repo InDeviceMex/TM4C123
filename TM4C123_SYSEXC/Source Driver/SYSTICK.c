@@ -228,19 +228,19 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
     return enReturn;
 }
 
-inline void SysTick__vClearCount(void)
+ void SysTick__vClearCount(void)
 {
     SysTick_u32CountOv=0;
     SysTick_u32Count=0;
 }
 
 
-inline float SysTick__fGetTimeUs(void)
+ float SysTick__fGetTimeUs(void)
 {
     return (float)((float)SysTick_u32Count*SysTick_fUsTick);
 }
 
-inline float SysTick__fGetFrequency(void)
+ float SysTick__fGetFrequency(void)
 {
     float fReg=0.0;
     if(SysTick_u32Count!=0)
@@ -251,12 +251,12 @@ inline float SysTick__fGetFrequency(void)
 
 }
 
-inline uint32_t SysTick__u32GetCount(void)
+ uint32_t SysTick__u32GetCount(void)
 {
     return (uint32_t) SysTick_u32Count;
 }
 
-inline uint32_t SysTick__u32GetCurrentTick(void)
+ uint32_t SysTick__u32GetCurrentTick(void)
 {
     uint32_t u32Tick=SysTick_CVR_R;
     return (uint32_t) u32Tick;
@@ -273,26 +273,26 @@ uint64_t SysTick__u64GetCurrentCountTick(void)
 
 }
 
-inline uint32_t SysTick__u32GetMaxTick(void)
+ uint32_t SysTick__u32GetMaxTick(void)
 {
     return (uint32_t) SysTick_u32CountTick;
 }
 
-inline void SysTick__vDelayUs(float fTimeUs)
+ void SysTick__vDelayUs(float fTimeUs)
 {
-    float fCount=0.0;
-    uint64_t u64CountDelta = 0;
-    uint64_t u64CountCurrent = 0;
-    uint64_t u64CountMax=0;
-    uint64_t u64Count= 0;
-    uint64_t u64CountInitial = SysTick__u64GetCurrentCountTick();
+    volatile uint64_t u64CountInitial = SysTick__u64GetCurrentCountTick();
+    volatile float fCount=0.0;
+    volatile uint64_t u64CountDelta = 0;
+    volatile uint64_t u64CountCurrent = 0;
+    volatile uint64_t u64CountMax=0;
+    volatile uint64_t u64Count= 0;
 
     if(SysTick_fUsTick!=0.0)
     {
         fCount= fTimeUs/SysTick_fUsTick;
     }
-    u64CountMax= (uint32_t)fCount;
-    u64CountMax*=SysTick__u32GetMaxTick();
+    u64CountMax= (uint64_t)fCount;
+    u64CountMax*=(uint64_t)SysTick__u32GetMaxTick();
 
     u64CountDelta=SysTick__u64GetCurrentCountTick();
     u64CountDelta-=u64CountInitial;
@@ -302,7 +302,14 @@ inline void SysTick__vDelayUs(float fTimeUs)
     while(((uint64_t)u64Count<(uint64_t)u64CountMax))
     {
         u64CountCurrent =SysTick__u64GetCurrentCountTick();
-        u64Count=(uint64_t)( u64CountCurrent - u64CountInitial);
+        if(u64CountCurrent>=u64CountInitial)
+        {
+            u64Count=(uint64_t)( u64CountCurrent - u64CountInitial);
+        }
+        else
+        {
+            u64Count=(uint64_t)( u64CountInitial - u64CountCurrent);
+        }
     }
 
 }
