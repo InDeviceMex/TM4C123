@@ -236,6 +236,7 @@ inline uint32_t SysTick__u32GetMaxTick(void);
 
 inline void SysTick__vDelayUs(float fTimeUs);
 
+void SysTick__vRegisterISR(void (*Isr) (void));
 void SysTickISR(void);
 
 
