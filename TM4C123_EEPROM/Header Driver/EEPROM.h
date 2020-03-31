@@ -9,6 +9,9 @@
 #define EEPROM_H_
 
 #include <stdint.h>
+#include <NVIC.h>
+#include <SYSCTL.h>
+
 
 #define EEPROM_BASE            (0x400AF000)
 #define EEPROM_BASE_BITBANDING (0x42000000)
@@ -483,7 +486,7 @@ typedef volatile struct
 
 //--------
 #define EEPROM_EESIZE_R_BLKCNT_MASK     (0x07FF0000)
-#define EEPROM_EESIZE_R_BLKCNT_BIT      (0)
+#define EEPROM_EESIZE_R_BLKCNT_BIT      (16)
 #define EEPROM_EESIZE_R_BLKCNT_NUMBER   (0x00200000)
 
 #define EEPROM_EESIZE_BLKCNT_MASK       (0x000007FF)
@@ -1223,5 +1226,32 @@ typedef enum
     EEPROM_enOK = 0,
     EEPROM_enERROR =1,
 }EEPROM_nSTATUS;
+
+
+EEPROM_nSTATUS EEPROM__enInit(void);
+EEPROM_nSTATUS EEPROM__enWait(void);
+EEPROM_nSTATUS EEPROM__enGetStatus(void);
+
+uint32_t EEPROM__u32GetWorldCount(void);
+uint32_t EEPROM__u32GetBlockCount(void);
+
+EEPROM_nSTATUS EEPROM__enReadWorld(uint32_t* pu32Data,uint32_t u32Address);
+EEPROM_nSTATUS EEPROM__enReadHalfWorld(uint16_t* pu16Data,uint32_t u32Address);
+EEPROM_nSTATUS EEPROM__enReadByte(uint8_t* pu8Data,uint32_t u32Address);
+
+EEPROM_nSTATUS EEPROM__enWriteWorld(uint32_t u32Data,uint32_t u32Address);
+EEPROM_nSTATUS EEPROM__enWriteHalfWorld(uint16_t u16Data,uint32_t u32Address);
+EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address);
+
+
+EEPROM_nSTATUS EEPROM__enWriteWorldBlock(uint32_t* pu32Data,uint32_t u32Address);
+
+EEPROM_nSTATUS EEPROM__enWriteMultiWorld(uint32_t* pu32Data,uint32_t u32Address,uint16_t u16Count);
+EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld(uint16_t* pu16Data,uint32_t u32Address,uint16_t u16Count);
+EEPROM_nSTATUS EEPROM__enWriteMultiByte(uint8_t* pu8Data,uint32_t u32Address,uint16_t u16Count);
+
+EEPROM_nSTATUS EEPROM__enReadMultiWorld(uint32_t* pu32Data,uint32_t u32Address,uint16_t u16Count);
+EEPROM_nSTATUS EEPROM__enReadMultiHalfWorld(uint16_t* pu16Data,uint32_t u32Address,uint16_t u16Count);
+EEPROM_nSTATUS EEPROM__enReadMultiByte(uint8_t* pu8Data,uint32_t u32Address,uint16_t u16Count);
 
 #endif /* EEPROM_H_ */
