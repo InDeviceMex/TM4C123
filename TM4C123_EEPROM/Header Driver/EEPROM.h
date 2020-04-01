@@ -16,7 +16,6 @@
 #define EEPROM_BASE            (0x400AF000)
 #define EEPROM_BASE_BITBANDING (0x42000000)
 #define EEPROM_OFFSET          (0x000AF000)
-//#define EEPROM_LIMIT           (0x00040000)
 
 
 typedef volatile struct
