@@ -309,6 +309,83 @@ typedef volatile struct
     const    uint32_t reserved     :29;
 }MOSCCTL_TypeDef;
 
+typedef volatile struct
+{
+    volatile uint32_t BA            :1;
+    const    uint32_t reserved      :31;
+}RMCTL_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t READ_ENABLE0   :1;
+    volatile uint32_t READ_ENABLE1   :1;
+    volatile uint32_t READ_ENABLE2   :1;
+    volatile uint32_t READ_ENABLE3   :1;
+    volatile uint32_t READ_ENABLE4   :1;
+    volatile uint32_t READ_ENABLE5   :1;
+    volatile uint32_t READ_ENABLE6   :1;
+    volatile uint32_t READ_ENABLE7   :1;
+    volatile uint32_t READ_ENABLE8   :1;
+    volatile uint32_t READ_ENABLE9   :1;
+    volatile uint32_t READ_ENABLE10  :1;
+    volatile uint32_t READ_ENABLE11  :1;
+    volatile uint32_t READ_ENABLE12  :1;
+    volatile uint32_t READ_ENABLE13  :1;
+    volatile uint32_t READ_ENABLE14  :1;
+    volatile uint32_t READ_ENABLE15  :1;
+    volatile uint32_t READ_ENABLE16  :1;
+    volatile uint32_t READ_ENABLE17  :1;
+    volatile uint32_t READ_ENABLE18  :1;
+    volatile uint32_t READ_ENABLE19  :1;
+    volatile uint32_t READ_ENABLE20  :1;
+    volatile uint32_t READ_ENABLE21  :1;
+    volatile uint32_t READ_ENABLE22  :1;
+    volatile uint32_t READ_ENABLE23  :1;
+    volatile uint32_t READ_ENABLE24  :1;
+    volatile uint32_t READ_ENABLE25  :1;
+    volatile uint32_t READ_ENABLE26  :1;
+    volatile uint32_t READ_ENABLE27  :1;
+    volatile uint32_t READ_ENABLE28  :1;
+    volatile uint32_t READ_ENABLE29  :1;
+    volatile uint32_t READ_ENABLE30  :1;
+    volatile uint32_t READ_ENABLE31  :1;
+}FMPRE_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t PROG_ENABLE0   :1;
+    volatile uint32_t PROG_ENABLE1   :1;
+    volatile uint32_t PROG_ENABLE2   :1;
+    volatile uint32_t PROG_ENABLE3   :1;
+    volatile uint32_t PROG_ENABLE4   :1;
+    volatile uint32_t PROG_ENABLE5   :1;
+    volatile uint32_t PROG_ENABLE6   :1;
+    volatile uint32_t PROG_ENABLE7   :1;
+    volatile uint32_t PROG_ENABLE8   :1;
+    volatile uint32_t PROG_ENABLE9   :1;
+    volatile uint32_t PROG_ENABLE10  :1;
+    volatile uint32_t PROG_ENABLE11  :1;
+    volatile uint32_t PROG_ENABLE12  :1;
+    volatile uint32_t PROG_ENABLE13  :1;
+    volatile uint32_t PROG_ENABLE14  :1;
+    volatile uint32_t PROG_ENABLE15  :1;
+    volatile uint32_t PROG_ENABLE16  :1;
+    volatile uint32_t PROG_ENABLE17  :1;
+    volatile uint32_t PROG_ENABLE18  :1;
+    volatile uint32_t PROG_ENABLE19  :1;
+    volatile uint32_t PROG_ENABLE20  :1;
+    volatile uint32_t PROG_ENABLE21  :1;
+    volatile uint32_t PROG_ENABLE22  :1;
+    volatile uint32_t PROG_ENABLE23  :1;
+    volatile uint32_t PROG_ENABLE24  :1;
+    volatile uint32_t PROG_ENABLE25  :1;
+    volatile uint32_t PROG_ENABLE26  :1;
+    volatile uint32_t PROG_ENABLE27  :1;
+    volatile uint32_t PROG_ENABLE28  :1;
+    volatile uint32_t PROG_ENABLE29  :1;
+    volatile uint32_t PROG_ENABLE30  :1;
+    volatile uint32_t PROG_ENABLE31  :1;
+}FMPPE_TypeDef;
 
 typedef volatile struct
 {
@@ -318,6 +395,84 @@ typedef volatile struct
     const    uint32_t reserved     [29];
 }MOSCCTL_BITBANDING_TypeDef;
 
+typedef volatile struct
+{
+    volatile uint32_t BA            ;
+    const    uint32_t reserved      [31];
+}RMCTL_BITBANDING_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t READ_ENABLE0   ;
+    volatile uint32_t READ_ENABLE1   ;
+    volatile uint32_t READ_ENABLE2   ;
+    volatile uint32_t READ_ENABLE3   ;
+    volatile uint32_t READ_ENABLE4   ;
+    volatile uint32_t READ_ENABLE5   ;
+    volatile uint32_t READ_ENABLE6   ;
+    volatile uint32_t READ_ENABLE7   ;
+    volatile uint32_t READ_ENABLE8   ;
+    volatile uint32_t READ_ENABLE9   ;
+    volatile uint32_t READ_ENABLE10  ;
+    volatile uint32_t READ_ENABLE11  ;
+    volatile uint32_t READ_ENABLE12  ;
+    volatile uint32_t READ_ENABLE13  ;
+    volatile uint32_t READ_ENABLE14  ;
+    volatile uint32_t READ_ENABLE15  ;
+    volatile uint32_t READ_ENABLE16  ;
+    volatile uint32_t READ_ENABLE17  ;
+    volatile uint32_t READ_ENABLE18  ;
+    volatile uint32_t READ_ENABLE19  ;
+    volatile uint32_t READ_ENABLE20  ;
+    volatile uint32_t READ_ENABLE21  ;
+    volatile uint32_t READ_ENABLE22  ;
+    volatile uint32_t READ_ENABLE23  ;
+    volatile uint32_t READ_ENABLE24  ;
+    volatile uint32_t READ_ENABLE25  ;
+    volatile uint32_t READ_ENABLE26  ;
+    volatile uint32_t READ_ENABLE27  ;
+    volatile uint32_t READ_ENABLE28  ;
+    volatile uint32_t READ_ENABLE29  ;
+    volatile uint32_t READ_ENABLE30  ;
+    volatile uint32_t READ_ENABLE31  ;
+}FMPRE_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t PROG_ENABLE0   ;
+    volatile uint32_t PROG_ENABLE1   ;
+    volatile uint32_t PROG_ENABLE2   ;
+    volatile uint32_t PROG_ENABLE3   ;
+    volatile uint32_t PROG_ENABLE4   ;
+    volatile uint32_t PROG_ENABLE5   ;
+    volatile uint32_t PROG_ENABLE6   ;
+    volatile uint32_t PROG_ENABLE7   ;
+    volatile uint32_t PROG_ENABLE8   ;
+    volatile uint32_t PROG_ENABLE9   ;
+    volatile uint32_t PROG_ENABLE10  ;
+    volatile uint32_t PROG_ENABLE11  ;
+    volatile uint32_t PROG_ENABLE12  ;
+    volatile uint32_t PROG_ENABLE13  ;
+    volatile uint32_t PROG_ENABLE14  ;
+    volatile uint32_t PROG_ENABLE15  ;
+    volatile uint32_t PROG_ENABLE16  ;
+    volatile uint32_t PROG_ENABLE17  ;
+    volatile uint32_t PROG_ENABLE18  ;
+    volatile uint32_t PROG_ENABLE19  ;
+    volatile uint32_t PROG_ENABLE20  ;
+    volatile uint32_t PROG_ENABLE21  ;
+    volatile uint32_t PROG_ENABLE22  ;
+    volatile uint32_t PROG_ENABLE23  ;
+    volatile uint32_t PROG_ENABLE24  ;
+    volatile uint32_t PROG_ENABLE25  ;
+    volatile uint32_t PROG_ENABLE26  ;
+    volatile uint32_t PROG_ENABLE27  ;
+    volatile uint32_t PROG_ENABLE28  ;
+    volatile uint32_t PROG_ENABLE29  ;
+    volatile uint32_t PROG_ENABLE30  ;
+    volatile uint32_t PROG_ENABLE31  ;
+}FMPPE_BITBANDING_TypeDef;
 
 typedef volatile struct
 {
@@ -587,6 +742,47 @@ typedef volatile struct
     volatile const uint32_t LDOUA    ;
     const          uint32_t reserved2[12];
 }SDPMST_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t DBG0        :1;
+    volatile const uint32_t DBG1        :1;
+    const          uint32_t reserved    :2;
+    volatile const uint32_t KEY         :1;
+    const          uint32_t reserved1   :3;
+    volatile const uint32_t EN          :1;
+    volatile const uint32_t POL         :1;
+    volatile const uint32_t PIN         :3;
+    volatile const uint32_t PORT        :3;
+    const          uint32_t reserved2   :15;
+    volatile const uint32_t NW          :1;
+}BOOTCFG_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t DBG0        ;
+    volatile const uint32_t DBG1        ;
+    const          uint32_t reserved    [2];
+    volatile const uint32_t KEY         ;
+    const          uint32_t reserved1   [3];
+    volatile const uint32_t EN          ;
+    volatile const uint32_t POL         ;
+    volatile const uint32_t PIN         [3];
+    volatile const uint32_t PORT        [3];
+    const          uint32_t reserved2   [15];
+    volatile const uint32_t NW          ;
+}BOOTCFG_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t DATA        :32;
+}USER_REG_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t DATA        [32];
+}USER_REG_BITBANDING_TypeDef;
+
 
 typedef volatile struct
 {
@@ -1995,66 +2191,66 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t       DID0;
-        DID0_TypeDef            DID0_Bit;
+        volatile uint32_t           DID0;
+        DID0_TypeDef                DID0_Bit;
     };
     union
     {
-        volatile uint32_t       DID1;
-        DID1_TypeDef            DID1_Bit;
+        volatile uint32_t           DID1;
+        DID1_TypeDef                DID1_Bit;
     };
     union
     {
-        volatile const uint32_t         DC0;
-        DC0_TypeDef                     DC0_Bit;
+        volatile const uint32_t     DC0;
+        DC0_TypeDef                 DC0_Bit;
     };
     const uint32_t reserved[1];
     union
     {
-        volatile const uint32_t         DC1;
-        DC1_TypeDef                     DC1_Bit;
+        volatile const uint32_t     DC1;
+        DC1_TypeDef                 DC1_Bit;
     };
     union
     {
-        volatile const uint32_t         DC2;
-        DC2_TypeDef                     DC2_Bit;
+        volatile const uint32_t     DC2;
+        DC2_TypeDef                 DC2_Bit;
     };
     union
     {
-        volatile const uint32_t         DC3;
-        DC3_TypeDef                     DC3_Bit;
+        volatile const uint32_t     DC3;
+        DC3_TypeDef                 DC3_Bit;
     };
     union
     {
-        volatile const uint32_t         DC4;
-        DC4_TypeDef                     DC4_Bit;
+        volatile const uint32_t     DC4;
+        DC4_TypeDef                 DC4_Bit;
     };
     union
     {
-        volatile const uint32_t         DC5;
-        DC5_TypeDef                     DC5_Bit;
+        volatile const uint32_t     DC5;
+        DC5_TypeDef                 DC5_Bit;
     };
     union
     {
-        volatile const uint32_t         DC6;
-        DC6_TypeDef                     DC6_Bit;
+        volatile const uint32_t     DC6;
+        DC6_TypeDef                 DC6_Bit;
     };
     union
     {
-        volatile const uint32_t         DC7;
-        DC7_TypeDef                     DC7_Bit;
+        volatile const uint32_t     DC7;
+        DC7_TypeDef                 DC7_Bit;
     };
     union
     {
-        volatile const uint32_t         DC8;
-        DC8_TypeDef                     DC8_Bit;
+        volatile const uint32_t     DC8;
+        DC8_TypeDef                 DC8_Bit;
     };
     union
     {
-        volatile uint32_t       PBORCTL;
-        PBORCTL_TypeDef         PBORCTL_Bit;
+        volatile uint32_t           PBORCTL;
+        PBORCTL_TypeDef             PBORCTL_Bit;
     };
-    const uint32_t             reserved1[3];
+    const uint32_t                  reserved1[3];
     union
     {
         volatile const uint32_t     SRCR0;
@@ -2070,219 +2266,304 @@ typedef volatile struct
         volatile const uint32_t     SRCR2;
         SRCR2_TypeDef               SRCR2_Bit;
     };
-    const uint32_t             reserved2[1];
+    const uint32_t                  reserved2[1];
     union
     {
-        volatile uint32_t       RIS;
-        RIS_TypeDef             RIS_Bit;
+        volatile uint32_t           RIS;
+        RIS_TypeDef                 RIS_Bit;
     };
     union
     {
-        volatile uint32_t       IMC;
-        IMC_TypeDef             IMC_Bit;
+        volatile uint32_t           IMC;
+        IMC_TypeDef                 IMC_Bit;
     };
     union
     {
-        volatile uint32_t       MISC;
-        MISC_TypeDef            MISC_Bit;
+        volatile uint32_t           MISC;
+        MISC_TypeDef                MISC_Bit;
     };
     union
     {
-        volatile uint32_t       RESC;
-        RESC_TypeDef            RESC_Bit;
+        volatile uint32_t           RESC;
+        RESC_TypeDef                RESC_Bit;
     };
     union
     {
-        volatile uint32_t       RCC;
-        RCC_TypeDef             RCC_Bit;
+        volatile uint32_t           RCC;
+        RCC_TypeDef                 RCC_Bit;
     };
-    const uint32_t reserved3[2];
+    const uint32_t                  reserved3[2];
     union
     {
-        volatile uint32_t       GPIOHBCTL;
-        GPIOHBCTL_TypeDef       GPIOHBCTL_Bit;
-    };
-    union
-    {
-        volatile uint32_t       RCC2;
-        RCC2_TypeDef            RCC2_Bit;
-    };
-    const uint32_t reserved4[2];
-    union
-    {
-        volatile uint32_t       MOSCCTL;
-        MOSCCTL_TypeDef         MOSCCTL_Bit;
-    };
-    const uint32_t             reserved5[32];
-    union
-    {
-        volatile const uint32_t RCGC0;
-        RCGC0_TypeDef           RCGC0_Bit;
+        volatile uint32_t           GPIOHBCTL;
+        GPIOHBCTL_TypeDef           GPIOHBCTL_Bit;
     };
     union
     {
-        volatile const uint32_t RCGC1;
-        RCGC1_TypeDef           RCGC1_Bit;
+        volatile uint32_t           RCC2;
+        RCC2_TypeDef                RCC2_Bit;
+    };
+    const uint32_t                  reserved4[2];
+    union
+    {
+        volatile uint32_t           MOSCCTL;
+        MOSCCTL_TypeDef             MOSCCTL_Bit;
+    };
+    const uint32_t                  reserved5[28];
+    union
+    {
+        volatile uint32_t           RMCTL;
+        RMCTL_TypeDef               RMCTL_Bit;
+    };
+    const uint32_t                  reserved6[3];
+    union
+    {
+        volatile const uint32_t     RCGC0;
+        RCGC0_TypeDef               RCGC0_Bit;
     };
     union
     {
-        volatile const uint32_t RCGC2;
-        RCGC2_TypeDef           RCGC2_Bit;
-    };
-    const uint32_t             reserved6[1];
-    union
-    {
-        volatile const uint32_t SCGC0;
-        SCGC0_TypeDef           SCGC0_Bit;
+        volatile const uint32_t     RCGC1;
+        RCGC1_TypeDef               RCGC1_Bit;
     };
     union
     {
-        volatile const uint32_t SCGC1;
-        SCGC1_TypeDef           SCGC1_Bit;
+        volatile const uint32_t     RCGC2;
+        RCGC2_TypeDef               RCGC2_Bit;
+    };
+    const uint32_t                  reserved7[1];
+    union
+    {
+        volatile const uint32_t     SCGC0;
+        SCGC0_TypeDef               SCGC0_Bit;
     };
     union
     {
-        volatile const uint32_t SCGC2;
-        SCGC2_TypeDef           SCGC2_Bit;
-    };
-    const uint32_t             reserved7[1];
-    union
-    {
-        volatile const uint32_t DCGC0;
-        DCGC0_TypeDef           DCGC0_Bit;
+        volatile const uint32_t     SCGC1;
+        SCGC1_TypeDef               SCGC1_Bit;
     };
     union
     {
-        volatile const uint32_t DCGC1;
-        DCGC1_TypeDef           DCGC1_Bit;
+        volatile const uint32_t     SCGC2;
+        SCGC2_TypeDef               SCGC2_Bit;
+    };
+    const uint32_t                  reserved8[1];
+    union
+    {
+        volatile const uint32_t     DCGC0;
+        DCGC0_TypeDef               DCGC0_Bit;
     };
     union
     {
-        volatile const uint32_t DCGC2;
-        DCGC2_TypeDef           DCGC2_Bit;
-    };
-    const uint32_t             reserved8[6];
-    union
-    {
-        volatile uint32_t       DSLPCLKCFG;
-        DSLPCLKCFG_TypeDef      DSLPCLKCFG_Bit;
-    };
-    const uint32_t reserved9[1];
-    union
-    {
-        volatile uint32_t       SYSPROP;
-        SYSPROP_TypeDef         SYSPROP_Bit;
+        volatile const uint32_t     DCGC1;
+        DCGC1_TypeDef               DCGC1_Bit;
     };
     union
     {
-        volatile uint32_t       PIOSCCAL;
-        PIOSCCAL_TypeDef        PIOSCCAL_Bit;
+        volatile const uint32_t     DCGC2;
+        DCGC2_TypeDef               DCGC2_Bit;
+    };
+    const uint32_t                  reserved9[1];
+    union
+    {
+        volatile const uint32_t     FMPRE0_ALIAS;
+        FMPRE_TypeDef               FMPRE0_ALIAS_Bit;
     };
     union
     {
-        volatile uint32_t       PIOSCSTAT;
-        PIOSCSTAT_TypeDef       PIOSCSTAT_Bit;
+        volatile const uint32_t     FMPPE0_ALIAS;
+        FMPPE_TypeDef               FMPPE0_ALIAS_Bit;
     };
-    const uint32_t reserved10[2];
+    const uint32_t                  reserved10[3];
     union
     {
-        volatile uint32_t       PLLFREQ0;
-        PLLFREQ0_TypeDef        PLLFREQ0_Bit;
+        volatile uint32_t           DSLPCLKCFG;
+        DSLPCLKCFG_TypeDef          DSLPCLKCFG_Bit;
     };
+    const uint32_t                  reserved11[1];
     union
     {
-        volatile uint32_t       PLLFREQ1;
-        PLLFREQ1_TypeDef        PLLFREQ1_Bit;
-    };
-    union
-    {
-        volatile uint32_t       PLLSTAT;
-        PLLSTAT_TypeDef         PLLSTAT_Bit;
-    };
-    const uint32_t reserved11[7];
-    union
-    {
-        volatile uint32_t       SLSRWRCFG;
-        SLSRWRCFG_TypeDef       SLSRWRCFG_Bit;
+        volatile uint32_t           SYSPROP;
+        SYSPROP_TypeDef             SYSPROP_Bit;
     };
     union
     {
-        volatile uint32_t       DSLSRWRCFG;
-        DSLSRWRCFG_TypeDef      DSLSRWRCFG_Bit;
+        volatile uint32_t           PIOSCCAL;
+        PIOSCCAL_TypeDef            PIOSCCAL_Bit;
     };
     union
     {
-        volatile uint32_t       DC9;
-        DC9_TypeDef             DC9_Bit;
+        volatile uint32_t           PIOSCSTAT;
+        PIOSCSTAT_TypeDef           PIOSCSTAT_Bit;
     };
-    const uint32_t             reserved12[3];
+    const uint32_t                  reserved12[2];
     union
     {
-        volatile uint32_t       NVMSTAT;
-        NVMSTAT_TypeDef         NVMSTAT_Bit;
-    };
-    const uint32_t             reserved13[4];
-    union
-    {
-        volatile uint32_t       LDOSPCTL;
-        LDOSPCTL_TypeDef        LDOSPCTL_Bit;
+        volatile uint32_t           PLLFREQ0;
+        PLLFREQ0_TypeDef            PLLFREQ0_Bit;
     };
     union
     {
-        volatile uint32_t       LDOSPCAL;
-        LDOSPCAL_TypeDef        LDOSPCAL_Bit;
+        volatile uint32_t           PLLFREQ1;
+        PLLFREQ1_TypeDef            PLLFREQ1_Bit;
     };
     union
     {
-        volatile uint32_t       LDODPCTL;
-        LDODPCTL_TypeDef        LDODPCTL_Bit;
+        volatile uint32_t           PLLSTAT;
+        PLLSTAT_TypeDef             PLLSTAT_Bit;
+    };
+    const uint32_t                  reserved13[7];
+    union
+    {
+        volatile uint32_t           SLSRWRCFG;
+        SLSRWRCFG_TypeDef           SLSRWRCFG_Bit;
     };
     union
     {
-        volatile uint32_t       LDODPCAL;
-        LDODPCAL_TypeDef        LDODPCAL_Bit;
+        volatile uint32_t           DSLSRWRCFG;
+        DSLSRWRCFG_TypeDef          DSLSRWRCFG_Bit;
     };
-    const uint32_t reserved14[2];
     union
     {
-        volatile uint32_t       SDPMST;
-        SDPMST_TypeDef          SDPMST_Bit;
+        volatile uint32_t           DC9;
+        DC9_TypeDef                 DC9_Bit;
     };
-    const uint32_t reserved15[76];
+    const uint32_t                  reserved14[3];
     union
     {
-        volatile const uint32_t       PP[24];
-        const PERIPHERAL_TypeDef      PP_Bit[24];
+        volatile uint32_t           NVMSTAT;
+        NVMSTAT_TypeDef             NVMSTAT_Bit;
     };
-    const uint32_t reserved16[104];
+    const uint32_t                  reserved15[4];
     union
     {
-        volatile uint32_t       SR[24];
-        PERIPHERAL_TypeDef      SR_Bit[24];
+        volatile uint32_t           LDOSPCTL;
+        LDOSPCTL_TypeDef            LDOSPCTL_Bit;
     };
-    const uint32_t reserved17[40];
     union
     {
-        volatile uint32_t       RCGC[24];
-        PERIPHERAL_TypeDef      RCGC_Bit[24];
+        volatile uint32_t           LDOSPCAL;
+        LDOSPCAL_TypeDef            LDOSPCAL_Bit;
     };
-    const uint32_t reserved18[40];
     union
     {
-        volatile uint32_t       SCGC[24];
-        PERIPHERAL_TypeDef      SCGC_Bit[24];
+        volatile uint32_t           LDODPCTL;
+        LDODPCTL_TypeDef            LDODPCTL_Bit;
     };
-    const uint32_t reserved19[40];
     union
     {
-        volatile uint32_t       DCGC[24];
-        PERIPHERAL_TypeDef      DCGC_Bit[24];
+        volatile uint32_t           LDODPCAL;
+        LDODPCAL_TypeDef            LDODPCAL_Bit;
     };
-    const uint32_t reserved20[104];
+    const uint32_t                  reserved16[2];
     union
     {
-        volatile uint32_t       PR[24];
-        PERIPHERAL_TypeDef      PR_Bit[24];
+        volatile uint32_t           SDPMST;
+        SDPMST_TypeDef              SDPMST_Bit;
+    };
+    union
+    {
+        volatile uint32_t           BOOTCFG;
+        SDPMST_TypeDef              BOOTCFG_Bit;
+    };
+    const uint32_t                  reserved17[3];
+    union
+    {
+        volatile uint32_t           USER_REG0;
+        USER_REG_TypeDef            USER_REG0_Bit;
+    };
+    union
+    {
+        volatile uint32_t           USER_REG1;
+        USER_REG_TypeDef            USER_REG1_Bit;
+    };
+    union
+    {
+        volatile uint32_t           USER_REG2;
+        USER_REG_TypeDef            USER_REG2_Bit;
+    };
+    union
+    {
+        volatile uint32_t           USER_REG3;
+        USER_REG_TypeDef            USER_REG3_Bit;
+    };
+    const uint32_t                  reserved18[4];
+    union
+    {
+        volatile const uint32_t     FMPRE0;
+        FMPRE_TypeDef               FMPRE0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     FMPRE1;
+        FMPRE_TypeDef               FMPRE1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     FMPRE2;
+        FMPRE_TypeDef               FMPRE2_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     FMPRE3;
+        FMPRE_TypeDef               FMPRE3_Bit;
+    };
+    const uint32_t                  reserved19[60];
+    union
+    {
+        volatile const uint32_t     PP[24];
+        const PERIPHERAL_TypeDef    PP_Bit[24];
+    };
+    const uint32_t                  reserved20[40];
+    union
+    {
+        volatile const uint32_t     FMPPE0;
+        const FMPPE_TypeDef         FMPPE0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     FMPPE1;
+        const FMPPE_TypeDef         FMPPE1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     FMPPE2;
+        const FMPPE_TypeDef         FMPPE2_Bit;
+    };
+    union
+    {
+        volatile const uint32_t     FMPPE3;
+        const FMPPE_TypeDef         FMPPE3_Bit;
+    };
+    const uint32_t                  reserved21[60];
+    union
+    {
+        volatile uint32_t           SR[24];
+        PERIPHERAL_TypeDef          SR_Bit[24];
+    };
+    const uint32_t                  reserved22[40];
+    union
+    {
+        volatile uint32_t           RCGC[24];
+        PERIPHERAL_TypeDef          RCGC_Bit[24];
+    };
+    const uint32_t                  reserved23[40];
+    union
+    {
+        volatile uint32_t           SCGC[24];
+        PERIPHERAL_TypeDef          SCGC_Bit[24];
+    };
+    const uint32_t                  reserved24[40];
+    union
+    {
+        volatile uint32_t           DCGC[24];
+        PERIPHERAL_TypeDef          DCGC_Bit[24];
+    };
+    const uint32_t                  reserved25[104];
+    union
+    {
+        volatile uint32_t           PR[24];
+        PERIPHERAL_TypeDef          PR_Bit[24];
     };
 
 }SYSCTL_TypeDef;
@@ -2410,7 +2691,13 @@ typedef volatile struct
         volatile uint32_t                   MOSCCTL[32];
         MOSCCTL_BITBANDING_TypeDef          MOSCCTL_Bit;
     };
-    const uint32_t                          reserved5[32*32];
+    const uint32_t                          reserved5[28*32];
+    union
+    {
+        volatile uint32_t                   RMCTL[32];
+        RMCTL_BITBANDING_TypeDef            RMCTL_Bit;
+    };
+    const uint32_t                          reserved6[3*32];
     union
     {
         volatile const uint32_t             RCGC0[32];
@@ -2426,7 +2713,7 @@ typedef volatile struct
         volatile const uint32_t             RCGC2[32];
         RCGC2_BITBANDING_TypeDef            RCGC2_Bit;
     };
-    const uint32_t                          reserved6[1*32];
+    const uint32_t                          reserved7[1*32];
     union
     {
         volatile const uint32_t             SCGC0[32];
@@ -2442,7 +2729,7 @@ typedef volatile struct
         volatile const uint32_t             SCGC2[32];
         SCGC2_BITBANDING_TypeDef            SCGC2_Bit;
     };
-    const uint32_t                          reserved7[1*32];
+    const uint32_t                          reserved8[1*32];
     union
     {
         volatile const uint32_t             DCGC0[32];
@@ -2458,13 +2745,24 @@ typedef volatile struct
         volatile const uint32_t             DCGC2[32];
         DCGC2_BITBANDING_TypeDef            DCGC2_Bit;
     };
-    const uint32_t                          reserved8[6*32];
+    const uint32_t                          reserved9[1*32];
+    union
+    {
+        volatile const uint32_t             FMPRE0_ALIAS[32];
+        FMPRE_BITBANDING_TypeDef            FMPRE0_ALIAS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t             FMPPE0_ALIAS[32];
+        FMPPE_BITBANDING_TypeDef            FMPPE0_ALIAS_Bit;
+    };
+    const uint32_t                          reserved10[3*32];
     union
     {
         volatile uint32_t                   DSLPCLKCFG[32];
         DSLPCLKCFG_BITBANDING_TypeDef       DSLPCLKCFG_Bit;
     };
-    const uint32_t                          reserved9[1*32];
+    const uint32_t                          reserved11[1*32];
     union
     {
         volatile uint32_t                   SYSPROP[32];
@@ -2480,7 +2778,7 @@ typedef volatile struct
         volatile uint32_t                   PIOSCSTAT[32];
         PIOSCSTAT_BITBANDING_TypeDef        PIOSCSTAT_Bit;
     };
-    const uint32_t                          reserved10[2*32];
+    const uint32_t                          reserved12[2*32];
     union
     {
         volatile uint32_t                   PLLFREQ0[32];
@@ -2496,7 +2794,7 @@ typedef volatile struct
         volatile uint32_t                   PLLSTAT[32];
         PLLSTAT_BITBANDING_TypeDef          PLLSTAT_Bit;
     };
-    const uint32_t                          reserved11[7*32];
+    const uint32_t                          reserved13[7*32];
     union
     {
         volatile uint32_t                   SLSRWRCFG[32];
@@ -2512,13 +2810,13 @@ typedef volatile struct
         volatile uint32_t                   DC9[32];
         DC9_BITBANDING_TypeDef              DC9_Bit;
     };
-    const uint32_t                          reserved12[3*32];
+    const uint32_t                          reserved14[3*32];
     union
     {
         volatile uint32_t                   NVMSTAT[32];
         NVMSTAT_BITBANDING_TypeDef          NVMSTAT_Bit;
     };
-    const uint32_t                          reserved13[4*32];
+    const uint32_t                          reserved15[4*32];
     union
     {
         volatile uint32_t                   LDOSPCTL[32];
@@ -2539,43 +2837,111 @@ typedef volatile struct
         volatile uint32_t                   LDODPCAL[32];
         LDODPCAL_BITBANDING_TypeDef         LDODPCAL_Bit;
     };
-    const uint32_t                          reserved14[2*32];
+    const uint32_t                          reserved16[2*32];
     union
     {
-        volatile uint32_t                  SDPMST[32];
-        SDPMST_BITBANDING_TypeDef          SDPMST_Bit;
+        volatile uint32_t                   SDPMST[32];
+        SDPMST_BITBANDING_TypeDef           SDPMST_Bit;
     };
-    const uint32_t                          reserved15[76*32];
+    union
+    {
+        volatile uint32_t                   BOOTCFG[32];
+        BOOTCFG_BITBANDING_TypeDef          BOOTCFG_Bit;
+    };
+    const uint32_t                          reserved17[3*32];
+    union
+    {
+        volatile uint32_t                   USER_REG0[32];
+        USER_REG_TypeDef                    USER_REG0_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   USER_REG1[32];
+        USER_REG_TypeDef                    USER_REG1_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   USER_REG2[32];
+        USER_REG_TypeDef                    USER_REG2_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   USER_REG3[32];
+        USER_REG_TypeDef                    USER_REG3_Bit;
+    };
+    const uint32_t                          reserved18[4*32];
+    union
+    {
+      volatile const uint32_t               FMPRE0[32];
+      FMPRE_BITBANDING_TypeDef              FMPRE0_Bit;
+    };
+    union
+    {
+      volatile const uint32_t               FMPRE1[32];
+      FMPRE_BITBANDING_TypeDef              FMPRE1_Bit;
+    };
+    union
+    {
+      volatile const uint32_t               FMPRE2[32];
+      FMPRE_BITBANDING_TypeDef              FMPRE2_Bit;
+    };
+    union
+    {
+      volatile const uint32_t               FMPRE3[32];
+      FMPRE_BITBANDING_TypeDef              FMPRE3_Bit;
+    };
+    const uint32_t                          reserved19[60*32];
     union
     {
         volatile const uint32_t             PP[24][32];
         const PERIPHERAL_BITBANDING_TypeDef PP_Bit[24];
     };
-    const uint32_t                          reserved16[104*32];
+    const uint32_t                          reserved20[40*32];
+    union
+    {
+        volatile const uint32_t             FMPPE0[32];
+        const FMPPE_BITBANDING_TypeDef      FMPPE0_Bit;
+    };
+    union
+    {
+        volatile const uint32_t             FMPPE1[32];
+        const FMPPE_BITBANDING_TypeDef      FMPPE1_Bit;
+    };
+    union
+    {
+        volatile const uint32_t             FMPPE2[32];
+        const FMPPE_BITBANDING_TypeDef      FMPPE2_Bit;
+    };
+    union
+    {
+        volatile const uint32_t             FMPPE3[32];
+        const FMPPE_BITBANDING_TypeDef      FMPPE3_Bit;
+    };
+    const uint32_t                          reserved21[60*32];
     union
     {
         volatile uint32_t                   SR[24][32];
         PERIPHERAL_BITBANDING_TypeDef       SR_Bit[24];
     };
-    const uint32_t                          reserved17[40*32];
+    const uint32_t                          reserved22[40*32];
     union
     {
         volatile uint32_t                   RCGC[24][32];
         PERIPHERAL_BITBANDING_TypeDef       RCGC_Bit[24];
     };
-    const uint32_t                          reserved18[40*32];
+    const uint32_t                          reserved23[40*32];
     union
     {
         volatile uint32_t                   SCGC[24][32];
         PERIPHERAL_BITBANDING_TypeDef       SCGC_Bit[24];
     };
-    const uint32_t                          reserved19[40*32];
+    const uint32_t                          reserved24[40*32];
     union
     {
         volatile uint32_t                   DCGC[24][32];
         PERIPHERAL_BITBANDING_TypeDef       DCGC_Bit[24];
     };
-    const uint32_t                          reserved20[104*32];
+    const uint32_t                          reserved25[104*32];
     union
     {
         volatile uint32_t                   PR[24][32];
@@ -2600,6 +2966,9 @@ typedef volatile struct
 #define SYSCTL_GPIOHBCTL_OFFSET     (0x006C)
 #define SYSCTL_RCC2_OFFSET          (0x0070)
 #define SYSCTL_MOSCCTL_OFFSET       (0x007C)
+#define SYSCTL_RMCTL_OFFSET         (0x00F0)
+#define SYSCTL_FMPRE0_ALIAS_OFFSET  (0x0130)
+#define SYSCTL_FMPPE0_ALIAS_OFFSET  (0x0134)
 #define SYSCTL_DSLPCLKCFG_OFFSET    (0x0144)
 #define SYSCTL_SYSPROP_OFFSET       (0x014C)
 #define SYSCTL_PIOSCCAL_OFFSET      (0x0150)
@@ -2614,6 +2983,18 @@ typedef volatile struct
 #define SYSCTL_LDODPCTL_OFFSET      (0x01BC)
 #define SYSCTL_LDODPCAL_OFFSET      (0x01C0)
 #define SYSCTL_SDPMST_OFFSET        (0x01CC)
+
+#define SYSCTL_BOOTCFG_OFFSET       (0x01D0)
+
+#define SYSCTL_USER_REG0_OFFSET     (0x01E0)
+#define SYSCTL_USER_REG1_OFFSET     (0x01E4)
+#define SYSCTL_USER_REG2_OFFSET     (0x01E8)
+#define SYSCTL_USER_REG3_OFFSET     (0x01EC)
+
+#define SYSCTL_FMPRE0_OFFSET        (0x0200)
+#define SYSCTL_FMPRE1_OFFSET        (0x0204)
+#define SYSCTL_FMPRE2_OFFSET        (0x0208)
+#define SYSCTL_FMPRE3_OFFSET        (0x020C)
 
 #define SYSCTL_PPWD_OFFSET          (0x0300)
 #define SYSCTL_PPTIMER_OFFSET       (0x0304)
@@ -2631,6 +3012,11 @@ typedef volatile struct
 #define SYSCTL_PPQEI_OFFSET         (0x0344)
 #define SYSCTL_PPEEPROM_OFFSET      (0x0358)
 #define SYSCTL_PPWTIMER_OFFSET      (0x035C)
+
+#define SYSCTL_FMPPE0_OFFSET        (0x0400)
+#define SYSCTL_FMPPE1_OFFSET        (0x0404)
+#define SYSCTL_FMPPE2_OFFSET        (0x0408)
+#define SYSCTL_FMPPE3_OFFSET        (0x040C)
 
 #define SYSCTL_SRWD_OFFSET          (0x0500)
 #define SYSCTL_SRTIMER_OFFSET       (0x0504)
@@ -3709,7 +4095,6 @@ typedef volatile struct
 #define SYSCTL_MOSCCTL_CVAL_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_CVAL_BIT*4))))
 #define SYSCTL_MOSCCTL_MOSCIM_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_MOSCIM_BIT*4))))
 #define SYSCTL_MOSCCTL_NOXTAL_BITBANDING     (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_NOXTAL_BIT*4))))
-
 
 /******************************************************************************************
 ************************************12 DSLPCLKCFG *********************************************
@@ -13460,6 +13845,344 @@ typedef volatile struct
 //--------
 
 #define SYSCTL_NVMSTAT_FWB_BITBANDING       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32)+(SYSCTL_NVMSTAT_R_FWB_BIT*4))))
+
+
+/******************************************************************************************
+************************************ 145-Flash RMCTL *********************************************
+******************************************************************************************/
+#define SYSCTL_RMCTL            (((RMCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_RMCTL_OFFSET )))
+#define SYSCTL_RMCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RMCTL_OFFSET)))
+#define SYSCTL_RMCTL_BITBANDING      (((RMCTL_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RMCTL_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_RMCTL_R_BA_MASK    ((uint32_t)0x00000001)
+#define SYSCTL_RMCTL_R_BA_BIT     (0)
+#define SYSCTL_RMCTL_R_BA_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_RMCTL_R_BA_EN      ((uint32_t)0x00000001)
+
+#define SYSCTL_RMCTL_BA_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_RMCTL_BA_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_RMCTL_BA_EN        ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_RMCTL_BA_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_RMCTL_OFFSET)*32)+(SYSCTL_RMCTL_R_BA_BIT*4))))
+
+
+/******************************************************************************************
+************************************ 146-Flash FMPRE0_ALIAS *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPRE0_ALIAS                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE0_ALIAS_OFFSET )))
+#define SYSCTL_FMPRE0_ALIAS_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE0_ALIAS_OFFSET)))
+#define SYSCTL_FMPRE0_ALIAS_BITBANDING        (((FMPRE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPRE0_ALIAS_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPRE0_ALIAS_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPRE0_ALIAS_R_READ_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPRE0_ALIAS_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 147-Flash FMPRE0 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPRE0                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE0_OFFSET )))
+#define SYSCTL_FMPRE0_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE0_OFFSET)))
+#define SYSCTL_FMPRE0_BITBANDING        (((FMPRE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPRE0_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPRE0_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPRE0_R_READ_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPRE0_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 148-Flash FMPRE1 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPRE1                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE1_OFFSET )))
+#define SYSCTL_FMPRE1_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE1_OFFSET)))
+#define SYSCTL_FMPRE1_BITBANDING        (((FMPRE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPRE1_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPRE1_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPRE1_R_READ_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPRE1_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 149-Flash FMPRE2 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPRE2                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE2_OFFSET )))
+#define SYSCTL_FMPRE2_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE2_OFFSET)))
+#define SYSCTL_FMPRE2_BITBANDING        (((FMPRE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPRE2_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPRE2_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPRE2_R_READ_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPRE2_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 150-Flash FMPRE3 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPRE3                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE3_OFFSET )))
+#define SYSCTL_FMPRE3_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE3_OFFSET)))
+#define SYSCTL_FMPRE3_BITBANDING        (((FMPRE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPRE3_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPRE3_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPRE3_R_READ_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPRE3_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 151-Flash FMPPE0_ALIAS *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPPE0_ALIAS                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE0_ALIAS_OFFSET )))
+#define SYSCTL_FMPPE0_ALIAS_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE0_ALIAS_OFFSET)))
+#define SYSCTL_FMPPE0_ALIAS_BITBANDING        (((FMPPE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPPE0_ALIAS_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPPE0_ALIAS_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPPE0_ALIAS_R_PROG_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPPE0_ALIAS_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 152-Flash FMPPE0 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPPE0                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE0_OFFSET )))
+#define SYSCTL_FMPPE0_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE0_OFFSET)))
+#define SYSCTL_FMPPE0_BITBANDING        (((FMPPE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPPE0_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPPE0_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPPE0_R_PROG_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPPE0_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 153-Flash FMPPE1 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPPE1                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE1_OFFSET )))
+#define SYSCTL_FMPPE1_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE1_OFFSET)))
+#define SYSCTL_FMPPE1_BITBANDING        (((FMPPE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPPE1_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPPE1_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPPE1_R_PROG_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPPE1_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 154-Flash FMPPE2 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPPE2                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE2_OFFSET )))
+#define SYSCTL_FMPPE2_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE2_OFFSET)))
+#define SYSCTL_FMPPE2_BITBANDING        (((FMPPE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPPE2_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPPE2_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPPE2_R_PROG_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPPE2_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 155-Flash FMPPE3 *********************************************
+******************************************************************************************/
+#define SYSCTL_FMPPE3                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE3_OFFSET )))
+#define SYSCTL_FMPPE3_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE3_OFFSET)))
+#define SYSCTL_FMPPE3_BITBANDING        (((FMPPE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_FMPPE3_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_FMPPE3_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_FMPPE3_R_PROG_ENABLE_BIT     (0)
+
+#define SYSCTL_FMPPE3_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+/*--------*/
+
+/******************************************************************************************
+************************************ 156-Flash BOOTCFG *********************************************
+******************************************************************************************/
+#define SYSCTL_BOOTCFG                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_BOOTCFG_OFFSET )))
+#define SYSCTL_BOOTCFG_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_BOOTCFG_OFFSET)))
+#define SYSCTL_BOOTCFG_BITBANDING        (((FMPPE_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_DBG0_MASK    ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_R_DBG0_BIT     (0)
+
+#define SYSCTL_BOOTCFG_DBG0_MASK      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_DBG1_MASK    ((uint32_t)0x00000002)
+#define SYSCTL_BOOTCFG_R_DBG1_BIT     (1)
+
+#define SYSCTL_BOOTCFG_DBG1_MASK      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_KEY_MASK    ((uint32_t)0x00000010)
+#define SYSCTL_BOOTCFG_R_KEY_BIT     (4)
+#define SYSCTL_BOOTCFG_R_KEY_71D5    ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_R_KEY_A442    ((uint32_t)0x00000010)
+
+#define SYSCTL_BOOTCFG_KEY_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_KEY_71D5      ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_KEY_A442      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_EN_MASK    ((uint32_t)0x00000100)
+#define SYSCTL_BOOTCFG_R_EN_BIT     (8)
+#define SYSCTL_BOOTCFG_R_EN_GPIO    ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_R_EN_ADDRESS ((uint32_t)0x00000100)
+
+#define SYSCTL_BOOTCFG_EN_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_EN_GPIO      ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_EN_ADDRESS   ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_POL_MASK    ((uint32_t)0x00000200)
+#define SYSCTL_BOOTCFG_R_POL_BIT     (9)
+#define SYSCTL_BOOTCFG_R_POL_LOW     ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_R_POL_HIGH    ((uint32_t)0x00000200)
+
+#define SYSCTL_BOOTCFG_POL_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_POL_LOW       ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_POL_HIGH      ((uint32_t)0x00000001)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_PIN_MASK    ((uint32_t)0x00001C00)
+#define SYSCTL_BOOTCFG_R_PIN_BIT     (10)
+#define SYSCTL_BOOTCFG_R_PIN_0       ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_R_PIN_1       ((uint32_t)0x00000400)
+#define SYSCTL_BOOTCFG_R_PIN_2       ((uint32_t)0x00000800)
+#define SYSCTL_BOOTCFG_R_PIN_3       ((uint32_t)0x00000C00)
+#define SYSCTL_BOOTCFG_R_PIN_4       ((uint32_t)0x00001000)
+#define SYSCTL_BOOTCFG_R_PIN_5       ((uint32_t)0x00001400)
+#define SYSCTL_BOOTCFG_R_PIN_6       ((uint32_t)0x00001800)
+#define SYSCTL_BOOTCFG_R_PIN_7       ((uint32_t)0x00001C00)
+
+#define SYSCTL_BOOTCFG_PIN_MASK      ((uint32_t)0x00000007)
+#define SYSCTL_BOOTCFG_PIN_0         ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_PIN_1         ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_PIN_2         ((uint32_t)0x00000002)
+#define SYSCTL_BOOTCFG_PIN_3         ((uint32_t)0x00000003)
+#define SYSCTL_BOOTCFG_PIN_4         ((uint32_t)0x00000004)
+#define SYSCTL_BOOTCFG_PIN_5         ((uint32_t)0x00000005)
+#define SYSCTL_BOOTCFG_PIN_6         ((uint32_t)0x00000006)
+#define SYSCTL_BOOTCFG_PIN_7         ((uint32_t)0x00000007)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_PORT_MASK    ((uint32_t)0x0000E000)
+#define SYSCTL_BOOTCFG_R_PORT_BIT     (13)
+#define SYSCTL_BOOTCFG_R_PORT_A       ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_R_PORT_B       ((uint32_t)0x00002000)
+#define SYSCTL_BOOTCFG_R_PORT_C       ((uint32_t)0x00004000)
+#define SYSCTL_BOOTCFG_R_PORT_D       ((uint32_t)0x00006000)
+#define SYSCTL_BOOTCFG_R_PORT_E       ((uint32_t)0x00008000)
+#define SYSCTL_BOOTCFG_R_PORT_F       ((uint32_t)0x0000A000)
+#define SYSCTL_BOOTCFG_R_PORT_G       ((uint32_t)0x0000C000)
+#define SYSCTL_BOOTCFG_R_PORT_H       ((uint32_t)0x0000E000)
+
+#define SYSCTL_BOOTCFG_PORT_MASK      ((uint32_t)0x00000007)
+#define SYSCTL_BOOTCFG_PORT_A         ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_PORT_B         ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_PORT_C         ((uint32_t)0x00000002)
+#define SYSCTL_BOOTCFG_PORT_D         ((uint32_t)0x00000003)
+#define SYSCTL_BOOTCFG_PORT_E         ((uint32_t)0x00000004)
+#define SYSCTL_BOOTCFG_PORT_F         ((uint32_t)0x00000005)
+#define SYSCTL_BOOTCFG_PORT_G         ((uint32_t)0x00000006)
+#define SYSCTL_BOOTCFG_PORT_H         ((uint32_t)0x00000007)
+/*--------*/
+
+/*--------*/
+#define SYSCTL_BOOTCFG_R_NW_MASK    ((uint32_t)0x80000000)
+#define SYSCTL_BOOTCFG_R_NW_BIT     (31)
+#define SYSCTL_BOOTCFG_R_NW_DIS     ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_R_NW_EN      ((uint32_t)0x80000000)
+
+#define SYSCTL_BOOTCFG_NW_MASK      ((uint32_t)0x00000001)
+#define SYSCTL_BOOTCFG_NW_DIS       ((uint32_t)0x00000000)
+#define SYSCTL_BOOTCFG_NW_EN        ((uint32_t)0x00000001)
+/*--------*/
+
+#define SYSCTL_BOOTCFG_DBG0_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_DBG0_BIT*4))))
+#define SYSCTL_BOOTCFG_DBG1_BITBANDING      (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_DBG1_BIT*4))))
+#define SYSCTL_BOOTCFG_KEY_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_KEY_BIT*4))))
+#define SYSCTL_BOOTCFG_EN_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_EN_BIT*4))))
+#define SYSCTL_BOOTCFG_POL_BITBANDING       (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_POL_BIT*4))))
+#define SYSCTL_BOOTCFG_NW_BITBANDING        (*((volatile uint32_t *)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_NW_BIT*4))))
+
+/******************************************************************************************
+************************************ 157-Flash USER_REG0 *********************************************
+******************************************************************************************/
+#define SYSCTL_USER_REG0                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG0_OFFSET )))
+#define SYSCTL_USER_REG0_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG0_OFFSET)))
+#define SYSCTL_USER_REG0_BITBANDING        (((USER_REG_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_USER_REG0_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_USER_REG0_R_DATA_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_USER_REG0_R_DATA_BIT     (0)
+
+#define SYSCTL_USER_REG0_DATA_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 158-Flash USER_REG1 *********************************************
+******************************************************************************************/
+#define SYSCTL_USER_REG1                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG1_OFFSET )))
+#define SYSCTL_USER_REG1_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG1_OFFSET)))
+#define SYSCTL_USER_REG1_BITBANDING        (((USER_REG_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_USER_REG1_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_USER_REG1_R_DATA_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_USER_REG1_R_DATA_BIT     (0)
+
+#define SYSCTL_USER_REG1_DATA_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 159-Flash USER_REG2 *********************************************
+******************************************************************************************/
+#define SYSCTL_USER_REG2                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG2_OFFSET )))
+#define SYSCTL_USER_REG2_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG2_OFFSET)))
+#define SYSCTL_USER_REG2_BITBANDING        (((USER_REG_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_USER_REG2_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_USER_REG2_R_DATA_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_USER_REG2_R_DATA_BIT     (0)
+
+#define SYSCTL_USER_REG2_DATA_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
+/******************************************************************************************
+************************************ 160-Flash USER_REG3 *********************************************
+******************************************************************************************/
+#define SYSCTL_USER_REG3                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG3_OFFSET )))
+#define SYSCTL_USER_REG3_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG3_OFFSET)))
+#define SYSCTL_USER_REG3_BITBANDING        (((USER_REG_BITBANDING_TypeDef*)(SYSCTL_BASE_BITBANDING+((SYSCTL_OFFSET+SYSCTL_USER_REG3_OFFSET)*32))))
+
+/*--------*/
+#define SYSCTL_USER_REG3_R_DATA_MASK    ((uint32_t)0xFFFFFFFF)
+#define SYSCTL_USER_REG3_R_DATA_BIT     (0)
+
+#define SYSCTL_USER_REG3_DATA_MASK      ((uint32_t)0xFFFFFFFF)
+/*--------*/
+
 
 
 

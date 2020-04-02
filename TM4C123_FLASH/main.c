@@ -35,12 +35,10 @@ void main(void)
     SysTick__enInitUs(10,SCB_enSHPR0);
     //HIB__enInit(10,0);
     EEPROM__enInit();
-
     //EEPROM__enWriteMultiWorld(pu32Array1,0,14);
     //EEPROM__enReadMultiWorld((uint32_t*)pu32Array,0,14);
     //EEPROM__enReadHalfWorld((uint16_t*)&u16Memory,12*4);
     EEPROM__enReadByte((uint8_t*)&u8Memory,(12*4)+2);
-
     while(1)
     {
         SysTick__vDelayUs(10000);
