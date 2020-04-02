@@ -25,6 +25,7 @@ void main(void)
     volatile uint32_t u32Memory=0;
     volatile uint16_t u16Memory=0;
     volatile uint8_t u8Memory=0;
+
     __asm(" cpsie i");
     FPU__vInit();
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
@@ -43,7 +44,11 @@ void main(void)
     FLASH__enWrite(0x88888888,0x107FC);
     //FLASH__enWriteMultiWorld((uint32_t*)0x0,0x20080,40);
     //FLASH__enWriteMultiWorld((uint32_t*)0,0x20180,0x100);
-    FLASH__enWriteByte(0xBF,0x2DE4+1);
+    FLASH__enWriteMultiByte((uint8_t*)3,0x20181,0x435);
+    FLASH__enWriteMultiByte((uint8_t*)7,0x20165,10);
+    FLASH__enWriteMultiByte((uint8_t*)7,0x205bA,40);
+
+    //FLASH__enWriteByte(0xBF,0x2DE4+1);
     while(1)
     {
         SysTick__vDelayUs(10000);
