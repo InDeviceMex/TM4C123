@@ -9,12 +9,20 @@
 #define FLASH_H_
 
 
+#include "stdlib.h"
 #include <stdint.h>
+#include "SYSCTL.h"
 
 #define FLASH_BASE              (0x400FD000)
 #define FLASH_BASE_BITBANDING   (0x42000000)
 #define FLASH_OFFSET            (0x000FD000)
-#define FLASH_SIZELIMIT         (0x00040000)
+#define FLASH_ADDRESS_MAX       (0x00040000)
+#define FLASH_ADDRESS_MIN       (0x00000000)
+#define FLASH_PAGE_SIZE         (0x00000400)
+#define FLASH_PAGE_COUNT        (256)
+#define FLASH_ERASEWORLD        (0xFFFFFFFF)
+#define FLASH_ERASEHALFWORLD    (0xFFFF)
+#define FLASH_ERASEBYTE         (0xFF)
 
 
 typedef volatile struct
@@ -1495,10 +1503,21 @@ typedef enum
     FLASH_enERROR=1,
 }FLASH_nSTATUS;
 
-int32_t FLASH_Write(int32_t data, int32_t address);
-int32_t FLASH_ErasePage(int32_t address);
-int32_t FLASH_Erase(void);
-int32_t FLASH_WriteBuf(int32_t* data,int32_t* pos,int32_t cant, int32_t address);
-int32_t FLASH_ErasePagePos(int32_t page);
+FLASH_nSTATUS FLASH__enWaitWrite(void);
+FLASH_nSTATUS FLASH__enWaitBufWrite(void);
+FLASH_nSTATUS FLASH__enWaitPageErase(void);
+FLASH_nSTATUS FLASH__enWaitMassErase(void);
+
+FLASH_nSTATUS FLASH__enPageErasePos(uint32_t u32Page);
+FLASH_nSTATUS FLASH__enPageErase(uint32_t u32Address);
+FLASH_nSTATUS FLASH__enMassErase(void);
+
+FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address);
+FLASH_nSTATUS FLASH__enWriteBuf(uint32_t* pu32Data,uint32_t u32Address, uint32_t u32Count);
+
+FLASH_nSTATUS FLASH__enWriteWorld(uint32_t u32Data, uint32_t u32Address);
+FLASH_nSTATUS FLASH__enWriteHalfWorld(uint16_t u16Data, uint32_t u32Address);
+FLASH_nSTATUS FLASH__enWriteByte(uint8_t u8Data, uint32_t u32Address);
+FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,uint32_t u32Count);
 
 #endif /* FLASH_H_ */

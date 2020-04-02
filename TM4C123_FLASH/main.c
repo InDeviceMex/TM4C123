@@ -18,7 +18,7 @@
 
 //uint32_t pu32Array[14]={0,1,2,3,4,5,6,7,8,9,10,11,0xAA55CFDA,0x11223344};
 uint32_t pu32Array[14]={0};
-uint32_t pu32Array1[14]={0,1,2,3,4,5,6,7,8,9,10,11,0xAA55CFDA,0x11223344};
+uint32_t pu32Array1[14]={0xBF00,1,2,3,4,5,6,7,8,9,10,11,0xAA55CFDA,0x11223344};
 void main(void)
 {
     volatile uint32_t memory=0;
@@ -39,12 +39,17 @@ void main(void)
     //EEPROM__enReadMultiWorld((uint32_t*)pu32Array,0,14);
     //EEPROM__enReadHalfWorld((uint16_t*)&u16Memory,12*4);
     EEPROM__enReadByte((uint8_t*)&u8Memory,(12*4)+2);
+    FLASH__enWrite(0x33333333,0x10401);
+    FLASH__enWrite(0x88888888,0x107FC);
+    //FLASH__enWriteMultiWorld((uint32_t*)0x0,0x20080,40);
+    //FLASH__enWriteMultiWorld((uint32_t*)0,0x20180,0x100);
+    FLASH__enWriteByte(0xBF,0x2DE4+1);
     while(1)
     {
         SysTick__vDelayUs(10000);
         memory++;
 
-        if(memory == 1000)
+        if(memory == 1100)
         {
             __asm(" BKPT #1");
         }
