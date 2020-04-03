@@ -9,6 +9,7 @@
 
 #include <SYSTICK.h>
 
+void SysTickISR(void);
 
 void SysTickISR_Dummy(void);
 
@@ -56,7 +57,8 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         SysTick_fFrecTick=fSysTickFrequency;
         SysTick_fUsTick=fSysTickUs;
         SysTick_u32CountTick=u32Tick;
-        //SysTick__vRegisterISR(SysTickISR_Dummy);
+
+        SCB__vRegisterISR(SysTickISR,SCB_enVECISR_SYSTICK);
         SCB_SHPR3->SYSTICK=(uint8_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
         SysTick_RVR_R=u32Tick-1;
         SysTick_CVR_R=0;
@@ -126,7 +128,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
             SysTick_fUsTick=fSysTickUs;
             SysTick_u32CountTick=u32CountTick;
 
-            //SysTick__vRegisterISR(SysTickISR_Dummy);
+            SCB__vRegisterISR(SysTickISR,SCB_enVECISR_SYSTICK);
             SCB_SHPR3->SYSTICK=(uint8_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
             SysTick_RVR_R=u32CountTick-1;
             SysTick_CVR_R=0;
@@ -204,7 +206,7 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
             SysTick_fUsTick=fTimeUs;
             SysTick_u32CountTick=u32CountTick;
 
-            //SysTick__vRegisterISR(SysTickISR_Dummy);
+            SCB__vRegisterISR(SysTickISR,SCB_enVECISR_SYSTICK);
             SCB_SHPR3->SYSTICK=(uint8_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
             SysTick_RVR_R=u32CountTick-1;
             SysTick_CVR_R=0;
@@ -312,19 +314,6 @@ uint64_t SysTick__u64GetCurrentCountTick(void)
         }
     }
 
-}
-
-/*ToDo implement this fucntionality whne FLASH Driver was done*/
-void SysTick__vRegisterISR(void (*Isr) (void))
-{
-    uint32_t u32BaseVector = SCB_VTOR_R;
-    *((uint32_t*)(u32BaseVector+((uint32_t)SCB_enVECISR_SYSTICK*4)))=(uint32_t)Isr+1;
-}
-
-
-
-void SysTickISR_Dummy(void)
-{
 }
 
 void SysTickISR(void)

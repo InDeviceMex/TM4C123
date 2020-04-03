@@ -84,8 +84,32 @@ SCB_nVECISR SCB_ISR__enGetVectorActive(void)
 
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {
+    uint32_t* pu32Ram=0;
+    const uint32_t* pu32Flash=0;
+    uint32_t u32Count=0;
+
+    __asm(" cpsid i");
     u32Offset&=~0x3FF;
-    SCB_VTOR_R= u32Offset;
+    if(u32Offset<0x00010000)
+    {
+        FLASH__enWriteMultiWorld((uint32_t*)SCB_VTOR_R,u32Offset,0x100);
+        SCB_VTOR_R= u32Offset;
+        __asm(" DSB");
+    }
+    else if((u32Offset>=0x20000000) && (u32Offset<=0x20000400))
+    {
+        pu32Flash=(const uint32_t*)SCB_VTOR_R;
+        pu32Ram=(uint32_t*)u32Offset;
+        for(u32Count=0; u32Count<0x100;u32Count++ )
+        {
+            *pu32Ram=*pu32Flash;
+            pu32Ram++;
+            pu32Flash++;
+        }
+        SCB_VTOR_R= u32Offset;
+        __asm(" DSB");
+    }
+    __asm(" cpsie i");
 
 }
 
@@ -561,11 +585,54 @@ inline void SCB__vEnableTraps(void)
 
 inline void SCB__vInit(void)
 {
+    SCB__vSetVectorOffset(0x20000000);
+    SCB__vRegisterISR(NMIISR,SCB_enVECISR_NMI);
+    SCB__vRegisterISR(PendSVISR,SCB_enVECISR_PENDSV);
+    SCB__vRegisterISR(UsageFaultISR,SCB_enVECISR_USAGEFAULT);
+    SCB__vRegisterISR(BusFaultISR,SCB_enVECISR_BUSFAULT);
+    SCB__vRegisterISR(MemoryFaultISR,SCB_enVECISR_MEMMANAGE);
+    SCB__vRegisterISR(HardFaultISR,SCB_enVECISR_HARDFAULT);
+    SCB__vRegisterISR(SVCallISR,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup(SCB_enPRIGROUP_XXX);
     SCB__enSetStackAligment(SCB_enALIGN_4BYTE);
 }
+
+void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
+{
+    uint32_t u32BaseVector = SCB_VTOR_R;
+
+    __asm(" cpsid i");
+    if(u32BaseVector<=0x00010000)
+    {
+        FLASH__enWriteWorld((uint32_t)Isr|1,u32BaseVector+((uint32_t)enVector*4));
+    }
+    else if((u32BaseVector>=0x20000000) && (u32BaseVector<=0x20000400) )
+    {
+        *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)Isr|1;
+    }
+    __asm(" cpsie i");
+}
+
+/*
+void SCB__vUnRegisterISR(SCB_nVECISR enVector)
+{
+    uint32_t u32BaseVector = SCB_VTOR_R;
+
+    __asm(" cpsid i");
+    if(u32BaseVector<=0x00010000)
+    {
+        FLASH__enWrite((uint32_t)IntDefaultHandler|1,u32BaseVector+((uint32_t)enVector*4));
+    }
+    else if((u32BaseVector>=0x20000000) && (u32BaseVector<=0x20000400) )
+    {
+        *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)IntDefaultHandler|1;
+    }
+    __asm(" cpsie i");
+}
+*/
+
 
 /*
  * ISR

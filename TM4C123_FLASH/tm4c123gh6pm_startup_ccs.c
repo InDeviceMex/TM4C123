@@ -23,10 +23,6 @@
 //*****************************************************************************
 
 #include <stdint.h>
-#include <SCB.h>
-#include <SYSTICK.h>
-#include <SYSEXC.h>
-#include <HIB.h>
 
 //*****************************************************************************
 //
@@ -35,7 +31,6 @@
 //*****************************************************************************
 void ResetISR(void);
 static void IntDefaultHandler(void);
-static void PWMHandler(void);
 
 
 //*****************************************************************************
@@ -68,25 +63,25 @@ extern uint32_t __STACK_TOP;
 //
 //*****************************************************************************
 #pragma DATA_SECTION(g_pfnVectors, ".intvecs")
-void (* const g_pfnVectors[])(void) =
+void (* const g_pfnVectors[155])(void) =
 {
     (void (*)(void))((uint32_t)&__STACK_TOP),
                                             // The initial stack pointer
     ResetISR,                               // The reset handler
-    NMIISR,                                  // The NMI handler
-    HardFaultISR,                               // The hard fault handler
-    MemoryFaultISR,                      // The MPU fault handler
-    BusFaultISR,                      // The bus fault handler
-    UsageFaultISR,                      // The usage fault handler
+    IntDefaultHandler,                    // The NMI handler
+    IntDefaultHandler,                               // The hard fault handler
+    IntDefaultHandler,                      // The MPU fault handler
+    IntDefaultHandler,                      // The bus fault handler
+    IntDefaultHandler,                      // The usage fault handler
     0,                                      // Reserved
     0,                                      // Reserved
     0,                                      // Reserved
     0,                                      // Reserved
-    SVCallISR,                      // SVCall handler
+    IntDefaultHandler,                      // SVCall handler
     IntDefaultHandler,                      // Debug monitor handler
     0,                                      // Reserved
-    PendSVISR,                      // The PendSV handler
-    SysTickISR,                      // The SysTick handler
+    IntDefaultHandler,                      // The PendSV handler
+    IntDefaultHandler,                      // The SysTick handler
     IntDefaultHandler,                      // GPIO Port A
     IntDefaultHandler,                      // GPIO Port B
     IntDefaultHandler,                      // GPIO Port C
@@ -130,9 +125,9 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // CAN1
     0,                                      // Reserved
     0,                                      // Reserved
-    HIBISR,                      // Hibernate
+    IntDefaultHandler,                      // Hibernate
     IntDefaultHandler,                      // USB0
-    PWMHandler,                      // PWM Generator 3
+    IntDefaultHandler,                      // PWM Generator 3
     IntDefaultHandler,                      // uDMA Software Transfer
     IntDefaultHandler,                      // uDMA Error
     IntDefaultHandler,                      // ADC1 Sequence 0
@@ -193,7 +188,7 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // Wide Timer 4 subtimer B
     IntDefaultHandler,                      // Wide Timer 5 subtimer A
     IntDefaultHandler,                      // Wide Timer 5 subtimer B
-    SYSEXCISR,                      // FPU (SYSEXC)
+    IntDefaultHandler,                      // FPU (SYSEXC)
     0,                                      // Reserved
     0,                                      // Reserved
     IntDefaultHandler,                      // I2C4 Master and Slave
@@ -261,14 +256,5 @@ IntDefaultHandler(void)
     }
 }
 
-static void PWMHandler(void)
-{
-    //
-    // Go into an infinite loop.
-    //
-    while(1)
-    {
-    }
-}
 
 

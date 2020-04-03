@@ -11,6 +11,7 @@
 #include <stdint.h>                             /* standard types definitions                      */
 #include "SCB.h"
 #include "SYSCTL.h"
+#include "FLASH.h"
 
 #define SysTick_BASE            ((uint32_t)0xE000E000)
 #define SysTick_VALUEMAX        ((uint32_t)0xFFFFFF)
@@ -235,10 +236,6 @@ uint64_t SysTick__u64GetCurrentCountTick(void);
 uint32_t SysTick__u32GetMaxTick(void);
 
 void SysTick__vDelayUs(float fTimeUs);
-
-void SysTick__vRegisterISR(void (*Isr) (void));
-void SysTickISR(void);
-
 
 
 #endif /* HEADER_DRIVER_SYSTICK_H_ */

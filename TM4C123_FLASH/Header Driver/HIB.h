@@ -11,6 +11,8 @@
 
 #include <stdint.h>
 #include <NVIC.h>
+#include <SCB.h>
+#include <FLASH.h>
 #include <SYSCTL.h>
 
 #define HIB_BASE            (0x400FC000)
@@ -980,7 +982,6 @@ HIB_nSTATUS HIB__enDisInterrupt(HIB_nINTERRUPT enInterrupt);
 HIB_nSTATUS HIB__enClearInterrupt(HIB_nINTERRUPT enInterrupt);
 HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch);
 
-void HIBISR(void);
 
 extern HIB_nREADY HIB_enCount;
 #endif /* HEADER_DRIVER_HIB_H_ */

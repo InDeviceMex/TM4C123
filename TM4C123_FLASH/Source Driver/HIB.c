@@ -10,12 +10,15 @@
 HIB_nREADY HIB_enStatus =HIB_enBUSY;
 HIB_nREADY HIB_enCount=HIB_enBUSY;
 
+void HIBISR(void);
+
 HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
 {
     volatile HIB_nSTATUS enReturn = HIB_enOK;
     volatile uint32_t u32TimeOut= 12000000;
 
 
+    SCB__vRegisterISR(HIBISR,SCB_enVECISR_HIB);
     SYSCTL__vResetPeripheral(SYSCTL_enHIB);
     SYSCTL__vDisRunModePeripheral(SYSCTL_enHIB);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enHIB);

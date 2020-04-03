@@ -27,19 +27,15 @@ void main(void)
     volatile uint8_t u8Memory=0;
 
     __asm(" cpsie i");
+    SCB__vInit();
+    MPU__vInit();
     FPU__vInit();
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
             SYSEXC_enOVERFLOW|SYSEXC_enUNDERFLOW));
-    SCB__vInit();
-    MPU__vInit();
     SYSCTL__enInit(); // system clock 80MHz
     SysTick__enInitUs(10,SCB_enSHPR0);
     //HIB__enInit(10,0);
     EEPROM__enInit();
-    //EEPROM__enWriteMultiWorld(pu32Array1,0,14);
-    //EEPROM__enReadMultiWorld((uint32_t*)pu32Array,0,14);
-    //EEPROM__enReadHalfWorld((uint16_t*)&u16Memory,12*4);
-    EEPROM__enReadByte((uint8_t*)&u8Memory,(12*4)+2);
     FLASH__enWrite(0x33333333,0x10401);
     FLASH__enWrite(0x88888888,0x107FC);
     //FLASH__enWriteMultiWorld((uint32_t*)0x0,0x20080,40);
