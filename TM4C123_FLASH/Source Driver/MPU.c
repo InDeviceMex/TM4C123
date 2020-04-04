@@ -27,7 +27,7 @@ void MPU__vInit(void)
 	//enable region
     MPU_RNR_R=0;
 	MPU_RBAR_R=0x00000000|MPU_RBAR_R_VALID_MASK|0; //FLASH_CONSTANT (size 0x00040000)
-	u32RegRASR =MPU_RASR_R_XN_EN|MPU_RASR_R_SRD0_EN|MPU_RASR_R_SRD1_EN|
+	u32RegRASR =MPU_RASR_R_XN_EN|MPU_RASR_R_SRD0_DIS|MPU_RASR_R_SRD1_DIS|
 	        MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|MPU_RASR_R_B_DIS|
 	        MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((18-1)<<1);
 	MPU_RASR_R = u32RegRASR;
@@ -57,29 +57,21 @@ void MPU__vInit(void)
             MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((15-1)<<1);
     MPU_RASR_R = u32RegRASR;
 
-    //all mode read and write
-    //could be executed
-    //no shareable, no cacheable, no bufeable
-    //normal memory
-    //4Kb size
-    //enable region
-    MPU_RNR_R=3;
-    MPU_RBAR_R=0x20000000|MPU_RBAR_R_VALID_MASK|3; //SRAM_CODE (size 0x00001000)
-    u32RegRASR =MPU_RASR_R_XN_DIS|MPU_RASR_R_AP_RORO|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
-            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((12-1)<<1);
-    MPU_RASR_R = u32RegRASR;
+
 
     //all mode read and write
     //could be executed
     //no shareable, no cacheable, no bufeable
     //normal memory
-    //1Kb size
+    //5Kb size
     //enable region
-    MPU_RNR_R=4;
-    MPU_RBAR_R=0x20000000|MPU_RBAR_R_VALID_MASK|4; //SRAM_CODE (size 0x00000400)
-    u32RegRASR =MPU_RASR_R_XN_DIS|MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
-            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((10-1)<<1);
+    MPU_RNR_R=3;
+    MPU_RBAR_R=0x20000000|MPU_RBAR_R_VALID_MASK|3; //SRAM_CODE (size 0x00001400)
+    u32RegRASR =MPU_RASR_R_XN_DIS|MPU_RASR_R_AP_RORO|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
+            MPU_RASR_R_SRD0_DIS|MPU_RASR_R_SRD6_DIS|MPU_RASR_R_SRD7_DIS|
+            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((13-1)<<1);
     MPU_RASR_R = u32RegRASR;
+
 
 
 	MPU_CTRL->PRIVDEFENA=1;
