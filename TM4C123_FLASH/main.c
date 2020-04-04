@@ -27,22 +27,27 @@ void main(void)
     volatile uint8_t u8Memory=0;
 
     __asm(" cpsie i");
-    SCB__vInit();
-    MPU__vInit();
     FPU__vInit();
+    MPU__vInit();
+    SCB__vInit();
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
             SYSEXC_enOVERFLOW|SYSEXC_enUNDERFLOW));
     SYSCTL__enInit(); // system clock 80MHz
     SysTick__enInitUs(10,SCB_enSHPR0);
     //HIB__enInit(10,0);
     EEPROM__enInit();
-    FLASH__enWrite(0x33333333,0x10401);
-    FLASH__enWrite(0x88888888,0x107FC);
+
+
+    FLASH__enWriteWorld(0x33333333,0x10401);
+    FLASH__enWriteWorld(0x88888888,0x107FC);
+
+    FLASH__enWriteHalfWorld(0xAAAA,0x107FC+2);
+    FLASH__enWriteByte(0x22,0x107FC+1);
+
     //FLASH__enWriteMultiWorld((uint32_t*)0x0,0x20080,40);
-    //FLASH__enWriteMultiWorld((uint32_t*)0,0x20180,0x100);
+    FLASH__enWriteMultiWorld((uint32_t*)0,0x20000,0x100);
+    FLASH__enWriteMultiHalfWorld((uint16_t*)0x500,0x20052,0x102);
     FLASH__enWriteMultiByte((uint8_t*)3,0x20181,0x435);
-    FLASH__enWriteMultiByte((uint8_t*)7,0x20165,10);
-    FLASH__enWriteMultiByte((uint8_t*)7,0x205bA,40);
 
     //FLASH__enWriteByte(0xBF,0x2DE4+1);
     while(1)

@@ -12,7 +12,6 @@
 #include <stdint.h>
 #include <NVIC.h>
 #include <SCB.h>
-#include <FLASH.h>
 #include <SYSCTL.h>
 
 #define HIB_BASE            (0x400FC000)

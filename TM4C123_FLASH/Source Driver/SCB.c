@@ -7,6 +7,13 @@
 
 #include "SCB.h"
 
+void NMI_vISR(void);
+void PendSV_vISR(void);
+void UsageFault_vISR(void);
+void BusFault_vISR(void);
+void MemoryFault_vISR(void);
+void HardFault_vISR(void);
+void SVCall_vISR(void);
 
 
 inline void SCB_PENDSV__vSetPending(void)
@@ -586,13 +593,13 @@ inline void SCB__vEnableTraps(void)
 inline void SCB__vInit(void)
 {
     SCB__vSetVectorOffset(0x20000000);
-    SCB__vRegisterISR(NMIISR,SCB_enVECISR_NMI);
-    SCB__vRegisterISR(PendSVISR,SCB_enVECISR_PENDSV);
-    SCB__vRegisterISR(UsageFaultISR,SCB_enVECISR_USAGEFAULT);
-    SCB__vRegisterISR(BusFaultISR,SCB_enVECISR_BUSFAULT);
-    SCB__vRegisterISR(MemoryFaultISR,SCB_enVECISR_MEMMANAGE);
-    SCB__vRegisterISR(HardFaultISR,SCB_enVECISR_HARDFAULT);
-    SCB__vRegisterISR(SVCallISR,SCB_enVECISR_SVCALL);
+    SCB__vRegisterISR(NMI_vISR,SCB_enVECISR_NMI);
+    SCB__vRegisterISR(PendSV_vISR,SCB_enVECISR_PENDSV);
+    SCB__vRegisterISR(UsageFault_vISR,SCB_enVECISR_USAGEFAULT);
+    SCB__vRegisterISR(BusFault_vISR,SCB_enVECISR_BUSFAULT);
+    SCB__vRegisterISR(MemoryFault_vISR,SCB_enVECISR_MEMMANAGE);
+    SCB__vRegisterISR(HardFault_vISR,SCB_enVECISR_HARDFAULT);
+    SCB__vRegisterISR(SVCall_vISR,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup(SCB_enPRIGROUP_XXX);
@@ -650,20 +657,20 @@ typedef enum
 }ISR_nContext;
 
 
-void NMIISR(void)
+void NMI_vISR(void)
 {
     //use for GPIO activation
     while(1);
 }
 
-void PendSVISR(void)
+void PendSV_vISR(void)
 {
     //context switch, lower priority
     while(1);
 }
 
 uint32_t SCB_pu32Context[8];
-void UsageFaultISR(void)
+void UsageFault_vISR(void)
 {
     uint16_t SCB_u16UsageFault=0;
     __asm(
@@ -705,7 +712,7 @@ void UsageFaultISR(void)
             while(1);
     }
 }
-void BusFaultISR(void)
+void BusFault_vISR(void)
 {
 
     uint8_t SCB_u8BusFault=0;
@@ -755,7 +762,7 @@ void BusFaultISR(void)
             while(1);
     }
 }
-void MemoryFaultISR(void)
+void MemoryFault_vISR(void)
 {
 
     uint8_t SCB_u8MemFault=0;
@@ -803,7 +810,7 @@ void MemoryFaultISR(void)
             while(1);
     }
 }
-void HardFaultISR(void)
+void HardFault_vISR(void)
 {
     __asm(
     " MRS R0, MSP\n"
@@ -827,7 +834,7 @@ void HardFaultISR(void)
     " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
     while(1);
 }
-void SVCallISR(void)
+void SVCall_vISR(void)
 {
     while(1);
 }

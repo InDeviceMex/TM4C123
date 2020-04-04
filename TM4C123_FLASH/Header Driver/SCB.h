@@ -3175,12 +3175,5 @@ inline void SCB__vInit(void);
 
 void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector);
 void SCB__vUnRegisterISR(SCB_nVECISR enVector);
-void NMIISR(void);
-void PendSVISR(void);
-void UsageFaultISR(void);
-void BusFaultISR(void);
-void MemoryFaultISR(void);
-void HardFaultISR(void);
-void SVCallISR(void);
 
 #endif /* SCB_H_ */

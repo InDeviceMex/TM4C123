@@ -11,7 +11,6 @@
 #include <stdint.h>
 #include <NVIC.h>
 #include <SCB.h>
-#include <FLASH.h>
 
 #define SYSEXC_BASE            (0x400F9000)
 #define SYSEXC_BASE_BITBANDING (0x42000000)

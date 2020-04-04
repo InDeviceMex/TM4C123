@@ -11,7 +11,6 @@
 #include <stdint.h>                             /* standard types definitions                      */
 #include "SCB.h"
 #include "SYSCTL.h"
-#include "FLASH.h"
 
 #define SysTick_BASE            ((uint32_t)0xE000E000)
 #define SysTick_VALUEMAX        ((uint32_t)0xFFFFFF)
