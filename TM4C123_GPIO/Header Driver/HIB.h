@@ -976,6 +976,7 @@ HIB_nSTATUS HIB__enReqHibernation(void);
 HIB_nSTATUS HIB__enEnModule(void);
 HIB_nSTATUS HIB__enDisModule(void);
 
+/* ToDo meake a better handle of interupt as GPIO*/
 HIB_nSTATUS HIB__enEnInterrupt(HIB_nINTERRUPT enInterrupt);
 HIB_nSTATUS HIB__enDisInterrupt(HIB_nINTERRUPT enInterrupt);
 HIB_nSTATUS HIB__enClearInterrupt(HIB_nINTERRUPT enInterrupt);

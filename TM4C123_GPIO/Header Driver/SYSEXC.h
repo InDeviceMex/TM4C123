@@ -515,6 +515,7 @@ typedef enum
     SYSEXC_enDEFAULT=0xFF,
 }SYSEXC_nPRIORITY;
 
+/* ToDo meake a better handle of interupt as GPIO*/
 void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri);
 void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt);
 void SYSEXC__vDisInterrupt(SYSEXC_nINTERRUPT enInt);

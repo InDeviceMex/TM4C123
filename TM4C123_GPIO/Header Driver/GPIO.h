@@ -194,6 +194,28 @@ typedef volatile struct
     const    uint32_t reserved   :24;
 }GPIOAFSEL_TypeDef;
 
+typedef volatile struct
+{
+    volatile uint32_t DRV0     :1;
+    volatile uint32_t DRV1     :1;
+    volatile uint32_t DRV2     :1;
+    volatile uint32_t DRV3     :1;
+    volatile uint32_t DRV4     :1;
+    volatile uint32_t DRV5     :1;
+    volatile uint32_t DRV6     :1;
+    volatile uint32_t DRV7     :1;
+    const    uint32_t reserved :24;
+}GPIODRR_TypeDef;
+
+
+typedef volatile struct
+{
+    union
+    {
+        volatile uint32_t DRV[3];
+        GPIODRR_TypeDef DRV_bit[3];
+    };
+}GPIODRR_ARRAY_TypeDef;
 
 typedef volatile struct
 {
@@ -673,6 +695,28 @@ typedef volatile struct
     const    uint32_t reserved   [24];
 }GPIOAFSEL_BITBANDING_TypeDef;
 
+
+typedef volatile struct
+{
+    volatile uint32_t DRV0     ;
+    volatile uint32_t DRV1     ;
+    volatile uint32_t DRV2     ;
+    volatile uint32_t DRV3     ;
+    volatile uint32_t DRV4     ;
+    volatile uint32_t DRV5     ;
+    volatile uint32_t DRV6     ;
+    volatile uint32_t DRV7     ;
+    const    uint32_t reserved  [24];
+}GPIODRR_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    union
+    {
+        volatile uint32_t DRV[3][32];
+        GPIODRR_BITBANDING_TypeDef DRV_bit[3];
+    };
+}GPIODRR_ARRAY_BITBANDING_TypeDef;
 
 typedef volatile struct
 {
@@ -1197,6 +1241,187 @@ typedef volatile struct
     };
 }GPIO_TypeDef;
 
+typedef volatile struct
+{
+    union
+    {
+        volatile uint32_t       GPIODATA_MASK[255];
+        GPIODATA_TypeDef        GPIODATA_MASK_Bit[255];
+    };
+    union
+    {
+        volatile uint32_t       GPIODATA;
+        GPIODATA_TypeDef        GPIODATA_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIODIR;
+        GPIODIR_TypeDef         GPIODIR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOIS;
+        GPIOIS_TypeDef          GPIOIS_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOIBE;
+        GPIOIBE_TypeDef         GPIOIBE_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOIEV;
+        GPIOIEV_TypeDef         GPIOIEV_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOIM;
+        GPIOIM_TypeDef          GPIOIM_Bit;
+    };
+    union
+    {
+        volatile const uint32_t GPIORIS;
+        GPIORIS_TypeDef         GPIORIS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t GPIOMIS;
+        GPIOMIS_TypeDef         GPIOMIS_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOICR;
+        GPIOICR_TypeDef         GPIOICR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOAFSEL;
+        GPIOAFSEL_TypeDef       GPIOAFSEL_Bit;
+    };
+    const    uint32_t           reserved[55];
+    union
+    {
+        volatile uint32_t       GPIODRR[3];
+        GPIODRR_TypeDef         GPIODRR_Bit[3];
+    };
+
+    union
+    {
+        volatile uint32_t       GPIOODR;
+        GPIOODR_TypeDef         GPIOODR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPUR;
+        GPIOPUR_TypeDef         GPIOPUR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPDR;
+        GPIOPDR_TypeDef         GPIOPDR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOSLR;
+        GPIOSLR_TypeDef         GPIOSLR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIODEN;
+        GPIODEN_TypeDef         GPIODEN_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOLOCK;
+        GPIOLOCK_TypeDef        GPIOLOCK_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOCR;
+        GPIOCR_TypeDef          GPIOCR_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOAMSEL;
+        GPIOAMSEL_TypeDef       GPIOAMSEL_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPCTL;
+        GPIOPCTL_TypeDef        GPIOPCTL_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOADCCTL;
+        GPIOADCCTL_TypeDef      GPIOADCCTL_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIODMACTL;
+        GPIODMACTL_TypeDef      GPIODMACTL_Bit;
+    };
+    const uint32_t              reserved1[678];
+    union
+    {
+        volatile uint32_t       GPIOPeriphID4;
+        GPIOPeriphID4_TypeDef   GPIOPeriphID4_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID5;
+        GPIOPeriphID5_TypeDef   GPIOPeriphID5_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID6;
+        GPIOPeriphID6_TypeDef   GPIOPeriphID6_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID7;
+        GPIOPeriphID7_TypeDef   GPIOPeriphID7_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID0;
+        GPIOPeriphID0_TypeDef   GPIOPeriphID0_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID1;
+        GPIOPeriphID1_TypeDef   GPIOPeriphID1_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID2;
+        GPIOPeriphID2_TypeDef   GPIOPeriphID2_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPeriphID3;
+        GPIOPeriphID3_TypeDef   GPIOPeriphID3_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPCellID0;
+        GPIOPCellID0_TypeDef    GPIOPCellID0_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPCellID1;
+        GPIOPCellID1_TypeDef    GPIOPCellID1_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPCellID2;
+        GPIOPCellID2_TypeDef    GPIOPCellID2_Bit;
+    };
+    union
+    {
+        volatile uint32_t       GPIOPCellID3;
+        GPIOPCellID3_TypeDef    GPIOPCellID3_Bit;
+    };
+}GPIO_AUX_TypeDef;
 
 typedef volatile struct
 {
@@ -1389,6 +1614,190 @@ typedef volatile struct
     };
 }GPIO_BITBANDING_TypeDef;
 
+
+
+typedef volatile struct
+{
+    union
+    {
+        volatile uint32_t                   GPIODATA_MASK[255][32];
+        GPIODATA_BITBANDING_TypeDef         GPIODATA_MASK_Bit[255];
+    };
+    union
+    {
+        volatile uint32_t                   GPIODATA[32];
+        GPIODATA_BITBANDING_TypeDef         GPIODATA_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIODIR[32];
+        GPIODIR_BITBANDING_TypeDef          GPIODIR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOIS[32];
+        GPIOIS_BITBANDING_TypeDef           GPIOIS_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOIBE[32];
+        GPIOIBE_BITBANDING_TypeDef          GPIOIBE_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOIEV[32];
+        GPIOIEV_BITBANDING_TypeDef          GPIOIEV_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOIM[32];
+        GPIOIM_BITBANDING_TypeDef           GPIOIM_Bit;
+    };
+    union
+    {
+        volatile const uint32_t             GPIORIS[32];
+        GPIORIS_BITBANDING_TypeDef          GPIORIS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t             GPIOMIS[32];
+        GPIOMIS_BITBANDING_TypeDef          GPIOMIS_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOICR[32];
+        GPIOICR_BITBANDING_TypeDef          GPIOICR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOAFSEL[32];
+        GPIOAFSEL_BITBANDING_TypeDef        GPIOAFSEL_Bit;
+    };
+    const    uint32_t                       reserved[55*32];
+    union
+    {
+        volatile uint32_t                   GPIODRR[32][3];
+        GPIODRR_BITBANDING_TypeDef         GPIODRR_Bit[3];
+    };
+    union
+    {
+        volatile uint32_t                   GPIOODR[32];
+        GPIOODR_BITBANDING_TypeDef          GPIOODR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPUR[32];
+        GPIOPUR_BITBANDING_TypeDef          GPIOPUR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPDR[32];
+        GPIOPDR_BITBANDING_TypeDef          GPIOPDR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOSLR[32];
+        GPIOSLR_BITBANDING_TypeDef          GPIOSLR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIODEN[32];
+        GPIODEN_BITBANDING_TypeDef          GPIODEN_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOLOCK[32];
+        GPIOLOCK_BITBANDING_TypeDef         GPIOLOCK_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOCR[32];
+        GPIOCR_BITBANDING_TypeDef           GPIOCR_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOAMSEL[32];
+        GPIOAMSEL_BITBANDING_TypeDef        GPIOAMSEL_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPCTL[32];
+        GPIOPCTL_BITBANDING_TypeDef         GPIOPCTL_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOADCCTL[32];
+        GPIOADCCTL_BITBANDING_TypeDef       GPIOADCCTL_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIODMACTL[32];
+        GPIODMACTL_BITBANDING_TypeDef       GPIODMACTL_Bit;
+    };
+    const uint32_t                          reserved1[678*32];
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID4[32];
+        GPIOPeriphID4_BITBANDING_TypeDef    GPIOPeriphID4_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID5[32];
+        GPIOPeriphID5_BITBANDING_TypeDef    GPIOPeriphID5_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID6[32];
+        GPIOPeriphID6_BITBANDING_TypeDef    GPIOPeriphID6_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID7[32];
+        GPIOPeriphID7_BITBANDING_TypeDef    GPIOPeriphID7_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID0[32];
+        GPIOPeriphID0_BITBANDING_TypeDef    GPIOPeriphID0_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID1[32];
+        GPIOPeriphID1_BITBANDING_TypeDef    GPIOPeriphID1_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID2[32];
+        GPIOPeriphID2_BITBANDING_TypeDef    GPIOPeriphID2_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPeriphID3[32];
+        GPIOPeriphID3_BITBANDING_TypeDef    GPIOPeriphID3_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPCellID0[32];
+        GPIOPCellID0_BITBANDING_TypeDef     GPIOPCellID0_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPCellID1[32];
+        GPIOPCellID1_BITBANDING_TypeDef     GPIOPCellID1_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPCellID2[32];
+        GPIOPCellID2_BITBANDING_TypeDef     GPIOPCellID2_Bit;
+    };
+    union
+    {
+        volatile uint32_t                   GPIOPCellID3[32];
+        GPIOPCellID3_BITBANDING_TypeDef     GPIOPCellID3_Bit;
+    };
+}GPIO_AUX_BITBANDING_TypeDef;
+
+
 typedef volatile struct
 {
     GPIO_TypeDef AHB[6];
@@ -1396,8 +1805,18 @@ typedef volatile struct
 
 typedef volatile struct
 {
+    GPIO_AUX_TypeDef AHB[6];
+}GPIO_AHB_AUX_TypeDef;
+
+typedef volatile struct
+{
     GPIO_BITBANDING_TypeDef AHB[6];
 }GPIO_AHB_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    GPIO_AUX_BITBANDING_TypeDef AHB[6];
+}GPIO_AHB_AUX_BITBANDING_TypeDef;
 
 typedef volatile struct
 {
@@ -1412,6 +1831,17 @@ typedef volatile struct
 
 typedef volatile struct
 {
+    GPIO_AUX_TypeDef          APB_A;
+    GPIO_AUX_TypeDef          APB_B;
+    GPIO_AUX_TypeDef          APB_C;
+    GPIO_AUX_TypeDef          APB_D;
+    const    GPIO_AUX_TypeDef reserved[28];
+    GPIO_AUX_TypeDef          APB_E;
+    GPIO_AUX_TypeDef          APB_F;
+}GPIO_APB_AUX_TypeDef;
+
+typedef volatile struct
+{
     GPIO_BITBANDING_TypeDef          APB_A;
     GPIO_BITBANDING_TypeDef          APB_B;
     GPIO_BITBANDING_TypeDef          APB_C;
@@ -1421,10 +1851,26 @@ typedef volatile struct
     GPIO_BITBANDING_TypeDef          APB_F;
 }GPIO_APB_BITBANDING_TypeDef;
 
+typedef volatile struct
+{
+    GPIO_AUX_BITBANDING_TypeDef          APB_A;
+    GPIO_AUX_BITBANDING_TypeDef          APB_B;
+    GPIO_AUX_BITBANDING_TypeDef          APB_C;
+    GPIO_AUX_BITBANDING_TypeDef          APB_D;
+    const    GPIO_AUX_BITBANDING_TypeDef reserved[28];
+    GPIO_AUX_BITBANDING_TypeDef          APB_E;
+    GPIO_AUX_BITBANDING_TypeDef          APB_F;
+}GPIO_APB_AUX_BITBANDING_TypeDef;
+
 #define GPIO_APB                (((GPIO_APB_TypeDef*)(GPIO_APB_BASE)))
 #define GPIO_AHB                (((GPIO_AHB_TypeDef*)(GPIO_AHB_BASE)))
 #define GPIO_APB_BITBANDING     (((GPIO_APB_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIO_APB_OFFSET*32))))
 #define GPIO_AHB_BITBANDING     (((GPIO_AHB_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIO_AHB_OFFSET*32))))
+
+#define GPIO_APB_AUX            (((GPIO_APB_AUX_TypeDef*)(GPIO_APB_BASE)))
+#define GPIO_AHB_AUX            (((GPIO_AHB_AUX_TypeDef*)(GPIO_AHB_BASE)))
+#define GPIO_APB_AUX_BITBANDING (((GPIO_APB_AUX_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIO_APB_OFFSET*32))))
+#define GPIO_AHB_AUX_BITBANDING (((GPIO_AHB_AUX_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIO_AHB_OFFSET*32))))
 
 #define GPIOA_APB               (((GPIO_TypeDef*)(GPIOA_APB_BASE)))
 #define GPIOB_APB               (((GPIO_TypeDef*)(GPIOB_APB_BASE)))
@@ -4654,6 +5100,57 @@ typedef volatile struct
 #define GPIOF_APB_GPIOAFSEL_AFSEL5_BITBANDING         (*((volatile uint32_t *)(GPIO_BASE_BITBANDING+((GPIOF_APB_OFFSET+GPIO_GPIOAFSEL_OFFSET)*32)+(GPIO_GPIOAFSEL_R_AFSEL5_BIT*4))))
 #define GPIOF_APB_GPIOAFSEL_AFSEL6_BITBANDING         (*((volatile uint32_t *)(GPIO_BASE_BITBANDING+((GPIOF_APB_OFFSET+GPIO_GPIOAFSEL_OFFSET)*32)+(GPIO_GPIOAFSEL_R_AFSEL6_BIT*4))))
 #define GPIOF_APB_GPIOAFSEL_AFSEL7_BITBANDING         (*((volatile uint32_t *)(GPIO_BASE_BITBANDING+((GPIOF_APB_OFFSET+GPIO_GPIOAFSEL_OFFSET)*32)+(GPIO_GPIOAFSEL_R_AFSEL7_BIT*4))))
+
+/******************************************************************************************
+************************************ 11 GPIODRR ARRAY *********************************************
+******************************************************************************************/
+/* GPIOA AHB DRV2*/
+#define GPIOA_AHB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOA_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOA_AHB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOA_AHB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOA APB DRV2*/
+#define GPIOA_APB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOA_APB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOA_APB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOA_APB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOB AHB DRV2*/
+#define GPIOB_AHB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOB_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOB_AHB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOB_AHB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOB APB DRV2*/
+#define GPIOB_APB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOB_APB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOB_APB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOB_APB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOC AHB DRV2*/
+#define GPIOC_AHB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOC_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOC_AHB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOC_AHB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOC APB DRV2*/
+#define GPIOC_APB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOC_APB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOC_APB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOC_APB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOD AHB DRV2*/
+#define GPIOD_AHB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOD_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOD_AHB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOD_AHB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOD APB DRV2*/
+#define GPIOD_APB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOD_APB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOD_APB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOD_APB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOE AHB DRV2*/
+#define GPIOE_AHB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOE_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOE_AHB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOE_AHB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOE APB DRV2*/
+#define GPIOE_APB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOE_APB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOE_APB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOE_APB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOF AHB DRV2*/
+#define GPIOF_AHB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOF_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOF_AHB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOF_AHB_BASE+GPIO_GPIODR2R_OFFSET)))
+
+/* GPIOF APB DRV2*/
+#define GPIOF_APB_GPIODRR_BITBANDING       (((GPIODRR_ARRAY_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+((GPIOF_APB_OFFSET+GPIO_GPIODR2R_OFFSET)*32))))
+#define GPIOF_APB_GPIODRR                  (((GPIODRR_ARRAY_TypeDef*)     (GPIOF_APB_BASE+GPIO_GPIODR2R_OFFSET)))
 
 
 /******************************************************************************************
@@ -9848,131 +10345,228 @@ typedef enum
 
 typedef enum
 {
+    GPIO_enDRIVE_2mA=0,
+    GPIO_enDRIVE_4mA=1,
+    GPIO_enDRIVE_8mA=2,
+    GPIO_enDRIVE_8mA_SLR=(1<<8)|2,
+    GPIO_enDRIVE_UNDEF=0xFF,
+}GPIO_nDRIVE;
+
+typedef enum
+{
     GPIO_enLEVEL_LOW=0,
     GPIO_enLEVEL_HIGH=1,
     GPIO_enLEVEL_UNDEF=0xFF,
 }GPIO_nLEVEL;
+
+typedef enum
+{
+    GPIO_enOUTMODE_PP=0,
+    GPIO_enOUTMODE_OD=1,
+    GPIO_enOUTMODE_UNDEF=0xFF,
+}GPIO_nOUTMODE;
+typedef enum
+{
+    GPIO_enRESMODE_INACTIVE=0,
+    GPIO_enRESMODE_PULLUP=1,
+    GPIO_enRESMODE_PULLDOWN=2,
+    GPIO_enRESMODE_UNDEF=0xFF,
+}GPIO_nRESMODE;
 //PORT PIN VALUE
 typedef enum
 {
     //GPIOA
+    GPIO_enGPIOA0   =(0<<16)|((0*4)<<8)|(0),
     GPIO_enU0Rx     =(0<<16)|((0*4)<<8)|(1),
     GPIO_enCAN1Rx   =(0<<16)|((0*4)<<8)|(8),
+
+    GPIO_enGPIOA1   =(0<<16)|((1*4)<<8)|(0),
     GPIO_enU0Tx     =(0<<16)|((1*4)<<8)|(1),
     GPIO_enCAN1Tx   =(0<<16)|((1*4)<<8)|(8),
+
+    GPIO_enGPIOA2   =(0<<16)|((2*4)<<8)|(0),
     GPIO_enSSI0Clk  =(0<<16)|((2*4)<<8)|(2),
+
+    GPIO_enGPIOA3   =(0<<16)|((3*4)<<8)|(0),
     GPIO_enSSI0Fss  =(0<<16)|((3*4)<<8)|(2),
+
+    GPIO_enGPIOA4   =(0<<16)|((4*4)<<8)|(0),
     GPIO_enSSI0Rx   =(0<<16)|((4*4)<<8)|(2),
+
+    GPIO_enGPIOA5   =(0<<16)|((5*4)<<8)|(0),
     GPIO_enSSI0Tx   =(0<<16)|((5*4)<<8)|(2),
+
+    GPIO_enGPIOA6   =(0<<16)|((6*4)<<8)|(0),
     GPIO_enI2C1SCL  =(0<<16)|((6*4)<<8)|(3),
     GPIO_enM1PWM2   =(0<<16)|((6*4)<<8)|(5),
+
+    GPIO_enGPIOA7   =(0<<16)|((7*4)<<8)|(0),
     GPIO_enI2C1SDA  =(0<<16)|((7*4)<<8)|(3),
     GPIO_enM1PWM3   =(0<<16)|((7*4)<<8)|(5),
 
     //GPIOB
+    GPIO_enGPIOB0   =(1<<16)|((0*4)<<8)|(0),
     GPIO_enU1Rx     =(1<<16)|((0*4)<<8)|(1),
     GPIO_enT2CCP0   =(1<<16)|((0*4)<<8)|(7),
+
+    GPIO_enGPIOB1   =(1<<16)|((1*4)<<8)|(0),
     GPIO_enU1Tx     =(1<<16)|((1*4)<<8)|(1),
     GPIO_enT2CCP1   =(1<<16)|((1*4)<<8)|(7),
+
+    GPIO_enGPIOB2   =(1<<16)|((2*4)<<8)|(0),
     GPIO_enI2C0SCL  =(1<<16)|((2*4)<<8)|(3),
     GPIO_enT3CCP0   =(1<<16)|((2*4)<<8)|(7),
+
+    GPIO_enGPIOB3   =(1<<16)|((3*4)<<8)|(0),
     GPIO_enI2C0SDA  =(1<<16)|((3*4)<<8)|(3),
     GPIO_enT3CCP1   =(1<<16)|((3*4)<<8)|(7),
+
+    GPIO_enGPIOB4   =(1<<16)|((4*4)<<8)|(0),
     GPIO_enSSI2Clk  =(1<<16)|((4*4)<<8)|(2),
     GPIO_enM0PWM2   =(1<<16)|((4*4)<<8)|(4),
     GPIO_enT1CCP0   =(1<<16)|((4*4)<<8)|(7),
     GPIO_enCAN0Rx   =(1<<16)|((4*4)<<8)|(8),
+
+    GPIO_enGPIOB5   =(1<<16)|((5*4)<<8)|(0),
     GPIO_enSSI2Fss  =(1<<16)|((5*4)<<8)|(2),
     GPIO_enM0PWM3   =(1<<16)|((5*4)<<8)|(4),
     GPIO_enT1CCP1   =(1<<16)|((5*4)<<8)|(7),
     GPIO_enCAN0Tx   =(1<<16)|((5*4)<<8)|(8),
+
+    GPIO_enGPIOB6   =(1<<16)|((6*4)<<8)|(0),
     GPIO_enSSI2Rx   =(1<<16)|((6*4)<<8)|(2),
     GPIO_enM0PWM0   =(1<<16)|((6*4)<<8)|(4),
     GPIO_enT0CCP0   =(1<<16)|((6*4)<<8)|(7),
+
+    GPIO_enGPIOB7   =(1<<16)|((7*4)<<8)|(0),
     GPIO_enSSI2Tx   =(1<<16)|((7*4)<<8)|(2),
     GPIO_enM0PWM1   =(1<<16)|((7*4)<<8)|(4),
     GPIO_enT0CCP1   =(1<<16)|((7*4)<<8)|(7),
 
     //GPIOC
+    GPIO_enGPIOC0    =(2<<16)|((0*4)<<8)|(0),
     GPIO_enTCK       =(2<<16)|((0*4)<<8)|(1),
     GPIO_enT4CCP0    =(2<<16)|((0*4)<<8)|(7),
+
+    GPIO_enGPIOC1    =(2<<16)|((1*4)<<8)|(0),
     GPIO_enTMS       =(2<<16)|((1*4)<<8)|(1),
     GPIO_enT4CCP1    =(2<<16)|((1*4)<<8)|(7),
+
+    GPIO_enGPIOC2    =(2<<16)|((2*4)<<8)|(0),
     GPIO_enTDI       =(2<<16)|((2*4)<<8)|(1),
     GPIO_enT5CCP0    =(2<<16)|((2*4)<<8)|(7),
+
+    GPIO_enGPIOC3    =(2<<16)|((3*4)<<8)|(0),
     GPIO_enTDO       =(2<<16)|((3*4)<<8)|(1),
     GPIO_enT5CCP1    =(2<<16)|((3*4)<<8)|(7),
+
+    GPIO_enGPIOC4    =(2<<16)|((4*4)<<8)|(0),
     GPIO_enU4Rx      =(2<<16)|((4*4)<<8)|(1),
     GPIO_enU1Rx_C4   =(2<<16)|((4*4)<<8)|(2),
     GPIO_enM0PWM6    =(2<<16)|((4*4)<<8)|(4),
     GPIO_enIDX1      =(2<<16)|((4*4)<<8)|(6),
     GPIO_enWT0CCP0   =(2<<16)|((4*4)<<8)|(7),
     GPIO_enU1RTS     =(2<<16)|((4*4)<<8)|(8),
+
+    GPIO_enGPIOC5    =(2<<16)|((5*4)<<8)|(0),
     GPIO_enU4Tx      =(2<<16)|((5*4)<<8)|(1),
     GPIO_enU1Tx_C4   =(2<<16)|((5*4)<<8)|(2),
     GPIO_enM0PWM7    =(2<<16)|((5*4)<<8)|(4),
     GPIO_enPhA1      =(2<<16)|((5*4)<<8)|(6),
     GPIO_enWT0CCP1   =(2<<16)|((5*4)<<8)|(7),
     GPIO_enU1CTS     =(2<<16)|((5*4)<<8)|(8),
+
+    GPIO_enGPIOC6    =(2<<16)|((6*4)<<8)|(0),
     GPIO_enU3Rx      =(2<<16)|((6*4)<<8)|(1),
     GPIO_enPhB1      =(2<<16)|((6*4)<<8)|(6),
     GPIO_enWT1CCP0   =(2<<16)|((6*4)<<8)|(7),
     GPIO_enUSB0EPEN  =(2<<16)|((6*4)<<8)|(8),
+
+    GPIO_enGPIOC7    =(2<<16)|((7*4)<<8)|(0),
     GPIO_enU3Tx      =(2<<16)|((7*4)<<8)|(1),
     GPIO_enWT1CCP1   =(2<<16)|((7*4)<<8)|(7),
     GPIO_enUSB0PFLT  =(2<<16)|((7*4)<<8)|(8),
 
     //GPIOD
+    GPIO_enGPIOD0    =(3<<16)|((0*4)<<8)|(0),
     GPIO_enSSI3Clk   =(3<<16)|((0*4)<<8)|(1),
     GPIO_enSSI1Clk   =(3<<16)|((0*4)<<8)|(2),
     GPIO_enI2C3SCL   =(3<<16)|((0*4)<<8)|(3),
     GPIO_enM0PWM6_D0 =(3<<16)|((0*4)<<8)|(4),
     GPIO_enM1PWM0    =(3<<16)|((0*4)<<8)|(5),
     GPIO_enWT2CCP0   =(3<<16)|((0*4)<<8)|(7),
+
+    GPIO_enGPIOD1    =(3<<16)|((1*4)<<8)|(0),
     GPIO_enSSI3Fss   =(3<<16)|((1*4)<<8)|(1),
     GPIO_enSSI1Fss   =(3<<16)|((1*4)<<8)|(2),
     GPIO_enI2C3SDA   =(3<<16)|((1*4)<<8)|(3),
     GPIO_enM0PWM7_D1 =(3<<16)|((1*4)<<8)|(4),
     GPIO_enM1PWM1    =(3<<16)|((1*4)<<8)|(5),
     GPIO_enWT2CCP1   =(3<<16)|((1*4)<<8)|(7),
+
+    GPIO_enGPIOD2    =(3<<16)|((2*4)<<8)|(0),
     GPIO_enSSI3Rx    =(3<<16)|((2*4)<<8)|(1),
     GPIO_enSSI1Rx    =(3<<16)|((2*4)<<8)|(2),
     GPIO_enM0FAULT0  =(3<<16)|((2*4)<<8)|(4),
     GPIO_enWT3CCP0   =(3<<16)|((2*4)<<8)|(7),
     GPIO_enUSB0EPEN_D2=(3<<16)|((2*4)<<8)|(8),
+
+    GPIO_enGPIOD3    =(3<<16)|((3*4)<<8)|(0),
     GPIO_enSSI3Tx    =(3<<16)|((3*4)<<8)|(1),
     GPIO_enSSI1Tx    =(3<<16)|((3*4)<<8)|(2),
     GPIO_enIDX0      =(3<<16)|((3*4)<<8)|(6),
     GPIO_enWT3CCP1   =(3<<16)|((3*4)<<8)|(7),
     GPIO_enUSB0PFLT_D3=(3<<16)|((3*4)<<8)|(8),
+
+    GPIO_enGPIOD4    =(3<<16)|((4*4)<<8)|(0),
     GPIO_enU6Rx      =(3<<16)|((4*4)<<8)|(1),
     GPIO_enWT4CCP0   =(3<<16)|((4*4)<<8)|(7),
+
+    GPIO_enGPIOD5    =(3<<16)|((5*4)<<8)|(0),
     GPIO_enU6Tx      =(3<<16)|((5*4)<<8)|(1),
     GPIO_enWT4CCP1   =(3<<16)|((5*4)<<8)|(7),
+
+    GPIO_enGPIOD6    =(3<<16)|((6*4)<<8)|(0),
     GPIO_enU2Rx      =(3<<16)|((6*4)<<8)|(1),
     GPIO_enM0FAULT0_D6=(3<<16)|((6*4)<<8)|(4),
     GPIO_enPhA0      =(3<<16)|((6*4)<<8)|(6),
     GPIO_enWT5CCP0   =(3<<16)|((6*4)<<8)|(7),
+
+    GPIO_enGPIOD7    =(3<<16)|((7*4)<<8)|(0),
     GPIO_enU2Tx      =(3<<16)|((7*4)<<8)|(1),
     GPIO_enPhB0      =(3<<16)|((7*4)<<8)|(6),
     GPIO_enWT5CCP1   =(3<<16)|((7*4)<<8)|(7),
     GPIO_enNMI       =(3<<16)|((7*4)<<8)|(8),
 
     //GPIOE
+    GPIO_enGPIOE0    =(4<<16)|((0*4)<<8)|(0),
     GPIO_enU7Rx      =(4<<16)|((0*4)<<8)|(1),
+
+    GPIO_enGPIOE1    =(4<<16)|((1*4)<<8)|(0),
     GPIO_enU7Tx      =(4<<16)|((1*4)<<8)|(1),
+
+    GPIO_enGPIOE2    =(4<<16)|((2*4)<<8)|(0),
+    GPIO_enGPIOE3    =(4<<16)|((3*4)<<8)|(0),
+
+    GPIO_enGPIOE4    =(4<<16)|((4*4)<<8)|(0),
     GPIO_enU5Rx      =(4<<16)|((4*4)<<8)|(1),
     GPIO_enI2C2SCL   =(4<<16)|((4*4)<<8)|(3),
     GPIO_enM0PWM4    =(4<<16)|((4*4)<<8)|(4),
     GPIO_enM1PWM2_E4 =(4<<16)|((4*4)<<8)|(5),
     GPIO_enCAN0Rx_E4 =(4<<16)|((4*4)<<8)|(8),
+
+    GPIO_enGPIOE5    =(4<<16)|((5*4)<<8)|(0),
     GPIO_enU5Tx      =(4<<16)|((5*4)<<8)|(1),
     GPIO_enI2C2SDA   =(4<<16)|((5*4)<<8)|(3),
     GPIO_enM0PWM5    =(4<<16)|((5*4)<<8)|(4),
     GPIO_enM1PWM3_E5 =(4<<16)|((5*4)<<8)|(5),
     GPIO_enCAN0Tx_E5 =(4<<16)|((5*4)<<8)|(8),
 
+    GPIO_enGPIOE6    =(4<<16)|((6*4)<<8)|(0),
+    GPIO_enGPIOE7    =(4<<16)|((7*4)<<8)|(0),
+
     //GPIOF
+    GPIO_enGPIOF0    =(5<<16)|((0*4)<<8)|(0),
     GPIO_enU1RTS_F0  =(5<<16)|((0*4)<<8)|(1),
     GPIO_enSSI1Rx_F0 =(5<<16)|((0*4)<<8)|(2),
     GPIO_enCAN0Rx_F0 =(5<<16)|((0*4)<<8)|(3),
@@ -9981,6 +10575,8 @@ typedef enum
     GPIO_enT0CCP0_F0 =(5<<16)|((0*4)<<8)|(7),
     GPIO_enNMI_F0    =(5<<16)|((0*4)<<8)|(8),
     GPIO_enC0o       =(5<<16)|((0*4)<<8)|(9),
+
+    GPIO_enGPIOF1    =(5<<16)|((1*4)<<8)|(0),
     GPIO_enU1CTS_F1  =(5<<16)|((1*4)<<8)|(1),
     GPIO_enSSI1Tx_F1 =(5<<16)|((1*4)<<8)|(2),
     GPIO_enM1PWM5    =(5<<16)|((1*4)<<8)|(5),
@@ -9988,20 +10584,30 @@ typedef enum
     GPIO_enT0CCP1_F1 =(5<<16)|((1*4)<<8)|(7),
     GPIO_enC1o       =(5<<16)|((1*4)<<8)|(9),
     GPIO_enTRD1      =(5<<16)|((1*4)<<8)|(14),
+
+    GPIO_enGPIOF2    =(5<<16)|((2*4)<<8)|(0),
     GPIO_enSSI1Clk_F2=(5<<16)|((2*4)<<8)|(2),
     GPIO_enM0FAULT0_F2=(5<<16)|((2*4)<<8)|(4),
     GPIO_enM1PWM6    =(5<<16)|((2*4)<<8)|(5),
     GPIO_enT1CCP0_F2 =(5<<16)|((2*4)<<8)|(7),
     GPIO_enTRD0      =(5<<16)|((2*4)<<8)|(14),
+
+    GPIO_enGPIOF3    =(5<<16)|((3*4)<<8)|(0),
     GPIO_enSSI1Fss_F3=(5<<16)|((3*4)<<8)|(2),
     GPIO_enCAN0Tx_F3 =(5<<16)|((3*4)<<8)|(3),
     GPIO_enM1PWM7    =(5<<16)|((3*4)<<8)|(5),
     GPIO_enT1CCP1_F3 =(5<<16)|((3*4)<<8)|(7),
     GPIO_enTRCLK     =(5<<16)|((3*4)<<8)|(14),
+
+    GPIO_enGPIOF4    =(5<<16)|((4*4)<<8)|(0),
     GPIO_enM1FAULT0  =(5<<16)|((4*4)<<8)|(5),
     GPIO_enIDX0_F4   =(5<<16)|((4*4)<<8)|(6),
     GPIO_enT2CCP0_F4 =(5<<16)|((4*4)<<8)|(7),
     GPIO_enUSB0EPEN_F4=(5<<16)|((4*4)<<8)|(8),
+
+    GPIO_enGPIOF5    =(5<<16)|((5*4)<<8)|(0),
+    GPIO_enGPIOF6    =(5<<16)|((6*4)<<8)|(0),
+    GPIO_enGPIOF7    =(5<<16)|((7*4)<<8)|(0),
 }GPIO_nDIGITAL_FUNCTION;
 
 //PORT PIN
@@ -10075,6 +10681,22 @@ void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 GPIO_nSTATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
+void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive);
+GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
+void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nOUTMODE enMode);
+void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enMode);
 
 #endif /* GPIO_H_ */
