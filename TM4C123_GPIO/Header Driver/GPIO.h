@@ -1878,6 +1878,14 @@ typedef volatile struct
 #define GPIOD_APB               (((GPIO_TypeDef*)(GPIOD_APB_BASE)))
 #define GPIOE_APB               (((GPIO_TypeDef*)(GPIOE_APB_BASE)))
 #define GPIOF_APB               (((GPIO_TypeDef*)(GPIOF_APB_BASE)))
+
+#define GPIOA_APB_AUX               (((GPIO_AUX_TypeDef*)(GPIOA_APB_BASE)))
+#define GPIOB_APB_AUX               (((GPIO_AUX_TypeDef*)(GPIOB_APB_BASE)))
+#define GPIOC_APB_AUX               (((GPIO_AUX_TypeDef*)(GPIOC_APB_BASE)))
+#define GPIOD_APB_AUX               (((GPIO_AUX_TypeDef*)(GPIOD_APB_BASE)))
+#define GPIOE_APB_AUX               (((GPIO_AUX_TypeDef*)(GPIOE_APB_BASE)))
+#define GPIOF_APB_AUX               (((GPIO_AUX_TypeDef*)(GPIOF_APB_BASE)))
+
 #define GPIOA_APB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIOA_APB_OFFSET*32))))
 #define GPIOB_APB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIOB_APB_OFFSET*32))))
 #define GPIOC_APB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIOC_APB_OFFSET*32))))
@@ -1891,6 +1899,14 @@ typedef volatile struct
 #define GPIOD_AHB               (((GPIO_TypeDef*)(GPIOD_AHB_BASE)))
 #define GPIOE_AHB               (((GPIO_TypeDef*)(GPIOE_AHB_BASE)))
 #define GPIOF_AHB               (((GPIO_TypeDef*)(GPIOF_AHB_BASE)))
+
+#define GPIOA_AHB_AUX               (((GPIO_AUX_TypeDef*)(GPIOA_AHB_BASE)))
+#define GPIOB_AHB_AUX               (((GPIO_AUX_TypeDef*)(GPIOB_AHB_BASE)))
+#define GPIOC_AHB_AUX               (((GPIO_AUX_TypeDef*)(GPIOC_AHB_BASE)))
+#define GPIOD_AHB_AUX               (((GPIO_AUX_TypeDef*)(GPIOD_AHB_BASE)))
+#define GPIOE_AHB_AUX               (((GPIO_AUX_TypeDef*)(GPIOE_AHB_BASE)))
+#define GPIOF_AHB_AUX               (((GPIO_AUX_TypeDef*)(GPIOF_AHB_BASE)))
+
 #define GPIOA_AHB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIOA_AHB_OFFSET*32))))
 #define GPIOB_AHB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIOB_AHB_OFFSET*32))))
 #define GPIOC_AHB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BASE_BITBANDING+(GPIOC_AHB_OFFSET*32))))

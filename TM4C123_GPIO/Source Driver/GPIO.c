@@ -18,6 +18,14 @@ void (*GPIO_ISR[6]) (void);
 void (*GPIO[6][8]) (void);
 
 GPIO_TypeDef* GPIO_APB_BLOCK[6]={GPIOA_APB,GPIOB_APB,GPIOC_APB,GPIOD_APB,GPIOE_APB,GPIOF_APB};
+GPIO_AUX_TypeDef* GPIO_APB_BLOCK_AUX[6]={GPIOA_APB_AUX,GPIOB_APB_AUX,GPIOC_APB_AUX,GPIOD_APB_AUX,GPIOE_APB_AUX,GPIOF_APB_AUX};
+
+GPIO_TypeDef* GPIO_BLOCK[2][6]={{GPIOA_APB,GPIOB_APB,GPIOC_APB,GPIOD_APB,GPIOE_APB,GPIOF_APB},
+                                {GPIOA_AHB,GPIOB_AHB,GPIOC_AHB,GPIOD_AHB,GPIOE_AHB,GPIOF_AHB}};
+
+GPIO_AUX_TypeDef* GPIO_BLOCK_AUX[2][6]={{GPIOA_APB_AUX,GPIOB_APB_AUX,GPIOC_APB_AUX,GPIOD_APB_AUX,GPIOE_APB_AUX,GPIOF_APB_AUX},
+                                {GPIOA_AHB_AUX,GPIOB_AHB_AUX,GPIOC_AHB_AUX,GPIOD_AHB_AUX,GPIOE_AHB_AUX,GPIOF_AHB_AUX}};
+
 
 void GPIO__vInit(void)
 {
@@ -127,30 +135,7 @@ GPIO_nDIR GPIO__vGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         if(GPIO_enAPB == enBus)
         {
-            switch(enPort)
-            {
-            case GPIO_enPORTA:
-                u32Reg=GPIOA_APB_GPIODIR_R;
-                break;
-            case GPIO_enPORTB:
-                u32Reg=GPIOB_APB_GPIODIR_R;
-                break;
-            case GPIO_enPORTC:
-                u32Reg=GPIOC_APB_GPIODIR_R;
-                break;
-            case GPIO_enPORTD:
-                u32Reg=GPIOD_APB_GPIODIR_R;
-                break;
-            case GPIO_enPORTE:
-                u32Reg=GPIOE_APB_GPIODIR_R;
-                break;
-            case GPIO_enPORTF:
-                u32Reg=GPIOF_APB_GPIODIR_R;
-                break;
-            default:
-                break;
-
-            }
+            u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIODIR;
         }
         else
         {
@@ -182,84 +167,16 @@ void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIS;
+        if(GPIO_enSENSE_LEVEL == enSense)
         {
-        case GPIO_enPORTA:
-            u32Reg=GPIOA_APB_GPIOIS_R;
-            if(GPIO_enSENSE_LEVEL == enSense)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOA_APB_GPIOIS_R=u32Reg;
-            break;
-        case GPIO_enPORTB:
-            u32Reg=GPIOB_APB_GPIOIS_R;
-            if(GPIO_enSENSE_LEVEL == enSense)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOB_APB_GPIOIS_R=u32Reg;
-            break;
-        case GPIO_enPORTC:
-            u32Reg=GPIOC_APB_GPIOIS_R;
-            if(GPIO_enSENSE_LEVEL == enSense)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOC_APB_GPIOIS_R=u32Reg;
-            break;
-        case GPIO_enPORTD:
-            u32Reg=GPIOD_APB_GPIOIS_R;
-            if(GPIO_enSENSE_LEVEL == enSense)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOD_APB_GPIOIS_R=u32Reg;
-            break;
-        case GPIO_enPORTE:
-            u32Reg=GPIOE_APB_GPIOIS_R;
-            if(GPIO_enSENSE_LEVEL == enSense)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOE_APB_GPIOIS_R=u32Reg;
-            break;
-        case GPIO_enPORTF:
-            u32Reg=GPIOF_APB_GPIOIS_R;
-            if(GPIO_enSENSE_LEVEL == enSense)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOF_APB_GPIOIS_R=u32Reg;
-            break;
-        default:
-            break;
-
+            u32Reg|=enPin;
         }
+        else
+        {
+            u32Reg&=~enPin;
+        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIS=u32Reg;
     }
     else
     {
@@ -291,32 +208,10 @@ GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
     {
+
         if(GPIO_enAPB == enBus)
         {
-            switch(enPort)
-            {
-            case GPIO_enPORTA:
-                u32Reg=GPIOA_APB_GPIOIS_R;
-                break;
-            case GPIO_enPORTB:
-                u32Reg=GPIOB_APB_GPIOIS_R;
-                break;
-            case GPIO_enPORTC:
-                u32Reg=GPIOC_APB_GPIOIS_R;
-                break;
-            case GPIO_enPORTD:
-                u32Reg=GPIOD_APB_GPIOIS_R;
-                break;
-            case GPIO_enPORTE:
-                u32Reg=GPIOE_APB_GPIOIS_R;
-                break;
-            case GPIO_enPORTF:
-                u32Reg=GPIOF_APB_GPIOIS_R;
-                break;
-            default:
-                break;
-
-            }
+            u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIS;
         }
         else
         {
@@ -350,144 +245,26 @@ void GPIO__vSetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nEDGE enEdge)
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_EDGE);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32RegIEV=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIEV;
+        if(GPIO_enEDGE_RISING == enEdge)
         {
-        case GPIO_enPORTA:
-            u32RegIEV=GPIOA_APB_GPIOIEV_R;
-            if(GPIO_enEDGE_RISING == enEdge)
-            {
-                u32RegIEV|=enPin;
-            }
-            else
-            {
-                u32RegIEV&=~enPin;
-            }
-            u32RegIBE=GPIOA_APB_GPIOIBE_R;
-            GPIOA_APB_GPIOIEV_R=u32RegIEV;
-            if(GPIO_enEDGE_BOTH == enEdge)
-            {
-                u32RegIBE|=enPin;
-            }
-            else
-            {
-                u32RegIBE&=~enPin;
-            }
-            GPIOA_APB_GPIOIBE_R=u32RegIBE;
-            break;
-        case GPIO_enPORTB:
-            u32RegIEV=GPIOB_APB_GPIOIEV_R;
-            if(GPIO_enEDGE_RISING == enEdge)
-            {
-                u32RegIEV|=enPin;
-            }
-            else
-            {
-                u32RegIEV&=~enPin;
-            }
-            u32RegIBE=GPIOB_APB_GPIOIBE_R;
-            GPIOB_APB_GPIOIEV_R=u32RegIEV;
-            if(GPIO_enEDGE_BOTH == enEdge)
-            {
-                u32RegIBE|=enPin;
-            }
-            else
-            {
-                u32RegIBE&=~enPin;
-            }
-            GPIOB_APB_GPIOIBE_R=u32RegIBE;
-            break;
-        case GPIO_enPORTC:
-            u32RegIEV=GPIOC_APB_GPIOIEV_R;
-            if(GPIO_enEDGE_RISING == enEdge)
-            {
-                u32RegIEV|=enPin;
-            }
-            else
-            {
-                u32RegIEV&=~enPin;
-            }
-            u32RegIBE=GPIOC_APB_GPIOIBE_R;
-            GPIOC_APB_GPIOIEV_R=u32RegIEV;
-            if(GPIO_enEDGE_BOTH == enEdge)
-            {
-                u32RegIBE|=enPin;
-            }
-            else
-            {
-                u32RegIBE&=~enPin;
-            }
-            GPIOC_APB_GPIOIBE_R=u32RegIBE;
-            break;
-        case GPIO_enPORTD:
-            u32RegIEV=GPIOD_APB_GPIOIEV_R;
-            if(GPIO_enEDGE_RISING == enEdge)
-            {
-                u32RegIEV|=enPin;
-            }
-            else
-            {
-                u32RegIEV&=~enPin;
-            }
-            u32RegIBE=GPIOD_APB_GPIOIBE_R;
-            GPIOD_APB_GPIOIEV_R=u32RegIEV;
-            if(GPIO_enEDGE_BOTH == enEdge)
-            {
-                u32RegIBE|=enPin;
-            }
-            else
-            {
-                u32RegIBE&=~enPin;
-            }
-            GPIOD_APB_GPIOIBE_R=u32RegIBE;
-            break;
-        case GPIO_enPORTE:
-            u32RegIEV=GPIOE_APB_GPIOIEV_R;
-            if(GPIO_enEDGE_RISING == enEdge)
-            {
-                u32RegIEV|=enPin;
-            }
-            else
-            {
-                u32RegIEV&=~enPin;
-            }
-            u32RegIBE=GPIOE_APB_GPIOIBE_R;
-            GPIOE_APB_GPIOIEV_R=u32RegIEV;
-            if(GPIO_enEDGE_BOTH == enEdge)
-            {
-                u32RegIBE|=enPin;
-            }
-            else
-            {
-                u32RegIBE&=~enPin;
-            }
-            GPIOE_APB_GPIOIBE_R=u32RegIBE;
-            break;
-        case GPIO_enPORTF:
-            u32RegIEV=GPIOF_APB_GPIOIEV_R;
-            if(GPIO_enEDGE_RISING == enEdge)
-            {
-                u32RegIEV|=enPin;
-            }
-            else
-            {
-                u32RegIEV&=~enPin;
-            }
-            u32RegIBE=GPIOF_APB_GPIOIBE_R;
-            GPIOF_APB_GPIOIEV_R=u32RegIEV;
-            if(GPIO_enEDGE_BOTH == enEdge)
-            {
-                u32RegIBE|=enPin;
-            }
-            else
-            {
-                u32RegIBE&=~enPin;
-            }
-            GPIOF_APB_GPIOIBE_R=u32RegIBE;
-            break;
-        default:
-            break;
-
+            u32RegIEV|=enPin;
         }
+        else
+        {
+            u32RegIEV&=~enPin;
+        }
+        u32RegIBE=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIBE;
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIEV=u32RegIEV;
+        if(GPIO_enEDGE_BOTH == enEdge)
+        {
+            u32RegIBE|=enPin;
+        }
+        else
+        {
+            u32RegIBE&=~enPin;
+        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIBE=u32RegIBE;
     }
     else
     {
@@ -534,36 +311,8 @@ GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         if(GPIO_enAPB == enBus)
         {
-            switch(enPort)
-            {
-            case GPIO_enPORTA:
-                u32RegIEV=GPIOA_APB_GPIOIEV_R;
-                u32RegIBE=GPIOA_APB_GPIOIBE_R;
-                break;
-            case GPIO_enPORTB:
-                u32RegIEV=GPIOB_APB_GPIOIEV_R;
-                u32RegIBE=GPIOB_APB_GPIOIBE_R;
-                break;
-            case GPIO_enPORTC:
-                u32RegIEV=GPIOC_APB_GPIOIEV_R;
-                u32RegIBE=GPIOC_APB_GPIOIBE_R;
-                break;
-            case GPIO_enPORTD:
-                u32RegIEV=GPIOD_APB_GPIOIEV_R;
-                u32RegIBE=GPIOD_APB_GPIOIBE_R;
-                break;
-            case GPIO_enPORTE:
-                u32RegIEV=GPIOE_APB_GPIOIEV_R;
-                u32RegIBE=GPIOE_APB_GPIOIBE_R;
-                break;
-            case GPIO_enPORTF:
-                u32RegIEV=GPIOF_APB_GPIOIEV_R;
-                u32RegIBE=GPIOF_APB_GPIOIBE_R;
-                break;
-            default:
-                break;
-
-            }
+            u32RegIEV=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIEV;
+            u32RegIBE=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIBE;
         }
         else
         {
@@ -606,84 +355,16 @@ void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel)
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_LEVEL);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIEV;
+        if(GPIO_enLEVEL_HIGH == enLevel)
         {
-        case GPIO_enPORTA:
-            u32Reg=GPIOA_APB_GPIOIEV_R;
-            if(GPIO_enLEVEL_HIGH == enLevel)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOA_APB_GPIOIEV_R=u32Reg;
-            break;
-        case GPIO_enPORTB:
-            u32Reg=GPIOB_APB_GPIOIEV_R;
-            if(GPIO_enLEVEL_HIGH == enLevel)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOB_APB_GPIOIEV_R=u32Reg;
-            break;
-        case GPIO_enPORTC:
-            u32Reg=GPIOC_APB_GPIOIEV_R;
-            if(GPIO_enLEVEL_HIGH == enLevel)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOC_APB_GPIOIEV_R=u32Reg;
-            break;
-        case GPIO_enPORTD:
-            u32Reg=GPIOD_APB_GPIOIEV_R;
-            if(GPIO_enLEVEL_HIGH == enLevel)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOD_APB_GPIOIEV_R=u32Reg;
-            break;
-        case GPIO_enPORTE:
-            u32Reg=GPIOE_APB_GPIOIEV_R;
-            if(GPIO_enLEVEL_HIGH == enLevel)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOE_APB_GPIOIEV_R=u32Reg;
-            break;
-        case GPIO_enPORTF:
-            u32Reg=GPIOF_APB_GPIOIEV_R;
-            if(GPIO_enLEVEL_HIGH == enLevel)
-            {
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOF_APB_GPIOIEV_R=u32Reg;
-            break;
-        default:
-            break;
-
+            u32Reg|=enPin;
         }
+        else
+        {
+            u32Reg&=~enPin;
+        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIEV=u32Reg;
     }
     else
     {
@@ -720,30 +401,7 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         if(GPIO_enAPB == enBus)
         {
-            switch(enPort)
-            {
-            case GPIO_enPORTA:
-                u32Reg=GPIOA_APB_GPIOIEV_R;
-                break;
-            case GPIO_enPORTB:
-                u32Reg=GPIOB_APB_GPIOIEV_R;
-                break;
-            case GPIO_enPORTC:
-                u32Reg=GPIOC_APB_GPIOIEV_R;
-                break;
-            case GPIO_enPORTD:
-                u32Reg=GPIOD_APB_GPIOIEV_R;
-                break;
-            case GPIO_enPORTE:
-                u32Reg=GPIOE_APB_GPIOIEV_R;
-                break;
-            case GPIO_enPORTF:
-                u32Reg=GPIOF_APB_GPIOIEV_R;
-                break;
-            default:
-                break;
-
-            }
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIEV;
         }
         else
         {
@@ -778,42 +436,9 @@ void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            u32Reg=GPIOA_APB_GPIOIM_R;
-            u32Reg|=enPin;
-            GPIOA_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTB:
-            u32Reg=GPIOB_APB_GPIOIM_R;
-            u32Reg|=enPin;
-            GPIOB_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTC:
-            u32Reg=GPIOC_APB_GPIOIM_R;
-            u32Reg|=enPin;
-            GPIOC_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTD:
-            u32Reg=GPIOD_APB_GPIOIM_R;
-            u32Reg|=enPin;
-            GPIOD_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTE:
-            u32Reg=GPIOE_APB_GPIOIM_R;
-            u32Reg|=enPin;
-            GPIOE_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTF:
-            u32Reg=GPIOF_APB_GPIOIM_R;
-            u32Reg|=enPin;
-            GPIOF_APB_GPIOIM_R=u32Reg;
-            break;
-        default:
-            break;
-
-        }
+        u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIM;
+        u32Reg|=enPin;
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIM=u32Reg;
     }
     else
     {
@@ -836,42 +461,9 @@ void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            u32Reg=GPIOA_APB_GPIOIM_R;
-            u32Reg&=~enPin;
-            GPIOA_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTB:
-            u32Reg=GPIOB_APB_GPIOIM_R;
-            u32Reg&=~enPin;
-            GPIOB_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTC:
-            u32Reg=GPIOC_APB_GPIOIM_R;
-            u32Reg&=~enPin;
-            GPIOC_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTD:
-            u32Reg=GPIOD_APB_GPIOIM_R;
-            u32Reg&=~enPin;
-            GPIOD_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTE:
-            u32Reg=GPIOE_APB_GPIOIM_R;
-            u32Reg&=~enPin;
-            GPIOE_APB_GPIOIM_R=u32Reg;
-            break;
-        case GPIO_enPORTF:
-            u32Reg=GPIOF_APB_GPIOIM_R;
-            u32Reg&=~enPin;
-            GPIOF_APB_GPIOIM_R=u32Reg;
-            break;
-        default:
-            break;
-
-        }
+        u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIM;
+        u32Reg&=~enPin;
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOIM=u32Reg;
     }
     else
     {
@@ -893,30 +485,7 @@ void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIOICR_R=enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIOICR_R=enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIOICR_R=enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIOICR_R=enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIOICR_R=enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIOICR_R=enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOICR=enPin;
     }
     else
     {
@@ -942,30 +511,7 @@ GPIO_nSTATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         if(GPIO_enAPB == enBus)
         {
-            switch(enPort)
-            {
-            case GPIO_enPORTA:
-                u32Reg=GPIOA_APB_GPIORIS_R;
-                break;
-            case GPIO_enPORTB:
-                u32Reg=GPIOB_APB_GPIORIS_R;
-                break;
-            case GPIO_enPORTC:
-                u32Reg=GPIOC_APB_GPIORIS_R;
-                break;
-            case GPIO_enPORTD:
-                u32Reg=GPIOD_APB_GPIORIS_R;
-                break;
-            case GPIO_enPORTE:
-                u32Reg=GPIOE_APB_GPIORIS_R;
-                break;
-            case GPIO_enPORTF:
-                u32Reg=GPIOF_APB_GPIORIS_R;
-                break;
-            default:
-                break;
-
-            }
+            u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIORIS;
         }
         else
         {
@@ -1091,89 +637,16 @@ void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive)
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_LEVEL);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32Reg=GPIO_APB_BLOCK_AUX[(uint32_t)enPort]->GPIODRR[u32Drive];
+        u32Reg|=enPin;
+        GPIO_APB_BLOCK_AUX[(uint32_t)enPort]->GPIODRR[u32Drive]=u32Reg;
+        if(u32SlewRate == 1)
         {
-        case GPIO_enPORTA:
-            u32Reg=GPIOA_APB_GPIODRR->DRV[u32Drive];
-            u32Reg|=enPin;
-            GPIOA_APB_GPIODRR->DRV[u32Drive]=u32Reg;
-            if(u32SlewRate == 1)
-            {
-                GPIOA_APB_GPIOSLR_R|=enPin;
-            }
-            else
-            {
-                GPIOA_APB_GPIOSLR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTB:
-            u32Reg=GPIOB_APB_GPIODRR->DRV[u32Drive];
-            u32Reg|=enPin;
-            GPIOB_APB_GPIODRR->DRV[u32Drive]=u32Reg;
-            if(u32SlewRate == 1)
-            {
-                GPIOB_APB_GPIOSLR_R|=enPin;
-            }
-            else
-            {
-                GPIOB_APB_GPIOSLR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTC:
-            u32Reg=GPIOC_APB_GPIODRR->DRV[u32Drive];
-            u32Reg|=enPin;
-            GPIOC_APB_GPIODRR->DRV[u32Drive]=u32Reg;
-            if(u32SlewRate == 1)
-            {
-                GPIOC_APB_GPIOSLR_R|=enPin;
-            }
-            else
-            {
-                GPIOC_APB_GPIOSLR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTD:
-            u32Reg=GPIOD_APB_GPIODRR->DRV[u32Drive];
-            u32Reg|=enPin;
-            GPIOD_APB_GPIODRR->DRV[u32Drive]=u32Reg;
-            if(u32SlewRate == 1)
-            {
-                GPIOD_APB_GPIOSLR_R|=enPin;
-            }
-            else
-            {
-                GPIOD_APB_GPIOSLR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTE:
-            u32Reg=GPIOE_APB_GPIODRR->DRV[u32Drive];
-            u32Reg|=enPin;
-            GPIOE_APB_GPIODRR->DRV[u32Drive]=u32Reg;
-            if(u32SlewRate == 1)
-            {
-                GPIOE_APB_GPIOSLR_R|=enPin;
-            }
-            else
-            {
-                GPIOE_APB_GPIOSLR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTF:
-            u32Reg=GPIOF_APB_GPIODRR->DRV[u32Drive];
-            u32Reg|=enPin;
-            GPIOF_APB_GPIODRR->DRV[u32Drive]=u32Reg;
-            if(u32SlewRate == 1)
-            {
-                GPIOF_APB_GPIOSLR_R|=enPin;
-            }
-            else
-            {
-                GPIOF_APB_GPIOSLR_R&=~enPin;
-            }
-            break;
-        default:
-            break;
-
+            GPIO_APB_BLOCK_AUX[(uint32_t)enPort]->GPIOSLR|=enPin;
+        }
+        else
+        {
+            GPIO_APB_BLOCK_AUX[(uint32_t)enPort]->GPIOSLR&=~enPin;
         }
     }
     else
@@ -1210,125 +683,22 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         if(GPIO_enAPB == enBus)
         {
-            switch(enPort)
+            for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
             {
-            case GPIO_enPORTA:
-                for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
+                u32Reg=GPIO_APB_BLOCK_AUX[(uint32_t)enPort]->GPIODRR[enDrive];
+                u32Reg&=enPin;
+                if(0!=u32Reg)
                 {
-                    u32Reg=GPIOA_APB_GPIODRR->DRV[enDrive];
-                    u32Reg&=enPin;
-                    if(0!=u32Reg)
-                    {
-                        break;
-                    }
+                    break;
+                }
 
-                }
-                if(GPIO_enDRIVE_8mA == enDrive)
+            }
+            if(GPIO_enDRIVE_8mA == enDrive)
+            {
+                if(0!=(GPIO_APB_BLOCK_AUX[(uint32_t)enPort]->GPIOSLR&enPin))
                 {
-                    if(0!=(GPIOA_APB_GPIOSLR_R&enPin))
-                    {
-                        enDrive=GPIO_enDRIVE_8mA_SLR;
-                    }
+                    enDrive=GPIO_enDRIVE_8mA_SLR;
                 }
-                break;
-            case GPIO_enPORTB:
-                for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
-                {
-                    u32Reg=GPIOB_APB_GPIODRR->DRV[enDrive];
-                    u32Reg&=enPin;
-                    if(0!=u32Reg)
-                    {
-                        break;
-                    }
-
-                }
-                if(GPIO_enDRIVE_8mA == enDrive)
-                {
-                    if(0!=(GPIOB_APB_GPIOSLR_R&enPin))
-                    {
-                        enDrive=GPIO_enDRIVE_8mA_SLR;
-                    }
-                }
-                break;
-            case GPIO_enPORTC:
-                for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
-                {
-                    u32Reg=GPIOC_APB_GPIODRR->DRV[enDrive];
-                    u32Reg&=enPin;
-                    if(0!=u32Reg)
-                    {
-                        break;
-                    }
-
-                }
-                if(GPIO_enDRIVE_8mA == enDrive)
-                {
-                    if(0!=(GPIOC_APB_GPIOSLR_R&enPin))
-                    {
-                        enDrive=GPIO_enDRIVE_8mA_SLR;
-                    }
-                }
-                break;
-            case GPIO_enPORTD:
-                for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
-                {
-                    u32Reg=GPIOD_APB_GPIODRR->DRV[enDrive];
-                    u32Reg&=enPin;
-                    if(0!=u32Reg)
-                    {
-                        break;
-                    }
-
-                }
-                if(GPIO_enDRIVE_8mA == enDrive)
-                {
-                    if(0!=(GPIOD_APB_GPIOSLR_R&enPin))
-                    {
-                        enDrive=GPIO_enDRIVE_8mA_SLR;
-                    }
-                }
-                break;
-            case GPIO_enPORTE:
-                for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
-                {
-                    u32Reg=GPIOE_APB_GPIODRR->DRV[enDrive];
-                    u32Reg&=enPin;
-                    if(0!=u32Reg)
-                    {
-                        break;
-                    }
-
-                }
-                if(GPIO_enDRIVE_8mA == enDrive)
-                {
-                    if(0!=(GPIOE_APB_GPIOSLR_R&enPin))
-                    {
-                        enDrive=GPIO_enDRIVE_8mA_SLR;
-                    }
-                }
-                break;
-            case GPIO_enPORTF:
-                for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
-                {
-                    u32Reg=GPIOF_APB_GPIODRR->DRV[enDrive];
-                    u32Reg&=enPin;
-                    if(0!=u32Reg)
-                    {
-                        break;
-                    }
-
-                }
-                if(GPIO_enDRIVE_8mA == enDrive)
-                {
-                    if(0!=(GPIOF_APB_GPIOSLR_R&enPin))
-                    {
-                        enDrive=GPIO_enDRIVE_8mA_SLR;
-                    }
-                }
-                break;
-            default:
-                break;
-
             }
         }
         else
@@ -1368,59 +738,11 @@ void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32RegCR=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOCR&enPin;
+        if(enPin != u32RegCR)
         {
-        case GPIO_enPORTA:
-            u32RegCR=GPIOA_APB_GPIOCR_R&enPin;
-            if(enPin != u32RegCR)
-            {
-                GPIOA_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOA_APB_GPIOCR_R|=enPin;
-            }
-            break;
-        case GPIO_enPORTB:
-            u32RegCR=GPIOB_APB_GPIOCR_R&enPin;
-            if(enPin != u32RegCR)
-            {
-                GPIOB_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOB_APB_GPIOCR_R|=enPin;
-            }
-            break;
-        case GPIO_enPORTC:
-            u32RegCR=GPIOC_APB_GPIOCR_R&enPin;
-            if(enPin != u32RegCR)
-            {
-                GPIOC_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOC_APB_GPIOCR_R|=enPin;
-            }
-            break;
-        case GPIO_enPORTD:
-            u32RegCR=GPIOD_APB_GPIOCR_R&enPin;
-            if(enPin != u32RegCR)
-            {
-                GPIOD_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOD_APB_GPIOCR_R|=enPin;
-            }
-            break;
-        case GPIO_enPORTE:
-            u32RegCR=GPIOE_APB_GPIOCR_R&enPin;
-            if(enPin != u32RegCR)
-            {
-                GPIOE_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOE_APB_GPIOCR_R|=enPin;
-            }
-            break;
-        case GPIO_enPORTF:
-            u32RegCR=GPIOF_APB_GPIOCR_R&enPin;
-            if(enPin != u32RegCR)
-            {
-                GPIOF_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOF_APB_GPIOCR_R|=enPin;
-            }
-            break;
-        default:
-            break;
-
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOLOCK=GPIO_GPIOLOCK_R_LOCK_KEY;
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOCR|=enPin;
         }
     }
     else
@@ -1446,59 +768,11 @@ void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32RegCR=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOCR&enPin;
+        if(0 != u32RegCR)
         {
-        case GPIO_enPORTA:
-            u32RegCR=GPIOA_APB_GPIOCR_R&enPin;
-            if(0 != u32RegCR)
-            {
-                GPIOA_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOA_APB_GPIOCR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTB:
-            u32RegCR=GPIOB_APB_GPIOCR_R&enPin;
-            if(0 != u32RegCR)
-            {
-                GPIOB_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOB_APB_GPIOCR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTC:
-            u32RegCR=GPIOC_APB_GPIOCR_R&enPin;
-            if(0 != u32RegCR)
-            {
-                GPIOC_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOC_APB_GPIOCR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTD:
-            u32RegCR=GPIOD_APB_GPIOCR_R&enPin;
-            if(0 != u32RegCR)
-            {
-                GPIOD_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOD_APB_GPIOCR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTE:
-            u32RegCR=GPIOE_APB_GPIOCR_R&enPin;
-            if(0 != u32RegCR)
-            {
-                GPIOE_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOE_APB_GPIOCR_R&=~enPin;
-            }
-            break;
-        case GPIO_enPORTF:
-            u32RegCR=GPIOF_APB_GPIOCR_R&enPin;
-            if(0 != u32RegCR)
-            {
-                GPIOF_APB_GPIOLOCK_R=GPIO_GPIOLOCK_R_LOCK_KEY;
-                GPIOF_APB_GPIOCR_R&=~enPin;
-            }
-            break;
-        default:
-            break;
-
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOLOCK=GPIO_GPIOLOCK_R_LOCK_KEY;
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOCR&=~enPin;
         }
     }
     else
@@ -1525,30 +799,7 @@ void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
     GPIO__vUnlock(enPort,enPin);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIODEN_R|=enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIODEN_R|=enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIODEN_R|=enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIODEN_R|=enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIODEN_R|=enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIODEN_R|=enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIODEN|=enPin;
     }
     else
     {
@@ -1569,30 +820,7 @@ void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
     GPIO__vUnlock(enPort,enPin);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIODEN_R&=~enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIODEN_R&=~enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIODEN_R&=~enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIODEN_R&=~enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIODEN_R&=~enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIODEN_R&=~enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIODEN&=~enPin;
     }
     else
     {
@@ -1613,30 +841,7 @@ void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
     GPIO__vUnlock(enPort,enPin);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIOAFSEL_R|=enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIOAFSEL_R|=enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIOAFSEL_R|=enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIOAFSEL_R|=enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIOAFSEL_R|=enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIOAFSEL_R|=enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOAFSEL|=enPin;
     }
     else
     {
@@ -1657,30 +862,7 @@ void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
     GPIO__vUnlock(enPort,enPin);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIOAFSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIOAFSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIOAFSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIOAFSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIOAFSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIOAFSEL_R&=~enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOAFSEL&=~enPin;
     }
     else
     {
@@ -1700,31 +882,7 @@ void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        GPIO__vUnlock(enPort,enPin);
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIOAMSEL_R|=enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIOAMSEL_R|=enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIOAMSEL_R|=enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIOAMSEL_R|=enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIOAMSEL_R|=enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIOAMSEL_R|=enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOAMSEL|=enPin;
     }
     else
     {
@@ -1744,30 +902,7 @@ void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
-        {
-        case GPIO_enPORTA:
-            GPIOA_APB_GPIOAMSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTB:
-            GPIOB_APB_GPIOAMSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTC:
-            GPIOC_APB_GPIOAMSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTD:
-            GPIOD_APB_GPIOAMSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTE:
-            GPIOE_APB_GPIOAMSEL_R&=~enPin;
-            break;
-        case GPIO_enPORTF:
-            GPIOF_APB_GPIOAMSEL_R&=~enPin;
-            break;
-        default:
-            break;
-
-        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOAMSEL&=~enPin;
     }
     else
     {
@@ -1788,90 +923,17 @@ void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nOUTMODE enMo
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        u32Reg=GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOODR;
+        if(GPIO_enOUTMODE_OD == enMode)
         {
-        case GPIO_enPORTA:
-            u32Reg=GPIOA_APB_GPIOODR_R;
-            if(GPIO_enOUTMODE_OD == enMode)
-            {
-                GPIO__vEnDigital(enPort,enPin);
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOA_APB_GPIOODR_R=u32Reg;
-            break;
-        case GPIO_enPORTB:
-            u32Reg=GPIOB_APB_GPIOODR_R;
-            if(GPIO_enOUTMODE_OD == enMode)
-            {
-                GPIO__vEnDigital(enPort,enPin);
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOB_APB_GPIOODR_R=u32Reg;
-            break;
-        case GPIO_enPORTC:
-            u32Reg=GPIOC_APB_GPIOODR_R;
-            if(GPIO_enOUTMODE_OD == enMode)
-            {
-                GPIO__vEnDigital(enPort,enPin);
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOC_APB_GPIOODR_R=u32Reg;
-            break;
-        case GPIO_enPORTD:
-            u32Reg=GPIOD_APB_GPIOODR_R;
-            if(GPIO_enOUTMODE_OD == enMode)
-            {
-                GPIO__vEnDigital(enPort,enPin);
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOD_APB_GPIOODR_R=u32Reg;
-            break;
-        case GPIO_enPORTE:
-            u32Reg=GPIOE_APB_GPIOODR_R;
-            if(GPIO_enOUTMODE_OD == enMode)
-            {
-                GPIO__vEnDigital(enPort,enPin);
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOE_APB_GPIOODR_R=u32Reg;
-            break;
-        case GPIO_enPORTF:
-            u32Reg=GPIOF_APB_GPIOODR_R;
-            if(GPIO_enOUTMODE_OD == enMode)
-            {
-                GPIO__vEnDigital(enPort,enPin);
-                u32Reg|=enPin;
-            }
-            else
-            {
-                u32Reg&=~enPin;
-            }
-            GPIOF_APB_GPIOODR_R=u32Reg;
-            break;
-        default:
-            break;
-
+            GPIO__vEnDigital(enPort,enPin);
+            u32Reg|=enPin;
         }
+        else
+        {
+            u32Reg&=~enPin;
+        }
+        GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOODR=u32Reg;
     }
     else
     {
@@ -1903,113 +965,20 @@ void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enM
     GPIO__vUnlock(enPort,enPin);
     if(GPIO_enAPB == enBus)
     {
-        switch(enPort)
+        switch(enMode)
         {
-        case GPIO_enPORTA:
-            switch(enMode)
-            {
-            case GPIO_enRESMODE_INACTIVE:
-                GPIOA_APB_GPIOPUR_R&=~enPin;
-                GPIOA_APB_GPIOPDR_R&=~enPin;
-                break;
-            case GPIO_enRESMODE_PULLUP:
-                GPIOA_APB_GPIOPUR_R|=enPin;
-                break;
-            case GPIO_enRESMODE_PULLDOWN:
-                GPIOA_APB_GPIOPDR_R|=enPin;
-                break;
-            default:
-                break;
-            }
+        case GPIO_enRESMODE_INACTIVE:
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOPUR&=~enPin;
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOPDR&=~enPin;
             break;
-        case GPIO_enPORTB:
-            switch(enMode)
-            {
-            case GPIO_enRESMODE_INACTIVE:
-                GPIOB_APB_GPIOPUR_R&=~enPin;
-                GPIOB_APB_GPIOPDR_R&=~enPin;
-                break;
-            case GPIO_enRESMODE_PULLUP:
-                GPIOB_APB_GPIOPUR_R|=enPin;
-                break;
-            case GPIO_enRESMODE_PULLDOWN:
-                GPIOB_APB_GPIOPDR_R|=enPin;
-                break;
-            default:
-                break;
-            }
+        case GPIO_enRESMODE_PULLUP:
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOPUR|=enPin;
             break;
-        case GPIO_enPORTC:
-            switch(enMode)
-            {
-            case GPIO_enRESMODE_INACTIVE:
-                GPIOC_APB_GPIOPUR_R&=~enPin;
-                GPIOC_APB_GPIOPDR_R&=~enPin;
-                break;
-            case GPIO_enRESMODE_PULLUP:
-                GPIOC_APB_GPIOPUR_R|=enPin;
-                break;
-            case GPIO_enRESMODE_PULLDOWN:
-                GPIOC_APB_GPIOPDR_R|=enPin;
-                break;
-            default:
-                break;
-            }
-            break;
-        case GPIO_enPORTD:
-            switch(enMode)
-            {
-            case GPIO_enRESMODE_INACTIVE:
-                GPIOD_APB_GPIOPUR_R&=~enPin;
-                GPIOD_APB_GPIOPDR_R&=~enPin;
-                break;
-            case GPIO_enRESMODE_PULLUP:
-                GPIOD_APB_GPIOPUR_R|=enPin;
-                break;
-            case GPIO_enRESMODE_PULLDOWN:
-                GPIOD_APB_GPIOPDR_R|=enPin;
-                break;
-            default:
-                break;
-            }
-            break;
-        case GPIO_enPORTE:
-            switch(enMode)
-            {
-            case GPIO_enRESMODE_INACTIVE:
-                GPIOE_APB_GPIOPUR_R&=~enPin;
-                GPIOE_APB_GPIOPDR_R&=~enPin;
-                break;
-            case GPIO_enRESMODE_PULLUP:
-                GPIOE_APB_GPIOPUR_R|=enPin;
-                break;
-            case GPIO_enRESMODE_PULLDOWN:
-                GPIOE_APB_GPIOPDR_R|=enPin;
-                break;
-            default:
-                break;
-            }
-            break;
-        case GPIO_enPORTF:
-            switch(enMode)
-            {
-            case GPIO_enRESMODE_INACTIVE:
-                GPIOF_APB_GPIOPUR_R&=~enPin;
-                GPIOF_APB_GPIOPDR_R&=~enPin;
-                break;
-            case GPIO_enRESMODE_PULLUP:
-                GPIOF_APB_GPIOPUR_R|=enPin;
-                break;
-            case GPIO_enRESMODE_PULLDOWN:
-                GPIOF_APB_GPIOPDR_R|=enPin;
-                break;
-            default:
-                break;
-            }
+        case GPIO_enRESMODE_PULLDOWN:
+            GPIO_APB_BLOCK[(uint32_t)enPort]->GPIOPDR|=enPin;
             break;
         default:
             break;
-
         }
     }
     else
