@@ -10,7 +10,7 @@
 
 void SYSEXCISR(void);
 
-void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt)
+void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri)
 {
     uint32_t u32Reg= (uint32_t)enInt & 0x3F;
 
@@ -23,7 +23,7 @@ void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt)
             SYSEXC_SYSEXCIM_R_FPIXCIM_MASK);
 
     SYSEXC_SYSEXCIM_R|=(u32Reg);
-    NVIC__enSetEnableIRQ(NVIC_enSTIR_SYSEXC,NVIC_enPRI7);
+    NVIC__enSetEnableIRQ(NVIC_enSTIR_SYSEXC,(NVIC_nPRIORITY)enPri);
 }
 
 void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt)

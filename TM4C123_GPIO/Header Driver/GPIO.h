@@ -10,6 +10,9 @@
 
 
 #include <stdint.h>
+#include "SCB.h"
+#include "NVIC.h"
+#include "SYSCTL.h"
 
 #define GPIO_APB_BASE               (0x40004000)
 #define GPIOA_APB_BASE              (0x40004000)
@@ -9782,10 +9785,73 @@ typedef volatile struct
 
 typedef enum
 {
-    GPIO_enOK=0,
-    GPIO_enERROR=1,
+    GPIO_enNOOCCUR=0,
+    GPIO_enOCCUR=1,
+    GPIO_enSTATUS_UNDEF=0xFF,
 }GPIO_nSTATUS;
 
+typedef enum
+{
+    GPIO_enNOREADY=0,
+    GPIO_enREADY=1,
+}GPIO_nREADY;
+
+typedef enum
+{
+    GPIO_enAPB=0,
+    GPIO_enAHB=1,
+}GPIO_nBUS;
+typedef enum
+{
+    GPIO_enPORTA=0,
+    GPIO_enPORTB=1,
+    GPIO_enPORTC=2,
+    GPIO_enPORTD=3,
+    GPIO_enPORTE=4,
+    GPIO_enPORTF=5,
+    GPIO_enMAX=5,
+}GPIO_nPORT;
+typedef enum
+{
+    GPIO_enPIN0=0x1,
+    GPIO_enPIN1=0x2,
+    GPIO_enPIN2=0x4,
+    GPIO_enPIN3=0x8,
+    GPIO_enPIN4=0x10,
+    GPIO_enPIN5=0x20,
+    GPIO_enPIN6=0x40,
+    GPIO_enPIN7=0x80,
+    GPIO_enALL=0xFF,
+}GPIO_nPIN;
+
+typedef enum
+{
+    GPIO_enINPUT=0,
+    GPIO_enOUTPUT=1,
+    GPIO_enUNDEF=0xFF,
+}GPIO_nDIR;
+
+typedef enum
+{
+    GPIO_enSENSE_EDGE=0,
+    GPIO_enSENSE_LEVEL=1,
+    GPIO_enSENSE_UNDEF=0xFF,
+}GPIO_nSENSE;
+
+typedef enum
+{
+    GPIO_enEDGE_FALLING=0,
+    GPIO_enEDGE_RISING=1,
+    GPIO_enEDGE_BOTH=2,
+    GPIO_enEDGE_UNDEF=0xFF,
+}GPIO_nEDGE;
+
+typedef enum
+{
+    GPIO_enLEVEL_LOW=0,
+    GPIO_enLEVEL_HIGH=1,
+    GPIO_enLEVEL_UNDEF=0xFF,
+}GPIO_nLEVEL;
 //PORT PIN VALUE
 typedef enum
 {
@@ -9965,6 +10031,49 @@ typedef enum
     GPIO_enAIN9=(4<<8)|(4),
     GPIO_enAIN8=(4<<8)|(5),
 }GPIO_nANALOG_FUNCTION;
+
+typedef enum
+{
+    GPIO_enPRI0=0,
+    GPIO_enPRI1=1,
+    GPIO_enPRI2=2,
+    GPIO_enPRI3=3,
+    GPIO_enPRI4=4,
+    GPIO_enPRI5=5,
+    GPIO_enPRI6=6,
+    GPIO_enPRI7=7,
+    GPIO_enDEFAULT=0xFF,
+}GPIO_nPRIORITY;
+
+void GPIO__vSetReady(GPIO_nPORT enPort);
+GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort);
+GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort);
+
+void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enDir);
+GPIO_nDIR GPIO__vGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+
+void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense);
+GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vSetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nEDGE enEdge);
+GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel);
+GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vInit(void);
+void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
+void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
+
+
+void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
+void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
+
+void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+GPIO_nSTATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 

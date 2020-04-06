@@ -362,6 +362,17 @@ void SYSCTL__vSetGPIOBus_APB(SYSCTL_nGPIOBUS enGPIO)
     SYSCTL_GPIOHBCTL_R&=~(enGPIO);
 }
 
+SYSCTL_nGPIOBUS_CURRENT SYSCTL__vGetGPIOBus(SYSCTL_nGPIOBUS enGPIO)
+{
+    SYSCTL_nGPIOBUS_CURRENT enCurrent =SYSCTL_enGPIOBUS_APB;
+    uint32_t u32Reg=SYSCTL_GPIOHBCTL_R;
+    u32Reg&=enGPIO;
+    if(0!=u32Reg)
+    {
+        enCurrent=SYSCTL_enGPIOBUS_AHB;
+    }
+    return enCurrent;
+}
 SYSCTL_nSTATUS SYSCTL__enInit(void)
 {
     uint32_t u32Reg=0;

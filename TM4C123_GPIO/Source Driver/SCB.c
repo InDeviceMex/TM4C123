@@ -612,15 +612,18 @@ void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 
-    if(u32BaseVector<=0x00010000)
+    if((uint32_t)Isr !=0)
     {
-        __asm(" cpsid i");
-        FLASH__enWriteWorld((uint32_t)Isr|1,u32BaseVector+((uint32_t)enVector*4));
-        __asm(" cpsie i");
-    }
-    else if((u32BaseVector>=0x20000000) && (u32BaseVector<=0x20000400) )
-    {
-        *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)Isr|1;
+        if(u32BaseVector<=0x00010000)
+        {
+            __asm(" cpsid i");
+            FLASH__enWriteWorld((uint32_t)Isr|1,u32BaseVector+((uint32_t)enVector*4));
+            __asm(" cpsie i");
+        }
+        else if((u32BaseVector>=0x20000000) && (u32BaseVector<=0x20000400) )
+        {
+            *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)Isr|1;
+        }
     }
 }
 

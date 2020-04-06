@@ -502,7 +502,20 @@ typedef enum
 
 }SYSEXC_nSTATUS;
 
-void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt);
+typedef enum
+{
+    SYSEXC_enPRI0=0,
+    SYSEXC_enPRI1=1,
+    SYSEXC_enPRI2=2,
+    SYSEXC_enPRI3=3,
+    SYSEXC_enPRI4=4,
+    SYSEXC_enPRI5=5,
+    SYSEXC_enPRI6=6,
+    SYSEXC_enPRI7=7,
+    SYSEXC_enDEFAULT=0xFF,
+}SYSEXC_nPRIORITY;
+
+void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri);
 void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt);
 void SYSEXC__vDisInterrupt(SYSEXC_nINTERRUPT enInt);
 void SYSEXC__vClearInterrupt(SYSEXC_nINTERRUPT enInt);
