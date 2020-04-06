@@ -24,6 +24,22 @@ void GPIOF4_vISR(void);
 //uint32_t pu32Array[14]={0,1,2,3,4,5,6,7,8,9,10,11,0xAA55CFDA,0x11223344};
 uint32_t pu32Array[14]={0};
 uint32_t pu32Array1[14]={0xBF00,1,2,3,4,5,6,7,8,9,10,11,0xAA55CFDA,0x11223344};
+
+GPIODATA_MASK_TypeDef* psLedRed=GPIOF_AHB_GPIODATA_MASK;
+GPIODATA_MASK_TypeDef* psLedGreen=GPIOF_AHB_GPIODATA_MASK;
+GPIODATA_MASK_TypeDef* psLedBlue=GPIOF_AHB_GPIODATA_MASK;
+
+GPIODATA_MASK_TypeDef* psSW1=GPIOF_AHB_GPIODATA_MASK;
+GPIODATA_MASK_TypeDef* psSW2=GPIOF_AHB_GPIODATA_MASK;
+
+GPIO_nPIN enSW2Pin=GPIO_enPIN0;
+GPIO_nPIN enLedRedPin=GPIO_enPIN1;
+GPIO_nPIN enLedBluePin=GPIO_enPIN2;
+GPIO_nPIN enLedGreenPin=GPIO_enPIN3;
+GPIO_nPIN enSW1Pin=GPIO_enPIN4;
+
+GPIO_nBUS enBus=GPIO_enAPB;
+
 void main(void)
 {
     volatile uint32_t memory=0;
@@ -43,36 +59,46 @@ void main(void)
     EEPROM__enInit();
 
     GPIO__vInit();
-    GPIO__vRegisterISR(GPIOF0_vISR,GPIO_enPORTF,GPIO_enPIN0);
-    GPIO__vRegisterISR(GPIOF4_vISR,GPIO_enPORTF,GPIO_enPIN4);
+    GPIO__vRegisterISR(GPIOF0_vISR,GPIO_enPORTF,enSW2Pin);
+    GPIO__vRegisterISR(GPIOF4_vISR,GPIO_enPORTF,enSW1Pin);
     GPIO__vEnInterruptMODULE(GPIO_enPORTF,GPIO_enPRI7);
-    //GREEN LED
-    GPIO__vSetDirection(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1),GPIO_enOUTPUT);
-    GPIO__vSetDrive(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1),GPIO_enDRIVE_2mA);
-    GPIO__vEnDigital(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1));
-    GPIO__vDisAnalog(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1));
-    GPIO__vSetOutputMode(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1),GPIO_enOUTMODE_PP);
-    GPIO__vDisAltFunction(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1));
-    GPIO__vSetResistorMode(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN3|GPIO_enPIN2|GPIO_enPIN1),GPIO_enRESMODE_INACTIVE);
+
+    //GREEN, RED, BlUE LED
+    GPIO__vSetDirection(GPIO_enPORTF,(GPIO_nPIN)(enLedGreenPin|enLedBluePin|enLedRedPin),GPIO_enOUTPUT);
+    GPIO__vSetDigitalFunction(GPIO_enGPIOF1);
+    GPIO__vSetDigitalFunction(GPIO_enGPIOF2);
+    GPIO__vSetDigitalFunction(GPIO_enGPIOF3);
+    GPIO__vSetDrive(GPIO_enPORTF,(GPIO_nPIN)(enLedGreenPin|enLedBluePin|enLedRedPin),GPIO_enDRIVE_2mA);
+    GPIO__vSetOutputMode(GPIO_enPORTF,(GPIO_nPIN)(enLedGreenPin|enLedBluePin|enLedRedPin),GPIO_enOUTMODE_PP);
+    GPIO__vSetResistorMode(GPIO_enPORTF,(GPIO_nPIN)(enLedGreenPin|enLedBluePin|enLedRedPin),GPIO_enRESMODE_INACTIVE);
 
 
-    //SW1
-    GPIO__vSetDirection(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4),GPIO_enINPUT);
-    GPIO__vSetDrive(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4),GPIO_enDRIVE_2mA);
-    GPIO__vEnDigital(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
-    GPIO__vDisAnalog(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
-    GPIO__vSetOutputMode(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4),GPIO_enOUTMODE_OD);
-    GPIO__vDisAltFunction(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
-    GPIO__vSetResistorMode(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4),GPIO_enRESMODE_PULLUP);
+    //SW1 SW0
+    GPIO__vSetDirection(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin),GPIO_enINPUT);
+    GPIO__vSetDigitalFunction(GPIO_enGPIOF0);
+    GPIO__vSetDigitalFunction(GPIO_enGPIOF4);
+    GPIO__vSetDrive(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin),GPIO_enDRIVE_2mA);
+    GPIO__vSetOutputMode(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin),GPIO_enOUTMODE_OD);
+    GPIO__vSetResistorMode(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin),GPIO_enRESMODE_PULLUP);
 
 
-    GPIO__vSetIntEdge(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4),GPIO_enEDGE_BOTH);
-    GPIO__vClearInterrupt(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
-    GPIO__vEnInterrupt(GPIO_enPORTF,(GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
+    GPIO__vSetIntEdge(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin),GPIO_enEDGE_BOTH);
+    GPIO__vClearInterrupt(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin));
+    GPIO__vEnInterrupt(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin));
 
-    GPIOF_APB->GPIODATA&=~GPIO_GPIODATA_R_DATA1_MASK;
-    GPIO_APB_BITBANDING->APB_F.GPIODATA[2]=GPIO_GPIODATA_DATA2_LOW;
-    GPIO_APB->APB_F.GPIODATA|=GPIO_GPIODATA_R_DATA3_HIGH;
+    GPIO__vLock(GPIO_enPORTF, (GPIO_nPIN)(enSW2Pin|enSW1Pin|enLedGreenPin|enLedBluePin|enLedRedPin));
+    enBus=GPIO__enGetBus(GPIO_enPORTF);
+    if(GPIO_enAPB==enBus)
+    {
+        psLedRed=GPIOF_APB_GPIODATA_MASK;
+        psLedGreen=GPIOF_APB_GPIODATA_MASK;
+        psLedBlue=GPIOF_APB_GPIODATA_MASK;
+        psSW1=GPIOF_APB_GPIODATA_MASK;
+        psSW2=GPIOF_APB_GPIODATA_MASK;
+    }
+    psLedRed->DATA_MASK[enLedRedPin] =0;
+    psLedBlue->DATA_MASK[enLedBluePin]=0;
+    psLedGreen->DATA_MASK[enLedGreenPin]=enLedGreenPin;
     //HIB__enInit(10,0);
     memory=0;
     while(1)
@@ -82,37 +108,38 @@ void main(void)
 
         if((memory&1)==0)
         {
-            GPIO_APB->APB_F.GPIODATA_MASK[GPIO_GPIODATA_R_DATA3_MASK]=GPIO_GPIODATA_R_DATA3_LOW;
+            psLedGreen->DATA_MASK[enLedGreenPin]=0;
         }
         else
         {
-            GPIO_APB->APB_F.GPIODATA_MASK[GPIO_GPIODATA_R_DATA3_MASK]=GPIO_GPIODATA_R_DATA3_HIGH;
+            psLedGreen->DATA_MASK[enLedGreenPin]=enLedGreenPin;
         }
-
-
-
-
-
     }
 }
 
 
 void GPIOF4_vISR(void)
 {
-    uint32_t u32ValueSW=GPIOF_APB_BITBANDING->GPIODATA[4];
+    uint32_t u32ValueSW=psSW1->DATA_MASK[enSW1Pin];
     if(u32ValueSW !=0)
     {
-        GPIOF_APB->GPIODATA_MASK[GPIO_GPIODATA_R_DATA1_MASK]=GPIO_GPIODATA_R_DATA1_LOW;
+        psLedRed->DATA_MASK[enLedRedPin]=0;
     }
     else
     {
-        GPIOF_APB->GPIODATA_MASK[GPIO_GPIODATA_R_DATA1_MASK]=GPIO_GPIODATA_R_DATA1_HIGH;
+        psLedRed->DATA_MASK[enLedRedPin]=enLedRedPin;
     }
 }
 
 void GPIOF0_vISR(void)
 {
-    uint32_t u32ValueSW=GPIOF_APB_GPIODATA_BITBANDING->DATA0;
-    u32ValueSW^=1;
-    GPIO_APB_BITBANDING->APB_F.GPIODATA[2]=u32ValueSW;
+    uint32_t u32ValueSW=psSW1->DATA_MASK[enSW2Pin];
+    if(u32ValueSW !=0)
+    {
+        psLedRed->DATA_MASK[enLedBluePin]=0;
+    }
+    else
+    {
+        psLedRed->DATA_MASK[enLedBluePin]=enLedBluePin;
+    }
 }

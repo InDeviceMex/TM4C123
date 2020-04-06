@@ -10388,6 +10388,8 @@ typedef enum
     GPIO_enRESMODE_PULLDOWN=2,
     GPIO_enRESMODE_UNDEF=0xFF,
 }GPIO_nRESMODE;
+
+
 //PORT PIN VALUE
 typedef enum
 {
@@ -10667,6 +10669,14 @@ typedef enum
     GPIO_enDEFAULT=0xFF,
 }GPIO_nPRIORITY;
 
+void GPIO__vInit(void);
+void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
+void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
+
+
+void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
+void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
+
 void GPIO__vSetReady(GPIO_nPORT enPort);
 GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort);
 GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort);
@@ -10684,35 +10694,40 @@ GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel);
 GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vInit(void);
-void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
-void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
-
-
-void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
-void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
 
 void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 GPIO_nSTATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
+void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive);
 GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nOUTMODE enMode);
+void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enMode);
 
 void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nOUTMODE enMode);
-void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enMode);
+void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction);
+void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction);
+
+
+
+void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 
 #endif /* GPIO_H_ */

@@ -378,7 +378,7 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
     uint32_t u32Reg=0;
     uint16_t u16TimeOut=50000;
 
-   //SYSCTL__vSetGPIOBus_AHB(SYSCTL_enGPIOBUSALL);
+   SYSCTL__vSetGPIOBus_AHB(SYSCTL_enGPIOBUSALL);
 
     /*
      * DEEP-SLEEP Clock config
