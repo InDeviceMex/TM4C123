@@ -10685,6 +10685,15 @@ void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enDir);
 GPIO_nDIR GPIO__vGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
+inline void GPIO_vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+inline uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+inline uint32_t GPIO_AHB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+inline void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+inline uint32_t GPIO_APB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense);
 GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
@@ -10728,6 +10737,7 @@ void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 
 
 #endif /* GPIO_H_ */

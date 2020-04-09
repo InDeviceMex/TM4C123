@@ -243,7 +243,6 @@ FLASH_nSTATUS FLASH__enWriteBuf(uint32_t* pu32Data,uint32_t u32Address, uint32_t
 FLASH_nSTATUS FLASH__enWriteWorld(uint32_t u32Data, uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t *pu32PageDataInitial=0;
     uint32_t *pu32PageData=0;
     uint32_t *pu32Address= 0;
@@ -264,7 +263,7 @@ FLASH_nSTATUS FLASH__enWriteWorld(uint32_t u32Data, uint32_t u32Address)
         }
         else
         {
-            pu32PageDataInitial = memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
+            pu32PageDataInitial = (uint32_t*) memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
             if(0!= pu32PageDataInitial)
             {
                 /*Inicio de la pagina de 1KB actual*/
@@ -308,7 +307,6 @@ FLASH_nSTATUS FLASH__enWriteWorld(uint32_t u32Data, uint32_t u32Address)
 FLASH_nSTATUS FLASH__enWriteHalfWorld(uint16_t u16Data, uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t *pu32PageDataInitial=0;
     uint32_t *pu32PageData=0;
     uint32_t *pu32Address= 0;
@@ -332,7 +330,7 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld(uint16_t u16Data, uint32_t u32Address)
         }
         else
         {
-            pu32PageDataInitial = memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
+            pu32PageDataInitial = (uint32_t*) memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
             if(0!= pu32PageDataInitial)
             {
                 /*Inicio de la pagina de 1KB actual*/
@@ -376,7 +374,6 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld(uint16_t u16Data, uint32_t u32Address)
 FLASH_nSTATUS FLASH__enWriteByte(uint8_t u8Data, uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t *pu32PageDataInitial=0;
     uint32_t *pu32PageData=0;
     uint32_t *pu32Address= 0;
@@ -400,7 +397,7 @@ FLASH_nSTATUS FLASH__enWriteByte(uint8_t u8Data, uint32_t u32Address)
         }
         else
         {
-            pu32PageDataInitial = memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
+            pu32PageDataInitial = (uint32_t*) memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
             if(0!= pu32PageDataInitial)
             {
                 /*Inicio de la pagina de 1KB actual*/
@@ -444,7 +441,6 @@ FLASH_nSTATUS FLASH__enWriteByte(uint8_t u8Data, uint32_t u32Address)
 FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,uint32_t u32Count)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t *pu32PageDataInitial=0;
     uint32_t *pu32PageData=0;
     uint32_t *pu32Address= 0;
@@ -463,7 +459,7 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,u
     {
         if(0!=u32Count)
         {
-            pu32PageDataInitial = memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
+            pu32PageDataInitial = (uint32_t*) memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
             if(0!= pu32PageDataInitial)
             {
                 do
@@ -535,7 +531,6 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,u
 FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(uint16_t* pu16Data, uint32_t u32Address,uint32_t u32Count)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t *pu32PageDataInitial=0;
     uint32_t *pu32PageData=0;
     uint16_t *pu16PageData=0;
@@ -555,7 +550,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(uint16_t* pu16Data, uint32_t u32Addre
     {
         if(0!=u32Count)
         {
-            pu32PageDataInitial = memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
+            pu32PageDataInitial = (uint32_t*) memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
             if(0!= pu32PageDataInitial)
             {
                 do
@@ -628,7 +623,6 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(uint16_t* pu16Data, uint32_t u32Addre
 FLASH_nSTATUS FLASH__enWriteMultiByte(uint8_t* pu8Data, uint32_t u32Address,uint32_t u32Count)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t *pu32PageDataInitial=0;
     uint32_t *pu32PageData=0;
     uint8_t *pu8PageData=0;
@@ -648,7 +642,7 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(uint8_t* pu8Data, uint32_t u32Address,uint
     {
         if(0!=u32Count)
         {
-            pu32PageDataInitial = memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
+            pu32PageDataInitial = (uint32_t*) memalign(4,sizeof(uint8_t)*FLASH_PAGE_SIZE);
             if(0!= pu32PageDataInitial)
             {
                 do
