@@ -108,8 +108,6 @@ int main(void)
     SCB__vRegisterISR(TIMER0B_vISR,SCB_enVECISR_TIMER0B);
     SCB__vRegisterISR(TIMER1_vISR,SCB_enVECISR_TIMER1A);
 
-    GPTM->CONTROL[0].GPTMSYNC_Bit.SYNCT0=0x3;
-    GPTM->CONTROL[0].GPTMSYNC_Bit.SYNCT1=0x1;
     GPTM->CONTROL[0].GPTMCFG=4;
 
     GPTM->TIMERA[0].GPTMTAMR_Bit.TAMR=2;
@@ -119,14 +117,11 @@ int main(void)
     {
         GPTM->TIMERA[0].GPTMTAPR=((0x800000-1)>>16)&0xFF;
         GPTM->TIMERA[0].GPTMTAILR=((0x800000)-1)&0xFFFF;
-        GPTM->TIMERA[0].GPTMTAV=(0x800000-1);
     }
     else
     {
-
         GPTM->TIMERA[0].GPTMTAPR=((0x800000-1))&0xFF;
         GPTM->TIMERA[0].GPTMTAILR=((0x800000-1)>>8)&0xFFFF;
-        GPTM->TIMERA[0].GPTMTAV=(((0x800000-1)<<16)&0xFF)|(((0x800000-1)>>8)&0xFFFF);
     }
 
     GPTM->TIMERB[0].GPTMTBMR_Bit.TBMR=2;
@@ -158,6 +153,7 @@ int main(void)
     GPTM->TIMERB[0].GPTMBIMR_Bit.TBTOIM=1;
     GPTM->TIMERW[1].GPTMWIMR_Bit.TWTOIM=1;
 
+    GPTM->CONTROL[0].GPTMSYNC=(1<<2) |0x3;
 
     while(1)
     {
