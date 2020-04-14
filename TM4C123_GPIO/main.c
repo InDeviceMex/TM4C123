@@ -89,29 +89,13 @@ void main(void)
     u32Blink=0;
     while(1)
     {
-        SysTick__vDelayUs(100000);
-        u32Blink++;
-        if(u32Blink>=10)
-        {
-            (*psLeds[u32Led])->DATA_MASK[*enLeds[u32Led]]^=*enLeds[u32Led];
-            u32Blink=0;
-            if((*psLeds[u32Led])->DATA_MASK[*enLeds[u32Led]]==0)
-            {
-                u32Led++;
-                if(u32Led>2)
-                {
-                    u32Led=0;
-                }
-            }
-        }
+        SysTick__vDelayUs(400000);
+        u32ValueSW=psLedGreen->DATA_MASK[enLedGreenPin];
+        u32ValueSW^=enLedGreenPin;
+        psLedGreen->DATA_MASK[enLedGreenPin]=u32ValueSW;
 
-        u32Memory++;
-        if(u32Memory>=3)
-        {
+        GPIO__vEnInterrupt(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin));
 
-            GPIO__vEnInterrupt(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin));
-            u32Memory=0;
-        }
     }
 }
 
