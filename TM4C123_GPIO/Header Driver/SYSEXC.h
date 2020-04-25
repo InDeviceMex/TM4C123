@@ -74,7 +74,7 @@ typedef volatile struct
     volatile const uint32_t FPOFCRIS      ;
     volatile const uint32_t FPIXCRIS      ;
     const          uint32_t reserved      [26];
-}SYSEXCRIS_BITBANDING_TypeDef;
+}BITBANDING_SYSEXCRIS_TypeDef;
 
 
 typedef volatile struct
@@ -86,7 +86,7 @@ typedef volatile struct
     volatile uint32_t FPOFCIM      ;
     volatile uint32_t FPIXCIM      ;
     const    uint32_t reserved     [26];
-}SYSEXCIM_BITBANDING_TypeDef;
+}BITBANDING_SYSEXCIM_TypeDef;
 
 
 typedef volatile struct
@@ -98,7 +98,7 @@ typedef volatile struct
     volatile const uint32_t FPOFCMIS      ;
     volatile const uint32_t FPIXCMIS      ;
     const    uint32_t       reserved     [26];
-}SYSEXCMIS_BITBANDING_TypeDef;
+}BITBANDING_SYSEXCMIS_TypeDef;
 
 
 typedef volatile struct
@@ -110,7 +110,7 @@ typedef volatile struct
     volatile uint32_t FPOFCCIC      ;
     volatile uint32_t FPIXCCIC      ;
     const    uint32_t reserved      [26];
-}SYSEXCIC_BITBANDING_TypeDef;
+}BITBANDING_SYSEXCIC_TypeDef;
 
 
 typedef volatile struct
@@ -144,27 +144,27 @@ typedef volatile struct
     union
     {
         volatile const uint32_t    SYSEXCRIS[32];
-        SYSEXCRIS_BITBANDING_TypeDef               SYSEXCRIS_Bit;
+        BITBANDING_SYSEXCRIS_TypeDef               SYSEXCRIS_Bit;
     };
     union
     {
         volatile uint32_t          SYSEXCIM[32];
-        SYSEXCIM_BITBANDING_TypeDef                SYSEXCIM_Bit;
+        BITBANDING_SYSEXCIM_TypeDef                SYSEXCIM_Bit;
     };
     union
     {
         volatile const uint32_t    SYSEXCMIS[32];
-        SYSEXCMIS_BITBANDING_TypeDef               SYSEXCMIS_Bit;
+        BITBANDING_SYSEXCMIS_TypeDef               SYSEXCMIS_Bit;
     };
     union
     {
         volatile uint32_t          SYSEXCIC[32];
-        SYSEXCIC_BITBANDING_TypeDef                SYSEXCIC_Bit;
+        BITBANDING_SYSEXCIC_TypeDef                SYSEXCIC_Bit;
     };
-}SYSEXC_BITBANDING_TypeDef;
+}BITBANDING_SYSEXC_TypeDef;
 
 #define SYSEXC                 (((SYSEXC_TypeDef*)(SYSEXC_BASE)))
-#define SYSEXC_BITBANDING      (((SYSEXC_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+(SYSEXC_OFFSET*32))))
+#define SYSEXC_BITBANDING      (((BITBANDING_SYSEXC_TypeDef*)(SYSEXC_BITBANDING_BASE+(SYSEXC_OFFSET*32))))
 
 
 #define SYSEXC_SYSEXCRIS_OFFSET    (0x0000)
@@ -177,7 +177,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSEXC_SYSEXCRIS           (((SYSEXCRIS_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCRIS_OFFSET )))
 #define SYSEXC_SYSEXCRIS_R          (*((volatile const uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCRIS_OFFSET)))
-#define SYSEXC_BITBANDING_SYSEXCRIS      (((SYSEXCRIS_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32))))
+#define SYSEXC_BITBANDING_SYSEXCRIS      (((BITBANDING_SYSEXCRIS_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32))))
 
 //--------
 #define SYSEXC_SYSEXCRIS_R_FPIDCRIS_MASK        (0x00000001)
@@ -257,7 +257,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSEXC_SYSEXCIM           (((SYSEXCIM_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCIM_OFFSET )))
 #define SYSEXC_SYSEXCIM_R          (*((volatile uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCIM_OFFSET)))
-#define SYSEXC_BITBANDING_SYSEXCIM      (((SYSEXCIM_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32))))
+#define SYSEXC_BITBANDING_SYSEXCIM      (((BITBANDING_SYSEXCIM_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32))))
 
 
 
@@ -339,7 +339,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSEXC_SYSEXCMIS           (((SYSEXCMIS_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCMIS_OFFSET )))
 #define SYSEXC_SYSEXCMIS_R          (*((volatile const uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCMIS_OFFSET)))
-#define SYSEXC_BITBANDING_SYSEXCMIS      (((SYSEXCMIS_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32))))
+#define SYSEXC_BITBANDING_SYSEXCMIS      (((BITBANDING_SYSEXCMIS_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32))))
 
 //--------
 #define SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK        (0x00000001)
@@ -419,7 +419,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSEXC_SYSEXCIC           (((SYSEXCIC_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCIC_OFFSET )))
 #define SYSEXC_SYSEXCIC_R          (*((volatile uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCIC_OFFSET)))
-#define SYSEXC_BITBANDING_SYSEXCIC      (((SYSEXCIC_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32))))
+#define SYSEXC_BITBANDING_SYSEXCIC      (((BITBANDING_SYSEXCIC_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32))))
 
 
 //--------

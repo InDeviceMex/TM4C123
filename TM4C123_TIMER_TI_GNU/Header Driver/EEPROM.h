@@ -147,29 +147,29 @@ typedef volatile struct
     volatile const uint32_t     WORDCNT    [16];
     volatile const uint32_t     BLKCNT     [11];
     const          uint32_t     reserved   [5];
-}EESIZE_BITBANDING_TypeDef;
+}BITBANDING_EESIZE_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t   BLOCK       [16];
     const    uint32_t   reserved    [16];
-}EEBLOCK_BITBANDING_TypeDef;
+}BITBANDING_EEBLOCK_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t   OFFSET      [4];
     const    uint32_t   reserved    [28];
-}EEOFFSET_BITBANDING_TypeDef;
+}BITBANDING_EEOFFSET_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t   VALUE      [32];
-}EERDWR_BITBANDING_TypeDef;
+}BITBANDING_EERDWR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t   VALUE      [32];
-}EERDWRINC_BITBANDING_TypeDef;
+}BITBANDING_EERDWRINC_TypeDef;
 
 
 typedef volatile struct
@@ -181,7 +181,7 @@ typedef volatile struct
     volatile const uint32_t     NOPERM       ;
     volatile const uint32_t     WRBUSY       ;
     const    uint32_t           reserved1    [26];
-}EEDONE_BITBANDING_TypeDef;
+}BITBANDING_EEDONE_TypeDef;
 
 typedef volatile struct
 {
@@ -190,30 +190,30 @@ typedef volatile struct
     volatile const uint32_t     ERETRY       ;
     volatile const uint32_t     PRETRY       ;
     const    uint32_t           reserved     [28];
-}EESUPP_BITBANDING_TypeDef;
+}BITBANDING_EESUPP_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t           UNLOCK        [32];
-}EEUNLOCK_BITBANDING_TypeDef;
+}BITBANDING_EEUNLOCK_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t           PROT        [3];
     volatile uint32_t           ACC         ;
     const    uint32_t           reserved    [28];
-}EEPROT_BITBANDING_TypeDef;
+}BITBANDING_EEPROT_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t           PASS        [32];
-}EEPASS_BITBANDING_TypeDef;
+}BITBANDING_EEPASS_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t           INT        ;
     const    uint32_t           reserved   [31];
-}EEINT_BITBANDING_TypeDef;
+}BITBANDING_EEINT_TypeDef;
 
 
 typedef volatile struct
@@ -251,20 +251,20 @@ typedef volatile struct
     volatile uint32_t           H30        ;
     volatile uint32_t           H31        ;
     volatile uint32_t           H32        ;
-}EEHIDE_BITBANDING_TypeDef;
+}BITBANDING_EEHIDE_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t           ME         ;
     const    uint32_t           reserved   [15];
     volatile uint32_t           KEY        [16];
-}EEDBGME_BITBANDING_TypeDef;
+}BITBANDING_EEDBGME_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t     SIZE       [5];
     const    uint32_t           reserved   [27];
-}EEPROMPP_BITBANDING_TypeDef;
+}BITBANDING_EEPROMPP_TypeDef;
 
 
 typedef volatile struct
@@ -362,92 +362,92 @@ typedef volatile struct
     union
     {
         volatile const uint32_t     EESIZE[32];
-        EESIZE_BITBANDING_TypeDef   EESIZE_Bit;
+        BITBANDING_EESIZE_TypeDef   EESIZE_Bit;
     };
     union
     {
         volatile uint32_t           EEBLOCK[32];
-        EEBLOCK_BITBANDING_TypeDef  EEBLOCK_Bit;
+        BITBANDING_EEBLOCK_TypeDef  EEBLOCK_Bit;
     };
     union
     {
         volatile uint32_t           EEOFFSET[32];
-        EEOFFSET_BITBANDING_TypeDef EEOFFSET_Bit;
+        BITBANDING_EEOFFSET_TypeDef EEOFFSET_Bit;
     };
     const uint32_t                  reserved[1*32];
     union
     {
         volatile uint32_t           EERDWR[32];
-        EERDWR_BITBANDING_TypeDef   EERDWR_Bit;
+        BITBANDING_EERDWR_TypeDef   EERDWR_Bit;
     };
     union
     {
         volatile uint32_t           EERDWRINC[32];
-        EERDWRINC_BITBANDING_TypeDef           EERDWRINC_Bit;
+        BITBANDING_EERDWRINC_TypeDef           EERDWRINC_Bit;
     };
     union
     {
         volatile const uint32_t     EEDONE[32];
-        EEDONE_BITBANDING_TypeDef   EEDONE_Bit;
+        BITBANDING_EEDONE_TypeDef   EEDONE_Bit;
     };
     union
     {
         volatile uint32_t           EESUPP[32];
-        EESUPP_BITBANDING_TypeDef   EESUPP_Bit;
+        BITBANDING_EESUPP_TypeDef   EESUPP_Bit;
     };
     union
     {
         volatile uint32_t           EEUNLOCK[32];
-        EEUNLOCK_BITBANDING_TypeDef EEUNLOCK_Bit;
+        BITBANDING_EEUNLOCK_TypeDef EEUNLOCK_Bit;
     };
     const uint32_t                  reserved1[3*32];
     union
     {
         volatile uint32_t           EEPROT[32];
-        EEPROT_BITBANDING_TypeDef   EEPROT_Bit;
+        BITBANDING_EEPROT_TypeDef   EEPROT_Bit;
     };
     union
     {
         volatile uint32_t           EEPASS0[32];
-        EEPASS_BITBANDING_TypeDef   EEPASS0_Bit;
+        BITBANDING_EEPASS_TypeDef   EEPASS0_Bit;
     };
     union
     {
         volatile uint32_t           EEPASS1[32];
-        EEPASS_BITBANDING_TypeDef   EEPASS1_Bit;
+        BITBANDING_EEPASS_TypeDef   EEPASS1_Bit;
     };
     union
     {
         volatile uint32_t           EEPASS2[32];
-        EEPASS_BITBANDING_TypeDef   EEPASS2_Bit;
+        BITBANDING_EEPASS_TypeDef   EEPASS2_Bit;
     };
     union
     {
         volatile uint32_t           EEINT[32];
-        EEINT_BITBANDING_TypeDef    EEINT_Bit;
+        BITBANDING_EEINT_TypeDef    EEINT_Bit;
     };
     const uint32_t                  reserved2[3*32];
     union
     {
         volatile uint32_t           EEHIDE[32];
-        EEHIDE_BITBANDING_TypeDef   EEHIDE_Bit;
+        BITBANDING_EEHIDE_TypeDef   EEHIDE_Bit;
     };
     const uint32_t                  reserved3[11*32];
     union
     {
         volatile uint32_t           EEDBGME[32];
-        EEDBGME_BITBANDING_TypeDef  EEDBGME_Bit;
+        BITBANDING_EEDBGME_TypeDef  EEDBGME_Bit;
     };
     const uint32_t                  reserved4[975*32];
     union
     {
         volatile const uint32_t     EEPROMPP[32];
-        EEPROMPP_BITBANDING_TypeDef EEPROMPP_Bit;
+        BITBANDING_EEPROMPP_TypeDef EEPROMPP_Bit;
     };
-}EEPROM_BITBANDING_TypeDef;
+}BITBANDING_EEPROM_TypeDef;
 
 #define EEPROM                 (((EEPROM_TypeDef*)(EEPPROM_BASE)))
-#define EEPROM_BITBANDING      (((EEPROM_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+(EEPROM_OFFSET*32))))
+#define EEPROM_BITBANDING      (((BITBANDING_EEPROM_TypeDef*)(EEPROM_BITBANDING_BASE+(EEPROM_OFFSET*32))))
 
 
 #define EEPROM_EESIZE_OFFSET     (0x0000)
@@ -472,7 +472,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EESIZE            (((EESIZE_TypeDef*)(EEPROM_BASE+EEPROM_EESIZE_OFFSET )))
 #define EEPROM_EESIZE_R          (*((volatile const uint32_t *)(EEPROM_BASE+EEPROM_EESIZE_OFFSET)))
-#define EEPROM_BITBANDING_EESIZE (((EESIZE_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EESIZE_OFFSET)*32))))
+#define EEPROM_BITBANDING_EESIZE (((BITBANDING_EESIZE_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EESIZE_OFFSET)*32))))
 
 //--------
 #define EEPROM_EESIZE_R_WORDCNT_MASK     (0x0000FFFF)
@@ -497,7 +497,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEBLOCK            (((EEBLOCK_TypeDef*)(EEPROM_BASE+EEPROM_EEBLOCK_OFFSET )))
 #define EEPROM_EEBLOCK_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEBLOCK_OFFSET)))
-#define EEPROM_BITBANDING_EEBLOCK      (((EEBLOCK_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEBLOCK_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEBLOCK      (((BITBANDING_EEBLOCK_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEBLOCK_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEBLOCK_R_BLOCK_MASK     (0x0000FFFF)
@@ -511,7 +511,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEOFFSET            (((EEOFFSET_TypeDef*)(EEPROM_BASE+EEPROM_EEOFFSET_OFFSET )))
 #define EEPROM_EEOFFSET_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEOFFSET_OFFSET)))
-#define EEPROM_BITBANDING_EEOFFSET      (((EEOFFSET_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEOFFSET_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEOFFSET      (((BITBANDING_EEOFFSET_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEOFFSET_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEOFFSET_R_OFFSET_MASK     (0x0000000F)
@@ -525,7 +525,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EERDWR            (((EERDWR_TypeDef*)(EEPROM_BASE+EEPROM_EERDWR_OFFSET )))
 #define EEPROM_EERDWR_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EERDWR_OFFSET)))
-#define EEPROM_BITBANDING_EERDWR      (((EERDWR_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EERDWR_OFFSET)*32))))
+#define EEPROM_BITBANDING_EERDWR      (((BITBANDING_EERDWR_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EERDWR_OFFSET)*32))))
 
 //--------
 #define EEPROM_EERDWR_R_VALUE_MASK     (0xFFFFFFFF)
@@ -539,7 +539,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EERDWRINC            (((EERDWRINC_TypeDef*)(EEPROM_BASE+EEPROM_EERDWRINC_OFFSET )))
 #define EEPROM_EERDWRINC_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EERDWRINC_OFFSET)))
-#define EEPROM_BITBANDING_EERDWRINC      (((EERDWRINC_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EERDWRINC_OFFSET)*32))))
+#define EEPROM_BITBANDING_EERDWRINC      (((BITBANDING_EERDWRINC_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EERDWRINC_OFFSET)*32))))
 
 //--------
 #define EEPROM_EERDWRINC_R_VALUE_MASK     (0xFFFFFFFF)
@@ -553,7 +553,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEDONE            (((EEDONE_TypeDef*)(EEPROM_BASE+EEPROM_EEDONE_OFFSET )))
 #define EEPROM_EEDONE_R          (*((volatile const uint32_t *)(EEPROM_BASE+EEPROM_EEDONE_OFFSET)))
-#define EEPROM_BITBANDING_EEDONE      (((EEDONE_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEDONE_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEDONE      (((BITBANDING_EEDONE_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEDONE_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEDONE_R_WORKING_MASK     (0x00000001)
@@ -621,7 +621,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EESUPP            (((EESUPP_TypeDef*)(EEPROM_BASE+EEPROM_EESUPP_OFFSET )))
 #define EEPROM_EESUPP_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EESUPP_OFFSET)))
-#define EEPROM_BITBANDING_EESUPP      (((EESUPP_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EESUPP_OFFSET)*32))))
+#define EEPROM_BITBANDING_EESUPP      (((BITBANDING_EESUPP_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EESUPP_OFFSET)*32))))
 
 //--------
 #define EEPROM_EESUPP_R_START_MASK     (0x00000001)
@@ -677,7 +677,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEUNLOCK            (((EEUNLOCK_TypeDef*)(EEPROM_BASE+EEPROM_EEUNLOCK_OFFSET )))
 #define EEPROM_EEUNLOCK_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEUNLOCK_OFFSET)))
-#define EEPROM_BITBANDING_EEUNLOCK      (((EEUNLOCK_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEUNLOCK_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEUNLOCK      (((BITBANDING_EEUNLOCK_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEUNLOCK_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEUNLOCK_R_UNLOCK_MASK     (0xFFFFFFFF)
@@ -691,7 +691,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEPROT            (((EEPROT_TypeDef*)(EEPROM_BASE+EEPROM_EEPROT_OFFSET )))
 #define EEPROM_EEPROT_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEPROT_OFFSET)))
-#define EEPROM_BITBANDING_EEPROT      (((EEPROT_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPROT_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEPROT      (((BITBANDING_EEPROT_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPROT_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEPROT_R_PROT_MASK           (0x00000007)
@@ -724,7 +724,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEPASS0            (((EEPASS_TypeDef*)(EEPROM_BASE+EEPROM_EEPASS0_OFFSET )))
 #define EEPROM_EEPASS0_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEPASS0_OFFSET)))
-#define EEPROM_BITBANDING_EEPASS0      (((EEPASS_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPASS0_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEPASS0      (((BITBANDING_EEPASS_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPASS0_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEPASS0_R_PASS_MASK     (0xFFFFFFFF)
@@ -742,7 +742,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEPASS1            (((EEPASS_TypeDef*)(EEPROM_BASE+EEPROM_EEPASS1_OFFSET )))
 #define EEPROM_EEPASS1_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEPASS1_OFFSET)))
-#define EEPROM_BITBANDING_EEPASS1      (((EEPASS_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPASS1_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEPASS1      (((BITBANDING_EEPASS_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPASS1_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEPASS1_R_PASS_MASK     (0xFFFFFFFF)
@@ -760,7 +760,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEPASS2            (((EEPASS_TypeDef*)(EEPROM_BASE+EEPROM_EEPASS2_OFFSET )))
 #define EEPROM_EEPASS2_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEPASS2_OFFSET)))
-#define EEPROM_BITBANDING_EEPASS2      (((EEPASS_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPASS2_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEPASS2      (((BITBANDING_EEPASS_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPASS2_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEPASS2_R_PASS_MASK     (0xFFFFFFFF)
@@ -778,7 +778,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEINT            (((EEINT_TypeDef*)(EEPROM_BASE+EEPROM_EEINT_OFFSET )))
 #define EEPROM_EEINT_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEINT_OFFSET)))
-#define EEPROM_BITBANDING_EEINT      (((EEINT_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEINT_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEINT      (((BITBANDING_EEINT_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEINT_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEINT_R_INT_MASK       (0x00000001)
@@ -798,7 +798,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEHIDE            (((EEHIDE_TypeDef*)(EEPROM_BASE+EEPROM_EEHIDE_OFFSET )))
 #define EEPROM_EEHIDE_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEHIDE_OFFSET)))
-#define EEPROM_BITBANDING_EEHIDE      (((EEHIDE_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEHIDE_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEHIDE      (((BITBANDING_EEHIDE_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEHIDE_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEHIDE_R_H1_MASK       (0x00000002)
@@ -1179,7 +1179,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEDBGME            (((EEDBGME_TypeDef*)(EEPROM_BASE+EEPROM_EEDBGME_OFFSET )))
 #define EEPROM_EEDBGME_R          (*((volatile uint32_t *)(EEPROM_BASE+EEPROM_EEDBGME_OFFSET)))
-#define EEPROM_BITBANDING_EEDBGME (((EEDBGME_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEDBGME_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEDBGME (((BITBANDING_EEDBGME_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEDBGME_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEDBGME_R_ME_MASK       (0x00000001)
@@ -1208,7 +1208,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define EEPROM_EEPROMPP            (((EEPROMPP_TypeDef*)(EEPROM_BASE+EEPROM_EEPROMPP_OFFSET )))
 #define EEPROM_EEPROMPP_R          (*((volatile const uint32_t *)(EEPROM_BASE+EEPROM_EEPROMPP_OFFSET)))
-#define EEPROM_BITBANDING_EEPROMPP      (((EEPROMPP_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPROMPP_OFFSET)*32))))
+#define EEPROM_BITBANDING_EEPROMPP      (((BITBANDING_EEPROMPP_TypeDef*)(EEPROM_BITBANDING_BASE+((EEPROM_OFFSET+EEPROM_EEPROMPP_OFFSET)*32))))
 
 //--------
 #define EEPROM_EEPROMPP_R_SIZE_MASK       (0x0000001F)

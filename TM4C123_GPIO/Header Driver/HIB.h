@@ -125,17 +125,17 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile const uint32_t RTCC          [32];
-}HIBRTCC_BITBANDING_TypeDef;
+}BITBANDING_HIBRTCC_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t RTCM0          [32];
-}HIBRTCM0_BITBANDING_TypeDef;
+}BITBANDING_HIBRTCM0_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t RTCLD          [32];
-}HIBRTCLD_BITBANDING_TypeDef;
+}BITBANDING_HIBRTCLD_TypeDef;
 
 typedef volatile struct
 {
@@ -157,7 +157,7 @@ typedef volatile struct
     volatile uint32_t OSCDRV       ;
     const    uint32_t  reserved4    [13];
     volatile const uint32_t WRC          ;
-}HIBCTL_BITBANDING_TypeDef;
+}BITBANDING_HIBCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -167,7 +167,7 @@ typedef volatile struct
     volatile uint32_t EXTW      ;
     volatile uint32_t WC        ;
     const    uint32_t reserved1 [27];
-}HIBIM_BITBANDING_TypeDef;
+}BITBANDING_HIBIM_TypeDef;
 
 typedef volatile struct
 {
@@ -177,7 +177,7 @@ typedef volatile struct
     volatile const uint32_t EXTW      ;
     volatile const uint32_t WC        ;
     const    uint32_t       reserved1 [27];
-}HIBRIS_BITBANDING_TypeDef;
+}BITBANDING_HIBRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -187,7 +187,7 @@ typedef volatile struct
     volatile const uint32_t EXTW      ;
     volatile const uint32_t WC        ;
     const    uint32_t       reserved1 [27];
-}HIBMIS_BITBANDING_TypeDef;
+}BITBANDING_HIBMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -197,12 +197,12 @@ typedef volatile struct
     volatile uint32_t EXTW      ;
     volatile uint32_t WC        ;
     const    uint32_t reserved1 [27];
-}HIBIC_BITBANDING_TypeDef;
+}BITBANDING_HIBIC_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TRIM   [16];
-}HIBRTCT_BITBANDING_TypeDef;
+}BITBANDING_HIBRTCT_TypeDef;
 
 typedef volatile struct
 {
@@ -211,19 +211,19 @@ typedef volatile struct
     volatile uint32_t       RTCSSM   [15];
     const    uint32_t       reserved1;
 
-}HIBRTCSS_BITBANDING_TypeDef;
+}BITBANDING_HIBRTCSS_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t HIBDATA[16][32];
 
-}HIBDATA_ARRAY_BITBANDING_TypeDef;
+}BITBANDING_HIBDATA_ARRAY_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t RTD   [32];
 
-}HIBDATA_BITBANDING_TypeDef;
+}BITBANDING_HIBDATA_TypeDef;
 
 typedef volatile struct
 {
@@ -292,64 +292,64 @@ typedef volatile struct
     union
     {
         volatile const uint32_t             HIBRTCC[32];
-        HIBRTCC_BITBANDING_TypeDef          HIBRTCC_Bit;
+        BITBANDING_HIBRTCC_TypeDef          HIBRTCC_Bit;
     };
     union
     {
         volatile uint32_t                   HIBRTCM0[32];
-        HIBRTCM0_BITBANDING_TypeDef         HIBRTCM0_Bit;
+        BITBANDING_HIBRTCM0_TypeDef         HIBRTCM0_Bit;
     };
     const uint32_t                          reserved[1*32];
     union
     {
         volatile uint32_t                   HIBRTCLD[32];
-        HIBRTCLD_BITBANDING_TypeDef         HIBRTCLD_Bit;
+        BITBANDING_HIBRTCLD_TypeDef         HIBRTCLD_Bit;
     };
     union
     {
         volatile uint32_t                   HIBCTL[32];
-        HIBCTL_BITBANDING_TypeDef           HIBCTL_Bit;
+        BITBANDING_HIBCTL_TypeDef           HIBCTL_Bit;
     };
     union
     {
         volatile uint32_t                   HIBIM[32];
-        HIBIM_BITBANDING_TypeDef            HIBIM_Bit;
+        BITBANDING_HIBIM_TypeDef            HIBIM_Bit;
     };
     union
     {
         volatile const uint32_t             HIBRIS[32];
-        HIBRIS_BITBANDING_TypeDef           HIBRIS_Bit;
+        BITBANDING_HIBRIS_TypeDef           HIBRIS_Bit;
     };
     union
     {
         volatile const uint32_t             HIBMIS[32];
-        HIBMIS_BITBANDING_TypeDef           HIBMIS_Bit;
+        BITBANDING_HIBMIS_TypeDef           HIBMIS_Bit;
     };
     union
     {
         volatile uint32_t                   HIBIC[32];
-        HIBIC_BITBANDING_TypeDef            HIBIC_Bit;
+        BITBANDING_HIBIC_TypeDef            HIBIC_Bit;
     };
     union
     {
         volatile uint32_t                   HIBRTCT[32];
-        HIBRTCT_BITBANDING_TypeDef          HIBRTCT_Bit;
+        BITBANDING_HIBRTCT_TypeDef          HIBRTCT_Bit;
     };
     union
     {
         volatile uint32_t                   HIBRTCSS[32];
-        HIBRTCSS_BITBANDING_TypeDef         HIBRTCSS_Bit;
+        BITBANDING_HIBRTCSS_TypeDef         HIBRTCSS_Bit;
     };
     const uint32_t                          reserved1[1*32];
     union
     {
         volatile uint32_t                   HIBDATA[16][32];
-        HIBDATA_BITBANDING_TypeDef          HIBDATA_Bit[16];
+        BITBANDING_HIBDATA_TypeDef          HIBDATA_Bit[16];
     };
-}HIB_BITBANDING_TypeDef;;
+}BITBANDING_HIB_TypeDef;;
 
 #define HIB                 (((HIB_TypeDef*)(HIB_BASE)))
-#define HIB_BITBANDING      (((HIB_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+(HIB_OFFSET*32))))
+#define HIB_BITBANDING      (((BITBANDING_HIB_TypeDef*)(HIB_BITBANDING_BASE+(HIB_OFFSET*32))))
 
 
 #define HIB_HIBRTCC_OFFSET     (0x0000)
@@ -385,7 +385,7 @@ typedef volatile struct
 ******************************************************************************************/
 #define HIB_HIBRTCC            (((HIBRTCC_TypeDef*)(HIB_BASE+HIB_HIBRTCC_OFFSET )))
 #define HIB_HIBRTCC_R          (*((volatile const uint32_t *)(HIB_BASE+HIB_HIBRTCC_OFFSET)))
-#define HIB_BITBANDING_HIBRTCC      (((HIBRTCC_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCC_OFFSET)*32))))
+#define HIB_BITBANDING_HIBRTCC      (((BITBANDING_HIBRTCC_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCC_OFFSET)*32))))
 
 
 //--------
@@ -401,7 +401,7 @@ typedef volatile struct
 
 #define HIB_HIBRTCM0            (((HIBRTCM0_TypeDef*)(HIB_BASE+HIB_HIBRTCM0_OFFSET )))
 #define HIB_HIBRTCM0_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBRTCM0_OFFSET)))
-#define HIB_BITBANDING_HIBRTCM0      (((HIBRTCM0_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCM0_OFFSET)*32))))
+#define HIB_BITBANDING_HIBRTCM0      (((BITBANDING_HIBRTCM0_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCM0_OFFSET)*32))))
 
 //--------
 #define HIB_HIBRTCM0_R_RTCM0_MASK     (0xFFFFFFFF)
@@ -416,7 +416,7 @@ typedef volatile struct
 
 #define HIB_HIBRTCLD            (((HIBRTCLD_TypeDef*)(HIB_BASE+HIB_HIBRTCLD_OFFSET )))
 #define HIB_HIBRTCLD_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBRTCLD_OFFSET)))
-#define HIB_BITBANDING_HIBRTCLD      (((HIBRTCLD_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCLD_OFFSET)*32))))
+#define HIB_BITBANDING_HIBRTCLD      (((BITBANDING_HIBRTCLD_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCLD_OFFSET)*32))))
 
 //--------
 #define HIB_HIBRTCLD_R_RTCLD_MASK     (0xFFFFFFFF)
@@ -431,7 +431,7 @@ typedef volatile struct
 
 #define HIB_HIBCTL            (((HIBCTL_TypeDef*)(HIB_BASE+HIB_HIBCTL_OFFSET )))
 #define HIB_HIBCTL_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBCTL_OFFSET)))
-#define HIB_BITBANDING_HIBCTL      (((HIBCTL_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBCTL_OFFSET)*32))))
+#define HIB_BITBANDING_HIBCTL      (((BITBANDING_HIBCTL_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBCTL_OFFSET)*32))))
 
 
 //--------
@@ -603,7 +603,7 @@ typedef volatile struct
 
 #define HIB_HIBIM            (((HIBIM_TypeDef*)(HIB_BASE+HIB_HIBIM_OFFSET )))
 #define HIB_HIBIM_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBIM_OFFSET)))
-#define HIB_BITBANDING_HIBIM      (((HIBIM_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBIM_OFFSET)*32))))
+#define HIB_BITBANDING_HIBIM      (((BITBANDING_HIBIM_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBIM_OFFSET)*32))))
 
 
 //--------
@@ -662,7 +662,7 @@ typedef volatile struct
 
 #define HIB_HIBRIS            (((HIBRIS_TypeDef*)(HIB_BASE+HIB_HIBRIS_OFFSET )))
 #define HIB_HIBRIS_R          (*((volatile const uint32_t *)(HIB_BASE+HIB_HIBRIS_OFFSET)))
-#define HIB_BITBANDING_HIBRIS      (((HIBRIS_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRIS_OFFSET)*32))))
+#define HIB_BITBANDING_HIBRIS      (((BITBANDING_HIBRIS_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRIS_OFFSET)*32))))
 
 
 //--------
@@ -721,7 +721,7 @@ typedef volatile struct
 
 #define HIB_HIBMIS            (((HIBMIS_TypeDef*)(HIB_BASE+HIB_HIBMIS_OFFSET )))
 #define HIB_HIBMIS_R          (*((volatile const uint32_t *)(HIB_BASE+HIB_HIBMIS_OFFSET)))
-#define HIB_BITBANDING_HIBMIS      (((HIBMIS_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBMIS_OFFSET)*32))))
+#define HIB_BITBANDING_HIBMIS      (((BITBANDING_HIBMIS_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBMIS_OFFSET)*32))))
 
 
 //--------
@@ -779,7 +779,7 @@ typedef volatile struct
 
 #define HIB_HIBIC            (((HIBIC_TypeDef*)(HIB_BASE+HIB_HIBIC_OFFSET )))
 #define HIB_HIBIC_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBIC_OFFSET)))
-#define HIB_BITBANDING_HIBIC      (((HIBIC_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBIC_OFFSET)*32))))
+#define HIB_BITBANDING_HIBIC      (((BITBANDING_HIBIC_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBIC_OFFSET)*32))))
 
 //--------
 #define HIB_HIBIC_R_RTCALT0_MASK       (0x00000001)
@@ -828,7 +828,7 @@ typedef volatile struct
 
 #define HIB_HIBRTCT            (((HIBRTCT_TypeDef*)(HIB_BASE+HIB_HIBRTCT_OFFSET )))
 #define HIB_HIBRTCT_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBRTCT_OFFSET)))
-#define HIB_BITBANDING_HIBRTCT      (((HIBRTCT_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCT_OFFSET)*32))))
+#define HIB_BITBANDING_HIBRTCT      (((BITBANDING_HIBRTCT_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCT_OFFSET)*32))))
 
 //--------
 #define HIB_HIBRTCT_R_TRIM_MASK     (0x0000FFFF)
@@ -843,7 +843,7 @@ typedef volatile struct
 
 #define HIB_HIBRTCSS            (((HIBRTCSS_TypeDef*)(HIB_BASE+HIB_HIBRTCSS_OFFSET )))
 #define HIB_HIBRTCSS_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBRTCSS_OFFSET)))
-#define HIB_BITBANDING_HIBRTCSS      (((HIBRTCSS_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCSS_OFFSET)*32))))
+#define HIB_BITBANDING_HIBRTCSS      (((BITBANDING_HIBRTCSS_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBRTCSS_OFFSET)*32))))
 
 //--------
 #define HIB_HIBRTCSS_R_RTCSSC_MASK     (0x00007FFF)
@@ -865,7 +865,7 @@ typedef volatile struct
 ******************************************************************************************/
 
 #define HIB_HIBDATA            (((HIBDATA_ARRAY_TypeDef*)(HIB_BASE+HIB_HIBDATA_OFFSET )))
-#define HIB_BITBANDING_HIBDATA      (((HIBDATA_ARRAY_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA      (((BITBANDING_HIBDATA_ARRAY_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA_OFFSET)*32))))
 
 
 
@@ -876,67 +876,67 @@ typedef volatile struct
 
 #define HIB_HIBDATA0            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA0_OFFSET )))
 #define HIB_HIBDATA0_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA0_OFFSET)))
-#define HIB_BITBANDING_HIBDATA0      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA0_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA0      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA0_OFFSET)*32))))
 
 #define HIB_HIBDATA1            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA1_OFFSET )))
 #define HIB_HIBDATA1_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA1_OFFSET)))
-#define HIB_BITBANDING_HIBDATA1      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA1_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA1      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA1_OFFSET)*32))))
 
 #define HIB_HIBDATA2            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA2_OFFSET )))
 #define HIB_HIBDATA2_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA2_OFFSET)))
-#define HIB_BITBANDING_HIBDATA2      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA2_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA2      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA2_OFFSET)*32))))
 
 #define HIB_HIBDATA3            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA3_OFFSET )))
 #define HIB_HIBDATA3_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA3_OFFSET)))
-#define HIB_BITBANDING_HIBDATA3      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA3_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA3      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA3_OFFSET)*32))))
 
 #define HIB_HIBDATA4            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA4_OFFSET )))
 #define HIB_HIBDATA4_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA4_OFFSET)))
-#define HIB_BITBANDING_HIBDATA4      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA4_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA4      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA4_OFFSET)*32))))
 
 #define HIB_HIBDATA5            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA5_OFFSET )))
 #define HIB_HIBDATA5_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA5_OFFSET)))
-#define HIB_BITBANDING_HIBDATA5      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA5_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA5      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA5_OFFSET)*32))))
 
 #define HIB_HIBDATA6            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA6_OFFSET )))
 #define HIB_HIBDATA6_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA6_OFFSET)))
-#define HIB_BITBANDING_HIBDATA6      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA6_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA6      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA6_OFFSET)*32))))
 
 #define HIB_HIBDATA7            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA7_OFFSET )))
 #define HIB_HIBDATA7_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA7_OFFSET)))
-#define HIB_BITBANDING_HIBDATA7      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA7_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA7      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA7_OFFSET)*32))))
 
 #define HIB_HIBDATA8            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA8_OFFSET )))
 #define HIB_HIBDATA8_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA8_OFFSET)))
-#define HIB_BITBANDING_HIBDATA8      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA8_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA8      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA8_OFFSET)*32))))
 
 #define HIB_HIBDATA9            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA9_OFFSET )))
 #define HIB_HIBDATA9_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA9_OFFSET)))
-#define HIB_BITBANDING_HIBDATA9      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA9_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA9      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA9_OFFSET)*32))))
 
 #define HIB_HIBDATA10            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA10_OFFSET )))
 #define HIB_HIBDATA10_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA10_OFFSET)))
-#define HIB_BITBANDING_HIBDATA10      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA10_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA10      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA10_OFFSET)*32))))
 
 #define HIB_HIBDATA11            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA11_OFFSET )))
 #define HIB_HIBDATA11_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA11_OFFSET)))
-#define HIB_BITBANDING_HIBDATA11      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA11_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA11      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA11_OFFSET)*32))))
 
 #define HIB_HIBDATA12            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA12_OFFSET )))
 #define HIB_HIBDATA12_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA12_OFFSET)))
-#define HIB_BITBANDING_HIBDATA12      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA12_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA12      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA12_OFFSET)*32))))
 
 #define HIB_HIBDATA13            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA13_OFFSET )))
 #define HIB_HIBDATA13_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA13_OFFSET)))
-#define HIB_BITBANDING_HIBDATA13      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA13_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA13      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA13_OFFSET)*32))))
 
 #define HIB_HIBDATA14            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA14_OFFSET )))
 #define HIB_HIBDATA14_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA14_OFFSET)))
-#define HIB_BITBANDING_HIBDATA14      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA14_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA14      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA14_OFFSET)*32))))
 
 #define HIB_HIBDATA15            (((HIBDATA_TypeDef*)(HIB_BASE+HIB_HIBDATA15_OFFSET )))
 #define HIB_HIBDATA15_R          (*((volatile uint32_t *)(HIB_BASE+HIB_HIBDATA15_OFFSET)))
-#define HIB_BITBANDING_HIBDATA15      (((HIBDATA_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA15_OFFSET)*32))))
+#define HIB_BITBANDING_HIBDATA15      (((BITBANDING_HIBDATA_TypeDef*)(HIB_BITBANDING_BASE+((HIB_OFFSET+HIB_HIBDATA15_OFFSET)*32))))
 
 
 typedef enum
