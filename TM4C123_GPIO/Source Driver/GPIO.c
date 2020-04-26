@@ -40,7 +40,7 @@ NVIC_nSTIR NVIC_VECTOR[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC
 
 void GPIO_vDUMMY(void)
 {
-
+    while(1);
 }
 
 void GPIO__vInit(void)
