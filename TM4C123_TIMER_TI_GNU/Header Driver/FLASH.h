@@ -438,10 +438,10 @@ typedef volatile struct
         volatile const uint32_t     ROMSWMAP[32];
         BITBANDING_ROMSWMAP_TypeDef ROMSWMAP_Bit;
     };
-}BITBANDING_FLASH_TypeDef;
+}FLASH_BITBANDING_TypeDef;
 
 #define FLASH                 (((FLASH_TypeDef*)(FLASH_BASE)))
-#define FLASH_BITBANDING      (((BITBANDING_FLASH_TypeDef*)(FLASH_BITBANDING_BASE+(FLASH_OFFSET*32))))
+#define FLASH_BITBANDING      (((FLASH_BITBANDING_TypeDef*)(FLASH_BITBANDING_BASE+(FLASH_OFFSET*32))))
 
 
 #define FLASH_FMA_OFFSET     (0x0000)

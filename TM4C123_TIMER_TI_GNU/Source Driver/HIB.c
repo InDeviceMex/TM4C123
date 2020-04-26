@@ -10,7 +10,7 @@
 volatile HIB_nREADY HIB_enStatus =HIB_enBUSY;
 HIB_nREADY HIB_enCount=HIB_enBUSY;
 
-void HIBISR(void);
+void HIB_vISR(void);
 
 HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
 {
@@ -18,7 +18,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     volatile uint32_t u32TimeOut= 12000000;
 
 
-    SCB__vRegisterISR(HIBISR,SCB_enVECISR_HIB);
+    SCB__vRegisterISR(HIB_vISR,SCB_enVECISR_HIB);
     SYSCTL__vResetPeripheral(SYSCTL_enHIB);
     SYSCTL__vDisRunModePeripheral(SYSCTL_enHIB);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enHIB);
@@ -509,7 +509,7 @@ HIB_nSTATUS HIB__enSetMatch(uint32_t u32Counter, uint32_t u32SubCounter)
 }
 
 
-void HIBISR(void)
+void HIB_vISR(void)
 {
     volatile uint32_t u32Reg= HIB_HIBMIS_R;
 

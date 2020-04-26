@@ -8,13 +8,13 @@
 
 #include "SYSEXC.h"
 
-void SYSEXCISR(void);
+void SYSEXC_vISR(void);
 
 void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri)
 {
     uint32_t u32Reg= (uint32_t)enInt & 0x3F;
 
-    SCB__vRegisterISR(SYSEXCISR,SCB_enVECISR_SYSEXC);
+    SCB__vRegisterISR(SYSEXC_vISR,SCB_enVECISR_SYSEXC);
     SYSEXC_SYSEXCIM_R&=~(SYSEXC_SYSEXCIM_R_FPIDCIM_MASK|
             SYSEXC_SYSEXCIM_R_FPDZCIM_MASK|
             SYSEXC_SYSEXCIM_R_FPIOCIM_MASK|
@@ -51,7 +51,7 @@ SYSEXC_nSTATUS SYSEXC__enStatusInt(SYSEXC_nINTERRUPT enInt)
 }
 
 uint32_t SYSEXC_pu32Context[8];
-void SYSEXCISR(void)
+void SYSEXC_vISR(void)
 {
     __asm(
             " MRS R0, MSP\n"

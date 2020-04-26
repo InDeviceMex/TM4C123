@@ -15,8 +15,6 @@
 #include "NVIC.h"
 #include "SYSCTL.h"
 
-
-
 #define GPTM_BASE           (0x40030000)
 #define GPTM0_BASE          (0x40030000)
 #define GPTM1_BASE          (0x40031000)
@@ -52,7 +50,453 @@
 #define GPTM_BITBANDING_BASE       (0x42000000)
 #define GPWTM_BITBANDING_BASE      (0x42000000)
 
+/*************************************************************
+ *********************************  STANDARD REGS **************
+ **************************************************************/
+typedef volatile struct
+{
+    volatile uint32_t TAMR    : 2;
+    volatile uint32_t TACMR   : 1;
+    volatile uint32_t TAAMS   : 1;
+    volatile uint32_t TACDIR  : 1;
+    volatile uint32_t TAMIE   : 1;
+    volatile uint32_t TAWOT   : 1;
+    volatile uint32_t TASNAPS : 1;
+    volatile uint32_t TAILD   : 1;
+    volatile uint32_t TAPWMIE : 1;
+    volatile uint32_t TAMRSU  : 1;
+    volatile uint32_t TAPLO   : 1;
+    const    uint32_t reserved: 20;
+}GPTMTAMR_TypeDef;
 
+typedef volatile struct
+{
+    volatile uint32_t TBMR    : 2;
+    volatile uint32_t TBCMR   : 1;
+    volatile uint32_t TBAMS   : 1;
+    volatile uint32_t TBCDIR  : 1;
+    volatile uint32_t TBMIE   : 1;
+    volatile uint32_t TBWOT   : 1;
+    volatile uint32_t TBSNAPS : 1;
+    volatile uint32_t TBILD   : 1;
+    volatile uint32_t TBPWMIE : 1;
+    volatile uint32_t TBMRSU  : 1;
+    volatile uint32_t TBPLO   : 1;
+    const    uint32_t reserved: 20;
+}GPTMTBMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TAEN     : 1;
+    volatile uint32_t TASTALL  : 1;
+    volatile uint32_t TAEVENT  : 2;
+    volatile uint32_t RTCEN    : 1;
+    volatile uint32_t TAOTE    : 1;
+    volatile uint32_t TAPWML   : 1;
+    const    uint32_t reserved : 1;
+    volatile uint32_t TBEN     : 1;
+    volatile uint32_t TBSTALL  : 1;
+    volatile uint32_t TBEVENT  : 2;
+    const    uint32_t reserved1: 1;
+    volatile uint32_t TBOTE    : 1;
+    volatile uint32_t TBPWML   : 1;
+    const    uint32_t reserved2: 17;
+}GPTMCTL_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TATOIM   : 1;
+    volatile uint32_t CAMIM    : 1;
+    volatile uint32_t CAEIM    : 1;
+    volatile uint32_t RTCIM    : 1;
+    volatile uint32_t TAMIM    : 1;
+    const    uint32_t reserved : 3;
+    volatile uint32_t TBTOIM   : 1;
+    volatile uint32_t CBMIM    : 1;
+    volatile uint32_t CBEIM    : 1;
+    volatile uint32_t TBMIM    : 1;
+    const    uint32_t reserved1: 4;
+    volatile uint32_t WUEIM    : 1;
+    const    uint32_t reserved2: 15;
+}GPTMIMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t TATORIS  : 1;
+    volatile const uint32_t CAMRIS   : 1;
+    volatile const uint32_t CAERIS   : 1;
+    volatile const uint32_t RTCRIS   : 1;
+    volatile const uint32_t TAMRIS   : 1;
+    const    uint32_t       reserved : 3;
+    volatile const uint32_t TBTORIS  : 1;
+    volatile const uint32_t CBMRIS   : 1;
+    volatile const uint32_t CBERIS   : 1;
+    volatile const uint32_t TBMRIS   : 1;
+    const    uint32_t       reserved1: 4;
+    volatile const uint32_t WUERIS   : 1;
+    const    uint32_t       reserved2: 15;
+}GPTMRIS_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile const uint32_t TATOMIS  : 1;
+    volatile const uint32_t CAMMIS   : 1;
+    volatile const uint32_t CAEMIS   : 1;
+    volatile const uint32_t RTCMIS   : 1;
+    volatile const uint32_t TAMMIS   : 1;
+    const    uint32_t       reserved : 3;
+    volatile const uint32_t TBTOMIS  : 1;
+    volatile const uint32_t CBMMIS   : 1;
+    volatile const uint32_t CBEMIS   : 1;
+    volatile const uint32_t TBMMIS   : 1;
+    const    uint32_t       reserved1: 4;
+    volatile const uint32_t WUEMIS   : 1;
+    const    uint32_t       reserved2: 15;
+}GPTMMIS_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TATOCINT : 1;
+    volatile uint32_t CAMCINT  : 1;
+    volatile uint32_t CAECINT  : 1;
+    volatile uint32_t RTCCINT  : 1;
+    volatile uint32_t TAMCINT  : 1;
+    const    uint32_t reserved : 3;
+    volatile uint32_t TBTOCINT : 1;
+    volatile uint32_t CBMCINT  : 1;
+    volatile uint32_t CBECINT  : 1;
+    volatile uint32_t TBMCINT  : 1;
+    const    uint32_t reserved1: 4;
+    volatile uint32_t WUECINT  : 1;
+    const    uint32_t reserved2: 15;
+}GPTMICR_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAILR     : 32;
+}GPTMTAILR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBILR     : 32;
+}GPTMTBILR_TypeDef;
+
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAMR     : 32;
+}GPTMTAMATCHR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBMR     : 32;
+}GPTMTBMATCHR_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAPSR     : 8;
+    volatile uint32_t TAPSRH    : 8;
+    const    uint32_t reserved  : 16;
+}GPTMTAPR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBPSR     : 8;
+    volatile uint32_t TBPSRH    : 8;
+    const    uint32_t reserved  : 16;
+}GPTMTBPR_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAPSMR    : 8;
+    volatile uint32_t TAPSMRH   : 8;
+    const    uint32_t reserved  : 16;
+}GPTMTAPMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBPSMR    : 8;
+    volatile uint32_t TBPSMRH   : 8;
+    const    uint32_t reserved  : 16;
+}GPTMTBPMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t TAR     : 32;
+}GPTMTAR_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t TBR     : 32;
+}GPTMTBR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TAV     : 32;
+}GPTMTAV_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBV     : 32;
+}GPTMTBV_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSS       : 16;
+    const    uint32_t       reserved  : 16;
+}GPTMTAPS_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSS       : 16;
+    const    uint32_t       reserved  : 16;
+}GPTMTBPS_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSV       : 16;
+    const    uint32_t       reserved  : 16;
+}GPTMTAPV_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSV      : 16;
+    const    uint32_t       reserved : 16;
+}GPTMTBPV_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t RTCPD     : 16;
+    const    uint32_t       reserved  : 16;
+}GPTMRTCPD_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TAMR    [2];
+    volatile uint32_t TACMR   [1];
+    volatile uint32_t TAAMS   [1];
+    volatile uint32_t TACDIR  [1];
+    volatile uint32_t TAMIE   [1];
+    volatile uint32_t TAWOT   [1];
+    volatile uint32_t TASNAPS [1];
+    volatile uint32_t TAILD   [1];
+    volatile uint32_t TAPWMIE [1];
+    volatile uint32_t TAMRSU  [1];
+    volatile uint32_t TAPLO   [1];
+    const    uint32_t reserved[20];
+}BITBANDING_GPTMTAMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBMR    [2];
+    volatile uint32_t TBCMR   [1];
+    volatile uint32_t TBAMS   [1];
+    volatile uint32_t TBCDIR  [1];
+    volatile uint32_t TBMIE   [1];
+    volatile uint32_t TBWOT   [1];
+    volatile uint32_t TBSNAPS [1];
+    volatile uint32_t TBILD   [1];
+    volatile uint32_t TBPWMIE [1];
+    volatile uint32_t TBMRSU  [1];
+    volatile uint32_t TBPLO   [1];
+    const    uint32_t reserved[20];
+}BITBANDING_GPTMTBMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TAEN     [1];
+    volatile uint32_t TASTALL  [1];
+    volatile uint32_t TAEVENT  [2];
+    volatile uint32_t RTCEN    [1];
+    volatile uint32_t TAOTE    [1];
+    volatile uint32_t TAPWML   [1];
+    const    uint32_t reserved [1];
+    volatile uint32_t TBEN     [1];
+    volatile uint32_t TBSTALL  [1];
+    volatile uint32_t TBEVENT  [2];
+    const    uint32_t reserved1[1];
+    volatile uint32_t TBOTE    [1];
+    volatile uint32_t TBPWML   [1];
+    const    uint32_t reserved2[17];
+}BITBANDING_GPTMCTL_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TATOIM   [1];
+    volatile uint32_t CAMIM    [1];
+    volatile uint32_t CAEIM    [1];
+    volatile uint32_t RTCIM    [1];
+    volatile uint32_t TAMIM    [1];
+    const    uint32_t reserved [3];
+    volatile uint32_t TBTOIM   [1];
+    volatile uint32_t CBMIM    [1];
+    volatile uint32_t CBEIM    [1];
+    volatile uint32_t TBMIM    [1];
+    const    uint32_t reserved1[4];
+    volatile uint32_t WUEIM    [1];
+    const    uint32_t reserved2[15];
+}BITBANDING_GPTMIMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t TATORIS  [1];
+    volatile const uint32_t CAMRIS   [1];
+    volatile const uint32_t CAERIS   [1];
+    volatile const uint32_t RTCRIS   [1];
+    volatile const uint32_t TAMRIS   [1];
+    const    uint32_t       reserved [3];
+    volatile const uint32_t TBTORIS  [1];
+    volatile const uint32_t CBMRIS   [1];
+    volatile const uint32_t CBERIS   [1];
+    volatile const uint32_t TBMRIS   [1];
+    const    uint32_t       reserved1[4];
+    volatile const uint32_t WUERIS   [1];
+    const    uint32_t       reserved2[15];
+}BITBANDING_GPTMRIS_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile const uint32_t TATOMIS  [1];
+    volatile const uint32_t CAMMIS   [1];
+    volatile const uint32_t CAEMIS   [1];
+    volatile const uint32_t RTCMIS   [1];
+    volatile const uint32_t TAMMIS   [1];
+    const    uint32_t       reserved [3];
+    volatile const uint32_t TBTOMIS  [1];
+    volatile const uint32_t CBMMIS   [1];
+    volatile const uint32_t CBEMIS   [1];
+    volatile const uint32_t TBMMIS   [1];
+    const    uint32_t       reserved1[4];
+    volatile const uint32_t WUEMIS   [1];
+    const    uint32_t       reserved2[15];
+}BITBANDING_GPTMMIS_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TATOCINT [1];
+    volatile uint32_t CAMCINT  [1];
+    volatile uint32_t CAECINT  [1];
+    volatile uint32_t RTCCINT  [1];
+    volatile uint32_t TAMCINT  [1];
+    const    uint32_t reserved [3];
+    volatile uint32_t TBTOCINT [1];
+    volatile uint32_t CBMCINT  [1];
+    volatile uint32_t CBECINT  [1];
+    volatile uint32_t TBMCINT  [1];
+    const    uint32_t reserved1[4];
+    volatile uint32_t WUECINT  [1];
+    const    uint32_t reserved2[15];
+}BITBANDING_GPTMICR_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAILR     [32];
+}BITBANDING_GPTMTAILR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBILR     [32];
+}BITBANDING_GPTMTBILR_TypeDef;
+
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAMR     [32];
+}BITBANDING_GPTMTAMATCHR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBMR     [32];
+}BITBANDING_GPTMTBMATCHR_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAPSR     [8];
+    volatile uint32_t TAPSRH    [8];
+    const    uint32_t reserved  [16];
+}BITBANDING_GPTMTAPR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBPSR     [8];
+    volatile uint32_t TBPSRH    [8];
+    const    uint32_t reserved  [16];
+}BITBANDING_GPTMTBPR_TypeDef;
+
+
+typedef volatile struct
+{
+    volatile uint32_t TAPSMR    [8];
+    volatile uint32_t TAPSMRH   [8];
+    const    uint32_t reserved  [16];
+}BITBANDING_GPTMTAPMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBPSMR    [8];
+    volatile uint32_t TBPSMRH   [8];
+    const    uint32_t reserved  [16];
+}BITBANDING_GPTMTBPMR_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t TAR     [32];
+}BITBANDING_GPTMTAR_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t TBR     [32];
+}BITBANDING_GPTMTBR_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TAV     [32];
+}BITBANDING_GPTMTAV_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t TBV     [32];
+}BITBANDING_GPTMTBV_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t RTCPD     [16];
+    const    uint32_t       reserved  [16];
+}BITBANDING_GPTMRTCPD_TypeDef;
+typedef volatile struct
+{
+    volatile const uint32_t PSS       [16];
+    const    uint32_t       reserved  [16];
+}BITBANDING_GPTMTAPS_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSS       [16];
+    const    uint32_t       reserved  [16];
+}BITBANDING_GPTMTBPS_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSV       [16];
+    const    uint32_t       reserved  [16];
+}BITBANDING_GPTMTAPV_TypeDef;
+
+typedef volatile struct
+{
+    volatile const uint32_t PSV      [16];
+    const    uint32_t       reserved [16];
+}BITBANDING_GPTMTBPV_TypeDef;
 /*************************************************************
  *********************************  CONTROL REGS **************
  **************************************************************/
@@ -639,7 +1083,7 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile const uint16_t RTCPD     : 16;
-}GPTMRTCPD_TypeDef;
+}GPTMRTCPD_TW_TypeDef;
 
 
 typedef volatile struct
@@ -736,7 +1180,7 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile const uint32_t RTCPD     [16];
-}BITBANDING_GPTMRTCPD_TypeDef;
+}BITBANDING_GPTMRTCPD_TW_TypeDef;
 
 
 
@@ -1528,7 +1972,7 @@ typedef volatile struct
     union
     {
         volatile const uint16_t         GPTMRTCPD;
-        GPTMRTCPD_TypeDef               GPTMRTCPD_Bit;
+        GPTMRTCPD_TW_TypeDef               GPTMRTCPD_Bit;
     };
     const uint16_t                      reserved12[1];
     const uint32_t                      reserved13[1000];
@@ -1604,7 +2048,7 @@ typedef volatile struct
     union
     {
         volatile const uint32_t         GPTMRTCPD[16];
-        BITBANDING_GPTMRTCPD_TypeDef    GPTMRTCPD_Bit;
+        BITBANDING_GPTMRTCPD_TW_TypeDef    GPTMRTCPD_Bit;
     };
     const uint32_t                      reserved12[1*16];
     const uint32_t                      reserved13[1000*32];
@@ -1648,7 +2092,6 @@ typedef volatile struct
     const uint32_t                  reserved2[15*32];
 }GPWTM_BITBANDING_CTL_TypeDef;
 
-//Todo
 typedef volatile struct
 {
 
@@ -2115,7 +2558,7 @@ typedef volatile struct
     union
     {
         volatile const uint16_t     GPTMRTCPD;
-        GPTMRTCPD_TypeDef           GPTMRTCPD_Bit;
+        GPTMRTCPD_TW_TypeDef           GPTMRTCPD_Bit;
     };
     const uint16_t                  reserved8[1];
     const uint32_t                  reserved9[1000];
@@ -2205,12 +2648,335 @@ typedef volatile struct
     union
     {
         volatile const uint32_t     GPTMRTCPD[16];
-        BITBANDING_GPTMRTCPD_TypeDef    GPTMRTCPD_Bit;
+        BITBANDING_GPTMRTCPD_TW_TypeDef    GPTMRTCPD_Bit;
     };
     const uint32_t                  reserved8[1*16];
     const uint32_t                  reserved9[1000*32];
 
 }GPWTM_BITBANDING_TW_TypeDef;
+
+
+typedef volatile struct
+{
+    union
+    {
+        volatile uint32_t          GPTMCFG;
+        GPTMCFG_TypeDef                 GPTMCFG_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAMR;
+        GPTMTAMR_TypeDef                GPTMTAMR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBMR;
+        GPTMTBMR_TypeDef                GPTMTBMR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMCTL;
+        GPTMCTL_TypeDef                 GPTMCTL_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMSYNC;
+        GPTMSYNC_TypeDef                GPTMSYNC_Bit;
+    };
+    const    uint32_t              reserved;
+
+    union
+    {
+        volatile uint32_t          GPTMIMR;
+        GPTMIMR_TypeDef                 GPTMIMR_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMRIS;
+        GPTMRIS_TypeDef                 GPTMRIS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMMIS;
+        GPTMMIS_TypeDef                 GPTMMIS_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMICR;
+        GPTMICR_TypeDef                 GPTMICR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAILR;
+        GPTMTAILR_TypeDef               GPTMTAILR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBILR;
+        GPTMTBILR_TypeDef               GPTMTBILR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAMATCHR;
+        GPTMTAMATCHR_TypeDef            GPTMTAMATCHR_Bit;
+    };
+
+    union
+    {
+        volatile uint32_t          GPTMTBMATCHR;
+        GPTMTBMATCHR_TypeDef            GPTMTBMATCHR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAPR;
+        GPTMTAPR_TypeDef                GPTMTAPR_Bit;
+    };
+
+    union
+    {
+        volatile uint32_t          GPTMTBPR;
+        GPTMTBPR_TypeDef                GPTMTBPR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAPMR;
+        GPTMTAPMR_TypeDef               GPTMTAPMR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBPMR;
+        GPTMTBPMR_TypeDef               GPTMTBPMR_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTAR;
+        GPTMTAR_TypeDef                 GPTMTAR_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTBR;
+        GPTMTBR_TypeDef                 GPTMTBR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAV;
+        GPTMTAV_TypeDef                 GPTMTAV_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBV;
+        GPTMTBV_TypeDef                 GPTMTBV_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMRTCPD;
+        GPTMRTCPD_TypeDef               GPTMRTCPD_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTAPS;
+        GPTMTAPS_TypeDef                GPTMTAPS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTBPS;
+        GPTMTBPS_TypeDef                GPTMTBPS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTAPV;
+        GPTMTAPV_TypeDef                GPTMTAPV_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTBPV;
+        GPTMTBPV_TypeDef                GPTMTBPV_Bit;
+    };
+
+    const    uint32_t              reserved1[981];
+
+
+    union
+    {
+        volatile const uint32_t    GPTMPP;
+        GPTMPP_TypeDef                  GPTMPP_Bit;
+    };
+
+    const uint32_t                 reserved2[15];
+}GPTM_TypeDef;
+
+typedef volatile struct
+{
+    union
+    {
+        volatile uint32_t          GPTMCFG[32];
+        BITBANDING_GPTMCFG_TypeDef                 GPTMCFG_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAMR[32];
+        BITBANDING_GPTMTAMR_TypeDef                GPTMTAMR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBMR[32];
+        BITBANDING_GPTMTBMR_TypeDef                GPTMTBMR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMCTL[32];
+        BITBANDING_GPTMCTL_TypeDef                 GPTMCTL_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMSYNC[32];
+        BITBANDING_GPTMSYNC_TypeDef                GPTMSYNC_Bit;
+    };
+    const    uint32_t              reserved[32];
+
+    union
+    {
+        volatile uint32_t          GPTMIMR[32];
+        BITBANDING_GPTMIMR_TypeDef                 GPTMIMR_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMRIS[32];
+        BITBANDING_GPTMRIS_TypeDef                 GPTMRIS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMMIS[32];
+        BITBANDING_GPTMMIS_TypeDef                 GPTMMIS_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMICR[32];
+        BITBANDING_GPTMICR_TypeDef                 GPTMICR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAILR[32];
+        BITBANDING_GPTMTAILR_TypeDef               GPTMTAILR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBILR[32];
+        BITBANDING_GPTMTBILR_TypeDef               GPTMTBILR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAMATCHR[32];
+        BITBANDING_GPTMTAMATCHR_TypeDef            GPTMTAMATCHR_Bit;
+    };
+
+    union
+    {
+        volatile uint32_t          GPTMTBMATCHR[32];
+        BITBANDING_GPTMTBMATCHR_TypeDef            GPTMTBMATCHR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAPR[32];
+        BITBANDING_GPTMTAPR_TypeDef                GPTMTAPR_Bit;
+    };
+
+    union
+    {
+        volatile uint32_t          GPTMTBPR[32];
+        BITBANDING_GPTMTBPR_TypeDef                GPTMTBPR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAPMR[32];
+        BITBANDING_GPTMTAPMR_TypeDef               GPTMTAPMR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBPMR[32];
+        BITBANDING_GPTMTBPMR_TypeDef               GPTMTBPMR_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTAR[32];
+        BITBANDING_GPTMTAR_TypeDef                 GPTMTAR_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTBR[32];
+        BITBANDING_GPTMTBR_TypeDef                 GPTMTBR_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTAV[32];
+        BITBANDING_GPTMTAV_TypeDef                 GPTMTAV_Bit;
+    };
+    union
+    {
+        volatile uint32_t          GPTMTBV[32];
+        BITBANDING_GPTMTBV_TypeDef                 GPTMTBV_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMRTCPD[32];
+        BITBANDING_GPTMRTCPD_TypeDef               GPTMRTCPD_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTAPS[32];
+        BITBANDING_GPTMTAPS_TypeDef                GPTMTAPS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTBPS[32];
+        BITBANDING_GPTMTBPS_TypeDef                GPTMTBPS_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTAPV[32];
+        BITBANDING_GPTMTAPV_TypeDef                GPTMTAPV_Bit;
+    };
+    union
+    {
+        volatile const uint32_t    GPTMTBPV[32];
+        BITBANDING_GPTMTBPV_TypeDef                GPTMTBPV_Bit;
+    };
+
+    const    uint32_t              reserved1[981*32];
+
+
+    union
+    {
+        volatile const uint32_t    GPTMPP[32];
+        BITBANDING_GPTMPP_TypeDef                  GPTMPP_Bit;
+    };
+
+    const uint32_t                 reserved2[15*32];
+}GPTM_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    GPTM_TypeDef T[6];
+}GPTMS_TypeDef;
+
+typedef volatile struct
+{
+    GPTM_TypeDef      T01[2];
+    GPTM_TypeDef      reserved[20];
+    GPTM_TypeDef      T25[4];
+}GPWTMS_TypeDef;
+
+typedef volatile struct
+{
+    GPTM_BITBANDING_TypeDef T[6];
+}GPTMS_BITBANDING_TypeDef;
+
+typedef volatile struct
+{
+    GPTM_BITBANDING_TypeDef      T01[2];
+    GPTM_BITBANDING_TypeDef      reserved[20];
+    GPTM_BITBANDING_TypeDef      T25[4];
+}GPWTMS_BITBANDING_TypeDef;
 
 typedef volatile struct
 {
@@ -2275,7 +3041,10 @@ typedef volatile struct
 
 
 
+#define GPTM                     (((GPTMS_TypeDef*)(GPTM_BASE)))
 #define GPTM_UNION               (((GPTM_UNION_TypeDef*)(GPTM_BASE)))
+#define GPTM_BITBANDING           (((GPTM_BITBANDING_TypeDef*)(GPTM_BASE_BITBANDING+(GPTM_OFFSET*32))))
+#define GPTM_BITBANDING_UNION     (((GPTM_BITBANDING_UNION_TypeDef*)(GPTM_BASE_BITBANDING+(GPTM_OFFSET*32))))
 
 #define GPTM0_CTL                (((GPTM_CTL_TypeDef*)(GPTM0_BASE)))
 #define GPTM0_TA                 (((GPTM_TA_TypeDef*)(GPTM0_BASE)))
@@ -2308,8 +3077,6 @@ typedef volatile struct
 #define GPTM5_TW                 (((GPTM_TW_TypeDef*)(GPTM5_BASE)))
 
 
-#define GPTM_BITBANDING_UNION     (((GPTM_BITBANDING_UNION_TypeDef*)(GPTM_BASE_BITBANDING+(GPTM_OFFSET*32))))
-
 #define GPTM0_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 #define GPTM0_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 #define GPTM0_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
@@ -2341,7 +3108,10 @@ typedef volatile struct
 #define GPTM5_BITBANDING_TW       (((GPTM_BITBANDING_TW_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM5_OFFSET*32))))
 
 
+#define GPWTM                     (((GPWTMS_TypeDef*)(GPWTM_BASE)))
 #define GPWTM_UNION               (((GPWTM_UNION_TypeDef*)(GPWTM_BASE)))
+#define GPWTM_BITBANDING           (((GPWTMS_BITBANDING_TypeDef*)(GPWTM_BASE_BITBANDING+(GPWTM_OFFSET*32))))
+#define GPWTM_BITBANDING_UNION     (((GPWTM_BITBANDING_UNION_TypeDef*)(GPWTM_BASE_BITBANDING+(GPWTM_OFFSET*32))))
 
 #define GPWTM0_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM0_BASE)))
 #define GPWTM0_TA                 (((GPWTM_TA_TypeDef*)(GPWTM0_BASE)))
@@ -2372,9 +3142,6 @@ typedef volatile struct
 #define GPWTM5_TA                 (((GPWTM_TA_TypeDef*)(GPWTM5_BASE)))
 #define GPWTM5_TB                 (((GPWTM_TB_TypeDef*)(GPWTM5_BASE)))
 #define GPWTM5_TW                 (((GPWTM_TW_TypeDef*)(GPWTM5_BASE)))
-
-
-#define GPWTM_BITBANDING_UNION     (((GPWTM_BITBANDING_UNION_TypeDef*)(GPWTM_BASE_BITBANDING+(GPWTM_OFFSET*32))))
 
 #define GPWTM0_BITBANDING_CTL      (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
 #define GPWTM0_BITBANDING_TA       (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
@@ -2436,18 +3203,72 @@ typedef volatile struct
 #define GPTM_GPTMTBPV_OFFSET     (0x0068)
 #define GPTM_GPTMPP_OFFSET       (0x0FC0)
 
-// ToDO GPTM0
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0 GPTM0 ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************************
+************************************ 1 GPTMCFG *********************************************
+******************************************************************************************/
+
+/* GPTM0 GPTMCFG*/
+#define GPTM0_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPTM0_GPTMCFG             (((GPTMCFG_TypeDef*)(GPTM0_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPTM0_GPTMCFG_R           (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPTM1 GPTMCFG*/
+#define GPTM1_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPTM1_GPTMCFG             (((GPTMCFG_TypeDef*)(GPTM1_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPTM1_GPTMCFG_R           (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPTM2 GPTMCFG*/
+#define GPTM2_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPTM2_GPTMCFG             (((GPTMCFG_TypeDef*)(GPTM2_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPTM2_GPTMCFG_R           (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPTM3 GPTMCFG*/
+#define GPTM3_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPTM3_GPTMCFG             (((GPTMCFG_TypeDef*)(GPTM3_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPTM3_GPTMCFG_R           (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPTM4 GPTMCFG*/
+#define GPTM4_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPTM4_GPTMCFG             (((GPTMCFG_TypeDef*)(GPTM4_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPTM4_GPTMCFG_R           (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPTM5 GPTMCFG*/
+#define GPTM5_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPTM5_GPTMCFG             (((GPTMCFG_TypeDef*)(GPTM5_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPTM5_GPTMCFG_R           (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPWTM0 GPTMCFG*/
+#define GPWTM0_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPWTM0_GPTMCFG             (((GPTMCFG_TypeDef*)(GPWTM0_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPWTM0_GPTMCFG_R           (*((volatile uint32_t *)(GPWTM0_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPWTM1 GPTMCFG*/
+#define GPWTM1_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPWTM1_GPTMCFG             (((GPTMCFG_TypeDef*)(GPWTM1_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPWTM1_GPTMCFG_R           (*((volatile uint32_t *)(GPWTM1_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPWTM2 GPTMCFG*/
+#define GPWTM2_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPWTM2_GPTMCFG             (((GPTMCFG_TypeDef*)(GPWTM2_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPWTM2_GPTMCFG_R           (*((volatile uint32_t *)(GPWTM2_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPWTM3 GPTMCFG*/
+#define GPWTM3_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPWTM3_GPTMCFG             (((GPTMCFG_TypeDef*)(GPWTM3_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPWTM3_GPTMCFG_R           (*((volatile uint32_t *)(GPWTM3_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPWTM4 GPTMCFG*/
+#define GPWTM4_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPWTM4_GPTMCFG             (((GPTMCFG_TypeDef*)(GPWTM4_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPWTM4_GPTMCFG_R           (*((volatile uint32_t *)(GPWTM4_BASE +GPTM_GPTMCFG_OFFSET)))
+
+/* GPWTM5 GPTMCFG*/
+#define GPWTM5_BITBANDING_GPTMCFG  (((BITBANDING_GPTMCFG_TypeDef*)(GPTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPTM_GPTMCFG_OFFSET)*32))))
+#define GPWTM5_GPTMCFG             (((GPTMCFG_TypeDef*)(GPWTM5_BASE + GPTM_GPTMCFG_OFFSET )))
+#define GPWTM5_GPTMCFG_R           (*((volatile uint32_t *)(GPWTM5_BASE +GPTM_GPTMCFG_OFFSET)))
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.1 GPTMCFG ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM0_GPTMCFG            (((GPTMCFG_TypeDef*)(GPTM0_BASE + GPTM_GPTMCFG_OFFSET )))
-#define GPTM0_GPTMCFG_R          (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMCFG_OFFSET)))
 
 
 //--------
@@ -3828,7 +4649,7 @@ typedef volatile struct
 ////////////////////////////////////// 0.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM0_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM0_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPTM0_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -5317,7 +6138,7 @@ typedef volatile struct
 ////////////////////////////////////// 1.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM1_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM1_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPTM1_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -6807,7 +7628,7 @@ typedef volatile struct
 ////////////////////////////////////// 2.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM2_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM2_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPTM2_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -8296,7 +9117,7 @@ typedef volatile struct
 ////////////////////////////////////// 3.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM3_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM3_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPTM3_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -9784,7 +10605,7 @@ typedef volatile struct
 ////////////////////////////////////// 4.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM4_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM4_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPTM4_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -11274,7 +12095,7 @@ typedef volatile struct
 ////////////////////////////////////// 5.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM5_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM5_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPTM5_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -12764,7 +13585,7 @@ typedef volatile struct
 ////////////////////////////////////// 0.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM0_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPWTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPWTM0_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPWTM0_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -14253,7 +15074,7 @@ typedef volatile struct
 ////////////////////////////////////// 1.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM1_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPWTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPWTM1_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPWTM1_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -15743,7 +16564,7 @@ typedef volatile struct
 ////////////////////////////////////// 2.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM2_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPWTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPWTM2_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPWTM2_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -17232,7 +18053,7 @@ typedef volatile struct
 ////////////////////////////////////// 3.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM3_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPWTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPWTM3_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPWTM3_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -18720,7 +19541,7 @@ typedef volatile struct
 ////////////////////////////////////// 4.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM4_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPWTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPWTM4_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPWTM4_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 
@@ -20210,7 +21031,7 @@ typedef volatile struct
 ////////////////////////////////////// 5.22 GPTMRTCPD ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM5_GPTMRTCPD            (((GPTMRTCPD_TypeDef*)(GPWTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPWTM5_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
 #define GPWTM5_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
 

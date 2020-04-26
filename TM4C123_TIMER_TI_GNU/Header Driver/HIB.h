@@ -346,10 +346,10 @@ typedef volatile struct
         volatile uint32_t                   HIBDATA[16][32];
         BITBANDING_HIBDATA_TypeDef          HIBDATA_Bit[16];
     };
-}BITBANDING_HIB_TypeDef;;
+}HIB_BITBANDING_TypeDef;;
 
 #define HIB                 (((HIB_TypeDef*)(HIB_BASE)))
-#define HIB_BITBANDING      (((BITBANDING_HIB_TypeDef*)(HIB_BITBANDING_BASE+(HIB_OFFSET*32))))
+#define HIB_BITBANDING      (((HIB_BITBANDING_TypeDef*)(HIB_BITBANDING_BASE+(HIB_OFFSET*32))))
 
 
 #define HIB_HIBRTCC_OFFSET     (0x0000)

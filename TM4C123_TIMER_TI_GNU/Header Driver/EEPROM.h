@@ -444,10 +444,10 @@ typedef volatile struct
         volatile const uint32_t     EEPROMPP[32];
         BITBANDING_EEPROMPP_TypeDef EEPROMPP_Bit;
     };
-}BITBANDING_EEPROM_TypeDef;
+}EEPROM_BITBANDING_TypeDef;
 
 #define EEPROM                 (((EEPROM_TypeDef*)(EEPPROM_BASE)))
-#define EEPROM_BITBANDING      (((BITBANDING_EEPROM_TypeDef*)(EEPROM_BITBANDING_BASE+(EEPROM_OFFSET*32))))
+#define EEPROM_BITBANDING      (((EEPROM_BITBANDING_TypeDef*)(EEPROM_BITBANDING_BASE+(EEPROM_OFFSET*32))))
 
 
 #define EEPROM_EESIZE_OFFSET     (0x0000)

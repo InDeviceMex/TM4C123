@@ -161,10 +161,10 @@ typedef volatile struct
         volatile uint32_t          SYSEXCIC[32];
         BITBANDING_SYSEXCIC_TypeDef                SYSEXCIC_Bit;
     };
-}BITBANDING_SYSEXC_TypeDef;
+}SYSEXC_BITBANDING_TypeDef;
 
 #define SYSEXC                 (((SYSEXC_TypeDef*)(SYSEXC_BASE)))
-#define SYSEXC_BITBANDING      (((BITBANDING_SYSEXC_TypeDef*)(SYSEXC_BITBANDING_BASE+(SYSEXC_OFFSET*32))))
+#define SYSEXC_BITBANDING      (((SYSEXC_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+(SYSEXC_OFFSET*32))))
 
 
 #define SYSEXC_SYSEXCRIS_OFFSET    (0x0000)
