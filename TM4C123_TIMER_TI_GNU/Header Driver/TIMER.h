@@ -554,19 +554,19 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t TnMR              : 2;
-    volatile uint32_t TnCMR             : 1;
-    volatile uint32_t TnAMS             : 1;
-    volatile uint32_t TnCDIR            : 1;
-    volatile uint32_t TnMIE             : 1;
-    volatile uint32_t TnWOT             : 1;
-    volatile uint32_t TnSNAPS           : 1;
-    volatile uint32_t TnILD             : 1;
-    volatile uint32_t TnPWMIE           : 1;
-    volatile uint32_t TnMRSU            : 1;
-    volatile uint32_t TnPLO             : 1;
-    const    uint32_t reserved          : 20;
-}GPTMMR_TA_TypeDef;
+    volatile uint16_t TnMR              : 2;
+    volatile uint16_t TnCMR             : 1;
+    volatile uint16_t TnAMS             : 1;
+    volatile uint16_t TnCDIR            : 1;
+    volatile uint16_t TnMIE             : 1;
+    volatile uint16_t TnWOT             : 1;
+    volatile uint16_t TnSNAPS           : 1;
+    volatile uint16_t TnILD             : 1;
+    volatile uint16_t TnPWMIE           : 1;
+    volatile uint16_t TnMRSU            : 1;
+    volatile uint16_t TnPLO             : 1;
+    const    uint16_t reserved          : 4;
+}TA_GPTMMR_TypeDef;
 
 typedef volatile struct
 {
@@ -577,7 +577,7 @@ typedef volatile struct
     volatile uint8_t TnOTE              : 1;
     volatile uint8_t TnPWML             : 1;
     const    uint8_t reserved1          : 1;
-}GPTMCTL_TA_TypeDef;
+}TA_GPTMCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -587,7 +587,7 @@ typedef volatile struct
     const    uint8_t reserved           : 1;
     volatile uint8_t TnMIM              : 1;
     const    uint8_t reserved1          : 3;
-}GPTMIMR_TA_TypeDef;
+}TA_GPTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -597,7 +597,7 @@ typedef volatile struct
     const          uint8_t reserved     : 1;
     volatile const uint8_t TnMRIS       : 1;
     const          uint8_t reserved1    : 3;
-}GPTMRIS_TA_TypeDef;
+}TA_GPTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -607,7 +607,7 @@ typedef volatile struct
     const          uint8_t reserved     : 1;
     volatile const uint8_t TnMMIS       : 1;
     const          uint8_t reserved1    : 3;
-}GPTMMIS_TA_TypeDef;
+}TA_GPTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -617,42 +617,42 @@ typedef volatile struct
     const    uint8_t reserved           : 1;
     volatile uint8_t TnMCINT            : 1;
     const    uint8_t reserved1          : 3;
-}GPTMICR_TA_TypeDef;
+}TA_GPTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnILR             : 16;
-}GPTMILR_TA_TypeDef;
+}TA_GPTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnMR              : 16;
-}GPTMMATCHR_TA_TypeDef;
+}TA_GPTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint8_t TnPSR              : 8;
-}GPTMPR_TA_TypeDef;
+}TA_GPTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint8_t TnPSMR             : 8;
-}GPTMPMR_TA_TypeDef;
+}TA_GPTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR         : 32;
-}GPTMR_TA_TypeDef;
+}TA_GPTMR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV               : 32;
-}GPTMV_TA_TypeDef;
+}TA_GPTMV_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint16_t PSS         : 16;
-}GPTMPS_TA_TypeDef;
+}TA_GPTMPS_TypeDef;
 
 typedef volatile struct
 {
@@ -667,8 +667,8 @@ typedef volatile struct
     volatile uint32_t TnPWMIE           [1];
     volatile uint32_t TnMRSU            [1];
     volatile uint32_t TnPLO             [1];
-    const    uint32_t reserved          [20];
-}BITBANDING_GPTMMR_TA_TypeDef;
+    const    uint32_t reserved          [4];
+}BITBANDING_TA_GPTMMR_TypeDef;
 
 typedef volatile struct
 {
@@ -679,7 +679,7 @@ typedef volatile struct
     volatile uint32_t TnOTE             [1];
     volatile uint32_t TnPWML            [1];
     const    uint32_t reserved1         [1];
-}BITBANDING_GPTMCTL_TA_TypeDef;
+}BITBANDING_TA_GPTMCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -689,7 +689,7 @@ typedef volatile struct
     const    uint32_t reserved          [1];
     volatile uint32_t TnMIM             [1];
     const    uint32_t reserved1         [3];
-}BITBANDING_GPTMIMR_TA_TypeDef;
+}BITBANDING_TA_GPTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -699,7 +699,7 @@ typedef volatile struct
     const          uint32_t reserved    [1];
     volatile const uint32_t TnMRIS      [1];
     const          uint32_t reserved1   [3];
-}BITBANDING_GPTMRIS_TA_TypeDef;
+}BITBANDING_TA_GPTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -709,7 +709,7 @@ typedef volatile struct
     const          uint32_t reserved    [1];
     volatile const uint32_t TnMMIS      [1];
     const          uint32_t reserved1   [3];
-}BITBANDING_GPTMMIS_TA_TypeDef;
+}BITBANDING_TA_GPTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -719,42 +719,42 @@ typedef volatile struct
     const    uint32_t reserved          [1];
     volatile uint32_t TnMCINT           [1];
     const    uint32_t reserved1         [3];
-}BITBANDING_GPTMICR_TA_TypeDef;
+}BITBANDING_TA_GPTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR             [16];
-}BITBANDING_GPTMILR_TA_TypeDef;
+}BITBANDING_TA_GPTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnMR              [16];
-}BITBANDING_GPTMMATCHR_TA_TypeDef;
+}BITBANDING_TA_GPTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSR             [8];
-}BITBANDING_GPTMPR_TA_TypeDef;
+}BITBANDING_TA_GPTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSMR            [8];
-}BITBANDING_GPTMPMR_TA_TypeDef;
+}BITBANDING_TA_GPTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR         [32];
-}GPTMR_BITBANDING_TA_TypeDef;
+}BITBANDING_TA_GPTMR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV               [32];
-}GPTMV_BITBANDING_TA_TypeDef;
+}BITBANDING_TA_GPTMV_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t PSS         [16];
-}BITBANDING_GPTMPS_TA_TypeDef;
+}BITBANDING_TA_GPTMPS_TypeDef;
 
 /*************************************************************
  ***************************  TIMERB 16 REGS **************
@@ -762,19 +762,19 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t TnMR              : 2;
-    volatile uint32_t TnCMR             : 1;
-    volatile uint32_t TnAMS             : 1;
-    volatile uint32_t TnCDIR            : 1;
-    volatile uint32_t TnMIE             : 1;
-    volatile uint32_t TnWOT             : 1;
-    volatile uint32_t TnSNAPS           : 1;
-    volatile uint32_t TnILD             : 1;
-    volatile uint32_t TnPWMIE           : 1;
-    volatile uint32_t TnMRSU            : 1;
-    volatile uint32_t TnPLO             : 1;
-    const    uint32_t reserved          : 20;
-}GPTMMR_TB_TypeDef;
+    volatile uint16_t TnMR              : 2;
+    volatile uint16_t TnCMR             : 1;
+    volatile uint16_t TnAMS             : 1;
+    volatile uint16_t TnCDIR            : 1;
+    volatile uint16_t TnMIE             : 1;
+    volatile uint16_t TnWOT             : 1;
+    volatile uint16_t TnSNAPS           : 1;
+    volatile uint16_t TnILD             : 1;
+    volatile uint16_t TnPWMIE           : 1;
+    volatile uint16_t TnMRSU            : 1;
+    volatile uint16_t TnPLO             : 1;
+    const    uint16_t reserved          : 4;
+}TB_GPTMMR_TypeDef;
 
 typedef volatile struct
 {
@@ -785,7 +785,7 @@ typedef volatile struct
     volatile uint8_t TnOTE              : 1;
     volatile uint8_t TnPWML             : 1;
     const    uint8_t reserved1          : 1;
-}GPTMCTL_TB_TypeDef;
+}TB_GPTMCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -794,7 +794,7 @@ typedef volatile struct
     volatile uint8_t CnEIM              : 1;
     volatile uint8_t TnMIM              : 1;
     const    uint8_t reserved           : 4;
-}GPTMIMR_TB_TypeDef;
+}TB_GPTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -803,7 +803,7 @@ typedef volatile struct
     volatile const uint8_t CnERIS       : 1;
     volatile const uint8_t TnMRIS       : 1;
     const          uint8_t reserved     : 4;
-}GPTMRIS_TB_TypeDef;
+}TB_GPTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -812,7 +812,7 @@ typedef volatile struct
     volatile const uint8_t CnEMIS       : 1;
     volatile const uint8_t TnMMIS       : 1;
     const          uint8_t reserved     : 4;
-}GPTMMIS_TB_TypeDef;
+}TB_GPTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -821,42 +821,42 @@ typedef volatile struct
     volatile uint8_t CnECINT            : 1;
     volatile uint8_t TnMCINT            : 1;
     const    uint8_t reserved           : 4;
-}GPTMICR_TB_TypeDef;
+}TB_GPTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnILR             : 16;
-}GPTMILR_TB_TypeDef;
+}TB_GPTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnMR              : 16;
-}GPTMMATCHR_TB_TypeDef;
+}TB_GPTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint8_t TnPSR              : 8;
-}GPTMPR_TB_TypeDef;
+}TB_GPTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint8_t TnPSMR             : 8;
-}GPTMPMR_TB_TypeDef;
+}TB_GPTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR         : 32;
-}GPTMR_TB_TypeDef;
+}TB_GPTMR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV               : 32;
-}GPTMV_TB_TypeDef;
+}TB_GPTMV_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint16_t PSS         : 16;
-}GPTMPS_TB_TypeDef;
+}TB_GPTMPS_TypeDef;
 
 typedef volatile struct
 {
@@ -871,8 +871,8 @@ typedef volatile struct
     volatile uint32_t TnPWMIE           [1];
     volatile uint32_t TnMRSU            [1];
     volatile uint32_t TnPLO             [1];
-    const    uint32_t reserved          [20];
-}BITBANDING_GPTMMR_TB_TypeDef;
+    const    uint32_t reserved          [4];
+}BITBANDING_TB_GPTMMR_TypeDef;
 
 typedef volatile struct
 {
@@ -883,7 +883,7 @@ typedef volatile struct
     volatile uint32_t TnOTE             [1];
     volatile uint32_t TnPWML            [1];
     const    uint32_t reserved1         [1];
-}BITBANDING_GPTMCTL_TB_TypeDef;
+}BITBANDING_TB_GPTMCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -892,7 +892,7 @@ typedef volatile struct
     volatile uint32_t CnEIM             [1];
     volatile uint32_t TnMIM             [1];
     const    uint32_t reserved1         [4];
-}BITBANDING_GPTMIMR_TB_TypeDef;
+}BITBANDING_TB_GPTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -901,7 +901,7 @@ typedef volatile struct
     volatile const uint32_t CnERIS      [1];
     volatile const uint32_t TnMRIS      [1];
     const          uint32_t reserved1   [4];
-}BITBANDING_GPTMRIS_TB_TypeDef;
+}BITBANDING_TB_GPTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -910,7 +910,7 @@ typedef volatile struct
     volatile const uint32_t CnEMIS      [1];
     volatile const uint32_t TnMMIS      [1];
     const          uint32_t reserved1   [4];
-}BITBANDING_GPTMMIS_TB_TypeDef;
+}BITBANDING_TB_GPTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -919,42 +919,42 @@ typedef volatile struct
     volatile uint32_t CnECINT           [1];
     volatile uint32_t TnMCINT           [1];
     const    uint32_t reserved1         [4];
-}BITBANDING_GPTMICR_TB_TypeDef;
+}BITBANDING_TB_GPTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR             [16];
-}BITBANDING_GPTMILR_TB_TypeDef;
+}BITBANDING_TB_GPTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnMR              [16];
-}BITBANDING_GPTMMATCHR_TB_TypeDef;
+}BITBANDING_TB_GPTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSR             [8];
-}BITBANDING_GPTMPR_TB_TypeDef;
+}BITBANDING_TB_GPTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSMR            [8];
-}BITBANDING_GPTMPMR_TB_TypeDef;
+}BITBANDING_TB_GPTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR         [32];
-}GPTMR_BITBANDING_TB_TypeDef;
+}BITBANDING_TB_GPTMR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV               [32];
-}GPTMV_BITBANDING_TB_TypeDef;
+}BITBANDING_TB_GPTMV_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t PSS         [16];
-}BITBANDING_GPTMPS_TB_TypeDef;
+}BITBANDING_TB_GPTMPS_TypeDef;
 
 /*************************************************************
  *********************************  TIMER 32 REGS **************
@@ -962,19 +962,19 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t TnMR              : 2;
-    volatile uint32_t TnCMR             : 1;
-    volatile uint32_t TnAMS             : 1;
-    volatile uint32_t TnCDIR            : 1;
-    volatile uint32_t TnMIE             : 1;
-    volatile uint32_t TnWOT             : 1;
-    volatile uint32_t TnSNAPS           : 1;
-    volatile uint32_t TnILD             : 1;
-    volatile uint32_t TnPWMIE           : 1;
-    volatile uint32_t TnMRSU            : 1;
-    volatile uint32_t TnPLO             : 1;
-    const    uint32_t reserved          : 20;
-}GPTMMR_TW_TypeDef;
+    volatile uint16_t TnMR              : 2;
+    volatile uint16_t TnCMR             : 1;
+    volatile uint16_t TnAMS             : 1;
+    volatile uint16_t TnCDIR            : 1;
+    volatile uint16_t TnMIE             : 1;
+    volatile uint16_t TnWOT             : 1;
+    volatile uint16_t TnSNAPS           : 1;
+    volatile uint16_t TnILD             : 1;
+    volatile uint16_t TnPWMIE           : 1;
+    volatile uint16_t TnMRSU            : 1;
+    volatile uint16_t TnPLO             : 1;
+    const    uint16_t reserved          : 4;
+}TW_GPTMMR_TypeDef;
 
 typedef volatile struct
 {
@@ -985,7 +985,7 @@ typedef volatile struct
     volatile uint8_t TnOTE              : 1;
     volatile uint8_t TnPWML             : 1;
     const    uint8_t reserved           : 1;
-}GPTMCTL_TW_TypeDef;
+}TW_GPTMCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -995,7 +995,7 @@ typedef volatile struct
     volatile uint8_t RTCIM              : 1;
     volatile uint8_t TnMIM              : 1;
     const    uint8_t reserved           : 3;
-}GPTMIMR_TW_TypeDef;
+}TW_GPTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -1005,7 +1005,7 @@ typedef volatile struct
     volatile const uint8_t RTCRIS       : 1;
     volatile const uint8_t TnMRIS       : 1;
     const          uint8_t reserved     : 3;
-}GPTMRIS_TW_TypeDef;
+}TW_GPTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1015,7 +1015,7 @@ typedef volatile struct
     volatile const uint8_t RTCMIS       : 1;
     volatile const uint8_t TnMMIS       : 1;
     const          uint8_t reserved     : 3;
-}GPTMMIS_TW_TypeDef;
+}TW_GPTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1025,32 +1025,32 @@ typedef volatile struct
     volatile uint8_t RTCCINT            : 1;
     volatile uint8_t TnMCINT            : 1;
     const    uint8_t reserved           : 3;
-}GPTMICR_TW_TypeDef;
+}TW_GPTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR             : 32;
-}GPTMILR_TW_TypeDef;
+}TW_GPTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnAMR             : 32;
-}GPTMMATCHR_TW_TypeDef;
+}TW_GPTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR         : 32;
-}GPTMR_TW_TypeDef;
+}TW_GPTMR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV               : 32;
-}GPTMV_TW_TypeDef;
+}TW_GPTMV_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint16_t RTCPD       : 16;
-}GPTMRTCPD_TW_TypeDef;
+}TW_GPTMRTCPD_TypeDef;
 
 typedef volatile struct
 {
@@ -1065,8 +1065,8 @@ typedef volatile struct
     volatile uint32_t TnPWMIE           [1];
     volatile uint32_t TnMRSU            [1];
     volatile uint32_t TnPLO             [1];
-    const    uint32_t reserved          [20];
-}BITBANDING_GPTMMR_TW_TypeDef;
+    const    uint32_t reserved          [4];
+}BITBANDING_TW_GPTMMR_TypeDef;
 
 typedef volatile struct
 {
@@ -1077,7 +1077,7 @@ typedef volatile struct
     volatile uint32_t TnOTE             [1];
     volatile uint32_t TnPWML            [1];
     const    uint32_t reserved          [1];
-}BITBANDING_GPTMCTL_TW_TypeDef;
+}BITBANDING_TW_GPTMCTL_TypeDef;
 
 typedef volatile struct
 {
@@ -1087,7 +1087,7 @@ typedef volatile struct
     volatile uint32_t RTCIM             [1];
     volatile uint32_t TnMIM             [1];
     const    uint32_t reserved          [3];
-}BITBANDING_GPTMIMR_TW_TypeDef;
+}BITBANDING_TW_GPTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -1097,7 +1097,7 @@ typedef volatile struct
     volatile const uint32_t RTCRIS      [1];
     volatile const uint32_t TnMRIS      [1];
     const          uint32_t reserved    [3];
-}BITBANDING_GPTMRIS_TW_TypeDef;
+}BITBANDING_TW_GPTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1107,7 +1107,7 @@ typedef volatile struct
     volatile const uint32_t RTCMIS      [1];
     volatile const uint32_t TnMMIS      [1];
     const          uint32_t reserved    [3];
-}BITBANDING_GPTMMIS_TW_TypeDef;
+}BITBANDING_TW_GPTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1117,32 +1117,32 @@ typedef volatile struct
     volatile uint32_t RTCCINT           [1];
     volatile uint32_t TnMCINT           [1];
     const    uint32_t reserved          [3];
-}BITBANDING_GPTMICR_TW_TypeDef;
+}BITBANDING_TW_GPTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR             [32];
-}BITBANDING_GPTMILR_TW_TypeDef;
+}BITBANDING_TW_GPTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnAMR             [32];
-}BITBANDING_GPTMMATCHR_TW_TypeDef;
+}BITBANDING_TW_GPTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR         [32];
-}GPTMR_BITBANDING_TW_TypeDef;
+}BITBANDING_TW_GPTMR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV               [32];
-}GPTMV_BITBANDING_TW_TypeDef;
+}BITBANDING_TW_GPTMV_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t RTCPD       [16];
-}BITBANDING_GPTMRTCPD_TW_TypeDef;
+}BITBANDING_TW_GPTMRTCPD_TypeDef;
 
 /*************************************************************
  ***************************  TIMERA 32 REGS **************
@@ -1151,52 +1151,52 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile uint32_t TnILR             : 32;
-}GPWTMILR_TA_TypeDef;
+}TA_GPWTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnMR              : 32;
-}GPWTMMATCHR_TA_TypeDef;
+}TA_GPWTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnPSR             : 16;
-}GPWTMPR_TA_TypeDef;
+}TA_GPWTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnPSMR            : 16;
-}GPWTMPMR_TA_TypeDef;
+}TA_GPWTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint16_t PSV         : 16;
-}GPWTMPV_TA_TypeDef;
+}TA_GPWTMPV_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR             [32];
-}BITBANDING_GPWTMILR_TA_TypeDef;
+}BITBANDING_TA_GPWTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnMR              [32];
-}BITBANDING_GPWTMMATCHR_TA_TypeDef;
+}BITBANDING_TA_GPWTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSR             [16];
-}BITBANDING_GPWTMPR_TA_TypeDef;
+}BITBANDING_TA_GPWTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSMR            [16];
-}BITBANDING_GPWTMPMR_TA_TypeDef;
+}BITBANDING_TA_GPWTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t PSV         [16];
-}BITBANDING_GPWTMPV_TA_TypeDef;
+}BITBANDING_TA_GPWTMPV_TypeDef;
 
 /*************************************************************
  ***************************  TIMERB 32 REGS **************
@@ -1205,52 +1205,52 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile uint32_t TnILR             : 32;
-}GPWTMILR_TB_TypeDef;
+}TB_GPWTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnMR              : 32;
-}GPWTMMATCHR_TB_TypeDef;
+}TB_GPWTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnPSR             : 16;
-}GPWTMPR_TB_TypeDef;
+}TB_GPWTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint16_t TnPSMR            : 16;
-}GPWTMPMR_TB_TypeDef;
+}TB_GPWTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint16_t PSV         : 16;
-}GPWTMPV_TB_TypeDef;
+}TB_GPWTMPV_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR             [32];
-}BITBANDING_GPWTMILR_TB_TypeDef;
+}BITBANDING_TB_GPWTMILR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnMR              [32];
-}BITBANDING_GPWTMMATCHR_TB_TypeDef;
+}BITBANDING_TB_GPWTMMATCHR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSR             [16];
-}BITBANDING_GPWTMPR_TB_TypeDef;
+}BITBANDING_TB_GPWTMPR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnPSMR            [16];
-}BITBANDING_GPWTMPMR_TB_TypeDef;
+}BITBANDING_TB_GPWTMPMR_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t PSV         [16];
-}BITBANDING_GPWTMPV_TB_TypeDef;
+}BITBANDING_TB_GPWTMPV_TypeDef;
 
 
 /*************************************************************
@@ -1267,7 +1267,7 @@ typedef volatile struct
     const    uint32_t reserved          : 11;
     volatile uint32_t WUEIM             : 1;
     const    uint32_t reserved1         : 15;
-}GPWTMIMR_TW_TypeDef;
+}TW_GPWTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -1279,7 +1279,7 @@ typedef volatile struct
     const          uint32_t reserved    : 11;
     volatile const uint32_t WUERIS      : 1;
     const          uint32_t reserved1   : 15;
-}GPWTMRIS_TW_TypeDef;
+}TW_GPWTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1291,7 +1291,7 @@ typedef volatile struct
     const          uint32_t reserved    : 11;
     volatile const uint32_t WUEMIS      : 1;
     const          uint32_t reserved1   : 15;
-}GPWTMMIS_TW_TypeDef;
+}TW_GPWTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1303,47 +1303,47 @@ typedef volatile struct
     const    uint32_t reserved          : 11;
     volatile uint32_t WUECINT           : 1;
     const    uint32_t reserved1         : 15;
-}GPWTMICR_TW_TypeDef;
+}TW_GPWTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR_LOW         : 32;
-}GPWTMILR_TW_LOW_TypeDef;
+}TW_GPWTMILR_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR_HIGH        : 32;
-}GPWTMILR_TW_HIGH_TypeDef;
+}TW_GPWTMILR_HIGH_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnAMR_LOW         : 32;
-}GPWTMMATCHR_TW_LOW_TypeDef;
+}TW_GPWTMMATCHR_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnAMR_HIGH        : 32;
-}GPWTMMATCHR_TW_HIGH_TypeDef;
+}TW_GPWTMMATCHR_HIGH_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR_LOW     : 32;
-}GPWTMR_TW_LOW_TypeDef;
+}TW_GPWTMR_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR_HIGH    : 32;
-}GPWTMR_TW_HIGH_TypeDef;
+}TW_GPWTMR_HIGH_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV_LOW           : 32;
-}GPWTMV_TW_LOW_TypeDef;
+}TW_GPWTMV_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV_HIGH          : 32;
-}GPWTMV_TW_HIGH_TypeDef;
+}TW_GPWTMV_HIGH_TypeDef;
 
 typedef volatile struct
 {
@@ -1355,7 +1355,7 @@ typedef volatile struct
     const    uint32_t reserved          [11];
     volatile uint32_t WUEIM             [1];
     const    uint32_t reserved1         [15];
-}BITBANDING_GPWTMIMR_TW_TypeDef;
+}BITBANDING_TW_GPWTMIMR_TypeDef;
 
 typedef volatile struct
 {
@@ -1367,7 +1367,7 @@ typedef volatile struct
     const          uint32_t reserved    [11];
     volatile const uint32_t WUERIS      [1];
     const          uint32_t reserved1   [15];
-}BITBANDING_GPWTMRIS_TW_TypeDef;
+}BITBANDING_TW_GPWTMRIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1379,7 +1379,7 @@ typedef volatile struct
     const          uint32_t reserved    [11];
     volatile const uint32_t WUEMIS      [1];
     const          uint32_t reserved1   [15];
-}BITBANDING_GPWTMMIS_TW_TypeDef;
+}BITBANDING_TW_GPWTMMIS_TypeDef;
 
 typedef volatile struct
 {
@@ -1391,47 +1391,47 @@ typedef volatile struct
     const    uint32_t reserved          [11];
     volatile uint32_t WUECINT           [1];
     const    uint32_t reserved1         [15];
-}BITBANDING_GPWTMICR_TW_TypeDef;
+}BITBANDING_TW_GPWTMICR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR_LOW         [32];
-}BITBANDING_GPWTMILR_TW_LOW_TypeDef;
+}BITBANDING_TW_GPWTMILR_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnILR_HIGH        [32];
-}BITBANDING_GPWTMILR_TW_HIGH_TypeDef;
+}BITBANDING_TW_GPWTMILR_HIGH_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnAMR_LOW         [32];
-}BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef;
+}BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnAMR_HIGH        [32];
-}BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef;
+}BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR_LOW     [32];
-}GPWTMR_BITBANDING_TW_LOW_TypeDef;
+}BITBANDING_TW_GPWTMR_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile const uint32_t TnR_HIGH    [32];
-}GPWTMR_BITBANDING_TW_HIGH_TypeDef;
+}BITBANDING_TW_GPWTMR_HIGH_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV_LOW           [32];
-}GPWTMV_BITBANDING_TW_LOW_TypeDef;
+}BITBANDING_TW_GPWTMV_LOW_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t TnV_HIGH          [32];
-}GPWTMV_BITBANDING_TW_HIGH_TypeDef;
+}BITBANDING_TW_GPWTMV_HIGH_TypeDef;
 
 /*************************************************************
  *********************************  TIMERA16 DEF**************
@@ -1477,7 +1477,7 @@ typedef volatile struct
     union
     {
         volatile uint32_t                   GPTMPP[32];
-        GPTMPP_TypeDef                      GPTMPP_Bit;
+        BITBANDING_GPTMPP_TypeDef           GPTMPP_Bit;
     };
     const uint32_t                          reserved2[15*32];
 }GPTM_BITBANDING_CTL_TypeDef;
@@ -1488,85 +1488,86 @@ typedef volatile struct
     const uint32_t                          reserved[1];
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        GPTMMR_TA_TypeDef                   GPTMTnMR_Bit;
+        volatile uint16_t                   GPTMTnMR;
+        TA_GPTMMR_TypeDef                   GPTMTnMR_Bit;
     };
+    const uint16_t                          reserved0[1];
     const uint32_t                          reserved1[1];
     union
     {
         volatile uint8_t                    GPTMTnCTL;
-        GPTMCTL_TA_TypeDef                  GPTMTnCTL_Bit;
+        TA_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
     };
     const uint8_t                           reserved2[3];
     const uint32_t                          reserved3[2];
     union
     {
         volatile uint8_t                    GPTMTnIMR;
-        GPTMIMR_TA_TypeDef                  GPTMTnIMR_Bit;
+        TA_GPTMIMR_TypeDef                  GPTMTnIMR_Bit;
     };
     const uint8_t                           reserved4[3];
     union
     {
         volatile uint8_t                    GPTMTnRIS;
-        GPTMRIS_TA_TypeDef                  GPTMTnRIS_Bit;
+        TA_GPTMRIS_TypeDef                  GPTMTnRIS_Bit;
     };
     const uint8_t                           reserved5[3];
     union
     {
         volatile uint8_t                    GPTMTnMIS;
-        GPTMMIS_TA_TypeDef                  GPTMTnMIS_Bit;
+        TA_GPTMMIS_TypeDef                  GPTMTnMIS_Bit;
     };
     const uint8_t                           reserved6[3];
     union
     {
         volatile uint8_t                    GPTMTnICR;
-        GPTMICR_TA_TypeDef                  GPTMTnICR_Bit;
+        TA_GPTMICR_TypeDef                  GPTMTnICR_Bit;
     };
     const uint8_t                           reserved7[3];
     union
     {
         volatile uint16_t                   GPTMTnILR;
-        GPTMILR_TA_TypeDef                  GPTMTnILR_Bit;
+        TA_GPTMILR_TypeDef                  GPTMTnILR_Bit;
     };
     const uint16_t                          reserved8[1];
     const uint32_t                          reserved9[1];
     union
     {
         volatile uint16_t                   GPTMTnMATCHR;
-        GPTMMATCHR_TA_TypeDef               GPTMTnMATCHR_Bit;
+        TA_GPTMMATCHR_TypeDef               GPTMTnMATCHR_Bit;
     };
     const uint16_t                          reserved10[1];
     const uint32_t                          reserved11[1];
     union
     {
         volatile uint8_t                    GPTMTnPR;
-        GPTMPR_TA_TypeDef                   GPTMTnPR_Bit;
+        TA_GPTMPR_TypeDef                   GPTMTnPR_Bit;
     };
     const uint8_t                           reserved12[3];
     const uint32_t                          reserved13[1];
     union
     {
         volatile uint8_t                    GPTMTnPMR;
-        GPTMPMR_TA_TypeDef                  GPTMTnPMR_Bit;
+        TA_GPTMPMR_TypeDef                  GPTMTnPMR_Bit;
     };
     const uint8_t                           reserved14[3];
     const uint32_t                          reserved15[1];
     union
     {
         volatile const uint32_t             GPTMTnR;
-        GPTMR_TA_TypeDef                    GPTMTnR_Bit;
+        TA_GPTMR_TypeDef                    GPTMTnR_Bit;
     };
     const uint32_t                          reserved16[1];
     union
     {
         volatile uint32_t                   GPTMTnV;
-        GPTMV_TA_TypeDef                    GPTMTnV_Bit;
+        TA_GPTMV_TypeDef                    GPTMTnV_Bit;
     };
     const uint32_t                          reserved17[2];
     union
     {
         volatile const uint16_t             GPTMTnPS;
-        GPTMPS_TA_TypeDef                   GPTMTnPS_Bit;
+        TA_GPTMPS_TypeDef                   GPTMTnPS_Bit;
     };
     const uint16_t                          reserved18[1];
     const uint32_t                          reserved19[1000];
@@ -1580,85 +1581,86 @@ typedef volatile struct
     const uint32_t                          reserved[1*32];
     union
     {
-        volatile uint32_t                   GPTMTnMR[32];
-        BITBANDING_GPTMMR_TA_TypeDef        GPTMTnMR_Bit;
+        volatile uint32_t                   GPTMTnMR[16];
+        BITBANDING_TA_GPTMMR_TypeDef        GPTMTnMR_Bit;
     };
+    const uint32_t                          reserved0[1*16];
     const uint32_t                          reserved1[1*32];
     union
     {
         volatile uint32_t                   GPTMTnCTL[8];
-        BITBANDING_GPTMCTL_TA_TypeDef       GPTMTnCTL_Bit;
+        BITBANDING_TA_GPTMCTL_TypeDef       GPTMTnCTL_Bit;
     };
     const uint32_t                          reserved2[3*8];
     const uint32_t                          reserved3[2*32];
     union
     {
         volatile uint32_t                   GPTMTnIMR[8];
-        BITBANDING_GPTMIMR_TA_TypeDef       GPTMTnIMR_Bit;
+        BITBANDING_TA_GPTMIMR_TypeDef       GPTMTnIMR_Bit;
     };
     const uint32_t                          reserved4[3*8];
     union
     {
         volatile uint32_t                   GPTMTnRIS[8];
-        BITBANDING_GPTMRIS_TA_TypeDef       GPTMTnRIS_Bit;
+        BITBANDING_TA_GPTMRIS_TypeDef       GPTMTnRIS_Bit;
     };
     const uint32_t                          reserved5[3*8];
     union
     {
         volatile uint32_t                   GPTMTnMIS[8];
-        BITBANDING_GPTMMIS_TA_TypeDef       GPTMTnMIS_Bit;
+        BITBANDING_TA_GPTMMIS_TypeDef       GPTMTnMIS_Bit;
     };
     const uint32_t                          reserved6[3*8];
     union
     {
         volatile uint32_t                   GPTMTnICR[8];
-        BITBANDING_GPTMICR_TA_TypeDef       GPTMTnICR_Bit;
+        BITBANDING_TA_GPTMICR_TypeDef       GPTMTnICR_Bit;
     };
     const uint32_t                          reserved7[3*8];
     union
     {
         volatile uint32_t                   GPTMTnILR[16];
-        BITBANDING_GPTMILR_TA_TypeDef       GPTMTnILR_Bit;
+        BITBANDING_TA_GPTMILR_TypeDef       GPTMTnILR_Bit;
     };
     const uint32_t                          reserved8[1*16];
     const uint32_t                          reserved9[1*32];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR[16];
-        BITBANDING_GPTMMATCHR_TA_TypeDef    GPTMTnMATCHR_Bit;
+        BITBANDING_TA_GPTMMATCHR_TypeDef    GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved10[1*16];
     const uint32_t                          reserved11[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPR[8];
-        BITBANDING_GPTMPR_TA_TypeDef        GPTMTnPR_Bit;
+        BITBANDING_TA_GPTMPR_TypeDef        GPTMTnPR_Bit;
     };
     const uint32_t                          reserved12[3*8];
     const uint32_t                          reserved13[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPMR[8];
-        BITBANDING_GPTMPMR_TA_TypeDef       GPTMTnPMR_Bit;
+        BITBANDING_TA_GPTMPMR_TypeDef       GPTMTnPMR_Bit;
     };
     const uint32_t                          reserved14[3*8];
     const uint32_t                          reserved15[1*32];
     union
     {
         volatile const uint32_t             GPTMTnR[32];
-        GPTMR_BITBANDING_TA_TypeDef         GPTMTnR_Bit;
+        BITBANDING_TA_GPTMR_TypeDef         GPTMTnR_Bit;
     };
     const uint32_t                          reserved16[1*32];
     union
     {
         volatile uint32_t                   GPTMTnV[32];
-        GPTMV_BITBANDING_TA_TypeDef         GPTMTnV_Bit;
+        BITBANDING_TA_GPTMV_TypeDef         GPTMTnV_Bit;
     };
     const uint32_t                          reserved17[2*32];
     union
     {
         volatile const uint32_t             GPTMTnPS[16];
-        BITBANDING_GPTMPS_TA_TypeDef        GPTMTnPS_Bit;
+        BITBANDING_TA_GPTMPS_TypeDef        GPTMTnPS_Bit;
     };
     const uint32_t                          reserved18[1*16];
     const uint32_t                          reserved19[1000*32];
@@ -1670,14 +1672,15 @@ typedef volatile struct
     const uint32_t                          reserved[2];
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        GPTMMR_TB_TypeDef                   GPTMTnMR_Bit;
+        volatile uint16_t                   GPTMTnMR;
+        TB_GPTMMR_TypeDef                   GPTMTnMR_Bit;
     };
+    const uint16_t                          reserved0[1];
     const uint8_t                           reserved1[1];
     union
     {
         volatile uint8_t                    GPTMTnCTL;
-        GPTMCTL_TB_TypeDef                  GPTMTnCTL_Bit;
+        TB_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
     };
     const uint8_t                           reserved2[2];
     const uint32_t                          reserved3[2];
@@ -1685,72 +1688,72 @@ typedef volatile struct
     union
     {
         volatile uint8_t                    GPTMTnIMR;
-        GPTMIMR_TB_TypeDef                  GPTMTnIMR_Bit;
+        TB_GPTMIMR_TypeDef                  GPTMTnIMR_Bit;
     };
     const uint8_t                           reserved5[3];
     union
     {
         volatile uint8_t                    GPTMTnRIS;
-        GPTMRIS_TB_TypeDef                  GPTMTnRIS_Bit;
+        TB_GPTMRIS_TypeDef                  GPTMTnRIS_Bit;
     };
     const uint8_t                           reserved6[3];
     union
     {
         volatile uint8_t                    GPTMTnMIS;
-        GPTMMIS_TB_TypeDef                  GPTMTnMIS_Bit;
+        TB_GPTMMIS_TypeDef                  GPTMTnMIS_Bit;
     };
     const uint8_t                           reserved7[3];
     union
     {
         volatile uint8_t                    GPTMTnICR;
-        GPTMICR_TB_TypeDef                  GPTMTnICR_Bit;
+        TB_GPTMICR_TypeDef                  GPTMTnICR_Bit;
     };
     const uint8_t                           reserved8[2];
     const uint32_t                          reserved9[1];
     union
     {
         volatile uint16_t                   GPTMTnILR;
-        GPTMILR_TB_TypeDef                  GPTMTnILR_Bit;
+        TB_GPTMILR_TypeDef                  GPTMTnILR_Bit;
     };
     const uint16_t                          reserved10[1];
     const uint32_t                          reserved11[1];
     union
     {
         volatile uint16_t                   GPTMTnMATCHR;
-        GPTMMATCHR_TB_TypeDef               GPTMTnMATCHR_Bit;
+        TB_GPTMMATCHR_TypeDef               GPTMTnMATCHR_Bit;
     };
     const uint16_t                          reserved12[1];
     const uint32_t                          reserved13[1];
     union
     {
         volatile uint8_t                    GPTMTnPR;
-        GPTMPR_TB_TypeDef                   GPTMTnPR_Bit;
+        TB_GPTMPR_TypeDef                   GPTMTnPR_Bit;
     };
     const uint8_t                           reserved14[3];
     const uint32_t                          reserved15[1];
     union
     {
         volatile uint8_t                    GPTMTnPMR;
-        GPTMPMR_TB_TypeDef                  GPTMTnPMR_Bit;
+        TB_GPTMPMR_TypeDef                  GPTMTnPMR_Bit;
     };
     const uint8_t                           reserved16[3];
     const uint32_t                          reserved17[1];
     union
     {
         volatile const uint32_t             GPTMTnR;
-        GPTMR_TB_TypeDef                    GPTMTnR_Bit;
+        TB_GPTMR_TypeDef                    GPTMTnR_Bit;
     };
     const uint32_t                          reserved18[1];
     union
     {
         volatile uint32_t                   GPTMTnV;
-        GPTMV_TB_TypeDef                    GPTMTnV_Bit;
+        TB_GPTMV_TypeDef                    GPTMTnV_Bit;
     };
     const uint32_t                          reserved19[2];
     union
     {
         volatile const uint16_t             GPTMTnPS;
-        GPTMPS_TB_TypeDef                   GPTMTnPS_Bit;
+        TB_GPTMPS_TypeDef                   GPTMTnPS_Bit;
     };
     const uint16_t                          reserved20[1];
     const uint32_t                          reserved21[999];
@@ -1762,14 +1765,15 @@ typedef volatile struct
     const uint32_t                          reserved[2*32];
     union
     {
-        volatile uint32_t                   GPTMTnMR[32];
-        BITBANDING_GPTMMR_TB_TypeDef        GPTMTnMR_Bit;
+        volatile uint32_t                   GPTMTnMR[16];
+        BITBANDING_TB_GPTMMR_TypeDef        GPTMTnMR_Bit;
     };
+    const uint32_t                          reserved0[1*16];
     const uint32_t                          reserved1[1*8];
     union
     {
         volatile uint32_t                   GPTMTnCTL[8];
-        BITBANDING_GPTMCTL_TB_TypeDef       GPTMTnCTL_Bit;
+        BITBANDING_TB_GPTMCTL_TypeDef       GPTMTnCTL_Bit;
     };
     const uint32_t                          reserved2[2*8];
     const uint32_t                          reserved3[2*32];
@@ -1777,72 +1781,72 @@ typedef volatile struct
     union
     {
         volatile uint32_t                   GPTMTnIMR[8];
-        BITBANDING_GPTMIMR_TB_TypeDef       GPTMTnIMR_Bit;
+        BITBANDING_TB_GPTMIMR_TypeDef       GPTMTnIMR_Bit;
     };
     const uint32_t                          reserved5[3*8];
     union
     {
         volatile uint32_t                   GPTMTnRIS[8];
-        BITBANDING_GPTMRIS_TB_TypeDef       GPTMTnRIS_Bit;
+        BITBANDING_TB_GPTMRIS_TypeDef       GPTMTnRIS_Bit;
     };
     const uint32_t                          reserved6[3*8];
     union
     {
         volatile uint32_t                   GPTMTnMIS[8];
-        BITBANDING_GPTMMIS_TB_TypeDef       GPTMTnMIS_Bit;
+        BITBANDING_TB_GPTMMIS_TypeDef       GPTMTnMIS_Bit;
     };
     const uint32_t                          reserved7[3*8];
     union
     {
         volatile uint32_t                   GPTMTnICR[8];
-        BITBANDING_GPTMICR_TB_TypeDef       GPTMTnICR_Bit;
+        BITBANDING_TB_GPTMICR_TypeDef       GPTMTnICR_Bit;
     };
     const uint32_t                          reserved8[2*8];
     const uint32_t                          reserved9[1*32];
     union
     {
         volatile uint32_t                   GPTMTnILR[16];
-        BITBANDING_GPTMILR_TB_TypeDef       GPTMTnILR_Bit;
+        BITBANDING_TB_GPTMILR_TypeDef       GPTMTnILR_Bit;
     };
     const uint32_t                          reserved10[1*16];
     const uint32_t                          reserved11[1*32];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR[16];
-        BITBANDING_GPTMMATCHR_TB_TypeDef    GPTMTnMATCHR_Bit;
+        BITBANDING_TB_GPTMMATCHR_TypeDef    GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved12[1*16];
     const uint32_t                          reserved13[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPR[8];
-        BITBANDING_GPTMPR_TB_TypeDef        GPTMTnPR_Bit;
+        BITBANDING_TB_GPTMPR_TypeDef        GPTMTnPR_Bit;
     };
     const uint32_t                          reserved14[3*8];
     const uint32_t                          reserved15[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPMR[8];
-        BITBANDING_GPTMPMR_TB_TypeDef       GPTMTnPMR_Bit;
+        BITBANDING_TB_GPTMPMR_TypeDef       GPTMTnPMR_Bit;
     };
     const uint32_t                          reserved16[3*8];
     const uint32_t                          reserved17[1*32];
     union
     {
         volatile const uint32_t             GPTMTnR[32];
-        GPTMR_BITBANDING_TB_TypeDef         GPTMTnR_Bit;
+        BITBANDING_TB_GPTMR_TypeDef         GPTMTnR_Bit;
     };
     const uint32_t                          reserved18[1*32];
     union
     {
         volatile uint32_t                   GPTMTnV[32];
-        GPTMV_BITBANDING_TB_TypeDef         GPTMTnV_Bit;
+        BITBANDING_TB_GPTMV_TypeDef         GPTMTnV_Bit;
     };
     const uint32_t                          reserved19[2*32];
     union
     {
         volatile const uint32_t             GPTMTnPS[16];
-        BITBANDING_GPTMPS_TB_TypeDef        GPTMTnPS_Bit;
+        BITBANDING_TB_GPTMPS_TypeDef        GPTMTnPS_Bit;
     };
     const uint32_t                          reserved20[1*16];
     const uint32_t                          reserved21[999*32];
@@ -1855,69 +1859,70 @@ typedef volatile struct
     const uint32_t                          reserved[1];
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        GPTMMR_TW_TypeDef                   GPTMTnMR_Bit;
+        volatile uint16_t                   GPTMTnMR;
+        TW_GPTMMR_TypeDef                   GPTMTnMR_Bit;
     };
+    const uint16_t                          reserved0[1];
     const uint32_t                          reserved1[1];
     union
     {
         volatile uint8_t                    GPTMTnCTL;
-        GPTMCTL_TW_TypeDef                  GPTMTnCTL_Bit;
+        TW_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
     };
     const uint8_t                           reserved2[3];
     const uint32_t                          reserved3[2];
     union
     {
         volatile uint8_t                    GPTMTnIMR;
-        GPTMIMR_TW_TypeDef                  GPTMTnIMR_Bit;
+        TW_GPTMIMR_TypeDef                  GPTMTnIMR_Bit;
     };
     const uint8_t                           reserved4[3];
     union
     {
         volatile uint8_t                    GPTMTnRIS;
-        GPTMRIS_TW_TypeDef                  GPTMTnRIS_Bit;
+        TW_GPTMRIS_TypeDef                  GPTMTnRIS_Bit;
     };
     const uint8_t                           reserved5[3];
     union
     {
         volatile uint8_t                    GPTMTnMIS;
-        GPTMMIS_TW_TypeDef                  GPTMTnMIS_Bit;
+        TW_GPTMMIS_TypeDef                  GPTMTnMIS_Bit;
     };
     const uint8_t                           reserved6[3];
     union
     {
         volatile uint8_t                    GPTMTnICR;
-        GPTMICR_TW_TypeDef                  GPTMTnICR_Bit;
+        TW_GPTMICR_TypeDef                  GPTMTnICR_Bit;
     };
     const uint8_t                           reserved7[3];
     union
     {
         volatile uint32_t                   GPTMTnILR;
-        GPTMILR_TW_TypeDef                  GPTMTnILR_Bit;
+        TW_GPTMILR_TypeDef                  GPTMTnILR_Bit;
     };
     const uint32_t                          reserved8[1];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR;
-        GPTMMATCHR_TW_TypeDef               GPTMTnMATCHR_Bit;
+        TW_GPTMMATCHR_TypeDef               GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved9[5];
     union
     {
         volatile const uint32_t             GPTMTnR;
-        GPTMR_TW_TypeDef                    GPTMTnR_Bit;
+        TW_GPTMR_TypeDef                    GPTMTnR_Bit;
     };
     const uint32_t                          reserved10[1];
     union
     {
         volatile uint32_t                   GPTMTnV;
-        GPTMV_TW_TypeDef                    GPTMTnV_Bit;
+        TW_GPTMV_TypeDef                    GPTMTnV_Bit;
     };
     const uint32_t                          reserved11[1];
     union
     {
         volatile const uint16_t             GPTMRTCPD;
-        GPTMRTCPD_TW_TypeDef                GPTMRTCPD_Bit;
+        TW_GPTMRTCPD_TypeDef                GPTMRTCPD_Bit;
     };
     const uint16_t                          reserved12[1];
     const uint32_t                          reserved13[1000];
@@ -1931,69 +1936,70 @@ typedef volatile struct
     const uint32_t                          reserved[1*32];
     union
     {
-        volatile uint32_t                   GPTMTnMR[32];
-        BITBANDING_GPTMMR_TW_TypeDef        GPTMTnMR_Bit;
+        volatile uint32_t                   GPTMTnMR[16];
+        BITBANDING_TW_GPTMMR_TypeDef        GPTMTnMR_Bit;
     };
+    const uint32_t                          reserved0[1*16];
     const uint32_t                          reserved1[1*32];
     union
     {
         volatile uint32_t                   GPTMTnCTL[8];
-        BITBANDING_GPTMCTL_TW_TypeDef       GPTMTnCTL_Bit;
+        BITBANDING_TW_GPTMCTL_TypeDef       GPTMTnCTL_Bit;
     };
     const uint32_t                          reserved2[3*8];
     const uint32_t                          reserved3[2*32];
     union
     {
         volatile uint32_t                   GPTMTnIMR[8];
-        BITBANDING_GPTMIMR_TW_TypeDef       GPTMTnIMR_Bit;
+        BITBANDING_TW_GPTMIMR_TypeDef       GPTMTnIMR_Bit;
     };
     const uint32_t                          reserved4[3*8];
     union
     {
         volatile uint32_t                   GPTMTnRIS[8];
-        BITBANDING_GPTMRIS_TW_TypeDef       GPTMTnRIS_Bit;
+        BITBANDING_TW_GPTMRIS_TypeDef       GPTMTnRIS_Bit;
     };
     const uint32_t                          reserved5[3*8];
     union
     {
         volatile uint32_t                   GPTMTnMIS[8];
-        BITBANDING_GPTMMIS_TW_TypeDef       GPTMTnMIS_Bit;
+        BITBANDING_TW_GPTMMIS_TypeDef       GPTMTnMIS_Bit;
     };
     const uint32_t                          reserved6[3*8];
     union
     {
         volatile uint32_t                   GPTMTnICR[8];
-        BITBANDING_GPTMICR_TW_TypeDef       GPTMTnICR_Bit;
+        BITBANDING_TW_GPTMICR_TypeDef       GPTMTnICR_Bit;
     };
     const uint32_t                          reserved7[3*8];
     union
     {
         volatile uint32_t                   GPTMTnILR[32];
-        BITBANDING_GPTMILR_TW_TypeDef       GPTMTnILR_Bit;
+        BITBANDING_TW_GPTMILR_TypeDef       GPTMTnILR_Bit;
     };
     const uint32_t                          reserved8[1*32];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR[32];
-        BITBANDING_GPTMMATCHR_TW_TypeDef    GPTMTnMATCHR_Bit;
+        BITBANDING_TW_GPTMMATCHR_TypeDef    GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved9[5*32];
     union
     {
         volatile const uint32_t             GPTMTnR[32];
-        GPTMR_BITBANDING_TW_TypeDef         GPTMTnR_Bit;
+        BITBANDING_TW_GPTMR_TypeDef         GPTMTnR_Bit;
     };
     const uint32_t                          reserved10[1*32];
     union
     {
         volatile uint32_t                   GPTMTnV[32];
-        GPTMV_BITBANDING_TW_TypeDef         GPTMTnV_Bit;
+        BITBANDING_TW_GPTMV_TypeDef         GPTMTnV_Bit;
     };
     const uint32_t                          reserved11[1*32];
     union
     {
         volatile const uint32_t             GPTMRTCPD[16];
-        BITBANDING_GPTMRTCPD_TW_TypeDef     GPTMRTCPD_Bit;
+        BITBANDING_TW_GPTMRTCPD_TypeDef     GPTMRTCPD_Bit;
     };
     const uint32_t                          reserved12[1*16];
     const uint32_t                          reserved13[1000*32];
@@ -2032,7 +2038,7 @@ typedef volatile struct
     union
     {
         volatile uint32_t                   GPTMPP[32];
-        GPTMPP_TypeDef                      GPTMPP_Bit;
+        BITBANDING_GPTMPP_TypeDef           GPTMPP_Bit;
     };
     const uint32_t                          reserved2[15*32];
 }GPWTM_BITBANDING_CTL_TypeDef;
@@ -2043,89 +2049,90 @@ typedef volatile struct
     const uint32_t                          reserved[1];
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        GPTMMR_TA_TypeDef                   GPTMTnMR_Bit;
+        volatile uint16_t                   GPTMTnMR;
+        TA_GPTMMR_TypeDef                   GPTMTnMR_Bit;
     };
+    const uint16_t                          reserved0[1];
     const uint32_t                          reserved1[1];
     union
     {
         volatile uint8_t                    GPTMTnCTL;
-        GPTMCTL_TA_TypeDef                  GPTMTnCTL_Bit;
+        TA_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
     };
     const uint8_t                           reserved2[3];
     const uint32_t                          reserved3[2];
     union
     {
         volatile uint8_t                    GPTMTnIMR;
-        GPTMIMR_TA_TypeDef                  GPTMTnIMR_Bit;
+        TA_GPTMIMR_TypeDef                  GPTMTnIMR_Bit;
     };
     const uint8_t                           reserved4[3];
     union
     {
         volatile uint8_t                    GPTMTnRIS;
-        GPTMRIS_TA_TypeDef                  GPTMTnRIS_Bit;
+        TA_GPTMRIS_TypeDef                  GPTMTnRIS_Bit;
     };
     const uint8_t                           reserved5[3];
     union
     {
         volatile uint8_t                    GPTMTnMIS;
-        GPTMMIS_TA_TypeDef                  GPTMTnMIS_Bit;
+        TA_GPTMMIS_TypeDef                  GPTMTnMIS_Bit;
     };
     const uint8_t                           reserved6[3];
     union
     {
         volatile uint8_t                    GPTMTnICR;
-        GPTMICR_TA_TypeDef                  GPTMTnICR_Bit;
+        TA_GPTMICR_TypeDef                  GPTMTnICR_Bit;
     };
     const uint8_t                           reserved7[3];
     union
     {
         volatile uint32_t                   GPTMTnILR;
-        GPWTMILR_TA_TypeDef                 GPTMTnILR_Bit;
+        TA_GPWTMILR_TypeDef                 GPTMTnILR_Bit;
     };
     const uint32_t                          reserved9[1];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR;
-        GPWTMMATCHR_TA_TypeDef              GPTMTnMATCHR_Bit;
+        TA_GPWTMMATCHR_TypeDef              GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved11[1];
     union
     {
         volatile uint16_t                   GPTMTnPR;
-        GPWTMPR_TA_TypeDef                  GPTMTnPR_Bit;
+        TA_GPWTMPR_TypeDef                  GPTMTnPR_Bit;
     };
     const uint16_t                          reserved12[1];
     const uint32_t                          reserved13[1];
     union
     {
         volatile uint16_t                   GPTMTnPMR;
-        GPWTMPMR_TA_TypeDef                 GPTMTnPMR_Bit;
+        TA_GPWTMPMR_TypeDef                 GPTMTnPMR_Bit;
     };
     const uint16_t                          reserved14[1];
     const uint32_t                          reserved15[1];
     union
     {
         volatile const uint32_t             GPTMTnR;
-        GPTMR_TA_TypeDef                    GPTMTnR_Bit;
+        TA_GPTMR_TypeDef                    GPTMTnR_Bit;
     };
     const uint32_t                          reserved16[1];
     union
     {
         volatile uint32_t                   GPTMTnV;
-        GPTMV_TA_TypeDef                    GPTMTnV_Bit;
+        TA_GPTMV_TypeDef                    GPTMTnV_Bit;
     };
     const uint32_t                          reserved17[2];
     union
     {
         volatile const uint16_t             GPTMTnPS;
-        GPTMPS_TA_TypeDef                   GPTMTnPS_Bit;
+        TA_GPTMPS_TypeDef                   GPTMTnPS_Bit;
     };
     const uint16_t                          reserved18[1];
     union
     {
         volatile uint16_t                   GPTMTnPV;
-        GPWTMPV_TA_TypeDef                  GPTMTnPV_Bit;
+        TA_GPWTMPV_TypeDef                  GPTMTnPV_Bit;
     };
     const uint16_t                          reserved19[1];
     const uint32_t                          reserved20[999];
@@ -2139,89 +2146,90 @@ typedef volatile struct
     const uint32_t                          reserved[1*32];
     union
     {
-        volatile uint32_t                   GPTMTnMR[32];
-        BITBANDING_GPTMMR_TA_TypeDef        GPTMTnMR_Bit;
+        volatile uint32_t                   GPTMTnMR[16];
+        BITBANDING_TA_GPTMMR_TypeDef        GPTMTnMR_Bit;
     };
+    const uint32_t                          reserved0[1*16];
     const uint32_t                          reserved1[1*32];
     union
     {
         volatile uint32_t                   GPTMTnCTL[8];
-        BITBANDING_GPTMCTL_TA_TypeDef       GPTMTnCTL_Bit;
+        BITBANDING_TA_GPTMCTL_TypeDef       GPTMTnCTL_Bit;
     };
     const uint32_t                          reserved2[3*8];
     const uint32_t                          reserved3[2*32];
     union
     {
         volatile uint32_t                   GPTMAIMR[8];
-        BITBANDING_GPTMIMR_TA_TypeDef       GPTMAIMR_Bit;
+        BITBANDING_TA_GPTMIMR_TypeDef       GPTMAIMR_Bit;
     };
     const uint32_t                          reserved4[3*8];
     union
     {
         volatile uint32_t                   GPTMTnRIS[8];
-        BITBANDING_GPTMRIS_TA_TypeDef       GPTMTnRIS_Bit;
+        BITBANDING_TA_GPTMRIS_TypeDef       GPTMTnRIS_Bit;
     };
     const uint32_t                          reserved5[3*8];
     union
     {
         volatile uint32_t                   GPTMTnMIS[8];
-        BITBANDING_GPTMMIS_TA_TypeDef       GPTMTnMIS_Bit;
+        BITBANDING_TA_GPTMMIS_TypeDef       GPTMTnMIS_Bit;
     };
     const uint32_t                          reserved6[3*8];
     union
     {
         volatile uint32_t                   GPTMTnICR[8];
-        BITBANDING_GPTMICR_TA_TypeDef       GPTMTnICR_Bit;
+        BITBANDING_TA_GPTMICR_TypeDef       GPTMTnICR_Bit;
     };
     const uint32_t                          reserved7[3*8];
     union
     {
         volatile uint32_t                   GPTMTnILR[32];
-        BITBANDING_GPWTMILR_TA_TypeDef      GPTMTnILR_Bit;
+        BITBANDING_TA_GPWTMILR_TypeDef      GPTMTnILR_Bit;
     };
     const uint32_t                          reserved9[1*32];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR[32];
-        BITBANDING_GPWTMMATCHR_TA_TypeDef   GPTMTnMATCHR_Bit;
+        BITBANDING_TA_GPWTMMATCHR_TypeDef   GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved11[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPR[16];
-        BITBANDING_GPWTMPR_TA_TypeDef       GPTMTnPR_Bit;
+        BITBANDING_TA_GPWTMPR_TypeDef       GPTMTnPR_Bit;
     };
     const uint32_t                          reserved12[1*16];
     const uint32_t                          reserved13[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPMR[16];
-        BITBANDING_GPWTMPMR_TA_TypeDef      GPTMTnPMR_Bit;
+        BITBANDING_TA_GPWTMPMR_TypeDef      GPTMTnPMR_Bit;
     };
     const uint32_t                          reserved14[1*16];
     const uint32_t                          reserved15[1*32];
     union
     {
         volatile const uint32_t             GPTMTnR[32];
-        GPTMR_BITBANDING_TA_TypeDef         GPTMTnR_Bit;
+        BITBANDING_TA_GPTMR_TypeDef         GPTMTnR_Bit;
     };
     const uint32_t                          reserved16[1*32];
     union
     {
         volatile uint32_t                   GPTMTnV[32];
-        GPTMV_BITBANDING_TA_TypeDef         GPTMTnV_Bit;
+        BITBANDING_TA_GPTMV_TypeDef         GPTMTnV_Bit;
     };
     const uint32_t                          reserved17[2*32];
     union
     {
         volatile const uint32_t             GPTMTnPS[16];
-        BITBANDING_GPTMPS_TA_TypeDef        GPTMTnPS_Bit;
+        BITBANDING_TA_GPTMPS_TypeDef        GPTMTnPS_Bit;
     };
     const uint32_t                          reserved18[1*16];
     union
     {
         volatile uint32_t                   GPTMTnPV[16];
-        BITBANDING_GPWTMPV_TA_TypeDef       GPTMTnPV_Bit;
+        BITBANDING_TA_GPWTMPV_TypeDef       GPTMTnPV_Bit;
     };
     const uint32_t                          reserved19[1*16];
     const uint32_t                          reserved20[999*32];
@@ -2233,14 +2241,15 @@ typedef volatile struct
     const uint32_t                          reserved[2];
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        GPTMMR_TB_TypeDef                   GPTMTnMR_Bit;
+        volatile uint16_t                   GPTMTnMR;
+        TB_GPTMMR_TypeDef                   GPTMTnMR_Bit;
     };
+    const uint16_t                          reserved0[1];
     const uint8_t                           reserved1[1];
     union
     {
         volatile uint8_t                    GPTMTnCTL;
-        GPTMCTL_TB_TypeDef                  GPTMTnCTL_Bit;
+        TB_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
     };
     const uint8_t                           reserved2[2];
     const uint32_t                          reserved3[2];
@@ -2248,77 +2257,77 @@ typedef volatile struct
     union
     {
         volatile uint8_t                    GPTMTnIMR;
-        GPTMIMR_TB_TypeDef                  GPTMTnIMR_Bit;
+        TB_GPTMIMR_TypeDef                  GPTMTnIMR_Bit;
     };
     const uint8_t                           reserved5[3];
     union
     {
         volatile uint8_t                    GPTMTnRIS;
-        GPTMRIS_TB_TypeDef                  GPTMTnRIS_Bit;
+        TB_GPTMRIS_TypeDef                  GPTMTnRIS_Bit;
     };
     const uint8_t                           reserved6[3];
     union
     {
         volatile uint8_t                    GPTMTnMIS;
-        GPTMMIS_TB_TypeDef                  GPTMTnMIS_Bit;
+        TB_GPTMMIS_TypeDef                  GPTMTnMIS_Bit;
     };
     const uint8_t                           reserved7[3];
     union
     {
         volatile uint8_t                    GPTMTnICR;
-        GPTMICR_TB_TypeDef                  GPTMTnICR_Bit;
+        TB_GPTMICR_TypeDef                  GPTMTnICR_Bit;
     };
     const uint8_t                           reserved8[2];
     const uint32_t                          reserved9[1];
     union
     {
         volatile uint32_t                   GPTMTnILR;
-        GPWTMILR_TB_TypeDef                 GPTMTnILR_Bit;
+        TB_GPWTMILR_TypeDef                 GPTMTnILR_Bit;
     };
     const uint32_t                          reserved11[1];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR;
-        GPWTMMATCHR_TB_TypeDef              GPTMTnMATCHR_Bit;
+        TB_GPWTMMATCHR_TypeDef              GPTMTnMATCHR_Bit;
     };
     const uint32_t                          reserved13[1];
     union
     {
         volatile uint16_t                   GPTMTnPR;
-        GPWTMPR_TB_TypeDef                  GPTMTnPR_Bit;
+        TB_GPWTMPR_TypeDef                  GPTMTnPR_Bit;
     };
     const uint16_t                          reserved14[1];
     const uint32_t                          reserved15[1];
     union
     {
         volatile uint16_t                   GPTMTnPMR;
-        GPWTMPMR_TB_TypeDef                 GPTMTnPMR_Bit;
+        TB_GPWTMPMR_TypeDef                 GPTMTnPMR_Bit;
     };
     const uint16_t                          reserved16[1];
     const uint32_t                          reserved17[1];
     union
     {
         volatile const uint32_t             GPTMTnR;
-        GPTMR_TB_TypeDef                    GPTMTnR_Bit;
+        TB_GPTMR_TypeDef                    GPTMTnR_Bit;
     };
     const uint32_t                          reserved18[1];
     union
     {
         volatile uint32_t                   GPTMTnV;
-        GPTMV_TB_TypeDef                    GPTMTnV_Bit;
+        TB_GPTMV_TypeDef                    GPTMTnV_Bit;
     };
     const uint32_t                          reserved19[2];
     union
     {
         volatile const uint16_t             GPTMTnPS;
-        GPTMPS_TB_TypeDef                   GPTMTnPS_Bit;
+        TB_GPTMPS_TypeDef                   GPTMTnPS_Bit;
     };
     const uint16_t                          reserved20[1];
     const uint32_t                          reserved21[1];
     union
     {
         volatile const uint16_t             GPTMTnPV;
-        GPWTMPV_TB_TypeDef                  GPTMTnPV_Bit;
+        TB_GPWTMPV_TypeDef                  GPTMTnPV_Bit;
     };
     const uint16_t                          reserved22[1];
     const uint32_t                          reserved23[997];
@@ -2330,14 +2339,15 @@ typedef volatile struct
     const uint32_t                          reserved[2*32];
     union
     {
-        volatile uint32_t                   GPTMTnMR[32];
-        BITBANDING_GPTMMR_TB_TypeDef        GPTMTnMR_Bit;
+        volatile uint32_t                   GPTMTnMR[16];
+        BITBANDING_TB_GPTMMR_TypeDef        GPTMTnMR_Bit;
     };
+    const uint32_t                          reserved0[1*16];
     const uint32_t                          reserved1[1*8];
     union
     {
         volatile uint32_t                   GPTMTnCTL[8];
-        BITBANDING_GPTMCTL_TB_TypeDef       GPTMTnCTL_Bit;
+        BITBANDING_TB_GPTMCTL_TypeDef       GPTMTnCTL_Bit;
     };
     const uint32_t                          reserved2[2*8];
     const uint32_t                          reserved3[2*32];
@@ -2345,77 +2355,77 @@ typedef volatile struct
     union
     {
         volatile uint32_t                   GPTMTnIMR[8];
-        BITBANDING_GPTMIMR_TB_TypeDef       GPTMTnIMR_Bit;
+        BITBANDING_TB_GPTMIMR_TypeDef       GPTMTnIMR_Bit;
     };
     const uint32_t                          reserved5[3*8];
     union
     {
         volatile uint32_t                   GPTMTnRIS[8];
-        BITBANDING_GPTMRIS_TB_TypeDef       GPTMTnRIS_Bit;
+        BITBANDING_TB_GPTMRIS_TypeDef       GPTMTnRIS_Bit;
     };
     const uint32_t                          reserved6[3*8];
     union
     {
         volatile uint32_t                   GPTMTnMIS[8];
-        BITBANDING_GPTMMIS_TB_TypeDef       GPTMTnMIS_Bit;
+        BITBANDING_TB_GPTMMIS_TypeDef       GPTMTnMIS_Bit;
     };
     const uint32_t                          reserved7[3*8];
     union
     {
         volatile uint32_t                   GPTMTnICR[8];
-        BITBANDING_GPTMICR_TB_TypeDef       GPTMTnICR_Bit;
+        BITBANDING_TB_GPTMICR_TypeDef       GPTMTnICR_Bit;
     };
     const uint32_t                          reserved8[2*8];
     const uint32_t                          reserved9[1*32];
     union
     {
         volatile uint32_t                   GPTMTnILR[32];
-        BITBANDING_GPWTMILR_TB_TypeDef      GPTMTnILR_Bit;
+        BITBANDING_TB_GPWTMILR_TypeDef      GPTMTnILR_Bit;
     };
     const uint32_t                          reserved11[1*32];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR[32];
-        BITBANDING_GPWTMMATCHR_TB_TypeDef   GPTMTnMSTCHR_Bit;
+        BITBANDING_TB_GPWTMMATCHR_TypeDef   GPTMTnMSTCHR_Bit;
     };
     const uint32_t                          reserved13[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPR[16];
-        BITBANDING_GPWTMPR_TB_TypeDef       GPTMTnPR_Bit;
+        BITBANDING_TB_GPWTMPR_TypeDef       GPTMTnPR_Bit;
     };
     const uint32_t                          reserved14[1*16];
     const uint32_t                          reserved15[1*32];
     union
     {
         volatile uint32_t                   GPTMTnPMR[16];
-        BITBANDING_GPWTMPMR_TB_TypeDef      GPTMTnPMR_Bit;
+        BITBANDING_TB_GPWTMPMR_TypeDef      GPTMTnPMR_Bit;
     };
     const uint32_t                          reserved16[1*16];
     const uint32_t                          reserved17[1*32];
     union
     {
         volatile const uint32_t             GPTMTnR[32];
-        GPTMR_BITBANDING_TB_TypeDef         GPTMTnR_Bit;
+        BITBANDING_TB_GPTMR_TypeDef         GPTMTnR_Bit;
     };
     const uint32_t                          reserved18[1*32];
     union
     {
         volatile uint32_t                   GPTMTnV[32];
-        GPTMV_BITBANDING_TB_TypeDef         GPTMTnV_Bit;
+        BITBANDING_TB_GPTMV_TypeDef         GPTMTnV_Bit;
     };
     const uint32_t                          reserved19[2*32];
     union
     {
         volatile const uint32_t             GPTMTnPS[16];
-        BITBANDING_GPTMPS_TB_TypeDef        GPTMTnPS_Bit;
+        BITBANDING_TB_GPTMPS_TypeDef        GPTMTnPS_Bit;
     };
     const uint32_t                          reserved20[1*16];
     const uint32_t                          reserved21[1*32];
     union
     {
         volatile const uint32_t             GPTMTnPV[16];
-        BITBANDING_GPWTMPV_TB_TypeDef       GPTMTnPV_Bit;
+        BITBANDING_TB_GPWTMPV_TypeDef       GPTMTnPV_Bit;
     };
     const uint32_t                          reserved22[1*16];
     const uint32_t                          reserved23[997*32];
@@ -2428,82 +2438,83 @@ typedef volatile struct
     const uint32_t                          reserved[1];
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        GPTMMR_TW_TypeDef                   GPTMTnMR_Bit;
+        volatile uint16_t                   GPTMTnMR;
+        TW_GPTMMR_TypeDef                   GPTMTnMR_Bit;
     };
+    const uint16_t                          reserved0[1];
     const uint32_t                          reserved1[1];
     union
     {
         volatile uint8_t                    GPTMTnCTL;
-        GPTMCTL_TW_TypeDef                  GPTMTnCTL_Bit;
+        TW_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
     };
     const uint8_t                           reserved2[3];
     const uint32_t                          reserved3[2];
     union
     {
         volatile uint32_t                   GPTMTnIMR;
-        GPWTMIMR_TW_TypeDef                 GPTMTnIMR_Bit;
+        TW_GPWTMIMR_TypeDef                 GPTMTnIMR_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnRIS;
-        GPWTMRIS_TW_TypeDef                 GPTMTnRIS_Bit;
+        TW_GPWTMRIS_TypeDef                 GPTMTnRIS_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnMIS;
-        GPWTMMIS_TW_TypeDef                 GPTMTnMIS_Bit;
+        TW_GPWTMMIS_TypeDef                 GPTMTnMIS_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnICR;
-        GPWTMICR_TW_TypeDef                 GPTMTnICR_Bit;
+        TW_GPWTMICR_TypeDef                 GPTMTnICR_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnILR_LOW;
-        GPWTMILR_TW_LOW_TypeDef             GPTMTnILR_LOW_Bit;
+        TW_GPWTMILR_LOW_TypeDef             GPTMTnILR_LOW_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnILR_HIGH;
-        GPWTMILR_TW_HIGH_TypeDef            GPTMTnILR_HIGH_Bit;
+        TW_GPWTMILR_HIGH_TypeDef            GPTMTnILR_HIGH_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnMATCHR_LOW;
-        GPWTMMATCHR_TW_LOW_TypeDef          GPTMTnMATCHR_LOW_Bit;
+        TW_GPWTMMATCHR_LOW_TypeDef          GPTMTnMATCHR_LOW_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnMATCHR_HIGH;
-        GPWTMMATCHR_TW_HIGH_TypeDef         GPTMTnMATCHR_HIGH_Bit;
+        TW_GPWTMMATCHR_HIGH_TypeDef         GPTMTnMATCHR_HIGH_Bit;
     };
     const uint32_t                          reserved5[4];
     union
     {
         volatile const uint32_t             GPTMTnR_LOW;
-        GPWTMR_TW_LOW_TypeDef               GPTMTnR_LOW_Bit;
+        TW_GPWTMR_LOW_TypeDef               GPTMTnR_LOW_Bit;
     };
     union
     {
         volatile const uint32_t             GPTMTnR_HIGH;
-        GPWTMR_TW_HIGH_TypeDef              GPTMTnR_HIGH_Bit;
+        TW_GPWTMR_HIGH_TypeDef              GPTMTnR_HIGH_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnV_LOW;
-        GPWTMV_TW_LOW_TypeDef               GPTMTnV_LOW_Bit;
+        TW_GPWTMV_LOW_TypeDef               GPTMTnV_LOW_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnV_HIGH;
-        GPWTMV_TW_HIGH_TypeDef              GPTMTnV_HIGH_Bit;
+        TW_GPWTMV_HIGH_TypeDef              GPTMTnV_HIGH_Bit;
     };
     union
     {
         volatile const uint16_t             GPTMRTCPD;
-        GPTMRTCPD_TW_TypeDef                GPTMRTCPD_Bit;
+        TW_GPTMRTCPD_TypeDef                GPTMRTCPD_Bit;
     };
     const uint16_t                          reserved8[1];
     const uint32_t                          reserved9[1000];
@@ -2517,83 +2528,84 @@ typedef volatile struct
     const uint32_t                          reserved[1*32];
     union
     {
-        volatile uint32_t                   GPTMTnMR[32];
-        BITBANDING_GPTMMR_TW_TypeDef        GPTMTnMR_Bit;
+        volatile uint32_t                   GPTMTnMR[16];
+        BITBANDING_TW_GPTMMR_TypeDef        GPTMTnMR_Bit;
     };
+    const uint32_t                          reserved0[1*16];
     const uint32_t                          reserved1[1*32];
     union
     {
         volatile uint32_t                   GPTMTnCTL[8];
-        BITBANDING_GPTMCTL_TW_TypeDef       GPTMTnCTL_Bit;
+        BITBANDING_TW_GPTMCTL_TypeDef       GPTMTnCTL_Bit;
     };
     const uint32_t                          reserved2[3*8];
     const uint32_t                          reserved3[2*32];
     union
     {
         volatile uint32_t                   GPTMTnIMR[32];
-        BITBANDING_GPWTMIMR_TW_TypeDef      GPTMTnIMR_Bit;
+        BITBANDING_TW_GPWTMIMR_TypeDef      GPTMTnIMR_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnRIS[32];
-        BITBANDING_GPWTMRIS_TW_TypeDef      GPTMTnRIS_Bit;
+        BITBANDING_TW_GPWTMRIS_TypeDef      GPTMTnRIS_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnMIS[32];
-        BITBANDING_GPWTMMIS_TW_TypeDef      GPTMTnMIS_Bit;
+        BITBANDING_TW_GPWTMMIS_TypeDef      GPTMTnMIS_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnICR[32];
-        BITBANDING_GPWTMICR_TW_TypeDef      GPTMTnICR_Bit;
+        BITBANDING_TW_GPWTMICR_TypeDef      GPTMTnICR_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnILR_LOW[32];
-        BITBANDING_GPWTMILR_TW_LOW_TypeDef  GPTMTnILR_LOW_Bit;
+        BITBANDING_TW_GPWTMILR_LOW_TypeDef  GPTMTnILR_LOW_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnILR_HIGH[32];
-        BITBANDING_GPWTMILR_TW_HIGH_TypeDef GPTMTnILR_HIGH_Bit;
+        BITBANDING_TW_GPWTMILR_HIGH_TypeDef GPTMTnILR_HIGH_Bit;
     };
     const uint32_t                          reserved4[1*32];
     union
     {
         volatile uint32_t                   GPTMTnMATCHR_LOW[32];
-        BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef GPTMTnMATCHR_LOW_Bit;
+        BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef GPTMTnMATCHR_LOW_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnMATCHR_HIGH[32];
-        BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef GPTMTnMATCHR_HIGH_Bit;
+        BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef GPTMTnMATCHR_HIGH_Bit;
     };
     const uint32_t                          reserved5[4*32];
     union
     {
         volatile const uint32_t             GPTMTnR_LOW[32];
-        GPWTMR_BITBANDING_TW_LOW_TypeDef    GPTMTnR_LOW_Bit;
+        BITBANDING_TW_GPWTMR_LOW_TypeDef    GPTMTnR_LOW_Bit;
     };
     union
     {
         volatile const uint32_t             GPTMTnR_HIGH[32];
-        GPWTMR_BITBANDING_TW_HIGH_TypeDef   GPTMTnR_HIGH_Bit;
+        BITBANDING_TW_GPWTMR_HIGH_TypeDef   GPTMTnR_HIGH_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnV_LOW[32];
-        GPWTMV_BITBANDING_TW_LOW_TypeDef    GPTMTnV_LOW_Bit;
+        BITBANDING_TW_GPWTMV_LOW_TypeDef    GPTMTnV_LOW_Bit;
     };
     union
     {
         volatile uint32_t                   GPTMTnV_HIGH[32];
-        GPWTMV_BITBANDING_TW_HIGH_TypeDef   GPTMTnV_HIGH_Bit;
+        BITBANDING_TW_GPWTMV_HIGH_TypeDef   GPTMTnV_HIGH_Bit;
     };
     union
     {
         volatile const uint32_t             GPTMRTCPD[16];
-        BITBANDING_GPTMRTCPD_TW_TypeDef     GPTMRTCPD_Bit;
+        BITBANDING_TW_GPTMRTCPD_TypeDef     GPTMRTCPD_Bit;
     };
     const uint32_t                          reserved8[1*16];
     const uint32_t                          reserved9[1000*32];
@@ -3460,156 +3472,156 @@ typedef volatile struct
 #define GPTM0_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAMR_OFFSET )))
 #define GPTM0_GPTMTAMR_R                (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
-#define GPTM0_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
+#define GPTM0_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
+#define GPTM0_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
-#define GPTM0_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
+#define GPTM0_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
+#define GPTM0_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPTM1 GPTMTAMR*/
 #define GPTM1_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTAMR_OFFSET)*32))))
 #define GPTM1_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAMR_OFFSET )))
-#define GPTM1_GPTMTAMR_R                (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAMR_OFFSET)))
+#define GPTM1_GPTMTAMR_R                (*((volatile uint16_t *)(GPTM1_BASE +GPTM_GPTMTAMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
-#define GPTM1_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
+#define GPTM1_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
+#define GPTM1_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
-#define GPTM1_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
+#define GPTM1_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
+#define GPTM1_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPTM2 GPTMTAMR*/
 #define GPTM2_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTAMR_OFFSET)*32))))
 #define GPTM2_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAMR_OFFSET )))
-#define GPTM2_GPTMTAMR_R                (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAMR_OFFSET)))
+#define GPTM2_GPTMTAMR_R                (*((volatile uint16_t *)(GPTM2_BASE +GPTM_GPTMTAMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
-#define GPTM2_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
+#define GPTM2_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
+#define GPTM2_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
-#define GPTM2_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
+#define GPTM2_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
+#define GPTM2_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPTM3 GPTMTAMR*/
 #define GPTM3_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTAMR_OFFSET)*32))))
 #define GPTM3_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAMR_OFFSET )))
-#define GPTM3_GPTMTAMR_R                (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAMR_OFFSET)))
+#define GPTM3_GPTMTAMR_R                (*((volatile uint16_t *)(GPTM3_BASE +GPTM_GPTMTAMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
-#define GPTM3_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
+#define GPTM3_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
+#define GPTM3_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
-#define GPTM3_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
+#define GPTM3_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
+#define GPTM3_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPTM4 GPTMTAMR*/
 #define GPTM4_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTAMR_OFFSET)*32))))
 #define GPTM4_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAMR_OFFSET )))
-#define GPTM4_GPTMTAMR_R                (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAMR_OFFSET)))
+#define GPTM4_GPTMTAMR_R                (*((volatile uint16_t *)(GPTM4_BASE +GPTM_GPTMTAMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
-#define GPTM4_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
+#define GPTM4_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
+#define GPTM4_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
-#define GPTM4_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
+#define GPTM4_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
+#define GPTM4_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPTM5 GPTMTAMR*/
 #define GPTM5_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTAMR_OFFSET)*32))))
 #define GPTM5_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAMR_OFFSET )))
-#define GPTM5_GPTMTAMR_R                (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAMR_OFFSET)))
+#define GPTM5_GPTMTAMR_R                (*((volatile uint16_t *)(GPTM5_BASE +GPTM_GPTMTAMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
-#define GPTM5_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
+#define GPTM5_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnMR_OFFSET )))
+#define GPTM5_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
-#define GPTM5_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
+#define GPTM5_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnMR_OFFSET )))
+#define GPTM5_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPWTM0 GPTMTAMR*/
 #define GPWTM0_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTAMR_OFFSET)*32))))
 #define GPWTM0_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAMR_OFFSET )))
-#define GPWTM0_GPTMTAMR_R                (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAMR_OFFSET)))
+#define GPWTM0_GPTMTAMR_R                (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_GPTMTAMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
-#define GPWTM0_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM0_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
+#define GPWTM0_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
-#define GPWTM0_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
+#define GPWTM0_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
+#define GPWTM0_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPWTM1 GPTMTAMR*/
 #define GPWTM1_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTAMR_OFFSET)*32))))
 #define GPWTM1_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAMR_OFFSET )))
-#define GPWTM1_GPTMTAMR_R                (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAMR_OFFSET)))
+#define GPWTM1_GPTMTAMR_R                (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_GPTMTAMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
-#define GPWTM1_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM1_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
+#define GPWTM1_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
-#define GPWTM1_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
+#define GPWTM1_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
+#define GPWTM1_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPWTM2 GPTMTAMR*/
 #define GPWTM2_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTAMR_OFFSET)*32))))
 #define GPWTM2_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAMR_OFFSET )))
-#define GPWTM2_GPTMTAMR_R                (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAMR_OFFSET)))
+#define GPWTM2_GPTMTAMR_R                (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_GPTMTAMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
-#define GPWTM2_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM2_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
+#define GPWTM2_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
-#define GPWTM2_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
+#define GPWTM2_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
+#define GPWTM2_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPWTM3 GPTMTAMR*/
 #define GPWTM3_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTAMR_OFFSET)*32))))
 #define GPWTM3_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAMR_OFFSET )))
-#define GPWTM3_GPTMTAMR_R                (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAMR_OFFSET)))
+#define GPWTM3_GPTMTAMR_R                (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_GPTMTAMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
-#define GPWTM3_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM3_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
+#define GPWTM3_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
-#define GPWTM3_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
+#define GPWTM3_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
+#define GPWTM3_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPWTM4 GPTMTAMR*/
 #define GPWTM4_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTAMR_OFFSET)*32))))
 #define GPWTM4_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAMR_OFFSET )))
-#define GPWTM4_GPTMTAMR_R                (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAMR_OFFSET)))
+#define GPWTM4_GPTMTAMR_R                (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_GPTMTAMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
-#define GPWTM4_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM4_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
+#define GPWTM4_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
-#define GPWTM4_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
+#define GPWTM4_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
+#define GPWTM4_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
 
 /* GPWTM5 GPTMTAMR*/
 #define GPWTM5_BITBANDING_GPTMTAMR       (((BITBANDING_GPTMTAMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTAMR_OFFSET)*32))))
 #define GPWTM5_GPTMTAMR                  (((GPTMTAMR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAMR_OFFSET )))
-#define GPWTM5_GPTMTAMR_R                (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAMR_OFFSET)))
+#define GPWTM5_GPTMTAMR_R                (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_GPTMTAMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnMR    (((BITBANDING_GPTMMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnMR               (((GPTMMR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
-#define GPWTM5_TA_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM5_BITBANDING_TA_GPTMTnMR    (((BITBANDING_TA_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnMR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnMR               (((TA_GPTMMR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnMR_OFFSET )))
+#define GPWTM5_TA_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnMR    (((BITBANDING_GPTMMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnMR               (((GPTMMR_TW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
-#define GPWTM5_TW_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
+#define GPWTM5_BITBANDING_TW_GPTMTnMR    (((BITBANDING_TW_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMR_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnMR               (((TW_GPTMMR_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMR_OFFSET )))
+#define GPWTM5_TW_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnMR_OFFSET)))
 
 
 
@@ -4781,110 +4793,110 @@ typedef volatile struct
 /* GPTM0 GPTMTBMR*/
 #define GPTM0_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTBMR_OFFSET)*32))))
 #define GPTM0_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBMR_OFFSET )))
-#define GPTM0_GPTMTBMR_R                (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBMR_OFFSET)))
+#define GPTM0_GPTMTBMR_R                (*((volatile uint16_t *)(GPTM0_BASE +GPTM_GPTMTBMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
-#define GPTM0_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
+#define GPTM0_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
+#define GPTM0_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPTM1 GPTMTBMR*/
 #define GPTM1_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTBMR_OFFSET)*32))))
 #define GPTM1_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBMR_OFFSET )))
-#define GPTM1_GPTMTBMR_R                (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBMR_OFFSET)))
+#define GPTM1_GPTMTBMR_R                (*((volatile uint16_t *)(GPTM1_BASE +GPTM_GPTMTBMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
-#define GPTM1_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
+#define GPTM1_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
+#define GPTM1_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPTM2 GPTMTBMR*/
 #define GPTM2_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTBMR_OFFSET)*32))))
 #define GPTM2_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBMR_OFFSET )))
-#define GPTM2_GPTMTBMR_R                (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBMR_OFFSET)))
+#define GPTM2_GPTMTBMR_R                (*((volatile uint16_t *)(GPTM2_BASE +GPTM_GPTMTBMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
-#define GPTM2_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
+#define GPTM2_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
+#define GPTM2_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPTM3 GPTMTBMR*/
 #define GPTM3_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTBMR_OFFSET)*32))))
 #define GPTM3_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBMR_OFFSET )))
-#define GPTM3_GPTMTBMR_R                (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBMR_OFFSET)))
+#define GPTM3_GPTMTBMR_R                (*((volatile uint16_t *)(GPTM3_BASE +GPTM_GPTMTBMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
-#define GPTM3_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
+#define GPTM3_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
+#define GPTM3_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPTM4 GPTMTBMR*/
 #define GPTM4_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTBMR_OFFSET)*32))))
 #define GPTM4_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBMR_OFFSET )))
-#define GPTM4_GPTMTBMR_R                (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBMR_OFFSET)))
+#define GPTM4_GPTMTBMR_R                (*((volatile uint16_t *)(GPTM4_BASE +GPTM_GPTMTBMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
-#define GPTM4_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
+#define GPTM4_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
+#define GPTM4_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPTM5 GPTMTBMR*/
 #define GPTM5_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTBMR_OFFSET)*32))))
 #define GPTM5_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBMR_OFFSET )))
-#define GPTM5_GPTMTBMR_R                (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBMR_OFFSET)))
+#define GPTM5_GPTMTBMR_R                (*((volatile uint16_t *)(GPTM5_BASE +GPTM_GPTMTBMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
-#define GPTM5_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
+#define GPTM5_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnMR_OFFSET )))
+#define GPTM5_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPWTM0 GPTMTBMR*/
 #define GPWTM0_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTBMR_OFFSET)*32))))
 #define GPWTM0_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBMR_OFFSET )))
-#define GPWTM0_GPTMTBMR_R                (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBMR_OFFSET)))
+#define GPWTM0_GPTMTBMR_R                (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_GPTMTBMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
-#define GPWTM0_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
+#define GPWTM0_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
+#define GPWTM0_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPWTM1 GPTMTBMR*/
 #define GPWTM1_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTBMR_OFFSET)*32))))
 #define GPWTM1_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBMR_OFFSET )))
-#define GPWTM1_GPTMTBMR_R                (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBMR_OFFSET)))
+#define GPWTM1_GPTMTBMR_R                (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_GPTMTBMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
-#define GPWTM1_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
+#define GPWTM1_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
+#define GPWTM1_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPWTM2 GPTMTBMR*/
 #define GPWTM2_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTBMR_OFFSET)*32))))
 #define GPWTM2_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBMR_OFFSET )))
-#define GPWTM2_GPTMTBMR_R                (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBMR_OFFSET)))
+#define GPWTM2_GPTMTBMR_R                (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_GPTMTBMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
-#define GPWTM2_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
+#define GPWTM2_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
+#define GPWTM2_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPWTM3 GPTMTBMR*/
 #define GPWTM3_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTBMR_OFFSET)*32))))
 #define GPWTM3_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBMR_OFFSET )))
-#define GPWTM3_GPTMTBMR_R                (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBMR_OFFSET)))
+#define GPWTM3_GPTMTBMR_R                (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_GPTMTBMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
-#define GPWTM3_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
+#define GPWTM3_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
+#define GPWTM3_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPWTM4 GPTMTBMR*/
 #define GPWTM4_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTBMR_OFFSET)*32))))
 #define GPWTM4_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBMR_OFFSET )))
-#define GPWTM4_GPTMTBMR_R                (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBMR_OFFSET)))
+#define GPWTM4_GPTMTBMR_R                (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_GPTMTBMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
-#define GPWTM4_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
+#define GPWTM4_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
+#define GPWTM4_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
 
 /* GPWTM5 GPTMTBMR*/
 #define GPWTM5_BITBANDING_GPTMTBMR       (((BITBANDING_GPTMTBMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTBMR_OFFSET)*32))))
 #define GPWTM5_GPTMTBMR                  (((GPTMTBMR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBMR_OFFSET )))
-#define GPWTM5_GPTMTBMR_R                (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBMR_OFFSET)))
+#define GPWTM5_GPTMTBMR_R                (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_GPTMTBMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnMR    (((BITBANDING_GPTMMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnMR               (((GPTMMR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
-#define GPWTM5_TB_GPTMTnMR_R             (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
+#define GPWTM5_BITBANDING_TB_GPTMTnMR    (((BITBANDING_TB_GPTMMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnMR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnMR               (((TB_GPTMMR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnMR_OFFSET )))
+#define GPWTM5_TB_GPTMTnMR_R             (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnMR_OFFSET)))
 
 
 
@@ -5666,16 +5678,16 @@ typedef volatile struct
 #define GPTM0_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM0_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM0_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM0_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM0_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM0_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPTM1 GPTMCTL*/
@@ -5683,16 +5695,16 @@ typedef volatile struct
 #define GPTM1_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM1_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM1_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM1_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM1_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPTM1 GPTMCTL*/
@@ -5700,16 +5712,16 @@ typedef volatile struct
 #define GPTM1_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM1_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM1_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM1_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM1_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPTM2 GPTMCTL*/
@@ -5717,16 +5729,16 @@ typedef volatile struct
 #define GPTM2_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM2_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM2_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM2_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM2_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM2_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPTM3 GPTMCTL*/
@@ -5734,16 +5746,16 @@ typedef volatile struct
 #define GPTM3_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM3_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM3_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM3_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM3_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM3_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPTM4 GPTMCTL*/
@@ -5751,16 +5763,16 @@ typedef volatile struct
 #define GPTM4_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM4_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM4_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM4_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM4_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM4_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPTM5 GPTMCTL*/
@@ -5768,16 +5780,16 @@ typedef volatile struct
 #define GPTM5_GPTMCTL                       (((GPTMCTL_TypeDef*)(GPTM5_BASE + GPTM_GPTMCTL_OFFSET )))
 #define GPTM5_GPTMCTL_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMCTL_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnCTL                  (((GPTMCTL_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnCTL       (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnCTL                  (((TA_GPTMCTL_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnCTL_OFFSET )))
 #define GPTM5_TA_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnCTL                  (((GPTMCTL_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnCTL       (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnCTL                  (((TB_GPTMCTL_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnCTL_OFFSET )))
 #define GPTM5_TB_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnCTL                  (((GPTMCTL_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnCTL       (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnCTL                  (((TW_GPTMCTL_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnCTL_OFFSET )))
 #define GPTM5_TW_GPTMTnCTL_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM0 GPTMCTL*/
@@ -5785,16 +5797,16 @@ typedef volatile struct
 #define GPWTM0_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM0_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM0_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM0_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM0_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM0_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM1 GPTMCTL*/
@@ -5802,16 +5814,16 @@ typedef volatile struct
 #define GPWTM1_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM1_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM1_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM1_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM1_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM1 GPTMCTL*/
@@ -5819,16 +5831,16 @@ typedef volatile struct
 #define GPWTM1_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM1_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM1_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM1_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM1_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM2 GPTMCTL*/
@@ -5836,16 +5848,16 @@ typedef volatile struct
 #define GPWTM2_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM2_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM2_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM2_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM2_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM3 GPTMCTL*/
@@ -5853,16 +5865,16 @@ typedef volatile struct
 #define GPWTM3_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM3_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM3_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM3_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM3_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM4 GPTMCTL*/
@@ -5870,16 +5882,16 @@ typedef volatile struct
 #define GPWTM4_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM4_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM4_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM4_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM4_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /* GPWTM5 GPTMCTL*/
@@ -5887,16 +5899,16 @@ typedef volatile struct
 #define GPWTM5_GPTMCTL                      (((GPTMCTL_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMCTL_OFFSET )))
 #define GPWTM5_GPTMCTL_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMCTL_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_GPTMCTL_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnCTL                 (((GPTMCTL_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnCTL      (((BITBANDING_TA_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnCTL                 (((TA_GPTMCTL_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnCTL_OFFSET )))
 #define GPWTM5_TA_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnCTL_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_GPTMCTL_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnCTL                 (((GPTMCTL_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnCTL      (((BITBANDING_TB_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnCTL                 (((TB_GPTMCTL_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnCTL_OFFSET )))
 #define GPWTM5_TB_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnCTL_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_GPTMCTL_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnCTL                 (((GPTMCTL_TW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnCTL      (((BITBANDING_TW_GPTMCTL_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnCTL_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnCTL                 (((TW_GPTMCTL_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnCTL_OFFSET )))
 #define GPWTM5_TW_GPTMTnCTL_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 
@@ -7224,16 +7236,16 @@ typedef volatile struct
 #define GPTM0_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM0_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM0_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM0_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM0_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM0_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPTM1 GPTMIMR*/
@@ -7241,16 +7253,16 @@ typedef volatile struct
 #define GPTM1_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM1_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM1_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM1_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM1_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPTM1 GPTMIMR*/
@@ -7258,16 +7270,16 @@ typedef volatile struct
 #define GPTM1_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM1_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM1_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM1_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM1_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPTM2 GPTMIMR*/
@@ -7275,16 +7287,16 @@ typedef volatile struct
 #define GPTM2_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM2_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM2_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM2_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM2_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM2_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPTM3 GPTMIMR*/
@@ -7292,16 +7304,16 @@ typedef volatile struct
 #define GPTM3_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM3_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM3_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM3_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM3_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM3_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPTM4 GPTMIMR*/
@@ -7309,16 +7321,16 @@ typedef volatile struct
 #define GPTM4_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM4_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM4_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM4_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM4_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM4_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPTM5 GPTMIMR*/
@@ -7326,16 +7338,16 @@ typedef volatile struct
 #define GPTM5_GPTMIMR                       (((GPTMIMR_TypeDef*)(GPTM5_BASE + GPTM_GPTMIMR_OFFSET )))
 #define GPTM5_GPTMIMR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMIMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnIMR                  (((GPTMIMR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnIMR       (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnIMR                  (((TA_GPTMIMR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnIMR_OFFSET )))
 #define GPTM5_TA_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnIMR                  (((GPTMIMR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnIMR       (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnIMR                  (((TB_GPTMIMR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnIMR_OFFSET )))
 #define GPTM5_TB_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnIMR                  (((GPTMIMR_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnIMR       (((BITBANDING_TW_GPTMIMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnIMR                  (((TW_GPTMIMR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnIMR_OFFSET )))
 #define GPTM5_TW_GPTMTnIMR_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM0 GPTMIMR*/
@@ -7343,16 +7355,16 @@ typedef volatile struct
 #define GPWTM0_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM0_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM0_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM0_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnIMR                 (((GPTMIMR_TW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM0_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM0_TW_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM1 GPTMIMR*/
@@ -7360,16 +7372,16 @@ typedef volatile struct
 #define GPWTM1_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM1_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM1_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM1_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPWTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnIMR                 (((GPWTMIMR_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM1_TW_GPTMTnIMR_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM1 GPTMIMR*/
@@ -7377,16 +7389,16 @@ typedef volatile struct
 #define GPWTM1_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM1_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM1_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM1_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPWTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnIMR                 (((GPWTMIMR_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM1_TW_GPTMTnIMR_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM2 GPTMIMR*/
@@ -7394,16 +7406,16 @@ typedef volatile struct
 #define GPWTM2_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM2_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM2_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM2_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPWTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnIMR                 (((GPWTMIMR_TW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM2_TW_GPTMTnIMR_R               (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM3 GPTMIMR*/
@@ -7411,16 +7423,16 @@ typedef volatile struct
 #define GPWTM3_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM3_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM3_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM3_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPWTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnIMR                 (((GPWTMIMR_TW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM3_TW_GPTMTnIMR_R               (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM4 GPTMIMR*/
@@ -7428,16 +7440,16 @@ typedef volatile struct
 #define GPWTM4_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM4_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM4_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM4_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPWTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnIMR                 (((GPWTMIMR_TW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM4_TW_GPTMTnIMR_R               (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /* GPWTM5 GPTMIMR*/
@@ -7445,16 +7457,16 @@ typedef volatile struct
 #define GPWTM5_GPTMIMR                      (((GPTMIMR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMIMR_OFFSET )))
 #define GPWTM5_GPTMIMR_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMIMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_GPTMIMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnIMR                 (((GPTMIMR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnIMR      (((BITBANDING_TA_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnIMR                 (((TA_GPTMIMR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnIMR_OFFSET )))
 #define GPWTM5_TA_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnIMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_GPTMIMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnIMR                 (((GPTMIMR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnIMR      (((BITBANDING_TB_GPTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnIMR                 (((TB_GPTMIMR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnIMR_OFFSET )))
 #define GPWTM5_TB_GPTMTnIMR_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnIMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_GPWTMIMR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnIMR                 (((GPWTMIMR_TW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnIMR      (((BITBANDING_TW_GPWTMIMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnIMR_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnIMR                 (((TW_GPWTMIMR_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnIMR_OFFSET )))
 #define GPWTM5_TW_GPTMTnIMR_R               (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 //--------
@@ -8328,16 +8340,16 @@ typedef volatile struct
 #define GPTM0_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM0_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM0_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM0_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM0_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM0_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM0_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPTM1 GPTMRIS*/
@@ -8345,16 +8357,16 @@ typedef volatile struct
 #define GPTM1_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM1_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM1_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM1_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM1_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPTM1 GPTMRIS*/
@@ -8362,16 +8374,16 @@ typedef volatile struct
 #define GPTM1_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM1_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM1_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM1_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM1_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPTM2 GPTMRIS*/
@@ -8379,16 +8391,16 @@ typedef volatile struct
 #define GPTM2_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM2_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM2_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM2_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM2_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM2_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM2_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPTM3 GPTMRIS*/
@@ -8396,16 +8408,16 @@ typedef volatile struct
 #define GPTM3_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM3_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM3_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM3_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM3_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM3_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM3_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPTM4 GPTMRIS*/
@@ -8413,16 +8425,16 @@ typedef volatile struct
 #define GPTM4_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM4_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM4_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM4_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM4_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM4_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM4_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPTM5 GPTMRIS*/
@@ -8430,16 +8442,16 @@ typedef volatile struct
 #define GPTM5_GPTMRIS                       (((GPTMRIS_TypeDef*)(GPTM5_BASE + GPTM_GPTMRIS_OFFSET )))
 #define GPTM5_GPTMRIS_R                     (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMRIS_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnRIS                  (((GPTMRIS_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnRIS       (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnRIS                  (((TA_GPTMRIS_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnRIS_OFFSET )))
 #define GPTM5_TA_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnRIS                  (((GPTMRIS_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnRIS       (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnRIS                  (((TB_GPTMRIS_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnRIS_OFFSET )))
 #define GPTM5_TB_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnRIS                  (((GPTMRIS_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnRIS       (((BITBANDING_TW_GPTMRIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnRIS                  (((TW_GPTMRIS_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnRIS_OFFSET )))
 #define GPTM5_TW_GPTMTnRIS_R                (*((volatile const uint8_t *)(GPTM5_BASE +GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM0 GPTMRIS*/
@@ -8447,33 +8459,33 @@ typedef volatile struct
 #define GPWTM0_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM0_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM0_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM0_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM0_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnRIS                 (((GPTMRIS_TW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
-#define GPWTM0_TW_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
+#define GPWTM0_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM0_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM1 GPTMRIS*/
 #define GPWTM1_BITBANDING_GPTMRIS           (((BITBANDING_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMRIS_OFFSET)*32))))
 #define GPWTM1_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM1_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM1_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM1_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPWTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnRIS                 (((GPWTMRIS_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
 #define GPWTM1_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM1 GPTMRIS*/
@@ -8481,16 +8493,16 @@ typedef volatile struct
 #define GPWTM1_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM1_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM1_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM1_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPWTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnRIS                 (((GPWTMRIS_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
 #define GPWTM1_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM2 GPTMRIS*/
@@ -8498,16 +8510,16 @@ typedef volatile struct
 #define GPWTM2_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM2_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM2_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM2_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM2_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPWTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnRIS                 (((GPWTMRIS_TW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
 #define GPWTM2_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM3 GPTMRIS*/
@@ -8515,16 +8527,16 @@ typedef volatile struct
 #define GPWTM3_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM3_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM3_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM3_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM3_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPWTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnRIS                 (((GPWTMRIS_TW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
 #define GPWTM3_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM4 GPTMRIS*/
@@ -8532,16 +8544,16 @@ typedef volatile struct
 #define GPWTM4_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM4_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM4_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM4_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM4_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPWTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnRIS                 (((GPWTMRIS_TW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
 #define GPWTM4_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /* GPWTM5 GPTMRIS*/
@@ -8549,16 +8561,16 @@ typedef volatile struct
 #define GPWTM5_GPTMRIS                      (((GPTMRIS_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMRIS_OFFSET )))
 #define GPWTM5_GPTMRIS_R                    (*((volatile const uint32_t *)(GPWTM5_BASE +GPWTM_GPTMRIS_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_GPTMRIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnRIS                 (((GPTMRIS_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnRIS      (((BITBANDING_TA_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnRIS                 (((TA_GPTMRIS_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnRIS_OFFSET )))
 #define GPWTM5_TA_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnRIS_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_GPTMRIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnRIS                 (((GPTMRIS_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnRIS      (((BITBANDING_TB_GPTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnRIS                 (((TB_GPTMRIS_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnRIS_OFFSET )))
 #define GPWTM5_TB_GPTMTnRIS_R               (*((volatile const uint8_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnRIS_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_GPWTMRIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnRIS                 (((GPWTMRIS_TW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnRIS      (((BITBANDING_TW_GPWTMRIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnRIS_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnRIS                 (((TW_GPWTMRIS_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnRIS_OFFSET )))
 #define GPWTM5_TW_GPTMTnRIS_R               (*((volatile const uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 //--------
@@ -9431,16 +9443,16 @@ typedef volatile struct
 #define GPTM0_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM0_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM0_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM0_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM0_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM0_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM0_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPTM1 GPTMMIS*/
@@ -9448,16 +9460,16 @@ typedef volatile struct
 #define GPTM1_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM1_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM1_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM1_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM1_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPTM1 GPTMMIS*/
@@ -9465,16 +9477,16 @@ typedef volatile struct
 #define GPTM1_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM1_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM1_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM1_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM1_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPTM2 GPTMMIS*/
@@ -9482,16 +9494,16 @@ typedef volatile struct
 #define GPTM2_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM2_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM2_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM2_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM2_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM2_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM2_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPTM3 GPTMMIS*/
@@ -9499,16 +9511,16 @@ typedef volatile struct
 #define GPTM3_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM3_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM3_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM3_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM3_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM3_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM3_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPTM4 GPTMMIS*/
@@ -9516,16 +9528,16 @@ typedef volatile struct
 #define GPTM4_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM4_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM4_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM4_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM4_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM4_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM4_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPTM5 GPTMMIS*/
@@ -9533,16 +9545,16 @@ typedef volatile struct
 #define GPTM5_GPTMMIS                       (((GPTMMIS_TypeDef*)(GPTM5_BASE + GPTM_GPTMMIS_OFFSET )))
 #define GPTM5_GPTMMIS_R                     (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMMIS_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnMIS                  (((GPTMMIS_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnMIS       (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnMIS                  (((TA_GPTMMIS_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnMIS_OFFSET )))
 #define GPTM5_TA_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnMIS                  (((GPTMMIS_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnMIS       (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnMIS                  (((TB_GPTMMIS_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnMIS_OFFSET )))
 #define GPTM5_TB_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnMIS                  (((GPTMMIS_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnMIS       (((BITBANDING_TW_GPTMMIS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnMIS                  (((TW_GPTMMIS_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnMIS_OFFSET )))
 #define GPTM5_TW_GPTMTnMIS_R                (*((volatile const uint8_t *)(GPTM5_BASE +GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM0 GPTMMIS*/
@@ -9550,33 +9562,33 @@ typedef volatile struct
 #define GPWTM0_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM0_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM0_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM0_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM0_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnMIS                 (((GPTMMIS_TW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
-#define GPWTM0_TW_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
+#define GPWTM0_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM0_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM1 GPTMMIS*/
 #define GPWTM1_BITBANDING_GPTMMIS           (((BITBANDING_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMMIS_OFFSET)*32))))
 #define GPWTM1_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM1_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM1_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM1_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPWTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnMIS                 (((GPWTMMIS_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
 #define GPWTM1_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM1 GPTMMIS*/
@@ -9584,16 +9596,16 @@ typedef volatile struct
 #define GPWTM1_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM1_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM1_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM1_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPWTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnMIS                 (((GPWTMMIS_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
 #define GPWTM1_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM2 GPTMMIS*/
@@ -9601,16 +9613,16 @@ typedef volatile struct
 #define GPWTM2_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM2_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM2_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM2_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM2_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPWTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnMIS                 (((GPWTMMIS_TW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
 #define GPWTM2_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM3 GPTMMIS*/
@@ -9618,16 +9630,16 @@ typedef volatile struct
 #define GPWTM3_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM3_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM3_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM3_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM3_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPWTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnMIS                 (((GPWTMMIS_TW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
 #define GPWTM3_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM4 GPTMMIS*/
@@ -9635,16 +9647,16 @@ typedef volatile struct
 #define GPWTM4_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM4_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM4_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM4_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM4_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPWTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnMIS                 (((GPWTMMIS_TW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
 #define GPWTM4_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /* GPWTM5 GPTMMIS*/
@@ -9652,16 +9664,16 @@ typedef volatile struct
 #define GPWTM5_GPTMMIS                      (((GPTMMIS_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMMIS_OFFSET )))
 #define GPWTM5_GPTMMIS_R                    (*((volatile const uint32_t *)(GPWTM5_BASE +GPWTM_GPTMMIS_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_GPTMMIS_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnMIS                 (((GPTMMIS_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnMIS      (((BITBANDING_TA_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnMIS                 (((TA_GPTMMIS_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnMIS_OFFSET )))
 #define GPWTM5_TA_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnMIS_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_GPTMMIS_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnMIS                 (((GPTMMIS_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnMIS      (((BITBANDING_TB_GPTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnMIS                 (((TB_GPTMMIS_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnMIS_OFFSET )))
 #define GPWTM5_TB_GPTMTnMIS_R               (*((volatile const uint8_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnMIS_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_GPWTMMIS_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnMIS                 (((GPWTMMIS_TW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnMIS      (((BITBANDING_TW_GPWTMMIS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMIS_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnMIS                 (((TW_GPWTMMIS_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMIS_OFFSET )))
 #define GPWTM5_TW_GPTMTnMIS_R               (*((volatile const uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 //--------
@@ -10535,16 +10547,16 @@ typedef volatile struct
 #define GPTM0_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM0_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM0_GPTMICR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM0_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM0_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM0_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPTM1 GPTMICR*/
@@ -10552,16 +10564,16 @@ typedef volatile struct
 #define GPTM1_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM1_GPTMICR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM1_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM1_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM1_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPTM1 GPTMICR*/
@@ -10569,16 +10581,16 @@ typedef volatile struct
 #define GPTM1_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM1_GPTMICR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM1_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM1_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM1_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPTM2 GPTMICR*/
@@ -10586,16 +10598,16 @@ typedef volatile struct
 #define GPTM2_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM2_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM2_GPTMICR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM2_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM2_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM2_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPTM3 GPTMICR*/
@@ -10603,16 +10615,16 @@ typedef volatile struct
 #define GPTM3_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM3_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM3_GPTMICR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM3_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM3_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM3_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPTM4 GPTMICR*/
@@ -10620,16 +10632,16 @@ typedef volatile struct
 #define GPTM4_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM4_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM4_GPTMICR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM4_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM4_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM4_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPTM5 GPTMICR*/
@@ -10637,16 +10649,16 @@ typedef volatile struct
 #define GPTM5_GPTMICR                       (((GPTMICR_TypeDef*)(GPTM5_BASE + GPTM_GPTMICR_OFFSET )))
 #define GPTM5_GPTMICR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMICR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnICR       (((BITBANDING_GPTMICR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnICR                  (((GPTMICR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnICR       (((BITBANDING_TA_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnICR                  (((TA_GPTMICR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnICR_OFFSET )))
 #define GPTM5_TA_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnICR       (((BITBANDING_GPTMICR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnICR                  (((GPTMICR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnICR       (((BITBANDING_TB_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnICR                  (((TB_GPTMICR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnICR_OFFSET )))
 #define GPTM5_TB_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnICR       (((BITBANDING_GPTMICR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnICR                  (((GPTMICR_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnICR       (((BITBANDING_TW_GPTMICR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnICR                  (((TW_GPTMICR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnICR_OFFSET )))
 #define GPTM5_TW_GPTMTnICR_R                (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM0 GPTMICR*/
@@ -10654,33 +10666,33 @@ typedef volatile struct
 #define GPWTM0_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM0_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM0_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM0_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPTMICR_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnICR                 (((GPTMICR_TW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
-#define GPWTM0_TW_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
+#define GPWTM0_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM0_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM1 GPTMICR*/
 #define GPWTM1_BITBANDING_GPTMICR           (((BITBANDING_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMICR_OFFSET)*32))))
 #define GPWTM1_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM1_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM1_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM1_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPWTMCINT_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnICR                 (((GPWTMCINT_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
 #define GPWTM1_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM1 GPTMICR*/
@@ -10688,16 +10700,16 @@ typedef volatile struct
 #define GPWTM1_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM1_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM1_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM1_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPWTMCINT_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnICR                 (((GPWTMCINT_TW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
 #define GPWTM1_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM2 GPTMICR*/
@@ -10705,16 +10717,16 @@ typedef volatile struct
 #define GPWTM2_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM2_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM2_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM2_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPWTMCINT_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnICR                 (((GPWTMCINT_TW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
 #define GPWTM2_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM3 GPTMICR*/
@@ -10722,16 +10734,16 @@ typedef volatile struct
 #define GPWTM3_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM3_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM3_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM3_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPWTMCINT_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnICR                 (((GPWTMCINT_TW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
 #define GPWTM3_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM4 GPTMICR*/
@@ -10739,16 +10751,16 @@ typedef volatile struct
 #define GPWTM4_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM4_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM4_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM4_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPWTMCINT_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnICR                 (((GPWTMCINT_TW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
 #define GPWTM4_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /* GPWTM5 GPTMICR*/
@@ -10756,16 +10768,16 @@ typedef volatile struct
 #define GPWTM5_GPTMICR                      (((GPTMICR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMICR_OFFSET )))
 #define GPWTM5_GPTMICR_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMICR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnICR      (((BITBANDING_GPTMICR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnICR                 (((GPTMICR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnICR      (((BITBANDING_TA_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnICR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnICR                 (((TA_GPTMICR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnICR_OFFSET )))
 #define GPWTM5_TA_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnICR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnICR      (((BITBANDING_GPTMICR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnICR                 (((GPTMICR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnICR      (((BITBANDING_TB_GPTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnICR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnICR                 (((TB_GPTMICR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnICR_OFFSET )))
 #define GPWTM5_TB_GPTMTnICR_R               (*((volatile uint8_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnICR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnICR      (((BITBANDING_GPWTMCINT_TW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnICR                 (((GPWTMCINT_TW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnICR      (((BITBANDING_TW_GPWTMICR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnICR_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnICR                 (((TW_GPWTMICR_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnICR_OFFSET )))
 #define GPWTM5_TW_GPTMTnICR_R               (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnICR_OFFSET)))
 
 //--------
@@ -11545,12 +11557,12 @@ typedef volatile struct
 #define GPTM0_GPTMTAILR                         (((GPTMTAILR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAILR_OFFSET )))
 #define GPTM0_GPTMTAILR_R                       (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAILR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnILR           (((BITBANDING_GPTMILR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnILR                      (((GPTMILR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnILR           (((BITBANDING_TA_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnILR                      (((TA_GPTMILR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
 #define GPTM0_TA_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnILR           (((BITBANDING_GPTMILR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnILR                      (((GPTMILR_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnILR           (((BITBANDING_TW_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnILR                      (((TW_GPTMILR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
 #define GPTM0_TW_GPTMTnILR_R                    (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnILR_OFFSET)))
 
 /* GPTM1 GPTMTAILR*/
@@ -11558,12 +11570,12 @@ typedef volatile struct
 #define GPTM1_GPTMTAILR                         (((GPTMTAILR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAILR_OFFSET )))
 #define GPTM1_GPTMTAILR_R                       (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAILR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnILR           (((BITBANDING_GPTMILR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnILR                      (((GPTMILR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnILR           (((BITBANDING_TA_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnILR                      (((TA_GPTMILR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
 #define GPTM1_TA_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnILR           (((BITBANDING_GPTMILR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnILR                      (((GPTMILR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnILR           (((BITBANDING_TW_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnILR                      (((TW_GPTMILR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
 #define GPTM1_TW_GPTMTnILR_R                    (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnILR_OFFSET)))
 
 /* GPTM2 GPTMTAILR*/
@@ -11571,12 +11583,12 @@ typedef volatile struct
 #define GPTM2_GPTMTAILR                         (((GPTMTAILR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAILR_OFFSET )))
 #define GPTM2_GPTMTAILR_R                       (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAILR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnILR           (((BITBANDING_GPTMILR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnILR                      (((GPTMILR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnILR           (((BITBANDING_TA_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnILR                      (((TA_GPTMILR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
 #define GPTM2_TA_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnILR           (((BITBANDING_GPTMILR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnILR                      (((GPTMILR_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnILR           (((BITBANDING_TW_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnILR                      (((TW_GPTMILR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
 #define GPTM2_TW_GPTMTnILR_R                    (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnILR_OFFSET)))
 
 /* GPTM3 GPTMTAILR*/
@@ -11584,12 +11596,12 @@ typedef volatile struct
 #define GPTM3_GPTMTAILR                         (((GPTMTAILR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAILR_OFFSET )))
 #define GPTM3_GPTMTAILR_R                       (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAILR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnILR           (((BITBANDING_GPTMILR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnILR                      (((GPTMILR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnILR           (((BITBANDING_TA_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnILR                      (((TA_GPTMILR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
 #define GPTM3_TA_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnILR           (((BITBANDING_GPTMILR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnILR                      (((GPTMILR_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnILR           (((BITBANDING_TW_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnILR                      (((TW_GPTMILR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
 #define GPTM3_TW_GPTMTnILR_R                    (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnILR_OFFSET)))
 
 /* GPTM4 GPTMTAILR*/
@@ -11597,12 +11609,12 @@ typedef volatile struct
 #define GPTM4_GPTMTAILR                         (((GPTMTAILR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAILR_OFFSET )))
 #define GPTM4_GPTMTAILR_R                       (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAILR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnILR           (((BITBANDING_GPTMILR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnILR                      (((GPTMILR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnILR           (((BITBANDING_TA_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnILR                      (((TA_GPTMILR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
 #define GPTM4_TA_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnILR           (((BITBANDING_GPTMILR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnILR                      (((GPTMILR_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnILR           (((BITBANDING_TW_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnILR                      (((TW_GPTMILR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
 #define GPTM4_TW_GPTMTnILR_R                    (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnILR_OFFSET)))
 
 /* GPTM5 GPTMTAILR*/
@@ -11610,12 +11622,12 @@ typedef volatile struct
 #define GPTM5_GPTMTAILR                         (((GPTMTAILR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAILR_OFFSET )))
 #define GPTM5_GPTMTAILR_R                       (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAILR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnILR           (((BITBANDING_GPTMILR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnILR                      (((GPTMILR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnILR           (((BITBANDING_TA_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnILR                      (((TA_GPTMILR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnILR_OFFSET )))
 #define GPTM5_TA_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnILR           (((BITBANDING_GPTMILR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnILR                      (((GPTMILR_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnILR           (((BITBANDING_TW_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnILR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnILR                      (((TW_GPTMILR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnILR_OFFSET )))
 #define GPTM5_TW_GPTMTnILR_R                    (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnILR_OFFSET)))
 
 /* GPWTM0 GPWTMTAILR*/
@@ -11623,12 +11635,12 @@ typedef volatile struct
 #define GPWTM0_GPTMTAILR                        (((GPTMTAILR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAILR_OFFSET )))
 #define GPWTM0_GPTMTAILR_R                      (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAILR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnILR          (((BITBANDING_GPWTMILR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnILR                     (((GPWTMILR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnILR          (((BITBANDING_TA_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnILR                     (((TA_GPWTMILR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
 #define GPWTM0_TA_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_GPWTMILR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnILR_LOW                 (((GPWTMILR_TW_LOW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
+#define GPWTM0_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_TW_GPWTMILR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnILR_LOW                 (((TW_GPWTMILR_LOW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
 #define GPWTM0_TW_GPTMTnILR_LOW_R               (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 /* GPWTM1 GPWTMTAILR*/
@@ -11636,12 +11648,12 @@ typedef volatile struct
 #define GPWTM1_GPTMTAILR                        (((GPTMTAILR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAILR_OFFSET )))
 #define GPWTM1_GPTMTAILR_R                      (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAILR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnILR          (((BITBANDING_GPWTMILR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnILR                     (((GPWTMILR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnILR          (((BITBANDING_TA_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnILR                     (((TA_GPWTMILR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
 #define GPWTM1_TA_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_GPWTMILR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnILR_LOW                 (((GPWTMILR_TW_LOW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_TW_GPWTMILR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnILR_LOW                 (((TW_GPWTMILR_LOW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
 #define GPWTM1_TW_GPTMTnILR_LOW_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 /* GPWTM2 GPWTMTAILR*/
@@ -11649,12 +11661,12 @@ typedef volatile struct
 #define GPWTM2_GPTMTAILR                        (((GPTMTAILR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAILR_OFFSET )))
 #define GPWTM2_GPTMTAILR_R                      (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAILR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnILR          (((BITBANDING_GPWTMILR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnILR                     (((GPWTMILR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnILR          (((BITBANDING_TA_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnILR                     (((TA_GPWTMILR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
 #define GPWTM2_TA_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_GPWTMILR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnILR_LOW                 (((GPWTMILR_TW_LOW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_TW_GPWTMILR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnILR_LOW                 (((TW_GPWTMILR_LOW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
 #define GPWTM2_TW_GPTMTnILR_LOW_R               (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 /* GPWTM3 GPWTMTAILR*/
@@ -11662,12 +11674,12 @@ typedef volatile struct
 #define GPWTM3_GPTMTAILR                        (((GPTMTAILR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAILR_OFFSET )))
 #define GPWTM3_GPTMTAILR_R                      (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAILR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnILR          (((BITBANDING_GPWTMILR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnILR                     (((GPWTMILR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnILR          (((BITBANDING_TA_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnILR                     (((TA_GPWTMILR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
 #define GPWTM3_TA_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_GPWTMILR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnILR_LOW                 (((GPWTMILR_TW_LOW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_TW_GPWTMILR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnILR_LOW                 (((TW_GPWTMILR_LOW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
 #define GPWTM3_TW_GPTMTnILR_LOW_R               (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 /* GPWTM4 GPWTMTAILR*/
@@ -11675,12 +11687,12 @@ typedef volatile struct
 #define GPWTM4_GPTMTAILR                        (((GPTMTAILR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAILR_OFFSET )))
 #define GPWTM4_GPTMTAILR_R                      (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAILR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnILR          (((BITBANDING_GPWTMILR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnILR                     (((GPWTMILR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnILR          (((BITBANDING_TA_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnILR                     (((TA_GPWTMILR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
 #define GPWTM4_TA_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_GPWTMILR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnILR_LOW                 (((GPWTMILR_TW_LOW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_TW_GPWTMILR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnILR_LOW                 (((TW_GPWTMILR_LOW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
 #define GPWTM4_TW_GPTMTnILR_LOW_R               (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 /* GPWTM5 GPWTMTAILR*/
@@ -11688,12 +11700,12 @@ typedef volatile struct
 #define GPWTM5_GPTMTAILR                        (((GPTMTAILR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAILR_OFFSET )))
 #define GPWTM5_GPTMTAILR_R                      (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAILR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnILR          (((BITBANDING_GPWTMILR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnILR                     (((GPWTMILR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnILR          (((BITBANDING_TA_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnILR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnILR                     (((TA_GPWTMILR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnILR_OFFSET )))
 #define GPWTM5_TA_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnILR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_GPWTMILR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnILR_LOW                 (((GPWTMILR_TW_LOW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnILR_LOW      (((BITBANDING_TW_GPWTMILR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnILR_LOW_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnILR_LOW                 (((TW_GPWTMILR_LOW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET )))
 #define GPWTM5_TW_GPTMTnILR_LOW_R               (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 //--------
@@ -11747,8 +11759,8 @@ typedef volatile struct
 #define GPTM0_GPTMTBILR                         (((GPTMTBILR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBILR_OFFSET )))
 #define GPTM0_GPTMTBILR_R                       (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBILR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnILR           (((BITBANDING_GPTMILR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnILR                      (((GPTMILR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnILR           (((BITBANDING_TB_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnILR                      (((TB_GPTMILR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
 #define GPTM0_TB_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TB_GPTMTnILR_OFFSET)))
 
 /* GPTM1 GPTMTBILR*/
@@ -11756,8 +11768,8 @@ typedef volatile struct
 #define GPTM1_GPTMTBILR                         (((GPTMTBILR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBILR_OFFSET )))
 #define GPTM1_GPTMTBILR_R                       (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBILR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnILR           (((BITBANDING_GPTMILR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnILR                      (((GPTMILR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnILR           (((BITBANDING_TB_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnILR                      (((TB_GPTMILR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
 #define GPTM1_TB_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TB_GPTMTnILR_OFFSET)))
 
 /* GPTM2 GPTMTBILR*/
@@ -11765,8 +11777,8 @@ typedef volatile struct
 #define GPTM2_GPTMTBILR                         (((GPTMTBILR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBILR_OFFSET )))
 #define GPTM2_GPTMTBILR_R                       (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBILR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnILR           (((BITBANDING_GPTMILR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnILR                      (((GPTMILR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnILR           (((BITBANDING_TB_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnILR                      (((TB_GPTMILR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
 #define GPTM2_TB_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TB_GPTMTnILR_OFFSET)))
 
 /* GPTM3 GPTMTBILR*/
@@ -11774,8 +11786,8 @@ typedef volatile struct
 #define GPTM3_GPTMTBILR                         (((GPTMTBILR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBILR_OFFSET )))
 #define GPTM3_GPTMTBILR_R                       (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBILR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnILR           (((BITBANDING_GPTMILR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnILR                      (((GPTMILR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnILR           (((BITBANDING_TB_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnILR                      (((TB_GPTMILR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
 #define GPTM3_TB_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TB_GPTMTnILR_OFFSET)))
 
 /* GPTM4 GPTMTBILR*/
@@ -11783,8 +11795,8 @@ typedef volatile struct
 #define GPTM4_GPTMTBILR                         (((GPTMTBILR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBILR_OFFSET )))
 #define GPTM4_GPTMTBILR_R                       (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBILR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnILR           (((BITBANDING_GPTMILR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnILR                      (((GPTMILR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnILR           (((BITBANDING_TB_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnILR                      (((TB_GPTMILR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
 #define GPTM4_TB_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TB_GPTMTnILR_OFFSET)))
 
 /* GPTM5 GPTMTBILR*/
@@ -11792,8 +11804,8 @@ typedef volatile struct
 #define GPTM5_GPTMTBILR                         (((GPTMTBILR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBILR_OFFSET )))
 #define GPTM5_GPTMTBILR_R                       (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBILR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnILR           (((BITBANDING_GPTMILR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnILR                      (((GPTMILR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnILR           (((BITBANDING_TB_GPTMILR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnILR                      (((TB_GPTMILR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnILR_OFFSET )))
 #define GPTM5_TB_GPTMTnILR_R                    (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TB_GPTMTnILR_OFFSET)))
 
 /* GPWTM0 GPWTMTAILR*/
@@ -11801,12 +11813,12 @@ typedef volatile struct
 #define GPWTM0_GPTMTBILR                        (((GPTMTBILR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBILR_OFFSET )))
 #define GPWTM0_GPTMTBILR_R                      (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBILR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnILR          (((BITBANDING_GPWTMILR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnILR                     (((GPWTMILR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnILR          (((BITBANDING_TB_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnILR                     (((TB_GPWTMILR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
 #define GPWTM0_TB_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnILR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_GPWTMILR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnILR_HIGH                (((GPWTMILR_TW_HIGH_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
+#define GPWTM0_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_TW_GPWTMILR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnILR_HIGH                (((TW_GPWTMILR_HIGH_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
 #define GPWTM0_TW_GPTMTnILR_HIGH_R              (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 /* GPWTM1 GPWTMTAILR*/
@@ -11814,12 +11826,12 @@ typedef volatile struct
 #define GPWTM1_GPTMTBILR                        (((GPTMTBILR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBILR_OFFSET )))
 #define GPWTM1_GPTMTBILR_R                      (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBILR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnILR          (((BITBANDING_GPWTMILR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnILR                     (((GPWTMILR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnILR          (((BITBANDING_TB_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnILR                     (((TB_GPWTMILR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
 #define GPWTM1_TB_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnILR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_GPWTMILR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnILR_HIGH                (((GPWTMILR_TW_HIGH_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_TW_GPWTMILR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnILR_HIGH                (((TW_GPWTMILR_HIGH_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
 #define GPWTM1_TW_GPTMTnILR_HIGH_R              (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 /* GPWTM2 GPWTMTAILR*/
@@ -11827,12 +11839,12 @@ typedef volatile struct
 #define GPWTM2_GPTMTBILR                        (((GPTMTBILR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBILR_OFFSET )))
 #define GPWTM2_GPTMTBILR_R                      (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBILR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnILR          (((BITBANDING_GPWTMILR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnILR                     (((GPWTMILR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnILR          (((BITBANDING_TB_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnILR                     (((TB_GPWTMILR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
 #define GPWTM2_TB_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnILR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_GPWTMILR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnILR_HIGH                (((GPWTMILR_TW_HIGH_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_TW_GPWTMILR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnILR_HIGH                (((TW_GPWTMILR_HIGH_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
 #define GPWTM2_TW_GPTMTnILR_HIGH_R              (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 /* GPWTM3 GPWTMTAILR*/
@@ -11840,12 +11852,12 @@ typedef volatile struct
 #define GPWTM3_GPTMTBILR                        (((GPTMTBILR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBILR_OFFSET )))
 #define GPWTM3_GPTMTBILR_R                      (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBILR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnILR          (((BITBANDING_GPWTMILR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnILR                     (((GPWTMILR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnILR          (((BITBANDING_TB_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnILR                     (((TB_GPWTMILR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
 #define GPWTM3_TB_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnILR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_GPWTMILR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnILR_HIGH                (((GPWTMILR_TW_HIGH_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_TW_GPWTMILR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnILR_HIGH                (((TW_GPWTMILR_HIGH_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
 #define GPWTM3_TW_GPTMTnILR_HIGH_R              (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 /* GPWTM4 GPWTMTAILR*/
@@ -11853,12 +11865,12 @@ typedef volatile struct
 #define GPWTM4_GPTMTBILR                        (((GPTMTBILR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBILR_OFFSET )))
 #define GPWTM4_GPTMTBILR_R                      (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBILR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnILR          (((BITBANDING_GPWTMILR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnILR                     (((GPWTMILR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnILR          (((BITBANDING_TB_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnILR                     (((TB_GPWTMILR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
 #define GPWTM4_TB_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnILR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_GPWTMILR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnILR_HIGH                (((GPWTMILR_TW_HIGH_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_TW_GPWTMILR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnILR_HIGH                (((TW_GPWTMILR_HIGH_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
 #define GPWTM4_TW_GPTMTnILR_HIGH_R              (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 /* GPWTM5 GPWTMTAILR*/
@@ -11866,12 +11878,12 @@ typedef volatile struct
 #define GPWTM5_GPTMTBILR                        (((GPTMTBILR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBILR_OFFSET )))
 #define GPWTM5_GPTMTBILR_R                      (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBILR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnILR          (((BITBANDING_GPWTMILR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnILR                     (((GPWTMILR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnILR          (((BITBANDING_TB_GPWTMILR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnILR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnILR                     (((TB_GPWTMILR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnILR_OFFSET )))
 #define GPWTM5_TB_GPTMTnILR_R                   (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnILR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_GPWTMILR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnILR_HIGH                (((GPWTMILR_TW_HIGH_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnILR_HIGH     (((BITBANDING_TW_GPWTMILR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnILR_HIGH_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnILR_HIGH                (((TW_GPWTMILR_HIGH_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET )))
 #define GPWTM5_TW_GPTMTnILR_HIGH_R              (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 //--------
@@ -11919,12 +11931,12 @@ typedef volatile struct
 #define GPTM0_GPTMTAMATCHR                          (((GPTMTAMATCHR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAMATCHR_OFFSET )))
 #define GPTM0_GPTMTAMATCHR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnMATCHR                       (((GPTMMATCHR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_TA_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnMATCHR                       (((TA_GPTMMATCHR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPTM0_TA_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPTM0_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM0_TW_GPTMTnMATCHR                       (((GPTMMATCHR_TW_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
+#define GPTM0_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_TW_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnMATCHR                       (((TW_GPTMMATCHR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
 #define GPTM0_TW_GPTMTnMATCHR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM1 GPTMTAMATCHR*/
@@ -11932,12 +11944,12 @@ typedef volatile struct
 #define GPTM1_GPTMTAMATCHR                          (((GPTMTAMATCHR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAMATCHR_OFFSET )))
 #define GPTM1_GPTMTAMATCHR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnMATCHR                       (((GPTMMATCHR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_TA_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnMATCHR                       (((TA_GPTMMATCHR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPTM1_TA_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPTM1_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM1_TW_GPTMTnMATCHR                       (((GPTMMATCHR_TW_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
+#define GPTM1_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_TW_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnMATCHR                       (((TW_GPTMMATCHR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
 #define GPTM1_TW_GPTMTnMATCHR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM2 GPTMTAMATCHR*/
@@ -11945,12 +11957,12 @@ typedef volatile struct
 #define GPTM2_GPTMTAMATCHR                          (((GPTMTAMATCHR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAMATCHR_OFFSET )))
 #define GPTM2_GPTMTAMATCHR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnMATCHR                       (((GPTMMATCHR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_TA_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnMATCHR                       (((TA_GPTMMATCHR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPTM2_TA_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPTM2_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM2_TW_GPTMTnMATCHR                       (((GPTMMATCHR_TW_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
+#define GPTM2_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_TW_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnMATCHR                       (((TW_GPTMMATCHR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
 #define GPTM2_TW_GPTMTnMATCHR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM3 GPTMTAMATCHR*/
@@ -11958,12 +11970,12 @@ typedef volatile struct
 #define GPTM3_GPTMTAMATCHR                          (((GPTMTAMATCHR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAMATCHR_OFFSET )))
 #define GPTM3_GPTMTAMATCHR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnMATCHR                       (((GPTMMATCHR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_TA_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnMATCHR                       (((TA_GPTMMATCHR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPTM3_TA_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPTM3_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM3_TW_GPTMTnMATCHR                       (((GPTMMATCHR_TW_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
+#define GPTM3_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_TW_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnMATCHR                       (((TW_GPTMMATCHR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
 #define GPTM3_TW_GPTMTnMATCHR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM4 GPTMTAMATCHR*/
@@ -11971,12 +11983,12 @@ typedef volatile struct
 #define GPTM4_GPTMTAMATCHR                          (((GPTMTAMATCHR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAMATCHR_OFFSET )))
 #define GPTM4_GPTMTAMATCHR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnMATCHR                       (((GPTMMATCHR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_TA_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnMATCHR                       (((TA_GPTMMATCHR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPTM4_TA_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPTM4_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM4_TW_GPTMTnMATCHR                       (((GPTMMATCHR_TW_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
+#define GPTM4_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_TW_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnMATCHR                       (((TW_GPTMMATCHR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
 #define GPTM4_TW_GPTMTnMATCHR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM5 GPTMTAMATCHR*/
@@ -11984,90 +11996,90 @@ typedef volatile struct
 #define GPTM5_GPTMTAMATCHR                          (((GPTMTAMATCHR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAMATCHR_OFFSET )))
 #define GPTM5_GPTMTAMATCHR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnMATCHR                       (((GPTMMATCHR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnMATCHR            (((BITBANDING_TA_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnMATCHR                       (((TA_GPTMMATCHR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPTM5_TA_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPTM5_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TW_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM5_TW_GPTMTnMATCHR                       (((GPTMMATCHR_TW_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
+#define GPTM5_BITBANDING_TW_GPTMTnMATCHR            (((BITBANDING_TW_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnMATCHR                       (((TW_GPTMMATCHR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET )))
 #define GPTM5_TW_GPTMTnMATCHR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
-/* GPWTM0 GPWTMTAMR*/
+/* GPWTM0 GPTMTAMATCHR*/
 #define GPWTM0_BITBANDING_GPTMTAMATCHR              (((BITBANDING_GPTMTAMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTAMATCHR_OFFSET)*32))))
 #define GPWTM0_GPTMTAMATCHR                         (((GPTMTAMATCHR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAMATCHR_OFFSET )))
 #define GPWTM0_GPTMTAMATCHR_R                       (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnMATCHR                      (((GPWTMMATCHR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_TA_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnMATCHR                      (((TA_GPWTMMATCHR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPWTM0_TA_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnMATCHR_LOW                  (((GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
+#define GPWTM0_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnMATCHR_LOW                  (((TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
 #define GPWTM0_TW_GPTMTnMATCHR_LOW_R                (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
-/* GPWTM1 GPWTMTAMR*/
+/* GPWTM1 GPTMTAMATCHR*/
 #define GPWTM1_BITBANDING_GPTMTAMATCHR              (((BITBANDING_GPTMTAMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTAMATCHR_OFFSET)*32))))
 #define GPWTM1_GPTMTAMATCHR                         (((GPTMTAMATCHR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAMATCHR_OFFSET )))
 #define GPWTM1_GPTMTAMATCHR_R                       (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnMATCHR                      (((GPWTMMATCHR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_TA_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnMATCHR                      (((TA_GPWTMMATCHR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPWTM1_TA_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnMATCHR_LOW                  (((GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnMATCHR_LOW                  (((TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
 #define GPWTM1_TW_GPTMTnMATCHR_LOW_R                (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
-/* GPWTM2 GPWTMTAMR*/
+/* GPWTM2 GPTMTAMATCHR*/
 #define GPWTM2_BITBANDING_GPTMTAMATCHR              (((BITBANDING_GPTMTAMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTAMATCHR_OFFSET)*32))))
 #define GPWTM2_GPTMTAMATCHR                         (((GPTMTAMATCHR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAMATCHR_OFFSET )))
 #define GPWTM2_GPTMTAMATCHR_R                       (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnMATCHR                      (((GPWTMMATCHR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_TA_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnMATCHR                      (((TA_GPWTMMATCHR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPWTM2_TA_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnMATCHR_LOW                  (((GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnMATCHR_LOW                  (((TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
 #define GPWTM2_TW_GPTMTnMATCHR_LOW_R                (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
-/* GPWTM3 GPWTMTAMR*/
+/* GPWTM3 GPTMTAMATCHR*/
 #define GPWTM3_BITBANDING_GPTMTAMATCHR              (((BITBANDING_GPTMTAMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTAMATCHR_OFFSET)*32))))
 #define GPWTM3_GPTMTAMATCHR                         (((GPTMTAMATCHR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAMATCHR_OFFSET )))
 #define GPWTM3_GPTMTAMATCHR_R                       (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnMATCHR                      (((GPWTMMATCHR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_TA_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnMATCHR                      (((TA_GPWTMMATCHR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPWTM3_TA_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnMATCHR_LOW                  (((GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnMATCHR_LOW                  (((TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
 #define GPWTM3_TW_GPTMTnMATCHR_LOW_R                (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
-/* GPWTM4 GPWTMTAMR*/
+/* GPWTM4 GPTMTAMATCHR*/
 #define GPWTM4_BITBANDING_GPTMTAMATCHR              (((BITBANDING_GPTMTAMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTAMATCHR_OFFSET)*32))))
 #define GPWTM4_GPTMTAMATCHR                         (((GPTMTAMATCHR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAMATCHR_OFFSET )))
 #define GPWTM4_GPTMTAMATCHR_R                       (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnMATCHR                      (((GPWTMMATCHR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_TA_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnMATCHR                      (((TA_GPWTMMATCHR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPWTM4_TA_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnMATCHR_LOW                  (((GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnMATCHR_LOW                  (((TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
 #define GPWTM4_TW_GPTMTnMATCHR_LOW_R                (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
-/* GPWTM5 GPWTMTAMR*/
+/* GPWTM5 GPTMTAMATCHR*/
 #define GPWTM5_BITBANDING_GPTMTAMATCHR              (((BITBANDING_GPTMTAMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTAMATCHR_OFFSET)*32))))
 #define GPWTM5_GPTMTAMATCHR                         (((GPTMTAMATCHR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAMATCHR_OFFSET )))
 #define GPWTM5_GPTMTAMATCHR_R                       (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAMATCHR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnMATCHR                      (((GPWTMMATCHR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnMATCHR           (((BITBANDING_TA_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnMATCHR                      (((TA_GPWTMMATCHR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET )))
 #define GPWTM5_TA_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnMATCHR_LOW                  (((GPWTMMATCHR_TW_LOW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnMATCHR_LOW       (((BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnMATCHR_LOW                  (((TW_GPWTMMATCHR_LOW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET )))
 #define GPWTM5_TW_GPTMTnMATCHR_LOW_R                (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
 //--------
@@ -12121,8 +12133,8 @@ typedef volatile struct
 #define GPTM0_GPTMTBMATCHR                          (((GPTMTBMATCHR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBMATCHR_OFFSET )))
 #define GPTM0_GPTMTBMATCHR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnMATCHR                       (((GPTMMATCHR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_TB_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnMATCHR                       (((TB_GPTMMATCHR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPTM0_TB_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TB_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM1 GPTMTBMATCHR*/
@@ -12130,8 +12142,8 @@ typedef volatile struct
 #define GPTM1_GPTMTBMATCHR                          (((GPTMTBMATCHR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBMATCHR_OFFSET )))
 #define GPTM1_GPTMTBMATCHR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnMATCHR                       (((GPTMMATCHR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_TB_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnMATCHR                       (((TB_GPTMMATCHR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPTM1_TB_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TB_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM2 GPTMTBMATCHR*/
@@ -12139,8 +12151,8 @@ typedef volatile struct
 #define GPTM2_GPTMTBMATCHR                          (((GPTMTBMATCHR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBMATCHR_OFFSET )))
 #define GPTM2_GPTMTBMATCHR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnMATCHR                       (((GPTMMATCHR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_TB_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnMATCHR                       (((TB_GPTMMATCHR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPTM2_TB_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TB_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM3 GPTMTBMATCHR*/
@@ -12148,8 +12160,8 @@ typedef volatile struct
 #define GPTM3_GPTMTBMATCHR                          (((GPTMTBMATCHR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBMATCHR_OFFSET )))
 #define GPTM3_GPTMTBMATCHR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnMATCHR                       (((GPTMMATCHR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_TB_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnMATCHR                       (((TB_GPTMMATCHR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPTM3_TB_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TB_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM4 GPTMTBMATCHR*/
@@ -12157,8 +12169,8 @@ typedef volatile struct
 #define GPTM4_GPTMTBMATCHR                          (((GPTMTBMATCHR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBMATCHR_OFFSET )))
 #define GPTM4_GPTMTBMATCHR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnMATCHR                       (((GPTMMATCHR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_TB_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnMATCHR                       (((TB_GPTMMATCHR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPTM4_TB_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TB_GPTMTnMATCHR_OFFSET)))
 
 /* GPTM5 GPTMTBMATCHR*/
@@ -12166,8 +12178,8 @@ typedef volatile struct
 #define GPTM5_GPTMTBMATCHR                          (((GPTMTBMATCHR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBMATCHR_OFFSET )))
 #define GPTM5_GPTMTBMATCHR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_GPTMMATCHR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnMATCHR                       (((GPTMMATCHR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnMATCHR            (((BITBANDING_TB_GPTMMATCHR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnMATCHR                       (((TB_GPTMMATCHR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPTM5_TB_GPTMTnMATCHR_R                     (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TB_GPTMTnMATCHR_OFFSET)))
 
 /* GPWTM0 GPWTMTBMR*/
@@ -12175,12 +12187,12 @@ typedef volatile struct
 #define GPWTM0_GPTMTBMATCHR                         (((GPTMTBMATCHR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBMATCHR_OFFSET )))
 #define GPWTM0_GPTMTBMATCHR_R                       (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnMATCHR                      (((GPWTMMATCHR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_TB_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnMATCHR                      (((TB_GPWTMMATCHR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPWTM0_TB_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
-#define GPWTM0_TW_GPTMTnMATCHR_HIGH                 (((GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
+#define GPWTM0_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnMATCHR_HIGH                 (((TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
 #define GPWTM0_TW_GPTMTnMATCHR_HIGH_R               (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 /* GPWTM1 GPWTMTBMR*/
@@ -12188,12 +12200,12 @@ typedef volatile struct
 #define GPWTM1_GPTMTBMATCHR                         (((GPTMTBMATCHR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBMATCHR_OFFSET )))
 #define GPWTM1_GPTMTBMATCHR_R                       (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnMATCHR                      (((GPWTMMATCHR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_TB_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnMATCHR                      (((TB_GPWTMMATCHR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPWTM1_TB_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
-#define GPWTM1_TW_GPTMTnMATCHR_HIGH                 (((GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
+#define GPWTM1_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnMATCHR_HIGH                 (((TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
 #define GPWTM1_TW_GPTMTnMATCHR_HIGH_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 /* GPWTM2 GPWTMTBMR*/
@@ -12201,12 +12213,12 @@ typedef volatile struct
 #define GPWTM2_GPTMTBMATCHR                         (((GPTMTBMATCHR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBMATCHR_OFFSET )))
 #define GPWTM2_GPTMTBMATCHR_R                       (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnMATCHR                      (((GPWTMMATCHR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_TB_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnMATCHR                      (((TB_GPWTMMATCHR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPWTM2_TB_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
-#define GPWTM2_TW_GPTMTnMATCHR_HIGH                 (((GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
+#define GPWTM2_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnMATCHR_HIGH                 (((TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
 #define GPWTM2_TW_GPTMTnMATCHR_HIGH_R               (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 /* GPWTM3 GPWTMTBMR*/
@@ -12214,12 +12226,12 @@ typedef volatile struct
 #define GPWTM3_GPTMTBMATCHR                         (((GPTMTBMATCHR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBMATCHR_OFFSET )))
 #define GPWTM3_GPTMTBMATCHR_R                       (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnMATCHR                      (((GPWTMMATCHR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_TB_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnMATCHR                      (((TB_GPWTMMATCHR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPWTM3_TB_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
-#define GPWTM3_TW_GPTMTnMATCHR_HIGH                 (((GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
+#define GPWTM3_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnMATCHR_HIGH                 (((TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
 #define GPWTM3_TW_GPTMTnMATCHR_HIGH_R               (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 /* GPWTM4 GPWTMTBMR*/
@@ -12227,12 +12239,12 @@ typedef volatile struct
 #define GPWTM4_GPTMTBMATCHR                         (((GPTMTBMATCHR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBMATCHR_OFFSET )))
 #define GPWTM4_GPTMTBMATCHR_R                       (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnMATCHR                      (((GPWTMMATCHR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_TB_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnMATCHR                      (((TB_GPWTMMATCHR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPWTM4_TB_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
-#define GPWTM4_TW_GPTMTnMATCHR_HIGH                 (((GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
+#define GPWTM4_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnMATCHR_HIGH                 (((TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
 #define GPWTM4_TW_GPTMTnMATCHR_HIGH_R               (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 /* GPWTM5 GPWTMTBMR*/
@@ -12240,12 +12252,12 @@ typedef volatile struct
 #define GPWTM5_GPTMTBMATCHR                         (((GPTMTBMATCHR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBMATCHR_OFFSET )))
 #define GPWTM5_GPTMTBMATCHR_R                       (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBMATCHR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_GPWTMMATCHR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnMATCHR                      (((GPWTMMATCHR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnMATCHR           (((BITBANDING_TB_GPWTMMATCHR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnMATCHR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnMATCHR                      (((TB_GPWTMMATCHR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET )))
 #define GPWTM5_TB_GPTMTnMATCHR_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnMATCHR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
-#define GPWTM5_TW_GPTMTnMATCHR_HIGH                 (((GPWTMMATCHR_TW_HIGH_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
+#define GPWTM5_BITBANDING_TW_GPTMTnMATCHR_HIGH      (((BITBANDING_TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnMATCHR_HIGH                 (((TW_GPWTMMATCHR_HIGH_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET )))
 #define GPWTM5_TW_GPTMTnMATCHR_HIGH_R               (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 //--------
@@ -12293,8 +12305,8 @@ typedef volatile struct
 #define GPTM0_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAPR_OFFSET )))
 #define GPTM0_GPTMTAPR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAPR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPTMPR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnPR                       (((GPTMPR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnPR                       (((TA_GPTMPR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
 #define GPTM0_TA_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPTM1 GPTMTAPR*/
@@ -12302,8 +12314,8 @@ typedef volatile struct
 #define GPTM1_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAPR_OFFSET )))
 #define GPTM1_GPTMTAPR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAPR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPTMPR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnPR                       (((GPTMPR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnPR                       (((TA_GPTMPR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
 #define GPTM1_TA_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPTM2 GPTMTAPR*/
@@ -12311,8 +12323,8 @@ typedef volatile struct
 #define GPTM2_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAPR_OFFSET )))
 #define GPTM2_GPTMTAPR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAPR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPTMPR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnPR                       (((GPTMPR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnPR                       (((TA_GPTMPR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
 #define GPTM2_TA_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPTM3 GPTMTAPR*/
@@ -12320,8 +12332,8 @@ typedef volatile struct
 #define GPTM3_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAPR_OFFSET )))
 #define GPTM3_GPTMTAPR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAPR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPTMPR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnPR                       (((GPTMPR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnPR                       (((TA_GPTMPR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
 #define GPTM3_TA_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPTM4 GPTMTAPR*/
@@ -12329,8 +12341,8 @@ typedef volatile struct
 #define GPTM4_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAPR_OFFSET )))
 #define GPTM4_GPTMTAPR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAPR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPTMPR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnPR                       (((GPTMPR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnPR                       (((TA_GPTMPR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
 #define GPTM4_TA_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPTM5 GPTMTAPR*/
@@ -12338,8 +12350,8 @@ typedef volatile struct
 #define GPTM5_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAPR_OFFSET )))
 #define GPTM5_GPTMTAPR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAPR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPTMPR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnPR                       (((GPTMPR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnPR                       (((TA_GPTMPR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnPR_OFFSET )))
 #define GPTM5_TA_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPWTM0 GPTMTAPR*/
@@ -12347,8 +12359,8 @@ typedef volatile struct
 #define GPWTM0_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAPR_OFFSET )))
 #define GPWTM0_GPTMTAPR_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAPR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPWTMPR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnPR                       (((GPWTMPR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnPR                       (((TA_GPWTMPR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
 #define GPWTM0_TA_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPWTM1 GPTMTAPR*/
@@ -12356,8 +12368,8 @@ typedef volatile struct
 #define GPWTM1_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAPR_OFFSET )))
 #define GPWTM1_GPTMTAPR_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAPR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPWTMPR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnPR                       (((GPWTMPR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnPR                       (((TA_GPWTMPR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
 #define GPWTM1_TA_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPWTM2 GPTMTAPR*/
@@ -12365,8 +12377,8 @@ typedef volatile struct
 #define GPWTM2_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAPR_OFFSET )))
 #define GPWTM2_GPTMTAPR_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAPR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPWTMPR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnPR                       (((GPWTMPR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnPR                       (((TA_GPWTMPR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
 #define GPWTM2_TA_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPWTM3 GPTMTAPR*/
@@ -12374,8 +12386,8 @@ typedef volatile struct
 #define GPWTM3_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAPR_OFFSET )))
 #define GPWTM3_GPTMTAPR_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAPR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPWTMPR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnPR                       (((GPWTMPR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnPR                       (((TA_GPWTMPR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
 #define GPWTM3_TA_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPWTM4 GPTMTAPR*/
@@ -12383,8 +12395,8 @@ typedef volatile struct
 #define GPWTM4_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAPR_OFFSET )))
 #define GPWTM4_GPTMTAPR_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAPR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPWTMPR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnPR                       (((GPWTMPR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnPR                       (((TA_GPWTMPR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
 #define GPWTM4_TA_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnPR_OFFSET)))
 
 /* GPWTM5 GPTMTAPR*/
@@ -12392,8 +12404,8 @@ typedef volatile struct
 #define GPWTM5_GPTMTAPR                          (((GPTMTAPR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAPR_OFFSET )))
 #define GPWTM5_GPTMTAPR_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAPR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnPR            (((BITBANDING_GPWTMPR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnPR                       (((GPWTMPR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnPR            (((BITBANDING_TA_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnPR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnPR                       (((TA_GPWTMPR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnPR_OFFSET )))
 #define GPWTM5_TA_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnPR_OFFSET)))
 
 //--------
@@ -12447,8 +12459,8 @@ typedef volatile struct
 #define GPTM0_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBPR_OFFSET )))
 #define GPTM0_GPTMTBPR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBPR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPTMPR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnPR                       (((GPTMPR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnPR                       (((TB_GPTMPR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
 #define GPTM0_TB_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPTM1 GPTMTBPR*/
@@ -12456,8 +12468,8 @@ typedef volatile struct
 #define GPTM1_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBPR_OFFSET )))
 #define GPTM1_GPTMTBPR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBPR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPTMPR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnPR                       (((GPTMPR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnPR                       (((TB_GPTMPR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
 #define GPTM1_TB_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPTM2 GPTMTBPR*/
@@ -12465,8 +12477,8 @@ typedef volatile struct
 #define GPTM2_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBPR_OFFSET )))
 #define GPTM2_GPTMTBPR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBPR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPTMPR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnPR                       (((GPTMPR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnPR                       (((TB_GPTMPR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
 #define GPTM2_TB_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPTM3 GPTMTBPR*/
@@ -12474,8 +12486,8 @@ typedef volatile struct
 #define GPTM3_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBPR_OFFSET )))
 #define GPTM3_GPTMTBPR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBPR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPTMPR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnPR                       (((GPTMPR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnPR                       (((TB_GPTMPR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
 #define GPTM3_TB_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPTM4 GPTMTBPR*/
@@ -12483,8 +12495,8 @@ typedef volatile struct
 #define GPTM4_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBPR_OFFSET )))
 #define GPTM4_GPTMTBPR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBPR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPTMPR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnPR                       (((GPTMPR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnPR                       (((TB_GPTMPR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
 #define GPTM4_TB_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPTM5 GPTMTBPR*/
@@ -12492,8 +12504,8 @@ typedef volatile struct
 #define GPTM5_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBPR_OFFSET )))
 #define GPTM5_GPTMTBPR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBPR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPTMPR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnPR                       (((GPTMPR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPTMPR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnPR                       (((TB_GPTMPR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnPR_OFFSET )))
 #define GPTM5_TB_GPTMTnPR_R                     (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPWTM0 GPTMTBPR*/
@@ -12501,8 +12513,8 @@ typedef volatile struct
 #define GPWTM0_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBPR_OFFSET )))
 #define GPWTM0_GPTMTBPR_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBPR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPWTMPR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnPR                       (((GPWTMPR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnPR                       (((TB_GPWTMPR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
 #define GPWTM0_TB_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPWTM1 GPTMTBPR*/
@@ -12510,8 +12522,8 @@ typedef volatile struct
 #define GPWTM1_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBPR_OFFSET )))
 #define GPWTM1_GPTMTBPR_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBPR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPWTMPR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnPR                       (((GPWTMPR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnPR                       (((TB_GPWTMPR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
 #define GPWTM1_TB_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPWTM2 GPTMTBPR*/
@@ -12519,8 +12531,8 @@ typedef volatile struct
 #define GPWTM2_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBPR_OFFSET )))
 #define GPWTM2_GPTMTBPR_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBPR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPWTMPR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnPR                       (((GPWTMPR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnPR                       (((TB_GPWTMPR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
 #define GPWTM2_TB_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPWTM3 GPTMTBPR*/
@@ -12528,8 +12540,8 @@ typedef volatile struct
 #define GPWTM3_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBPR_OFFSET )))
 #define GPWTM3_GPTMTBPR_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBPR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPWTMPR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnPR                       (((GPWTMPR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnPR                       (((TB_GPWTMPR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
 #define GPWTM3_TB_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPWTM4 GPTMTBPR*/
@@ -12537,8 +12549,8 @@ typedef volatile struct
 #define GPWTM4_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBPR_OFFSET )))
 #define GPWTM4_GPTMTBPR_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBPR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPWTMPR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnPR                       (((GPWTMPR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnPR                       (((TB_GPWTMPR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
 #define GPWTM4_TB_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnPR_OFFSET)))
 
 /* GPWTM5 GPTMTBPR*/
@@ -12546,8 +12558,8 @@ typedef volatile struct
 #define GPWTM5_GPTMTBPR                          (((GPTMTBPR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBPR_OFFSET )))
 #define GPWTM5_GPTMTBPR_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBPR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnPR            (((BITBANDING_GPWTMPR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnPR                       (((GPWTMPR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnPR            (((BITBANDING_TB_GPWTMPR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnPR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnPR                       (((TB_GPWTMPR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnPR_OFFSET )))
 #define GPWTM5_TB_GPTMTnPR_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnPR_OFFSET)))
 
 //--------
@@ -12601,8 +12613,8 @@ typedef volatile struct
 #define GPTM0_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAPMR_OFFSET )))
 #define GPTM0_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAPMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPTMPMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPTM0_TA_GPTMTnPMR                       (((GPTMPMR_TA_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
+#define GPTM0_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnPMR                       (((TA_GPTMPMR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
 #define GPTM0_TA_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPTM1 GPTMTAPMR*/
@@ -12610,8 +12622,8 @@ typedef volatile struct
 #define GPTM1_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAPMR_OFFSET )))
 #define GPTM1_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAPMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPTMPMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPTM1_TA_GPTMTnPMR                       (((GPTMPMR_TA_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
+#define GPTM1_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnPMR                       (((TA_GPTMPMR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
 #define GPTM1_TA_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPTM2 GPTMTAPMR*/
@@ -12619,8 +12631,8 @@ typedef volatile struct
 #define GPTM2_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAPMR_OFFSET )))
 #define GPTM2_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAPMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPTMPMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPTM2_TA_GPTMTnPMR                       (((GPTMPMR_TA_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
+#define GPTM2_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnPMR                       (((TA_GPTMPMR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
 #define GPTM2_TA_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPTM3 GPTMTAPMR*/
@@ -12628,8 +12640,8 @@ typedef volatile struct
 #define GPTM3_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAPMR_OFFSET )))
 #define GPTM3_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAPMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPTMPMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPTM3_TA_GPTMTnPMR                       (((GPTMPMR_TA_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
+#define GPTM3_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnPMR                       (((TA_GPTMPMR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
 #define GPTM3_TA_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPTM4 GPTMTAPMR*/
@@ -12637,8 +12649,8 @@ typedef volatile struct
 #define GPTM4_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAPMR_OFFSET )))
 #define GPTM4_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAPMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPTMPMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPTM4_TA_GPTMTnPMR                       (((GPTMPMR_TA_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
+#define GPTM4_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnPMR                       (((TA_GPTMPMR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
 #define GPTM4_TA_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPTM5 GPTMTAPMR*/
@@ -12646,8 +12658,8 @@ typedef volatile struct
 #define GPTM5_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAPMR_OFFSET )))
 #define GPTM5_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAPMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPTMPMR_TA_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPTM5_TA_GPTMTnPMR                       (((GPTMPMR_TA_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
+#define GPTM5_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnPMR                       (((TA_GPTMPMR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnPMR_OFFSET )))
 #define GPTM5_TA_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPWTM0 GPTMTAPMR*/
@@ -12655,8 +12667,8 @@ typedef volatile struct
 #define GPWTM0_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAPMR_OFFSET )))
 #define GPWTM0_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAPMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM0_TA_GPTMTnPMR                       (((GPWTMPMR_TA_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
+#define GPWTM0_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnPMR                       (((TA_GPWTMPMR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
 #define GPWTM0_TA_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPWTM1 GPTMTAPMR*/
@@ -12664,8 +12676,8 @@ typedef volatile struct
 #define GPWTM1_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAPMR_OFFSET )))
 #define GPWTM1_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAPMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM1_TA_GPTMTnPMR                       (((GPWTMPMR_TA_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
+#define GPWTM1_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnPMR                       (((TA_GPWTMPMR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
 #define GPWTM1_TA_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPWTM2 GPTMTAPMR*/
@@ -12673,8 +12685,8 @@ typedef volatile struct
 #define GPWTM2_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAPMR_OFFSET )))
 #define GPWTM2_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAPMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM2_TA_GPTMTnPMR                       (((GPWTMPMR_TA_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
+#define GPWTM2_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnPMR                       (((TA_GPWTMPMR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
 #define GPWTM2_TA_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPWTM3 GPTMTAPMR*/
@@ -12682,8 +12694,8 @@ typedef volatile struct
 #define GPWTM3_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAPMR_OFFSET )))
 #define GPWTM3_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAPMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM3_TA_GPTMTnPMR                       (((GPWTMPMR_TA_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
+#define GPWTM3_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnPMR                       (((TA_GPWTMPMR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
 #define GPWTM3_TA_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPWTM4 GPTMTAPMR*/
@@ -12691,8 +12703,8 @@ typedef volatile struct
 #define GPWTM4_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAPMR_OFFSET )))
 #define GPWTM4_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAPMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM4_TA_GPTMTnPMR                       (((GPWTMPMR_TA_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
+#define GPWTM4_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnPMR                       (((TA_GPWTMPMR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
 #define GPWTM4_TA_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnPMR_OFFSET)))
 
 /* GPWTM5 GPTMTAPMR*/
@@ -12700,8 +12712,8 @@ typedef volatile struct
 #define GPWTM5_GPTMTAPMR                          (((GPTMTAPMR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAPMR_OFFSET )))
 #define GPWTM5_GPTMTAPMR_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAPMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TA_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM5_TA_GPTMTnPMR                       (((GPWTMPMR_TA_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
+#define GPWTM5_BITBANDING_TA_GPTMTnPMR            (((BITBANDING_TA_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnPMR                       (((TA_GPWTMPMR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnPMR_OFFSET )))
 #define GPWTM5_TA_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnPMR_OFFSET)))
 
 //--------
@@ -12756,8 +12768,8 @@ typedef volatile struct
 #define GPTM0_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBPMR_OFFSET )))
 #define GPTM0_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBPMR_OFFSET)))
 
-#define GPTM0_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPTMPMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPTM0_TB_GPTMTnPMR                       (((GPTMPMR_TB_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
+#define GPTM0_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnPMR                       (((TB_GPTMPMR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
 #define GPTM0_TB_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM0_BASE +GPTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPTM1 GPTMTBPMR*/
@@ -12765,8 +12777,8 @@ typedef volatile struct
 #define GPTM1_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBPMR_OFFSET )))
 #define GPTM1_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBPMR_OFFSET)))
 
-#define GPTM1_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPTMPMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPTM1_TB_GPTMTnPMR                       (((GPTMPMR_TB_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
+#define GPTM1_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnPMR                       (((TB_GPTMPMR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
 #define GPTM1_TB_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM1_BASE +GPTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPTM2 GPTMTBPMR*/
@@ -12774,8 +12786,8 @@ typedef volatile struct
 #define GPTM2_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBPMR_OFFSET )))
 #define GPTM2_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBPMR_OFFSET)))
 
-#define GPTM2_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPTMPMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPTM2_TB_GPTMTnPMR                       (((GPTMPMR_TB_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
+#define GPTM2_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnPMR                       (((TB_GPTMPMR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
 #define GPTM2_TB_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM2_BASE +GPTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPTM3 GPTMTBPMR*/
@@ -12783,8 +12795,8 @@ typedef volatile struct
 #define GPTM3_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBPMR_OFFSET )))
 #define GPTM3_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBPMR_OFFSET)))
 
-#define GPTM3_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPTMPMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPTM3_TB_GPTMTnPMR                       (((GPTMPMR_TB_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
+#define GPTM3_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnPMR                       (((TB_GPTMPMR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
 #define GPTM3_TB_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM3_BASE +GPTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPTM4 GPTMTBPMR*/
@@ -12792,8 +12804,8 @@ typedef volatile struct
 #define GPTM4_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBPMR_OFFSET )))
 #define GPTM4_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBPMR_OFFSET)))
 
-#define GPTM4_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPTMPMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPTM4_TB_GPTMTnPMR                       (((GPTMPMR_TB_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
+#define GPTM4_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnPMR                       (((TB_GPTMPMR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
 #define GPTM4_TB_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM4_BASE +GPTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPTM5 GPTMTBPMR*/
@@ -12801,8 +12813,8 @@ typedef volatile struct
 #define GPTM5_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBPMR_OFFSET )))
 #define GPTM5_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBPMR_OFFSET)))
 
-#define GPTM5_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPTMPMR_TB_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPTM5_TB_GPTMTnPMR                       (((GPTMPMR_TB_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
+#define GPTM5_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPTMPMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnPMR                       (((TB_GPTMPMR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnPMR_OFFSET )))
 #define GPTM5_TB_GPTMTnPMR_R                     (*((volatile uint8_t *)(GPTM5_BASE +GPTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPWTM0 GPTMTBPMR*/
@@ -12810,8 +12822,8 @@ typedef volatile struct
 #define GPWTM0_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBPMR_OFFSET )))
 #define GPWTM0_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBPMR_OFFSET)))
 
-#define GPWTM0_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM0_TB_GPTMTnPMR                       (((GPWTMPMR_TB_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
+#define GPWTM0_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnPMR                       (((TB_GPWTMPMR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
 #define GPWTM0_TB_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPWTM1 GPTMTBPMR*/
@@ -12819,8 +12831,8 @@ typedef volatile struct
 #define GPWTM1_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBPMR_OFFSET )))
 #define GPWTM1_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBPMR_OFFSET)))
 
-#define GPWTM1_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM1_TB_GPTMTnPMR                       (((GPWTMPMR_TB_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
+#define GPWTM1_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnPMR                       (((TB_GPWTMPMR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
 #define GPWTM1_TB_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPWTM2 GPTMTBPMR*/
@@ -12828,8 +12840,8 @@ typedef volatile struct
 #define GPWTM2_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBPMR_OFFSET )))
 #define GPWTM2_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBPMR_OFFSET)))
 
-#define GPWTM2_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM2_TB_GPTMTnPMR                       (((GPWTMPMR_TB_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
+#define GPWTM2_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnPMR                       (((TB_GPWTMPMR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
 #define GPWTM2_TB_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPWTM3 GPTMTBPMR*/
@@ -12837,8 +12849,8 @@ typedef volatile struct
 #define GPWTM3_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBPMR_OFFSET )))
 #define GPWTM3_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBPMR_OFFSET)))
 
-#define GPWTM3_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM3_TB_GPTMTnPMR                       (((GPWTMPMR_TB_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
+#define GPWTM3_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnPMR                       (((TB_GPWTMPMR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
 #define GPWTM3_TB_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPWTM4 GPTMTBPMR*/
@@ -12846,8 +12858,8 @@ typedef volatile struct
 #define GPWTM4_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBPMR_OFFSET )))
 #define GPWTM4_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBPMR_OFFSET)))
 
-#define GPWTM4_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM4_TB_GPTMTnPMR                       (((GPWTMPMR_TB_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
+#define GPWTM4_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnPMR                       (((TB_GPWTMPMR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
 #define GPWTM4_TB_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnPMR_OFFSET)))
 
 /* GPWTM5 GPTMTBPMR*/
@@ -12855,8 +12867,8 @@ typedef volatile struct
 #define GPWTM5_GPTMTBPMR                          (((GPTMTBPMR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBPMR_OFFSET )))
 #define GPWTM5_GPTMTBPMR_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBPMR_OFFSET)))
 
-#define GPWTM5_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_GPWTMPMR_TB_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
-#define GPWTM5_TB_GPTMTnPMR                       (((GPWTMPMR_TB_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
+#define GPWTM5_BITBANDING_TB_GPTMTnPMR            (((BITBANDING_TB_GPWTMPMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnPMR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnPMR                       (((TB_GPWTMPMR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnPMR_OFFSET )))
 #define GPWTM5_TB_GPTMTnPMR_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnPMR_OFFSET)))
 
 //--------
@@ -12902,2033 +12914,1824 @@ typedef volatile struct
 //--------
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************************
+************************************ 18 GPTMTAR *********************************************
+******************************************************************************************/
+
+/* GPTM0 GPTMTAR*/
+#define GPTM0_BITBANDING_GPTMTAR               (((BITBANDING_GPTMTAR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTAR_OFFSET)*32))))
+#define GPTM0_GPTMTAR                          (((GPTMTAR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAR_OFFSET )))
+#define GPTM0_GPTMTAR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAR_OFFSET)))
+
+#define GPTM0_BITBANDING_TA_GPTMTnR            (((BITBANDING_TA_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnR                       (((TA_GPTMR_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnR_OFFSET )))
+#define GPTM0_TA_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TA_GPTMTnR_OFFSET)))
+
+#define GPTM0_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM0_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnR_OFFSET)))
+
+/* GPTM1 GPTMTAR*/
+#define GPTM1_BITBANDING_GPTMTAR               (((BITBANDING_GPTMTAR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTAR_OFFSET)*32))))
+#define GPTM1_GPTMTAR                          (((GPTMTAR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAR_OFFSET )))
+#define GPTM1_GPTMTAR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAR_OFFSET)))
+
+#define GPTM1_BITBANDING_TA_GPTMTnR            (((BITBANDING_TA_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnR                       (((TA_GPTMR_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnR_OFFSET )))
+#define GPTM1_TA_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TA_GPTMTnR_OFFSET)))
+
+#define GPTM1_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM1_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnR_OFFSET)))
+
+/* GPTM2 GPTMTAR*/
+#define GPTM2_BITBANDING_GPTMTAR               (((BITBANDING_GPTMTAR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTAR_OFFSET)*32))))
+#define GPTM2_GPTMTAR                          (((GPTMTAR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAR_OFFSET )))
+#define GPTM2_GPTMTAR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAR_OFFSET)))
+
+#define GPTM2_BITBANDING_TA_GPTMTnR            (((BITBANDING_TA_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnR                       (((TA_GPTMR_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnR_OFFSET )))
+#define GPTM2_TA_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TA_GPTMTnR_OFFSET)))
+
+#define GPTM2_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM2_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnR_OFFSET)))
+
+/* GPTM3 GPTMTAR*/
+#define GPTM3_BITBANDING_GPTMTAR               (((BITBANDING_GPTMTAR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTAR_OFFSET)*32))))
+#define GPTM3_GPTMTAR                          (((GPTMTAR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAR_OFFSET )))
+#define GPTM3_GPTMTAR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAR_OFFSET)))
+
+#define GPTM3_BITBANDING_TA_GPTMTnR            (((BITBANDING_TA_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnR                       (((TA_GPTMR_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnR_OFFSET )))
+#define GPTM3_TA_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TA_GPTMTnR_OFFSET)))
+
+#define GPTM3_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM3_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnR_OFFSET)))
+
+/* GPTM4 GPTMTAR*/
+#define GPTM4_BITBANDING_GPTMTAR               (((BITBANDING_GPTMTAR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTAR_OFFSET)*32))))
+#define GPTM4_GPTMTAR                          (((GPTMTAR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAR_OFFSET )))
+#define GPTM4_GPTMTAR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAR_OFFSET)))
+
+#define GPTM4_BITBANDING_TA_GPTMTnR            (((BITBANDING_TA_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnR                       (((TA_GPTMR_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnR_OFFSET )))
+#define GPTM4_TA_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TA_GPTMTnR_OFFSET)))
+
+#define GPTM4_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM4_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
-#define GPTM0_GPTMTAR            (((GPTMTAR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPTM0_GPTMTAR_R          (*((volatile const  int32_t *)(GPTM0_BASE +GPTM_GPTMTAR_OFFSET)))
+/* GPTM5 GPTMTAR*/
+#define GPTM5_BITBANDING_GPTMTAR               (((BITBANDING_GPTMTAR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTAR_OFFSET)*32))))
+#define GPTM5_GPTMTAR                          (((GPTMTAR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAR_OFFSET )))
+#define GPTM5_GPTMTAR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAR_OFFSET)))
 
+#define GPTM5_BITBANDING_TA_GPTMTnR            (((BITBANDING_TA_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnR                       (((TA_GPTMR_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnR_OFFSET )))
+#define GPTM5_TA_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TA_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM0_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPTM0_GPTMTAR_R_TAR_BIT       (0)
-
-#define GPTM0_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM0_GPTMTBR            (((GPTMTBR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPTM0_GPTMTBR_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMTBR_OFFSET)))
-
-
-//--------
-#define GPTM0_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPTM0_GPTMTBR_R_TBR_BIT       (0)
-
-#define GPTM0_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM0_GPTMTAV            (((GPTMTAV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPTM0_GPTMTAV_R          (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAV_OFFSET)))
-
-//--------
-#define GPTM0_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPTM0_GPTMTAV_R_TAV_BIT       (0)
-
-#define GPTM0_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM0_GPTMTBV            (((GPTMTBV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPTM0_GPTMTBV_R          (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBV_OFFSET)))
-
-
-//--------
-#define GPTM0_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPTM0_GPTMTBV_R_TBV_BIT       (0)
-
-#define GPTM0_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM0_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPTM0_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMRTCPD_OFFSET)))
-
-
-//--------
-#define GPTM0_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPTM0_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPTM0_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
-
-#define GPTM0_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPTM0_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-#define GPTM0_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPTM0_GPTMTAPS_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMTAPS_OFFSET)))
-
-//--------
-#define GPTM0_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM0_GPTMTAPS_R_PSS_BIT       (0)
-
-#define GPTM0_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM0_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPTM0_GPTMTBPS_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMTBPS_OFFSET)))
-
-//--------
-#define GPTM0_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM0_GPTMTBPS_R_PSS_BIT       (0)
-
-#define GPTM0_GPTMTBPS_PSS_MASK        (0x0000FFFF)
-//--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
+#define GPTM5_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM5_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
+/* GPWTM0 GPTMTAR*/
+#define GPWTM0_BITBANDING_GPTMTAR              (((BITBANDING_GPTMTAR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTAR_OFFSET)*32))))
+#define GPWTM0_GPTMTAR                         (((GPTMTAR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAR_OFFSET )))
+#define GPWTM0_GPTMTAR_R                       (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAR_OFFSET)))
 
-#define GPTM0_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPTM0_GPTMTAPV_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMTAPV_OFFSET)))
+#define GPWTM0_BITBANDING_TA_GPTMTnR           (((BITBANDING_TA_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnR                      (((TA_GPTMR_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnR_OFFSET )))
+#define GPWTM0_TA_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM0_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM0_GPTMTAPV_R_PSV_BIT       (0)
-
-#define GPTM0_GPTMTAPV_PSV_MASK        (0x0000FFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-#define GPTM0_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPTM0_GPTMTBPV_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMTBPV_OFFSET)))
-
-//--------
-#define GPTM0_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM0_GPTMTBPV_R_PSV_BIT       (0)
-
-#define GPTM0_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM0_GPTMPP            (((GPTMPP_TypeDef*)(GPTM0_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPTM0_GPTMPP_R          (*((volatile const uint32_t *)(GPTM0_BASE +GPTM_GPTMPP_OFFSET)))
-
-#define GPTM0_GPTMPP_SIZE        (0x0000000F)
-
-//--------
-#define GPTM0_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPTM0_GPTMPP_R_SIZE_BIT       (0)
-#define GPTM0_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPTM0_GPTMPP_R_SIZE_32b       (0x00000001)
-
-#define GPTM0_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPTM0_GPTMPP_SIZE_16b         (0x00000000)
-#define GPTM0_GPTMPP_SIZE_32b         (0x00000001)
-//--------
-
-
-// ToDO GPTM1
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM1_GPTMTAR            (((GPTMTAR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPTM1_GPTMTAR_R          (*((volatile const  int32_t *)(GPTM1_BASE +GPTM_GPTMTAR_OFFSET)))
-
-
-//--------
-#define GPTM1_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPTM1_GPTMTAR_R_TAR_BIT       (0)
-
-#define GPTM1_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM1_GPTMTBR            (((GPTMTBR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPTM1_GPTMTBR_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMTBR_OFFSET)))
-
-
-//--------
-#define GPTM1_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPTM1_GPTMTBR_R_TBR_BIT       (0)
-
-#define GPTM1_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM1_GPTMTAV            (((GPTMTAV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPTM1_GPTMTAV_R          (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAV_OFFSET)))
-
-//--------
-#define GPTM1_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPTM1_GPTMTAV_R_TAV_BIT       (0)
-
-#define GPTM1_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM1_GPTMTBV            (((GPTMTBV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPTM1_GPTMTBV_R          (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBV_OFFSET)))
-
+#define GPWTM0_BITBANDING_TW_GPTMTnR_LOW       (((BITBANDING_TW_GPWTMR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnR_LOW_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnR_LOW                  (((TW_GPWTMR_LOW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET )))
+#define GPWTM0_TW_GPTMTnR_LOW_R                (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
-//--------
-#define GPTM1_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPTM1_GPTMTBV_R_TBV_BIT       (0)
-
-#define GPTM1_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM1 GPTMTAR*/
+#define GPWTM1_BITBANDING_GPTMTAR              (((BITBANDING_GPTMTAR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTAR_OFFSET)*32))))
+#define GPWTM1_GPTMTAR                         (((GPTMTAR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAR_OFFSET )))
+#define GPWTM1_GPTMTAR_R                       (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAR_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_TA_GPTMTnR           (((BITBANDING_TA_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnR                      (((TA_GPTMR_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnR_OFFSET )))
+#define GPWTM1_TA_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnR_OFFSET)))
 
-#define GPTM1_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPTM1_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMRTCPD_OFFSET)))
+#define GPWTM1_BITBANDING_TW_GPTMTnR_LOW       (((BITBANDING_TW_GPWTMR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnR_LOW_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnR_LOW                  (((TW_GPWTMR_LOW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET )))
+#define GPWTM1_TW_GPTMTnR_LOW_R                (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
+/* GPWTM2 GPTMTAR*/
+#define GPWTM2_BITBANDING_GPTMTAR              (((BITBANDING_GPTMTAR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTAR_OFFSET)*32))))
+#define GPWTM2_GPTMTAR                         (((GPTMTAR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAR_OFFSET )))
+#define GPWTM2_GPTMTAR_R                       (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAR_OFFSET)))
 
-//--------
-#define GPTM1_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPTM1_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPTM1_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
-
-#define GPTM1_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPTM1_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+#define GPWTM2_BITBANDING_TA_GPTMTnR           (((BITBANDING_TA_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnR                      (((TA_GPTMR_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnR_OFFSET )))
+#define GPWTM2_TA_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnR_OFFSET)))
 
+#define GPWTM2_BITBANDING_TW_GPTMTnR_LOW       (((BITBANDING_TW_GPWTMR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnR_LOW_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnR_LOW                  (((TW_GPWTMR_LOW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET )))
+#define GPWTM2_TW_GPTMTnR_LOW_R                (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM3 GPTMTAR*/
+#define GPWTM3_BITBANDING_GPTMTAR              (((BITBANDING_GPTMTAR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTAR_OFFSET)*32))))
+#define GPWTM3_GPTMTAR                         (((GPTMTAR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAR_OFFSET )))
+#define GPWTM3_GPTMTAR_R                       (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAR_OFFSET)))
 
+#define GPWTM3_BITBANDING_TA_GPTMTnR           (((BITBANDING_TA_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnR                      (((TA_GPTMR_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnR_OFFSET )))
+#define GPWTM3_TA_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnR_OFFSET)))
 
-#define GPTM1_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPTM1_GPTMTAPS_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMTAPS_OFFSET)))
+#define GPWTM3_BITBANDING_TW_GPTMTnR_LOW       (((BITBANDING_TW_GPWTMR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnR_LOW_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnR_LOW                  (((TW_GPWTMR_LOW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET )))
+#define GPWTM3_TW_GPTMTnR_LOW_R                (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
-//--------
-#define GPTM1_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM1_GPTMTAPS_R_PSS_BIT       (0)
+/* GPWTM4 GPTMTAR*/
+#define GPWTM4_BITBANDING_GPTMTAR              (((BITBANDING_GPTMTAR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTAR_OFFSET)*32))))
+#define GPWTM4_GPTMTAR                         (((GPTMTAR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAR_OFFSET )))
+#define GPWTM4_GPTMTAR_R                       (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAR_OFFSET)))
 
-#define GPTM1_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
+#define GPWTM4_BITBANDING_TA_GPTMTnR           (((BITBANDING_TA_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnR                      (((TA_GPTMR_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnR_OFFSET )))
+#define GPWTM4_TA_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnR_OFFSET)))
 
+#define GPWTM4_BITBANDING_TW_GPTMTnR_LOW       (((BITBANDING_TW_GPWTMR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnR_LOW_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnR_LOW                  (((TW_GPWTMR_LOW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET )))
+#define GPWTM4_TW_GPTMTnR_LOW_R                (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM5 GPTMTAR*/
+#define GPWTM5_BITBANDING_GPTMTAR              (((BITBANDING_GPTMTAR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTAR_OFFSET)*32))))
+#define GPWTM5_GPTMTAR                         (((GPTMTAR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAR_OFFSET )))
+#define GPWTM5_GPTMTAR_R                       (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAR_OFFSET)))
 
-#define GPTM1_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPTM1_GPTMTBPS_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMTBPS_OFFSET)))
+#define GPWTM5_BITBANDING_TA_GPTMTnR           (((BITBANDING_TA_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnR_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnR                      (((TA_GPTMR_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnR_OFFSET )))
+#define GPWTM5_TA_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM1_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM1_GPTMTBPS_R_PSS_BIT       (0)
+#define GPWTM5_BITBANDING_TW_GPTMTnR_LOW       (((BITBANDING_TW_GPWTMR_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnR_LOW_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnR_LOW                  (((TW_GPWTMR_LOW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET )))
+#define GPWTM5_TW_GPTMTnR_LOW_R                (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
-#define GPTM1_GPTMTBPS_PSS_MASK        (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
+#define GPTM_GPTMTAR_R_TAR_MASK                 (0xFFFFFFFF)
+#define GPTM_GPTMTAR_R_TAR_BIT                  (0)
 
-#define GPTM1_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPTM1_GPTMTAPV_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMTAPV_OFFSET)))
-
+#define GPTM_GPTMTAR_TAR_MASK                   (0xFFFFFFFF)
 //--------
-#define GPTM1_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM1_GPTMTAPV_R_PSV_BIT       (0)
 
-#define GPTM1_GPTMTAPV_PSV_MASK        (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
+#define GPTM_TA_GPTMTnR_R_TnR_MASK              (0x0000FFFF)
+#define GPTM_TA_GPTMTnR_R_TnR_BIT               (0)
 
-#define GPTM1_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPTM1_GPTMTBPV_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMTBPV_OFFSET)))
-
+#define GPTM_TA_GPTMTnR_TnR_MASK                (0x0000FFFF)
 //--------
-#define GPTM1_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM1_GPTMTBPV_R_PSV_BIT       (0)
 
-#define GPTM1_GPTMTBPV_PSV_MASK        (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM1_GPTMPP            (((GPTMPP_TypeDef*)(GPTM1_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPTM1_GPTMPP_R          (*((volatile const uint32_t *)(GPTM1_BASE +GPTM_GPTMPP_OFFSET)))
+#define GPTM_TW_GPTMTnR_R_TnR_MASK              (0xFFFFFFFF)
+#define GPTM_TW_GPTMTnR_R_TnR_BIT               (0)
 
-#define GPTM1_GPTMPP_SIZE        (0x0000000F)
-
+#define GPTM_TW_GPTMTnR_TnR_MASK                (0xFFFFFFFF)
 //--------
-#define GPTM1_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPTM1_GPTMPP_R_SIZE_BIT       (0)
-#define GPTM1_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPTM1_GPTMPP_R_SIZE_32b       (0x00000001)
 
-#define GPTM1_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPTM1_GPTMPP_SIZE_16b         (0x00000000)
-#define GPTM1_GPTMPP_SIZE_32b         (0x00000001)
 //--------
-
-
-
-// ToDO GPTM2
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM2_GPTMTAR            (((GPTMTAR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPTM2_GPTMTAR_R          (*((volatile const  int32_t *)(GPTM2_BASE +GPTM_GPTMTAR_OFFSET)))
+#define GPWTM_GPTMTAR_R_TAR_MASK                (0xFFFFFFFF)
+#define GPWTM_GPTMTAR_R_TAR_BIT                 (0)
 
-
+#define GPWTM_GPTMTAR_TAR_MASK                  (0xFFFFFFFF)
 //--------
-#define GPTM2_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPTM2_GPTMTAR_R_TAR_BIT       (0)
 
-#define GPTM2_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM2_GPTMTBR            (((GPTMTBR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPTM2_GPTMTBR_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMTBR_OFFSET)))
+#define GPWTM_TA_GPTMTnR_R_TnR_MASK             (0xFFFFFFFF)
+#define GPWTM_TA_GPTMTnR_R_TnR_BIT              (0)
 
-
+#define GPWTM_TA_GPTMTnR_TnR_MASK               (0xFFFFFFFF)
 //--------
-#define GPTM2_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPTM2_GPTMTBR_R_TBR_BIT       (0)
 
-#define GPTM2_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM2_GPTMTAV            (((GPTMTAV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPTM2_GPTMTAV_R          (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAV_OFFSET)))
+#define GPWTM_TW_GPTMTnR_LOW_R_TnR_LOW_MASK     (0xFFFFFFFF)
+#define GPWTM_TW_GPTMTnR_LOW_R_TnR_LOW_BIT      (0)
 
+#define GPWTM_TW_GPTMTnR_LOW_TnR_LOW_MASK       (0xFFFFFFFF)
 //--------
-#define GPTM2_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPTM2_GPTMTAV_R_TAV_BIT       (0)
 
-#define GPTM2_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+/******************************************************************************************
+************************************ 19 GPTMTBR *********************************************
+******************************************************************************************/
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM0 GPTMTBR*/
+#define GPTM0_BITBANDING_GPTMTBR               (((BITBANDING_GPTMTBR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTBR_OFFSET)*32))))
+#define GPTM0_GPTMTBR                          (((GPTMTBR_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBR_OFFSET )))
+#define GPTM0_GPTMTBR_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBR_OFFSET)))
 
-#define GPTM2_GPTMTBV            (((GPTMTBV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPTM2_GPTMTBV_R          (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBV_OFFSET)))
+#define GPTM0_BITBANDING_TB_GPTMTnR            (((BITBANDING_TB_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnR                       (((TB_GPTMR_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnR_OFFSET )))
+#define GPTM0_TB_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TB_GPTMTnR_OFFSET)))
 
+#define GPTM0_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM0_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM2_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPTM2_GPTMTBV_R_TBV_BIT       (0)
+/* GPTM1 GPTMTBR*/
+#define GPTM1_BITBANDING_GPTMTBR               (((BITBANDING_GPTMTBR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTBR_OFFSET)*32))))
+#define GPTM1_GPTMTBR                          (((GPTMTBR_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBR_OFFSET )))
+#define GPTM1_GPTMTBR_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBR_OFFSET)))
 
-#define GPTM2_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM1_BITBANDING_TB_GPTMTnR            (((BITBANDING_TB_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnR                       (((TB_GPTMR_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnR_OFFSET )))
+#define GPTM1_TB_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TB_GPTMTnR_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM1_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM1_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPTM2_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMRTCPD_OFFSET)))
+/* GPTM2 GPTMTBR*/
+#define GPTM2_BITBANDING_GPTMTBR               (((BITBANDING_GPTMTBR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTBR_OFFSET)*32))))
+#define GPTM2_GPTMTBR                          (((GPTMTBR_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBR_OFFSET )))
+#define GPTM2_GPTMTBR_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBR_OFFSET)))
 
+#define GPTM2_BITBANDING_TB_GPTMTnR            (((BITBANDING_TB_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnR                       (((TB_GPTMR_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnR_OFFSET )))
+#define GPTM2_TB_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TB_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM2_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPTM2_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPTM2_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+#define GPTM2_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM2_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPTM2_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+/* GPTM3 GPTMTBR*/
+#define GPTM3_BITBANDING_GPTMTBR               (((BITBANDING_GPTMTBR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTBR_OFFSET)*32))))
+#define GPTM3_GPTMTBR                          (((GPTMTBR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBR_OFFSET )))
+#define GPTM3_GPTMTBR_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBR_OFFSET)))
 
+#define GPTM3_BITBANDING_TB_GPTMTnR            (((BITBANDING_TB_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnR                       (((TB_GPTMR_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnR_OFFSET )))
+#define GPTM3_TB_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TB_GPTMTnR_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM3_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM3_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
+/* GPTM4 GPTMTBR*/
+#define GPTM4_BITBANDING_GPTMTBR               (((BITBANDING_GPTMTBR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTBR_OFFSET)*32))))
+#define GPTM4_GPTMTBR                          (((GPTMTBR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBR_OFFSET )))
+#define GPTM4_GPTMTBR_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBR_OFFSET)))
 
-#define GPTM2_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPTM2_GPTMTAPS_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMTAPS_OFFSET)))
+#define GPTM4_BITBANDING_TB_GPTMTnR            (((BITBANDING_TB_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnR                       (((TB_GPTMR_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnR_OFFSET )))
+#define GPTM4_TB_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TB_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM2_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM2_GPTMTAPS_R_PSS_BIT       (0)
+#define GPTM4_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM4_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
+/* GPTM5 GPTMTBR*/
+#define GPTM5_BITBANDING_GPTMTBR               (((BITBANDING_GPTMTBR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTBR_OFFSET)*32))))
+#define GPTM5_GPTMTBR                          (((GPTMTBR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBR_OFFSET )))
+#define GPTM5_GPTMTBR_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBR_OFFSET)))
 
+#define GPTM5_BITBANDING_TB_GPTMTnR            (((BITBANDING_TB_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnR                       (((TB_GPTMR_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnR_OFFSET )))
+#define GPTM5_TB_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TB_GPTMTnR_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM5_BITBANDING_TW_GPTMTnR            (((BITBANDING_TW_GPTMR_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnR_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnR                       (((TW_GPTMR_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnR_OFFSET )))
+#define GPTM5_TW_GPTMTnR_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPTM2_GPTMTBPS_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMTBPS_OFFSET)))
+/* GPWTM0 GPTMTBR*/
+#define GPWTM0_BITBANDING_GPTMTBR              (((BITBANDING_GPTMTBR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTBR_OFFSET)*32))))
+#define GPWTM0_GPTMTBR                         (((GPTMTBR_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBR_OFFSET )))
+#define GPWTM0_GPTMTBR_R                       (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBR_OFFSET)))
 
-//--------
-#define GPTM2_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM2_GPTMTBPS_R_PSS_BIT       (0)
+#define GPWTM0_BITBANDING_TB_GPTMTnR           (((BITBANDING_TB_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnR                      (((TB_GPTMR_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnR_OFFSET )))
+#define GPWTM0_TB_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMTBPS_PSS_MASK        (0x0000FFFF)
-//--------
+#define GPWTM0_BITBANDING_TW_GPTMTnR_HIGH      (((BITBANDING_TW_GPWTMR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnR_HIGH_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnR_HIGH                 (((TW_GPWTMR_HIGH_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET )))
+#define GPWTM0_TW_GPTMTnR_HIGH_R               (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
+/* GPWTM1 GPTMTBR*/
+#define GPWTM1_BITBANDING_GPTMTBR              (((BITBANDING_GPTMTBR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTBR_OFFSET)*32))))
+#define GPWTM1_GPTMTBR                         (((GPTMTBR_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBR_OFFSET )))
+#define GPWTM1_GPTMTBR_R                       (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBR_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_TB_GPTMTnR           (((BITBANDING_TB_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnR                      (((TB_GPTMR_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnR_OFFSET )))
+#define GPWTM1_TB_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnR_OFFSET)))
 
+#define GPWTM1_BITBANDING_TW_GPTMTnR_HIGH      (((BITBANDING_TW_GPWTMR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnR_HIGH_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnR_HIGH                 (((TW_GPWTMR_HIGH_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET )))
+#define GPWTM1_TW_GPTMTnR_HIGH_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
+/* GPWTM2 GPTMTBR*/
+#define GPWTM2_BITBANDING_GPTMTBR              (((BITBANDING_GPTMTBR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTBR_OFFSET)*32))))
+#define GPWTM2_GPTMTBR                         (((GPTMTBR_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBR_OFFSET )))
+#define GPWTM2_GPTMTBR_R                       (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBR_OFFSET)))
 
-#define GPTM2_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPTM2_GPTMTAPV_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMTAPV_OFFSET)))
+#define GPWTM2_BITBANDING_TB_GPTMTnR           (((BITBANDING_TB_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnR                      (((TB_GPTMR_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnR_OFFSET )))
+#define GPWTM2_TB_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnR_OFFSET)))
 
-//--------
-#define GPTM2_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM2_GPTMTAPV_R_PSV_BIT       (0)
+#define GPWTM2_BITBANDING_TW_GPTMTnR_HIGH      (((BITBANDING_TW_GPWTMR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnR_HIGH_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnR_HIGH                 (((TW_GPWTMR_HIGH_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET )))
+#define GPWTM2_TW_GPTMTnR_HIGH_R               (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
-#define GPTM2_GPTMTAPV_PSV_MASK        (0x0000FFFF)
-//--------
+/* GPWTM3 GPTMTBR*/
+#define GPWTM3_BITBANDING_GPTMTBR              (((BITBANDING_GPTMTBR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTBR_OFFSET)*32))))
+#define GPWTM3_GPTMTBR                         (((GPTMTBR_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBR_OFFSET )))
+#define GPWTM3_GPTMTBR_R                       (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBR_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM3_BITBANDING_TB_GPTMTnR           (((BITBANDING_TB_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnR                      (((TB_GPTMR_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnR_OFFSET )))
+#define GPWTM3_TB_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnR_OFFSET)))
 
+#define GPWTM3_BITBANDING_TW_GPTMTnR_HIGH      (((BITBANDING_TW_GPWTMR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnR_HIGH_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnR_HIGH                 (((TW_GPWTMR_HIGH_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET )))
+#define GPWTM3_TW_GPTMTnR_HIGH_R               (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
-#define GPTM2_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPTM2_GPTMTBPV_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMTBPV_OFFSET)))
+/* GPWTM4 GPTMTBR*/
+#define GPWTM4_BITBANDING_GPTMTBR              (((BITBANDING_GPTMTBR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTBR_OFFSET)*32))))
+#define GPWTM4_GPTMTBR                         (((GPTMTBR_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBR_OFFSET )))
+#define GPWTM4_GPTMTBR_R                       (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBR_OFFSET)))
 
-//--------
-#define GPTM2_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM2_GPTMTBPV_R_PSV_BIT       (0)
+#define GPWTM4_BITBANDING_TB_GPTMTnR           (((BITBANDING_TB_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnR                      (((TB_GPTMR_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnR_OFFSET )))
+#define GPWTM4_TB_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
+#define GPWTM4_BITBANDING_TW_GPTMTnR_HIGH      (((BITBANDING_TW_GPWTMR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnR_HIGH_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnR_HIGH                 (((TW_GPWTMR_HIGH_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET )))
+#define GPWTM4_TW_GPTMTnR_HIGH_R               (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM5 GPTMTBR*/
+#define GPWTM5_BITBANDING_GPTMTBR              (((BITBANDING_GPTMTBR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTBR_OFFSET)*32))))
+#define GPWTM5_GPTMTBR                         (((GPTMTBR_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBR_OFFSET )))
+#define GPWTM5_GPTMTBR_R                       (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBR_OFFSET)))
 
-#define GPTM2_GPTMPP            (((GPTMPP_TypeDef*)(GPTM2_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPTM2_GPTMPP_R          (*((volatile const uint32_t *)(GPTM2_BASE +GPTM_GPTMPP_OFFSET)))
+#define GPWTM5_BITBANDING_TB_GPTMTnR           (((BITBANDING_TB_GPTMR_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnR_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnR                      (((TB_GPTMR_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnR_OFFSET )))
+#define GPWTM5_TB_GPTMTnR_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnR_OFFSET)))
 
-#define GPTM2_GPTMPP_SIZE        (0x0000000F)
+#define GPWTM5_BITBANDING_TW_GPTMTnR_HIGH      (((BITBANDING_TW_GPWTMR_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnR_HIGH_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnR_HIGH                 (((TW_GPWTMR_HIGH_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET )))
+#define GPWTM5_TW_GPTMTnR_HIGH_R               (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
 //--------
-#define GPTM2_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPTM2_GPTMPP_R_SIZE_BIT       (0)
-#define GPTM2_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPTM2_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPTM_GPTMTBR_R_TBR_MASK                 (0xFFFFFFFF)
+#define GPTM_GPTMTBR_R_TBR_BIT                  (0)
 
-#define GPTM2_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPTM2_GPTMPP_SIZE_16b         (0x00000000)
-#define GPTM2_GPTMPP_SIZE_32b         (0x00000001)
+#define GPTM_GPTMTBR_TBR_MASK                   (0xFFFFFFFF)
 //--------
-
-
-// ToDO GPTM3
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM3_GPTMTAR            (((GPTMTAR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPTM3_GPTMTAR_R          (*((volatile const  int32_t *)(GPTM3_BASE +GPTM_GPTMTAR_OFFSET)))
-
-
 //--------
-#define GPTM3_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPTM3_GPTMTAR_R_TAR_BIT       (0)
+#define GPTM_TB_GPTMTnR_R_TnR_MASK              (0x0000FFFF)
+#define GPTM_TB_GPTMTnR_R_TnR_BIT               (0)
 
-#define GPTM3_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
+#define GPTM_TB_GPTMTnR_TnR_MASK                (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM3_GPTMTBR            (((GPTMTBR_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPTM3_GPTMTBR_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMTBR_OFFSET)))
-
-
 //--------
-#define GPTM3_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPTM3_GPTMTBR_R_TBR_BIT       (0)
+#define GPTM_TW_GPTMTnR_R_TnR_MASK              (0xFFFFFFFF)
+#define GPTM_TW_GPTMTnR_R_TnR_BIT               (0)
 
-#define GPTM3_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
+#define GPTM_TW_GPTMTnR_TnR_MASK                (0xFFFFFFFF)
 //--------
-
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM3_GPTMTAV            (((GPTMTAV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPTM3_GPTMTAV_R          (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAV_OFFSET)))
-
 //--------
-#define GPTM3_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPTM3_GPTMTAV_R_TAV_BIT       (0)
+#define GPWTM_GPTMTBR_R_TBR_MASK                (0xFFFFFFFF)
+#define GPWTM_GPTMTBR_R_TBR_BIT                 (0)
 
-#define GPTM3_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
+#define GPWTM_GPTMTBR_TBR_MASK                  (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM3_GPTMTBV            (((GPTMTBV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPTM3_GPTMTBV_R          (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBV_OFFSET)))
 
-
 //--------
-#define GPTM3_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPTM3_GPTMTBV_R_TBV_BIT       (0)
+#define GPWTM_TB_GPTMTnR_R_TnR_MASK             (0xFFFFFFFF)
+#define GPWTM_TB_GPTMTnR_R_TnR_BIT              (0)
 
-#define GPTM3_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
+#define GPWTM_TB_GPTMTnR_TnR_MASK               (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM3_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPTM3_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-
 //--------
-#define GPTM3_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPTM3_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPTM3_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+#define GPWTM_TW_GPTMTnR_HIGH_R_TnR_HIGH_MASK   (0xFFFFFFFF)
+#define GPWTM_TW_GPTMTnR_HIGH_R_TnR_HIGH_BIT    (0)
 
-#define GPTM3_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPTM3_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
+#define GPWTM_TW_GPTMTnR_HIGH_TnR_HIGH_MASK     (0xFFFFFFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#define GPTM3_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPTM3_GPTMTAPS_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMTAPS_OFFSET)))
+/******************************************************************************************
+************************************ 20 GPTMTAV *********************************************
+******************************************************************************************/
 
-//--------
-#define GPTM3_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM3_GPTMTAPS_R_PSS_BIT       (0)
-
-#define GPTM3_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
+/* GPTM0 GPTMTAV*/
+#define GPTM0_BITBANDING_GPTMTAV               (((BITBANDING_GPTMTAV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTAV_OFFSET)*32))))
+#define GPTM0_GPTMTAV                          (((GPTMTAV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAV_OFFSET )))
+#define GPTM0_GPTMTAV_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAV_OFFSET)))
 
+#define GPTM0_BITBANDING_TA_GPTMTnV            (((BITBANDING_TA_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnV                       (((TA_GPTMV_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnV_OFFSET )))
+#define GPTM0_TA_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TA_GPTMTnV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM0_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM0_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-#define GPTM3_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPTM3_GPTMTBPS_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMTBPS_OFFSET)))
+/* GPTM1 GPTMTAV*/
+#define GPTM1_BITBANDING_GPTMTAV               (((BITBANDING_GPTMTAV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTAV_OFFSET)*32))))
+#define GPTM1_GPTMTAV                          (((GPTMTAV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAV_OFFSET )))
+#define GPTM1_GPTMTAV_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAV_OFFSET)))
 
-//--------
-#define GPTM3_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM3_GPTMTBPS_R_PSS_BIT       (0)
+#define GPTM1_BITBANDING_TA_GPTMTnV            (((BITBANDING_TA_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnV                       (((TA_GPTMV_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnV_OFFSET )))
+#define GPTM1_TA_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TA_GPTMTnV_OFFSET)))
 
-#define GPTM3_GPTMTBPS_PSS_MASK        (0x0000FFFF)
-//--------
+#define GPTM1_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM1_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
+/* GPTM2 GPTMTAV*/
+#define GPTM2_BITBANDING_GPTMTAV               (((BITBANDING_GPTMTAV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTAV_OFFSET)*32))))
+#define GPTM2_GPTMTAV                          (((GPTMTAV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAV_OFFSET )))
+#define GPTM2_GPTMTAV_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM2_BITBANDING_TA_GPTMTnV            (((BITBANDING_TA_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnV                       (((TA_GPTMV_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnV_OFFSET )))
+#define GPTM2_TA_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TA_GPTMTnV_OFFSET)))
 
+#define GPTM2_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM2_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
+/* GPTM3 GPTMTAV*/
+#define GPTM3_BITBANDING_GPTMTAV               (((BITBANDING_GPTMTAV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTAV_OFFSET)*32))))
+#define GPTM3_GPTMTAV                          (((GPTMTAV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAV_OFFSET )))
+#define GPTM3_GPTMTAV_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAV_OFFSET)))
 
-#define GPTM3_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPTM3_GPTMTAPV_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMTAPV_OFFSET)))
+#define GPTM3_BITBANDING_TA_GPTMTnV            (((BITBANDING_TA_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnV                       (((TA_GPTMV_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnV_OFFSET )))
+#define GPTM3_TA_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TA_GPTMTnV_OFFSET)))
 
-//--------
-#define GPTM3_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM3_GPTMTAPV_R_PSV_BIT       (0)
+#define GPTM3_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM3_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-#define GPTM3_GPTMTAPV_PSV_MASK        (0x0000FFFF)
-//--------
+/* GPTM4 GPTMTAV*/
+#define GPTM4_BITBANDING_GPTMTAV               (((BITBANDING_GPTMTAV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTAV_OFFSET)*32))))
+#define GPTM4_GPTMTAV                          (((GPTMTAV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAV_OFFSET )))
+#define GPTM4_GPTMTAV_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM4_BITBANDING_TA_GPTMTnV            (((BITBANDING_TA_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnV                       (((TA_GPTMV_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnV_OFFSET )))
+#define GPTM4_TA_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TA_GPTMTnV_OFFSET)))
 
+#define GPTM4_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM4_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-#define GPTM3_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPTM3_GPTMTBPV_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMTBPV_OFFSET)))
+/* GPTM5 GPTMTAV*/
+#define GPTM5_BITBANDING_GPTMTAV               (((BITBANDING_GPTMTAV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTAV_OFFSET)*32))))
+#define GPTM5_GPTMTAV                          (((GPTMTAV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAV_OFFSET )))
+#define GPTM5_GPTMTAV_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAV_OFFSET)))
 
-//--------
-#define GPTM3_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM3_GPTMTBPV_R_PSV_BIT       (0)
+#define GPTM5_BITBANDING_TA_GPTMTnV            (((BITBANDING_TA_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnV                       (((TA_GPTMV_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnV_OFFSET )))
+#define GPTM5_TA_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TA_GPTMTnV_OFFSET)))
 
-#define GPTM3_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
+#define GPTM5_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM5_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM0 GPTMTAV*/
+#define GPWTM0_BITBANDING_GPTMTAV              (((BITBANDING_GPTMTAV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTAV_OFFSET)*32))))
+#define GPWTM0_GPTMTAV                         (((GPTMTAV_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAV_OFFSET )))
+#define GPWTM0_GPTMTAV_R                       (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAV_OFFSET)))
 
-#define GPTM3_GPTMPP            (((GPTMPP_TypeDef*)(GPTM3_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPTM3_GPTMPP_R          (*((volatile const uint32_t *)(GPTM3_BASE +GPTM_GPTMPP_OFFSET)))
+#define GPWTM0_BITBANDING_TA_GPTMTnV           (((BITBANDING_TA_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnV                      (((TA_GPTMV_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnV_OFFSET )))
+#define GPWTM0_TA_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnV_OFFSET)))
 
-#define GPTM3_GPTMPP_SIZE        (0x0000000F)
+#define GPWTM0_BITBANDING_TW_GPTMTnV_LOW       (((BITBANDING_TW_GPWTMV_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnV_LOW_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnV_LOW                  (((TW_GPWTMV_LOW_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET )))
+#define GPWTM0_TW_GPTMTnV_LOW_R                (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
-//--------
-#define GPTM3_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPTM3_GPTMPP_R_SIZE_BIT       (0)
-#define GPTM3_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPTM3_GPTMPP_R_SIZE_32b       (0x00000001)
+/* GPWTM1 GPTMTAV*/
+#define GPWTM1_BITBANDING_GPTMTAV              (((BITBANDING_GPTMTAV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTAV_OFFSET)*32))))
+#define GPWTM1_GPTMTAV                         (((GPTMTAV_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAV_OFFSET )))
+#define GPWTM1_GPTMTAV_R                       (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAV_OFFSET)))
 
-#define GPTM3_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPTM3_GPTMPP_SIZE_16b         (0x00000000)
-#define GPTM3_GPTMPP_SIZE_32b         (0x00000001)
-//--------
+#define GPWTM1_BITBANDING_TA_GPTMTnV           (((BITBANDING_TA_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnV                      (((TA_GPTMV_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnV_OFFSET )))
+#define GPWTM1_TA_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnV_OFFSET)))
 
-// ToDO GPTM4
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_TW_GPTMTnV_LOW       (((BITBANDING_TW_GPWTMV_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnV_LOW_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnV_LOW                  (((TW_GPWTMV_LOW_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET )))
+#define GPWTM1_TW_GPTMTnV_LOW_R                (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
-#define GPTM4_GPTMTAR            (((GPTMTAR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPTM4_GPTMTAR_R          (*((volatile const  int32_t *)(GPTM4_BASE +GPTM_GPTMTAR_OFFSET)))
+/* GPWTM2 GPTMTAV*/
+#define GPWTM2_BITBANDING_GPTMTAV              (((BITBANDING_GPTMTAV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTAV_OFFSET)*32))))
+#define GPWTM2_GPTMTAV                         (((GPTMTAV_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAV_OFFSET )))
+#define GPWTM2_GPTMTAV_R                       (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAV_OFFSET)))
 
+#define GPWTM2_BITBANDING_TA_GPTMTnV           (((BITBANDING_TA_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnV                      (((TA_GPTMV_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnV_OFFSET )))
+#define GPWTM2_TA_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnV_OFFSET)))
 
-//--------
-#define GPTM4_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPTM4_GPTMTAR_R_TAR_BIT       (0)
+#define GPWTM2_BITBANDING_TW_GPTMTnV_LOW       (((BITBANDING_TW_GPWTMV_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnV_LOW_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnV_LOW                  (((TW_GPWTMV_LOW_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET )))
+#define GPWTM2_TW_GPTMTnV_LOW_R                (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
-#define GPTM4_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM3 GPTMTAV*/
+#define GPWTM3_BITBANDING_GPTMTAV              (((BITBANDING_GPTMTAV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTAV_OFFSET)*32))))
+#define GPWTM3_GPTMTAV                         (((GPTMTAV_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAV_OFFSET )))
+#define GPWTM3_GPTMTAV_R                       (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM3_BITBANDING_TA_GPTMTnV           (((BITBANDING_TA_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnV                      (((TA_GPTMV_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnV_OFFSET )))
+#define GPWTM3_TA_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnV_OFFSET)))
 
-#define GPTM4_GPTMTBR            (((GPTMTBR_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPTM4_GPTMTBR_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMTBR_OFFSET)))
+#define GPWTM3_BITBANDING_TW_GPTMTnV_LOW       (((BITBANDING_TW_GPWTMV_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnV_LOW_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnV_LOW                  (((TW_GPWTMV_LOW_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET )))
+#define GPWTM3_TW_GPTMTnV_LOW_R                (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
+/* GPWTM4 GPTMTAV*/
+#define GPWTM4_BITBANDING_GPTMTAV              (((BITBANDING_GPTMTAV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTAV_OFFSET)*32))))
+#define GPWTM4_GPTMTAV                         (((GPTMTAV_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAV_OFFSET )))
+#define GPWTM4_GPTMTAV_R                       (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAV_OFFSET)))
 
-//--------
-#define GPTM4_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPTM4_GPTMTBR_R_TBR_BIT       (0)
+#define GPWTM4_BITBANDING_TA_GPTMTnV           (((BITBANDING_TA_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnV                      (((TA_GPTMV_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnV_OFFSET )))
+#define GPWTM4_TA_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnV_OFFSET)))
 
-#define GPTM4_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+#define GPWTM4_BITBANDING_TW_GPTMTnV_LOW       (((BITBANDING_TW_GPWTMV_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnV_LOW_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnV_LOW                  (((TW_GPWTMV_LOW_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET )))
+#define GPWTM4_TW_GPTMTnV_LOW_R                (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
+/* GPWTM5 GPTMTAV*/
+#define GPWTM5_BITBANDING_GPTMTAV              (((BITBANDING_GPTMTAV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTAV_OFFSET)*32))))
+#define GPWTM5_GPTMTAV                         (((GPTMTAV_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAV_OFFSET )))
+#define GPWTM5_GPTMTAV_R                       (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM5_BITBANDING_TA_GPTMTnV           (((BITBANDING_TA_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnV_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnV                      (((TA_GPTMV_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnV_OFFSET )))
+#define GPWTM5_TA_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnV_OFFSET)))
 
-#define GPTM4_GPTMTAV            (((GPTMTAV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPTM4_GPTMTAV_R          (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAV_OFFSET)))
+#define GPWTM5_BITBANDING_TW_GPTMTnV_LOW       (((BITBANDING_TW_GPWTMV_LOW_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnV_LOW_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnV_LOW                  (((TW_GPWTMV_LOW_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET )))
+#define GPWTM5_TW_GPTMTnV_LOW_R                (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
 //--------
-#define GPTM4_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPTM4_GPTMTAV_R_TAV_BIT       (0)
+#define GPTM_GPTMTAV_R_TAV_MASK                 (0xFFFFFFFF)
+#define GPTM_GPTMTAV_R_TAV_BIT                  (0)
 
-#define GPTM4_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
+#define GPTM_GPTMTAV_TAV_MASK                   (0xFFFFFFFF)
 //--------
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM4_GPTMTBV            (((GPTMTBV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPTM4_GPTMTBV_R          (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBV_OFFSET)))
-
-
 //--------
-#define GPTM4_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPTM4_GPTMTBV_R_TBV_BIT       (0)
+#define GPTM_TA_GPTMTnV_R_TnV_MASK              (0x0000FFFF)
+#define GPTM_TA_GPTMTnV_R_TnV_BIT               (0)
 
-#define GPTM4_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
+#define GPTM_TA_GPTMTnV_TnV_MASK                (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM4_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPTM4_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMRTCPD_OFFSET)))
-
-
 //--------
-#define GPTM4_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPTM4_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPTM4_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+#define GPTM_TW_GPTMTnV_R_TnV_MASK              (0xFFFFFFFF)
+#define GPTM_TW_GPTMTnV_R_TnV_BIT               (0)
 
-#define GPTM4_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPTM4_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
+#define GPTM_TW_GPTMTnV_TnV_MASK                (0xFFFFFFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-#define GPTM4_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPTM4_GPTMTAPS_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMTAPS_OFFSET)))
 
 //--------
-#define GPTM4_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM4_GPTMTAPS_R_PSS_BIT       (0)
+#define GPWTM_GPTMTAV_R_TAV_MASK                (0xFFFFFFFF)
+#define GPWTM_GPTMTAV_R_TAV_BIT                 (0)
 
-#define GPTM4_GPTMTAPS_PSS_MASK        (0x0000FFFF)
+#define GPWTM_GPTMTAV_TAV_MASK                  (0xFFFFFFFF)
 //--------
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM4_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPTM4_GPTMTBPS_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMTBPS_OFFSET)))
-
 //--------
-#define GPTM4_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM4_GPTMTBPS_R_PSS_BIT       (0)
+#define GPWTM_TA_GPTMTnV_R_TnV_MASK             (0xFFFFFFFF)
+#define GPWTM_TA_GPTMTnV_R_TnV_BIT              (0)
 
-#define GPTM4_GPTMTBPS_PSS_MASK        (0x0000FFFF)
+#define GPWTM_TA_GPTMTnV_TnV_MASK               (0xFFFFFFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
 
-
-#define GPTM4_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPTM4_GPTMTAPV_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMTAPV_OFFSET)))
-
 //--------
-#define GPTM4_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM4_GPTMTAPV_R_PSV_BIT       (0)
+#define GPWTM_TW_GPTMTnV_LOW_R_TnV_LOW_MASK     (0xFFFFFFFF)
+#define GPWTM_TW_GPTMTnV_LOW_R_TnV_LOW_BIT      (0)
 
-#define GPTM4_GPTMTAPV_PSV_MASK        (0x0000FFFF)
+#define GPWTM_TW_GPTMTnV_LOW_TnV_LOW_MASK       (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-
-#define GPTM4_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPTM4_GPTMTBPV_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMTBPV_OFFSET)))
-
-//--------
-#define GPTM4_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM4_GPTMTBPV_R_PSV_BIT       (0)
 
-#define GPTM4_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************************
+************************************ 21 GPTMTBV *********************************************
+******************************************************************************************/
 
-#define GPTM4_GPTMPP            (((GPTMPP_TypeDef*)(GPTM4_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPTM4_GPTMPP_R          (*((volatile const uint32_t *)(GPTM4_BASE +GPTM_GPTMPP_OFFSET)))
+/* GPTM0 GPTMTBV*/
+#define GPTM0_BITBANDING_GPTMTBV               (((BITBANDING_GPTMTBV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTBV_OFFSET)*32))))
+#define GPTM0_GPTMTBV                          (((GPTMTBV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBV_OFFSET )))
+#define GPTM0_GPTMTBV_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBV_OFFSET)))
 
-#define GPTM4_GPTMPP_SIZE        (0x0000000F)
+#define GPTM0_BITBANDING_TB_GPTMTnV            (((BITBANDING_TB_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnV                       (((TB_GPTMV_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnV_OFFSET )))
+#define GPTM0_TB_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TB_GPTMTnV_OFFSET)))
 
-//--------
-#define GPTM4_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPTM4_GPTMPP_R_SIZE_BIT       (0)
-#define GPTM4_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPTM4_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPTM0_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM0_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM0_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM0_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-#define GPTM4_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPTM4_GPTMPP_SIZE_16b         (0x00000000)
-#define GPTM4_GPTMPP_SIZE_32b         (0x00000001)
-//--------
+/* GPTM1 GPTMTBV*/
+#define GPTM1_BITBANDING_GPTMTBV               (((BITBANDING_GPTMTBV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTBV_OFFSET)*32))))
+#define GPTM1_GPTMTBV                          (((GPTMTBV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBV_OFFSET )))
+#define GPTM1_GPTMTBV_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBV_OFFSET)))
 
+#define GPTM1_BITBANDING_TB_GPTMTnV            (((BITBANDING_TB_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnV                       (((TB_GPTMV_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnV_OFFSET )))
+#define GPTM1_TB_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TB_GPTMTnV_OFFSET)))
 
+#define GPTM1_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM1_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM1_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM1_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-// ToDO GPTM5
+/* GPTM2 GPTMTBV*/
+#define GPTM2_BITBANDING_GPTMTBV               (((BITBANDING_GPTMTBV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTBV_OFFSET)*32))))
+#define GPTM2_GPTMTBV                          (((GPTMTBV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBV_OFFSET )))
+#define GPTM2_GPTMTBV_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM2_BITBANDING_TB_GPTMTnV            (((BITBANDING_TB_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnV                       (((TB_GPTMV_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnV_OFFSET )))
+#define GPTM2_TB_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TB_GPTMTnV_OFFSET)))
 
-#define GPTM5_GPTMTAR            (((GPTMTAR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPTM5_GPTMTAR_R          (*((volatile const  int32_t *)(GPTM5_BASE +GPTM_GPTMTAR_OFFSET)))
+#define GPTM2_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM2_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM2_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM2_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
+/* GPTM3 GPTMTBV*/
+#define GPTM3_BITBANDING_GPTMTBV               (((BITBANDING_GPTMTBV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTBV_OFFSET)*32))))
+#define GPTM3_GPTMTBV                          (((GPTMTBV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBV_OFFSET )))
+#define GPTM3_GPTMTBV_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBV_OFFSET)))
 
-//--------
-#define GPTM5_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPTM5_GPTMTAR_R_TAR_BIT       (0)
+#define GPTM3_BITBANDING_TB_GPTMTnV            (((BITBANDING_TB_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnV                       (((TB_GPTMV_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnV_OFFSET )))
+#define GPTM3_TB_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TB_GPTMTnV_OFFSET)))
 
-#define GPTM5_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM3_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM3_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM3_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM3_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM4 GPTMTBV*/
+#define GPTM4_BITBANDING_GPTMTBV               (((BITBANDING_GPTMTBV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTBV_OFFSET)*32))))
+#define GPTM4_GPTMTBV                          (((GPTMTBV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBV_OFFSET )))
+#define GPTM4_GPTMTBV_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBV_OFFSET)))
 
-#define GPTM5_GPTMTBR            (((GPTMTBR_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPTM5_GPTMTBR_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMTBR_OFFSET)))
+#define GPTM4_BITBANDING_TB_GPTMTnV            (((BITBANDING_TB_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnV                       (((TB_GPTMV_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnV_OFFSET )))
+#define GPTM4_TB_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TB_GPTMTnV_OFFSET)))
 
+#define GPTM4_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM4_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM4_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM4_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-//--------
-#define GPTM5_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPTM5_GPTMTBR_R_TBR_BIT       (0)
+/* GPTM5 GPTMTBV*/
+#define GPTM5_BITBANDING_GPTMTBV               (((BITBANDING_GPTMTBV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTBV_OFFSET)*32))))
+#define GPTM5_GPTMTBV                          (((GPTMTBV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBV_OFFSET )))
+#define GPTM5_GPTMTBV_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBV_OFFSET)))
 
-#define GPTM5_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM5_BITBANDING_TB_GPTMTnV            (((BITBANDING_TB_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnV                       (((TB_GPTMV_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnV_OFFSET )))
+#define GPTM5_TB_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TB_GPTMTnV_OFFSET)))
 
+#define GPTM5_BITBANDING_TW_GPTMTnV            (((BITBANDING_TW_GPTMV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMTnV_OFFSET)*32))))
+#define GPTM5_TW_GPTMTnV                       (((TW_GPTMV_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMTnV_OFFSET )))
+#define GPTM5_TW_GPTMTnV_R                     (*((volatile uint32_t *)(GPTM5_BASE +GPTM_TW_GPTMTnV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM0 GPTMTBV*/
+#define GPWTM0_BITBANDING_GPTMTBV              (((BITBANDING_GPTMTBV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTBV_OFFSET)*32))))
+#define GPWTM0_GPTMTBV                         (((GPTMTBV_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBV_OFFSET )))
+#define GPWTM0_GPTMTBV_R                       (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBV_OFFSET)))
 
-#define GPTM5_GPTMTAV            (((GPTMTAV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPTM5_GPTMTAV_R          (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAV_OFFSET)))
+#define GPWTM0_BITBANDING_TB_GPTMTnV           (((BITBANDING_TB_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnV                      (((TB_GPTMV_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnV_OFFSET )))
+#define GPWTM0_TB_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnV_OFFSET)))
 
-//--------
-#define GPTM5_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPTM5_GPTMTAV_R_TAV_BIT       (0)
+#define GPWTM0_BITBANDING_TW_GPTMTnV_HIGH      (((BITBANDING_TW_GPWTMV_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMTnV_HIGH_OFFSET)*32))))
+#define GPWTM0_TW_GPTMTnV_HIGH                 (((TW_GPWTMV_HIGH_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET )))
+#define GPWTM0_TW_GPTMTnV_HIGH_R               (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
 
-#define GPTM5_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM1 GPTMTBV*/
+#define GPWTM1_BITBANDING_GPTMTBV              (((BITBANDING_GPTMTBV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTBV_OFFSET)*32))))
+#define GPWTM1_GPTMTBV                         (((GPTMTBV_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBV_OFFSET )))
+#define GPWTM1_GPTMTBV_R                       (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_TB_GPTMTnV           (((BITBANDING_TB_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnV                      (((TB_GPTMV_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnV_OFFSET )))
+#define GPWTM1_TB_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnV_OFFSET)))
 
-#define GPTM5_GPTMTBV            (((GPTMTBV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPTM5_GPTMTBV_R          (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBV_OFFSET)))
+#define GPWTM1_BITBANDING_TW_GPTMTnV_HIGH      (((BITBANDING_TW_GPWTMV_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMTnV_HIGH_OFFSET)*32))))
+#define GPWTM1_TW_GPTMTnV_HIGH                 (((TW_GPWTMV_HIGH_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET )))
+#define GPWTM1_TW_GPTMTnV_HIGH_R               (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
 
+/* GPWTM2 GPTMTBV*/
+#define GPWTM2_BITBANDING_GPTMTBV              (((BITBANDING_GPTMTBV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTBV_OFFSET)*32))))
+#define GPWTM2_GPTMTBV                         (((GPTMTBV_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBV_OFFSET )))
+#define GPWTM2_GPTMTBV_R                       (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBV_OFFSET)))
 
-//--------
-#define GPTM5_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPTM5_GPTMTBV_R_TBV_BIT       (0)
+#define GPWTM2_BITBANDING_TB_GPTMTnV           (((BITBANDING_TB_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnV                      (((TB_GPTMV_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnV_OFFSET )))
+#define GPWTM2_TB_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnV_OFFSET)))
 
-#define GPTM5_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+#define GPWTM2_BITBANDING_TW_GPTMTnV_HIGH      (((BITBANDING_TW_GPWTMV_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMTnV_HIGH_OFFSET)*32))))
+#define GPWTM2_TW_GPTMTnV_HIGH                 (((TW_GPWTMV_HIGH_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET )))
+#define GPWTM2_TW_GPTMTnV_HIGH_R               (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM3 GPTMTBV*/
+#define GPWTM3_BITBANDING_GPTMTBV              (((BITBANDING_GPTMTBV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTBV_OFFSET)*32))))
+#define GPWTM3_GPTMTBV                         (((GPTMTBV_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBV_OFFSET )))
+#define GPWTM3_GPTMTBV_R                       (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBV_OFFSET)))
 
-#define GPTM5_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPTM5_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMRTCPD_OFFSET)))
+#define GPWTM3_BITBANDING_TB_GPTMTnV           (((BITBANDING_TB_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnV                      (((TB_GPTMV_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnV_OFFSET )))
+#define GPWTM3_TB_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnV_OFFSET)))
 
+#define GPWTM3_BITBANDING_TW_GPTMTnV_HIGH      (((BITBANDING_TW_GPWTMV_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMTnV_HIGH_OFFSET)*32))))
+#define GPWTM3_TW_GPTMTnV_HIGH                 (((TW_GPWTMV_HIGH_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET )))
+#define GPWTM3_TW_GPTMTnV_HIGH_R               (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
 
-//--------
-#define GPTM5_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPTM5_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPTM5_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+/* GPWTM4 GPTMTBV*/
+#define GPWTM4_BITBANDING_GPTMTBV              (((BITBANDING_GPTMTBV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTBV_OFFSET)*32))))
+#define GPWTM4_GPTMTBV                         (((GPTMTBV_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBV_OFFSET )))
+#define GPWTM4_GPTMTBV_R                       (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBV_OFFSET)))
 
-#define GPTM5_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPTM5_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+#define GPWTM4_BITBANDING_TB_GPTMTnV           (((BITBANDING_TB_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnV                      (((TB_GPTMV_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnV_OFFSET )))
+#define GPWTM4_TB_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnV_OFFSET)))
 
+#define GPWTM4_BITBANDING_TW_GPTMTnV_HIGH      (((BITBANDING_TW_GPWTMV_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMTnV_HIGH_OFFSET)*32))))
+#define GPWTM4_TW_GPTMTnV_HIGH                 (((TW_GPWTMV_HIGH_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET )))
+#define GPWTM4_TW_GPTMTnV_HIGH_R               (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM5 GPTMTBV*/
+#define GPWTM5_BITBANDING_GPTMTBV              (((BITBANDING_GPTMTBV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTBV_OFFSET)*32))))
+#define GPWTM5_GPTMTBV                         (((GPTMTBV_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBV_OFFSET )))
+#define GPWTM5_GPTMTBV_R                       (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBV_OFFSET)))
 
+#define GPWTM5_BITBANDING_TB_GPTMTnV           (((BITBANDING_TB_GPTMV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnV_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnV                      (((TB_GPTMV_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnV_OFFSET )))
+#define GPWTM5_TB_GPTMTnV_R                    (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnV_OFFSET)))
 
-#define GPTM5_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPTM5_GPTMTAPS_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMTAPS_OFFSET)))
+#define GPWTM5_BITBANDING_TW_GPTMTnV_HIGH      (((BITBANDING_TW_GPWTMV_HIGH_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMTnV_HIGH_OFFSET)*32))))
+#define GPWTM5_TW_GPTMTnV_HIGH                 (((TW_GPWTMV_HIGH_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET )))
+#define GPWTM5_TW_GPTMTnV_HIGH_R               (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
 
 //--------
-#define GPTM5_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM5_GPTMTAPS_R_PSS_BIT       (0)
+#define GPTM_GPTMTBV_R_TBV_MASK                 (0xFFFFFFFF)
+#define GPTM_GPTMTBV_R_TBV_BIT                  (0)
 
-#define GPTM5_GPTMTAPS_PSS_MASK        (0x0000FFFF)
+#define GPTM_GPTMTBV_TBV_MASK                   (0xFFFFFFFF)
 //--------
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPTM5_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPTM5_GPTMTBPS_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMTBPS_OFFSET)))
-
 //--------
-#define GPTM5_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPTM5_GPTMTBPS_R_PSS_BIT       (0)
+#define GPTM_TB_GPTMTnV_R_TnV_MASK              (0x0000FFFF)
+#define GPTM_TB_GPTMTnV_R_TnV_BIT               (0)
 
-#define GPTM5_GPTMTBPS_PSS_MASK        (0x0000FFFF)
+#define GPTM_TB_GPTMTnV_TnV_MASK                (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
 
-
-#define GPTM5_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPTM5_GPTMTAPV_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMTAPV_OFFSET)))
-
 //--------
-#define GPTM5_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM5_GPTMTAPV_R_PSV_BIT       (0)
+#define GPTM_TW_GPTMTnV_R_TnV_MASK              (0xFFFFFFFF)
+#define GPTM_TW_GPTMTnV_R_TnV_BIT               (0)
 
-#define GPTM5_GPTMTAPV_PSV_MASK        (0x0000FFFF)
+#define GPTM_TW_GPTMTnV_TnV_MASK                (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-
-#define GPTM5_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPTM5_GPTMTBPV_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMTBPV_OFFSET)))
-
 //--------
-#define GPTM5_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPTM5_GPTMTBPV_R_PSV_BIT       (0)
+#define GPWTM_GPTMTBV_R_TBV_MASK                (0xFFFFFFFF)
+#define GPWTM_GPTMTBV_R_TBV_BIT                 (0)
 
-#define GPTM5_GPTMTBPV_PSV_MASK        (0x0000FFFF)
+#define GPWTM_GPTMTBV_TBV_MASK                  (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPTM5_GPTMPP            (((GPTMPP_TypeDef*)(GPTM5_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPTM5_GPTMPP_R          (*((volatile const uint32_t *)(GPTM5_BASE +GPTM_GPTMPP_OFFSET)))
-
-#define GPTM5_GPTMPP_SIZE        (0x0000000F)
-
 //--------
-#define GPTM5_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPTM5_GPTMPP_R_SIZE_BIT       (0)
-#define GPTM5_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPTM5_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPWTM_TB_GPTMTnV_R_TnV_MASK             (0xFFFFFFFF)
+#define GPWTM_TB_GPTMTnV_R_TnV_BIT              (0)
 
-#define GPTM5_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPTM5_GPTMPP_SIZE_16b         (0x00000000)
-#define GPTM5_GPTMPP_SIZE_32b         (0x00000001)
+#define GPWTM_TB_GPTMTnV_TnV_MASK               (0xFFFFFFFF)
 //--------
-
-
-
-// ToDO GPWTM0
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM0_GPTMTAR            (((GPTMTAR_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPWTM0_GPTMTAR_R          (*((volatile const  int32_t *)(GPWTM0_BASE +GPTM_GPTMTAR_OFFSET)))
-
-
 //--------
-#define GPWTM0_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPWTM0_GPTMTAR_R_TAR_BIT       (0)
+#define GPWTM_TW_GPTMTnV_HIGH_R_TnV_HIGH_MASK   (0xFFFFFFFF)
+#define GPWTM_TW_GPTMTnV_HIGH_R_TnV_HIGH_BIT    (0)
 
-#define GPWTM0_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
+#define GPWTM_TW_GPTMTnV_HIGH_TnV_HIGH_MASK     (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM0_GPTMTBR            (((GPTMTBR_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPWTM0_GPTMTBR_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMTBR_OFFSET)))
-
-
-//--------
-#define GPWTM0_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPWTM0_GPTMTBR_R_TBR_BIT       (0)
 
-#define GPWTM0_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+/******************************************************************************************
+************************************ 22 GPTMRTCPD *********************************************
+******************************************************************************************/
 
+/* GPTM0 GPTMRTCPD*/
+#define GPTM0_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM0_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM0_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM0_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM0_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM0_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM0_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTAV            (((GPTMTAV_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPWTM0_GPTMTAV_R          (*((volatile uint32_t *)(GPWTM0_BASE +GPTM_GPTMTAV_OFFSET)))
+/* GPTM1 GPTMRTCPD*/
+#define GPTM1_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM1_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM1_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM1_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM0_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPWTM0_GPTMTAV_R_TAV_BIT       (0)
+#define GPTM1_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM1_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM1_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+/* GPTM2 GPTMRTCPD*/
+#define GPTM2_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM2_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM2_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM2_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM2_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM2_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM2_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTBV            (((GPTMTBV_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPWTM0_GPTMTBV_R          (*((volatile uint32_t *)(GPWTM0_BASE +GPTM_GPTMTBV_OFFSET)))
+/* GPTM3 GPTMRTCPD*/
+#define GPTM3_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM3_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM3_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM3_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
+#define GPTM3_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM3_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM3_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM0_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPWTM0_GPTMTBV_R_TBV_BIT       (0)
+/* GPTM4 GPTMRTCPD*/
+#define GPTM4_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM4_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM4_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM4_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM4_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM4_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM4_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM5 GPTMRTCPD*/
+#define GPTM5_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM5_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM5_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM5_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPWTM0_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMRTCPD_OFFSET)))
+#define GPTM5_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM5_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM5_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
+/* GPWTM0 GPTMRTCPD*/
+#define GPWTM0_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM0_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM0_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM0_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPWTM0_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPWTM0_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+#define GPWTM0_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM0_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM0_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPWTM0_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+/* GPWTM1 GPTMRTCPD*/
+#define GPWTM1_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM1_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM1_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
+#define GPWTM1_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM1_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM1_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM2 GPTMRTCPD*/
+#define GPWTM2_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM2_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM2_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
+#define GPWTM2_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM2_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM2_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPWTM0_GPTMTAPS_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMTAPS_OFFSET)))
+/* GPWTM3 GPTMRTCPD*/
+#define GPWTM3_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM3_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM3_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM0_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM0_GPTMTAPS_R_PSS_BIT       (0)
+#define GPWTM3_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM3_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM3_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
+/* GPWTM4 GPTMRTCPD*/
+#define GPWTM4_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM4_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM4_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
+#define GPWTM4_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM4_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM4_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM5 GPTMRTCPD*/
+#define GPWTM5_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM5_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM5_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM0_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPWTM0_GPTMTBPS_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMTBPS_OFFSET)))
+#define GPWTM5_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM5_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM5_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM0_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM0_GPTMTBPS_R_PSS_BIT       (0)
 
-#define GPWTM0_GPTMTBPS_PSS_MASK        (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM_GPTMRTCPD_R_RTCPD_MASK                 (0x0000FFFF)
+#define GPTM_GPTMRTCPD_R_RTCPD_BIT                  (0)
+#define GPTM_GPTMRTCPD_R_RTCPD_DEFAULT             (0x00007FFF)
 
-
-
-#define GPWTM0_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPWTM0_GPTMTAPV_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMTAPV_OFFSET)))
-
+#define GPTM_GPTMRTCPD_RTCPD_MASK                   (0x0000FFFF)
+#define GPTM_GPTMRTCPD_RTCPD_DEFAULT                (0x00007FFF)
 //--------
-#define GPWTM0_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM0_GPTMTAPV_R_PSV_BIT       (0)
 
-#define GPWTM0_GPTMTAPV_PSV_MASK        (0x0000FFFF)
 //--------
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_MASK              (0x0000FFFF)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_BIT               (0)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT           (0x00007FFF)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-#define GPWTM0_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPWTM0_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPWTM0_GPTMTBPV_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMTBPV_OFFSET)))
-
-//--------
-#define GPWTM0_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM0_GPTMTBPV_R_PSV_BIT       (0)
 
-#define GPWTM0_GPTMTBPV_PSV_MASK        (0x0000FFFF)
+#define GPTM_TW_GPTMRTCPD_RTCPD_MASK                (0x0000FFFF)
+#define GPTM_TW_GPTMRTCPD_RTCPD_DEFAULT             (0x00007FFF)
 //--------
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 0.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM0_GPTMPP            (((GPTMPP_TypeDef*)(GPWTM0_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPWTM0_GPTMPP_R          (*((volatile const uint32_t *)(GPWTM0_BASE +GPTM_GPTMPP_OFFSET)))
-
-#define GPWTM0_GPTMPP_SIZE        (0x0000000F)
-
 //--------
-#define GPWTM0_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPWTM0_GPTMPP_R_SIZE_BIT       (0)
-#define GPWTM0_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPWTM0_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPWTM_GPTMRTCPD_R_RTCPD_MASK                (0x0000FFFF)
+#define GPWTM_GPTMRTCPD_R_RTCPD_BIT                 (0)
+#define GPWTM_GPTMRTCPD_R_RTCPD_DEFAULT             (0x00007FFF)
 
-#define GPWTM0_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPWTM0_GPTMPP_SIZE_16b         (0x00000000)
-#define GPWTM0_GPTMPP_SIZE_32b         (0x00000001)
+#define GPWTM_GPTMRTCPD_RTCPD_MASK                  (0x0000FFFF)
+#define GPWTM_GPTMRTCPD_RTCPD_DEFAULT               (0x00007FFF)
 //--------
-
-
-// ToDO GPWTM1
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM1_GPTMTAR            (((GPTMTAR_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPWTM1_GPTMTAR_R          (*((volatile const  int32_t *)(GPWTM1_BASE +GPTM_GPTMTAR_OFFSET)))
-
-
 //--------
-#define GPWTM1_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPWTM1_GPTMTAR_R_TAR_BIT       (0)
+#define GPWTM_TW_GPTMRTCPD_R_RTCPD_MASK             (0x0000FFFF)
+#define GPWTM_TW_GPTMRTCPD_R_RTCPD_BIT              (0)
+#define GPWTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT          (0x00007FFF)
 
-#define GPWTM1_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
+#define GPWTM_TW_GPTMRTCPD_RTCPD_MASK               (0x0000FFFF)
+#define GPWTM_TW_GPTMRTCPD_RTCPD_DEFAULT            (0x00007FFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM1_GPTMTBR            (((GPTMTBR_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPWTM1_GPTMTBR_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMTBR_OFFSET)))
-
-
-//--------
-#define GPWTM1_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPWTM1_GPTMTBR_R_TBR_BIT       (0)
 
-#define GPWTM1_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+/******************************************************************************************
+************************************ 23 GPTMTAPS *********************************************
+******************************************************************************************/
 
+/* GPTM0 GPTMTAPS*/
+#define GPTM0_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTAPS_OFFSET)*32))))
+#define GPTM0_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAPS_OFFSET )))
+#define GPTM0_GPTMTAPS_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM0_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPTM0_TA_GPTMTnPS                       (((TA_GPTMPS_TypeDef*)(GPTM0_BASE + GPTM_TA_GPTMTnPS_OFFSET )))
+#define GPTM0_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TA_GPTMTnPS_OFFSET)))
 
-#define GPWTM1_GPTMTAV            (((GPTMTAV_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPWTM1_GPTMTAV_R          (*((volatile uint32_t *)(GPWTM1_BASE +GPTM_GPTMTAV_OFFSET)))
+/* GPTM1 GPTMTAPS*/
+#define GPTM1_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTAPS_OFFSET)*32))))
+#define GPTM1_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAPS_OFFSET )))
+#define GPTM1_GPTMTAPS_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAPS_OFFSET)))
 
-//--------
-#define GPWTM1_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPWTM1_GPTMTAV_R_TAV_BIT       (0)
+#define GPTM1_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPTM1_TA_GPTMTnPS                       (((TA_GPTMPS_TypeDef*)(GPTM1_BASE + GPTM_TA_GPTMTnPS_OFFSET )))
+#define GPTM1_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TA_GPTMTnPS_OFFSET)))
 
-#define GPWTM1_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+/* GPTM2 GPTMTAPS*/
+#define GPTM2_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTAPS_OFFSET)*32))))
+#define GPTM2_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAPS_OFFSET )))
+#define GPTM2_GPTMTAPS_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM2_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPTM2_TA_GPTMTnPS                       (((TA_GPTMPS_TypeDef*)(GPTM2_BASE + GPTM_TA_GPTMTnPS_OFFSET )))
+#define GPTM2_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TA_GPTMTnPS_OFFSET)))
 
-#define GPWTM1_GPTMTBV            (((GPTMTBV_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPWTM1_GPTMTBV_R          (*((volatile uint32_t *)(GPWTM1_BASE +GPTM_GPTMTBV_OFFSET)))
+/* GPTM3 GPTMTAPS*/
+#define GPTM3_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTAPS_OFFSET)*32))))
+#define GPTM3_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAPS_OFFSET )))
+#define GPTM3_GPTMTAPS_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAPS_OFFSET)))
 
+#define GPTM3_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPTM3_TA_GPTMTnPS                       (((TA_GPTMPS_TypeDef*)(GPTM3_BASE + GPTM_TA_GPTMTnPS_OFFSET )))
+#define GPTM3_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TA_GPTMTnPS_OFFSET)))
 
-//--------
-#define GPWTM1_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPWTM1_GPTMTBV_R_TBV_BIT       (0)
+/* GPTM4 GPTMTAPS*/
+#define GPTM4_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTAPS_OFFSET)*32))))
+#define GPTM4_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAPS_OFFSET )))
+#define GPTM4_GPTMTAPS_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAPS_OFFSET)))
 
-#define GPWTM1_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM4_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPTM4_TA_GPTMTnPS                       (((TA_GPTMPS_TypeDef*)(GPTM4_BASE + GPTM_TA_GPTMTnPS_OFFSET )))
+#define GPTM4_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TA_GPTMTnPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM5 GPTMTAPS*/
+#define GPTM5_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTAPS_OFFSET)*32))))
+#define GPTM5_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAPS_OFFSET )))
+#define GPTM5_GPTMTAPS_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAPS_OFFSET)))
 
-#define GPWTM1_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPWTM1_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMRTCPD_OFFSET)))
+#define GPTM5_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPTM5_TA_GPTMTnPS                       (((TA_GPTMPS_TypeDef*)(GPTM5_BASE + GPTM_TA_GPTMTnPS_OFFSET )))
+#define GPTM5_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TA_GPTMTnPS_OFFSET)))
 
+/* GPWTM0 GPTMTAPS*/
+#define GPWTM0_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTAPS_OFFSET)*32))))
+#define GPWTM0_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAPS_OFFSET )))
+#define GPWTM0_GPTMTAPS_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAPS_OFFSET)))
 
-//--------
-#define GPWTM1_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPWTM1_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPWTM1_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+#define GPWTM0_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnPS                       (((TA_GPWTMPS_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnPS_OFFSET )))
+#define GPWTM0_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnPS_OFFSET)))
 
-#define GPWTM1_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPWTM1_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+/* GPWTM1 GPTMTAPS*/
+#define GPWTM1_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTAPS_OFFSET)*32))))
+#define GPWTM1_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAPS_OFFSET )))
+#define GPWTM1_GPTMTAPS_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAPS_OFFSET)))
 
+#define GPWTM1_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnPS                       (((TA_GPWTMPS_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnPS_OFFSET )))
+#define GPWTM1_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM2 GPTMTAPS*/
+#define GPWTM2_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTAPS_OFFSET)*32))))
+#define GPWTM2_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAPS_OFFSET )))
+#define GPWTM2_GPTMTAPS_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAPS_OFFSET)))
 
+#define GPWTM2_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnPS                       (((TA_GPWTMPS_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnPS_OFFSET )))
+#define GPWTM2_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnPS_OFFSET)))
 
-#define GPWTM1_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPWTM1_GPTMTAPS_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMTAPS_OFFSET)))
+/* GPWTM3 GPTMTAPS*/
+#define GPWTM3_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTAPS_OFFSET)*32))))
+#define GPWTM3_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAPS_OFFSET )))
+#define GPWTM3_GPTMTAPS_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAPS_OFFSET)))
 
-//--------
-#define GPWTM1_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM1_GPTMTAPS_R_PSS_BIT       (0)
+#define GPWTM3_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnPS                       (((TA_GPWTMPS_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnPS_OFFSET )))
+#define GPWTM3_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnPS_OFFSET)))
 
-#define GPWTM1_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
+/* GPWTM4 GPTMTAPS*/
+#define GPWTM4_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTAPS_OFFSET)*32))))
+#define GPWTM4_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAPS_OFFSET )))
+#define GPWTM4_GPTMTAPS_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAPS_OFFSET)))
 
+#define GPWTM4_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnPS                       (((TA_GPWTMPS_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnPS_OFFSET )))
+#define GPWTM4_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM5 GPTMTAPS*/
+#define GPWTM5_BITBANDING_GPTMTAPS               (((BITBANDING_GPTMTAPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTAPS_OFFSET)*32))))
+#define GPWTM5_GPTMTAPS                          (((GPTMTAPS_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAPS_OFFSET )))
+#define GPWTM5_GPTMTAPS_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAPS_OFFSET)))
 
-#define GPWTM1_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPWTM1_GPTMTBPS_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMTBPS_OFFSET)))
+#define GPWTM5_BITBANDING_TA_GPTMTnPS            (((BITBANDING_TA_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnPS_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnPS                       (((TA_GPWTMPS_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnPS_OFFSET )))
+#define GPWTM5_TA_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnPS_OFFSET)))
 
 //--------
-#define GPWTM1_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM1_GPTMTBPS_R_PSS_BIT       (0)
+#define GPTM_GPTMTAPS_R_PSS_MASK              (0x0000FFFF)
+#define GPTM_GPTMTAPS_R_PSS_BIT               (0)
 
-#define GPWTM1_GPTMTBPS_PSS_MASK        (0x0000FFFF)
+#define GPTM_GPTMTAPS_PSS_MASK                (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
-#define GPWTM1_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPWTM1_GPTMTAPV_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMTAPV_OFFSET)))
-
 //--------
-#define GPWTM1_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM1_GPTMTAPV_R_PSV_BIT       (0)
+#define GPTM_TA_GPTMTnPS_R_PSS_MASK           (0x0000FFFF)
+#define GPTM_TA_GPTMTnPS_R_PSS_BIT            (0)
 
-#define GPWTM1_GPTMTAPV_PSV_MASK        (0x0000FFFF)
+#define GPTM_TA_GPTMTnPS_PSS_MASK             (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
 
-#define GPWTM1_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPWTM1_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPWTM1_GPTMTBPV_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMTBPV_OFFSET)))
-
 //--------
-#define GPWTM1_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM1_GPTMTBPV_R_PSV_BIT       (0)
+#define GPWTM_GPTMTAPS_R_PSS_MASK             (0x0000FFFF)
+#define GPWTM_GPTMTAPS_R_PSS_BIT              (0)
 
-#define GPWTM1_GPTMTBPV_PSV_MASK        (0x0000FFFF)
+#define GPWTM_GPTMTAPS_PSS_MASK               (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 1.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM1_GPTMPP            (((GPTMPP_TypeDef*)(GPWTM1_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPWTM1_GPTMPP_R          (*((volatile const uint32_t *)(GPWTM1_BASE +GPTM_GPTMPP_OFFSET)))
 
-#define GPWTM1_GPTMPP_SIZE        (0x0000000F)
-
 //--------
-#define GPWTM1_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPWTM1_GPTMPP_R_SIZE_BIT       (0)
-#define GPWTM1_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPWTM1_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPWTM_TA_GPTMTnPS_R_PSS_MASK          (0x0000FFFF)
+#define GPWTM_TA_GPTMTnPS_R_PSS_BIT           (0)
 
-#define GPWTM1_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPWTM1_GPTMPP_SIZE_16b         (0x00000000)
-#define GPWTM1_GPTMPP_SIZE_32b         (0x00000001)
+#define GPWTM_TA_GPTMTnPS_PSS_MASK            (0x0000FFFF)
 //--------
 
 
+/******************************************************************************************
+************************************ 24 GPTMTBPS *********************************************
+******************************************************************************************/
 
-// ToDO GPWTM2
+/* GPTM0 GPTMTBPS*/
+#define GPTM0_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTBPS_OFFSET)*32))))
+#define GPTM0_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBPS_OFFSET )))
+#define GPTM0_GPTMTBPS_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM0_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPTM0_TB_GPTMTnPS                       (((TB_GPTMPS_TypeDef*)(GPTM0_BASE + GPTM_TB_GPTMTnPS_OFFSET )))
+#define GPTM0_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMTAR            (((GPTMTAR_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPWTM2_GPTMTAR_R          (*((volatile const  int32_t *)(GPWTM2_BASE +GPTM_GPTMTAR_OFFSET)))
+/* GPTM1 GPTMTBPS*/
+#define GPTM1_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTBPS_OFFSET)*32))))
+#define GPTM1_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBPS_OFFSET )))
+#define GPTM1_GPTMTBPS_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBPS_OFFSET)))
 
-
-//--------
-#define GPWTM2_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPWTM2_GPTMTAR_R_TAR_BIT       (0)
+#define GPTM1_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPTM1_TB_GPTMTnPS                       (((TB_GPTMPS_TypeDef*)(GPTM1_BASE + GPTM_TB_GPTMTnPS_OFFSET )))
+#define GPTM1_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
+/* GPTM2 GPTMTBPS*/
+#define GPTM2_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTBPS_OFFSET)*32))))
+#define GPTM2_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBPS_OFFSET )))
+#define GPTM2_GPTMTBPS_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM2_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPTM2_TB_GPTMTnPS                       (((TB_GPTMPS_TypeDef*)(GPTM2_BASE + GPTM_TB_GPTMTnPS_OFFSET )))
+#define GPTM2_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMTBR            (((GPTMTBR_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPWTM2_GPTMTBR_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMTBR_OFFSET)))
+/* GPTM3 GPTMTBPS*/
+#define GPTM3_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTBPS_OFFSET)*32))))
+#define GPTM3_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBPS_OFFSET )))
+#define GPTM3_GPTMTBPS_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBPS_OFFSET)))
 
+#define GPTM3_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPTM3_TB_GPTMTnPS                       (((TB_GPTMPS_TypeDef*)(GPTM3_BASE + GPTM_TB_GPTMTnPS_OFFSET )))
+#define GPTM3_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TB_GPTMTnPS_OFFSET)))
 
-//--------
-#define GPWTM2_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPWTM2_GPTMTBR_R_TBR_BIT       (0)
+/* GPTM4 GPTMTBPS*/
+#define GPTM4_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTBPS_OFFSET)*32))))
+#define GPTM4_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBPS_OFFSET )))
+#define GPTM4_GPTMTBPS_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBPS_OFFSET)))
 
-#define GPWTM2_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM4_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPTM4_TB_GPTMTnPS                       (((TB_GPTMPS_TypeDef*)(GPTM4_BASE + GPTM_TB_GPTMTnPS_OFFSET )))
+#define GPTM4_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TB_GPTMTnPS_OFFSET)))
 
+/* GPTM5 GPTMTBPS*/
+#define GPTM5_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTBPS_OFFSET)*32))))
+#define GPTM5_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBPS_OFFSET )))
+#define GPTM5_GPTMTBPS_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM5_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPTMPS_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPTM5_TB_GPTMTnPS                       (((TB_GPTMPS_TypeDef*)(GPTM5_BASE + GPTM_TB_GPTMTnPS_OFFSET )))
+#define GPTM5_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMTAV            (((GPTMTAV_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPWTM2_GPTMTAV_R          (*((volatile uint32_t *)(GPWTM2_BASE +GPTM_GPTMTAV_OFFSET)))
+/* GPWTM0 GPTMTBPS*/
+#define GPWTM0_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTBPS_OFFSET)*32))))
+#define GPWTM0_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBPS_OFFSET )))
+#define GPWTM0_GPTMTBPS_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBPS_OFFSET)))
 
-//--------
-#define GPWTM2_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPWTM2_GPTMTAV_R_TAV_BIT       (0)
+#define GPWTM0_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnPS                       (((TB_GPWTMPS_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnPS_OFFSET )))
+#define GPWTM0_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM1 GPTMTBPS*/
+#define GPWTM1_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTBPS_OFFSET)*32))))
+#define GPWTM1_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBPS_OFFSET )))
+#define GPWTM1_GPTMTBPS_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnPS                       (((TB_GPWTMPS_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnPS_OFFSET )))
+#define GPWTM1_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMTBV            (((GPTMTBV_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPWTM2_GPTMTBV_R          (*((volatile uint32_t *)(GPWTM2_BASE +GPTM_GPTMTBV_OFFSET)))
+/* GPWTM2 GPTMTBPS*/
+#define GPWTM2_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTBPS_OFFSET)*32))))
+#define GPWTM2_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBPS_OFFSET )))
+#define GPWTM2_GPTMTBPS_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBPS_OFFSET)))
 
+#define GPWTM2_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnPS                       (((TB_GPWTMPS_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnPS_OFFSET )))
+#define GPWTM2_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnPS_OFFSET)))
 
-//--------
-#define GPWTM2_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPWTM2_GPTMTBV_R_TBV_BIT       (0)
+/* GPWTM3 GPTMTBPS*/
+#define GPWTM3_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTBPS_OFFSET)*32))))
+#define GPWTM3_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBPS_OFFSET )))
+#define GPWTM3_GPTMTBPS_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBPS_OFFSET)))
 
-#define GPWTM2_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+#define GPWTM3_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnPS                       (((TB_GPWTMPS_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnPS_OFFSET )))
+#define GPWTM3_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnPS_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM4 GPTMTBPS*/
+#define GPWTM4_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTBPS_OFFSET)*32))))
+#define GPWTM4_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBPS_OFFSET )))
+#define GPWTM4_GPTMTBPS_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBPS_OFFSET)))
 
-#define GPWTM2_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPWTM2_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMRTCPD_OFFSET)))
+#define GPWTM4_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnPS                       (((TB_GPWTMPS_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnPS_OFFSET )))
+#define GPWTM4_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnPS_OFFSET)))
 
+/* GPWTM5 GPTMTBPS*/
+#define GPWTM5_BITBANDING_GPTMTBPS               (((BITBANDING_GPTMTBPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTBPS_OFFSET)*32))))
+#define GPWTM5_GPTMTBPS                          (((GPTMTBPS_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBPS_OFFSET )))
+#define GPWTM5_GPTMTBPS_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBPS_OFFSET)))
 
-//--------
-#define GPWTM2_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPWTM2_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPWTM2_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+#define GPWTM5_BITBANDING_TB_GPTMTnPS            (((BITBANDING_TB_GPWTMPS_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnPS_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnPS                       (((TB_GPWTMPS_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnPS_OFFSET )))
+#define GPWTM5_TB_GPTMTnPS_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnPS_OFFSET)))
 
-#define GPWTM2_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPWTM2_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
 //--------
-
+#define GPTM_GPTMTBPS_R_PSS_MASK              (0x0000FFFF)
+#define GPTM_GPTMTBPS_R_PSS_BIT               (0)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-#define GPWTM2_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPWTM2_GPTMTAPS_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMTAPS_OFFSET)))
-
+#define GPTM_GPTMTBPS_PSS_MASK                (0x0000FFFF)
 //--------
-#define GPWTM2_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM2_GPTMTAPS_R_PSS_BIT       (0)
 
-#define GPWTM2_GPTMTAPS_PSS_MASK        (0x0000FFFF)
 //--------
+#define GPTM_TB_GPTMTnPS_R_PSS_MASK           (0x0000FFFF)
+#define GPTM_TB_GPTMTnPS_R_PSS_BIT            (0)
 
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM2_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPWTM2_GPTMTBPS_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMTBPS_OFFSET)))
-
+#define GPTM_TB_GPTMTnPS_PSS_MASK             (0x0000FFFF)
 //--------
-#define GPWTM2_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM2_GPTMTBPS_R_PSS_BIT       (0)
 
-#define GPWTM2_GPTMTBPS_PSS_MASK        (0x0000FFFF)
 //--------
-
+#define GPWTM_GPTMTBPS_R_PSS_MASK             (0x0000FFFF)
+#define GPWTM_GPTMTBPS_R_PSS_BIT              (0)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-#define GPWTM2_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPWTM2_GPTMTAPV_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMTAPV_OFFSET)))
-
+#define GPWTM_GPTMTBPS_PSS_MASK               (0x0000FFFF)
 //--------
-#define GPWTM2_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM2_GPTMTAPV_R_PSV_BIT       (0)
 
-#define GPWTM2_GPTMTAPV_PSV_MASK        (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
+#define GPWTM_TB_GPTMTnPS_R_PSS_MASK          (0x0000FFFF)
+#define GPWTM_TB_GPTMTnPS_R_PSS_BIT           (0)
 
-#define GPWTM2_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPWTM2_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPWTM2_GPTMTBPV_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMTBPV_OFFSET)))
-
+#define GPWTM_TB_GPTMTnPS_PSS_MASK            (0x0000FFFF)
 //--------
-#define GPWTM2_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM2_GPTMTBPV_R_PSV_BIT       (0)
 
-#define GPWTM2_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 2.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************************
+************************************ 22 GPTMRTCPD *********************************************
+******************************************************************************************/
 
-#define GPWTM2_GPTMPP            (((GPTMPP_TypeDef*)(GPWTM2_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPWTM2_GPTMPP_R          (*((volatile const uint32_t *)(GPWTM2_BASE +GPTM_GPTMPP_OFFSET)))
+/* GPTM0 GPTMRTCPD*/
+#define GPTM0_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM0_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM0_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM0_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM0_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM2_GPTMPP_SIZE        (0x0000000F)
+#define GPTM0_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM0_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM0_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM0_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM0_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM2_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPWTM2_GPTMPP_R_SIZE_BIT       (0)
-#define GPWTM2_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPWTM2_GPTMPP_R_SIZE_32b       (0x00000001)
+/* GPTM1 GPTMRTCPD*/
+#define GPTM1_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM1_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM1_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM1_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM1_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM2_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPWTM2_GPTMPP_SIZE_16b         (0x00000000)
-#define GPWTM2_GPTMPP_SIZE_32b         (0x00000001)
-//--------
+#define GPTM1_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM1_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM1_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM1_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM1_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
+/* GPTM2 GPTMRTCPD*/
+#define GPTM2_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM2_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM2_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM2_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM2_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-// ToDO GPWTM3
+#define GPTM2_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM2_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM2_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM2_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM2_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM3 GPTMRTCPD*/
+#define GPTM3_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM3_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM3_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM3_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTAR            (((GPTMTAR_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPWTM3_GPTMTAR_R          (*((volatile const  int32_t *)(GPWTM3_BASE +GPTM_GPTMTAR_OFFSET)))
+#define GPTM3_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM3_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM3_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM3_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM3_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
+/* GPTM4 GPTMRTCPD*/
+#define GPTM4_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM4_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM4_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM4_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM3_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPWTM3_GPTMTAR_R_TAR_BIT       (0)
+#define GPTM4_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM4_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM4_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM4_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM4_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
+/* GPTM5 GPTMRTCPD*/
+#define GPTM5_BITBANDING_GPTMRTCPD               (((BITBANDING_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMRTCPD_OFFSET)*32))))
+#define GPTM5_GPTMRTCPD                          (((GPTMRTCPD_TypeDef*)(GPTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
+#define GPTM5_GPTMRTCPD_R                        (*((volatile uint16_t *)(GPTM5_BASE +GPTM_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM5_BITBANDING_TW_GPTMRTCPD            (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPTM5_TW_GPTMRTCPD                       (((TW_GPTMRTCPD_TypeDef*)(GPTM5_BASE + GPTM_TW_GPTMRTCPD_OFFSET )))
+#define GPTM5_TW_GPTMRTCPD_R                     (*((volatile uint16_t *)(GPTM5_BASE +GPTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTBR            (((GPTMTBR_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPWTM3_GPTMTBR_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMTBR_OFFSET)))
+/* GPWTM0 GPTMRTCPD*/
+#define GPWTM0_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM0_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM0_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
+#define GPWTM0_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM0_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM0_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM0_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM3_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPWTM3_GPTMTBR_R_TBR_BIT       (0)
+/* GPWTM1 GPTMRTCPD*/
+#define GPWTM1_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM1_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM1_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+#define GPWTM1_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM1_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM1_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM1_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
+/* GPWTM2 GPTMRTCPD*/
+#define GPWTM2_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM2_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM2_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM2_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM2_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM2_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM2_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTAV            (((GPTMTAV_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPWTM3_GPTMTAV_R          (*((volatile uint32_t *)(GPWTM3_BASE +GPTM_GPTMTAV_OFFSET)))
+/* GPWTM3 GPTMRTCPD*/
+#define GPWTM3_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM3_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM3_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM3_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPWTM3_GPTMTAV_R_TAV_BIT       (0)
+#define GPWTM3_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM3_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM3_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM3_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM4 GPTMRTCPD*/
+#define GPWTM4_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM4_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM4_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM4_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM4_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM4_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM4_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-#define GPWTM3_GPTMTBV            (((GPTMTBV_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPWTM3_GPTMTBV_R          (*((volatile uint32_t *)(GPWTM3_BASE +GPTM_GPTMTBV_OFFSET)))
+/* GPWTM5 GPTMRTCPD*/
+#define GPWTM5_BITBANDING_GPTMRTCPD              (((BITBANDING_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM5_GPTMRTCPD                         (((GPTMRTCPD_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMRTCPD_OFFSET )))
+#define GPWTM5_GPTMRTCPD_R                       (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_GPTMRTCPD_OFFSET)))
 
+#define GPWTM5_BITBANDING_TW_GPTMRTCPD           (((BITBANDING_TW_GPTMRTCPD_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TW_GPTMRTCPD_OFFSET)*32))))
+#define GPWTM5_TW_GPTMRTCPD                      (((TW_GPTMRTCPD_TypeDef*)(GPWTM5_BASE + GPWTM_TW_GPTMRTCPD_OFFSET )))
+#define GPWTM5_TW_GPTMRTCPD_R                    (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TW_GPTMRTCPD_OFFSET)))
 
-//--------
-#define GPWTM3_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPWTM3_GPTMTBV_R_TBV_BIT       (0)
 
-#define GPWTM3_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPTM_GPTMRTCPD_R_RTCPD_MASK                 (0x0000FFFF)
+#define GPTM_GPTMRTCPD_R_RTCPD_BIT                  (0)
+#define GPTM_GPTMRTCPD_R_RTCPD_DEFAULT             (0x00007FFF)
 
-#define GPWTM3_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM3_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPWTM3_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMRTCPD_OFFSET)))
-
-
+#define GPTM_GPTMRTCPD_RTCPD_MASK                   (0x0000FFFF)
+#define GPTM_GPTMRTCPD_RTCPD_DEFAULT                (0x00007FFF)
 //--------
-#define GPWTM3_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPWTM3_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPWTM3_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
 
-#define GPWTM3_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPWTM3_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
 //--------
-
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_MASK              (0x0000FFFF)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_BIT               (0)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT           (0x00007FFF)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-
-#define GPWTM3_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPWTM3_GPTMTAPS_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMTAPS_OFFSET)))
-
+#define GPTM_TW_GPTMRTCPD_RTCPD_MASK                (0x0000FFFF)
+#define GPTM_TW_GPTMRTCPD_RTCPD_DEFAULT             (0x00007FFF)
 //--------
-#define GPWTM3_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM3_GPTMTAPS_R_PSS_BIT       (0)
 
-#define GPWTM3_GPTMTAPS_PSS_MASK        (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM_GPTMRTCPD_R_RTCPD_MASK                (0x0000FFFF)
+#define GPWTM_GPTMRTCPD_R_RTCPD_BIT                 (0)
+#define GPWTM_GPTMRTCPD_R_RTCPD_DEFAULT             (0x00007FFF)
 
-#define GPWTM3_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPWTM3_GPTMTBPS_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMTBPS_OFFSET)))
-
+#define GPWTM_GPTMRTCPD_RTCPD_MASK                  (0x0000FFFF)
+#define GPWTM_GPTMRTCPD_RTCPD_DEFAULT               (0x00007FFF)
 //--------
-#define GPWTM3_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM3_GPTMTBPS_R_PSS_BIT       (0)
 
-#define GPWTM3_GPTMTBPS_PSS_MASK        (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-#define GPWTM3_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPWTM3_GPTMTAPV_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMTAPV_OFFSET)))
+#define GPWTM_TW_GPTMRTCPD_R_RTCPD_MASK             (0x0000FFFF)
+#define GPWTM_TW_GPTMRTCPD_R_RTCPD_BIT              (0)
+#define GPWTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT          (0x00007FFF)
 
+#define GPWTM_TW_GPTMRTCPD_RTCPD_MASK               (0x0000FFFF)
+#define GPWTM_TW_GPTMRTCPD_RTCPD_DEFAULT            (0x00007FFF)
 //--------
-#define GPWTM3_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM3_GPTMTAPV_R_PSV_BIT       (0)
 
-#define GPWTM3_GPTMTAPV_PSV_MASK        (0x0000FFFF)
-//--------
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/******************************************************************************************
+************************************ 25 GPTMTAPV *********************************************
+******************************************************************************************/
 
+/* GPTM0 GPTMTAPV*/
+#define GPTM0_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTAPV_OFFSET)*32))))
+#define GPTM0_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTAPV_OFFSET )))
+#define GPTM0_GPTMTAPV_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTAPV_OFFSET)))
 
-#define GPWTM3_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPWTM3_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPWTM3_GPTMTBPV_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMTBPV_OFFSET)))
+/* GPTM1 GPTMTAPV*/
+#define GPTM1_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTAPV_OFFSET)*32))))
+#define GPTM1_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTAPV_OFFSET )))
+#define GPTM1_GPTMTAPV_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTAPV_OFFSET)))
 
-//--------
-#define GPWTM3_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM3_GPTMTBPV_R_PSV_BIT       (0)
+/* GPTM2 GPTMTAPV*/
+#define GPTM2_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTAPV_OFFSET)*32))))
+#define GPTM2_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTAPV_OFFSET )))
+#define GPTM2_GPTMTAPV_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTAPV_OFFSET)))
 
-#define GPWTM3_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
+/* GPTM3 GPTMTAPV*/
+#define GPTM3_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTAPV_OFFSET)*32))))
+#define GPTM3_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTAPV_OFFSET )))
+#define GPTM3_GPTMTAPV_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTAPV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 3.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM4 GPTMTAPV*/
+#define GPTM4_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTAPV_OFFSET)*32))))
+#define GPTM4_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTAPV_OFFSET )))
+#define GPTM4_GPTMTAPV_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTAPV_OFFSET)))
 
-#define GPWTM3_GPTMPP            (((GPTMPP_TypeDef*)(GPWTM3_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPWTM3_GPTMPP_R          (*((volatile const uint32_t *)(GPWTM3_BASE +GPTM_GPTMPP_OFFSET)))
+/* GPTM5 GPTMTAPV*/
+#define GPTM5_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTAPV_OFFSET)*32))))
+#define GPTM5_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTAPV_OFFSET )))
+#define GPTM5_GPTMTAPV_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTAPV_OFFSET)))
 
-#define GPWTM3_GPTMPP_SIZE        (0x0000000F)
+/* GPWTM0 GPTMTAPV*/
+#define GPWTM0_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTAPV_OFFSET)*32))))
+#define GPWTM0_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTAPV_OFFSET )))
+#define GPWTM0_GPTMTAPV_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTAPV_OFFSET)))
 
-//--------
-#define GPWTM3_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPWTM3_GPTMPP_R_SIZE_BIT       (0)
-#define GPWTM3_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPWTM3_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPWTM0_BITBANDING_TA_GPTMTnPV            (((BITBANDING_TA_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TA_GPTMTnPV_OFFSET)*32))))
+#define GPWTM0_TA_GPTMTnPV                       (((TA_GPWTMPV_TypeDef*)(GPWTM0_BASE + GPWTM_TA_GPTMTnPV_OFFSET )))
+#define GPWTM0_TA_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TA_GPTMTnPV_OFFSET)))
 
-#define GPWTM3_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPWTM3_GPTMPP_SIZE_16b         (0x00000000)
-#define GPWTM3_GPTMPP_SIZE_32b         (0x00000001)
-//--------
+/* GPWTM1 GPTMTAPV*/
+#define GPWTM1_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTAPV_OFFSET)*32))))
+#define GPWTM1_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTAPV_OFFSET )))
+#define GPWTM1_GPTMTAPV_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTAPV_OFFSET)))
 
-// ToDO GPWTM4
+#define GPWTM1_BITBANDING_TA_GPTMTnPV            (((BITBANDING_TA_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TA_GPTMTnPV_OFFSET)*32))))
+#define GPWTM1_TA_GPTMTnPV                       (((TA_GPWTMPV_TypeDef*)(GPWTM1_BASE + GPWTM_TA_GPTMTnPV_OFFSET )))
+#define GPWTM1_TA_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TA_GPTMTnPV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM2 GPTMTAPV*/
+#define GPWTM2_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTAPV_OFFSET)*32))))
+#define GPWTM2_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTAPV_OFFSET )))
+#define GPWTM2_GPTMTAPV_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTAPV_OFFSET)))
 
-#define GPWTM4_GPTMTAR            (((GPTMTAR_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPWTM4_GPTMTAR_R          (*((volatile const  int32_t *)(GPWTM4_BASE +GPTM_GPTMTAR_OFFSET)))
+#define GPWTM2_BITBANDING_TA_GPTMTnPV            (((BITBANDING_TA_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TA_GPTMTnPV_OFFSET)*32))))
+#define GPWTM2_TA_GPTMTnPV                       (((TA_GPWTMPV_TypeDef*)(GPWTM2_BASE + GPWTM_TA_GPTMTnPV_OFFSET )))
+#define GPWTM2_TA_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TA_GPTMTnPV_OFFSET)))
 
+/* GPWTM3 GPTMTAPV*/
+#define GPWTM3_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTAPV_OFFSET)*32))))
+#define GPWTM3_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTAPV_OFFSET )))
+#define GPWTM3_GPTMTAPV_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTAPV_OFFSET)))
 
-//--------
-#define GPWTM4_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPWTM4_GPTMTAR_R_TAR_BIT       (0)
+#define GPWTM3_BITBANDING_TA_GPTMTnPV            (((BITBANDING_TA_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TA_GPTMTnPV_OFFSET)*32))))
+#define GPWTM3_TA_GPTMTnPV                       (((TA_GPWTMPV_TypeDef*)(GPWTM3_BASE + GPWTM_TA_GPTMTnPV_OFFSET )))
+#define GPWTM3_TA_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TA_GPTMTnPV_OFFSET)))
 
-#define GPWTM4_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM4 GPTMTAPV*/
+#define GPWTM4_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTAPV_OFFSET)*32))))
+#define GPWTM4_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTAPV_OFFSET )))
+#define GPWTM4_GPTMTAPV_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTAPV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM4_BITBANDING_TA_GPTMTnPV            (((BITBANDING_TA_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TA_GPTMTnPV_OFFSET)*32))))
+#define GPWTM4_TA_GPTMTnPV                       (((TA_GPWTMPV_TypeDef*)(GPWTM4_BASE + GPWTM_TA_GPTMTnPV_OFFSET )))
+#define GPWTM4_TA_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TA_GPTMTnPV_OFFSET)))
 
-#define GPWTM4_GPTMTBR            (((GPTMTBR_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPWTM4_GPTMTBR_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMTBR_OFFSET)))
+/* GPWTM5 GPTMTAPV*/
+#define GPWTM5_BITBANDING_GPTMTAPV               (((BITBANDING_GPTMTAPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTAPV_OFFSET)*32))))
+#define GPWTM5_GPTMTAPV                          (((GPTMTAPV_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTAPV_OFFSET )))
+#define GPWTM5_GPTMTAPV_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTAPV_OFFSET)))
 
+#define GPWTM5_BITBANDING_TA_GPTMTnPV            (((BITBANDING_TA_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TA_GPTMTnPV_OFFSET)*32))))
+#define GPWTM5_TA_GPTMTnPV                       (((TA_GPWTMPV_TypeDef*)(GPWTM5_BASE + GPWTM_TA_GPTMTnPV_OFFSET )))
+#define GPWTM5_TA_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TA_GPTMTnPV_OFFSET)))
 
 //--------
-#define GPWTM4_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPWTM4_GPTMTBR_R_TBR_BIT       (0)
+#define GPTM_GPTMTAPV_R_PSV_MASK              (0x0000FFFF)
+#define GPTM_GPTMTAPV_R_PSV_BIT               (0)
 
-#define GPWTM4_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
+#define GPTM_GPTMTAPV_PSV_MASK                (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM4_GPTMTAV            (((GPTMTAV_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPWTM4_GPTMTAV_R          (*((volatile uint32_t *)(GPWTM4_BASE +GPTM_GPTMTAV_OFFSET)))
-
 //--------
-#define GPWTM4_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPWTM4_GPTMTAV_R_TAV_BIT       (0)
+#define GPWTM_GPTMTAPV_R_PSV_MASK             (0x0000FFFF)
+#define GPWTM_GPTMTAPV_R_PSV_BIT              (0)
 
-#define GPWTM4_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
+#define GPWTM_GPTMTAPV_PSV_MASK               (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM4_GPTMTBV            (((GPTMTBV_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPWTM4_GPTMTBV_R          (*((volatile uint32_t *)(GPWTM4_BASE +GPTM_GPTMTBV_OFFSET)))
 
-
 //--------
-#define GPWTM4_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPWTM4_GPTMTBV_R_TBV_BIT       (0)
+#define GPWTM_TA_GPTMTnPV_R_PSV_MASK          (0x0000FFFF)
+#define GPWTM_TA_GPTMTnPV_R_PSV_BIT           (0)
 
-#define GPWTM4_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
+#define GPWTM_TA_GPTMTnPV_PSV_MASK            (0x0000FFFF)
 //--------
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM4_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM4_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPWTM4_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMRTCPD_OFFSET)))
+/******************************************************************************************
+************************************ 25 GPTMTBPV *********************************************
+******************************************************************************************/
 
-
-//--------
-#define GPWTM4_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPWTM4_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPWTM4_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+/* GPTM0 GPTMTBPV*/
+#define GPTM0_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMTBPV_OFFSET)*32))))
+#define GPTM0_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPTM0_BASE + GPTM_GPTMTBPV_OFFSET )))
+#define GPTM0_GPTMTBPV_R                        (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMTBPV_OFFSET)))
 
-#define GPWTM4_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPWTM4_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+/* GPTM1 GPTMTBPV*/
+#define GPTM1_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMTBPV_OFFSET)*32))))
+#define GPTM1_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPTM1_BASE + GPTM_GPTMTBPV_OFFSET )))
+#define GPTM1_GPTMTBPV_R                        (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMTBPV_OFFSET)))
 
+/* GPTM2 GPTMTBPV*/
+#define GPTM2_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMTBPV_OFFSET)*32))))
+#define GPTM2_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPTM2_BASE + GPTM_GPTMTBPV_OFFSET )))
+#define GPTM2_GPTMTBPV_R                        (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMTBPV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM3 GPTMTBPV*/
+#define GPTM3_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMTBPV_OFFSET)*32))))
+#define GPTM3_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPTM3_BASE + GPTM_GPTMTBPV_OFFSET )))
+#define GPTM3_GPTMTBPV_R                        (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMTBPV_OFFSET)))
 
+/* GPTM4 GPTMTBPV*/
+#define GPTM4_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMTBPV_OFFSET)*32))))
+#define GPTM4_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPTM4_BASE + GPTM_GPTMTBPV_OFFSET )))
+#define GPTM4_GPTMTBPV_R                        (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMTBPV_OFFSET)))
 
-#define GPWTM4_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPWTM4_GPTMTAPS_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMTAPS_OFFSET)))
+/* GPTM5 GPTMTBPV*/
+#define GPTM5_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMTBPV_OFFSET)*32))))
+#define GPTM5_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPTM5_BASE + GPTM_GPTMTBPV_OFFSET )))
+#define GPTM5_GPTMTBPV_R                        (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMTBPV_OFFSET)))
 
-//--------
-#define GPWTM4_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM4_GPTMTAPS_R_PSS_BIT       (0)
+/* GPWTM0 GPTMTBPV*/
+#define GPWTM0_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMTBPV_OFFSET)*32))))
+#define GPWTM0_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMTBPV_OFFSET )))
+#define GPWTM0_GPTMTBPV_R                        (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMTBPV_OFFSET)))
 
-#define GPWTM4_GPTMTAPS_PSS_MASK        (0x0000FFFF)
-//--------
+#define GPWTM0_BITBANDING_TB_GPTMTnPV            (((BITBANDING_TB_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_TB_GPTMTnPV_OFFSET)*32))))
+#define GPWTM0_TB_GPTMTnPV                       (((TB_GPWTMPV_TypeDef*)(GPWTM0_BASE + GPWTM_TB_GPTMTnPV_OFFSET )))
+#define GPWTM0_TB_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM0_BASE +GPWTM_TB_GPTMTnPV_OFFSET)))
 
+/* GPWTM1 GPTMTBPV*/
+#define GPWTM1_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMTBPV_OFFSET)*32))))
+#define GPWTM1_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMTBPV_OFFSET )))
+#define GPWTM1_GPTMTBPV_R                        (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMTBPV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_TB_GPTMTnPV            (((BITBANDING_TB_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_TB_GPTMTnPV_OFFSET)*32))))
+#define GPWTM1_TB_GPTMTnPV                       (((TB_GPWTMPV_TypeDef*)(GPWTM1_BASE + GPWTM_TB_GPTMTnPV_OFFSET )))
+#define GPWTM1_TB_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM1_BASE +GPWTM_TB_GPTMTnPV_OFFSET)))
 
-#define GPWTM4_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPWTM4_GPTMTBPS_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMTBPS_OFFSET)))
+/* GPWTM2 GPTMTBPV*/
+#define GPWTM2_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMTBPV_OFFSET)*32))))
+#define GPWTM2_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMTBPV_OFFSET )))
+#define GPWTM2_GPTMTBPV_R                        (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMTBPV_OFFSET)))
 
-//--------
-#define GPWTM4_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM4_GPTMTBPS_R_PSS_BIT       (0)
+#define GPWTM2_BITBANDING_TB_GPTMTnPV            (((BITBANDING_TB_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_TB_GPTMTnPV_OFFSET)*32))))
+#define GPWTM2_TB_GPTMTnPV                       (((TB_GPWTMPV_TypeDef*)(GPWTM2_BASE + GPWTM_TB_GPTMTnPV_OFFSET )))
+#define GPWTM2_TB_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM2_BASE +GPWTM_TB_GPTMTnPV_OFFSET)))
 
-#define GPWTM4_GPTMTBPS_PSS_MASK        (0x0000FFFF)
-//--------
+/* GPWTM3 GPTMTBPV*/
+#define GPWTM3_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMTBPV_OFFSET)*32))))
+#define GPWTM3_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMTBPV_OFFSET )))
+#define GPWTM3_GPTMTBPV_R                        (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMTBPV_OFFSET)))
 
+#define GPWTM3_BITBANDING_TB_GPTMTnPV            (((BITBANDING_TB_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_TB_GPTMTnPV_OFFSET)*32))))
+#define GPWTM3_TB_GPTMTnPV                       (((TB_GPWTMPV_TypeDef*)(GPWTM3_BASE + GPWTM_TB_GPTMTnPV_OFFSET )))
+#define GPWTM3_TB_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM3_BASE +GPWTM_TB_GPTMTnPV_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPWTM4 GPTMTBPV*/
+#define GPWTM4_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMTBPV_OFFSET)*32))))
+#define GPWTM4_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMTBPV_OFFSET )))
+#define GPWTM4_GPTMTBPV_R                        (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMTBPV_OFFSET)))
 
+#define GPWTM4_BITBANDING_TB_GPTMTnPV            (((BITBANDING_TB_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_TB_GPTMTnPV_OFFSET)*32))))
+#define GPWTM4_TB_GPTMTnPV                       (((TB_GPWTMPV_TypeDef*)(GPWTM4_BASE + GPWTM_TB_GPTMTnPV_OFFSET )))
+#define GPWTM4_TB_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM4_BASE +GPWTM_TB_GPTMTnPV_OFFSET)))
 
+/* GPWTM5 GPTMTBPV*/
+#define GPWTM5_BITBANDING_GPTMTBPV               (((BITBANDING_GPTMTBPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMTBPV_OFFSET)*32))))
+#define GPWTM5_GPTMTBPV                          (((GPTMTBPV_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMTBPV_OFFSET )))
+#define GPWTM5_GPTMTBPV_R                        (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMTBPV_OFFSET)))
 
-#define GPWTM4_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPWTM4_GPTMTAPV_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMTAPV_OFFSET)))
+#define GPWTM5_BITBANDING_TB_GPTMTnPV            (((BITBANDING_TB_GPWTMPV_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_TB_GPTMTnPV_OFFSET)*32))))
+#define GPWTM5_TB_GPTMTnPV                       (((TB_GPWTMPV_TypeDef*)(GPWTM5_BASE + GPWTM_TB_GPTMTnPV_OFFSET )))
+#define GPWTM5_TB_GPTMTnPV_R                     (*((volatile uint16_t *)(GPWTM5_BASE +GPWTM_TB_GPTMTnPV_OFFSET)))
 
 //--------
-#define GPWTM4_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM4_GPTMTAPV_R_PSV_BIT       (0)
+#define GPTM_GPTMTBPV_R_PSV_MASK              (0x0000FFFF)
+#define GPTM_GPTMTBPV_R_PSV_BIT               (0)
 
-#define GPWTM4_GPTMTAPV_PSV_MASK        (0x0000FFFF)
+#define GPTM_GPTMTBPV_PSV_MASK                (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
 
-#define GPWTM4_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPWTM4_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPWTM4_GPTMTBPV_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMTBPV_OFFSET)))
-
 //--------
-#define GPWTM4_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM4_GPTMTBPV_R_PSV_BIT       (0)
+#define GPWTM_GPTMTBPV_R_PSV_MASK             (0x0000FFFF)
+#define GPWTM_GPTMTBPV_R_PSV_BIT              (0)
 
-#define GPWTM4_GPTMTBPV_PSV_MASK        (0x0000FFFF)
+#define GPWTM_GPTMTBPV_PSV_MASK               (0x0000FFFF)
 //--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 4.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM4_GPTMPP            (((GPTMPP_TypeDef*)(GPWTM4_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPWTM4_GPTMPP_R          (*((volatile const uint32_t *)(GPWTM4_BASE +GPTM_GPTMPP_OFFSET)))
 
-#define GPWTM4_GPTMPP_SIZE        (0x0000000F)
-
 //--------
-#define GPWTM4_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPWTM4_GPTMPP_R_SIZE_BIT       (0)
-#define GPWTM4_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPWTM4_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPWTM_TB_GPTMTnPV_R_PSV_MASK          (0x0000FFFF)
+#define GPWTM_TB_GPTMTnPV_R_PSV_BIT           (0)
 
-#define GPWTM4_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPWTM4_GPTMPP_SIZE_16b         (0x00000000)
-#define GPWTM4_GPTMPP_SIZE_32b         (0x00000001)
+#define GPWTM_TB_GPTMTnPV_PSV_MASK            (0x0000FFFF)
 //--------
-
-
-
-// ToDO GPWTM5
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.18 GPTMTAR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM5_GPTMTAR            (((GPTMTAR_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTAR_OFFSET )))
-#define GPWTM5_GPTMTAR_R          (*((volatile const  int32_t *)(GPWTM5_BASE +GPTM_GPTMTAR_OFFSET)))
 
 
-//--------
-#define GPWTM5_GPTMTAR_R_TAR_MASK      (0xFFFFFFFF)
-#define GPWTM5_GPTMTAR_R_TAR_BIT       (0)
-
-#define GPWTM5_GPTMTAR_TAR_MASK        (0xFFFFFFFF)
-//--------
+/******************************************************************************************
+************************************ 27 GPTMPP *********************************************
+******************************************************************************************/
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.19 GPTMTBR ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM0 GPTMPP*/
+#define GPTM0_BITBANDING_GPTMPP        (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_GPTMPP_OFFSET)*32))))
+#define GPTM0_GPTMPP                   (((GPTMPP_TypeDef*)(GPTM0_BASE + GPTM_GPTMPP_OFFSET )))
+#define GPTM0_GPTMPP_R                 (*((volatile uint32_t *)(GPTM0_BASE +GPTM_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTBR            (((GPTMTBR_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTBR_OFFSET )))
-#define GPWTM5_GPTMTBR_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMTBR_OFFSET)))
+#define GPTM0_BITBANDING_CTL_GPTMPP    (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM0_OFFSET+GPTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPTM0_CTL_GPTMPP               (((GPTMPP_TypeDef*)(GPTM0_BASE + GPTM_CTL_GPTMPP_OFFSET )))
+#define GPTM0_CTL_GPTMPP_R             (*((volatile uint32_t *)(GPTM0_BASE +GPTM_CTL_GPTMPP_OFFSET)))
 
+/* GPTM1 GPTMPP*/
+#define GPTM1_BITBANDING_GPTMPP        (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_GPTMPP_OFFSET)*32))))
+#define GPTM1_GPTMPP                   (((GPTMPP_TypeDef*)(GPTM1_BASE + GPTM_GPTMPP_OFFSET )))
+#define GPTM1_GPTMPP_R                 (*((volatile uint32_t *)(GPTM1_BASE +GPTM_GPTMPP_OFFSET)))
 
-//--------
-#define GPWTM5_GPTMTBR_R_TBR_MASK      (0xFFFFFFFF)
-#define GPWTM5_GPTMTBR_R_TBR_BIT       (0)
+#define GPTM1_BITBANDING_CTL_GPTMPP    (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM1_OFFSET+GPTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPTM1_CTL_GPTMPP               (((GPTMPP_TypeDef*)(GPTM1_BASE + GPTM_CTL_GPTMPP_OFFSET )))
+#define GPTM1_CTL_GPTMPP_R             (*((volatile uint32_t *)(GPTM1_BASE +GPTM_CTL_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTBR_TBR_MASK        (0xFFFFFFFF)
-//--------
+/* GPTM2 GPTMPP*/
+#define GPTM2_BITBANDING_GPTMPP        (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_GPTMPP_OFFSET)*32))))
+#define GPTM2_GPTMPP                   (((GPTMPP_TypeDef*)(GPTM2_BASE + GPTM_GPTMPP_OFFSET )))
+#define GPTM2_GPTMPP_R                 (*((volatile uint32_t *)(GPTM2_BASE +GPTM_GPTMPP_OFFSET)))
 
+#define GPTM2_BITBANDING_CTL_GPTMPP    (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM2_OFFSET+GPTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPTM2_CTL_GPTMPP               (((GPTMPP_TypeDef*)(GPTM2_BASE + GPTM_CTL_GPTMPP_OFFSET )))
+#define GPTM2_CTL_GPTMPP_R             (*((volatile uint32_t *)(GPTM2_BASE +GPTM_CTL_GPTMPP_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.20 GPTMTAV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM3 GPTMPP*/
+#define GPTM3_BITBANDING_GPTMPP        (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_GPTMPP_OFFSET)*32))))
+#define GPTM3_GPTMPP                   (((GPTMPP_TypeDef*)(GPTM3_BASE + GPTM_GPTMPP_OFFSET )))
+#define GPTM3_GPTMPP_R                 (*((volatile uint32_t *)(GPTM3_BASE +GPTM_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTAV            (((GPTMTAV_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTAV_OFFSET )))
-#define GPWTM5_GPTMTAV_R          (*((volatile uint32_t *)(GPWTM5_BASE +GPTM_GPTMTAV_OFFSET)))
+#define GPTM3_BITBANDING_CTL_GPTMPP    (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM3_OFFSET+GPTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPTM3_CTL_GPTMPP               (((GPTMPP_TypeDef*)(GPTM3_BASE + GPTM_CTL_GPTMPP_OFFSET )))
+#define GPTM3_CTL_GPTMPP_R             (*((volatile uint32_t *)(GPTM3_BASE +GPTM_CTL_GPTMPP_OFFSET)))
 
-//--------
-#define GPWTM5_GPTMTAV_R_TAV_MASK      (0xFFFFFFFF)
-#define GPWTM5_GPTMTAV_R_TAV_BIT       (0)
+/* GPTM4 GPTMPP*/
+#define GPTM4_BITBANDING_GPTMPP        (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_GPTMPP_OFFSET)*32))))
+#define GPTM4_GPTMPP                   (((GPTMPP_TypeDef*)(GPTM4_BASE + GPTM_GPTMPP_OFFSET )))
+#define GPTM4_GPTMPP_R                 (*((volatile uint32_t *)(GPTM4_BASE +GPTM_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTAV_TAV_MASK        (0xFFFFFFFF)
-//--------
+#define GPTM4_BITBANDING_CTL_GPTMPP    (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM4_OFFSET+GPTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPTM4_CTL_GPTMPP               (((GPTMPP_TypeDef*)(GPTM4_BASE + GPTM_CTL_GPTMPP_OFFSET )))
+#define GPTM4_CTL_GPTMPP_R             (*((volatile uint32_t *)(GPTM4_BASE +GPTM_CTL_GPTMPP_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.21 GPTMTBV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+/* GPTM5 GPTMPP*/
+#define GPTM5_BITBANDING_GPTMPP        (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_GPTMPP_OFFSET)*32))))
+#define GPTM5_GPTMPP                   (((GPTMPP_TypeDef*)(GPTM5_BASE + GPTM_GPTMPP_OFFSET )))
+#define GPTM5_GPTMPP_R                 (*((volatile uint32_t *)(GPTM5_BASE +GPTM_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTBV            (((GPTMTBV_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTBV_OFFSET )))
-#define GPWTM5_GPTMTBV_R          (*((volatile uint32_t *)(GPWTM5_BASE +GPTM_GPTMTBV_OFFSET)))
+#define GPTM5_BITBANDING_CTL_GPTMPP    (((BITBANDING_GPTMPP_TypeDef*)(GPTM_BITBANDING_BASE+((GPTM5_OFFSET+GPTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPTM5_CTL_GPTMPP               (((GPTMPP_TypeDef*)(GPTM5_BASE + GPTM_CTL_GPTMPP_OFFSET )))
+#define GPTM5_CTL_GPTMPP_R             (*((volatile uint32_t *)(GPTM5_BASE +GPTM_CTL_GPTMPP_OFFSET)))
 
+/* GPWTM0 GPTMPP*/
+#define GPWTM0_BITBANDING_GPTMPP       (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_GPTMPP_OFFSET)*32))))
+#define GPWTM0_GPTMPP                  (((GPTMPP_TypeDef*)(GPWTM0_BASE + GPWTM_GPTMPP_OFFSET )))
+#define GPWTM0_GPTMPP_R                (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_GPTMPP_OFFSET)))
 
-//--------
-#define GPWTM5_GPTMTBV_R_TBV_MASK      (0xFFFFFFFF)
-#define GPWTM5_GPTMTBV_R_TBV_BIT       (0)
+#define GPWTM0_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM0_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPWTM0_CTL_GPTMPP              (((GPTMPP_TypeDef*)(GPWTM0_BASE + GPWTM_CTL_GPTMPP_OFFSET )))
+#define GPWTM0_CTL_GPTMPP_R            (*((volatile uint32_t *)(GPWTM0_BASE +GPWTM_CTL_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTBV_TBV_MASK        (0xFFFFFFFF)
-//--------
+/* GPWTM1 GPTMPP*/
+#define GPWTM1_BITBANDING_GPTMPP       (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_GPTMPP_OFFSET)*32))))
+#define GPWTM1_GPTMPP                  (((GPTMPP_TypeDef*)(GPWTM1_BASE + GPWTM_GPTMPP_OFFSET )))
+#define GPWTM1_GPTMPP_R                (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_GPTMPP_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.22 GPTMRTCPD ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM1_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM1_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPWTM1_CTL_GPTMPP              (((GPTMPP_TypeDef*)(GPWTM1_BASE + GPWTM_CTL_GPTMPP_OFFSET )))
+#define GPWTM1_CTL_GPTMPP_R            (*((volatile uint32_t *)(GPWTM1_BASE +GPWTM_CTL_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMRTCPD            (((GPTMRTCPD_TW_TypeDef*)(GPWTM5_BASE + GPTM_GPTMRTCPD_OFFSET )))
-#define GPWTM5_GPTMRTCPD_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMRTCPD_OFFSET)))
+/* GPWTM2 GPTMPP*/
+#define GPWTM2_BITBANDING_GPTMPP       (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_GPTMPP_OFFSET)*32))))
+#define GPWTM2_GPTMPP                  (((GPTMPP_TypeDef*)(GPWTM2_BASE + GPWTM_GPTMPP_OFFSET )))
+#define GPWTM2_GPTMPP_R                (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_GPTMPP_OFFSET)))
 
+#define GPWTM2_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM2_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPWTM2_CTL_GPTMPP              (((GPTMPP_TypeDef*)(GPWTM2_BASE + GPWTM_CTL_GPTMPP_OFFSET )))
+#define GPWTM2_CTL_GPTMPP_R            (*((volatile uint32_t *)(GPWTM2_BASE +GPWTM_CTL_GPTMPP_OFFSET)))
 
-//--------
-#define GPWTM5_GPTMRTCPD_R_RTCPD_MASK      (0x0000FFFF)
-#define GPWTM5_GPTMRTCPD_R_RTCPD_BIT       (0)
-#define GPWTM5_GPTMRTCPD_R_RTCPD_DEFAULT   (0x00007FFF)
+/* GPWTM3 GPTMPP*/
+#define GPWTM3_BITBANDING_GPTMPP       (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_GPTMPP_OFFSET)*32))))
+#define GPWTM3_GPTMPP                  (((GPTMPP_TypeDef*)(GPWTM3_BASE + GPWTM_GPTMPP_OFFSET )))
+#define GPWTM3_GPTMPP_R                (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMRTCPD_RTCPD_MASK        (0x0000FFFF)
-#define GPWTM5_GPTMRTCPD_RTCPD_DEFAULT     (0x00007FFF)
-//--------
+#define GPWTM3_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPWTM3_CTL_GPTMPP              (((GPTMPP_TypeDef*)(GPWTM3_BASE + GPWTM_CTL_GPTMPP_OFFSET )))
+#define GPWTM3_CTL_GPTMPP_R            (*((volatile uint32_t *)(GPWTM3_BASE +GPWTM_CTL_GPTMPP_OFFSET)))
 
+/* GPWTM4 GPTMPP*/
+#define GPWTM4_BITBANDING_GPTMPP       (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_GPTMPP_OFFSET)*32))))
+#define GPWTM4_GPTMPP                  (((GPTMPP_TypeDef*)(GPWTM4_BASE + GPWTM_GPTMPP_OFFSET )))
+#define GPWTM4_GPTMPP_R                (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_GPTMPP_OFFSET)))
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.23 GPTMTAPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
+#define GPWTM4_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM4_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPWTM4_CTL_GPTMPP              (((GPTMPP_TypeDef*)(GPWTM4_BASE + GPWTM_CTL_GPTMPP_OFFSET )))
+#define GPWTM4_CTL_GPTMPP_R            (*((volatile uint32_t *)(GPWTM4_BASE +GPWTM_CTL_GPTMPP_OFFSET)))
 
+/* GPWTM5 GPTMPP*/
+#define GPWTM5_BITBANDING_GPTMPP       (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_GPTMPP_OFFSET)*32))))
+#define GPWTM5_GPTMPP                  (((GPTMPP_TypeDef*)(GPWTM5_BASE + GPWTM_GPTMPP_OFFSET )))
+#define GPWTM5_GPTMPP_R                (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_GPTMPP_OFFSET)))
 
-#define GPWTM5_GPTMTAPS            (((GPTMTAPS_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTAPS_OFFSET )))
-#define GPWTM5_GPTMTAPS_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMTAPS_OFFSET)))
+#define GPWTM5_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM5_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32))))
+#define GPWTM5_CTL_GPTMPP              (((GPTMPP_TypeDef*)(GPWTM5_BASE + GPWTM_CTL_GPTMPP_OFFSET )))
+#define GPWTM5_CTL_GPTMPP_R            (*((volatile uint32_t *)(GPWTM5_BASE +GPWTM_CTL_GPTMPP_OFFSET)))
 
-//--------
-#define GPWTM5_GPTMTAPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM5_GPTMTAPS_R_PSS_BIT       (0)
 
-#define GPWTM5_GPTMTAPS_PSS_MASK        (0x0000FFFF)
 //--------
-
+#define GPTM_GPTMPP_R_SIZE_MASK         (0x0000000F)
+#define GPTM_GPTMPP_R_SIZE_BIT          (0)
+#define GPTM_GPTMPP_R_SIZE_16b          (0x00000000)
+#define GPTM_GPTMPP_R_SIZE_32b          (0x00000001)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.24 GPTMTBPS ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-#define GPWTM5_GPTMTBPS            (((GPTMTBPS_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTBPS_OFFSET )))
-#define GPWTM5_GPTMTBPS_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMTBPS_OFFSET)))
-
+#define GPTM_GPTMPP_SIZE_MASK           (0x0000000F)
+#define GPTM_GPTMPP_SIZE_BOTH           (0x00000000)
+#define GPTM_GPTMPP_SIZE_16b          (0x00000000)
+#define GPTM_GPTMPP_SIZE_32b          (0x00000001)
 //--------
-#define GPWTM5_GPTMTBPS_R_PSS_MASK      (0x0000FFFF)
-#define GPWTM5_GPTMTBPS_R_PSS_BIT       (0)
 
-#define GPWTM5_GPTMTBPS_PSS_MASK        (0x0000FFFF)
 //--------
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.25 GPTMTAPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
+#define GPTM_CTL_GPTMPP_R_SIZE_MASK     (0x0000000F)
+#define GPTM_CTL_GPTMPP_R_SIZE_BIT      (0)
+#define GPTM_CTL_GPTMPP_R_SIZE_16b      (0x00000000)
+#define GPTM_CTL_GPTMPP_R_SIZE_32b      (0x00000001)
 
-#define GPWTM5_GPTMTAPV            (((GPTMTAPV_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTAPV_OFFSET )))
-#define GPWTM5_GPTMTAPV_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMTAPV_OFFSET)))
+#define GPTM_CTL_GPTMPP_SIZE_MASK       (0x0000000F)
+#define GPTM_CTL_GPTMPP_SIZE_16b      (0x00000000)
+#define GPTM_CTL_GPTMPP_SIZE_32b      (0x00000001)
 
 //--------
-#define GPWTM5_GPTMTAPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM5_GPTMTAPV_R_PSV_BIT       (0)
 
-#define GPWTM5_GPTMTAPV_PSV_MASK        (0x0000FFFF)
 //--------
+#define GPWTM_GPTMPP_R_SIZE_MASK        (0x0000000F)
+#define GPWTM_GPTMPP_R_SIZE_BIT         (0)
+#define GWPTM_GPTMPP_R_SIZE_16b         (0x00000000)
+#define GWPTM_GPTMPP_R_SIZE_32b         (0x00000001)
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.26 GPTMTBPV ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-
-
-#define GPWTM5_GPTMTBPV            (((GPTMTBPV_TypeDef*)(GPWTM5_BASE + GPTM_GPTMTBPV_OFFSET )))
-#define GPWTM5_GPTMTBPV_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMTBPV_OFFSET)))
-
+#define GPWTM_GPTMPP_SIZE_MASK          (0x0000000F)
+#define GPWTM_GPTMPP_SIZE_16b           (0x00000000)
+#define GPWTM_GPTMPP_SIZE_32b           (0x00000001)
 //--------
-#define GPWTM5_GPTMTBPV_R_PSV_MASK      (0x0000FFFF)
-#define GPWTM5_GPTMTBPV_R_PSV_BIT       (0)
-
-#define GPWTM5_GPTMTBPV_PSV_MASK        (0x0000FFFF)
-//--------
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// 5.27 GPTMPP ///////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GPWTM5_GPTMPP            (((GPTMPP_TypeDef*)(GPWTM5_BASE + GPTM_GPTMPP_OFFSET )))
-#define GPWTM5_GPTMPP_R          (*((volatile const uint32_t *)(GPWTM5_BASE +GPTM_GPTMPP_OFFSET)))
-
-#define GPWTM5_GPTMPP_SIZE        (0x0000000F)
-
 //--------
-#define GPWTM5_GPTMPP_R_SIZE_MASK      (0x0000000F)
-#define GPWTM5_GPTMPP_R_SIZE_BIT       (0)
-#define GPWTM5_GPTMPP_R_SIZE_16b       (0x00000000)
-#define GPWTM5_GPTMPP_R_SIZE_32b       (0x00000001)
+#define GPWTM_CTL_GPTMPP_R_SIZE_MASK    (0x0000000F)
+#define GPWTM_CTL_GPTMPP_R_SIZE_BIT     (0)
+#define GPWTM_CTL_GPTMPP_R_SIZE_16b     (0x00000000)
+#define GPWTM_CTL_GPTMPP_R_SIZE_32b     (0x00000001)
 
-#define GPWTM5_GPTMPP_SIZE_MASK        (0x0000000F)
-#define GPWTM5_GPTMPP_SIZE_16b         (0x00000000)
-#define GPWTM5_GPTMPP_SIZE_32b         (0x00000001)
+#define GPWTM_CTL_GPTMPP_SIZE_MASK      (0x0000000F)
+#define GPWTM_CTL_GPTMPP_SIZE_BOTH      (0x00000000)
+#define GPWTM_CTL_GPTMPP_SIZE_16b       (0x00000000)
+#define GPWTM_CTL_GPTMPP_SIZE_32b       (0x00000001)
 //--------
-
-extern uint64_t finish;
-extern uint64_t BEEP;
-extern float BEEPFreq[30];
-extern float BEEPTimeA0[30];
-extern volatile int32_t CPUClockS;
-
-extern uint32_t mode;
-extern volatile int32_t FreqCountLeft;
-extern volatile float FreqPromObtained;
-extern volatile float Frequency[4096];
-
-int32_t Init_WTIMER0A_us(uint64_t time);
-int32_t Init_WTIMER0B_us(uint64_t time, uint32_t modes);
-
-int32_t WTIMER0A_Time(uint64_t time);
-int32_t WTIMER0B_Time(uint64_t time);
-
-int32_t WTIMER0A_Interrupt(void);
-int32_t WTIMER0A_DisInterrupt(void);
-
-int32_t WTIMER0B_Interrupt(void);
-int32_t WTIMER0B_DisInterrupt(void);
-
-int32_t WTIMER1A_Interrupt(void);
-int32_t WTIMER1A_DisInterrupt(void);
-
-int32_t Init_WTIMER1A_Time(void);
-
-int32_t Finish_Variables(void);
-int32_t Restart_Variables(void);
-
-
 
+typedef enum
+{
+    TIMER_enNOOCCUR=0,
+    TIMER_enOCCUR=1,
+    TIMER_enSTATUS_UNDEF=0xFF,
+}TIMER_nSTATUS;
 
+typedef enum
+{
+    TIMER_enNOREADY=0,
+    TIMER_enREADY=1,
+}TIMER_nREADY;
 
-int32_t Change_timeOut0ABeepSilence(uint32_t time);
-int32_t Change_timeOut0AFinalBeepSilence(uint32_t time);
-int32_t Change_timeOut0ADigitSilenceHigh(uint32_t time);
-int32_t Change_timeOut0ADigitSilenceLow(uint32_t time);
-int32_t Change_timeOut0AFinalSilence(uint32_t time);
-int32_t Change_TimeOut0A(uint32_t time);
+typedef enum
+{
+    TIMER_enT0=((0<<8)|0),
+    TIMER_enT1=((0<<8)|1),
+    TIMER_enT2=((0<<8)|2),
+    TIMER_enT3=((0<<8)|3),
+    TIMER_enT4=((0<<8)|4),
+    TIMER_enT5=((0<<8)|5),
+    TIMER_enWT0=((1<<8)|0),
+    TIMER_enWT1=((1<<8)|1),
+    TIMER_enWT2=((1<<8)|2),
+    TIMER_enWT3=((1<<8)|3),
+    TIMER_enWT4=((1<<8)|4),
+    TIMER_enWT5=((1<<8)|5),
+}TIMER_nMODULE;
 
-int32_t Get_timeOut0ABeepSilence(uint32_t* time);
-int32_t Get_timeOut0AFinalBeepSilence(uint32_t* time);
-int32_t Get_timeOut0ADigitSilenceHigh(uint32_t* time);
-int32_t Get_timeOut0ADigitSilenceLow(uint32_t* time);
-int32_t Get_timeOut0AFinalSilence(uint32_t* time);
-int32_t Get_TimeOut0A(uint32_t* time);
+typedef enum
+{
+    TIMER_enTIMEOUT=0,
+    TIMER_enCAPTUREMATCH=1,
+    TIMER_enCAPTUREEVENT=2,
+    TIMER_enMATCH=3,
+    TIMER_enRTC=4,
+    TIMER_enWRITEUPDATE=5,
+}TIMER_nINT_SOURCE;
 
+void TIMER__vInit(void);
+void TIMER__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
+void TIMER__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
 
-void WTIMER0AHandler(void);
-void WTIMER0BHandler(void);
-void WTIMER1AHandler(void);
-void WTIMER1BHandler(void);
-void WTIMER2AHandler(void);
-void WTIMER2BHandler(void);
-void WTIMER3AHandler(void);
-void WTIMER3BHandler(void);
-void WTIMER4AHandler(void);
-void WTIMER4BHandler(void);
-void WTIMER5AHandler(void);
-void WTIMER5BHandler(void);
 
-void TIMER0AHandler(void);
-void TIMER0BHandler(void);
-void TIMER1AHandler(void);
-void TIMER1BHandler(void);
-void TIMER2AHandler(void);
-void TIMER2BHandler(void);
-void TIMER3AHandler(void);
-void TIMER3BHandler(void);
-void TIMER4AHandler(void);
-void TIMER4BHandler(void);
-void TIMER5AHandler(void);
-void TIMER5BHandler(void);
 #endif /* TIMER_H_ */
