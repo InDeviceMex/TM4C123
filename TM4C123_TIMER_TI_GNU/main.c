@@ -185,7 +185,6 @@ int main(void)
     GPTM_UNION->TB[0].GPTMBCTL_Bit.TBEN=1;
 
 
-    GPTM0_CTL->GPTMSYNC=(1<<2) |0x3;
 */
     while(1)
     {
