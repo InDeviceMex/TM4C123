@@ -149,7 +149,6 @@ int main(void)
     GPTM_UNION->TB[1].GPTMTnCTL_Bit.TnEN=1;
 
 
-    //GPTM0_CTL->GPTMSYNC=(3<<2) |0x2;
 
 /*
     GPTM_UNION->TA[0].GPTMTAMR_Bit.TAMR=2;
