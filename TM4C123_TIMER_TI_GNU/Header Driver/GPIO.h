@@ -10678,6 +10678,7 @@ void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
 void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
 
 void GPIO__vSetReady(GPIO_nPORT enPort);
+void GPIO__vClearReady(GPIO_nPORT enPort);
 GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort);
 GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort);
 

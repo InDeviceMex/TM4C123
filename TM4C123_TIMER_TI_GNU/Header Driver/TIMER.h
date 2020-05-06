@@ -3003,62 +3003,77 @@ typedef volatile struct
 #define GPTM_BITBANDING          (((GPTM_BITBANDING_TypeDef*)(GPTM_BASE_BITBANDING+(GPTM_OFFSET*32))))
 #define GPTM_BITBANDING_UNION    (((GPTM_BITBANDING_UNION_TypeDef*)(GPTM_BASE_BITBANDING+(GPTM_OFFSET*32))))
 
+#define GPTM0                    (((GPTM_TypeDef*)(GPTM0_BASE)))
 #define GPTM0_CTL                (((GPTM_CTL_TypeDef*)(GPTM0_BASE)))
 #define GPTM0_TA                 (((GPTM_TA_TypeDef*)(GPTM0_BASE)))
 #define GPTM0_TB                 (((GPTM_TB_TypeDef*)(GPTM0_BASE)))
 #define GPTM0_TW                 (((GPTM_TW_TypeDef*)(GPTM0_BASE)))
 
+#define GPTM1                    (((GPTM_TypeDef*)(GPTM1_BASE)))
 #define GPTM1_CTL                (((GPTM_CTL_TypeDef*)(GPTM1_BASE)))
 #define GPTM1_TA                 (((GPTM_TA_TypeDef*)(GPTM1_BASE)))
 #define GPTM1_TB                 (((GPTM_TB_TypeDef*)(GPTM1_BASE)))
 #define GPTM1_TW                 (((GPTM_TW_TypeDef*)(GPTM1_BASE)))
 
+#define GPTM2                    (((GPTM_TypeDef*)(GPTM2_BASE)))
 #define GPTM2_CTL                (((GPTM_CTL_TypeDef*)(GPTM2_BASE)))
 #define GPTM2_TA                 (((GPTM_TA_TypeDef*)(GPTM2_BASE)))
 #define GPTM2_TB                 (((GPTM_TB_TypeDef*)(GPTM2_BASE)))
 #define GPTM2_TW                 (((GPTM_TW_TypeDef*)(GPTM2_BASE)))
 
+#define GPTM3                    (((GPTM_TypeDef*)(GPTM3_BASE)))
 #define GPTM3_CTL                (((GPTM_CTL_TypeDef*)(GPTM3_BASE)))
 #define GPTM3_TA                 (((GPTM_TA_TypeDef*)(GPTM3_BASE)))
 #define GPTM3_TB                 (((GPTM_TB_TypeDef*)(GPTM3_BASE)))
 #define GPTM3_TW                 (((GPTM_TW_TypeDef*)(GPTM3_BASE)))
 
+
+#define GPTM4                    (((GPTM_TypeDef*)(GPTM4_BASE)))
 #define GPTM4_CTL                (((GPTM_CTL_TypeDef*)(GPTM4_BASE)))
 #define GPTM4_TA                 (((GPTM_TA_TypeDef*)(GPTM4_BASE)))
 #define GPTM4_TB                 (((GPTM_TB_TypeDef*)(GPTM4_BASE)))
 #define GPTM4_TW                 (((GPTM_TW_TypeDef*)(GPTM4_BASE)))
 
+
+#define GPTM5                    (((GPTM_TypeDef*)(GPTM5_BASE)))
 #define GPTM5_CTL                (((GPTM_CTL_TypeDef*)(GPTM5_BASE)))
 #define GPTM5_TA                 (((GPTM_TA_TypeDef*)(GPTM5_BASE)))
 #define GPTM5_TB                 (((GPTM_TB_TypeDef*)(GPTM5_BASE)))
 #define GPTM5_TW                 (((GPTM_TW_TypeDef*)(GPTM5_BASE)))
 
 
+
+#define GPTM0_BITBANDING          (((GPTM_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 #define GPTM0_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 #define GPTM0_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 #define GPTM0_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 #define GPTM0_BITBANDING_TW       (((GPTM_BITBANDING_TW_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM0_OFFSET*32))))
 
+#define GPTM1_BITBANDING          (((GPTM_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM1_OFFSET*32))))
 #define GPTM1_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM1_OFFSET*32))))
 #define GPTM1_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM1_OFFSET*32))))
 #define GPTM1_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM1_OFFSET*32))))
 #define GPTM1_BITBANDING_TW       (((GPTM_BITBANDING_TW_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM1_OFFSET*32))))
 
+#define GPTM2_BITBANDING          (((GPTM_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM2_OFFSET*32))))
 #define GPTM2_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM2_OFFSET*32))))
 #define GPTM2_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM2_OFFSET*32))))
 #define GPTM2_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM2_OFFSET*32))))
 #define GPTM2_BITBANDING_TW       (((GPTM_BITBANDING_TW_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM2_OFFSET*32))))
 
+#define GPTM3_BITBANDING          (((GPTM_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM3_OFFSET*32))))
 #define GPTM3_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM3_OFFSET*32))))
 #define GPTM3_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM3_OFFSET*32))))
 #define GPTM3_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM3_OFFSET*32))))
 #define GPTM3_BITBANDING_TW       (((GPTM_BITBANDING_TW_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM3_OFFSET*32))))
 
+#define GPTM4_BITBANDING          (((GPTM_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM4_OFFSET*32))))
 #define GPTM4_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM4_OFFSET*32))))
 #define GPTM4_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM4_OFFSET*32))))
 #define GPTM4_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM4_OFFSET*32))))
 #define GPTM4_BITBANDING_TW       (((GPTM_BITBANDING_TW_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM4_OFFSET*32))))
 
+#define GPTM5_BITBANDING          (((GPTM_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM5_OFFSET*32))))
 #define GPTM5_BITBANDING_CTL      (((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BASE_BITBANDING+(GPTM5_OFFSET*32))))
 #define GPTM5_BITBANDING_TA       (((GPTM_BITBANDING_TA_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM5_OFFSET*32))))
 #define GPTM5_BITBANDING_TB       (((GPTM_BITBANDING_TB_TypeDef*)  (GPTM_BASE_BITBANDING+(GPTM5_OFFSET*32))))
@@ -3070,61 +3085,73 @@ typedef volatile struct
 #define GPWTM_BITBANDING          (((GPWTMS_BITBANDING_TypeDef*)(GPWTM_BASE_BITBANDING+(GPWTM_OFFSET*32))))
 #define GPWTM_BITBANDING_UNION    (((GPWTM_BITBANDING_UNION_TypeDef*)(GPWTM_BASE_BITBANDING+(GPWTM_OFFSET*32))))
 
+#define GPWTM0                    (((GPTM_TypeDef*)(GPWTM0_BASE)))
 #define GPWTM0_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM0_BASE)))
 #define GPWTM0_TA                 (((GPWTM_TA_TypeDef*)(GPWTM0_BASE)))
 #define GPWTM0_TB                 (((GPWTM_TB_TypeDef*)(GPWTM0_BASE)))
 #define GPWTM0_TW                 (((GPWTM_TW_TypeDef*)(GPWTM0_BASE)))
 
+#define GPWTM1                    (((GPTM_TypeDef*)(GPWTM1_BASE)))
 #define GPWTM1_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM1_BASE)))
 #define GPWTM1_TA                 (((GPWTM_TA_TypeDef*)(GPWTM1_BASE)))
 #define GPWTM1_TB                 (((GPWTM_TB_TypeDef*)(GPWTM1_BASE)))
 #define GPWTM1_TW                 (((GPWTM_TW_TypeDef*)(GPWTM1_BASE)))
 
+#define GPWTM2                    (((GPTM_TypeDef*)(GPWTM2_BASE)))
 #define GPWTM2_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM2_BASE)))
 #define GPWTM2_TA                 (((GPWTM_TA_TypeDef*)(GPWTM2_BASE)))
 #define GPWTM2_TB                 (((GPWTM_TB_TypeDef*)(GPWTM2_BASE)))
 #define GPWTM2_TW                 (((GPWTM_TW_TypeDef*)(GPWTM2_BASE)))
 
+#define GPWTM3                    (((GPTM_TypeDef*)(GPWTM3_BASE)))
 #define GPWTM3_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM3_BASE)))
 #define GPWTM3_TA                 (((GPWTM_TA_TypeDef*)(GPWTM3_BASE)))
 #define GPWTM3_TB                 (((GPWTM_TB_TypeDef*)(GPWTM3_BASE)))
 #define GPWTM3_TW                 (((GPWTM_TW_TypeDef*)(GPWTM3_BASE)))
 
+#define GPWTM4                    (((GPTM_TypeDef*)(GPWTM4_BASE)))
 #define GPWTM4_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM4_BASE)))
 #define GPWTM4_TA                 (((GPWTM_TA_TypeDef*)(GPWTM4_BASE)))
 #define GPWTM4_TB                 (((GPWTM_TB_TypeDef*)(GPWTM4_BASE)))
 #define GPWTM4_TW                 (((GPWTM_TW_TypeDef*)(GPWTM4_BASE)))
 
+#define GPWTM5                    (((GPTM_TypeDef*)(GPWTM5_BASE)))
 #define GPWTM5_CTL                (((GPWTM_CTL_TypeDef*)(GPWTM5_BASE)))
 #define GPWTM5_TA                 (((GPWTM_TA_TypeDef*)(GPWTM5_BASE)))
 #define GPWTM5_TB                 (((GPWTM_TB_TypeDef*)(GPWTM5_BASE)))
 #define GPWTM5_TW                 (((GPWTM_TW_TypeDef*)(GPWTM5_BASE)))
 
+#define GPWTM0_BITBANDING         (((GPTM_BITBANDING_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
 #define GPWTM0_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
 #define GPWTM0_BITBANDING_TA      (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
 #define GPWTM0_BITBANDING_TB      (((GPWTM_BITBANDING_TB_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
 #define GPWTM0_BITBANDING_TW      (((GPWTM_BITBANDING_TW_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM0_OFFSET*32))))
 
+#define GPWTM1_BITBANDING         (((GPTM_BITBANDING_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM1_OFFSET*32))))
 #define GPWTM1_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM1_OFFSET*32))))
 #define GPWTM1_BITBANDING_TA      (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM1_OFFSET*32))))
 #define GPWTM1_BITBANDING_TB      (((GPWTM_BITBANDING_TB_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM1_OFFSET*32))))
 #define GPWTM1_BITBANDING_TW      (((GPWTM_BITBANDING_TW_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM1_OFFSET*32))))
 
+#define GPWTM2_BITBANDING         (((GPTM_BITBANDING_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM2_OFFSET*32))))
 #define GPWTM2_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM2_OFFSET*32))))
 #define GPWTM2_BITBANDING_TA      (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM2_OFFSET*32))))
 #define GPWTM2_BITBANDING_TB      (((GPWTM_BITBANDING_TB_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM2_OFFSET*32))))
 #define GPWTM2_BITBANDING_TW      (((GPWTM_BITBANDING_TW_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM2_OFFSET*32))))
 
+#define GPWTM3_BITBANDING         (((GPTM_BITBANDING_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM3_OFFSET*32))))
 #define GPWTM3_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM3_OFFSET*32))))
 #define GPWTM3_BITBANDING_TA      (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM3_OFFSET*32))))
 #define GPWTM3_BITBANDING_TB      (((GPWTM_BITBANDING_TB_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM3_OFFSET*32))))
 #define GPWTM3_BITBANDING_TW      (((GPWTM_BITBANDING_TW_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM3_OFFSET*32))))
 
+#define GPWTM4_BITBANDING         (((GPTM_BITBANDING_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM4_OFFSET*32))))
 #define GPWTM4_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM4_OFFSET*32))))
 #define GPWTM4_BITBANDING_TA      (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM4_OFFSET*32))))
 #define GPWTM4_BITBANDING_TB      (((GPWTM_BITBANDING_TB_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM4_OFFSET*32))))
 #define GPWTM4_BITBANDING_TW      (((GPWTM_BITBANDING_TW_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM4_OFFSET*32))))
 
+#define GPWTM5_BITBANDING         (((GPTM_BITBANDING_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM5_OFFSET*32))))
 #define GPWTM5_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BASE_BITBANDING+(GPWTM5_OFFSET*32))))
 #define GPWTM5_BITBANDING_TA      (((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM5_OFFSET*32))))
 #define GPWTM5_BITBANDING_TB      (((GPWTM_BITBANDING_TB_TypeDef*)  (GPWTM_BASE_BITBANDING+(GPWTM5_OFFSET*32))))
@@ -14690,6 +14717,11 @@ typedef volatile struct
 #define GPWTM_CTL_GPTMPP_SIZE_32b       (0x00000001)
 //--------
 
+#define TIMER_MAX (5)
+#define TIMER_INT (5)
+#define TIMER_32  (0)
+#define TIMER_64  (1)
+
 typedef enum
 {
     TIMER_enNOOCCUR=0,
@@ -14705,18 +14737,47 @@ typedef enum
 
 typedef enum
 {
-    TIMER_enT0=((0<<8)|0),
-    TIMER_enT1=((0<<8)|1),
-    TIMER_enT2=((0<<8)|2),
-    TIMER_enT3=((0<<8)|3),
-    TIMER_enT4=((0<<8)|4),
-    TIMER_enT5=((0<<8)|5),
-    TIMER_enWT0=((1<<8)|0),
-    TIMER_enWT1=((1<<8)|1),
-    TIMER_enWT2=((1<<8)|2),
-    TIMER_enWT3=((1<<8)|3),
-    TIMER_enWT4=((1<<8)|4),
-    TIMER_enWT5=((1<<8)|5),
+    TIMER_enT0A=((0<<16)|(0<<8)|0),
+    TIMER_enT1A=((0<<16)|(0<<8)|1),
+    TIMER_enT2A=((0<<16)|(0<<8)|2),
+    TIMER_enT3A=((0<<16)|(0<<8)|3),
+    TIMER_enT4A=((0<<16)|(0<<8)|4),
+    TIMER_enT5A=((0<<16)|(0<<8)|5),
+
+    TIMER_enT0B=((0<<16)|(1<<8)|0),
+    TIMER_enT1B=((0<<16)|(1<<8)|1),
+    TIMER_enT2B=((0<<16)|(1<<8)|2),
+    TIMER_enT3B=((0<<16)|(1<<8)|3),
+    TIMER_enT4B=((0<<16)|(1<<8)|4),
+    TIMER_enT5B=((0<<16)|(1<<8)|5),
+
+    TIMER_enT0W=((0<<16)|(2<<8)|0),
+    TIMER_enT1W=((0<<16)|(2<<8)|1),
+    TIMER_enT2W=((0<<16)|(2<<8)|2),
+    TIMER_enT3W=((0<<16)|(2<<8)|3),
+    TIMER_enT4W=((0<<16)|(2<<8)|4),
+    TIMER_enT5W=((0<<16)|(2<<8)|5),
+
+    TIMER_enWT0A=((1<<16)|(0<<8)|0),
+    TIMER_enWT1A=((1<<16)|(0<<8)|1),
+    TIMER_enWT2A=((1<<16)|(0<<8)|2),
+    TIMER_enWT3A=((1<<16)|(0<<8)|3),
+    TIMER_enWT4A=((1<<16)|(0<<8)|4),
+    TIMER_enWT5A=((1<<16)|(0<<8)|5),
+
+    TIMER_enWT0B=((1<<16)|(1<<8)|0),
+    TIMER_enWT1B=((1<<16)|(1<<8)|1),
+    TIMER_enWT2B=((1<<16)|(1<<8)|2),
+    TIMER_enWT3B=((1<<16)|(1<<8)|3),
+    TIMER_enWT4B=((1<<16)|(1<<8)|4),
+    TIMER_enWT5B=((1<<16)|(1<<8)|5),
+
+    TIMER_enWT0W=((1<<16)|(2<<8)|0),
+    TIMER_enWT1W=((1<<16)|(2<<8)|1),
+    TIMER_enWT2W=((1<<16)|(2<<8)|2),
+    TIMER_enWT3W=((1<<16)|(2<<8)|3),
+    TIMER_enWT4W=((1<<16)|(2<<8)|4),
+    TIMER_enWT5W=((1<<16)|(2<<8)|5),
 }TIMER_nMODULE;
 
 typedef enum
@@ -14727,11 +14788,65 @@ typedef enum
     TIMER_enMATCH=3,
     TIMER_enRTC=4,
     TIMER_enWRITEUPDATE=5,
-}TIMER_nINT_SOURCE;
+}TIMER_nINT;
+
+typedef enum
+{
+    TIMER_enTIMEOUT_TA=0x1,
+    TIMER_enCAPTUREMATCH_TA=0x2,
+    TIMER_enCAPTUREEVENT_TA=0x4,
+    TIMER_enMATCH_TA=0x10,
+}TIMER_nINT_TA;
+
+typedef enum
+{
+    TIMER_enTIMEOUT_TW=0x1,
+    TIMER_enCAPTUREMATCH_TW=0x2,
+    TIMER_enCAPTUREEVENT_TW=0x4,
+    TIMER_enRTC_TW=0x8,
+    TIMER_enMATCH_TW=0x10,
+    TIMER_enWRITEUPDATE_TW=0x10000,
+}TIMER_nINT_TW;
+
+typedef enum
+{
+    TIMER_enTIMEOUT_TB=0x1,
+    TIMER_enCAPTUREMATCH_TB=0x2,
+    TIMER_enCAPTUREEVENT_TB=0x4,
+    TIMER_enMATCH_TB=0x8,
+}TIMER_nINT_TB;
+
+typedef enum
+{
+    TIMER_enPRI0=0,
+    TIMER_enPRI1=1,
+    TIMER_enPRI2=2,
+    TIMER_enPRI3=3,
+    TIMER_enPRI4=4,
+    TIMER_enPRI5=5,
+    TIMER_enPRI6=6,
+    TIMER_enPRI7=7,
+    TIMER_enDEFAULT=0xFF,
+}TIMER_nPRIORITY;
+
+typedef enum
+{
+    TIMER_enCONFIG_WIDE=0,
+    TIMER_enCONFIG_RTC=1,
+    TIMER_enCONFIG_INDIVIDUAL=4,
+    TIMER_enCONFIG_UNDEF=0xFF,
+}TIMER_nCONFIG;
 
 void TIMER__vInit(void);
-void TIMER__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
-void TIMER__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
+void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINT enInterrupt);
+void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule);
+void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority);
+void TIMER__vDisInterruptMODULE(TIMER_nMODULE enModule);
 
+void TIMER__vSetReady(TIMER_nMODULE enModule);
+void TIMER__vClearReady(TIMER_nMODULE enModule);
+TIMER_nREADY TIMER__enIsReady(TIMER_nMODULE enModule);
+
+void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf);
 
 #endif /* TIMER_H_ */

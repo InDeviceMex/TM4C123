@@ -21,9 +21,9 @@
 
 void GPIOF0_vISR(void);
 void GPIOF4_vISR(void);
-void TIMER0B_vISR(void);
-void TIMER1A_vISR(void);
-void TIMER1B_vISR(void);
+void TIMER0B__vISR(void);
+void TIMER1A__vISR(void);
+void TIMER1B__vISR(void);
 void MAIN_vInitGPIO(void);
 
 //uint32_t pu32Array[14]={0,1,2,3,4,5,6,7,8,9,10,11,0xAA55CFDA,0x11223344};
@@ -76,25 +76,20 @@ int main(void)
     u32Memory=0;
     u32Blink=0;
 
+    TIMER__vInit();
 
-    SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)SYSCTL_enTIMER0);
-    SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)SYSCTL_enTIMER1);
-    SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)SYSCTL_enTIMER0);
-    SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)SYSCTL_enTIMER1);
-    SYSCTL__vEnRunModePeripheral((SYSCTL_nPERIPHERAL)SYSCTL_enTIMER0);
-    SYSCTL__vEnRunModePeripheral((SYSCTL_nPERIPHERAL)SYSCTL_enTIMER1);
+    TIMER__vEnInterruptMODULE(TIMER_enT0B,TIMER_enPRI7);
+    TIMER__vEnInterruptMODULE(TIMER_enT1A,TIMER_enPRI7);
+    TIMER__vEnInterruptMODULE(TIMER_enT1B,TIMER_enPRI7);
 
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)NVIC_enSTIR_TIMER0B,(NVIC_nPRIORITY)7);
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)NVIC_enSTIR_TIMER1A,(NVIC_nPRIORITY)7);
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)NVIC_enSTIR_TIMER1B,(NVIC_nPRIORITY)7);
+    TIMER__vRegisterISR(TIMER0B__vISR,TIMER_enT0B,TIMER_enCAPTUREEVENT);
+    TIMER__vRegisterISR(TIMER1A__vISR,TIMER_enT1A,TIMER_enCAPTUREEVENT);
+    TIMER__vRegisterISR(TIMER1B__vISR,TIMER_enT1B,TIMER_enCAPTUREEVENT);
 
-    SCB__vRegisterISR(TIMER0B_vISR,SCB_enVECISR_TIMER0B);
-    SCB__vRegisterISR(TIMER1A_vISR,SCB_enVECISR_TIMER1A);
-    SCB__vRegisterISR(TIMER1B_vISR,SCB_enVECISR_TIMER1B);
+    TIMER__vSetConfiguration(TIMER_enT0B,TIMER_enCONFIG_INDIVIDUAL);
+    TIMER__vSetConfiguration(TIMER_enT1A,TIMER_enCONFIG_INDIVIDUAL);
 
-    GPTM0_CTL->GPTMCFG=4;
-
-    GPTM_UNION->TB[0].GPTMTnMR_Bit.TnAMS=1;
+    GPTM0_TB_GPTMTnMR->TnAMS=1;
     GPTM_UNION->TB[0].GPTMTnMR_Bit.TnCMR=0;
     GPTM_UNION->TB[0].GPTMTnMR_Bit.TnMR=2;
     GPTM_UNION->TB[0].GPTMTnCTL_Bit.TnPWML=0;
@@ -110,9 +105,6 @@ int main(void)
     GPTM_UNION->TB[0].GPTMTnMR_Bit.TnMRSU=1;
     GPTM_UNION->TB[0].GPTMTnCTL_Bit.TnSTALL=1;
 
-
-
-    GPTM1_CTL->GPTMCFG=4;
 
     GPTM_UNION->TA[1].GPTMTnMR_Bit.TnAMS=1;
     GPTM_UNION->TA[1].GPTMTnMR_Bit.TnCMR=0;
@@ -213,10 +205,9 @@ void GPIOF0_vISR(void)
 
 }
 
-void TIMER0B_vISR(void)
+void TIMER0B__vISR(void)
 {
     static uint32_t u32Value= 32*32*32;
-    GPTM_UNION->TB[0].GPTMTnICR_Bit.CnECINT=1;
     if(u32Value==0)
         u32Value=32*32*32;
     u32Value-=32*32;
@@ -225,10 +216,9 @@ void TIMER0B_vISR(void)
 
 }
 
-void TIMER1A_vISR(void)
+void TIMER1A__vISR(void)
 {
     static uint32_t u32Value= 32*32;
-    GPTM_UNION->TA[1].GPTMTnICR_Bit.CnECINT=1;
     if(u32Value==0)
         u32Value=32*32;
     u32Value-=32;
@@ -239,10 +229,9 @@ void TIMER1A_vISR(void)
 
 
 
-void TIMER1B_vISR(void)
+void TIMER1B__vISR(void)
 {
     static uint32_t u32Value= 32;
-    GPTM_UNION->TB[1].GPTMTnICR_Bit.CnECINT=1;
     if(u32Value==0)
         u32Value=32;
     u32Value--;

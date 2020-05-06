@@ -32,10 +32,10 @@ GPIO_AUX_TypeDef* GPIO_BLOCK_AUX[2][6]={{GPIOA_APB_AUX,GPIOB_APB_AUX,GPIOC_APB_A
                                 {GPIOA_AHB_AUX,GPIOB_AHB_AUX,GPIOC_AHB_AUX,GPIOD_AHB_AUX,GPIOE_AHB_AUX,GPIOF_AHB_AUX}};
 
 
-SCB_nVECISR SCB_VECTOR[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
+SCB_nVECISR SCB_VECTOR_GPIO[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
                            SCB_enVECISR_GPIOE,SCB_enVECISR_GPIOF};
 
-NVIC_nSTIR NVIC_VECTOR[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
+NVIC_nSTIR NVIC_VECTOR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
                            NVIC_enSTIR_GPIOE,NVIC_enSTIR_GPIOF};
 
 void GPIO_vDUMMY(void)
@@ -84,7 +84,7 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
         {
             enPort=GPIO_enMAX;
         }
-        enVector=SCB_VECTOR[enPort];
+        enVector=SCB_VECTOR_GPIO[enPort];
 
         GPIO_ISR[enPort]=(void (*) (void))((uint32_t)Isr|1);
         SCB__vRegisterISR(GPIO_ISR[enPort],enVector);
@@ -99,7 +99,7 @@ void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR[enPort];
+    enVector=NVIC_VECTOR_GPIO[enPort];
 
     enPriority&=0x7;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
@@ -113,7 +113,7 @@ void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR[enPort];
+    enVector=NVIC_VECTOR_GPIO[enPort];
     NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
 }
 
@@ -137,7 +137,22 @@ void GPIO__vSetReady(GPIO_nPORT enPort)
         SYSCTL__vEnRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
     }
 }
-
+void GPIO__vClearReady(GPIO_nPORT enPort)
+{
+    SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
+    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enGPIOA;
+    if(enPort>GPIO_enMAX)
+    {
+        enPort=GPIO_enMAX;
+    }
+    enPeripheral|=enPort;
+    enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
+    if(SYSCTL_enREADY == enReady)
+    {
+        SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
+        SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
+    }
+}
 GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 {
     GPIO_nREADY enReady=GPIO_enNOREADY;
