@@ -14924,10 +14924,10 @@ typedef enum
 
 typedef enum
 {
-    TIMER_enPWM_OUT_TO_LOW=0,
-    TIMER_enPWM_OUT_TO_HIGH=1,
-    TIMER_enPWM_OUT_TO_UNDEF=0xFF,
-}TIMER_nPWM_OUT_TO;
+    TIMER_enPWM_OUT_INIT_LOW=0,
+    TIMER_enPWM_OUT_INIT_HIGH=1,
+    TIMER_enPWM_OUT_INIT_UNDEF=0xFF,
+}TIMER_nPWM_OUT_INIT;
 
 
 typedef enum
@@ -15040,8 +15040,8 @@ TIMER_nPWM_INT TIMER__enGetPWMInterrupt(TIMER_nMODULE enModule);
 void TIMER__vSetUpdateMatchMode(TIMER_nMODULE enModule, TIMER_nUPDATE_MATCH enUpdateMatchMode);
 TIMER_nUPDATE_MATCH TIMER__enGetUpdateMatchMode(TIMER_nMODULE enModule);
 
-void TIMER__vSetPWMOutputTimeOut(TIMER_nMODULE enModule, TIMER_nPWM_OUT_TO enPWMOutputTimeOut);
-TIMER_nPWM_OUT_TO TIMER__enGetPWMOutputTimeOut(TIMER_nMODULE enModule);
+void TIMER__vSetPWMOutputInit(TIMER_nMODULE enModule, TIMER_nPWM_OUT_INIT enPWMOutputInit);
+TIMER_nPWM_OUT_INIT TIMER__enGetPWMOutputInit(TIMER_nMODULE enModule);
 
 
 #endif /* TIMER_H_ */
