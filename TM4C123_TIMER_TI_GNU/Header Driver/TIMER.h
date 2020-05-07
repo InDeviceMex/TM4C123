@@ -10,7 +10,6 @@
 
 
 #include <stdint.h>
-#include "GPIO.h"
 #include "SCB.h"
 #include "NVIC.h"
 #include "SYSCTL.h"
@@ -14721,6 +14720,9 @@ typedef volatile struct
 #define TIMER_INT (5)
 #define TIMER_32  (0)
 #define TIMER_64  (1)
+#define TIMER_A  (0)
+#define TIMER_B  (1)
+#define TIMER_W  (2)
 
 typedef enum
 {
@@ -14734,6 +14736,19 @@ typedef enum
     TIMER_enNOREADY=0,
     TIMER_enREADY=1,
 }TIMER_nREADY;
+
+typedef enum
+{
+    TIMER_en32=0,
+    TIMER_en64=1,
+}TIMER_nLETTER;
+
+typedef enum
+{
+    TIMER_enA=0,
+    TIMER_enB=1,
+    TIMER_enW=2,
+}TIMER_nWIDE;
 
 typedef enum
 {
@@ -14794,7 +14809,9 @@ typedef enum
 {
     TIMER_enTIMEOUT_TA=0x1,
     TIMER_enCAPTUREMATCH_TA=0x2,
+    //TAPWMIE needs to be enabled with PWM mode
     TIMER_enCAPTUREEVENT_TA=0x4,
+    //TAMIE needs to enabled with MATCH_TA
     TIMER_enMATCH_TA=0x10,
 }TIMER_nINT_TA;
 
@@ -14804,6 +14821,7 @@ typedef enum
     TIMER_enCAPTUREMATCH_TW=0x2,
     TIMER_enCAPTUREEVENT_TW=0x4,
     TIMER_enRTC_TW=0x8,
+    //TWMIE needs to enabled with MATCH_TW
     TIMER_enMATCH_TW=0x10,
     TIMER_enWRITEUPDATE_TW=0x10000,
 }TIMER_nINT_TW;
@@ -14812,7 +14830,9 @@ typedef enum
 {
     TIMER_enTIMEOUT_TB=0x1,
     TIMER_enCAPTUREMATCH_TB=0x2,
+    //TBPWMIE needs to be enabled with PWM mode
     TIMER_enCAPTUREEVENT_TB=0x4,
+    //TBMIE needs to enabled with MATCH_TB
     TIMER_enMATCH_TB=0x8,
 }TIMER_nINT_TB;
 
@@ -14837,9 +14857,152 @@ typedef enum
     TIMER_enCONFIG_UNDEF=0xFF,
 }TIMER_nCONFIG;
 
+typedef enum
+{
+    TIMER_enSUB_MODE_RESERVED=1,
+    TIMER_enSUB_MODE_ONE_SHOT=1,
+    TIMER_enSUB_MODE_PERIODIC=2,
+    TIMER_enSUB_MODE_CAPTURE=3,
+    TIMER_enSUB_MODE_UNDEF=0xFF,
+}TIMER_nSUB_MODE;
+
+typedef enum
+{
+    TIMER_enEDGE_MODE_COUNT=0,
+    TIMER_enEDGE_MODE_TIME=1,
+    TIMER_enEDGE_MODE_UNDEF=0xFF,
+}TIMER_nEDGE_MODE;
+
+typedef enum
+{
+    TIMER_enALT_MODE_CC=0,
+    TIMER_enALT_MODE_PWM=1,
+    TIMER_enALT_MODE_UNDEF=0xFF,
+}TIMER_nALT_MODE;
+
+typedef enum
+{
+    TIMER_enCOUNT_DIR_DOWN=0,
+    TIMER_enCOUNT_DIR_UP=1,
+    TIMER_enCOUNT_DIR_UNDEF=0xFF,
+}TIMER_nCOUNT_DIR;
+
+typedef enum
+{
+    TIMER_enWAIT_NOTRIGGER=0,
+    TIMER_enWAIT_DAISY=1,
+    TIMER_enWAIT_UNDEF=0xFF,
+}TIMER_nWAIT;
+
+typedef enum
+{
+    TIMER_enSNAPSHOT_DIS=0,
+    TIMER_enSNAPSHOT_EN=1,
+    TIMER_enSNAPSHOT_UNDEF=0xFF,
+}TIMER_nSNAPSHOT;
+
+typedef enum
+{
+    TIMER_enPWM_INT_DIS=0,
+    TIMER_enPWM_INT_EN=1,
+    TIMER_enPWM_INT_UNDEF=0xFF,
+}TIMER_nPWM_INT;
+
+typedef enum
+{
+    TIMER_enUPDATE_INTERVAL_CYCLE=0,
+    TIMER_enUPDATE_INTERVAL_TIMEOUT=1,
+    TIMER_enUPDATE_INTERVAL_UNDEF=0xFF,
+}TIMER_nUPDATE_INTERVAL;
+
+typedef enum
+{
+    TIMER_enUPDATE_MATCH_CYCLE=0,
+    TIMER_enUPDATE_MATCH_TIMEOUT=1,
+    TIMER_enUPDATE_MATCH_UNDEF=0xFF,
+}TIMER_nUPDATE_MATCH;
+
+typedef enum
+{
+    TIMER_enPWM_OUT_TO_LOW=0,
+    TIMER_enPWM_OUT_TO_HIGH=1,
+    TIMER_enPWM_OUT_TO_UNDEF=0xFF,
+}TIMER_nPWM_OUT_TO;
+
+
+typedef enum
+{
+    TIMER_enENABLE_STOP=0,
+    TIMER_enENABLE_START=1,
+    TIMER_enENABLE_UNDEF=0xFF,
+}TIMER_nENABLE;
+
+typedef enum
+{
+    TIMER_enSTALL_CONTINUE=0,
+    TIMER_enSTALL_FREEZE=1,
+    TIMER_enSTALL_UNDEF=0xFF,
+}TIMER_nSTALL;
+
+typedef enum
+{
+    TIMER_enRTC_STALL_FREEZE=0,
+    TIMER_enRTC_STALL_CONTINUE=1,
+    TIMER_enRTC_STALL_UNDEF=0xFF,
+}TIMER_nRTC_STALL;
+
+typedef enum
+{
+    TIMER_enADC_TRIGGER_DIS=0,
+    TIMER_enADC_TRIGGER_EN=1,
+    TIMER_enADC_TRIGGER_UNDEF=0xFF,
+}TIMER_nADC_TRIGGER;
+
+typedef enum
+{
+    TIMER_enPWM_OUTPUT_STRAIGHT=0,
+    TIMER_enPWM_OUTPUT_INVERTED=1,
+    TIMER_enPWM_OUTPUT_UNDEF=0xFF,
+}TIMER_nPWM_OUTPUT;
+
+typedef enum
+{
+    TIMER_enEDGE_POSITIVE=0,
+    TIMER_enEDGE_NEGATIVE=1,
+    TIMER_enEDGE_BOTH=3,
+    TIMER_enEDGE_UNDEF=0xFF,
+}TIMER_nEDGE;
+
+typedef enum
+{
+    TIMER_enMODE_ONE_SHOT_INDIVIDUAL_UP=(0<<16)|(0<<8)|0,
+    TIMER_enMODE_ONE_SHOT_WIDE_UP=(0<<16)|(1<<8)|0,
+    TIMER_enMODE_ONE_SHOT_INDIVIDUAL_DOWN=(0<<16)|(0<<8)|1,
+    TIMER_enMODE_ONE_SHOT_WIDE_DOWN=(0<<16)|(1<<8)|1,
+
+    TIMER_enMODE_PERIODIC_INDIVIDUAL_UP=(1<<16)|(0<<8)|0,
+    TIMER_enMODE_PERIODIC_WIDE_UP=(1<<16)|(1<<8)|0,
+    TIMER_enMODE_PERIODIC_INDIVIDUAL_DOWN=(1<<16)|(0<<8)|1,
+    TIMER_enMODE_PERIODIC_WIDE_DOWN=(1<<16)|(1<<8)|1,
+
+    TIMER_enMODE_RTC_WIDE_UP=(2<<16)|(1<<8)|0,
+
+    TIMER_enMODE_EDGE_COUNT_INDIVIDUAL_UP=(3<<16)|(0<<8)|0,
+    TIMER_enMODE_EDGE_COUNT_INDIVIDUAL_DOWN=(3<<16)|(0<<8)|1,
+
+    TIMER_enMODE_EDGE_TIME_INDIVIDUAL_UP=(4<<16)|(0<<8)|0,
+    TIMER_enMODE_EDGE_TIME_INDIVIDUAL_DOWN=(4<<16)|(0<<8)|1,
+
+    TIMER_enMODE_PWM_INDIVIDUAL_DOWN=(5<<16)|(0<<8)|1,
+
+    TIMER_enMODE_UNDEF=0xFF,
+}TIMER_nMODE;
+
+
 void TIMER__vInit(void);
 void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINT enInterrupt);
 void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule);
+
 void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority);
 void TIMER__vDisInterruptMODULE(TIMER_nMODULE enModule);
 
@@ -14848,5 +15011,37 @@ void TIMER__vClearReady(TIMER_nMODULE enModule);
 TIMER_nREADY TIMER__enIsReady(TIMER_nMODULE enModule);
 
 void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf);
+TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule);
+
+void TIMER__vSetSubMode(TIMER_nMODULE enModule, TIMER_nSUB_MODE enSubMode);
+TIMER_nSUB_MODE TIMER__enGetSubMode(TIMER_nMODULE enModule);
+
+void TIMER__vSetEdgeMode(TIMER_nMODULE enModule, TIMER_nEDGE_MODE enEdgeMode);
+TIMER_nEDGE_MODE TIMER__enGetEdgeMode(TIMER_nMODULE enModule);
+
+void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltMode);
+TIMER_nALT_MODE TIMER__enGetAltMode(TIMER_nMODULE enModule);
+
+void TIMER__vSetCountDir(TIMER_nMODULE enModule, TIMER_nCOUNT_DIR enCountDir);
+TIMER_nCOUNT_DIR TIMER__enGetCountDir(TIMER_nMODULE enModule);
+
+void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTrigger);
+TIMER_nWAIT TIMER__enGetWaitTrigger(TIMER_nMODULE enModule);
+
+void TIMER__vSetSnapShot(TIMER_nMODULE enModule, TIMER_nSNAPSHOT enSnapShot);
+TIMER_nSNAPSHOT TIMER__enGetSnapShot(TIMER_nMODULE enModule);
+
+void TIMER__vSetUpdateIntervalMode(TIMER_nMODULE enModule, TIMER_nUPDATE_INTERVAL enUpdateIntervalMode);
+TIMER_nUPDATE_INTERVAL TIMER__enGetUpdateIntervalMode(TIMER_nMODULE enModule);
+
+void TIMER__vSetPWMInterrupt(TIMER_nMODULE enModule, TIMER_nPWM_INT enPWMInterrupt);
+TIMER_nPWM_INT TIMER__enGetPWMInterrupt(TIMER_nMODULE enModule);
+
+void TIMER__vSetUpdateMatchMode(TIMER_nMODULE enModule, TIMER_nUPDATE_MATCH enUpdateMatchMode);
+TIMER_nUPDATE_MATCH TIMER__enGetUpdateMatchMode(TIMER_nMODULE enModule);
+
+void TIMER__vSetPWMOutputTimeOut(TIMER_nMODULE enModule, TIMER_nPWM_OUT_TO enPWMOutputTimeOut);
+TIMER_nPWM_OUT_TO TIMER__enGetPWMOutputTimeOut(TIMER_nMODULE enModule);
+
 
 #endif /* TIMER_H_ */
