@@ -102,54 +102,49 @@ int main(void)
     TIMER__vSetUpdateIntervalMode(TIMER_enT1A,TIMER_enUPDATE_INTERVAL_TIMEOUT);
     TIMER__vSetUpdateIntervalMode(TIMER_enT1B,TIMER_enUPDATE_INTERVAL_TIMEOUT);
 
-    TIMER__vSetUpdateMatchMode(TIMER_enT0A,TIMER_enUPDATE_MATCH_CYCLE);
-    TIMER__vSetUpdateMatchMode(TIMER_enT0B,TIMER_enUPDATE_MATCH_CYCLE);
-    TIMER__vSetUpdateMatchMode(TIMER_enT1A,TIMER_enUPDATE_MATCH_CYCLE);
-    TIMER__vSetUpdateMatchMode(TIMER_enT1B,TIMER_enUPDATE_MATCH_CYCLE);
+    TIMER__vSetUpdateMatchMode(TIMER_enT0A,TIMER_enUPDATE_MATCH_TIMEOUT);
+    TIMER__vSetUpdateMatchMode(TIMER_enT0B,TIMER_enUPDATE_MATCH_TIMEOUT);
+    TIMER__vSetUpdateMatchMode(TIMER_enT1A,TIMER_enUPDATE_MATCH_TIMEOUT);
+    TIMER__vSetUpdateMatchMode(TIMER_enT1B,TIMER_enUPDATE_MATCH_TIMEOUT);
 
     TIMER__vSetCountDir(TIMER_enT0A,TIMER_enCOUNT_DIR_UP);
 
 
     u32Blink=(uint32_t)TIMER__enGetAltMode(TIMER_enWT1B);
 
-    GPTM_UNION->TA[0].GPTMTnCTL_Bit.TnPWML=0;
-    GPTM_UNION->TA[0].GPTMTnPR=(((0xFFFFFF)-1)>>16)&0xFF;
-
-    GPTM_UNION->TA[0].GPTMTnCTL_Bit.TnEVENT=0;
-    GPTM_UNION->TA[0].GPTMTnILR=((0xFFFFFF)-1)&0xFFFF;
-    GPTM_UNION->TA[0].GPTMTnPMR=(((0xFFFFFF)-2)>>16)&0xFF;
-    GPTM_UNION->TA[0].GPTMTnMATCHR=((0xFFFFFF)-2)&0xFFFF;
+    GPTM_UNION->TA[0].GPTMTnPR=(((0xFFF)-1)>>16)&0xFF;
+    GPTM_UNION->TA[0].GPTMTnILR=((0xFFF)-1)&0xFFFF;
 
     GPTM_UNION->TA[0].GPTMTnCTL_Bit.TnSTALL=1;
 
     GPTM_UNION->TB[0].GPTMTnCTL_Bit.TnPWML=0;
-    GPTM_UNION->TB[0].GPTMTnPR=(((0xFFFF/5)-1)>>16)&0xFF;
+    GPTM_UNION->TB[0].GPTMTnPR=(((32)-1)>>16)&0xFF;
 
     GPTM_UNION->TB[0].GPTMTnCTL_Bit.TnEVENT=0;
-    GPTM_UNION->TB[0].GPTMTnILR=((0xFFFF/5)-1)&0xFFFF;
-    GPTM_UNION->TB[0].GPTMTnPMR=(((0xFFFF/5)-9)>>16)&0xFF;
-    GPTM_UNION->TB[0].GPTMTnMATCHR=((0xFFFF/5)-9)&0xFFFF;
+    GPTM_UNION->TB[0].GPTMTnILR=((32)-1)&0xFFFF;
+    GPTM_UNION->TB[0].GPTMTnPMR=(((32)-1)>>16)&0xFF;
+    GPTM_UNION->TB[0].GPTMTnMATCHR=((32)-1)&0xFFFF;
 
     GPTM_UNION->TB[0].GPTMTnCTL_Bit.TnSTALL=1;
 
 
     GPTM_UNION->TA[1].GPTMTnCTL_Bit.TnPWML=0;
-    GPTM_UNION->TA[1].GPTMTnPR=(((0xFFFF/17)-1)>>16)&0xFF;
+    GPTM_UNION->TA[1].GPTMTnPR=(((32)-1)>>16)&0xFF;
 
     GPTM_UNION->TA[1].GPTMTnCTL_Bit.TnEVENT=0;
-    GPTM_UNION->TA[1].GPTMTnILR=((0xFFFF/17)-1)&0xFFFF;
-    GPTM_UNION->TA[1].GPTMTnPMR=(((0xFFFF/17)-7)>>16)&0xFF;
-    GPTM_UNION->TA[1].GPTMTnMATCHR=((0xFFFF/17)-7)&0xFFFF;
+    GPTM_UNION->TA[1].GPTMTnILR=((32)-1)&0xFFFF;
+    GPTM_UNION->TA[1].GPTMTnPMR=(((32)-1)>>16)&0xFF;
+    GPTM_UNION->TA[1].GPTMTnMATCHR=((32)-1)&0xFFFF;
 
     GPTM_UNION->TA[1].GPTMTnCTL_Bit.TnSTALL=1;
 
     GPTM_UNION->TB[1].GPTMTnCTL_Bit.TnPWML=0;
-    GPTM_UNION->TB[1].GPTMTnPR=(((0xFFFF/27)-1)>>16)&0xFF;
+    GPTM_UNION->TB[1].GPTMTnPR=(((32)-1)>>16)&0xFF;
 
     GPTM_UNION->TB[1].GPTMTnCTL_Bit.TnEVENT=0;
-    GPTM_UNION->TB[1].GPTMTnILR=(((0xFFFF/27))-1)&0xFFFF;
-    GPTM_UNION->TB[1].GPTMTnPMR=(((0xFFFF/27)-5)>>16)&0xFF;
-    GPTM_UNION->TB[1].GPTMTnMATCHR=((0xFFFF/27)-5)&0xFFFF;
+    GPTM_UNION->TB[1].GPTMTnILR=(((32))-1)&0xFFFF;
+    GPTM_UNION->TB[1].GPTMTnPMR=(((32)-1)>>16)&0xFF;
+    GPTM_UNION->TB[1].GPTMTnMATCHR=((32)-1)&0xFFFF;
 
     GPTM_UNION->TB[1].GPTMTnCTL_Bit.TnSTALL=1;
 
@@ -219,25 +214,30 @@ void GPIOF0_vISR(void)
 
 void TIMER0B__vISR(void)
 {
-    static uint32_t u32Value0B= (0xFFFF/5)-9;
-    static uint32_t u32Value1A= (0xFFFF/17)-7;
-    static uint32_t u32Value1B= (0xFFFF/27)-5;
-    if(u32Value0B==0)
-        u32Value0B=(0xFFFF/5)-9;
-    if(u32Value1A==0)
-        u32Value1A=(0xFFFF/17)-7;
+    static uint32_t u32Value0B= (32);
+    static uint32_t u32Value1A= (32);
+    static uint32_t u32Value1B= (32);
     if(u32Value1B==0)
-        u32Value1B=(0xFFFF/27)-5;
+    {
+        u32Value1B=(32);
+        if(u32Value1A==0)
+        {
+            u32Value1A=(32);
+            if(u32Value0B==0)
+            {
+                u32Value0B=(32);
+            }
+            u32Value0B--;
+            GPTM_UNION->TB[0].GPTMTnPMR=((u32Value0B)>>16)&0xFF;
+            GPTM_UNION->TB[0].GPTMTnMATCHR=((u32Value0B))&0xFFFF;
 
-    u32Value0B--;
-    u32Value1A--;
+        }
+        u32Value1A--;
+        GPTM_UNION->TA[1].GPTMTnPMR=((u32Value1A)>>16)&0xFF;
+        GPTM_UNION->TA[1].GPTMTnMATCHR=((u32Value1A))&0xFFFF;
+
+    }
     u32Value1B--;
-    GPTM_UNION->TB[0].GPTMTnPMR=((u32Value0B)>>16)&0xFF;
-    GPTM_UNION->TB[0].GPTMTnMATCHR=((u32Value0B))&0xFFFF;
-
-    GPTM_UNION->TA[1].GPTMTnPMR=((u32Value1A)>>16)&0xFF;
-    GPTM_UNION->TA[1].GPTMTnMATCHR=((u32Value1A))&0xFFFF;
-
     GPTM_UNION->TB[1].GPTMTnPMR=((u32Value1B)>>16)&0xFF;
     GPTM_UNION->TB[1].GPTMTnMATCHR=((u32Value1B))&0xFFFF;
 
