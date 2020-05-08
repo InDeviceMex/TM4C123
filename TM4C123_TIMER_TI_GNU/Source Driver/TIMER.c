@@ -170,7 +170,7 @@ void TIMER__vInit(void)
     TIMER__vRegisterMODULEISR(WTIMER5B_vISR,TIMER_enWT5B);
 }
 
-void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINT enInterrupt)
+void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERRUPT enInterrupt)
 {
     uint32_t u32Interrupt =(uint32_t) enInterrupt;
 
@@ -373,9 +373,7 @@ TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
 
 void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint32_t u32MaskR, uint32_t u32Mask, uint32_t u32Bit)
 {
-    uint32_t u32EnTA=0;
-    uint32_t u32EnTB=0;
-    uint32_t u32EnTW=0;
+    uint32_t u32En=0;
     uint32_t u32Reg=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7;
     uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
@@ -391,7 +389,7 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
         switch(u32Letter)
         {
         case TIMER_enA:
-            u32EnTA=GPTM_TA_BLOCK[u32Number]->GPTMTnCTL;
+            u32En=GPTM_TA_BLOCK[u32Number]->GPTMTnCTL;
             GPTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TA_GPTMTnCTL_R_TnEN_MASK;
 
             u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnMR;
@@ -399,10 +397,10 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
             u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
             GPTM_TA_BLOCK[u32Number]->GPTMTnMR=u32Reg;
 
-            GPTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32EnTA;
+            GPTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32En;
             break;
         case TIMER_enB:
-            u32EnTB=GPTM_TB_BLOCK[u32Number]->GPTMTnCTL;
+            u32En=GPTM_TB_BLOCK[u32Number]->GPTMTnCTL;
             GPTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TB_GPTMTnCTL_R_TnEN_MASK;
 
             u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnMR;
@@ -410,10 +408,10 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
             u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
             GPTM_TB_BLOCK[u32Number]->GPTMTnMR=u32Reg;
 
-            GPTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32EnTB;
+            GPTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32En;
             break;
         case TIMER_enW:
-            u32EnTW=GPTM_TW_BLOCK[u32Number]->GPTMTnCTL;
+            u32En=GPTM_TW_BLOCK[u32Number]->GPTMTnCTL;
             GPTM_TW_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TW_GPTMTnCTL_R_TnEN_MASK;
 
             u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnMR;
@@ -421,7 +419,7 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
             u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
             GPTM_TW_BLOCK[u32Number]->GPTMTnMR=u32Reg;
 
-            GPTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32EnTW;
+            GPTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32En;
             break;
         default:
             break;
@@ -432,7 +430,7 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
         switch(u32Letter)
         {
         case TIMER_enA:
-            u32EnTA=GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL;
+            u32En=GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL;
             GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TA_GPTMTnCTL_R_TnEN_MASK;
 
             u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnMR;
@@ -440,10 +438,10 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
             u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
             GPWTM_TA_BLOCK[u32Number]->GPTMTnMR=u32Reg;
 
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32EnTA;
+            GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32En;
             break;
         case TIMER_enB:
-            u32EnTB=GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL;
+            u32En=GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL;
             GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TB_GPTMTnCTL_R_TnEN_MASK;
 
             u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnMR;
@@ -451,10 +449,10 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
             u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
             GPWTM_TB_BLOCK[u32Number]->GPTMTnMR=u32Reg;
 
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32EnTB;
+            GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32En;
             break;
         case TIMER_enW:
-            u32EnTW=GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL;
+            u32En=GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL;
             GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TW_GPTMTnCTL_R_TnEN_MASK;
 
             u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnMR;
@@ -462,7 +460,7 @@ void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint3
             u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
             GPWTM_TW_BLOCK[u32Number]->GPTMTnMR=u32Reg;
 
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32EnTW;
+            GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32En;
             break;
         default:
             break;
@@ -623,6 +621,16 @@ void TIMER__vSetPWMInterrupt(TIMER_nMODULE enModule, TIMER_nPWM_INT enPWMInterru
 TIMER_nPWM_INT TIMER__enGetPWMInterrupt(TIMER_nMODULE enModule)
 {
     return (TIMER_nPWM_INT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
+}
+
+void TIMER__vSetMatchEventInterrupt(TIMER_nMODULE enModule, TIMER_nEVENT_INT enEventInterrupt)
+{
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enEventInterrupt,GPTM_TA_GPTMTnMR_R_TnMIE_MASK, GPTM_TA_GPTMTnMR_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
+}
+
+TIMER_nEVENT_INT TIMER__enGetMatchEventInterrupt(TIMER_nMODULE enModule)
+{
+    return (TIMER_nEVENT_INT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
 }
 
 void TIMER__vSetUpdateMatchMode(TIMER_nMODULE enModule, TIMER_nUPDATE_MATCH enUpdateMatchMode)
@@ -858,33 +866,305 @@ void TIMER__vSetSyncronize(TIMER_nSYNC enSync)
 {
     GPTM0_GPTMSYNC_R=(uint32_t)enSync&(uint32_t)TIMER_enSYNC_ALL;
 }
+
+void TIMER_vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+{
+    uint32_t u32Reg=0;
+    uint32_t u32Int=0;
+    uint32_t u32Number= (uint32_t) enModule & 0x7;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+
+    if(TIMER_MAX<u32Number)
+    {
+        u32Number=TIMER_MAX;
+    }
+    TIMER__vSetReady(enModule);
+#if 0
+    if(enInterrupt&TIMER_enINT_MATCH)
+    {
+        TIMER__vSetMatchEventInterrupt(enModule,TIMER_enEVENT_INT_EN);
+    }
+
+    if(enInterrupt&TIMER_enINT_CAPTURE_EVENT)
+    {
+        TIMER__vSetPWMInterrupt(enModule,TIMER_enPWM_INT_EN);
+    }
+#endif
+    if(TIMER_en32 ==u32Wide)
+    {
+        switch(u32Letter)
+        {
+        case TIMER_enA:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
+            u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg|=u32Int;
+            GPTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enB:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Int&TIMER_enINT_MATCH)
+            {
+                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Int|=TIMER_enINT_RTC;
+            }
+            u32Int<<=8;
+            u32Int&=TIMER_enINT_TB_ALL;
+            u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg|=u32Int;
+            GPTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enW:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
+            u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg|=u32Int;
+            GPTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        switch(u32Letter)
+        {
+        case TIMER_enA:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
+            u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg|=u32Int;
+            GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enB:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Int&TIMER_enINT_MATCH)
+            {
+                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Int|=TIMER_enINT_RTC;
+            }
+            u32Int<<=8;
+            u32Int&=TIMER_enINT_TB_ALL;
+            u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg|=u32Int;
+            GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enW:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
+            u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg|=u32Int;
+            GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+void TIMER_vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+{
+    uint32_t u32Reg=0;
+    uint32_t u32Int=0;
+    uint32_t u32Number= (uint32_t) enModule & 0x7;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+
+    if(TIMER_MAX<u32Number)
+    {
+        u32Number=TIMER_MAX;
+    }
+    TIMER__vSetReady(enModule);
+#if 0
+    if(enInterrupt&TIMER_enINT_MATCH)
+    {
+        TIMER__vSetMatchEventInterrupt(enModule,TIMER_enEVENT_INT_DIS);
+    }
+
+    if(enInterrupt&TIMER_enINT_CAPTURE_EVENT)
+    {
+        TIMER__vSetPWMInterrupt(enModule,TIMER_enPWM_INT_DIS);
+    }
+#endif
+    if(TIMER_en32 ==u32Wide)
+    {
+        switch(u32Letter)
+        {
+        case TIMER_enA:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
+            u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg&=~u32Int;
+            GPTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enB:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Int&TIMER_enINT_MATCH)
+            {
+                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Int|=TIMER_enINT_RTC;
+            }
+            u32Int<<=8;
+            u32Int&=TIMER_enINT_TB_ALL;
+            u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg&=~u32Int;
+            GPTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enW:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
+            u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg&=~u32Int;
+            GPTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        switch(u32Letter)
+        {
+        case TIMER_enA:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
+            u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg&=~u32Int;
+            GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enB:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Int&TIMER_enINT_MATCH)
+            {
+                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Int|=TIMER_enINT_RTC;
+            }
+            u32Int<<=8;
+            u32Int&=TIMER_enINT_TB_ALL;
+            u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg&=~u32Int;
+            GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        case TIMER_enW:
+            u32Int=(uint32_t)enInterrupt;
+            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
+            u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR;
+            u32Reg&=~u32Int;
+            GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+
+void TIMER_vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+{
+    uint32_t u32Reg=0;
+    uint32_t u32Number= (uint32_t) enModule & 0x7;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+
+    if(TIMER_MAX<u32Number)
+    {
+        u32Number=TIMER_MAX;
+    }
+    TIMER__vSetReady(enModule);
+    if(TIMER_en32 ==u32Wide)
+    {
+        switch(u32Letter)
+        {
+        case TIMER_enA:
+            u32Reg=(uint32_t)enInterrupt;
+            u32Reg&=(uint32_t)TIMER_enINT_TA_ALL;
+            GPTM_TA_BLOCK[u32Number]->GPTMTnICR=u32Reg;
+            break;
+        case TIMER_enB:
+            u32Reg=(uint32_t)enInterrupt;
+            u32Reg&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Reg&TIMER_enINT_MATCH)
+            {
+                u32Reg&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Reg|=TIMER_enINT_RTC;
+            }
+            u32Reg<<=8;
+            u32Reg&=TIMER_enINT_TB_ALL;
+            GPTM_TB_BLOCK[u32Number]->GPTMTnICR=u32Reg;
+            break;
+        case TIMER_enW:
+            u32Reg=(uint32_t)enInterrupt;
+            u32Reg&=(uint32_t)TIMER_enINT_TW_ALL;
+            GPTM_TW_BLOCK[u32Number]->GPTMTnICR=u32Reg;
+            break;
+        default:
+            break;
+        }
+    }
+    else
+    {
+        switch(u32Letter)
+        {
+        case TIMER_enA:
+            u32Reg=(uint32_t)enInterrupt;
+            u32Reg&=(uint32_t)TIMER_enINT_TA_ALL;
+            GPWTM_TA_BLOCK[u32Number]->GPTMTnICR=u32Reg;
+            break;
+        case TIMER_enB:
+            u32Reg=(uint32_t)enInterrupt;
+            u32Reg&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Reg&TIMER_enINT_MATCH)
+            {
+                u32Reg&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Reg|=TIMER_enINT_RTC;
+            }
+            u32Reg<<=8;
+            u32Reg&=TIMER_enINT_TB_ALL;
+            GPWTM_TB_BLOCK[u32Number]->GPTMTnICR=u32Reg;
+            break;
+        case TIMER_enW:
+            u32Reg=(uint32_t)enInterrupt;
+            u32Reg&=(uint32_t)TIMER_enINT_TW_ALL;
+            GPWTM_TW_BLOCK[u32Number]->GPTMTnICR=u32Reg;
+            break;
+        default:
+            break;
+        }
+    }
+}
+
 void TIMER0A_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM0_TA_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TA)
+    if(u8Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPTM0_TA_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPTM0_TA_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[0][0][0][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPTM0_TA_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPTM0_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][0][0][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPTM0_TA_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPTM0_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][0][0][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_MATCH)
     {
-        GPTM0_TA_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPTM0_TA_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[0][0][0][3]();
     }
-    if(u8Reg & TIMER_enRTC_TW)
+    if(u8Reg & TIMER_enINT_TW_RTC)
     {
-        GPTM0_TA_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPTM0_TA_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[0][0][0][4]();
     }
 
@@ -895,58 +1175,55 @@ void TIMER0B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM0_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPTM0_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[0][1][0][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPTM0_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][1][0][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPTM0_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][1][0][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPTM0_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[0][1][0][3]();
     }
 }
-
-
-
 
 void TIMER1A_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM1_TA_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TA)
+    if(u8Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPTM1_TA_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPTM1_TA_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[0][0][1][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPTM1_TA_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPTM1_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][0][1][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPTM1_TA_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPTM1_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][0][1][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_MATCH)
     {
-        GPTM1_TA_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPTM1_TA_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[0][0][1][3]();
     }
-    if(u8Reg & TIMER_enRTC_TW)
+    if(u8Reg & TIMER_enINT_TW_RTC)
     {
-        GPTM1_TA_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPTM1_TA_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[0][0][1][4]();
     }
 
@@ -957,24 +1234,24 @@ void TIMER1B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM1_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPTM1_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[0][1][1][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPTM1_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][1][1][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPTM1_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][1][1][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPTM1_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[0][1][1][3]();
     }
 }
@@ -987,29 +1264,29 @@ void TIMER2A_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM2_TA_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TA)
+    if(u8Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPTM2_TA_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPTM2_TA_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[0][0][2][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPTM2_TA_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPTM2_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][0][2][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPTM2_TA_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPTM2_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][0][2][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_MATCH)
     {
-        GPTM2_TA_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPTM2_TA_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[0][0][2][3]();
     }
-    if(u8Reg & TIMER_enRTC_TW)
+    if(u8Reg & TIMER_enINT_TW_RTC)
     {
-        GPTM2_TA_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPTM2_TA_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[0][0][2][4]();
     }
 
@@ -1020,24 +1297,24 @@ void TIMER2B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM2_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPTM2_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[0][1][2][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPTM2_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][1][2][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPTM2_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][1][2][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPTM2_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[0][1][2][3]();
     }
 }
@@ -1047,29 +1324,29 @@ void TIMER3A_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM3_TA_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TA)
+    if(u8Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPTM3_TA_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPTM3_TA_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[0][0][3][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPTM3_TA_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPTM3_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][0][3][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPTM3_TA_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPTM3_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][0][3][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_MATCH)
     {
-        GPTM3_TA_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPTM3_TA_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[0][0][3][3]();
     }
-    if(u8Reg & TIMER_enRTC_TW)
+    if(u8Reg & TIMER_enINT_TW_RTC)
     {
-        GPTM3_TA_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPTM3_TA_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[0][0][3][4]();
     }
 
@@ -1080,24 +1357,24 @@ void TIMER3B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM3_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPTM3_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[0][1][3][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPTM3_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][1][3][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPTM3_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][1][3][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPTM3_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[0][1][3][3]();
     }
 }
@@ -1106,29 +1383,29 @@ void TIMER4A_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM4_TA_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TA)
+    if(u8Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPTM4_TA_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPTM4_TA_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[0][0][4][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPTM4_TA_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPTM4_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][0][4][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPTM4_TA_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPTM4_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][0][4][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_MATCH)
     {
-        GPTM4_TA_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPTM4_TA_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[0][0][4][3]();
     }
-    if(u8Reg & TIMER_enRTC_TW)
+    if(u8Reg & TIMER_enINT_TW_RTC)
     {
-        GPTM4_TA_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPTM4_TA_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[0][0][4][4]();
     }
 }
@@ -1138,24 +1415,24 @@ void TIMER4B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM4_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPTM4_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[0][1][4][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPTM4_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][1][4][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPTM4_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][1][4][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPTM4_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[0][1][4][3]();
     }
 }
@@ -1164,29 +1441,29 @@ void TIMER5A_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM5_TA_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TA)
+    if(u8Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPTM5_TA_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPTM5_TA_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[0][0][5][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPTM5_TA_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPTM5_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][0][5][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u8Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPTM5_TA_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPTM5_TA_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][0][5][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TA)
+    if(u8Reg & TIMER_enINT_TA_MATCH)
     {
-        GPTM5_TA_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPTM5_TA_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[0][0][5][3]();
     }
-    if(u8Reg & TIMER_enRTC_TW)
+    if(u8Reg & TIMER_enINT_TW_RTC)
     {
-        GPTM5_TA_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPTM5_TA_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[0][0][5][4]();
     }
 
@@ -1197,24 +1474,24 @@ void TIMER5B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPTM5_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPTM5_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[0][1][5][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPTM5_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[0][1][5][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPTM5_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[0][1][5][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPTM5_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[0][1][5][3]();
     }
 }
@@ -1225,34 +1502,34 @@ void WTIMER0A_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     u32Reg=GPWTM0_TW_GPTMTnMIS_R;
-    if(u32Reg & TIMER_enTIMEOUT_TA)
+    if(u32Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPWTM0_TW_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPWTM0_TW_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[1][0][0][0]();
     }
-    if(u32Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPWTM0_TW_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPWTM0_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][0][0][1]();
     }
-    if(u32Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPWTM0_TW_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPWTM0_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][0][0][2]();
     }
-    if(u32Reg & TIMER_enMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_MATCH)
     {
-        GPWTM0_TW_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPWTM0_TW_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[1][0][0][3]();
     }
-    if(u32Reg & TIMER_enRTC_TW)
+    if(u32Reg & TIMER_enINT_TW_RTC)
     {
-        GPWTM0_TW_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPWTM0_TW_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[1][0][0][4]();
     }
-    if(u32Reg & TIMER_enWRITEUPDATE_TW)
+    if(u32Reg & TIMER_enINT_TW_WRITE_UPDATE)
     {
-        GPWTM0_TW_GPTMTnICR_R=TIMER_enWRITEUPDATE_TW;
+        GPWTM0_TW_GPTMTnICR_R=TIMER_enINT_TW_WRITE_UPDATE;
         TIMER_vSOURCEISR[1][0][0][5]();
     }
 
@@ -1263,24 +1540,24 @@ void WTIMER0B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPWTM0_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPWTM0_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPWTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[1][1][0][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPWTM0_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPWTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][1][0][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPWTM0_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPWTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][1][0][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPWTM0_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPWTM0_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[1][1][0][3]();
     }
 }
@@ -1292,34 +1569,34 @@ void WTIMER1A_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     u32Reg=GPWTM1_TW_GPTMTnMIS_R;
-    if(u32Reg & TIMER_enTIMEOUT_TA)
+    if(u32Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPWTM1_TW_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPWTM1_TW_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[1][0][1][0]();
     }
-    if(u32Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPWTM1_TW_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPWTM1_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][0][1][1]();
     }
-    if(u32Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPWTM1_TW_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPWTM1_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][0][1][2]();
     }
-    if(u32Reg & TIMER_enMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_MATCH)
     {
-        GPWTM1_TW_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPWTM1_TW_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[1][0][1][3]();
     }
-    if(u32Reg & TIMER_enRTC_TW)
+    if(u32Reg & TIMER_enINT_TW_RTC)
     {
-        GPWTM1_TW_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPWTM1_TW_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[1][0][1][4]();
     }
-    if(u32Reg & TIMER_enWRITEUPDATE_TW)
+    if(u32Reg & TIMER_enINT_TW_WRITE_UPDATE)
     {
-        GPWTM1_TW_GPTMTnICR_R=TIMER_enWRITEUPDATE_TW;
+        GPWTM1_TW_GPTMTnICR_R=TIMER_enINT_TW_WRITE_UPDATE;
         TIMER_vSOURCEISR[1][0][1][5]();
     }
 
@@ -1330,24 +1607,24 @@ void WTIMER1B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPWTM1_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPWTM1_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPWTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[1][1][1][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPWTM1_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPWTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][1][1][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPWTM1_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPWTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][1][1][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPWTM1_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPWTM1_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[1][1][1][3]();
     }
 }
@@ -1360,34 +1637,34 @@ void WTIMER2A_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     u32Reg=GPWTM2_TW_GPTMTnMIS_R;
-    if(u32Reg & TIMER_enTIMEOUT_TA)
+    if(u32Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPWTM2_TW_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPWTM2_TW_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[1][0][2][0]();
     }
-    if(u32Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPWTM2_TW_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPWTM2_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][0][2][1]();
     }
-    if(u32Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPWTM2_TW_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPWTM2_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][0][2][2]();
     }
-    if(u32Reg & TIMER_enMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_MATCH)
     {
-        GPWTM2_TW_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPWTM2_TW_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[1][0][2][3]();
     }
-    if(u32Reg & TIMER_enRTC_TW)
+    if(u32Reg & TIMER_enINT_TW_RTC)
     {
-        GPWTM2_TW_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPWTM2_TW_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[1][0][2][4]();
     }
-    if(u32Reg & TIMER_enWRITEUPDATE_TW)
+    if(u32Reg & TIMER_enINT_TW_WRITE_UPDATE)
     {
-        GPWTM2_TW_GPTMTnICR_R=TIMER_enWRITEUPDATE_TW;
+        GPWTM2_TW_GPTMTnICR_R=TIMER_enINT_TW_WRITE_UPDATE;
         TIMER_vSOURCEISR[1][0][2][5]();
     }
 
@@ -1398,24 +1675,24 @@ void WTIMER2B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPWTM2_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPWTM2_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPWTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[1][1][2][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPWTM2_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPWTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][1][2][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPWTM2_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPWTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][1][2][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPWTM2_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPWTM2_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[1][1][2][3]();
     }
 }
@@ -1425,34 +1702,34 @@ void WTIMER3A_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     u32Reg=GPWTM3_TW_GPTMTnMIS_R;
-    if(u32Reg & TIMER_enTIMEOUT_TA)
+    if(u32Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPWTM3_TW_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPWTM3_TW_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[1][0][3][0]();
     }
-    if(u32Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPWTM3_TW_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPWTM3_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][0][3][1]();
     }
-    if(u32Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPWTM3_TW_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPWTM3_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][0][3][2]();
     }
-    if(u32Reg & TIMER_enMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_MATCH)
     {
-        GPWTM3_TW_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPWTM3_TW_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[1][0][3][3]();
     }
-    if(u32Reg & TIMER_enRTC_TW)
+    if(u32Reg & TIMER_enINT_TW_RTC)
     {
-        GPWTM3_TW_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPWTM3_TW_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[1][0][3][4]();
     }
-    if(u32Reg & TIMER_enWRITEUPDATE_TW)
+    if(u32Reg & TIMER_enINT_TW_WRITE_UPDATE)
     {
-        GPWTM3_TW_GPTMTnICR_R=TIMER_enWRITEUPDATE_TW;
+        GPWTM3_TW_GPTMTnICR_R=TIMER_enINT_TW_WRITE_UPDATE;
         TIMER_vSOURCEISR[1][0][3][5]();
     }
 
@@ -1463,24 +1740,24 @@ void WTIMER3B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPWTM3_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPWTM3_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPWTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[1][1][3][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPWTM3_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPWTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][1][3][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPWTM3_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPWTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][1][3][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPWTM3_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPWTM3_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[1][1][3][3]();
     }
 }
@@ -1489,34 +1766,34 @@ void WTIMER4A_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     u32Reg=GPWTM4_TW_GPTMTnMIS_R;
-    if(u32Reg & TIMER_enTIMEOUT_TA)
+    if(u32Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPWTM4_TW_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPWTM4_TW_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[1][0][4][0]();
     }
-    if(u32Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPWTM4_TW_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPWTM4_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][0][4][1]();
     }
-    if(u32Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPWTM4_TW_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPWTM4_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][0][4][2]();
     }
-    if(u32Reg & TIMER_enMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_MATCH)
     {
-        GPWTM4_TW_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPWTM4_TW_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[1][0][4][3]();
     }
-    if(u32Reg & TIMER_enRTC_TW)
+    if(u32Reg & TIMER_enINT_TW_RTC)
     {
-        GPWTM4_TW_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPWTM4_TW_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[1][0][4][4]();
     }
-    if(u32Reg & TIMER_enWRITEUPDATE_TW)
+    if(u32Reg & TIMER_enINT_TW_WRITE_UPDATE)
     {
-        GPWTM4_TW_GPTMTnICR_R=TIMER_enWRITEUPDATE_TW;
+        GPWTM4_TW_GPTMTnICR_R=TIMER_enINT_TW_WRITE_UPDATE;
         TIMER_vSOURCEISR[1][0][4][5]();
     }
 
@@ -1527,24 +1804,24 @@ void WTIMER4B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPWTM4_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPWTM4_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPWTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[1][1][4][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPWTM4_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPWTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][1][4][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPWTM4_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPWTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][1][4][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPWTM4_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPWTM4_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[1][1][4][3]();
     }
 }
@@ -1553,34 +1830,34 @@ void WTIMER5A_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     u32Reg=GPWTM5_TW_GPTMTnMIS_R;
-    if(u32Reg & TIMER_enTIMEOUT_TA)
+    if(u32Reg & TIMER_enINT_TA_TIMEOUT)
     {
-        GPWTM5_TW_GPTMTnICR_R=TIMER_enTIMEOUT_TA;
+        GPWTM5_TW_GPTMTnICR_R=TIMER_enINT_TA_TIMEOUT;
         TIMER_vSOURCEISR[1][0][5][0]();
     }
-    if(u32Reg & TIMER_enCAPTUREMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_MATCH)
     {
-        GPWTM5_TW_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TA;
+        GPWTM5_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][0][5][1]();
     }
-    if(u32Reg & TIMER_enCAPTUREEVENT_TA)
+    if(u32Reg & TIMER_enINT_TA_CAPTURE_EVENT)
     {
-        GPWTM5_TW_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TA;
+        GPWTM5_TW_GPTMTnICR_R=TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][0][5][2]();
     }
-    if(u32Reg & TIMER_enMATCH_TA)
+    if(u32Reg & TIMER_enINT_TA_MATCH)
     {
-        GPWTM5_TW_GPTMTnICR_R=TIMER_enMATCH_TA;
+        GPWTM5_TW_GPTMTnICR_R=TIMER_enINT_TA_MATCH;
         TIMER_vSOURCEISR[1][0][5][3]();
     }
-    if(u32Reg & TIMER_enRTC_TW)
+    if(u32Reg & TIMER_enINT_TW_RTC)
     {
-        GPWTM5_TW_GPTMTnICR_R=TIMER_enRTC_TW;
+        GPWTM5_TW_GPTMTnICR_R=TIMER_enINT_TW_RTC;
         TIMER_vSOURCEISR[1][0][5][4]();
     }
-    if(u32Reg & TIMER_enWRITEUPDATE_TW)
+    if(u32Reg & TIMER_enINT_TW_WRITE_UPDATE)
     {
-        GPWTM5_TW_GPTMTnICR_R=TIMER_enWRITEUPDATE_TW;
+        GPWTM5_TW_GPTMTnICR_R=TIMER_enINT_TW_WRITE_UPDATE;
         TIMER_vSOURCEISR[1][0][5][5]();
     }
 
@@ -1591,24 +1868,24 @@ void WTIMER5B_vISR(void)
 {
     volatile uint8_t u8Reg=0;
     u8Reg=GPWTM5_TB_GPTMTnMIS_R;
-    if(u8Reg & TIMER_enTIMEOUT_TB)
+    if(u8Reg & TIMER_enINT_TB_TIMEOUT)
     {
-        GPWTM5_TB_GPTMTnICR_R=TIMER_enTIMEOUT_TB;
+        GPWTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_TIMEOUT;
         TIMER_vSOURCEISR[1][1][5][0]();
     }
-    if(u8Reg & TIMER_enCAPTUREMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_MATCH)
     {
-        GPWTM5_TB_GPTMTnICR_R=TIMER_enCAPTUREMATCH_TB;
+        GPWTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER_vSOURCEISR[1][1][5][1]();
     }
-    if(u8Reg & TIMER_enCAPTUREEVENT_TB)
+    if(u8Reg & TIMER_enINT_TB_CAPTURE_EVENT)
     {
-        GPWTM5_TB_GPTMTnICR_R=TIMER_enCAPTUREEVENT_TB;
+        GPWTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER_vSOURCEISR[1][1][5][2]();
     }
-    if(u8Reg & TIMER_enMATCH_TB)
+    if(u8Reg & TIMER_enINT_TB_MATCH)
     {
-        GPWTM5_TB_GPTMTnICR_R=TIMER_enMATCH_TB;
+        GPWTM5_TB_GPTMTnICR_R=TIMER_enINT_TB_MATCH;
         TIMER_vSOURCEISR[1][1][5][3]();
     }
 }

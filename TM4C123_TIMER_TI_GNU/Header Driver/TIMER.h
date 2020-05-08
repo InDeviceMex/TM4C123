@@ -14731,45 +14731,62 @@ typedef enum
     TIMER_enWT5W=((1<<16)|(2<<8)|5),
 }TIMER_nMODULE;
 
+
 typedef enum
 {
-    TIMER_enTIMEOUT=0,
-    TIMER_enCAPTUREMATCH=1,
-    TIMER_enCAPTUREEVENT=2,
-    TIMER_enMATCH=3,
-    TIMER_enRTC=4,
-    TIMER_enWRITEUPDATE=5,
+    TIMER_enINTERRUPT_TIMEOUT=0,
+    TIMER_enINTERRUPT_CAPTURE_MATCH=1,
+    TIMER_enINTERRUPT_CAPTURE_EVENT=2,
+    TIMER_enINTERRUPT_MATCH=3,
+    TIMER_enINTERRUPT_RTC=4,
+    TIMER_enINTERRUPT_WRITE_UPDATE=5,
+}TIMER_nINTERRUPT;
+
+typedef enum
+{
+    TIMER_enINT_TIMEOUT=0x01,
+    TIMER_enINT_CAPTURE_MATCH=0x02,
+    TIMER_enINT_CAPTURE_EVENT=0x04,
+
+    TIMER_enINT_RTC=0x08,
+    TIMER_enINT_MATCH=0x10,
+
+    TIMER_enINT_WRITE_UPDATE=0x10000,
+    TIMER_enINT_ALL = 0x1001F,
 }TIMER_nINT;
 
 typedef enum
 {
-    TIMER_enTIMEOUT_TA=0x1,
-    TIMER_enCAPTUREMATCH_TA=0x2,
+    TIMER_enINT_TA_TIMEOUT=0x1,
+    TIMER_enINT_TA_CAPTURE_MATCH=0x2,
     //TAPWMIE needs to be enabled with PWM mode
-    TIMER_enCAPTUREEVENT_TA=0x4,
+    TIMER_enINT_TA_CAPTURE_EVENT=0x4,
     //TAMIE needs to enabled with MATCH_TA
-    TIMER_enMATCH_TA=0x10,
+    TIMER_enINT_TA_MATCH=0x10,
+    TIMER_enINT_TA_ALL = 0x17,
 }TIMER_nINT_TA;
 
 typedef enum
 {
-    TIMER_enTIMEOUT_TW=0x1,
-    TIMER_enCAPTUREMATCH_TW=0x2,
-    TIMER_enCAPTUREEVENT_TW=0x4,
-    TIMER_enRTC_TW=0x8,
+    TIMER_enINT_TW_TIMEOUT=0x1,
+    TIMER_enINT_TW_CAPTURE_MATCH=0x2,
+    TIMER_enINT_TW_CAPTURE_EVENT=0x4,
+    TIMER_enINT_TW_RTC=0x8,
     //TWMIE needs to enabled with MATCH_TW
-    TIMER_enMATCH_TW=0x10,
-    TIMER_enWRITEUPDATE_TW=0x10000,
+    TIMER_enINT_TW_MATCH=0x10,
+    TIMER_enINT_TW_WRITE_UPDATE=0x10000,
+    TIMER_enINT_TW_ALL = 0x1001F,
 }TIMER_nINT_TW;
 
 typedef enum
 {
-    TIMER_enTIMEOUT_TB=0x1<<8,
-    TIMER_enCAPTUREMATCH_TB=0x2<<8,
+    TIMER_enINT_TB_TIMEOUT=0x1<<8,
+    TIMER_enINT_TB_CAPTURE_MATCH=0x2<<8,
     //TBPWMIE needs to be enabled with PWM mode
-    TIMER_enCAPTUREEVENT_TB=0x4<<8,
+    TIMER_enINT_TB_CAPTURE_EVENT=0x4<<8,
     //TBMIE needs to enabled with MATCH_TB
-    TIMER_enMATCH_TB=0x8<<8,
+    TIMER_enINT_TB_MATCH=0x8<<8,
+    TIMER_enINT_TB_ALL=0x0F00,
 }TIMER_nINT_TB;
 
 typedef enum
@@ -14843,6 +14860,13 @@ typedef enum
     TIMER_enPWM_INT_EN=1,
     TIMER_enPWM_INT_UNDEF=0xFF,
 }TIMER_nPWM_INT;
+
+typedef enum
+{
+    TIMER_enEVENT_INT_DIS=0,
+    TIMER_enEVENT_INT_EN=1,
+    TIMER_enEVENT_INT_UNDEF=0xFF,
+}TIMER_nEVENT_INT;
 
 typedef enum
 {
@@ -14977,7 +15001,7 @@ typedef enum
 
 
 void TIMER__vInit(void);
-void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINT enInterrupt);
+void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERRUPT enInterrupt);
 void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule);
 
 void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority);
@@ -15014,6 +15038,9 @@ TIMER_nUPDATE_INTERVAL TIMER__enGetUpdateIntervalMode(TIMER_nMODULE enModule);
 void TIMER__vSetPWMInterrupt(TIMER_nMODULE enModule, TIMER_nPWM_INT enPWMInterrupt);
 TIMER_nPWM_INT TIMER__enGetPWMInterrupt(TIMER_nMODULE enModule);
 
+void TIMER__vSetMatchEventInterrupt(TIMER_nMODULE enModule, TIMER_nEVENT_INT enEventInterrupt);
+TIMER_nEVENT_INT TIMER__enGetMatchEventInterrupt(TIMER_nMODULE enModule);
+
 void TIMER__vSetUpdateMatchMode(TIMER_nMODULE enModule, TIMER_nUPDATE_MATCH enUpdateMatchMode);
 TIMER_nUPDATE_MATCH TIMER__enGetUpdateMatchMode(TIMER_nMODULE enModule);
 
@@ -15041,5 +15068,9 @@ void TIMER__vSetPWMOutputLevel(TIMER_nMODULE enModule, TIMER_nPWM_OUTPUT enPWMOu
 TIMER_nPWM_OUTPUT TIMER__enGetPWMOutputLevel(TIMER_nMODULE enModule);
 
 void TIMER__vSetSyncronize(TIMER_nSYNC enSync);
+
+void TIMER_vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
+void TIMER_vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
+void TIMER_vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
 
 #endif /* TIMER_H_ */
