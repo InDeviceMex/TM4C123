@@ -76,81 +76,60 @@ int main(void)
 
     TIMER__vInit();
 
-    TIMER__vEnInterruptMODULE(TIMER_enT0A,TIMER_enPRI7);
-    TIMER__vRegisterISR(TIMER0B__vISR,TIMER_enT0A,TIMER_enINTERRUPT_TIMEOUT);
+    TIMER__vEnInterruptMODULE(TIMER_enT2W,TIMER_enPRI7);
+    TIMER__vRegisterISR(TIMER0B__vISR,TIMER_enT2W,TIMER_enINTERRUPT_TIMEOUT);
 
-    TIMER__vSetConfiguration(TIMER_enT0B,TIMER_enCONFIG_INDIVIDUAL);
-    TIMER__vSetConfiguration(TIMER_enT1A,TIMER_enCONFIG_INDIVIDUAL);
 
-    TIMER__vSetSubMode(TIMER_enT0A,TIMER_enSUB_MODE_PERIODIC);
-    TIMER__vSetSubMode(TIMER_enT0B,TIMER_enSUB_MODE_PERIODIC);
-    TIMER__vSetSubMode(TIMER_enT1A,TIMER_enSUB_MODE_PERIODIC);
-    TIMER__vSetSubMode(TIMER_enT1B,TIMER_enSUB_MODE_PERIODIC);
-
-    TIMER__vSetEdgeMode(TIMER_enT0A,TIMER_enEDGE_MODE_COUNT);
-    TIMER__vSetEdgeMode(TIMER_enT0B,TIMER_enEDGE_MODE_COUNT);
-    TIMER__vSetEdgeMode(TIMER_enT1A,TIMER_enEDGE_MODE_COUNT);
-    TIMER__vSetEdgeMode(TIMER_enT1B,TIMER_enEDGE_MODE_COUNT);
-
-    TIMER__vSetAltMode(TIMER_enT0A,TIMER_enALT_MODE_CC);
-    TIMER__vSetAltMode(TIMER_enT0B,TIMER_enALT_MODE_PWM);
-    TIMER__vSetAltMode(TIMER_enT1A,TIMER_enALT_MODE_PWM);
-    TIMER__vSetAltMode(TIMER_enT1B,TIMER_enALT_MODE_PWM);
-
-    TIMER__vSetUpdateIntervalMode(TIMER_enT0A,TIMER_enUPDATE_INTERVAL_TIMEOUT);
+    TIMER__vSetUpdateIntervalMode(TIMER_enT2W,TIMER_enUPDATE_INTERVAL_TIMEOUT);
     TIMER__vSetUpdateIntervalMode(TIMER_enT0B,TIMER_enUPDATE_INTERVAL_TIMEOUT);
     TIMER__vSetUpdateIntervalMode(TIMER_enT1A,TIMER_enUPDATE_INTERVAL_TIMEOUT);
     TIMER__vSetUpdateIntervalMode(TIMER_enT1B,TIMER_enUPDATE_INTERVAL_TIMEOUT);
 
-    TIMER__vSetUpdateMatchMode(TIMER_enT0A,TIMER_enUPDATE_MATCH_TIMEOUT);
+    TIMER__vSetUpdateMatchMode(TIMER_enT2W,TIMER_enUPDATE_MATCH_TIMEOUT);
     TIMER__vSetUpdateMatchMode(TIMER_enT0B,TIMER_enUPDATE_MATCH_TIMEOUT);
     TIMER__vSetUpdateMatchMode(TIMER_enT1A,TIMER_enUPDATE_MATCH_TIMEOUT);
     TIMER__vSetUpdateMatchMode(TIMER_enT1B,TIMER_enUPDATE_MATCH_TIMEOUT);
 
-    TIMER__vSetStall(TIMER_enT0A,TIMER_enSTALL_FREEZE);
+    TIMER__vSetStall(TIMER_enT2W,TIMER_enSTALL_FREEZE);
     TIMER__vSetStall(TIMER_enT0B,TIMER_enSTALL_FREEZE);
     TIMER__vSetStall(TIMER_enT1A,TIMER_enSTALL_FREEZE);
     TIMER__vSetStall(TIMER_enT1B,TIMER_enSTALL_FREEZE);
 
-    TIMER__vSetEdgeEvent(TIMER_enT0B,TIMER_enEDGE_EVENT_POSITIVE);
-    TIMER__vSetEdgeEvent(TIMER_enT1A,TIMER_enEDGE_EVENT_POSITIVE);
-    TIMER__vSetEdgeEvent(TIMER_enT1B,TIMER_enEDGE_EVENT_POSITIVE);
-
-    TIMER__vSetPWMOutputLevel(TIMER_enT0B,TIMER_enPWM_OUTPUT_STRAIGHT);
-    TIMER__vSetPWMOutputLevel(TIMER_enT1A,TIMER_enPWM_OUTPUT_STRAIGHT);
-    TIMER__vSetPWMOutputLevel(TIMER_enT1B,TIMER_enPWM_OUTPUT_STRAIGHT);
-
-    TIMER__vSetCountDir(TIMER_enT0A,TIMER_enCOUNT_DIR_UP);
-
-    GPTM_UNION->TA[0].GPTMTnPR=(((0xFFF)-1)>>16)&0xFF;
-    GPTM_UNION->TA[0].GPTMTnILR=((0xFFF)-1)&0xFFFF;
 
 
-    GPTM_UNION->TB[0].GPTMTnPR=(((32)-1)>>16)&0xFF;
-    GPTM_UNION->TB[0].GPTMTnILR=((32)-1)&0xFFFF;
-    GPTM_UNION->TB[0].GPTMTnPMR=(((32)-1)>>16)&0xFF;
-    GPTM_UNION->TB[0].GPTMTnMATCHR=((32)-1)&0xFFFF;
-
-    GPTM_UNION->TA[1].GPTMTnPR=(((32)-1)>>16)&0xFF;
-    GPTM_UNION->TA[1].GPTMTnILR=((32)-1)&0xFFFF;
-    GPTM_UNION->TA[1].GPTMTnPMR=(((32)-1)>>16)&0xFF;
-    GPTM_UNION->TA[1].GPTMTnMATCHR=((32)-1)&0xFFFF;
-
-    GPTM_UNION->TB[1].GPTMTnPR=(((32)-1)>>16)&0xFF;
-    GPTM_UNION->TB[1].GPTMTnILR=(((32))-1)&0xFFFF;
-    GPTM_UNION->TB[1].GPTMTnPMR=(((32)-1)>>16)&0xFF;
-    GPTM_UNION->TB[1].GPTMTnMATCHR=((32)-1)&0xFFFF;
 
 
-    TIMER_vEnInterrupt(TIMER_enT0A,(TIMER_nINT)(TIMER_enINT_TIMEOUT|TIMER_enINT_MATCH));
+    TIMER_vSetMode(TIMER_enT2W,TIMER_enMODE_PERIODIC_WIDE_DOWN);
+    TIMER_vSetMode(TIMER_enT0B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN);
+    TIMER_vSetMode(TIMER_enT1A,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN);
+    TIMER_vSetMode(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN);
 
 
-    TIMER__vSetEnable(TIMER_enT0A,TIMER_enENABLE_START);
+    GPTM_UNION->TW[2].GPTMTnILR=((0xFFFFF)-1);
+
+
+    GPTM_UNION->TB[0].GPTMTnPR=(((16)-1)>>16)&0xFF;
+    GPTM_UNION->TB[0].GPTMTnILR=((16)-1)&0xFFFF;
+    GPTM_UNION->TB[0].GPTMTnPMR=(((1)-1)>>16)&0xFF;
+    GPTM_UNION->TB[0].GPTMTnMATCHR=((1)-1)&0xFFFF;
+
+    GPTM_UNION->TA[1].GPTMTnPR=(((16)-1)>>16)&0xFF;
+    GPTM_UNION->TA[1].GPTMTnILR=((16)-1)&0xFFFF;
+    GPTM_UNION->TA[1].GPTMTnPMR=(((1)-1)>>16)&0xFF;
+    GPTM_UNION->TA[1].GPTMTnMATCHR=((1)-1)&0xFFFF;
+
+    GPTM_UNION->TB[1].GPTMTnPR=(((16)-1)>>16)&0xFF;
+    GPTM_UNION->TB[1].GPTMTnILR=(((16))-1)&0xFFFF;
+    GPTM_UNION->TB[1].GPTMTnPMR=(((1)-1)>>16)&0xFF;
+    GPTM_UNION->TB[1].GPTMTnMATCHR=((1)-1)&0xFFFF;
+
+    TIMER__vSetEnable(TIMER_enT2W,TIMER_enENABLE_START);
     TIMER__vSetEnable(TIMER_enT0B,TIMER_enENABLE_START);
     TIMER__vSetEnable(TIMER_enT1A,TIMER_enENABLE_START);
     TIMER__vSetEnable(TIMER_enT1B,TIMER_enENABLE_START);
 
-    TIMER__vSetSyncronize((TIMER_nSYNC)(TIMER_enSYNC_T0A|TIMER_enSYNC_T0B|TIMER_enSYNC_T1A|TIMER_enSYNC_T1B));
+    TIMER_vEnInterrupt(TIMER_enT2W,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
+    TIMER__vSetSyncronize((TIMER_nSYNC)(TIMER_enSYNC_T2W|TIMER_enSYNC_T0B|TIMER_enSYNC_T1A|TIMER_enSYNC_T1B));
 
 
 /*
@@ -208,32 +187,43 @@ void GPIOF0_vISR(void)
 
 void TIMER0B__vISR(void)
 {
-    static uint32_t u32Value0B= (32);
-    static uint32_t u32Value1A= (32);
-    static uint32_t u32Value1B= (32);
-    if(u32Value1B==0)
+    static uint32_t u32Value0B= (0);
+    static uint32_t u32Value1A= (0);
+    static uint32_t u32Value1B= (0);
+
+    if(u32Value0B==16)
     {
-        u32Value1B=(32);
-        if(u32Value1A==0)
+        if(u32Value1B==16)
         {
-            u32Value1A=(32);
-            if(u32Value0B==0)
+            if(u32Value1A==16)
             {
-                u32Value0B=(32);
+                u32Value1B=(0);
+                u32Value0B=(0);
+                u32Value1A=(0);
             }
-            u32Value0B--;
-            GPTM_UNION->TB[0].GPTMTnPMR=((u32Value0B)>>16)&0xFF;
-            GPTM_UNION->TB[0].GPTMTnMATCHR=((u32Value0B))&0xFFFF;
+            else
+            {
+                u32Value1A++;
+            }
+            GPTM_UNION->TA[1].GPTMTnPMR=((u32Value1A)>>16)&0xFF;
+            GPTM_UNION->TA[1].GPTMTnMATCHR=((u32Value1A))&0xFFFF;
 
         }
-        u32Value1A--;
-        GPTM_UNION->TA[1].GPTMTnPMR=((u32Value1A)>>16)&0xFF;
-        GPTM_UNION->TA[1].GPTMTnMATCHR=((u32Value1A))&0xFFFF;
+        else
+        {
+            u32Value1B++;
+        }
+        GPTM_UNION->TB[1].GPTMTnPMR=((u32Value1B)>>16)&0xFF;
+        GPTM_UNION->TB[1].GPTMTnMATCHR=((u32Value1B))&0xFFFF;
 
     }
-    u32Value1B--;
-    GPTM_UNION->TB[1].GPTMTnPMR=((u32Value1B)>>16)&0xFF;
-    GPTM_UNION->TB[1].GPTMTnMATCHR=((u32Value1B))&0xFFFF;
+    else
+    {
+        u32Value0B++;
+    }
+    GPTM_UNION->TB[0].GPTMTnPMR=((u32Value0B)>>16)&0xFF;
+    GPTM_UNION->TB[0].GPTMTnMATCHR=((u32Value0B))&0xFFFF;
+
 
 }
 

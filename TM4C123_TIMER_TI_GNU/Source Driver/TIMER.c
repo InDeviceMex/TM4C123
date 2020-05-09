@@ -8,11 +8,11 @@
 
 #include "TIMER.h"
 
-uint32_t TIMER_u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32MaskR, uint32_t u32Bit);
-void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint32_t u32MaskR, uint32_t u32Mask, uint32_t u32Bit);
+uint32_t TIMER_u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint32_t u32Bit);
+void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric, uint32_t u32Mask, uint32_t u32Bit);
 
-uint32_t TIMER_u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32MaskR, uint32_t u32Bit);
-void TIMER_vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneric,uint32_t u32MaskR, uint32_t u32Mask, uint32_t u32Bit);
+uint32_t TIMER_u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint32_t u32Bit);
+void TIMER_vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneric, uint32_t u32Mask, uint32_t u32Bit);
 
 void TIMER_vDUMMY(void);
 void TIMER0A_vISR(void);
@@ -90,6 +90,24 @@ void (*TIMER_vSOURCEISR[2][2][6][6]) (void)={
                                         }
                                     },
                                  };
+
+
+GPTM_TypeDef *TIMER_BLOCK[2][6]={
+                                     {GPTM0,GPTM1,GPTM2,GPTM3,GPTM4,GPTM5},
+                                     {GPWTM0,GPWTM1,GPWTM2,GPWTM3,GPWTM4,GPWTM5},
+                                  };
+
+volatile uint32_t * TIMER_TnMR_BLOCK[2][2][6]=
+{
+ {
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnMR_OFFSET)},
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TB_GPTMTnMR_OFFSET)},
+ },
+ {
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TA_GPTMTnMR_OFFSET)},
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TB_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TB_GPTMTnMR_OFFSET)},
+ }
+};
 
 GPTM_TypeDef* GPWTM_BLOCK[6]={GPWTM0,GPWTM1,GPWTM2,GPWTM3,GPWTM4,GPWTM5};
 
@@ -207,7 +225,6 @@ void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule)
             u32Number=TIMER_MAX;
         }
         enVector=SCB_VECTOR_TIMER[u32Wide][u32Letter][u32Number];
-
         TIMER_vISR[u32Wide][u32Letter][u32Number]=(void (*) (void))((uint32_t)Isr|1);
         SCB__vRegisterISR(TIMER_vISR[u32Wide][u32Letter][u32Number],enVector);
     }
@@ -298,44 +315,30 @@ TIMER_nREADY TIMER__enIsReady(TIMER_nMODULE enModule)
 
 void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf)
 {
-    uint32_t u32EnTA=0;
-    uint32_t u32EnTB=0;
+    uint32_t u32En=0;
+    uint32_t u32Reg=0;
+    uint32_t u32Conf=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
 
-    GPWTM_CTL_TypeDef* wtimer=0;
-    GPTM_CTL_TypeDef* timer=0;
+    GPTM_TypeDef* psTimer=0;
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
     }
     TIMER__vSetReady(enModule);
-    if(TIMER_en32 ==u32Wide)
-    {
-        u32EnTA=GPTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-        u32EnTB=GPTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-        GPTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TA_GPTMTnCTL_R_TnEN_MASK;
-        GPTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TB_GPTMTnCTL_R_TnEN_MASK;
+    psTimer=TIMER_BLOCK[u32Wide][u32Number];
 
-        timer=GPTM_CTL_BLOCK[u32Number];
-        timer->GPTMCFG=((uint32_t)enConf&GPTM_CTL_GPTMCFG_GPTMCFG_MASK)<<GPTM_CTL_GPTMCFG_R_GPTMCFG_BIT;
+    u32En=psTimer->GPTMCTL;
+    u32Reg=(u32En&~(GPTM_GPTMCTL_R_TAEN_MASK|GPTM_GPTMCTL_R_TBEN_MASK));
+    psTimer->GPTMCTL=u32Reg;
 
-        GPTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32EnTA;
-        GPTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32EnTB;
-    }
-    else
-    {
-        u32EnTA=GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-        u32EnTB=GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-        GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TA_GPTMTnCTL_R_TnEN_MASK;
-        GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TB_GPTMTnCTL_R_TnEN_MASK;
+    u32Conf=(uint32_t)enConf;
+    u32Conf&=GPTM_CTL_GPTMCFG_GPTMCFG_MASK;
+    u32Conf<<=GPTM_CTL_GPTMCFG_R_GPTMCFG_BIT;
+    psTimer->GPTMCFG=u32Conf;
 
-        wtimer=GPWTM_CTL_BLOCK[u32Number];
-        wtimer->GPTMCFG=((uint32_t)enConf&GPWTM_CTL_GPTMCFG_GPTMCFG_MASK)<<GPWTM_CTL_GPTMCFG_R_GPTMCFG_BIT;;
-
-        GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32EnTA;
-        GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32EnTB;
-    }
+    psTimer->GPTMCTL=u32En;
 }
 
 TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
@@ -346,8 +349,7 @@ TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
     uint32_t u32Number= (uint32_t) enModule & 0x7;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
 
-    GPWTM_CTL_TypeDef* wtimer=0;
-    GPTM_CTL_TypeDef* timer=0;
+    GPTM_TypeDef* psTimer=0;
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
@@ -356,127 +358,59 @@ TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
 
     if(TIMER_enREADY == enReady)
     {
-        if(TIMER_en32 ==u32Wide)
-        {
-            timer=GPTM_CTL_BLOCK[u32Number];
-            u32Reg=timer->GPTMCFG;
-        }
-        else
-        {
-            wtimer=GPWTM_CTL_BLOCK[u32Number];
-            u32Reg=wtimer->GPTMCFG;
-        }
-        enConf=(TIMER_nCONFIG)((u32Reg&GPTM_CTL_GPTMCFG_R_GPTMCFG_MASK)>>GPTM_CTL_GPTMCFG_R_GPTMCFG_BIT);
+        psTimer=TIMER_BLOCK[u32Wide][u32Number];
+        u32Reg=psTimer->GPTMCFG;
+        u32Reg&=GPTM_CTL_GPTMCFG_R_GPTMCFG_MASK;
+        u32Reg>>=GPTM_CTL_GPTMCFG_R_GPTMCFG_BIT;
+        enConf=(TIMER_nCONFIG)(u32Reg);
     }
     return enConf;
 }
 
-void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint32_t u32MaskR, uint32_t u32Mask, uint32_t u32Bit)
+void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint32_t u32Mask, uint32_t u32Bit)
 {
     uint32_t u32En=0;
     uint32_t u32Reg=0;
+    uint32_t u32Shift=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7;
-    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x1;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
-
+    GPTM_TypeDef* psTimerCTL=0;
+    volatile uint32_t* pu32TimerMR=0;
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
     }
     TIMER__vSetReady(enModule);
-    if(TIMER_en32 ==u32Wide)
+
+    if(TIMER_enB==u32Letter)
     {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32En=GPTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TA_GPTMTnCTL_R_TnEN_MASK;
-
-            u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnMR;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnMR=u32Reg;
-
-            GPTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32En;
-            break;
-        case TIMER_enB:
-            u32En=GPTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-            GPTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TB_GPTMTnCTL_R_TnEN_MASK;
-
-            u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnMR;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
-            GPTM_TB_BLOCK[u32Number]->GPTMTnMR=u32Reg;
-
-            GPTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32En;
-            break;
-        case TIMER_enW:
-            u32En=GPTM_TW_BLOCK[u32Number]->GPTMTnCTL;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TW_GPTMTnCTL_R_TnEN_MASK;
-
-            u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnMR;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnMR=u32Reg;
-
-            GPTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32En;
-            break;
-        default:
-            break;
-        }
+        u32Shift=8;
     }
-    else
-    {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32En=GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TA_GPTMTnCTL_R_TnEN_MASK;
+    psTimerCTL=TIMER_BLOCK[u32Wide][u32Number];
+    pu32TimerMR=TIMER_TnMR_BLOCK[u32Wide][u32Letter][u32Number];
 
-            u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnMR;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnMR=u32Reg;
+    u32En=psTimerCTL->GPTMCTL;
+    u32Reg=(u32En&~(GPTM_GPTMCTL_TAEN_MASK<<u32Shift));
+    psTimerCTL->GPTMCTL=u32Reg;
 
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32En;
-            break;
-        case TIMER_enB:
-            u32En=GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TB_GPTMTnCTL_R_TnEN_MASK;
+    u32Reg=*pu32TimerMR;
+    u32Reg&=~(u32Mask<<u32Bit);
+    u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
+    *pu32TimerMR=u32Reg;
 
-            u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnMR;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnMR=u32Reg;
-
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32En;
-            break;
-        case TIMER_enW:
-            u32En=GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TW_GPTMTnCTL_R_TnEN_MASK;
-
-            u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnMR;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ModeGeneric&u32Mask)<<u32Bit;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnMR=u32Reg;
-
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32En;
-            break;
-        default:
-            break;
-        }
-    }
+    psTimerCTL->GPTMCTL=u32En;
 }
 
-uint32_t TIMER_u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32MaskR, uint32_t u32Bit)
+uint32_t TIMER_u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint32_t u32Bit)
 {
     uint32_t u32Reg=0;
     uint32_t u32ModeGeneric=0xFF;
     TIMER_nREADY enReady= TIMER_enNOREADY;
     uint32_t u32Number= (uint32_t) enModule & 0x7;
-    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x1;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
-
+    volatile uint32_t* pu32TimerMR=0;
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
@@ -485,47 +419,11 @@ uint32_t TIMER_u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32MaskR, uint3
 
     if(TIMER_enREADY == enReady)
     {
-        if(TIMER_en32 ==u32Wide)
-        {
-            switch(u32Letter)
-            {
-            case TIMER_enA:
-                u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnMR;
-                u32Reg&=u32MaskR;
-                break;
-            case TIMER_enB:
-                u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnMR;
-                u32Reg&=u32MaskR;
-                break;
-            case TIMER_enW:
-                u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnMR;
-                u32Reg&=u32MaskR;
-                break;
-            default:
-                break;
-            }
-        }
-        else
-        {
-            switch(u32Letter)
-            {
-            case TIMER_enA:
-                u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnMR;
-                u32Reg&=u32MaskR;
-                break;
-            case TIMER_enB:
-                u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnMR;
-                u32Reg&=u32MaskR;
-                break;
-            case TIMER_enW:
-                u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnMR;
-                u32Reg&=u32MaskR;
-                break;
-            default:
-                break;
-            }
-        }
-        u32ModeGeneric=(uint32_t)(u32Reg>>u32Bit);
+        pu32TimerMR=TIMER_TnMR_BLOCK[u32Wide][u32Letter][u32Number];
+        u32Reg=*pu32TimerMR;
+        u32Reg>>=u32Bit;
+        u32Reg&=u32Mask;
+        u32ModeGeneric=(uint32_t)(u32Reg);
     }
     return u32ModeGeneric;
 }
@@ -535,205 +433,158 @@ void TIMER__vSetSubMode(TIMER_nMODULE enModule, TIMER_nSUB_MODE enSubMode)
     uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
     if(TIMER_enW != u32Letter)
     {
-        TIMER_vSetModeGeneric(enModule, (uint32_t) enSubMode,GPTM_TA_GPTMTnMR_R_TnMR_MASK, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
+        TIMER_vSetModeGeneric(enModule, (uint32_t) enSubMode, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
     }
     else
     {
         if(TIMER_enSUB_MODE_CAPTURE>enSubMode)
         {
-            TIMER_vSetModeGeneric(enModule, (uint32_t) enSubMode,GPTM_TA_GPTMTnMR_R_TnMR_MASK, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
+            TIMER_vSetModeGeneric(enModule, (uint32_t) enSubMode, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
         }
     }
 }
 TIMER_nSUB_MODE TIMER__enGetSubMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nSUB_MODE)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
+    return (TIMER_nSUB_MODE)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
 }
 
 
 void TIMER__vSetEdgeMode(TIMER_nMODULE enModule, TIMER_nEDGE_MODE enEdgeMode)
 {
 
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enEdgeMode,GPTM_TA_GPTMTnMR_R_TnCMR_MASK, GPTM_TA_GPTMTnMR_TnCMR_MASK, GPTM_TA_GPTMTnMR_R_TnCMR_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enEdgeMode, GPTM_TA_GPTMTnMR_TnCMR_MASK, GPTM_TA_GPTMTnMR_R_TnCMR_BIT);
 }
 
 TIMER_nEDGE_MODE TIMER__enGetEdgeMode(TIMER_nMODULE enModule)
 {
 
-    return (TIMER_nEDGE_MODE)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnCMR_MASK, GPTM_TA_GPTMTnMR_R_TnCMR_BIT);
+    return (TIMER_nEDGE_MODE)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnCMR_MASK, GPTM_TA_GPTMTnMR_R_TnCMR_BIT);
 }
 
 void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltMode)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enAltMode,GPTM_TA_GPTMTnMR_R_TnAMS_MASK, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enAltMode, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
 }
 
 TIMER_nALT_MODE TIMER__enGetAltMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nALT_MODE)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
+    return (TIMER_nALT_MODE)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
 }
 
 void TIMER__vSetCountDir(TIMER_nMODULE enModule, TIMER_nCOUNT_DIR enCountDir)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enCountDir,GPTM_TA_GPTMTnMR_R_TnCDIR_MASK, GPTM_TA_GPTMTnMR_TnCDIR_MASK, GPTM_TA_GPTMTnMR_R_TnCDIR_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enCountDir, GPTM_TA_GPTMTnMR_TnCDIR_MASK, GPTM_TA_GPTMTnMR_R_TnCDIR_BIT);
 }
 
 TIMER_nCOUNT_DIR TIMER__enGetCountDir(TIMER_nMODULE enModule)
 {
-    return (TIMER_nCOUNT_DIR)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnCDIR_MASK, GPTM_TA_GPTMTnMR_R_TnCDIR_BIT);
+    return (TIMER_nCOUNT_DIR)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnCDIR_MASK, GPTM_TA_GPTMTnMR_R_TnCDIR_BIT);
 }
 
 void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTrigger)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enWaitTrigger,GPTM_TA_GPTMTnMR_R_TnWOT_MASK, GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enWaitTrigger, GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
 }
 
 TIMER_nWAIT TIMER__enGetWaitTrigger(TIMER_nMODULE enModule)
 {
-    return (TIMER_nWAIT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
+    return (TIMER_nWAIT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
 }
 
 void TIMER__vSetSnapShot(TIMER_nMODULE enModule, TIMER_nSNAPSHOT enSnapShot)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enSnapShot,GPTM_TA_GPTMTnMR_R_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enSnapShot,GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
 }
 
 TIMER_nSNAPSHOT TIMER__enGetSnapShot(TIMER_nMODULE enModule)
 {
-    return (TIMER_nSNAPSHOT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
+    return (TIMER_nSNAPSHOT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
 }
 
 void TIMER__vSetUpdateIntervalMode(TIMER_nMODULE enModule, TIMER_nUPDATE_INTERVAL enUpdateIntervalMode)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enUpdateIntervalMode,GPTM_TA_GPTMTnMR_R_TnILD_MASK, GPTM_TA_GPTMTnMR_TnILD_MASK, GPTM_TA_GPTMTnMR_R_TnILD_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enUpdateIntervalMode, GPTM_TA_GPTMTnMR_TnILD_MASK, GPTM_TA_GPTMTnMR_R_TnILD_BIT);
 }
 
 TIMER_nUPDATE_INTERVAL TIMER__enGetUpdateIntervalMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nUPDATE_INTERVAL)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnILD_MASK, GPTM_TA_GPTMTnMR_R_TnILD_BIT);
+    return (TIMER_nUPDATE_INTERVAL)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnILD_MASK, GPTM_TA_GPTMTnMR_R_TnILD_BIT);
 }
 
 void TIMER__vSetPWMInterrupt(TIMER_nMODULE enModule, TIMER_nPWM_INT enPWMInterrupt)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enPWMInterrupt,GPTM_TA_GPTMTnMR_R_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enPWMInterrupt, GPTM_TA_GPTMTnMR_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
 }
 
 TIMER_nPWM_INT TIMER__enGetPWMInterrupt(TIMER_nMODULE enModule)
 {
-    return (TIMER_nPWM_INT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
+    return (TIMER_nPWM_INT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
 }
 
 void TIMER__vSetMatchEventInterrupt(TIMER_nMODULE enModule, TIMER_nEVENT_INT enEventInterrupt)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enEventInterrupt,GPTM_TA_GPTMTnMR_R_TnMIE_MASK, GPTM_TA_GPTMTnMR_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enEventInterrupt, GPTM_TA_GPTMTnMR_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
 }
 
 TIMER_nEVENT_INT TIMER__enGetMatchEventInterrupt(TIMER_nMODULE enModule)
 {
-    return (TIMER_nEVENT_INT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
+    return (TIMER_nEVENT_INT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
 }
 
 void TIMER__vSetUpdateMatchMode(TIMER_nMODULE enModule, TIMER_nUPDATE_MATCH enUpdateMatchMode)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enUpdateMatchMode,GPTM_TA_GPTMTnMR_R_TnMRSU_MASK, GPTM_TA_GPTMTnMR_TnMRSU_MASK, GPTM_TA_GPTMTnMR_R_TnMRSU_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enUpdateMatchMode,GPTM_TA_GPTMTnMR_TnMRSU_MASK, GPTM_TA_GPTMTnMR_R_TnMRSU_BIT);
 }
 
 TIMER_nUPDATE_MATCH TIMER__enGetUpdateMatchMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nUPDATE_MATCH)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnMRSU_MASK, GPTM_TA_GPTMTnMR_R_TnMRSU_BIT);
+    return (TIMER_nUPDATE_MATCH)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnMRSU_MASK, GPTM_TA_GPTMTnMR_R_TnMRSU_BIT);
 }
 
 void TIMER__vSetPWMOutputInit(TIMER_nMODULE enModule, TIMER_nPWM_OUT_INIT enPWMOutputInit)
 {
-    TIMER_vSetModeGeneric(enModule, (uint32_t) enPWMOutputInit,GPTM_TA_GPTMTnMR_R_TnPLO_MASK, GPTM_TA_GPTMTnMR_TnPLO_MASK, GPTM_TA_GPTMTnMR_R_TnPLO_BIT);
+    TIMER_vSetModeGeneric(enModule, (uint32_t) enPWMOutputInit, GPTM_TA_GPTMTnMR_TnPLO_MASK, GPTM_TA_GPTMTnMR_R_TnPLO_BIT);
 }
 
 TIMER_nPWM_OUT_INIT TIMER__enGetPWMOutputInit(TIMER_nMODULE enModule)
 {
-    return (TIMER_nPWM_OUT_INIT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_R_TnPLO_MASK, GPTM_TA_GPTMTnMR_R_TnPLO_BIT);
+    return (TIMER_nPWM_OUT_INIT)TIMER_u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnPLO_MASK, GPTM_TA_GPTMTnMR_R_TnPLO_BIT);
 }
 
-void TIMER_vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneric,uint32_t u32MaskR, uint32_t u32Mask, uint32_t u32Bit)
+void TIMER_vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneric,uint32_t u32Mask, uint32_t u32Bit)
 {
     uint32_t u32Reg=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7;
-    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x1;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
-
+    uint32_t u32Shift=8*u32Letter;
+    GPTM_TypeDef* psTimerCTL=0;
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
     }
     TIMER__vSetReady(enModule);
-    if(TIMER_en32 ==u32Wide)
-    {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TA_GPTMTnCTL_R_TnEN_MASK;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<u32Bit;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-            GPTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TB_GPTMTnCTL_R_TnEN_MASK;
-            u32Reg&=~(u32MaskR<<8);
-            u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<(u32Bit+8);
-            GPTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnCTL;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnCTL&=~GPTM_TW_GPTMTnCTL_R_TnEN_MASK;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<u32Bit;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32Reg;
-            break;
-        default:
-            break;
-        }
-    }
-    else
-    {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TA_GPTMTnCTL_R_TnEN_MASK;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<u32Bit;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TB_GPTMTnCTL_R_TnEN_MASK;
-            u32Reg&=~(u32MaskR<<8);
-            u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<(u32Bit+8);
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL&=~GPWTM_TW_GPTMTnCTL_R_TnEN_MASK;
-            u32Reg&=~u32MaskR;
-            u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<u32Bit;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL=u32Reg;
-            break;
-        default:
-            break;
-        }
-    }
+
+    psTimerCTL=TIMER_BLOCK[u32Wide][u32Number];
+
+    u32Reg=psTimerCTL->GPTMCTL;
+    psTimerCTL->GPTMCTL&=~(GPTM_GPTMCTL_TAEN_MASK<<u32Shift);
+    u32Shift+=u32Bit;
+    u32Reg&=~(u32Mask<<u32Shift);
+    u32Reg|=((uint32_t)u32ControlGeneric&u32Mask)<<(u32Shift);
+    psTimerCTL->GPTMCTL=u32Reg;
 }
 
-uint32_t TIMER_u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32MaskR, uint32_t u32Bit)
+uint32_t TIMER_u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint32_t u32Bit)
 {
     uint32_t u32Reg=0;
     uint32_t u32ControlGeneric=0xFF;
     TIMER_nREADY enReady= TIMER_enNOREADY;
     uint32_t u32Number= (uint32_t) enModule & 0x7;
-    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x1;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
-
+    uint32_t u32Shift=8*u32Letter;
+    GPTM_TypeDef* psTimerCTL=0;
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
@@ -742,84 +593,43 @@ uint32_t TIMER_u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32MaskR, ui
 
     if(TIMER_enREADY == enReady)
     {
-        if(TIMER_en32 ==u32Wide)
-        {
-            switch(u32Letter)
-            {
-            case TIMER_enA:
-                u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-                u32Reg&=u32MaskR;
-                u32ControlGeneric=(uint32_t)(u32Reg>>u32Bit);
-                break;
-            case TIMER_enB:
-                u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-                u32Reg&=(u32MaskR<<8);
-                u32ControlGeneric=(uint32_t)(u32Reg>>(u32Bit+8));
-                break;
-            case TIMER_enW:
-                u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnCTL;
-                u32Reg&=u32MaskR;
-                u32ControlGeneric=(uint32_t)(u32Reg>>u32Bit);
-                break;
-            default:
-                break;
-            }
-        }
-        else
-        {
-            switch(u32Letter)
-            {
-            case TIMER_enA:
-                u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnCTL;
-                u32Reg&=u32MaskR;
-                u32ControlGeneric=(uint32_t)(u32Reg>>u32Bit);
-                break;
-            case TIMER_enB:
-                u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnCTL;
-                u32Reg&=(u32MaskR<<8);
-                u32ControlGeneric=(uint32_t)(u32Reg>>(u32Bit+8));
-                break;
-            case TIMER_enW:
-                u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnCTL;
-                u32Reg&=u32MaskR;
-                u32ControlGeneric=(uint32_t)(u32Reg>>u32Bit);
-                break;
-            default:
-                break;
-            }
-        }
+        psTimerCTL=TIMER_BLOCK[u32Wide][u32Number];
+        u32Reg=psTimerCTL->GPTMCTL;
+        u32Shift+=u32Bit;
+        u32Reg>>=u32Shift;
+        u32Reg&=(u32Mask);
+        u32ControlGeneric=(uint32_t)(u32Reg);
     }
     return u32ControlGeneric;
 }
-
 void TIMER__vSetEnable(TIMER_nMODULE enModule, TIMER_nENABLE enEnable)
 {
-    TIMER_vSetControlGeneric(enModule, (uint32_t) enEnable,GPTM_TA_GPTMTnCTL_R_TnEN_MASK, GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
+    TIMER_vSetControlGeneric(enModule, (uint32_t) enEnable, GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
 }
 
 TIMER_nENABLE TIMER__enGetEnable(TIMER_nMODULE enModule)
 {
-    return (TIMER_nENABLE)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_R_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
+    return (TIMER_nENABLE)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
 }
 
 void TIMER__vSetStall(TIMER_nMODULE enModule, TIMER_nSTALL enStall)
 {
-    TIMER_vSetControlGeneric(enModule, (uint32_t) enStall,GPTM_TA_GPTMTnCTL_R_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_R_TnSTALL_BIT);
+    TIMER_vSetControlGeneric(enModule, (uint32_t) enStall, GPTM_TA_GPTMTnCTL_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_R_TnSTALL_BIT);
 }
 
 TIMER_nSTALL TIMER__enGetStall(TIMER_nMODULE enModule)
 {
-    return (TIMER_nSTALL)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_R_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_R_TnSTALL_BIT);
+    return (TIMER_nSTALL)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_R_TnSTALL_BIT);
 }
 
 void TIMER__vSetEdgeEvent(TIMER_nMODULE enModule, TIMER_nEDGE_EVENT enEdgeEvent)
 {
-    TIMER_vSetControlGeneric(enModule, (uint32_t) enEdgeEvent,GPTM_TA_GPTMTnCTL_R_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_R_TnEVENT_BIT);
+    TIMER_vSetControlGeneric(enModule, (uint32_t) enEdgeEvent, GPTM_TA_GPTMTnCTL_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_R_TnEVENT_BIT);
 }
 
 TIMER_nEDGE_EVENT TIMER__enGetEdgeEvent(TIMER_nMODULE enModule)
 {
-    return (TIMER_nEDGE_EVENT)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_R_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_R_TnEVENT_BIT);
+    return (TIMER_nEDGE_EVENT)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_R_TnEVENT_BIT);
 }
 
 void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStall)
@@ -827,7 +637,7 @@ void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStall)
     uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
     if(TIMER_enW == u32Letter)
     {
-        TIMER_vSetControlGeneric(enModule, (uint32_t) enRTCStall,GPTM_TW_GPTMTnCTL_R_RTCEN_MASK, GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
+        TIMER_vSetControlGeneric(enModule, (uint32_t) enRTCStall, GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
     }
 }
 
@@ -837,35 +647,38 @@ TIMER_nRTC_STALL TIMER__enGetRTCStall(TIMER_nMODULE enModule)
     TIMER_nRTC_STALL enReturn = TIMER_enRTC_STALL_UNDEF;
     if(TIMER_enW == u32Letter)
     {
-        enReturn = (TIMER_nRTC_STALL)TIMER_u32GetControlGeneric(enModule,GPTM_TW_GPTMTnCTL_R_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
+        enReturn = (TIMER_nRTC_STALL)TIMER_u32GetControlGeneric(enModule,GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
     }
     return enReturn;
 }
 
 void TIMER__vSetADCTrigger(TIMER_nMODULE enModule, TIMER_nADC_TRIGGER enADCTrigger)
 {
-    TIMER_vSetControlGeneric(enModule, (uint32_t) enADCTrigger,GPTM_TA_GPTMTnCTL_R_TnOTE_MASK, GPTM_TA_GPTMTnCTL_TnOTE_MASK, GPTM_TA_GPTMTnCTL_R_TnOTE_BIT);
+    TIMER_vSetControlGeneric(enModule, (uint32_t) enADCTrigger,GPTM_TA_GPTMTnCTL_TnOTE_MASK, GPTM_TA_GPTMTnCTL_R_TnOTE_BIT);
 }
 
 TIMER_nADC_TRIGGER TIMER__enGetADCTrigger(TIMER_nMODULE enModule)
 {
-    return (TIMER_nADC_TRIGGER)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_R_TnOTE_MASK, GPTM_TA_GPTMTnCTL_R_TnOTE_BIT);
+    return (TIMER_nADC_TRIGGER)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnOTE_MASK, GPTM_TA_GPTMTnCTL_R_TnOTE_BIT);
 }
 
 void TIMER__vSetPWMOutputLevel(TIMER_nMODULE enModule, TIMER_nPWM_OUTPUT enPWMOutputLevel)
 {
-    TIMER_vSetControlGeneric(enModule, (uint32_t) enPWMOutputLevel,GPTM_TA_GPTMTnCTL_R_TnPWML_MASK, GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
+    TIMER_vSetControlGeneric(enModule, (uint32_t) enPWMOutputLevel, GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
 }
 
 TIMER_nPWM_OUTPUT TIMER__enGetPWMOutputLevel(TIMER_nMODULE enModule)
 {
-    return (TIMER_nPWM_OUTPUT)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_R_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
+    return (TIMER_nPWM_OUTPUT)TIMER_u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
 }
 
 void TIMER__vSetSyncronize(TIMER_nSYNC enSync)
 {
     GPTM0_GPTMSYNC_R=(uint32_t)enSync&(uint32_t)TIMER_enSYNC_ALL;
 }
+
+
+uint32_t u32IntMask[3]={(uint32_t)TIMER_enINT_TA_ALL,(uint32_t)TIMER_enINT_TB_ALL,(uint32_t)TIMER_enINT_TW_ALL};
 
 void TIMER_vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
@@ -874,6 +687,7 @@ void TIMER_vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     uint32_t u32Number= (uint32_t) enModule & 0x7;
     uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+    GPTM_TypeDef* psTimerIMR=0;
 
     if(TIMER_MAX<u32Number)
     {
@@ -883,87 +697,41 @@ void TIMER_vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 #if 0
     if(enInterrupt&TIMER_enINT_MATCH)
     {
-        TIMER__vSetMatchEventInterrupt(enModule,TIMER_enEVENT_INT_EN);
+        if(TIMER_enEVENT_INT_DIS == TIMER__enGetMatchEventInterrupt)
+        {
+            TIMER__vSetMatchEventInterrupt(enModule,TIMER_enEVENT_INT_EN);
+        }
     }
 
     if(enInterrupt&TIMER_enINT_CAPTURE_EVENT)
     {
-        TIMER__vSetPWMInterrupt(enModule,TIMER_enPWM_INT_EN);
+        if(TIMER_enPWM_INT_DIS == TIMER__enGetPWMInterrupt)
+        {
+            TIMER__vSetPWMInterrupt(enModule,TIMER_enPWM_INT_EN);
+        }
     }
 #endif
-    if(TIMER_en32 ==u32Wide)
+    psTimerIMR=TIMER_BLOCK[u32Wide][u32Number];
+    u32Int=(uint32_t)enInterrupt;
+    if(TIMER_enB==u32Letter)
     {
-        switch(u32Letter)
+        u32Int&=~(uint32_t)TIMER_enINT_RTC;
+        if(u32Int&TIMER_enINT_MATCH)
         {
-        case TIMER_enA:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
-            u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg|=u32Int;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Int&TIMER_enINT_MATCH)
-            {
-                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Int|=TIMER_enINT_RTC;
-            }
-            u32Int<<=8;
-            u32Int&=TIMER_enINT_TB_ALL;
-            u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg|=u32Int;
-            GPTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
-            u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg|=u32Int;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        default:
-            break;
+            u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+            u32Int|=TIMER_enINT_RTC;
         }
+        u32Int<<=8;
     }
-    else
-    {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
-            u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg|=u32Int;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Int&TIMER_enINT_MATCH)
-            {
-                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Int|=TIMER_enINT_RTC;
-            }
-            u32Int<<=8;
-            u32Int&=TIMER_enINT_TB_ALL;
-            u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg|=u32Int;
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
-            u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg|=u32Int;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        default:
-            break;
-        }
-    }
+    u32Int&=(uint32_t)u32IntMask[u32Letter];
+
+
+    u32Reg=psTimerIMR->GPTMIMR;
+    u32Reg|=u32Int;
+    psTimerIMR->GPTMIMR=u32Reg;
 }
+
+
 
 void TIMER_vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
@@ -972,6 +740,7 @@ void TIMER_vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     uint32_t u32Number= (uint32_t) enModule & 0x7;
     uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+    GPTM_TypeDef* psTimerIMR=0;
 
     if(TIMER_MAX<u32Number)
     {
@@ -981,86 +750,38 @@ void TIMER_vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 #if 0
     if(enInterrupt&TIMER_enINT_MATCH)
     {
-        TIMER__vSetMatchEventInterrupt(enModule,TIMER_enEVENT_INT_DIS);
+        if(TIMER_enEVENT_INT_EN == TIMER__enGetMatchEventInterrupt)
+        {
+            TIMER__vSetMatchEventInterrupt(enModule,TIMER_enEVENT_INT_DIS);
+        }
     }
 
     if(enInterrupt&TIMER_enINT_CAPTURE_EVENT)
     {
-        TIMER__vSetPWMInterrupt(enModule,TIMER_enPWM_INT_DIS);
+        if(TIMER_enPWM_INT_EN == TIMER__enGetPWMInterrupt)
+        {
+            TIMER__vSetPWMInterrupt(enModule,TIMER_enPWM_INT_DIS);
+        }
     }
 #endif
-    if(TIMER_en32 ==u32Wide)
+    psTimerIMR=TIMER_BLOCK[u32Wide][u32Number];
+    u32Int=(uint32_t)enInterrupt;
+    if(TIMER_enB==u32Letter)
     {
-        switch(u32Letter)
+        u32Int&=~(uint32_t)TIMER_enINT_RTC;
+        if(u32Int&TIMER_enINT_MATCH)
         {
-        case TIMER_enA:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
-            u32Reg=GPTM_TA_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg&=~u32Int;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Int&TIMER_enINT_MATCH)
-            {
-                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Int|=TIMER_enINT_RTC;
-            }
-            u32Int<<=8;
-            u32Int&=TIMER_enINT_TB_ALL;
-            u32Reg=GPTM_TB_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg&=~u32Int;
-            GPTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
-            u32Reg=GPTM_TW_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg&=~u32Int;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        default:
-            break;
+            u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+            u32Int|=TIMER_enINT_RTC;
         }
+        u32Int<<=8;
     }
-    else
-    {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TA_ALL;
-            u32Reg=GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg&=~u32Int;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Int&TIMER_enINT_MATCH)
-            {
-                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Int|=TIMER_enINT_RTC;
-            }
-            u32Int<<=8;
-            u32Int&=TIMER_enINT_TB_ALL;
-            u32Reg=GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg&=~u32Int;
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Int=(uint32_t)enInterrupt;
-            u32Int&=(uint32_t)TIMER_enINT_TW_ALL;
-            u32Reg=GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR;
-            u32Reg&=~u32Int;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnIMR=u32Reg;
-            break;
-        default:
-            break;
-        }
-    }
+    u32Int&=(uint32_t)u32IntMask[u32Letter];
+
+
+    u32Reg=psTimerIMR->GPTMIMR;
+    u32Reg&=~u32Int;
+    psTimerIMR->GPTMIMR=u32Reg;
 }
 
 
@@ -1070,72 +791,106 @@ void TIMER_vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     uint32_t u32Number= (uint32_t) enModule & 0x7;
     uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
     uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+    GPTM_TypeDef* psTimerICR=0;
 
     if(TIMER_MAX<u32Number)
     {
         u32Number=TIMER_MAX;
     }
     TIMER__vSetReady(enModule);
-    if(TIMER_en32 ==u32Wide)
+
+    psTimerICR=TIMER_BLOCK[u32Wide][u32Number];
+    u32Reg=(uint32_t)enInterrupt;
+    if(TIMER_enB==u32Letter)
     {
-        switch(u32Letter)
+        u32Reg&=~(uint32_t)TIMER_enINT_RTC;
+        if(u32Reg&TIMER_enINT_MATCH)
         {
-        case TIMER_enA:
-            u32Reg=(uint32_t)enInterrupt;
-            u32Reg&=(uint32_t)TIMER_enINT_TA_ALL;
-            GPTM_TA_BLOCK[u32Number]->GPTMTnICR=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Reg=(uint32_t)enInterrupt;
-            u32Reg&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Reg&TIMER_enINT_MATCH)
+            u32Reg&=~(uint32_t)(TIMER_enINT_MATCH);
+            u32Reg|=TIMER_enINT_RTC;
+        }
+        u32Reg<<=8;
+    }
+    u32Reg&=(uint32_t)u32IntMask[u32Letter];
+
+    psTimerICR->GPTMICR=u32Reg;
+}
+
+TIMER_nSTATUS TIMER_enStatusInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+{
+    TIMER_nSTATUS enInt=TIMER_enSTATUS_UNDEF;
+    uint32_t u32Reg=0;
+    uint32_t u32Int=0;
+    TIMER_nREADY enReady=TIMER_enNOREADY;
+    uint32_t u32Number= (uint32_t) enModule & 0x7;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x3;
+    uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+    GPTM_TypeDef* psTimerRIS=0;
+    if(TIMER_MAX<u32Number)
+    {
+        u32Number=TIMER_MAX;
+    }
+    enReady=TIMER__enIsReady(enModule);
+
+    if(TIMER_enREADY == enReady)
+    {
+        psTimerRIS=TIMER_BLOCK[u32Wide][u32Number];
+        u32Int=(uint32_t)enInterrupt;
+        if(TIMER_enB==u32Letter)
+        {
+            u32Int&=~(uint32_t)TIMER_enINT_RTC;
+            if(u32Int&TIMER_enINT_MATCH)
             {
-                u32Reg&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Reg|=TIMER_enINT_RTC;
+                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
+                u32Int|=TIMER_enINT_RTC;
             }
-            u32Reg<<=8;
-            u32Reg&=TIMER_enINT_TB_ALL;
-            GPTM_TB_BLOCK[u32Number]->GPTMTnICR=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Reg=(uint32_t)enInterrupt;
-            u32Reg&=(uint32_t)TIMER_enINT_TW_ALL;
-            GPTM_TW_BLOCK[u32Number]->GPTMTnICR=u32Reg;
-            break;
-        default:
-            break;
+            u32Int<<=8;
+        }
+        u32Int&=(uint32_t)u32IntMask[u32Letter];
+
+        u32Reg=psTimerRIS->GPTMRIS;
+        u32Reg&=u32Int;
+
+        if(0!=u32Reg)
+        {
+            enInt=TIMER_enOCCUR;
+        }
+        else
+        {
+            enInt=TIMER_enNOOCCUR;
         }
     }
-    else
-    {
-        switch(u32Letter)
-        {
-        case TIMER_enA:
-            u32Reg=(uint32_t)enInterrupt;
-            u32Reg&=(uint32_t)TIMER_enINT_TA_ALL;
-            GPWTM_TA_BLOCK[u32Number]->GPTMTnICR=u32Reg;
-            break;
-        case TIMER_enB:
-            u32Reg=(uint32_t)enInterrupt;
-            u32Reg&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Reg&TIMER_enINT_MATCH)
-            {
-                u32Reg&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Reg|=TIMER_enINT_RTC;
-            }
-            u32Reg<<=8;
-            u32Reg&=TIMER_enINT_TB_ALL;
-            GPWTM_TB_BLOCK[u32Number]->GPTMTnICR=u32Reg;
-            break;
-        case TIMER_enW:
-            u32Reg=(uint32_t)enInterrupt;
-            u32Reg&=(uint32_t)TIMER_enINT_TW_ALL;
-            GPWTM_TW_BLOCK[u32Number]->GPTMTnICR=u32Reg;
-            break;
-        default:
-            break;
-        }
-    }
+    return enInt;
+}
+
+
+void TIMER_vSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
+{
+    TIMER_nCOUNT_DIR    enDirection=(TIMER_nCOUNT_DIR)((uint32_t)enMode&1);
+    TIMER_nALT_MODE     enAltMode=(TIMER_nALT_MODE)(((uint32_t)enMode>>4)&1);
+    TIMER_nEDGE_MODE    enEdgeMode=(TIMER_nEDGE_MODE)(((uint32_t)enMode>>8)&1);
+    TIMER_nSUB_MODE     enSubMode=(TIMER_nSUB_MODE)(((uint32_t)enMode>>12)&3);
+    TIMER_nCONFIG       enConfig=(TIMER_nCONFIG)(((uint32_t)enMode>>16)&7);
+    TIMER_nPWM_OUTPUT   enPWMOut=(TIMER_nPWM_OUTPUT)(((uint32_t)enMode>>20)&1);
+    TIMER_nPWM_OUT_INIT enPWMOutInit=(TIMER_nPWM_OUT_INIT)(((uint32_t)enMode>>24)&1);
+    TIMER_nEDGE_EVENT   enEdgeEvent=(TIMER_nEDGE_EVENT)(((uint32_t)enMode>>28)&3);
+    TIMER_nSNAPSHOT     enSnapShot=(TIMER_nSNAPSHOT)(((uint32_t)enMode>>30)&1);
+
+    TIMER__vSetConfiguration(enModule,enConfig);
+    TIMER__vSetSubMode(enModule,enSubMode);
+    TIMER__vSetEdgeMode(enModule,enEdgeMode);
+    TIMER__vSetAltMode(enModule,enAltMode);
+    TIMER__vSetCountDir(enModule,enDirection);
+    TIMER__vSetSnapShot(enModule,enSnapShot);
+    TIMER__vSetPWMOutputInit(enModule,enPWMOutInit);
+    TIMER__vSetEdgeEvent(enModule,enEdgeEvent);
+    TIMER__vSetPWMOutputLevel(enModule,enPWMOut);
+
+    //Configure Reload and Match
+
+    //TIMER__vSetEnable(enModule,TIMER_enENABLE_START);
+
+
 }
 
 void TIMER0A_vISR(void)

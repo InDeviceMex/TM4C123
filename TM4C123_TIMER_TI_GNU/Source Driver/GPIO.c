@@ -236,7 +236,7 @@ GPIO_nDIR GPIO__vGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin)
 }
 
 
-inline void GPIO_vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
+inline void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     GPIO_TypeDef* gpio=0;

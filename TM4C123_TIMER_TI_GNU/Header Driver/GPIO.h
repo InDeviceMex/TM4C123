@@ -10686,7 +10686,7 @@ void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enDir);
 GPIO_nDIR GPIO__vGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
-void GPIO_vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
 uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
