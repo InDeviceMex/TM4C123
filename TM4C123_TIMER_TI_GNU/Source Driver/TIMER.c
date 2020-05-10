@@ -109,6 +109,61 @@ volatile uint32_t * TIMER_TnMR_BLOCK[2][2][6]=
  }
 };
 
+volatile uint32_t * TIMER_TnILR_BLOCK[2][2][6]=
+{
+ {
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnILR_OFFSET)},
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TB_GPTMTnILR_OFFSET)},
+ },
+ {
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TA_GPTMTnILR_OFFSET)},
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TB_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TB_GPTMTnILR_OFFSET)},
+ }
+};
+
+
+volatile uint32_t * TIMER_TnPR_BLOCK[2][2][6]=
+{
+ {
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnPR_OFFSET)},
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TB_GPTMTnPR_OFFSET)},
+ },
+ {
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TA_GPTMTnPR_OFFSET)},
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TB_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TB_GPTMTnPR_OFFSET)},
+ }
+};
+
+volatile uint32_t * TIMER_TnMATCHR_BLOCK[2][2][6]=
+{
+ {
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET)},
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TB_GPTMTnMATCHR_OFFSET)},
+ },
+ {
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET)},
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TB_GPTMTnMATCHR_OFFSET)},
+ }
+};
+
+
+volatile uint32_t * TIMER_TnPMR_BLOCK[2][2][6]=
+{
+ {
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnPMR_OFFSET)},
+     {(volatile uint32_t *)(GPTM0_BASE + GPTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TB_GPTMTnPMR_OFFSET)},
+ },
+ {
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TA_GPTMTnPMR_OFFSET)},
+     {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TB_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TB_GPTMTnPMR_OFFSET)},
+ }
+};
+
+volatile uint32_t * TIMER_RTCPD_BLOCK[6]=
+{
+     (volatile uint32_t *)(GPWTM0_BASE + GPWTM_TW_GPTMRTCPD_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TW_GPTMRTCPD_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TW_GPTMRTCPD_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TW_GPTMRTCPD_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TW_GPTMRTCPD_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TW_GPTMRTCPD_OFFSET),
+ };
+
 GPTM_TypeDef* GPWTM_BLOCK[6]={GPWTM0,GPWTM1,GPWTM2,GPWTM3,GPWTM4,GPWTM5};
 
 GPWTM_CTL_TypeDef* GPWTM_CTL_BLOCK[6]={GPWTM0_CTL,GPWTM1_CTL,GPWTM2_CTL,GPWTM3_CTL,GPWTM4_CTL,GPWTM5_CTL};
@@ -1100,6 +1155,215 @@ TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule)
 
 }
 
+uint64_t pu64TimerSize[2]={0xFFFFFF,0xFFFFFFFFFFFF};
+uint32_t pu32PrescalerMask[2]={0xFF,0xFFFF};
+uint32_t pu32SizeMask[2]={0xFFFF,0xFFFFFFFF};
+uint32_t pu32PrescalerShift[2]={8,16};
+uint32_t pu32SizeShift[2]={16,32};
+
+void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_t u64Reload)
+{
+    TIMER_MODE_Typedef psMode;
+
+    /*Erase*/
+    uint32_t u32Reg=0;
+    uint32_t u32RegPrescaler=0;
+    uint32_t u32Number= (uint32_t) enModule & 0x7;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x1;
+    uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+    volatile uint32_t* pu32TimerILRLow=0;
+    volatile uint32_t* pu32TimerILRHigh=0;
+    volatile uint32_t* pu32TimerPR=0;
+    volatile uint32_t* pu32TimerRTCPD=0;
+    if(TIMER_MAX<u32Number)
+    {
+        u32Number=TIMER_MAX;
+    }
+    TIMER__vSetReady(enModule);
+    TIMER__vGetMode(enModule, &psMode);
+
+    switch (psMode.enConfig)
+    {
+    case TIMER_enCONFIG_WIDE:
+        pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
+        pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
+
+        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFF);
+        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFF);
+        break;
+    case TIMER_enCONFIG_RTC:
+        pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
+        pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
+        pu32TimerRTCPD=TIMER_RTCPD_BLOCK[u32Number];
+
+        *pu32TimerRTCPD=u32PrescalerRTC&0xFFFF;
+        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFF);
+        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFF);
+        break;
+    case TIMER_enCONFIG_INDIVIDUAL:
+
+        pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][u32Letter][u32Number];
+        pu32TimerPR=TIMER_TnPR_BLOCK[u32Wide][u32Letter][u32Number];
+        //Prescaler
+        if((TIMER_enALT_MODE_CC==psMode.enAltMode)&&(TIMER_enSUB_MODE_CAPTURE!=psMode.enSubMode) && (TIMER_enCOUNT_DIR_DOWN==psMode.enDirection))
+        {
+            u64Reload&=pu64TimerSize[u32Wide];
+            u32RegPrescaler=(uint32_t)(u64Reload&(uint64_t)pu32PrescalerMask[u32Wide]);
+            u32Reg=(uint32_t)(u64Reload>>pu32PrescalerShift[u32Wide]);
+            u32Reg&=pu32SizeMask[u32Wide];
+            *pu32TimerPR=u32RegPrescaler;
+            *pu32TimerILRLow=u32Reg;
+        }
+        //Time Extension
+        else
+        {
+            u64Reload&=pu64TimerSize[u32Wide];
+            u32Reg=(uint32_t)(u64Reload&(uint64_t)pu32SizeMask[u32Wide]);
+            u32RegPrescaler=(uint32_t)(u64Reload>>pu32SizeShift[u32Wide]);
+            u32RegPrescaler&=pu32PrescalerMask[u32Wide];
+            *pu32TimerPR=u32RegPrescaler;
+            *pu32TimerILRLow=u32Reg;
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
+{
+    TIMER_MODE_Typedef psMode;
+
+    /*Erase*/
+    uint32_t u32Reg=0;
+    uint32_t u32RegPrescaler=0;
+    uint32_t u32Number= (uint32_t) enModule & 0x7;
+    uint32_t u32Letter= ((uint32_t) enModule>>8) & 0x1;
+    uint32_t u32Wide= ((uint32_t) enModule>>16) & 0x1;
+    volatile uint32_t* pu32TimerMATCHRLow=0;
+    volatile uint32_t* pu32TimerMATCHRHigh=0;
+    volatile uint32_t* pu32TimerPMR=0;
+    if(TIMER_MAX<u32Number)
+    {
+        u32Number=TIMER_MAX;
+    }
+    TIMER__vSetReady(enModule);
+    TIMER__vGetMode(enModule, &psMode);
+
+    switch (psMode.enConfig)
+    {
+    case TIMER_enCONFIG_WIDE:
+        pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
+        pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
+
+        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFF);
+        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFF);
+        break;
+    case TIMER_enCONFIG_RTC:
+        pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
+        pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
+
+        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFF);
+        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFF);
+        break;
+    case TIMER_enCONFIG_INDIVIDUAL:
+
+        pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][u32Letter][u32Number];
+        pu32TimerPMR=TIMER_TnPMR_BLOCK[u32Wide][u32Letter][u32Number];
+        //Prescaler
+        if((TIMER_enALT_MODE_CC==psMode.enAltMode)&&(TIMER_enSUB_MODE_CAPTURE!=psMode.enSubMode) && (TIMER_enCOUNT_DIR_DOWN==psMode.enDirection))
+        {
+            u64Match&=pu64TimerSize[u32Wide];
+            u32RegPrescaler=(uint32_t)(u64Match&(uint64_t)pu32PrescalerMask[u32Wide]);
+            u32Reg=(uint32_t)(u64Match>>pu32PrescalerShift[u32Wide]);
+            u32Reg&=pu32SizeMask[u32Wide];
+            *pu32TimerPMR=u32RegPrescaler;
+            *pu32TimerMATCHRLow=u32Reg;
+        }
+        //Time Extension
+        else
+        {
+            u64Match&=pu64TimerSize[u32Wide];
+            u32Reg=(uint32_t)(u64Match&(uint64_t)pu32SizeMask[u32Wide]);
+            u32RegPrescaler=(uint32_t)(u64Match>>pu32SizeShift[u32Wide]);
+            u32RegPrescaler&=pu32PrescalerMask[u32Wide];
+            *pu32TimerPMR=u32RegPrescaler;
+            *pu32TimerMATCHRLow=u32Reg;
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+
+TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload)
+{
+    TIMER_nSTATUS enReturn= TIMER_enERROR;
+    enReturn =TIMER__enSetMode(enModule,enMode);
+    if(TIMER_enOK == enReturn)
+    {
+        TIMER__vSetReload(enModule,u32PrescalerRTC,u64Reload);
+    }
+    return enReturn;
+}
+
+TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload)
+{
+    TIMER_nSTATUS enReturn= TIMER_enERROR;
+    enReturn =TIMER__enSetModeStruct(enModule,psMode);
+    if(TIMER_enOK == enReturn)
+    {
+        TIMER__vSetReload(enModule,u32PrescalerRTC,u64Reload);
+    }
+    return enReturn;
+}
+
+TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode,uint64_t u64Match)
+{
+    TIMER_nSTATUS enReturn= TIMER_enERROR;
+    enReturn =TIMER__enSetMode(enModule,enMode);
+    if(TIMER_enOK == enReturn)
+    {
+        TIMER__vSetMatch(enModule,u64Match);
+    }
+    return enReturn;
+}
+
+TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode,uint64_t u64Match)
+{
+    TIMER_nSTATUS enReturn= TIMER_enERROR;
+    enReturn =TIMER__enSetModeStruct(enModule,psMode);
+    if(TIMER_enOK == enReturn)
+    {
+        TIMER__vSetMatch(enModule,u64Match);
+    }
+    return enReturn;
+}
+
+TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
+{
+    TIMER_nSTATUS enReturn= TIMER_enERROR;
+    enReturn =TIMER__enSetMode(enModule,enMode);
+    if(TIMER_enOK == enReturn)
+    {
+        TIMER__vSetReload(enModule,u32PrescalerRTC,u64Reload);
+        TIMER__vSetMatch(enModule,u64Match);
+    }
+    return enReturn;
+}
+
+TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
+{
+    TIMER_nSTATUS enReturn= TIMER_enERROR;
+    enReturn =TIMER__enSetModeStruct(enModule,psMode);
+    if(TIMER_enOK == enReturn)
+    {
+        TIMER__vSetReload(enModule,u32PrescalerRTC,u64Reload);
+        TIMER__vSetMatch(enModule,u64Match);
+    }
+    return enReturn;
+}
 
 void TIMER0A_vISR(void)
 {

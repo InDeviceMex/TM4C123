@@ -15029,6 +15029,17 @@ typedef enum
     TIMER_enMODE_UNDEF=                             0xFFFFFFFF,
 }TIMER_nMODE;
 
+typedef enum
+{
+    TIMER_enPRESCALER_NA=0,
+    TIMER_enPRESCALER_PRESCALER=1,
+    TIMER_enPRESCALER_EXTENSION=2,
+    TIMER_enPRESCALER_UNDEF=0xFF,
+}TIMER_nPRESCALER;
+
+//ONESHOT OR PERIODIC and CONTINUES check DIR
+// PWM
+// CAPTURE
 typedef struct
 {
     TIMER_nCONFIG enConfig;
@@ -15054,6 +15065,8 @@ typedef struct
     TIMER_nRTC_STALL        enRTCStall;
     TIMER_nADC_TRIGGER      enADCTrigger;
 }TIMER_EXTRAMODE_Typedef;
+
+
 
 void TIMER__vInit(void);
 void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERRUPT enInterrupt);
@@ -15148,5 +15161,22 @@ TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule);
 void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
 
 /*ToDo Create Reload and Match Functions, add this functions to TIMER__enSetMode*/
+
+
+void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_t u64Reload);
+void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match);
+
+
+TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
+TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
+
+
+TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode,uint64_t u64Match);
+TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode,uint64_t u64Match);
+
+TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
+TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
+
+
 
 #endif /* TIMER_H_ */
