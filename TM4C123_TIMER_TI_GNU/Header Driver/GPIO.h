@@ -10729,6 +10729,16 @@ typedef enum
     GPIO_enCONFIG_UNDEF = 0xFFFFFFFF,
 }GPIO_nCONFIG;
 
+typedef enum
+{
+    GPIO_enINT_CONFIG_EDGE_FALLING= ((uint32_t)GPIO_enSENSE_EDGE<<8)  |((uint32_t)GPIO_enEDGE_FALLING<<0),
+    GPIO_enINT_CONFIG_EDGE_RISING=  ((uint32_t)GPIO_enSENSE_EDGE<<8)  |((uint32_t)GPIO_enEDGE_RISING<<0),
+    GPIO_enINT_CONFIG_EDGE_BOTH=    ((uint32_t)GPIO_enSENSE_EDGE<<8)  |((uint32_t)GPIO_enEDGE_BOTH<<0),
+    GPIO_enINT_CONFIG_LEVEL_LOW=    ((uint32_t)GPIO_enSENSE_LEVEL<<8)  |((uint32_t)GPIO_enLEVEL_LOW<<0),
+    GPIO_enINT_CONFIG_LEVEL_HIGH=   ((uint32_t)GPIO_enSENSE_LEVEL<<8)  |((uint32_t)GPIO_enLEVEL_HIGH<<0),
+    GPIO_enINT_CONFIG_UNDEF=0xFFFF,
+}GPIO_nINT_CONFIG;
+
 
 typedef struct
 {
@@ -10781,6 +10791,8 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFIG enIntConfig);
+
 void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);

@@ -599,7 +599,21 @@ void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 }
 
+void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFIG enIntConfig)
+{
+    uint32_t u32Sense=((uint32_t)enIntConfig>>8)&1;
+    uint32_t u32Event=((uint32_t)enIntConfig)&3;
 
+    if( (uint32_t)GPIO_enSENSE_EDGE == u32Sense)
+    {
+        GPIO__vSetIntEdge(enPort,enPin,(GPIO_nEDGE)u32Event);
+    }
+    else
+    {
+        GPIO__vSetIntLevel(enPort,enPin,(GPIO_nLEVEL)u32Event);
+    }
+    GPIO__vEnInterrupt(enPort,enPin);
+}
 void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
@@ -1341,6 +1355,8 @@ void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
     u32Pin&=GPIO_enALL;
 
     GPIO__vSetReady((GPIO_nPORT)u32Port);
+    GPIO__enSetConfig((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
+    GPIO__vDisADCTrigger((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin);
     GPIO__vDisAltFunction((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin);
     GPIO__vDisDigital((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin);
     GPIO__vEnAnalog((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin);

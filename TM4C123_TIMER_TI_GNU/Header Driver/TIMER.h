@@ -15147,4 +15147,6 @@ TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, TIMER_EXTRAMOD
 TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule);
 void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
 
+/*ToDo Create Reload and Match Functions, add this functions to TIMER__enSetMode*/
+
 #endif /* TIMER_H_ */

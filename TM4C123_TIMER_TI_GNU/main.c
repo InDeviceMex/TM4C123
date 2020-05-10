@@ -127,7 +127,7 @@ void MAIN_vInitTIMER(void)
     TIMER__enSetMode(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN);
 
 
-    GPTM_UNION->TW[2].GPTMTnILR=((0x1FFFF)-1);
+    GPTM_UNION->TW[2].GPTMTnILR=((0xFFFFF)-1);
 
 
     GPTM_UNION->TB[0].GPTMTnPR=(((16)-1)>>16)&0xFF;
@@ -206,10 +206,8 @@ void MAIN_vInitGPIO(void)
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
 
-
-    GPIO__vSetIntEdge(GPIO_enPORTF,(GPIO_nPIN)(enSW1Pin|enSW2Pin),GPIO_enEDGE_BOTH);
     GPIO__vClearInterrupt(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin));
-    GPIO__vEnInterrupt(GPIO_enPORTF,(GPIO_nPIN)(enSW2Pin|enSW1Pin));
+    GPIO__vEnInterruptConfig(GPIO_enPORTF,(GPIO_nPIN)(enSW1Pin|enSW2Pin),GPIO_enINT_CONFIG_EDGE_BOTH);
 
     GPIO__vSetDigitalFunction(GPIO_enT0CCP1_F1);
     GPIO__vSetDigitalFunction(GPIO_enT1CCP0_F2);
