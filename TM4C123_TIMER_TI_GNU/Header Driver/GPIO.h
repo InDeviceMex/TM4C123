@@ -10295,13 +10295,19 @@ typedef volatile struct
 #define GPIO_GPIOPCellID3_CID3_DEFAULT    (0x000000B1)
 //--------
 
+typedef enum
+{
+    GPIO_enOK=0,
+    GPIO_enERROR=1,
+    GPIO_enSTATUS_UNDEF=0xFF,
+}GPIO_nSTATUS;
 
 typedef enum
 {
-    GPIO_enNOOCCUR=0,
-    GPIO_enOCCUR=1,
-    GPIO_enSTATUS_UNDEF=0xFF,
-}GPIO_nSTATUS;
+    GPIO_enINT_NOOCCUR=0,
+    GPIO_enINT_OCCUR=1,
+    GPIO_enINT_STATUS_UNDEF=0xFF,
+}GPIO_nINT_STATUS;
 
 typedef enum
 {
@@ -10339,9 +10345,9 @@ typedef enum
 
 typedef enum
 {
-    GPIO_enINPUT=0,
-    GPIO_enOUTPUT=1,
-    GPIO_enUNDEF=0xFF,
+    GPIO_enDIR_INPUT=0,
+    GPIO_enDIR_OUTPUT=1,
+    GPIO_enDIR_UNDEF=0xFF,
 }GPIO_nDIR;
 
 typedef enum
@@ -10669,6 +10675,70 @@ typedef enum
     GPIO_enDEFAULT=0xFF,
 }GPIO_nPRIORITY;
 
+
+typedef enum
+{
+    GPIO_enCONFIG_INPUT_2MA_PUSHPULL                = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLUP         = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLDOWN       = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_2MA_OPENDRAIN               = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP        = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLDOWN      = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_4MA_PUSHPULL                = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_4MA_PUSHPULL_PULLUP         = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_4MA_PUSHPULL_PULLDOWN       = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_4MA_OPENDRAIN               = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_4MA_OPENDRAIN_PULLUP        = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_4MA_OPENDRAIN_PULLDOWN      = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_8MA_PUSHPULL                = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_8MA_PUSHPULL_PULLUP         = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_8MA_PUSHPULL_PULLDOWN       = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_8MA_OPENDRAIN               = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_8MA_OPENDRAIN_PULLUP        = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_8MA_OPENDRAIN_PULLDOWN      = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_8MA_SLR_PUSHPULL            = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_8MA_SLR_PUSHPULL_PULLUP     = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_8MA_SLR_PUSHPULL_PULLDOWN   = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_INPUT_8MA_SLR_OPENDRAIN           = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_INPUT_8MA_SLR_OPENDRAIN_PULLUP    = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_INPUT_8MA_SLR_OPENDRAIN_PULLDOWN  = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_INPUT<<8)  |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL               = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL_PULLUP        = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL_PULLDOWN      = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_2MA_OPENDRAIN              = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_2MA_OPENDRAIN_PULLUP       = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_2MA_OPENDRAIN_PULLDOWN     = ((uint32_t)GPIO_enDRIVE_2mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_4MA_PUSHPULL               = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_4MA_PUSHPULL_PULLUP        = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_4MA_PUSHPULL_PULLDOWN      = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_4MA_OPENDRAIN              = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_4MA_OPENDRAIN_PULLUP       = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_4MA_OPENDRAIN_PULLDOWN     = ((uint32_t)GPIO_enDRIVE_4mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_PUSHPULL               = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_PUSHPULL_PULLUP        = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_PUSHPULL_PULLDOWN      = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_OPENDRAIN              = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_OPENDRAIN_PULLUP       = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_OPENDRAIN_PULLDOWN     = ((uint32_t)GPIO_enDRIVE_8mA<<16)      |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_PUSHPULL           = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_PUSHPULL_PULLUP    = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_PUSHPULL_PULLDOWN  = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_PP<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN          = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN_PULLUP   = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN_PULLDOWN = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
+    GPIO_enCONFIG_UNDEF = 0xFFFFFFFF,
+}GPIO_nCONFIG;
+
+
+typedef struct
+{
+    GPIO_nDRIVE enDrive;
+    GPIO_nDIR enDirection;
+    GPIO_nOUTMODE enOutputMode;
+    GPIO_nRESMODE enResistorMode;
+}GPIO_CONFIG_Typedef;
+
+
 void GPIO__vInit(void);
 void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
 void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
@@ -10683,8 +10753,7 @@ GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort);
 GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort);
 
 void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enDir);
-GPIO_nDIR GPIO__vGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
+GPIO_nDIR GPIO__enGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
 uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
@@ -10692,8 +10761,14 @@ uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
 uint32_t GPIO_AHB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
+inline void GPIO_AHB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+uint32_t GPIO_AHB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
 uint32_t GPIO_APB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+inline void GPIO_APB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+uint32_t GPIO_APB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense);
 GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin);
@@ -10708,7 +10783,7 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-GPIO_nSTATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
@@ -10717,7 +10792,10 @@ void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive);
 GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nOUTMODE enMode);
+GPIO_nOUTMODE GPIO__enGetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enMode);
+GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
@@ -10729,6 +10807,29 @@ void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction);
+
+void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,GPIO_CONFIG_Typedef* psConfig);
+GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig);
+
+void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef* psConfig);
+
+GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig);
+GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_CONFIG_Typedef* psConfig);
+
+GPIO_nCONFIG GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_CONFIG_Typedef* psConfig);
+GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
+
+GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig);
+GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_CONFIG_Typedef* psConfig);
+
+GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
+void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Typedef* psConfig);
+GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
+
+/*all function about configure Interrupt as Config*/
+
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction);
 
 
