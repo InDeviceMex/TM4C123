@@ -15154,18 +15154,13 @@ TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule);
 void TIMER__vGetMode(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode);
 TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule);
 
-
 TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
 
 TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule);
 void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
 
-/*ToDo Create Reload and Match Functions, add this functions to TIMER__enSetMode*/
-
-
 void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_t u64Reload);
 void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match);
-
 
 TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
 TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
@@ -15177,6 +15172,9 @@ TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, TIMER_MODE_Ty
 TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
 TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
 
+/*ToDO Add implementation to read counter of the timer TnR and TnPS (current), TnV and TnPV (free-Running) */
 
+uint64_t TIMER__u64GetValueCurrent(TIMER_nMODULE enModule);
+uint64_t TIMER__u64GetValueFreeRunning(TIMER_nMODULE enModule);
 
 #endif /* TIMER_H_ */

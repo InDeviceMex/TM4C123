@@ -10840,11 +10840,7 @@ GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
 void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Typedef* psConfig);
 GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
 
-/*all function about configure Interrupt as Config*/
-
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction);
-
-
 
 void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
