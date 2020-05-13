@@ -50,7 +50,6 @@ volatile uint32_t u32Priority=0;
 GPIO_nBUS enBus=GPIO_enAPB;
 int main(void)
 {
-    LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     volatile char character[32] ={0};
     uint8_t u8Column=0;
     uint8_t u8Row=0;
@@ -65,11 +64,12 @@ int main(void)
     SysTick__enInitUs(10,SCB_enSHPR0);
     EEPROM__enInit();
     MAIN_vInitGPIO();
-    enStatus=LCD1602__enInit();
-    enStatus=LCD1602__enWriteString((char*)"INDEVICE TM4C123",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    LCD1602__enInit();
+    LCD1602__enWriteString((char*)"INDEVICE TM4C123",&u8Column,&u8Row,(uint8_t*)&u8Counter);
     u8Row=1;
-    enStatus=LCD1602__enWriteString((char*)"LCD1602 SW:BOTH ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
-    enStatus=LCD1602__enReadString((char*)character,0,0,32);
+    u8Column=0;
+    LCD1602__enWriteString((char*)"LCD1602 SW: BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    LCD1602__enReadString((char*)character,0,0,32);
 
     enBus=GPIO__enGetBus(GPIO_enPORTF);
     if(GPIO_enAPB==enBus)
@@ -88,25 +88,25 @@ int main(void)
         {
             u8Column=11;
             u8Row=1;
-            enStatus=LCD1602__enWriteString((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteString((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else if((psSW1->DATA_MASK[enSW1Pin] == 0))
         {
             u8Column=11;
             u8Row=1;
-            enStatus=LCD1602__enWriteString((char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteString((char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else if((psSW2->DATA_MASK[enSW2Pin] == 0))
         {
             u8Column=11;
             u8Row=1;
-            enStatus=LCD1602__enWriteString((char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteString((char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else
         {
             u8Column=11;
             u8Row=1;
-            enStatus=LCD1602__enWriteString((char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteString((char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
     }
 }

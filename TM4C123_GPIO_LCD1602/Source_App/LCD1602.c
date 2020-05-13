@@ -87,7 +87,7 @@ LCD1602_nSTATUS LCD1602__enInit(void)
     GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=LCD1602_D4;
     GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=LCD1602_D5;
     LCD1602_vPulseWriteEnable();
-    SysTick__vDelayUs(41000);//4.1 ms
+    SysTick__vDelayUs(4100);//4.1 ms
 
     //Wirte 0x3x to LCD
     LCD1602_vPrepareWriteEnable();
