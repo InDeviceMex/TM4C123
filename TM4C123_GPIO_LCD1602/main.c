@@ -19,6 +19,7 @@
 #include "GPIO.h"
 #include "TIMER.h"
 
+#include "LCD1602.h"
 /*Local functions*/
 void MAIN_vInitGPIO(void);
 void MAIN_vInitTIMER(void);
@@ -38,7 +39,11 @@ volatile uint32_t u32Priority=0;
 
 int main(void)
 {
-
+    LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
+    volatile char character[32] ={0};
+    uint8_t u8Column=0;
+    uint8_t u8Row=0;
+    uint8_t u8Counter=0;
     __asm(" cpsie i");
     FPU__vInit();
     MPU__vInit();
@@ -50,11 +55,17 @@ int main(void)
     EEPROM__enInit();
     MAIN_vInitGPIO();
     MAIN_vInitTIMER();
+    enStatus=LCD1602__enInit();
+    enStatus=LCD1602__enWriteString((char*)"INDEVICE TM4C123",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    u8Row=1;
+    enStatus=LCD1602__enWriteString((char*)"     LCD1602    ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    enStatus=LCD1602__enReadString((char*)character,0,0,32);
+
 
     while(1)
     {
         //SysTick__vDelayUs(100000);
-        if(1==u32Update)
+      /*  if(1==u32Update)
         {
             u32Update=0;
             if(u32Priority==0)
@@ -82,6 +93,7 @@ int main(void)
                 MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF);
             }
         }
+        */
     }
 }
 
@@ -196,8 +208,6 @@ void TIMER2W__vISR(void)
 void MAIN_vInitTIMER(void)
 {
     TIMER_EXTRAMODE_Typedef psExtraMode;
-    volatile TIMER_MODE_Typedef psMode;
-    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
 
     TIMER__vInit();
 
