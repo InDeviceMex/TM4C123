@@ -29,14 +29,25 @@ void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t
 void TIMER2W__vISR(void);
 
 
+GPIODATA_MASK_TypeDef* psLedRed=GPIOF_AHB_GPIODATA_MASK;
+GPIODATA_MASK_TypeDef* psLedGreen=GPIOF_AHB_GPIODATA_MASK;
+GPIODATA_MASK_TypeDef* psLedBlue=GPIOF_AHB_GPIODATA_MASK;
+
+
+GPIODATA_MASK_TypeDef* psSW1=GPIOF_AHB_GPIODATA_MASK;
+GPIODATA_MASK_TypeDef* psSW2=GPIOF_AHB_GPIODATA_MASK;
+
+GPIO_nPIN enSW2Pin=GPIO_enPIN0;
 GPIO_nPIN enLedRedPin=GPIO_enPIN1;
 GPIO_nPIN enLedBluePin=GPIO_enPIN2;
 GPIO_nPIN enLedGreenPin=GPIO_enPIN3;
+GPIO_nPIN enSW1Pin=GPIO_enPIN4;
 
 volatile uint32_t u32Update=0;
 volatile uint32_t u32Counter=0;
 volatile uint32_t u32Priority=0;
 
+GPIO_nBUS enBus=GPIO_enAPB;
 int main(void)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
@@ -54,196 +65,50 @@ int main(void)
     SysTick__enInitUs(10,SCB_enSHPR0);
     EEPROM__enInit();
     MAIN_vInitGPIO();
-    MAIN_vInitTIMER();
     enStatus=LCD1602__enInit();
     enStatus=LCD1602__enWriteString((char*)"INDEVICE TM4C123",&u8Column,&u8Row,(uint8_t*)&u8Counter);
     u8Row=1;
-    enStatus=LCD1602__enWriteString((char*)"     LCD1602    ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    enStatus=LCD1602__enWriteString((char*)"LCD1602 SW:BOTH ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
     enStatus=LCD1602__enReadString((char*)character,0,0,32);
 
+    enBus=GPIO__enGetBus(GPIO_enPORTF);
+    if(GPIO_enAPB==enBus)
+    {
+        psLedRed=GPIOF_APB_GPIODATA_MASK;
+        psLedGreen=GPIOF_APB_GPIODATA_MASK;
+        psLedBlue=GPIOF_APB_GPIODATA_MASK;
+        psSW1=GPIOF_APB_GPIODATA_MASK;
+        psSW2=GPIOF_APB_GPIODATA_MASK;
+    }
 
     while(1)
     {
         //SysTick__vDelayUs(100000);
-      /*  if(1==u32Update)
+        if((psSW1->DATA_MASK[enSW1Pin] == 0) && (psSW2->DATA_MASK[enSW2Pin] == 0))
         {
-            u32Update=0;
-            if(u32Priority==0)
-            {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>0)&0xFF);
-            }
-            if(u32Priority==1)
-            {
-                MAIN_vRGBLedValue((u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF);
-            }
-            if(u32Priority==1)
-            {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF);
-            }
-            if(u32Priority==2)
-            {
-                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>8)&0xFF);
-            }
-            if(u32Priority==3)
-            {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>16)&0xFF);
-            }
-            if(u32Priority==4)
-            {
-                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF);
-            }
+            u8Column=11;
+            u8Row=1;
+            enStatus=LCD1602__enWriteString((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
-        */
-    }
-}
-
-void MAIN_vRGBLedValue(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue)
-{
-    uint16_t u16RGBRedFinal=0;
-    uint16_t u16RGBGreenFinal=0;
-    uint16_t u16RGBBlueFinal=0;
-    if(u8RedValue==0)
-        u16RGBRedFinal=0xFF;
-    else if(u8RedValue==0xFF)
-        u16RGBRedFinal=0x100;
-    else
-        u16RGBRedFinal=0xFF- u8RedValue;
-
-    if(u8GreenValue==0)
-        u16RGBGreenFinal=0xFF;
-    else if(u8GreenValue==0xFF)
-        u16RGBGreenFinal=0x100;
-    else
-        u16RGBGreenFinal=0xFF- u8GreenValue;
-
-    if(u8BlueValue==0)
-        u16RGBBlueFinal=0xFF;
-    else if(u8BlueValue==0xFF)
-        u16RGBBlueFinal=0x100;
-    else
-        u16RGBBlueFinal=0xFF- u8BlueValue;
-
-    GPTM_UNION->TB[0].GPTMTnMATCHR=u16RGBRedFinal; //RED
-    GPTM_UNION->TA[1].GPTMTnMATCHR=u16RGBGreenFinal; //GREEN
-    GPTM_UNION->TB[1].GPTMTnMATCHR=u16RGBBlueFinal; //BLUE
-}
-
-void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue)
-{
-    uint32_t u32RGBRedPorcentaje=0;
-    uint32_t u32RGBGreenPorcentaje=0;
-    uint32_t u32RGBBluePorcentaje=0;
-    uint32_t u32RGBRed=0;
-    uint32_t u32RGBGreen=0;
-    uint32_t u32RGBBlue=0;
-
-    if(u8RedValue>100)
-        u8RedValue=100;
-    if(u8GreenValue>100)
-        u8GreenValue=100;
-    if(u8BlueValue>100)
-        u8BlueValue=100;
-
-    u32RGBRedPorcentaje=u8RedValue*0xFF;
-    u32RGBRedPorcentaje/=100;
-
-    u32RGBGreenPorcentaje=u8GreenValue*0xFF;
-    u32RGBGreenPorcentaje/=100;
-
-    u32RGBBluePorcentaje=u8BlueValue*0xFF;
-    u32RGBBluePorcentaje/=100;
-
-    if(u32RGBRedPorcentaje==0)
-        u32RGBRed=0xFF;
-    else if(u32RGBRedPorcentaje==0xFF)
-        u32RGBRed=0x100;
-    else
-        u32RGBRed=0xFF- u32RGBRedPorcentaje;
-
-    if(u32RGBGreenPorcentaje==0)
-        u32RGBGreen=0xFF;
-    else if(u32RGBGreenPorcentaje==0xFF)
-        u32RGBGreen=0x100;
-    else
-        u32RGBGreen=0xFF- u32RGBGreenPorcentaje;
-
-    if(u32RGBBluePorcentaje==0)
-        u32RGBBlue=0xFF;
-    else if(u32RGBBluePorcentaje==0xFF)
-        u32RGBBlue=0x100;
-    else
-        u32RGBBlue=0xFF- u32RGBBluePorcentaje;
-
-    GPTM_UNION->TB[0].GPTMTnMATCHR=u32RGBRed; //RED
-    GPTM_UNION->TA[1].GPTMTnMATCHR=u32RGBGreen; //GREEN
-    GPTM_UNION->TB[1].GPTMTnMATCHR=u32RGBBlue; //BLUE
-}
-void TIMER2W__vISR(void)
-{
-    static uint8_t u8Dir=0;
-    u32Update=1;
-    if(u8Dir==0){
-
-        if(u32Counter==(0xFFFFFF-1))
+        else if((psSW1->DATA_MASK[enSW1Pin] == 0))
         {
-            u8Dir=1;
+            u8Column=11;
+            u8Row=1;
+            enStatus=LCD1602__enWriteString((char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
-        u32Counter++;
-    }
-    else
-    {
-        if(u32Counter==(1))
+        else if((psSW2->DATA_MASK[enSW2Pin] == 0))
         {
-            u8Dir=0;
-            if(u32Priority==4)
-                u32Priority=0;
-            else
-                u32Priority++;
+            u8Column=11;
+            u8Row=1;
+            enStatus=LCD1602__enWriteString((char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
-        u32Counter--;
+        else
+        {
+            u8Column=11;
+            u8Row=1;
+            enStatus=LCD1602__enWriteString((char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+        }
     }
-}
-
-
-void MAIN_vInitTIMER(void)
-{
-    TIMER_EXTRAMODE_Typedef psExtraMode;
-
-    TIMER__vInit();
-
-    TIMER__vEnInterruptMODULE(TIMER_enT2W,TIMER_enPRI7);
-    TIMER__vRegisterISR(TIMER2W__vISR,TIMER_enT2W,TIMER_enINTERRUPT_TIMEOUT);
-
-
-    psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
-    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;
-    psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
-    psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
-    psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
-    psExtraMode.enStall=TIMER_enSTALL_FREEZE;
-    psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
-    psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
-
-    TIMER__enSetExtraModeStruct(TIMER_enT2W,&psExtraMode);
-    TIMER__enSetExtraModeStruct(TIMER_enT0B,&psExtraMode);
-    TIMER__enSetExtraModeStruct(TIMER_enT1A,&psExtraMode);
-    TIMER__enSetExtraModeStruct(TIMER_enT1B,&psExtraMode);
-    TIMER__enSetExtraModeStruct(TIMER_enT3A,&psExtraMode);
-
-    TIMER__enSetMode_Reload(TIMER_enT2W,TIMER_enMODE_PERIODIC_WIDE_DOWN,0,0xFF);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT0B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFF);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1A,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFF);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFF);
-
-
-    TIMER__vSetEnable(TIMER_enT2W,TIMER_enENABLE_START);
-    TIMER__vSetEnable(TIMER_enT0B,TIMER_enENABLE_START);
-    TIMER__vSetEnable(TIMER_enT1A,TIMER_enENABLE_START);
-    TIMER__vSetEnable(TIMER_enT1B,TIMER_enENABLE_START);
-
-    TIMER__vEnInterrupt(TIMER_enT2W,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
-    TIMER__vSetSyncronize((TIMER_nSYNC)(TIMER_enSYNC_T2W|TIMER_enSYNC_T0B|TIMER_enSYNC_T1A|TIMER_enSYNC_T1B));
-
 }
 
 void MAIN_vInitGPIO(void)
@@ -254,6 +119,11 @@ void MAIN_vInitGPIO(void)
     GPIO__enSetDigitalConfig(GPIO_enT0CCP1_F1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enT1CCP0_F2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enT1CCP1_F3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
+
+    //SW1 SW0
+    GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
+    GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
+
 
 }
 

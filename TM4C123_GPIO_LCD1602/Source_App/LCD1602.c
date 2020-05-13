@@ -118,12 +118,6 @@ LCD1602_nSTATUS LCD1602__enInit(void)
     {
         return enStatus;
     }
-    /*ONDisp o OFFDisp, ONCursor o OFFCursor,ONBlink o OFFBLink*/
-    enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enSLDisp) );
-    if(LCD1602_enSTATUS_ERROR==enStatus)
-    {
-        return enStatus;
-    }
     enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR)); //limpia la pantalla
     SysTick__vDelayUs(1640);
     if(LCD1602_enSTATUS_ERROR==enStatus)
@@ -153,6 +147,10 @@ LCD1602_nSTATUS LCD1602__enInit(void)
         return enStatus;
     }
 
+    enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enSRDisp) );
+    enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enSRDisp) );
+    enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enSRDisp) );
+    enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enSRDisp) );
     return enStatus;
 }
 
