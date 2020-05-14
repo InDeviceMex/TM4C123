@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include "GPIO.h"
 #include "SYSTICK.h"
+#include "CONV.h"
 /*Definciones de Comando*/
 
 typedef enum
@@ -20,6 +21,12 @@ typedef enum
     LCD1602_enOK=0,
     LCD1602_enBUSY=1,
 }LCD1602_nBUSY;
+
+typedef enum
+{
+    LCD1602_enCONITNUE=0,
+    LCD1602_enFINISH=1,
+}LCD1602_nFINISH;
 
 typedef enum
 {
@@ -73,6 +80,19 @@ typedef enum
 
 }LCD1602_nCommands;
 
+typedef struct {
+    uint32_t area;
+    uint16_t Xmin;
+    uint16_t Ymin;
+    uint16_t Xmax;
+    uint16_t Ymax;
+}LC1602_AREA_TypeDef;
+
+typedef struct
+{
+    uint32_t X          ;
+    uint32_t Y          ;
+}LC1602_COORDS_TypeDef;
 
 #define LCD1602_PORT_E  (GPIO_enPORTB)
 #define LCD1602_PORT_RS (GPIO_enPORTB)
@@ -98,7 +118,10 @@ typedef enum
 #define LCD1602_RS_POS (5)
 #define LCD1602_RW_POS (6)
 
-
+/*Indexes start on 0*/
+#define LCD1602_COLUMN_MAX (0xF)
+#define LCD1602_ROW_MAX (0x1)
+#define LCD1602_TAB_SIZE (0x2)
 
 LCD1602_nSTATUS LCD1602__enInit(void);
 
@@ -111,13 +134,20 @@ LCD1602_nSTATUS LCD1602__enReadChar(char* pcData,uint8_t u8Column, uint8_t u8Row
 LCD1602_nSTATUS LCD1602__enGetAddress(uint8_t* pu8Column,uint8_t* pu8Row);
 LCD1602_nSTATUS LCD1602__enSetAddress(uint8_t u8Column, uint8_t u8Row);
 
+LCD1602_nSTATUS LCD1602__enClear(void);
+LCD1602_nSTATUS LCD1602__enClearSection(uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 
 LCD1602_nSTATUS LCD1602__enReadString(char* pcString, uint8_t u8Column,uint8_t u8Row,uint8_t u8Count);
 LCD1602_nSTATUS LCD1602__enWriteString(char* pcString, uint8_t* pu8Column,uint8_t* pu8Row,uint8_t* pu8Count);
+LCD1602_nSTATUS LCD1602__enWriteStringSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 
 LCD1602_nSTATUS LCD1602__enWriteGCRam(const char* pcChar, uint8_t u8Address);
 
-uint32_t        LCD1602__u32Print(char* pcPrint,uint8_t* pu8Column, uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enPrint(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
+LCD1602_nSTATUS LCD1602__enPrintSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+
+LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,...);
+
 uint32_t        LCD1602__u32Printf(char* pcPrint,uint8_t* pu8Column, uint8_t* pu8Row,...);
 
 

@@ -65,10 +65,12 @@ int main(void)
     EEPROM__enInit();
     MAIN_vInitGPIO();
     LCD1602__enInit();
-    LCD1602__enWriteString((char*)"INDEVICE TM4C123",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+
+    LCD1602__enPrintfSection((char*)"INDEVICE TM4C12\n\r%d %u %c%s %",&u8Column,&u8Row,(uint8_t*)&u8Counter,0,15,0,1,(int16_t)-10,(int16_t)6,(char)'A',(char*)" HOLA");
+
     u8Row=1;
     u8Column=0;
-    LCD1602__enWriteString((char*)"LCD1602 SW: BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    LCD1602__enWriteStringSection((char*)"LALO",&u8Column,&u8Row,(uint8_t*)&u8Counter,5,9,0,1);
     LCD1602__enReadString((char*)character,0,0,32);
 
     enBus=GPIO__enGetBus(GPIO_enPORTF);
