@@ -752,6 +752,8 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
     va_list ap;
     int32_t s32ValueARGInteger=0;
     uint32_t u32ValueARGInteger=0;
+    int64_t s64ValueARGInteger=0;
+    uint64_t u64ValueARGInteger=0;
     char cValueARGChar=0;
     double fValueARGFloat=0;
     void*   vValueARGPointer=0;
@@ -923,6 +925,58 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                     case 's':
                         cNumberConversion=(char*)va_arg(ap,char*);
 
+                        break;
+                    case 'l':
+                        pcString++;
+                        switch(*pcString)
+                        {
+                        case 'f':
+                            cNumberConversion=cNumberConv;
+                            fValueARGFloat=(double)va_arg(ap, double);
+                            CONV__u8FloatToString((double)fValueARGFloat,0,1,2,5,cNumberConversion);
+                            break;
+                        case 'l':
+                            pcString++;
+                            switch(*pcString)
+                            {
+                            case 'd':
+                            case 'i':
+                                cNumberConversion=cNumberConv;
+                                s64ValueARGInteger=(int64_t)va_arg(ap, int64_t);
+                                CONV__u8IntToString((int64_t)s64ValueARGInteger,cNumberConversion);
+
+                                break;
+                            case 'u':
+                                cNumberConversion=cNumberConv;
+                                u64ValueARGInteger=(uint64_t)va_arg(ap, uint64_t);
+                                CONV__u8UIntToString((uint64_t)u64ValueARGInteger,cNumberConversion);
+                            default:
+                                cNumberConversion=cNumberConv;
+                                pcString-=3; //1 for % other for 'l' other for 'l'
+                                cNumberConversion[0]=*pcString;
+                                cNumberConversion[1]=0;
+                                break;
+                            }
+
+                            break;
+                        case 'd':
+                        case 'i':
+                            cNumberConversion=cNumberConv;
+                            s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
+                            CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+
+                            break;
+                        case 'u':
+                            cNumberConversion=cNumberConv;
+                            u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
+                            CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        default:
+                            cNumberConversion=cNumberConv;
+                            pcString-=2; //1 for % other for 'l'
+                            cNumberConversion[0]=*pcString;
+                            cNumberConversion[1]=0;
+                            break;
+                        }
                         break;
                     default:
                         cNumberConversion=cNumberConv;
