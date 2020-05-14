@@ -487,7 +487,10 @@ LCD1602_nSTATUS LCD1602__enPrintSection(char* pcString,uint8_t* pu8Column, uint8
                 switch(*pcString)
                 {
                 case '\n':
-                    LCD1602_vAddRow(pu8Row,u8HeightMin,u8HeightMax);
+                    if((u8WidthMin !=*pu8Column) || (0==*pu8Count))
+                    {
+                        LCD1602_vAddRow(pu8Row,u8HeightMin,u8HeightMax);
+                    }
                     enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
@@ -804,7 +807,10 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                 switch(*pcString)
                 {
                 case '\n':
-                    LCD1602_vAddRow(pu8Row,u8HeightMin,u8HeightMax);
+                    if((u8WidthMin !=*pu8Column) || (0==*pu8Count))
+                    {
+                        LCD1602_vAddRow(pu8Row,u8HeightMin,u8HeightMax);
+                    }
                     enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
@@ -1055,7 +1061,10 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                 switch(*pcString)
                 {
                 case '\n':
-                    LCD1602_vAddRow(pu8Row,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    if((LCD1602_COLUMN_MIN !=*pu8Column) || (0==*pu8Count))
+                    {
+                        LCD1602_vAddRow(pu8Row,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    }
                     enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
