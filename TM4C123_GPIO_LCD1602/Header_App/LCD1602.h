@@ -119,7 +119,9 @@ typedef struct
 #define LCD1602_RW_POS (6)
 
 /*Indexes start on 0*/
+#define LCD1602_COLUMN_MIN (0)
 #define LCD1602_COLUMN_MAX (0xF)
+#define LCD1602_ROW_MIN (0x0)
 #define LCD1602_ROW_MAX (0x1)
 #define LCD1602_TAB_SIZE (0x2)
 
@@ -147,8 +149,7 @@ LCD1602_nSTATUS LCD1602__enPrint(char* pcString,uint8_t* pu8Column, uint8_t* pu8
 LCD1602_nSTATUS LCD1602__enPrintSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 
 LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,...);
-
-uint32_t        LCD1602__u32Printf(char* pcPrint,uint8_t* pu8Column, uint8_t* pu8Row,...);
+LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,...);
 
 
 

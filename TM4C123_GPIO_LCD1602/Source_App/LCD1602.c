@@ -1019,154 +1019,256 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
     return enStatus;
 }
 
-/*
-unsigned char LCD1602_Printf(char* cadena,unsigned char* columna, unsigned char* fila,...)
+LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,...)
 {
-    register unsigned char conteo=0;//variable usada para saber cuantos caracteres se mandaron a la LCD
-    register char salir=0; //variable que funciona cuanod encuentra un ESC
+    LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
+    LCD1602_nFINISH enFinish=LCD1602_enCONITNUE;
+    uint8_t u8CounterAux=0;
+    va_list ap;
+    int32_t s32ValueARGInteger=0;
+    uint32_t u32ValueARGInteger=0;
+    int64_t s64ValueARGInteger=0;
+    uint64_t u64ValueARGInteger=0;
+    char cValueARGChar=0;
+    double fValueARGFloat=0;
+    void*   vValueARGPointer=0;
+    char cNumberConv[30];
+    char* cNumberConversion=cNumberConv;
+    va_start(ap, pu8Count);
 
-    va_list ap; //crea puntero de los argumentos
-    double valorARGd; //variable donde guardara el valor del argumento
-    char* valorARGc; //variable donde guardara el valor del argumento
-    long valorARGi; //variable donde guardara el valor del argumento
-    char conversion[30];
-    va_start(ap, fila);//maneja la memoria de los argumentos empezando desde el ultimo conocido ingresado
-
-    (*columna)&=LCD1602_COLUMN_MAX;//delimita el valor inicial de columna de 0 a 15
-    LCD1602_Pos(*columna,*fila); //indica la posicion inicial del cursor
-    while(*cadena)// realiza el ciclo mientras la cadena tenga algun valor
-           //el valor 0 o '\0' es fin de cadena
+    if(((uint32_t)0!=(uint32_t)pu8Column) && ((uint32_t)0!=(uint32_t)pu8Row) && ((uint32_t)0!=(uint32_t)pcString) && ((uint32_t)0!=(uint32_t)pu8Count))
     {
-        switch (*cadena) //detecta si existe un caracter especial
+        (*pu8Column)+=LCD1602_COLUMN_MIN;
+        if((*pu8Column)>LCD1602_COLUMN_MAX)
+            return enStatus;
+
+        (*pu8Row)+=LCD1602_ROW_MIN;
+        if((*pu8Row)>LCD1602_ROW_MAX)
+            return enStatus;
+
+        enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+        if(LCD1602_enSTATUS_OK ==enStatus)
         {
-        case '\n': //salto de linea
-            (*fila)++; //aumenta la fila
-            break;
-        case '\r': //retorno de carro
-            *columna=0; //actualiza el valor de la columna a la primera posicion
-            break;
-        case '\t': //tabulacion
-            if(((*columna)&LCD1602_COLUMN_MAX)<13)
-                *columna+=3; //aumenta 3 espacios vacios
-            else
+            *pu8Count=0;
+            while(0!=*pcString)
             {
-                *columna=0; // pasa a la siguiente fila si no cabe la tabulacion
-                (*fila)++;
-            }
-            break;
-         case '\a':
-         case '\b': //retroceso
-            if(((*columna)!=0) || ((*fila)!=0)) //si la columna y fila es diferente a 0 puede retroceder
-            {
-                if(((*columna)!=0)) //si la columna encuentra entre 1 y 15 puede disminuir uno
-                    (*columna)--;
-                else
-                    if(((*fila)!=0)) //si la columna es 0 entonces checa si existen filas que disminuir
+                switch(*pcString)
+                {
+                case '\n':
+                    LCD1602_vAddRow(pu8Row,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                    if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
-                        (*columna)=LCD1602_COLUMN_MAX;
-                        (*fila)--;
+                        enFinish=LCD1602_enFINISH;
                     }
-            }
-            if((*cadena)=='\a')
-            {
-                LCD1602_Pos(*columna,*fila); //actualiza la posicion
-                LCD1602_Dato(' ');//borra el caracter que pudiera haber en la posicion
-            }
-            break;
-        case '\e': //escape
-            salir=1;//indica que se necesita salir de la funcion
-            break;
-        case '\f': //nueva pagina
-            *columna=*fila=0;//reinicia los valores
-            LCD1602_Com(CLEAR); //limpia la pantalla
-            break;
-        case '%':
-            cadena++;
-            switch(*cadena)
-            {
-                case 'd': //"%d o %i"
-                case 'i':
-                    valorARGi=(int)va_arg(ap, int);
-                    Conv_Entero(valorARGi,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
                     break;
-                case 'u':// "%u"
-                    valorARGi=(unsigned int)va_arg(ap, unsigned int);
-                    Conv_Entero(valorARGi,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                    break;
-                case 'x': //"%x"
-                    valorARGi=(unsigned int)va_arg(ap, unsigned int);
-                    Conv_Hex(valorARGi,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                    break;
-                case 'X':// "%X"
-                    valorARGi=(unsigned int)va_arg(ap, unsigned int);
-                    Conv_HEX(valorARGi,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                    break;
-                case 'o': //"%o"
-                    valorARGi=(unsigned int)va_arg(ap, unsigned int);
-                    Conv_Oct(valorARGi,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                    break;
-              case 'c': //"%c"
-                    valorARGi=(unsigned char)va_arg(ap, unsigned char);
-                    LCD1602_Char(valorARGi);//manda el caracter a la LCD
-                     LCD1602_Limites(columna,fila);
-                    break;
-                case 'p': //"%p"
-                    valorARGi=(unsigned long)va_arg(ap, void*);
-                    Conv_Hex(valorARGi,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                    break;
-                case 's':// "%s"
-                    valorARGc=(char*)va_arg(ap,char*);  //el siguiente argumento es un puntero
-                    conteo+=LCD1602_Print(valorARGc,columna,fila)-1;//imprime la cadena del puntero
-                    break;
-                case 'F':
-                   case 'f': //"%f"
-                       valorARGd=(double)va_arg(ap, double);
-                       Conv_Float((float)valorARGd,3,conversion);
-                       conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                       break;
-                case 'l'://"%lf" "%8.4lf" "%5.3f" "%l"
-                    cadena++; //aumenta en uno la posicion del string
-                    if(*cadena=='f') //si es 'f' el sig caracter significa que vamos a convertir un double
+                case '\r':
+                    LCD1602_vResetColumn(pu8Column,LCD1602_COLUMN_MIN);
+                    enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                    if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
-                    valorARGd=(double)va_arg(ap, double);
-                    Conv_Float((double)valorARGd,3,conversion);
-                    conteo+=LCD1602_Cadena(conversion,columna,fila)-1;
-                    break; //break de este caso
+                        enFinish=LCD1602_enFINISH;
                     }
+                    break;
+                case '\t':
+                    if((*pu8Column)<(LCD1602_COLUMN_MAX-LCD1602_TAB_SIZE))
+                        (*pu8Column)+=LCD1602_TAB_SIZE;
                     else
-                        cadena--; //si no encuentra la 'f' regresa a la 'l'
-                default:// "%p"
-                    cadena--;//si no es ningun caso anterior regresa al '%'
+                    {
+                        LCD1602_vResetColumn(pu8Column,LCD1602_COLUMN_MIN);
+                        LCD1602_vAddRow(pu8Row,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    }
+                    enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                    if(LCD1602_enSTATUS_ERROR ==enStatus)
+                    {
+                        enFinish=LCD1602_enFINISH;
+                    }
+                    break;
+                case '\b':
+                    LCD1602_vBackspace(pu8Column,pu8Row,LCD1602_COLUMN_MIN,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                    if(LCD1602_enSTATUS_ERROR ==enStatus)
+                    {
+                        enFinish=LCD1602_enFINISH;
+                    }
+                    break;
+                case '\a':
+                    LCD1602_vBackspace(pu8Column,pu8Row,LCD1602_COLUMN_MIN,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                    enFinish=LCD1602_enFINISH;
+                    if(LCD1602_enSTATUS_OK ==enStatus)
+                    {
+                        enStatus=LCD1602__enWriteChar(' ');
+                        if(LCD1602_enSTATUS_OK ==enStatus)
+                        {
+                            enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                            if(LCD1602_enSTATUS_OK==enStatus)
+                            {
+                                enFinish=LCD1602_enCONITNUE;
+                            }
+
+                        }
+                    }
+                    break;
+                case '\e':
+                    enFinish=LCD1602_enFINISH;
+                    break;
+                case '\f':
+                    LCD1602_vResetColumn(pu8Column,LCD1602_COLUMN_MIN);
+                    LCD1602_vResetRow(pu8Row,LCD1602_ROW_MIN);
+                    enStatus=LCD1602__enClearSection(LCD1602_COLUMN_MIN,LCD1602_COLUMN_MAX,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    enFinish=LCD1602_enFINISH;
+                    if(LCD1602_enSTATUS_OK == enStatus)
+                    {
+                        enStatus=LCD1602__enSetAddress(*pu8Column,*pu8Row);
+                        if(LCD1602_enSTATUS_OK==enStatus)
+                        {
+                            enFinish=LCD1602_enCONITNUE;
+                        }
+                    }
                 case '%':
-                     LCD1602_Dato('%');
-                     LCD1602_Limites(columna,fila);
-                     break;
-           }
-            break;
-        default :
-            LCD1602_Char(*(cadena)); //envia el caracter correspondiente
-            LCD1602_Limites(columna,fila);
-            break;
+                    pcString++;
+                    switch(*pcString)
+                    {
+                    case 'd':
+                    case 'i':
+                        cNumberConversion=cNumberConv;
+                        s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
+                        CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+                        break;
+                    case 'u':
+                        cNumberConversion=cNumberConv;
+                        u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
+                        CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        break;
+                    case 'x':
+                        cNumberConversion=cNumberConv;
+                        u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
+                        CONV__u8HexToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        break;
+                    case 'X':
+                        cNumberConversion=cNumberConv;
+                        u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
+                        CONV__u8HEXToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        break;
+                    case 'o':
+                        cNumberConversion=cNumberConv;
+                        u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
+                        CONV__u8OctToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        break;
+                    case 'p':
+                        cNumberConversion=cNumberConv;
+                        vValueARGPointer=(void*)va_arg(ap, void*);
+                        CONV__u8BinToString((uint32_t)vValueARGPointer,cNumberConversion);
+                        break;
+                    case 'F':
+                    case 'f':
+                        cNumberConversion=cNumberConv;
+                        fValueARGFloat=(double)va_arg(ap, double);
+                        CONV__u8FloatToString((float)fValueARGFloat,0,1,2,3,cNumberConversion);
+                        break;
+                    case 'c':
+                        cNumberConversion=cNumberConv;
+                        cValueARGChar=(char)va_arg(ap, uint32_t);
+                        cNumberConversion[0]=cValueARGChar;
+                        cNumberConversion[1]=0;
+                        break;
+                    case 's':
+                        cNumberConversion=(char*)va_arg(ap,char*);
+
+                        break;
+                    case 'l':
+                        pcString++;
+                        switch(*pcString)
+                        {
+                        case 'f':
+                            cNumberConversion=cNumberConv;
+                            fValueARGFloat=(double)va_arg(ap, double);
+                            CONV__u8FloatToString((double)fValueARGFloat,0,1,2,5,cNumberConversion);
+                            break;
+                        case 'l':
+                            pcString++;
+                            switch(*pcString)
+                            {
+                            case 'd':
+                            case 'i':
+                                cNumberConversion=cNumberConv;
+                                s64ValueARGInteger=(int64_t)va_arg(ap, int64_t);
+                                CONV__u8IntToString((int64_t)s64ValueARGInteger,cNumberConversion);
+
+                                break;
+                            case 'u':
+                                cNumberConversion=cNumberConv;
+                                u64ValueARGInteger=(uint64_t)va_arg(ap, uint64_t);
+                                CONV__u8UIntToString((uint64_t)u64ValueARGInteger,cNumberConversion);
+                            default:
+                                cNumberConversion=cNumberConv;
+                                pcString-=3; //1 for % other for 'l' other for 'l'
+                                cNumberConversion[0]=*pcString;
+                                cNumberConversion[1]=0;
+                                break;
+                            }
+
+                            break;
+                        case 'd':
+                        case 'i':
+                            cNumberConversion=cNumberConv;
+                            s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
+                            CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+
+                            break;
+                        case 'u':
+                            cNumberConversion=cNumberConv;
+                            u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
+                            CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        default:
+                            cNumberConversion=cNumberConv;
+                            pcString-=2; //1 for % other for 'l'
+                            cNumberConversion[0]=*pcString;
+                            cNumberConversion[1]=0;
+                            break;
+                        }
+                        break;
+                    default:
+                        cNumberConversion=cNumberConv;
+                        pcString--;
+                        cNumberConversion[0]=*pcString;
+                        cNumberConversion[1]=0;
+                        break;
+                    }
+                    enStatus=LCD1602__enWriteStringSection(cNumberConversion,pu8Column,pu8Row,&u8CounterAux,LCD1602_COLUMN_MIN,LCD1602_COLUMN_MAX,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                    enFinish=LCD1602_enFINISH;
+                    if(LCD1602_enSTATUS_OK == enStatus)
+                    {
+                        enFinish=LCD1602_enCONITNUE;
+                        *pu8Count+=(u8CounterAux-1);
+                    }
+                    break;
+                default:
+                    enStatus=LCD1602__enWriteChar((uint8_t)*pcString);
+                    enFinish=LCD1602_enFINISH;
+                    if(LCD1602_enSTATUS_OK == enStatus)
+                    {
+                        enStatus=LCD1602_enAdreesLimitSection(pu8Column, pu8Row,LCD1602_COLUMN_MIN,LCD1602_COLUMN_MAX,LCD1602_ROW_MIN,LCD1602_ROW_MAX);
+                        if(LCD1602_enSTATUS_OK == enStatus)
+                        {
+                            enFinish=LCD1602_enCONITNUE;
+                        }
+                    }
+                    break;
+                }
+                pcString++; //el puntero apunta al siguiente caracter
+                (*pu8Count)++; //suma 1 al count total de caracter enviados a la LCD
+                if(LCD1602_enFINISH == enFinish)
+                {
+                    break;
+                }
+            }
         }
-        cadena++; //el puntero apunta al siguiente caracter
-        conteo++; //suma 1 al conteo total de caracter enviados a la LCD
-        if(salir) //si detecto un \e (escape) sale del ciclo while
-            break;
-        LCD1602_Pos(*columna,*fila); //actualiza la posicion
-
     }
-    va_end(ap); //reinicia el puntero
-
-     return conteo; //regresa el conteo de caracteres y caracteres especiales
+    va_end(ap);
+    return enStatus;
 }
-
-*/
 
 void LCD1602_vSetCommandMode(void)
 {
