@@ -4,22 +4,20 @@
  * main.c
  */
 
+#include <xApplication/LCD1602/Generic_Header/LCD1602.h>
+#include <xDriver_MCU/Driver_Header/EEPROM.h>
+#include <xDriver_MCU/Driver_Header/FLASH.h>
+#include <xDriver_MCU/Driver_Header/FPU.h>
+#include <xDriver_MCU/Driver_Header/GPIO.h>
+#include <xDriver_MCU/Driver_Header/HIB.h>
+#include <xDriver_MCU/Driver_Header/MPU.h>
+#include <xDriver_MCU/Driver_Header/NVIC.h>
+#include <xDriver_MCU/Driver_Header/SCB.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/SYSEXC.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK.h>
+#include <xDriver_MCU/Driver_Header/TIMER.h>
 #include "stdlib.h"
-#include "SCB.h"
-#include "FPU.h"
-#include "MPU.h"
-#include "SYSTICK.h"
-#include "SYSEXC.h"
-#include "HIB.h"
-#include "SYSCTL.h"
-#include "NVIC.h"
-#include "EEPROM.h"
-#include "FLASH.h"
-//#include "UDMA.h"
-#include "GPIO.h"
-#include "TIMER.h"
-
-#include "LCD1602.h"
 /*Local functions*/
 void MAIN_vInitGPIO(void);
 void MAIN_vInitTIMER(void);
@@ -80,6 +78,7 @@ int main(void)
         psSW2=GPIOF_APB_GPIODATA_MASK;
     }
     LCD1602__enReload();
+    LCD1602__enClearSection(5,9,0,1);
     while(1)
     {
         //SysTick__vDelayUs(100000);
@@ -87,25 +86,25 @@ int main(void)
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteString((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else if((psSW1->DATA_MASK[enSW1Pin] == 0))
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteString((char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen((char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else if((psSW2->DATA_MASK[enSW2Pin] == 0))
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteString((char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen((char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteString((char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen((char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
     }
 }
