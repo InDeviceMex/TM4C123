@@ -1080,17 +1080,18 @@ TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule)
     #elif defined ( __GNUC__ )
     psMode = (TIMER_MODE_Typedef*) malloc(sizeof(TIMER_MODE_Typedef));
     #endif
-
-    psMode->enConfig=TIMER__enGetConfiguration(enModule);
-    psMode->enSubMode=TIMER__enGetSubMode(enModule);
-    psMode->enEdgeMode=TIMER__enGetEdgeMode(enModule);
-    psMode->enAltMode=TIMER__enGetAltMode(enModule);
-    psMode->enDirection=TIMER__enGetCountDir(enModule);
-    psMode->enSnapShot=TIMER__enGetSnapShot(enModule);
-    psMode->enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
-    psMode->enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
-    psMode->enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
-
+    if(0!= psMode)
+    {
+        psMode->enConfig=TIMER__enGetConfiguration(enModule);
+        psMode->enSubMode=TIMER__enGetSubMode(enModule);
+        psMode->enEdgeMode=TIMER__enGetEdgeMode(enModule);
+        psMode->enAltMode=TIMER__enGetAltMode(enModule);
+        psMode->enDirection=TIMER__enGetCountDir(enModule);
+        psMode->enSnapShot=TIMER__enGetSnapShot(enModule);
+        psMode->enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
+        psMode->enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
+        psMode->enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
+    }
     return psMode;
 
 }
@@ -1142,14 +1143,17 @@ TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule)
     psExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc(sizeof(TIMER_EXTRAMODE_Typedef));
     #endif
 
-    psExtraMode->enWaitTrigger=TIMER__enGetWaitTrigger(enModule);
-    psExtraMode->enUpdateInterval=TIMER__enGetUpdateIntervalMode(enModule);
-    psExtraMode->enPWMInterrupt=TIMER__enGetPWMInterrupt(enModule);
-    psExtraMode->enEventInterrupt=TIMER__enGetMatchEventInterrupt(enModule);
-    psExtraMode->enUpdateMatch=TIMER__enGetUpdateMatchMode(enModule);
-    psExtraMode->enStall=TIMER__enGetStall(enModule);
-    psExtraMode->enRTCStall=TIMER__enGetRTCStall(enModule);
-    psExtraMode->enADCTrigger=TIMER__enGetADCTrigger(enModule);
+    if(0!=psExtraMode)
+    {
+        psExtraMode->enWaitTrigger=TIMER__enGetWaitTrigger(enModule);
+        psExtraMode->enUpdateInterval=TIMER__enGetUpdateIntervalMode(enModule);
+        psExtraMode->enPWMInterrupt=TIMER__enGetPWMInterrupt(enModule);
+        psExtraMode->enEventInterrupt=TIMER__enGetMatchEventInterrupt(enModule);
+        psExtraMode->enUpdateMatch=TIMER__enGetUpdateMatchMode(enModule);
+        psExtraMode->enStall=TIMER__enGetStall(enModule);
+        psExtraMode->enRTCStall=TIMER__enGetRTCStall(enModule);
+        psExtraMode->enADCTrigger=TIMER__enGetADCTrigger(enModule);
+    }
 
     return psExtraMode;
 

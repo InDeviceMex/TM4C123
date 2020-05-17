@@ -171,27 +171,35 @@ SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup)
     {
         case SCB_enPRIGROUP_XXX:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_XXX;
+            __asm(" DSB");
+            SCB_AIRCR_R=u32Reg;
+            __asm(" DSB");
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_XXY:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_XXY;
+            __asm(" DSB");
+            SCB_AIRCR_R=u32Reg;
+            __asm(" DSB");
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_XYY:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_XYY;
+            __asm(" DSB");
+            SCB_AIRCR_R=u32Reg;
+            __asm(" DSB");
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_YYY:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_YYY;
+            __asm(" DSB");
+            SCB_AIRCR_R=u32Reg;
+            __asm(" DSB");
             enReturn=SCB_enOK;
             break;
         default:
-            return enReturn;
+            break;
     }
-
-    __asm(" DSB");
-    SCB_AIRCR_R=u32Reg;
-    __asm(" DSB");
     return enReturn;
 }
 SCB_nPRIGROUP SCB__enGetPriorityGroup(void)

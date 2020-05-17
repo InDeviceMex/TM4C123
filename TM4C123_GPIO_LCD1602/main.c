@@ -79,7 +79,7 @@ int main(void)
         psSW1=GPIOF_APB_GPIODATA_MASK;
         psSW2=GPIOF_APB_GPIODATA_MASK;
     }
-
+    LCD1602__enReload();
     while(1)
     {
         //SysTick__vDelayUs(100000);

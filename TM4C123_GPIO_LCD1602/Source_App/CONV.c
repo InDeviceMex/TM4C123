@@ -7,6 +7,35 @@
 
 #include <CONV.h>
 
+uint32_t CONV_u32StringLength(const char* pcString, uint32_t u32MaxSize)
+{
+  const char* psStringReg;
+  uint32_t u32Count=0;
+  if(0!=pcString)
+  {
+      psStringReg = pcString;
+      while((0!=*psStringReg)&& (0!=u32MaxSize))
+      {
+          psStringReg++;
+          u32MaxSize--;
+      }
+      u32Count=(uint32_t)psStringReg;
+      u32Count-=(uint32_t)pcString;
+  }
+  return (uint32_t)u32Count;
+}
+
+CONV_nSTATUS CONV_enIsDigit(char cCharacter)
+{
+    CONV_nSTATUS enStatus= CONV_enERROR;
+    if((cCharacter >= '0') && (cCharacter <= '9'))
+    {
+        enStatus=CONV_enOK;
+    }
+
+    return enStatus;
+}
+
 
 /*ToDo review CONV__u8DIntToString*/
 uint8_t CONV__u8DIntToString(int64_t s64Number,uint8_t u8Positive,uint8_t u8Padding0,uint8_t u8Deci, char* pcConv)

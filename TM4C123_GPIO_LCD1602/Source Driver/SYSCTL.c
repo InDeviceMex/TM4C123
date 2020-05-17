@@ -375,6 +375,7 @@ SYSCTL_nGPIOBUS_CURRENT SYSCTL__vGetGPIOBus(SYSCTL_nGPIOBUS enGPIO)
 }
 SYSCTL_nSTATUS SYSCTL__enInit(void)
 {
+    SYSCTL_nSTATUS enStatus=SYSCTL_enOK;
     uint32_t u32Reg=0;
     uint16_t u16TimeOut=50000;
 
@@ -430,12 +431,15 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
     while((SYSCTL_PLLSTAT_R&SYSCTL_PLLSTAT_R_LOCK_MASK)==SYSCTL_PLLSTAT_R_LOCK_NOLOCK)
     {
         if(!(u16TimeOut--))
-            return SYSCTL_enERROR;
+            enStatus=SYSCTL_enERROR;
 
     }
-    SYSCTL_RCC_R&=~SYSCTL_RCC_R_BYPASS_MASK;
-    SYSCTL_RCC2_R&=~SYSCTL_RCC2_R_BYPASS2_MASK;
-    return SYSCTL_enOK;
+    if(SYSCTL_enOK ==enStatus)
+    {
+        SYSCTL_RCC_R&=~SYSCTL_RCC_R_BYPASS_MASK;
+        SYSCTL_RCC2_R&=~SYSCTL_RCC2_R_BYPASS2_MASK;
+    }
+    return enStatus;
 
 }
 

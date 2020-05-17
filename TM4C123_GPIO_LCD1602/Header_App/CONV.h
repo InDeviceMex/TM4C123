@@ -18,14 +18,17 @@
 #define BIN2STRINGMAX   (40)
 
 
+
 typedef enum
 {
-    CONV_enNAN = -1,
     CONV_enOK = 0,
     CONV_enERROR = 1,
-}CONV_nStatus;
+    CONV_enNAN = 0xFF,
+}CONV_nSTATUS;
 
 
+uint32_t CONV_u32StringLength(const char* pcString, uint32_t u32MaxSize);
+CONV_nSTATUS CONV_enIsDigit(char cCharacter);
 
 uint8_t CONV__u8IntToString(int64_t s64Number, char* pcConv);
 uint8_t CONV__u8UIntToString(uint64_t u64Number, char* pcConv);

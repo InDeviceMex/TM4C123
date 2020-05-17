@@ -119,11 +119,13 @@ typedef struct
 #define LCD1602_RW_POS (6)
 
 /*Indexes start on 0*/
-#define LCD1602_COLUMN_MIN (0)
-#define LCD1602_COLUMN_MAX (0xF)
-#define LCD1602_ROW_MIN (0x0)
-#define LCD1602_ROW_MAX (0x1)
+#define LCD1602_COLUMN_MIN (1)
+#define LCD1602_COLUMN_MAX (16)
+#define LCD1602_ROW_MIN (1)
+#define LCD1602_ROW_MAX (2)
 #define LCD1602_TAB_SIZE (0x2)
+
+#define LCD1602_MAX_COUNT (32)
 
 LCD1602_nSTATUS LCD1602__enInit(void);
 
@@ -138,8 +140,16 @@ LCD1602_nSTATUS LCD1602__enSetAddress(uint8_t u8Column, uint8_t u8Row);
 
 LCD1602_nSTATUS LCD1602__enClear(void);
 LCD1602_nSTATUS LCD1602__enClearSection(uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+LCD1602_nSTATUS LCD1602__enReload(void);
+LCD1602_nSTATUS LCD1602__enReloadSection(uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+
+LCD1602_nSTATUS LCD1602__enWriteBuffer(uint8_t u8Data,uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteBufferDirect(uint8_t u8Data, uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteScreen(uint8_t u8Data,uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteScreenDirect(uint8_t u8Data,uint8_t* pu8Column,uint8_t* pu8Row);
 
 LCD1602_nSTATUS LCD1602__enReadString(char* pcString, uint8_t u8Column,uint8_t u8Row,uint8_t u8Count);
+LCD1602_nSTATUS LCD1602__enWriteString_Secure(char* pcString, uint8_t* pu8Column,uint8_t* pu8Row,uint8_t* pu8Count, uint8_t u8MaxCount);
 LCD1602_nSTATUS LCD1602__enWriteString(char* pcString, uint8_t* pu8Column,uint8_t* pu8Row,uint8_t* pu8Count);
 LCD1602_nSTATUS LCD1602__enWriteStringSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 

@@ -150,7 +150,7 @@ EEPROM_nSTATUS EEPROM__enReadWorld(uint32_t* pu32Data,uint32_t u32Address)
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
     uint32_t u32Block =(u32Address>>6); //u32Address/16
     uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
-    if((u32MaxAddress )> u32Address )
+    if(((u32MaxAddress )> u32Address) && (0!=pu32Data) )
     {
         EEPROM_EEBLOCK_R=u32Block;
         EEPROM_EEOFFSET_R=u32Offset;
@@ -172,7 +172,7 @@ EEPROM_nSTATUS EEPROM__enReadHalfWorld(uint16_t* pu16Data,uint32_t u32Address)
 
     volatile uint32_t u32DataAux=0;
     volatile uint16_t* pu16DataAux=0;
-    if((u32MaxAddress )> u32Address )
+    if(((u32MaxAddress )> u32Address) && (0!=pu16Data)  )
     {
         EEPROM_EEBLOCK_R=u32Block;
         EEPROM_EEOFFSET_R=u32Offset;
@@ -199,7 +199,7 @@ EEPROM_nSTATUS EEPROM__enReadByte(uint8_t* pu8Data,uint32_t u32Address)
 
     volatile uint32_t u32DataAux=0;
     volatile uint8_t* pu8DataAux=0;
-    if((u32MaxAddress )> u32Address )
+    if(((u32MaxAddress )> u32Address) && (0!=pu8Data)  )
     {
         EEPROM_EEBLOCK_R=u32Block;
         EEPROM_EEOFFSET_R=u32Offset;
@@ -259,7 +259,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiWorld(uint32_t* pu32Data,uint32_t u32Address,u
 {
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
+    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK) && (0!=pu32Data) )
     {
         enReturn=EEPROM__enReadWorld(pu32Data,u32Address);
         pu32Data++;
@@ -291,7 +291,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiHalfWorld(uint16_t* pu16Data,uint32_t u32Addre
 {
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
+    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK) && (0!=pu16Data) )
     {
         enReturn=EEPROM__enReadHalfWorld(pu16Data,u32Address);
         pu16Data++;
@@ -320,7 +320,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiByte(uint8_t* pu8Data,uint32_t u32Address,uint
 {
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
+    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK) && (0!=pu8Data) )
     {
         enReturn=EEPROM__enReadByte(pu8Data,u32Address);
         pu8Data++;
