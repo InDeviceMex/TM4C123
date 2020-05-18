@@ -12,8 +12,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <xApplication/CONVERSION/Generic_Header/CONV.h>
-#include <xDriver_MCU/Driver_Header/GPIO.h>
-#include <xDriver_MCU/Driver_Header/SYSTICK.h>
+#include <xApplication/LCD1602/Adaptive_Header/LCD1602_Adaptive.h>
 /*Definciones de Comando*/
 
 typedef enum
@@ -33,17 +32,6 @@ typedef enum
     LCD1602_enSTATUS_OK=0,
     LCD1602_enSTATUS_ERROR=1,
 }LCD1602_nSTATUS;
-typedef enum
-{
-    LCD1602_enWRITE=0,
-    LCD1602_enREAD=1,
-}LCD1602_nRW;
-
-typedef enum
-{
-    LCD1602_enCOMMAND=0,
-    LCD1602_enDATA=1,
-}LCD1602_nRS;
 
 typedef enum
 {
@@ -94,29 +82,6 @@ typedef struct
     uint32_t Y          ;
 }LC1602_COORDS_TypeDef;
 
-#define LCD1602_PORT_E  (GPIO_enPORTB)
-#define LCD1602_PORT_RS (GPIO_enPORTB)
-#define LCD1602_PORT_RW (GPIO_enPORTB)
-#define LCD1602_PORT_D4 (GPIO_enPORTB)
-#define LCD1602_PORT_D5 (GPIO_enPORTB)
-#define LCD1602_PORT_D6 (GPIO_enPORTB)
-#define LCD1602_PORT_D7 (GPIO_enPORTB)
-
-#define LCD1602_D4 (GPIO_enPIN0)
-#define LCD1602_D5 (GPIO_enPIN1)
-#define LCD1602_D6 (GPIO_enPIN2)
-#define LCD1602_D7 (GPIO_enPIN3)
-#define LCD1602_E  (GPIO_enPIN4)
-#define LCD1602_RS (GPIO_enPIN5)
-#define LCD1602_RW (GPIO_enPIN6)
-
-#define LCD1602_D4_POS (0)
-#define LCD1602_D5_POS (1)
-#define LCD1602_D6_POS (2)
-#define LCD1602_D7_POS (3)
-#define LCD1602_E_POS  (4)
-#define LCD1602_RS_POS (5)
-#define LCD1602_RW_POS (6)
 
 /*Indexes start on 0*/
 #define LCD1602_COLUMN_MIN (1)

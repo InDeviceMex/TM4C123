@@ -7,21 +7,8 @@
 
 
 
-#include <xApplication/LCD1602/Generic_Header/LCD1602.h>
+#include <LCD1602/Generic_Header/LCD1602_Generic.h>
 
-void LCD1602_vPrepareWriteEnable(void);
-void LCD1602_vPulseWriteEnable(void);
-
-void LCD1602_vPrepareReadEnable(void);
-void LCD1602_vPulseReadEnable(void);
-
-void LCD1602_vSetCommandMode(void);
-void LCD1602_vSetDataMode(void);
-void LCD1602_vSetWriteMode(void);
-void LCD1602_vSetReadMode(void);
-
-void            LCD1602_vWrite(uint8_t u8Data,LCD1602_nRS enMode);
-uint8_t         LCD1602_u8Read(LCD1602_nRS enMode);
 LCD1602_nBUSY   LCD1602_enReadCommand(uint8_t* pu8Column,uint8_t* pu8Row);
 
 LCD1602_nBUSY   LCD1602_enWait(void);
@@ -54,63 +41,31 @@ LCD1602_nSTATUS LCD1602__enInit(void)
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_OK;
     uint32_t u32WriteSpecialChar=0;
 
-    /*Initial State of PIN as output*/
-    GPIO__vEnDigital(LCD1602_PORT_E,LCD1602_E);
-    GPIO__vEnDigital(LCD1602_PORT_RS,LCD1602_RS);
-    GPIO__vEnDigital(LCD1602_PORT_RW,LCD1602_RW);
-    GPIO__vEnDigital(LCD1602_PORT_D4,LCD1602_D4);
-    GPIO__vEnDigital(LCD1602_PORT_D5,LCD1602_D5);
-    GPIO__vEnDigital(LCD1602_PORT_D6,LCD1602_D6);
-    GPIO__vEnDigital(LCD1602_PORT_D7,LCD1602_D7);
+    LCD1602_vInitGPIO();
 
-    GPIO__vDisAnalog(LCD1602_PORT_E,LCD1602_E);
-    GPIO__vDisAnalog(LCD1602_PORT_RS,LCD1602_RS);
-    GPIO__vDisAnalog(LCD1602_PORT_RW,LCD1602_RW);
-    GPIO__vDisAnalog(LCD1602_PORT_D4,LCD1602_D4);
-    GPIO__vDisAnalog(LCD1602_PORT_D5,LCD1602_D5);
-    GPIO__vDisAnalog(LCD1602_PORT_D6,LCD1602_D6);
-    GPIO__vDisAnalog(LCD1602_PORT_D7,LCD1602_D7);
-
-    GPIO__enSetConfig(LCD1602_PORT_E,LCD1602_E,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_RS,LCD1602_RS,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_RW,LCD1602_RW,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D4,LCD1602_D4,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D5,LCD1602_D5,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D6,LCD1602_D6,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D7,LCD1602_D7,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;
-    GPIO_AHB_BLOCK[LCD1602_PORT_RS]->GPIODATA_MASK[LCD1602_RS]=0;
-    GPIO_AHB_BLOCK[LCD1602_PORT_RW]->GPIODATA_MASK[LCD1602_RW]=0;
-    GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=0;
-    GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=0;
-    GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6]=0;
-    GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7]=0;
-
-    SysTick__vDelayUs(15000);//15 ms
+    LCD1602_vDelay(15000);//15 ms
 
     LCD1602_vPrepareWriteEnable();
     //Wirte 0x3x to LCD
-    GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=LCD1602_D4;
-    GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=LCD1602_D5;
+    LCD1602_vWritePin8Bit(0x30);
     LCD1602_vPulseWriteEnable();
-    SysTick__vDelayUs(4100);//4.1 ms
+    LCD1602_vDelay(4100);//4.1 ms
 
     //Wirte 0x3x to LCD
     LCD1602_vPrepareWriteEnable();
     LCD1602_vPulseWriteEnable();
-    SysTick__vDelayUs(100000);//100 ms
+    LCD1602_vDelay(100000);//100 ms
 
     //Wirte 0x3x to LCD
     LCD1602_vPrepareWriteEnable();
     LCD1602_vPulseWriteEnable(); //manda un pulso en el pin E (Enable)
-    SysTick__vDelayUs(40);//40 us
+    LCD1602_vDelay(40);//40 us
 
     //Write 0x2x to LCD in order to configure as 4 bits
     LCD1602_vPrepareWriteEnable();
-    GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=0;
+    LCD1602_vWritePin8Bit(0x20);
     LCD1602_vPulseWriteEnable(); //manda un pulso en el pin E (Enable)
-    SysTick__vDelayUs(40);//40 us
+    LCD1602_vDelay(40);//40 us
 
 
     /*M8BIT o M4BIT,M2LINE o M1LINE, M5_8_Font o M5_11_Font */
@@ -126,7 +81,7 @@ LCD1602_nSTATUS LCD1602__enInit(void)
         return enStatus;
     }
     enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR)); //limpia la pantalla
-    SysTick__vDelayUs(1640);
+    LCD1602_vDelay(1640);
     if(LCD1602_enSTATUS_ERROR==enStatus)
     {
         return enStatus;
@@ -148,7 +103,7 @@ LCD1602_nSTATUS LCD1602__enInit(void)
 
 
     enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enHOME));//Manda cursor a home
-    SysTick__vDelayUs(1640);
+    LCD1602_vDelay(1640);
     if(LCD1602_enSTATUS_ERROR==enStatus)
     {
         return enStatus;
@@ -614,7 +569,7 @@ LCD1602_nSTATUS LCD1602__enClear(void)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     enStatus=LCD1602__enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR)); //limpia la pantalla
-    SysTick__vDelayUs(1640);
+    LCD1602_vDelay(1640);
     return enStatus;
 }
 
@@ -1390,181 +1345,6 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
     return enStatus;
 }
 
-void LCD1602_vSetCommandMode(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_RS]->GPIODATA_MASK[LCD1602_RS]=((uint32_t)LCD1602_enCOMMAND)<<LCD1602_RS_POS;
-}
-
-void LCD1602_vSetDataMode(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_RS]->GPIODATA_MASK[LCD1602_RS]=((uint32_t)LCD1602_enDATA)<<LCD1602_RS_POS;
-}
-
-void LCD1602_vSetWriteMode(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_RW]->GPIODATA_MASK[LCD1602_RW]=((uint32_t)LCD1602_enWRITE)<<LCD1602_RW_POS;
-}
-
-void LCD1602_vSetReadMode(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_RW]->GPIODATA_MASK[LCD1602_RW]=((uint32_t)LCD1602_enREAD)<<LCD1602_RW_POS;
-}
-
-void LCD1602_vWrite(uint8_t u8Data,LCD1602_nRS enMode)
-{
-    LCD1602_vSetWriteMode();
-    GPIO_AHB_BLOCK[LCD1602_PORT_RS]->GPIODATA_MASK[LCD1602_RS]=((uint32_t)enMode)<<LCD1602_RS_POS;
-
-    LCD1602_vPrepareWriteEnable();
-
-    if(u8Data&GPIO_enPIN7)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7]=LCD1602_D7;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7]=0;
-
-    if(u8Data&GPIO_enPIN6)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6]=LCD1602_D6;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6]=0;
-
-    if(u8Data&GPIO_enPIN5)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=LCD1602_D5;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=0;
-
-    if(u8Data&GPIO_enPIN4)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=LCD1602_D4;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=0;
-
-    LCD1602_vPulseWriteEnable();
-
-    LCD1602_vPrepareWriteEnable();
-
-    if(u8Data&GPIO_enPIN3)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7]=LCD1602_D7;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7]=0;
-
-    if(u8Data&GPIO_enPIN2)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6]=LCD1602_D6;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6]=0;
-
-    if(u8Data&GPIO_enPIN1)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=LCD1602_D5;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5]=0;
-
-    if(u8Data&GPIO_enPIN0)
-        GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=LCD1602_D4;
-    else
-        GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4]=0;
-
-    LCD1602_vPulseWriteEnable();
-
-    SysTick__vDelayUs(40);
-}
-
-
-uint8_t LCD1602_u8Read(LCD1602_nRS enMode)
-{
-    uint32_t u32Reg=0;
-    uint8_t  u8DatoRead=0;
-
-    GPIO__enSetConfig(LCD1602_PORT_D4,LCD1602_D4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLDOWN);
-    GPIO__enSetConfig(LCD1602_PORT_D5,LCD1602_D5,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLDOWN);
-    GPIO__enSetConfig(LCD1602_PORT_D6,LCD1602_D6,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLDOWN);
-    GPIO__enSetConfig(LCD1602_PORT_D7,LCD1602_D7,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLDOWN);
-
-    LCD1602_vSetReadMode();
-    GPIO_AHB_BLOCK[LCD1602_PORT_RS]->GPIODATA_MASK[LCD1602_RS]=((uint32_t)enMode)<<LCD1602_RS_POS;
-
-    LCD1602_vPrepareReadEnable();
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN7;
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN6;
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN5;
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN4;
-
-    LCD1602_vPulseReadEnable();
-
-    LCD1602_vPrepareReadEnable();
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D7]->GPIODATA_MASK[LCD1602_D7];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN3;
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D6]->GPIODATA_MASK[LCD1602_D6];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN2;
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D5]->GPIODATA_MASK[LCD1602_D5];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN1;
-
-    u32Reg= GPIO_AHB_BLOCK[LCD1602_PORT_D4]->GPIODATA_MASK[LCD1602_D4];
-    if(0 != u32Reg)
-        u8DatoRead|=GPIO_enPIN0;
-
-    LCD1602_vPulseReadEnable();
-
-    LCD1602_vSetWriteMode();
-    GPIO__enSetConfig(LCD1602_PORT_D4,LCD1602_D4,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D5,LCD1602_D5,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D6,LCD1602_D6,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetConfig(LCD1602_PORT_D7,LCD1602_D7,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    SysTick__vDelayUs(40);
-    return u8DatoRead;
-}
-
-
-void LCD1602_vPrepareWriteEnable(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;
-}
-
-/* Pulse of 2 us */
-void LCD1602_vPulseWriteEnable(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=LCD1602_E;
-    SysTick__vDelayUs(0.6);
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;//manda a 0 logico E, completando el pulso
-    SysTick__vDelayUs(0.6);
-}
-
-
-
-
-void LCD1602_vPrepareReadEnable(void)
-{
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;
-    SysTick__vDelayUs(0.1);
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=LCD1602_E;
-    SysTick__vDelayUs(0.3);
-}
-/* Pulse of 2 us */
-void LCD1602_vPulseReadEnable(void)
-{
-    SysTick__vDelayUs(0.3);
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;//manda a 0 logico E, completando el pulso
-    SysTick__vDelayUs(0.6);
-}
-
-
-
-
 
 LCD1602_nBUSY   LCD1602_enReadCommand(uint8_t* pu8Column,uint8_t* pu8Row)
 {
@@ -1616,4 +1396,6 @@ LCD1602_nBUSY LCD1602_enWait(void)
 
     return enBusyBit;
 }
+
+
 //End Of File

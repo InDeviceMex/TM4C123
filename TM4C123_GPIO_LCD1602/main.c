@@ -4,7 +4,7 @@
  * main.c
  */
 
-#include <xApplication/LCD1602/Generic_Header/LCD1602.h>
+#include <LCD1602/Generic_Header/LCD1602_Generic.h>
 #include <xDriver_MCU/Driver_Header/EEPROM.h>
 #include <xDriver_MCU/Driver_Header/FLASH.h>
 #include <xDriver_MCU/Driver_Header/FPU.h>
