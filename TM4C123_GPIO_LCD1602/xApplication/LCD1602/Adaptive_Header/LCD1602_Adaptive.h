@@ -48,24 +48,14 @@ typedef enum
     LCD1602_enDATA=1,
 }LCD1602_nRS;
 
-void LCD1602_vPrepareWriteEnable(void);
-void LCD1602_vPulseWriteEnable(void);
 
-void LCD1602_vPrepareReadEnable(void);
-void LCD1602_vPulseReadEnable(void);
+void    LCD1602__vDelay(float fDelay);
+void    LCD1602__vInitGPIO(void);
 
-void LCD1602_vSetCommandMode(void);
-void LCD1602_vSetDataMode(void);
-void LCD1602_vSetWriteMode(void);
-void LCD1602_vSetReadMode(void);
+void    LCD1602__vWritePin8Bit(uint8_t u8Data);
 
-void LCD1602_vDelay(float fDelay);
-void LCD1602_vInitGPIO(void);
-
-void LCD1602_vWritePin8Bit(uint8_t u8Data);
-
-void            LCD1602_vWrite(uint8_t u8Data,LCD1602_nRS enMode);
-uint8_t         LCD1602_u8Read(LCD1602_nRS enMode);
+void    LCD1602__vWrite(uint8_t u8Data,LCD1602_nRS enMode);
+uint8_t LCD1602__u8Read(LCD1602_nRS enMode);
 
 
 

@@ -64,7 +64,7 @@ int main(void)
     MAIN_vInitGPIO();
     LCD1602__enInit();
 
-    LCD1602__enPrintf((char*)"\n\rINDEVICE TM4C123\n\rLCD1602 SW:",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+    LCD1602__enPrintfSection((char*)"\n\r\"\x12?\\\x15\x16\x17ñ TM4C123",&u8Column,&u8Row,(uint8_t*)&u8Counter,0,15,0,1);
 
     LCD1602__enReadString((char*)character,0,0,32);
 
@@ -77,8 +77,8 @@ int main(void)
         psSW1=GPIOF_APB_GPIODATA_MASK;
         psSW2=GPIOF_APB_GPIODATA_MASK;
     }
-    LCD1602__enReload();
-    LCD1602__enClearSection(5,9,0,1);
+    LCD1602__enReloadScreenDirect();
+    LCD1602__enClearScreenSectionDirect(5,9,0,1);
     while(1)
     {
         //SysTick__vDelayUs(100000);
@@ -86,25 +86,25 @@ int main(void)
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteStringScreen((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enPrintfSection((char*)" BOTH",&u8Column,&u8Row,(uint8_t*)&u8Counter,0,15,0,1);
         }
         else if((psSW1->DATA_MASK[enSW1Pin] == 0))
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteStringScreen((char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen(0,(char*)"  1  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else if((psSW2->DATA_MASK[enSW2Pin] == 0))
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteStringScreen((char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen(0,(char*)"  2  ",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
         else
         {
             u8Column=11;
             u8Row=1;
-            LCD1602__enWriteStringScreen((char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
+            LCD1602__enWriteStringScreen(0,(char*)" NONE",&u8Column,&u8Row,(uint8_t*)&u8Counter);
         }
     }
 }
