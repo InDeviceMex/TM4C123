@@ -8,8 +8,6 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WRITEMULTI_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WRITEMULTI_H_
 
-
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Erase.h>
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteIntrinsics.h>
 
 #if defined ( __TI_ARM__ )
