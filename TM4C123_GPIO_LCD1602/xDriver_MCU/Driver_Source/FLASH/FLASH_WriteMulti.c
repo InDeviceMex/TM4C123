@@ -6,7 +6,7 @@
  */
 
 
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteMulti.h>
 
 FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,uint32_t u32Count)
 {

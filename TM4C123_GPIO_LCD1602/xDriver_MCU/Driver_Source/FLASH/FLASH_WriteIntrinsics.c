@@ -4,7 +4,7 @@
  *  Created on: 17 jun. 2020
  *      Author: vyldram
  */
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteIntrinsics.h>
 
 FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
 {

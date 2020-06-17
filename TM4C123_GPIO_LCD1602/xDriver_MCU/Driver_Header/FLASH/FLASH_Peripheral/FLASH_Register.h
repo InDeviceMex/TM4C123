@@ -8,7 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_REGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_REGISTER_H_
 
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Struct.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Struct.h>
 
 #define FLASH_BASE              (0x400FD000)
 #define FLASH_BITBANDING_BASE   (0x42000000)

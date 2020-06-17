@@ -6,7 +6,7 @@
  */
 
 
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Wait.h>
 
 
 FLASH_nSTATUS FLASH__enWaitWrite(void)
