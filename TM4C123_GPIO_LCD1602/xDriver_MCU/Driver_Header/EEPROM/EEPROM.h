@@ -7,6 +7,7 @@
 #ifndef EEPROM_H_
 #define EEPROM_H_
 
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Init.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Read.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_ReadMulti.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Write.h>

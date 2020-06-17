@@ -1,8 +1,8 @@
-/*
- * HIB.h
- *
- *  Created on: 29/03/2020
- *      Author: vyldram
+/**!
+ *  @file HIB.h
+ *  @brief Header File for HIB Peripheral
+ *  @date Created on: 29/03/2020
+ *  @author vyldram
  */
 
 #ifndef HEADER_DRIVER_HIB_H_
@@ -18,11 +18,17 @@
 #define HIB_BITBANDING_BASE (0x42000000)
 #define HIB_OFFSET          (0x000FC000)
 
+/**
+ *  @brief Struct Definition for RTCC Register
+ */
 typedef volatile struct
 {
     volatile const uint32_t RTCC          :32;
 }HIBRTCC_TypeDef;
 
+/**!
+ *  \ref
+ */
 typedef volatile struct
 {
     volatile uint32_t RTCM0          :32;

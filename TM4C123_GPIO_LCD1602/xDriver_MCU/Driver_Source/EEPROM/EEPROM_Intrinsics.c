@@ -1,30 +1,16 @@
-/*
- * EEPROM_Intrinsics.c
- *
- *  Created on: 16 jun. 2020
- *      Author: vyldram
+/**
+ * @file EEPROM_Intrinsics.c
+ * @brief This files is part of EEPROM Peripheral Driver.
+ * This File contains all the basics functions of EEPROM Fucntionality
+ * @date 16 jun. 2020
+ * @author Vyldram
+ * @copyright InDeviceMex 2020
+ * @remarks File required to obtain the Full functionality.
  */
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
 
 uint32_t EEPROM_u32WorldCount=0;
 uint32_t EEPROM_u32BlockCount=0; //block of 16World
-
-
-EEPROM_nSTATUS EEPROM__enInit(void)
-{
-    EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    SYSCTL__vResetPeripheral(SYSCTL_enEEPROM);
-    SYSCTL__vDisRunModePeripheral(SYSCTL_enEEPROM);
-    SYSCTL__vEnRunModePeripheral(SYSCTL_enEEPROM);
-    //NVIC__enSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);
-
-    EEPROM_u32WorldCount = EEPROM_EESIZE_R & EEPROM_EESIZE_R_WORDCNT_MASK;
-    EEPROM_u32BlockCount= (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK)>>EEPROM_EESIZE_R_BLKCNT_BIT;
-    enReturn=EEPROM__enWait();
-    return enReturn;
-
-}
-
 
 uint32_t EEPROM__u32GetWorldCount(void)
 {
@@ -43,7 +29,7 @@ EEPROM_nSTATUS EEPROM__enGetStatus(void)
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
     if(EEPROM_EEDONE_R_WORKING_EN==(EEPROM_EEDONE_R & EEPROM_EEDONE_R_WORKING_MASK))
     {
-        enReturn =EEPROM_enERROR;
+        enReturn =EEPROM_enBUSY;
     }
 
     return enReturn;
@@ -54,15 +40,12 @@ EEPROM_nSTATUS EEPROM__enGetStatus(void)
 EEPROM_nSTATUS EEPROM__enWait(void)
 {
     uint32_t u32TimeOut = 500000;
-    EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    while(EEPROM_EEDONE_R_WORKING_EN==(EEPROM_EEDONE_R & EEPROM_EEDONE_R_WORKING_MASK))
+    EEPROM_nSTATUS enReturn =EEPROM_enERROR;
+
+    do
     {
+        enReturn=EEPROM__enGetStatus();
         u32TimeOut--;
-        if (u32TimeOut==0)
-        {
-            enReturn =EEPROM_enERROR;
-            break;
-        }
-    }
+    }while((EEPROM_enBUSY == enReturn) && (0!=u32TimeOut));
     return enReturn;
 }
