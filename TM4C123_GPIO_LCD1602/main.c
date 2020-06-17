@@ -6,7 +6,7 @@
 
 #include <LCD1602/Generic_Header/LCD1602_Generic.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
-#include <xDriver_MCU/Driver_Header/FLASH.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
 #include <xDriver_MCU/Driver_Header/FPU.h>
 #include <xDriver_MCU/Driver_Header/GPIO.h>
 #include <xDriver_MCU/Driver_Header/HIB.h>

@@ -4,9 +4,8 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_ReadMulti.h>
 
-extern uint32_t EEPROM_u32WorldCount;
 
 EEPROM_nSTATUS EEPROM__enReadMultiWorld(uint32_t* pu32Data,uint32_t u32Address,uint16_t u16Count)
 {

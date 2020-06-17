@@ -4,7 +4,7 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
 
 uint32_t EEPROM_u32WorldCount=0;
 uint32_t EEPROM_u32BlockCount=0; //block of 16World

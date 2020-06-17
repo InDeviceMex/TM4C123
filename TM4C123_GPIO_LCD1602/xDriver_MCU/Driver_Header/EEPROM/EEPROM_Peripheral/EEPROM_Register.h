@@ -7,7 +7,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_REGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_REGISTER_H_
 
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Struct.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Struct.h>
 
 
 #define EEPROM_BASE            (0x400AF000)
