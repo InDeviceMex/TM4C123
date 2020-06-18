@@ -9,8 +9,8 @@
  */
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
 
-uint32_t EEPROM_u32WorldCount=0;
-uint32_t EEPROM_u32BlockCount=0; //block of 16World
+static uint32_t EEPROM_u32WorldCount=0;
+static uint32_t EEPROM_u32BlockCount=0; //block of 16World
 
 uint32_t EEPROM__u32GetWorldCount(void)
 {
@@ -18,9 +18,21 @@ uint32_t EEPROM__u32GetWorldCount(void)
 }
 
 
+void EEPROM__vInitWorldCount(void)
+{
+    EEPROM_u32WorldCount = EEPROM_EESIZE_R & EEPROM_EESIZE_R_WORDCNT_MASK;
+}
+
+
+
 uint32_t EEPROM__u32GetBlockCount(void)
 {
     return EEPROM_u32BlockCount;
+}
+
+void EEPROM__vInitBlockCount(void)
+{
+    EEPROM_u32BlockCount= (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK)>>EEPROM_EESIZE_R_BLKCNT_BIT;
 }
 
 

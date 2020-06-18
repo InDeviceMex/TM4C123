@@ -7,8 +7,6 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU.h>
 
-
-
 void FPU__vInit(void)
 {
 

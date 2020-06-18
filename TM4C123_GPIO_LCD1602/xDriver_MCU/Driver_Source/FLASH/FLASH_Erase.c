@@ -5,9 +5,32 @@
  *      Author: vyldram
  */
 
-
-
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Erase.h>
+
+
+
+static FLASH_nSTATUS FLASH_enInitPageErase(uint32_t u32Key);
+
+static FLASH_nSTATUS FLASH_enInitPageErase(uint32_t u32Key)
+{
+
+    FLASH_nSTATUS enReturn =FLASH_enERROR;
+    switch(u32Key)
+    {
+    case SYSCTL_BOOTCFG_R_KEY_71D5:
+        FLASH_FMC_R=FLASH_FMC_R_WRKEY_KEY2|FLASH_FMC_R_ERASE_ERASE;
+        enReturn=FLASH__enWaitPageErase();
+        break;
+    case SYSCTL_BOOTCFG_R_KEY_A442:
+        FLASH_FMC_R=FLASH_FMC_R_WRKEY_KEY1|FLASH_FMC_R_ERASE_ERASE;
+        enReturn=FLASH__enWaitPageErase();
+        break;
+    default:
+        break;
+    }
+    return enReturn;
+}
+
 
 
 FLASH_nSTATUS FLASH__enPageErase(uint32_t u32Address)
@@ -17,19 +40,7 @@ FLASH_nSTATUS FLASH__enPageErase(uint32_t u32Address)
     if(u32Address<FLASH_ADDRESS_MAX)
     {
         FLASH_FMA_R=u32Address;
-        switch(u32Key)
-        {
-        case SYSCTL_BOOTCFG_R_KEY_71D5:
-            FLASH_FMC_R=FLASH_FMC_R_WRKEY_KEY2|FLASH_FMC_R_ERASE_ERASE;
-            enReturn=FLASH__enWaitPageErase();
-            break;
-        case SYSCTL_BOOTCFG_R_KEY_A442:
-            FLASH_FMC_R=FLASH_FMC_R_WRKEY_KEY1|FLASH_FMC_R_ERASE_ERASE;
-            enReturn=FLASH__enWaitPageErase();
-            break;
-        default:
-            break;
-        }
+        enReturn=FLASH_enInitPageErase(u32Key);
     }
     return enReturn;
 }
@@ -38,24 +49,7 @@ FLASH_nSTATUS FLASH__enPageErasePos(uint32_t u32Page)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
     uint32_t u32Address= u32Page*FLASH_PAGE_SIZE;
-    uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
-    if(u32Address<FLASH_ADDRESS_MAX)
-    {
-        FLASH_FMA_R=u32Address;
-        switch(u32Key)
-        {
-        case SYSCTL_BOOTCFG_R_KEY_71D5:
-            FLASH_FMC_R=FLASH_FMC_R_WRKEY_KEY2|FLASH_FMC_R_ERASE_ERASE;
-            enReturn=FLASH__enWaitPageErase();
-            break;
-        case SYSCTL_BOOTCFG_R_KEY_A442:
-            FLASH_FMC_R=FLASH_FMC_R_WRKEY_KEY1|FLASH_FMC_R_ERASE_ERASE;
-            enReturn=FLASH__enWaitPageErase();
-            break;
-        default:
-            break;
-        }
-    }
+    enReturn= FLASH__enPageErase(u32Address);
     return enReturn;
 }
 

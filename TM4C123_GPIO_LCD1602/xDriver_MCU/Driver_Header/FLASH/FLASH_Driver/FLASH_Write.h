@@ -8,6 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WRITE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WRITE_H_
 
+#include <stdlib.h>
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteIntrinsics.h>
 
 

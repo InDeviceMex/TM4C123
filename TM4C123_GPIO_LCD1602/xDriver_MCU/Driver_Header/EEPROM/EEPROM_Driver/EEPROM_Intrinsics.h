@@ -1,5 +1,4 @@
 /**
- *
  * @file EEPROM_Intrinsics.h
  * @ingroup EEPROM Driver
  * @brief This files is part of EEPROM Peripheral Driver.
@@ -34,17 +33,51 @@
 
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Peripheral.h>
 
-extern uint32_t EEPROM_u32WorldCount;
-extern uint32_t EEPROM_u32BlockCount;
-
 /** @section Intrinsics
 
 * @{
 */
 
+/**
+ * @brief EEPROM Init World Count Max Function
+ * @details This function Initialize the static global Max number of World variable with the Data of the register.
+ *
+ * @see  EEPROM__u32GetWorldCount
+ *
+ * @remark This function must be call before any call to @ref  EEPROM__u32GetWorldCount.
+ */
+void EEPROM__vInitWorldCount(void);
 
+/**
+ * @brief EEPROM Get World Count Max Function
+ * @details This function get the Max number of World storage inthe EEPROM peripheral.
+ * @return Max Number of Worlds
+ *
+ * @see  EEPROM__vInitWorldCount
+ *
+ * @remark This function must be call after the call of @ref  EEPROM__vInitWorldCount to proper initialize the value.
+ */
 uint32_t EEPROM__u32GetWorldCount(void);
 
+/**
+ * @brief EEPROM Init Block Count Max Function
+ * @details This function Initialize the static global Max number of Block Worlds variable with the Data of the register.
+ *
+ * @see  EEPROM__u32GetBlockCount
+ *
+ * @remark This function must be call before any call to @ref  EEPROM__u32GetBlockCount.
+ */
+void EEPROM__vInitBlockCount(void);
+
+/**
+ * @brief EEPROM Get Block Count Max Function
+ * @details This function get the Max number of Block World storage in the EEPROM peripheral.
+ * @return Max Number of Block Worlds
+ *
+ * @see  EEPROM__vInitBlockCount
+ *
+ * @remark This function must be call after the call of @ref  EEPROM__vInitBlockCount to proper initialize the value.
+ */
 
 uint32_t EEPROM__u32GetBlockCount(void);
 

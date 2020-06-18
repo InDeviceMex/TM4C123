@@ -49,9 +49,9 @@ EEPROM_nSTATUS EEPROM__enInit(void)
     /*
      * To obtain the EEPROM Max Block and Max World allowed
      */
-    EEPROM_u32WorldCount = EEPROM_EESIZE_R & EEPROM_EESIZE_R_WORDCNT_MASK;
-    EEPROM_u32BlockCount= (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK)>>EEPROM_EESIZE_R_BLKCNT_BIT;
-    /*
+
+    EEPROM__vInitWorldCount();
+    EEPROM__vInitBlockCount();    /*
      * To wait until EEPROM peripheral is ready
      */
     enReturn=EEPROM__enWait();

@@ -10,7 +10,7 @@
 EEPROM_nSTATUS EEPROM__enWriteMultiWorld(uint32_t* pu32Data,uint32_t u32Address,uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
+    uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);
     while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
     {
         enReturn=EEPROM__enWriteWorld(*pu32Data,u32Address);
@@ -26,7 +26,7 @@ EEPROM_nSTATUS EEPROM__enWriteMultiWorld(uint32_t* pu32Data,uint32_t u32Address,
 EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld(uint16_t* pu16Data,uint32_t u32Address,uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
+    uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);
     while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
     {
         enReturn=EEPROM__enWriteHalfWorld(*pu16Data,u32Address);
@@ -42,7 +42,7 @@ EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld(uint16_t* pu16Data,uint32_t u32Addr
 EEPROM_nSTATUS EEPROM__enWriteMultiByte(uint8_t* pu8Data,uint32_t u32Address,uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
+    uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);
     while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
     {
         enReturn=EEPROM__enWriteByte(*pu8Data,u32Address);
