@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 #include <xDriver_MCU/Driver_Header/GPIO.h>
-#include <xDriver_MCU/Driver_Header/SYSTICK.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
 
 #define LCD1602_PORT_E  (GPIO_enPORTB)
 #define LCD1602_PORT_RS (GPIO_enPORTB)

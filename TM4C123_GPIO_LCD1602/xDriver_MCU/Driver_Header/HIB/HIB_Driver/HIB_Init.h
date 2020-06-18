@@ -15,6 +15,7 @@
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Interrupt.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Intrinsics.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_InterruptRoutine.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Counter.h>
 

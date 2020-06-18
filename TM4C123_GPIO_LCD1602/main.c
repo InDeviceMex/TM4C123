@@ -5,17 +5,19 @@
  */
 
 #include <LCD1602/Generic_Header/LCD1602_Generic.h>
+
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
 #include <xDriver_MCU/Driver_Header/FPU/FPU.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
+
 #include <xDriver_MCU/Driver_Header/GPIO.h>
-#include <xDriver_MCU/Driver_Header/HIB.h>
 #include <xDriver_MCU/Driver_Header/MPU.h>
 #include <xDriver_MCU/Driver_Header/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL.h>
 #include <xDriver_MCU/Driver_Header/SYSEXC.h>
-#include <xDriver_MCU/Driver_Header/SYSTICK.h>
 #include <xDriver_MCU/Driver_Header/TIMER.h>
 #include "stdlib.h"
 
@@ -87,7 +89,7 @@ int main(void)
     u8Row=0;
     while(1)
     {
-        SysTick__vDelayUs(800000);
+        SysTick__vDelayUs(800000.0);
 
         if(vu32Refresh == (enSW1Pin|enSW2Pin))
         {

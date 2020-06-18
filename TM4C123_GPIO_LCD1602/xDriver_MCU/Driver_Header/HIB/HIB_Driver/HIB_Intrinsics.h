@@ -10,7 +10,7 @@
 
 
 
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Enum.h>
 
 void HIB__enSetGlobalStatus(HIB_nREADY enStatus);
 HIB_nREADY HIB__enGetGlobalStatus(void);

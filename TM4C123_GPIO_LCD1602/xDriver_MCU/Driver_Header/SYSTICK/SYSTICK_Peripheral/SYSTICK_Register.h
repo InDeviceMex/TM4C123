@@ -1,84 +1,19 @@
 /*
- * SysTick.h
+ * SYSTICK_Register.h
  *
- *  Created on: 20/03/2020
+ *  Created on: 18 jun. 2020
  *      Author: vyldram
  */
 
-#ifndef HEADER_DRIVER_SYSTICK_H_
-#define HEADER_DRIVER_SYSTICK_H_
+#ifndef XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_H_
+#define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_H_
 
-#include <stdint.h>                             /* standard types definitions                      */
-#include <xDriver_MCU/Driver_Header/SCB.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Peripheral/SYSTICK_Struct.h>
 
 #define SysTick_BASE            ((uint32_t)0xE000E000)
 #define SysTick_VALUEMAX        ((uint32_t)0xFFFFFF)
 #define SysTick_PIOSC4          ((uint32_t)4000000u)
 #define SysTick_PIOSC           ((uint32_t)16000000u)
-
-typedef volatile struct
-{
-    volatile uint32_t ENABLE            :1;
-    volatile uint32_t TICKINT           :1;
-    volatile uint32_t CLKSOURCE         :1;
-    const    uint32_t reserved          :13;
-    const volatile uint32_t COUNTFLAG   :1;
-    const    uint32_t reserved1         :15;
-}SysTick_CSR_TypeDef;
-
-
-
-typedef volatile struct
-{
-    volatile uint32_t RELOAD            :24;
-    const    uint32_t reserved          :8;
-}SysTick_RVR_TypeDef;
-
-
-
-typedef volatile struct
-{
-    volatile uint32_t CURRENT           :24;
-    const    uint32_t reserved          :8;
-}SysTick_CVR_TypeDef;
-
-
-typedef volatile struct
-{
-    volatile uint32_t TENMS             :24;
-             uint32_t reserved          :6;
-    volatile const  uint32_t SKEW       :1;
-    volatile const  uint32_t NOREF      :1;
-}SysTick_CR_TypeDef;
-
-
-typedef volatile struct
-{
-    uint32_t                reserved[4];
-    union
-    {
-        volatile uint32_t       CSR;
-        SysTick_CSR_TypeDef     CSR_Bit;
-    };
-    union
-    {
-        volatile uint32_t       RVR;
-        SysTick_RVR_TypeDef     RVR_Bit;
-    };
-    union
-    {
-        volatile uint32_t       CVR;
-        SysTick_CVR_TypeDef     CVR_Bit;
-    };
-    union
-    {
-        const uint32_t        CR;
-        SysTick_CR_TypeDef    CR_Bit;
-    };
-}SysTick_TypeDef;
-
-
 
 #define SysTick                 (((SysTick_TypeDef*)(SysTick_BASE)))
 
@@ -210,31 +145,6 @@ typedef volatile struct
 ************************************** PROTOTYPES **********************************************
 *********************************************************************************************/
 
-typedef enum
-{
-    SysTick_enOK=0,
-    SysTick_enERROR=1,
-}SysTick_nSTATUS;
-
-typedef enum
-{
-    SysTick_enPIOSC4=0,
-    SysTick_enSYSCLK=1,
-}SysTick_nCLKSOURCE;
-
-SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysTick_nCLKSOURCE enClockSource);
-SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority);
-SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority);
-
-float SysTick__fGetTimeUs(void);
-float SysTick__fGetFrequency(void);
-void SysTick__vClearCount(void);
-uint32_t SysTick__u32GetCount(void);
-uint32_t SysTick__u32GetCurrentTick(void);
-uint64_t SysTick__u64GetCurrentCountTick(void);
-uint32_t SysTick__u32GetMaxTick(void);
-
-void SysTick__vDelayUs(float fTimeUs);
 
 
-#endif /* HEADER_DRIVER_SYSTICK_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_H_ */
