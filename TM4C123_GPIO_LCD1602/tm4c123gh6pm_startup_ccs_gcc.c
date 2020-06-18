@@ -23,6 +23,7 @@
 //*****************************************************************************
 
 #include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU.h>
 
 //*****************************************************************************
 //
@@ -304,6 +305,8 @@ ResetISR(void)
     //
     // Call the application's entry point.
     //
+
+    FPU__vInit();
     main();
 }
 

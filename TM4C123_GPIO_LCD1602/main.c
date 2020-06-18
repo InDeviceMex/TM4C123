@@ -8,7 +8,6 @@
 
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
-#include <xDriver_MCU/Driver_Header/FPU/FPU.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB.h>
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
 
@@ -63,7 +62,6 @@ int main(void)
     uint8_t u8ColumnCurrent=0;
     uint8_t u8Counter=0;
     __asm(" cpsie i");
-    FPU__vInit();
     MPU__vInit();
     SCB__vInit();
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
@@ -89,7 +87,7 @@ int main(void)
     u8Row=0;
     while(1)
     {
-        SysTick__vDelayUs(800000.0);
+        SysTick__vDelayUs(1000000.0);
 
         if(vu32Refresh == (enSW1Pin|enSW2Pin))
         {

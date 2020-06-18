@@ -33,17 +33,18 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         {
             u32Tick=(SysTick_VALUEMAX+1);
         }
-        SysTick__vClearCount();
-        SysTick__vSetFrecBase(u32SysTickFrequency);
-        SysTick__vSetUsBase(1000000.0/(float)u32SysTickFrequency);
+        SysTick__vClearFreeCount();
+        SysTick__vClearFreeCountOv();
+        SysTick__vSetFreqBase(u32SysTickFrequency);
+        SysTick__vSetTimeUsBase(1000000.0/(float)u32SysTickFrequency);
 
         fSysTickFrequency=(float)u32SysTickFrequency;
         fSysTickFrequency/=(float)u32Tick;
         fSysTickUs/=fSysTickFrequency;
 
-        SysTick__vSetFrecTick(fSysTickFrequency);
-        SysTick__vSetUsTick(fSysTickUs);
-        SysTick__vSetCountTick(u32Tick);
+        SysTick__vSetTickFreq(fSysTickFrequency);
+        SysTick__vSetTickUs(fSysTickUs);
+        SysTick__vSetTickCount(u32Tick);
 
         SCB__vRegisterISR(SysTick__vISR,SCB_enVECISR_SYSTICK);
         SCB_SHPR3->SYSTICK=(uint8_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
@@ -92,15 +93,16 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
         }
         if(enReturn == SysTick_enOK)
         {
-            SysTick__vClearCount();
-            SysTick__vSetFrecBase(u32SysTickFrequency);
-            SysTick__vSetUsBase(1000000.0/(float)u32SysTickFrequency);
+            SysTick__vClearFreeCount();
+            SysTick__vClearFreeCountOv();
+            SysTick__vSetFreqBase(u32SysTickFrequency);
+            SysTick__vSetTimeUsBase(1000000.0/(float)u32SysTickFrequency);
 
             fSysTickUs/=fFrequency;
 
-            SysTick__vSetFrecTick(fFrequency);
-            SysTick__vSetUsTick(fSysTickUs);
-            SysTick__vSetCountTick(u32CountTick);
+            SysTick__vSetTickFreq(fFrequency);
+            SysTick__vSetTickUs(fSysTickUs);
+            SysTick__vSetTickCount(u32CountTick);
 
             SCB__vRegisterISR(SysTick__vISR,SCB_enVECISR_SYSTICK);
             SCB_SHPR3->SYSTICK=(uint8_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
@@ -154,18 +156,19 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
         }
         if(enReturn == SysTick_enOK)
         {
-            SysTick__vClearCount();
-            SysTick__vSetFrecBase(u32SysTickFrequency);
+            SysTick__vClearFreeCount();
+            SysTick__vClearFreeCountOv();
+            SysTick__vSetFreqBase(u32SysTickFrequency);
             if(u32SysTickFrequency!=0)
             {
-                SysTick__vSetUsBase(1000000.0/(float)u32SysTickFrequency);
+                SysTick__vSetTimeUsBase(1000000.0/(float)u32SysTickFrequency);
             }
             if(fTimeUs!=0.0)
             {
-                SysTick__vSetFrecTick(1000000.0/fTimeUs);
+                SysTick__vSetTickFreq(1000000.0/fTimeUs);
             }
-            SysTick__vSetUsTick(fTimeUs);
-            SysTick__vSetCountTick(u32CountTick);
+            SysTick__vSetTickUs(fTimeUs);
+            SysTick__vSetTickCount(u32CountTick);
 
             SCB__vRegisterISR(SysTick__vISR,SCB_enVECISR_SYSTICK);
             SCB_SHPR3->SYSTICK=(uint8_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
@@ -189,10 +192,11 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
 
 static void SysTick_vClarAllCounter(void)
 {
-    SysTick__vClearCount();
-    SysTick__vClearFrecBase();
-    SysTick__vClearUsBase();
-    SysTick__vClearUsTick();
-    SysTick__vClearFrecTick();
-    SysTick__vClearCountTick();
+    SysTick__vClearFreeCount();
+    SysTick__vClearFreeCountOv();
+    SysTick__vClearFreqBase();
+    SysTick__vClearTimeUsBase();
+    SysTick__vClearTickUs();
+    SysTick__vClearTickFreq();
+    SysTick__vClearTickCount();
 }

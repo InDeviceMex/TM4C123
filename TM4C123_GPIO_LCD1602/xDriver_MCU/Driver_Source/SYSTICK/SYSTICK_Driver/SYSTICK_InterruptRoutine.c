@@ -12,13 +12,13 @@
 
 void SysTick__vISR(void)
 {
-    uint32_t u32Count= SysTick__u32GetCount();
+    uint32_t u32Count= SysTick__u32GetFreeCount();
     u32Count++;
-    SysTick__vSetCount(u32Count);
+    SysTick__vSetFreeCount(u32Count);
     if(u32Count==0)
     {
-        uint32_t u32CountOv = SysTick__u32GetCountOV();
+        uint32_t u32CountOv = SysTick__u32GetFreeCountOv();
         u32CountOv++;
-        SysTick__vSetCountOV(u32CountOv);
+        SysTick__vSetFreeCountOv(u32CountOv);
     }
 }
