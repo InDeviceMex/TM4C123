@@ -250,6 +250,7 @@ void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERR
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Isr=0;
 
 
     if((uint32_t)Isr !=0u)
@@ -263,7 +264,8 @@ void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERR
             u32Interrupt=TIMER_INT;
         }
 
-        TIMER_vSOURCEISR[u32Wide][u32Letter][u32Number][u32Interrupt]= (void (*) (void))((uint32_t)Isr|1u);
+        u32Isr=((uint32_t)Isr|1u);
+        TIMER_vSOURCEISR[u32Wide][u32Letter][u32Number][u32Interrupt]= (void (*) (void))u32Isr;
     }
 }
 
@@ -273,6 +275,7 @@ void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule)
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Isr=0;
     if(0u != (uint32_t)Isr)
     {
         if(TIMER_MAX<u32Number)
@@ -280,7 +283,8 @@ void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule)
             u32Number=TIMER_MAX;
         }
         enVector=SCB_VECTOR_TIMER[u32Wide][u32Letter][u32Number];
-        TIMER_vISR[u32Wide][u32Letter][u32Number]=(void (*) (void))((uint32_t)Isr|1u);
+        u32Isr=((uint32_t)Isr|1u);
+        TIMER_vISR[u32Wide][u32Letter][u32Number]=(void (*) (void))u32Isr;
         SCB__vRegisterISR(TIMER_vISR[u32Wide][u32Letter][u32Number],enVector);
     }
 }

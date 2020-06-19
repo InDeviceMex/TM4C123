@@ -95,12 +95,14 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {
     uint32_t* pu32Ram=0;
     const uint32_t* pu32Flash=0;
+    uint32_t u32FlashTemp=0;
     uint32_t u32Count=0;
 
     u32Offset&=~(uint32_t)0x3FFu;
     if(u32Offset<0x00010000u)
     {
-        FLASH__enWriteMultiWorld((uint32_t*)SCB_VTOR_R,u32Offset,(uint32_t)0x100u);
+        u32FlashTemp=(uint32_t)SCB_VTOR_R;
+        FLASH__enWriteMultiWorld((uint32_t*)u32FlashTemp,u32Offset,(uint32_t)0x100u);
         __asm(" cpsid i");
         SCB_VTOR_R= u32Offset;
         SCB_vBarrier();
@@ -108,7 +110,8 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
     }
     else if((u32Offset>=0x20000000u) && (u32Offset<=0x20000400u))
     {
-        pu32Flash=(const uint32_t*)SCB_VTOR_R;
+        u32FlashTemp=(uint32_t)SCB_VTOR_R;
+        pu32Flash=(const uint32_t*)u32FlashTemp;
         pu32Ram=(uint32_t*)u32Offset;
         for(u32Count=0u; u32Count<0x100u;u32Count++ )
         {

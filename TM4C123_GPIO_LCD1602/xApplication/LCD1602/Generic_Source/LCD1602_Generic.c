@@ -1187,7 +1187,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
     char* cNumberConversion=0;
 
     cNumberConversion=cNumberConv;
-    va_start(ap, u8HeightMax);
+    va_start((va_list)ap, u8HeightMax);
 
     if(((uint32_t)0!=(uint32_t)pu8Column) && ((uint32_t)0!=(uint32_t)pu8Row) && ((uint32_t)0!=(uint32_t)pcString) && ((uint32_t)0!=(uint32_t)pu8Count))
     {
