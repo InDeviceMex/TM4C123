@@ -35,7 +35,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
             enReturn = HIB_enOK;
         }
         u32TimeOut--;
-    }while((HIB_enBUSY == enReady) && (0 != u32TimeOut));
+    }while((HIB_enBUSY == enReady) && (0u != u32TimeOut));
 
 
     HIB_HIBIM_R=HIB_HIBIM_R_WC_DIS;
@@ -45,7 +45,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     }
     if(HIB_enOK == enReturn)
     {
-        enReturn= HIB__enSetCounter(0);
+        enReturn= HIB__enSetCounter(0u);
     }
 
     if(HIB_enOK == enReturn)
@@ -62,7 +62,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     while(HIB_HIBCTL_R_WRC_BUSY==(HIB_HIBCTL_R&HIB_HIBCTL_R_WRC_MASK))
     {
         u32TimeOut--;
-        if( 0 == u32TimeOut)
+        if( 0u == u32TimeOut)
         {
             enReturn = HIB_enERROR;
             break;

@@ -12,10 +12,10 @@
 
 #include <stdint.h>
 
-#define INT2STRINGMAX   (21)
-#define HEX2STRINGMAX   (19)
-#define OCT2STRINGMAX   (24)
-#define BIN2STRINGMAX   (40)
+#define INT2STRINGMAX   (21u)
+#define HEX2STRINGMAX   (19u)
+#define OCT2STRINGMAX   (24u)
+#define BIN2STRINGMAX   (40u)
 
 
 

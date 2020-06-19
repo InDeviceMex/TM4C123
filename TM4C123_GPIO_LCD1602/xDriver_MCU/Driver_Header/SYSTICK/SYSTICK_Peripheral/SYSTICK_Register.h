@@ -33,7 +33,7 @@
 
 /*--------*/
 #define SysTick_CSR_R_COUNTFLAG_MASK        ((uint32_t)0x00010000u)
-#define SysTick_CSR_R_COUNTFLAG_BIT         (16)
+#define SysTick_CSR_R_COUNTFLAG_BIT         (16u)
 #define SysTick_CSR_R_COUNTFLAG_COMPLETE    ((uint32_t)0x00010000u)
 #define SysTick_CSR_R_COUNTFLAG_NOCOMPLETE  ((uint32_t)0x00000000u)
 
@@ -44,7 +44,7 @@
 
 /*--------*/
 #define SysTick_CSR_R_CLKSOURCE_MASK   ((uint32_t)0x00000004u)
-#define SysTick_CSR_R_CLKSOURCE_BIT    (2)
+#define SysTick_CSR_R_CLKSOURCE_BIT    (2u)
 #define SysTick_CSR_R_CLKSOURCE_PIOSC4   ((uint32_t)0x00000000u)
 #define SysTick_CSR_R_CLKSOURCE_SYSCLK ((uint32_t)0x00000004u)
 
@@ -55,7 +55,7 @@
 
 /*--------*/
 #define SysTick_CSR_R_TICKINT_MASK     ((uint32_t)0x00000002u)
-#define SysTick_CSR_R_TICKINT_BIT      (1)
+#define SysTick_CSR_R_TICKINT_BIT      (1u)
 #define SysTick_CSR_R_TICKINT_EN       ((uint32_t)0x00000002u)
 #define SysTick_CSR_R_TICKINT_DIS      ((uint32_t)0x00000000u)
 
@@ -66,7 +66,7 @@
 
 /*--------*/
 #define SysTick_CSR_R_ENABLE_MASK       ((uint32_t)0x00000001u)
-#define SysTick_CSR_R_ENABLE_BIT        (0)
+#define SysTick_CSR_R_ENABLE_BIT        (0u)
 #define SysTick_CSR_R_ENABLE_EN         ((uint32_t)0x00000001u)
 #define SysTick_CSR_R_ENABLE_DIS        ((uint32_t)0x00000000u)
 
@@ -84,7 +84,7 @@
 
 /*--------*/
 #define SysTick_RVR_R_RELOAD_MASK       ((uint32_t)0x00FFFFFFu)
-#define SysTick_RVR_R_RELOAD_BIT        (0)
+#define SysTick_RVR_R_RELOAD_BIT        (0u)
 
 #define SysTick_RVR_RELOAD_MASK         ((uint32_t)0x00FFFFFFu)
 /*--------*/
@@ -98,7 +98,7 @@
 
 /*--------*/
 #define SysTick_CVR_R_CURRENT_MASK    ((uint32_t)0x00FFFFFFu)
-#define SysTick_CVR_R_CURRENT_BIT     (0)
+#define SysTick_CVR_R_CURRENT_BIT     (0u)
 
 #define SysTick_CVR_CURRENT_MASK      ((uint32_t)0x00FFFFFFu)
 /*--------*/
@@ -113,14 +113,14 @@
 
 /*--------*/
 #define SysTick_CR_R_TENMS_MASK      ((uint32_t)0x00FFFFFFu)
-#define SysTick_CR_R_TENMS_BIT       (0)
+#define SysTick_CR_R_TENMS_BIT       (0u)
 
 #define SysTick_CR_TENMS_MASK        ((uint32_t)0x00FFFFFFu)
 /*--------*/
 
 /*--------*/
 #define SysTick_CR_R_SKEW_MASK       ((uint32_t)0x40000000u)
-#define SysTick_CR_R_SKEW_BIT        (30)
+#define SysTick_CR_R_SKEW_BIT        (30u)
 #define SysTick_CR_R_SKEW_EXACT      ((uint32_t)0x40000000u)
 #define SysTick_CR_R_SKEW_INEXACT    ((uint32_t)0x00000000u)
 
@@ -131,7 +131,7 @@
 
 /*--------*/
 #define SysTick_CR_R_NOREF_MASK      ((uint32_t)0x80000000u)
-#define SysTick_CR_R_NOREF_BIT       (31)
+#define SysTick_CR_R_NOREF_BIT       (31u)
 #define SysTick_CR_R_NOREF_SAME      ((uint32_t)0x80000000u)
 #define SysTick_CR_R_NOREF_OTHER     ((uint32_t)0x00000000u)
 

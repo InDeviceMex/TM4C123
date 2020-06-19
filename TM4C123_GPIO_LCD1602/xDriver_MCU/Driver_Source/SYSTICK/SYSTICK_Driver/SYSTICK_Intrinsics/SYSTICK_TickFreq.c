@@ -9,12 +9,12 @@
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_TickFreq.h>
 
 
-static float SysTick_fTickFreq=0.0;
+static float SysTick_fTickFreq=0.0f;
 
 
 void SysTick__vClearTickFreq(void)
 {
-    SysTick_fTickFreq=0.0;
+    SysTick_fTickFreq=0.0f;
 }
 
 void SysTick__vSetTickFreq(float fTick)

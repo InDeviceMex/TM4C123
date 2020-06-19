@@ -42,7 +42,7 @@ NVIC_nSTIR NVIC_VECTOR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_
 
 void GPIO_vDUMMY(void)
 {
-    while(1);
+    while(1u);
 }
 
 void GPIO__vInit(void)
@@ -73,7 +73,7 @@ void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin)
             u32Count++;
             u32Pin>>=1;
         }
-        GPIO[(uint32_t)enPort][u32Count]= (void (*) (void))((uint32_t)Isr|1u);
+        GPIO[(uint32_t)enPort][u32Count]=(void (*) (void))((uint32_t)Isr|(uint32_t)1u);
     }
 }
 
@@ -1114,17 +1114,17 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
 {
     GPIO_CONFIG_Typedef* psConfig=0;
     #if defined ( __TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign(4,sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) memalign((size_t)4,(size_t)(sizeof(GPIO_CONFIG_Typedef)));
     #elif defined ( __GNUC__ )
-    psConfig = (GPIO_CONFIG_Typedef*) malloc(sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef));
     #endif
 
     if(psConfig!=0)
     {
-        psConfig->enResistorMode=(GPIO_nRESMODE)(((uint32_t)enConfig>>0)&3);
-        psConfig->enOutputMode=(GPIO_nOUTMODE)(((uint32_t)enConfig>>4)&1);
-        psConfig->enDirection=(GPIO_nDIR)(((uint32_t)enConfig>>8)&1);
-        psConfig->enDrive=(GPIO_nDRIVE)(((uint32_t)enConfig>>16)&0x0103u);
+        psConfig->enResistorMode=(GPIO_nRESMODE)(((uint32_t)enConfig>>0u)&3u);
+        psConfig->enOutputMode=(GPIO_nOUTMODE)(((uint32_t)enConfig>>4u)&1u);
+        psConfig->enDirection=(GPIO_nDIR)(((uint32_t)enConfig>>8u)&1u);
+        psConfig->enDrive=(GPIO_nDRIVE)(((uint32_t)enConfig>>16u)&0x0103u);
     }
     return psConfig;
 }
@@ -1208,9 +1208,9 @@ GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_CONFIG_Typedef* psConfig=0;
     #if defined ( __TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign(4,sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) memalign((size_t)4,(size_t)(sizeof(GPIO_CONFIG_Typedef)));
     #elif defined ( __GNUC__ )
-    psConfig = (GPIO_CONFIG_Typedef*) malloc(sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef));
     #endif
 
     psConfig->enResistorMode=GPIO__enGetResistorMode(enPort, enPin);
@@ -1226,9 +1226,9 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
 
     GPIO_nSTATUS enReturn=GPIO_enERROR;
 
-    uint32_t u32Port =(enFunction>>16)&0xFF;
-    uint32_t u32Bit =(enFunction>>8)&0x1F;
-    uint32_t u32Pin =(u32Bit>>2)&0xFF;
+    uint32_t u32Port =(enFunction>>16u)&0xFFu;
+    uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
+    uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
     u32Pin=(1<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
@@ -1253,9 +1253,9 @@ GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GP
 
     GPIO_nSTATUS enReturn=GPIO_enERROR;
 
-    uint32_t u32Port =(enFunction>>16)&0xFF;
-    uint32_t u32Bit =(enFunction>>8)&0x1F;
-    uint32_t u32Pin =(u32Bit>>2)&0xFF;
+    uint32_t u32Port =(enFunction>>16u)&0xFFu;
+    uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
+    uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
     u32Pin=(1<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
@@ -1275,9 +1275,9 @@ GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 {
     GPIO_nCONFIG enConfig=GPIO_enCONFIG_UNDEF;
 
-    uint32_t u32Port =(enFunction>>16)&0xFF;
-    uint32_t u32Bit =(enFunction>>8)&0x1F;
-    uint32_t u32Pin =(u32Bit>>2)&0xFF;
+    uint32_t u32Port =(enFunction>>16u)&0xFFu;
+    uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
+    uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
     u32Pin=(1<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
@@ -1307,9 +1307,9 @@ GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Typedef* psConfig)
 {
 
-    uint32_t u32Port =(enFunction>>16)&0xFF;
-    uint32_t u32Bit =(enFunction>>8)&0x1F;
-    uint32_t u32Pin =(u32Bit>>2)&0xFF;
+    uint32_t u32Port =(enFunction>>16u)&0xFFu;
+    uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
+    uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
     u32Pin=(1<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
@@ -1325,17 +1325,17 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 {
     GPIO_CONFIG_Typedef* psConfig=0;
 
-    uint32_t u32Port =(enFunction>>16)&0xFF;
-    uint32_t u32Bit =(enFunction>>8)&0x1F;
-    uint32_t u32Pin =(u32Bit>>2)&0xFF;
+    uint32_t u32Port =(enFunction>>16u)&0xFFu;
+    uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
+    uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
     u32Pin=(1<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
 
     #if defined ( __TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign(4,sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) memalign((size_t)4,(size_t)(sizeof(GPIO_CONFIG_Typedef)));
     #elif defined ( __GNUC__ )
-    psConfig = (GPIO_CONFIG_Typedef*) malloc(sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef));
     #endif
 
     psConfig->enResistorMode=GPIO__enGetResistorMode(enPort, enPin);
@@ -1348,7 +1348,7 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
 {
-    uint32_t u32Port =(enFunction>>8)&0xFF;
+    uint32_t u32Port =(enFunction>>8u)&0xFFu;
     uint32_t u32Pin =(enFunction);
     if(u32Port>(uint32_t)GPIO_enMAX)
     {
@@ -1399,7 +1399,7 @@ void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
     u32Reg=gpio->GPIOADCCTL;
-    u32Reg&=~enPin;
+    u32Reg&=~(uint32_t)enPin;
     gpio->GPIOADCCTL=u32Reg;
 }
 
@@ -1436,7 +1436,7 @@ void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
     u32Reg=gpio->GPIODMACTL;
-    u32Reg&=~enPin;
+    u32Reg&=~(uint32_t)enPin;
     gpio->GPIODMACTL=u32Reg;
 }
 
@@ -1444,7 +1444,7 @@ void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 void GPIOA_vISR(void)
 {
     volatile uint32_t u32Reg=0;
-    uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<0);
+    uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<0u);
     if(GPIO_enAPB ==u32RegBUS)
     {
         u32Reg=GPIOA_APB_GPIOMIS_R;
@@ -1538,7 +1538,7 @@ void GPIOA_vISR(void)
 void GPIOB_vISR(void)
 {
     volatile uint32_t u32Reg=0;
-    uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<1);
+    uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<1u);
     if(GPIO_enAPB ==u32RegBUS)
     {
         u32Reg=GPIOB_APB_GPIOMIS_R;
@@ -1631,7 +1631,7 @@ void GPIOB_vISR(void)
 void GPIOC_vISR(void)
 {
     volatile uint32_t u32Reg=0;
-     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
+     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<2u);
      if(GPIO_enAPB ==u32RegBUS)
      {
          u32Reg=GPIOC_APB_GPIOMIS_R;
@@ -1725,7 +1725,7 @@ void GPIOC_vISR(void)
 void GPIOD_vISR(void)
 {
     volatile uint32_t u32Reg=0;
-     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
+     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<2u);
      if(GPIO_enAPB ==u32RegBUS)
      {
          u32Reg=GPIOD_APB_GPIOMIS_R;
@@ -1818,7 +1818,7 @@ void GPIOD_vISR(void)
 void GPIOE_vISR(void)
 {
     volatile uint32_t u32Reg=0;
-     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
+     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<2u);
      if(GPIO_enAPB ==u32RegBUS)
      {
          u32Reg=GPIOE_APB_GPIOMIS_R;
@@ -1911,7 +1911,7 @@ void GPIOE_vISR(void)
 void GPIOF_vISR(void)
 {
     volatile uint32_t u32Reg=0;
-     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
+     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<2u);
      if(GPIO_enAPB ==u32RegBUS)
      {
          u32Reg=GPIOF_APB_GPIOMIS_R;

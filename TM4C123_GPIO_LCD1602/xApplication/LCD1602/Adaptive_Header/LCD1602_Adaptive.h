@@ -28,13 +28,13 @@
 #define LCD1602_RS (GPIO_enPIN5)
 #define LCD1602_RW (GPIO_enPIN6)
 
-#define LCD1602_D4_POS (0)
-#define LCD1602_D5_POS (1)
-#define LCD1602_D6_POS (2)
-#define LCD1602_D7_POS (3)
-#define LCD1602_E_POS  (4)
-#define LCD1602_RS_POS (5)
-#define LCD1602_RW_POS (6)
+#define LCD1602_D4_POS (0u)
+#define LCD1602_D5_POS (1u)
+#define LCD1602_D6_POS (2u)
+#define LCD1602_D7_POS (3u)
+#define LCD1602_E_POS  (4u)
+#define LCD1602_RS_POS (5u)
+#define LCD1602_RW_POS (6u)
 
 typedef enum
 {

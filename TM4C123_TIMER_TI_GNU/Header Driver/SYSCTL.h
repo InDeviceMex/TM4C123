@@ -2952,7 +2952,7 @@ typedef volatile struct
 
 
 #define SYSCTL                 (((SYSCTL_TypeDef*)(SYSCTL_BASE)))
-#define SYSCTL_BITBANDING      (((SYSCTL_BITBANDING_TypeDef*)(SYSCTL_BITBANDING_BASE+(SYSCTL_OFFSET*32))))
+#define SYSCTL_BITBANDING      (((SYSCTL_BITBANDING_TypeDef*)(SYSCTL_BITBANDING_BASE+(SYSCTL_OFFSET*32u))))
 
 
 #define SYSCTL_DID0_OFFSET          (0x0000u)
@@ -3134,11 +3134,11 @@ typedef volatile struct
 *******************************************************************************************/
 #define SYSCTL_DID0         (((DID0_TypeDef*)(SYSCTL_BASE+SYSCTL_DID0_OFFSET )))
 #define SYSCTL_DID0_R       (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DID0_OFFSET)))
-#define SYSCTL_BITBANDING_DID0      (((BITBANDING_DID0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DID0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DID0      (((BITBANDING_DID0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DID0_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DID0_R_MINOR_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_DID0_R_MINOR_BIT     (0)
+#define SYSCTL_DID0_R_MINOR_BIT     (0u)
 #define SYSCTL_DID0_R_MINOR_INI     ((uint32_t)0x00000000u)
 #define SYSCTL_DID0_R_MINOR_1METAL  ((uint32_t)0x00000001u)
 #define SYSCTL_DID0_R_MINOR_2METAL  ((uint32_t)0x00000002u)
@@ -3174,7 +3174,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID0_R_CLASS_MASK    ((uint32_t)0x00FF0000u)
-#define SYSCTL_DID0_R_CLASS_BIT     (16)
+#define SYSCTL_DID0_R_CLASS_BIT     (16u)
 #define SYSCTL_DID0_R_CLASS_TIVAC   ((uint32_t)0x00050000u)
 
 #define SYSCTL_DID0_CLASS_MASK      ((uint32_t)0x000000FFu)
@@ -3183,7 +3183,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID0_R_VER_MASK      ((uint32_t)0x70000000u)
-#define SYSCTL_DID0_R_VER_BIT       (28)
+#define SYSCTL_DID0_R_VER_BIT       (28u)
 #define SYSCTL_DID0_R_VER_DID0      ((uint32_t)0x10000000u)
 
 #define SYSCTL_DID0_VER_MASK        ((uint32_t)0x00000007u)
@@ -3195,11 +3195,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_DID1           (((DID1_TypeDef*)(SYSCTL_BASE+SYSCTL_DID1_OFFSET )))
 #define SYSCTL_DID1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DID1_OFFSET)))
-#define SYSCTL_BITBANDING_DID1      (((BITBANDING_DID1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DID1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DID1      (((BITBANDING_DID1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DID1_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DID1_R_QUAL_MASK     ((uint32_t)0x00000003u)
-#define SYSCTL_DID1_R_QUAL_BIT      (0)
+#define SYSCTL_DID1_R_QUAL_BIT      (0u)
 #define SYSCTL_DID1_R_QUAL_ENG      ((uint32_t)0x00000000u)
 #define SYSCTL_DID1_R_QUAL_PILOT    ((uint32_t)0x00000001u)
 #define SYSCTL_DID1_R_QUAL_FULLY    ((uint32_t)0x00000002u)
@@ -3212,7 +3212,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_ROHS_MASK     ((uint32_t)0x00000004u)
-#define SYSCTL_DID1_R_ROHS_BIT      (2)
+#define SYSCTL_DID1_R_ROHS_BIT      (2u)
 #define SYSCTL_DID1_R_ROHS_NOROHS   ((uint32_t)0x00000000u)
 #define SYSCTL_DID1_R_ROHS_ROHS     ((uint32_t)0x00000004u)
 
@@ -3223,7 +3223,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_PKG_MASK      ((uint32_t)0x00000018u)
-#define SYSCTL_DID1_R_PKG_BIT       (3)
+#define SYSCTL_DID1_R_PKG_BIT       (3u)
 #define SYSCTL_DID1_R_PKG_LQFP      ((uint32_t)0x00000008u)
 #define SYSCTL_DID1_R_PKG_BGA       ((uint32_t)0x00000010u)
 
@@ -3234,7 +3234,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_TEMP_MASK     ((uint32_t)0x000000E0u)
-#define SYSCTL_DID1_R_TEMP_BIT      (5)
+#define SYSCTL_DID1_R_TEMP_BIT      (5u)
 #define SYSCTL_DID1_R_TEMP_IND      ((uint32_t)0x00000020u)
 #define SYSCTL_DID1_R_TEMP_EXT      ((uint32_t)0x00000040u)
 #define SYSCTL_DID1_R_TEMP_BOTH     ((uint32_t)0x00000060u)
@@ -3247,7 +3247,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_PINCOUNT_MASK ((uint32_t)0x0000E000u)
-#define SYSCTL_DID1_R_PINCOUNT_BIT  (13)
+#define SYSCTL_DID1_R_PINCOUNT_BIT  (13u)
 #define SYSCTL_DID1_R_PINCOUNT_100  ((uint32_t)0x00004000u)
 #define SYSCTL_DID1_R_PINCOUNT_64   ((uint32_t)0x00006000u)
 #define SYSCTL_DID1_R_PINCOUNT_144  ((uint32_t)0x00008000u)
@@ -3264,7 +3264,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_PARTNO_MASK       ((uint32_t)0x00FF0000u)
-#define SYSCTL_DID1_R_PARTNO_BIT        (16)
+#define SYSCTL_DID1_R_PARTNO_BIT        (16u)
 #define SYSCTL_DID1_R_PARTNO_TM4C123    ((uint32_t)0x00A10000u)
 
 #define SYSCTL_DID1_PARTNO_MASK         ((uint32_t)0x000000FFu)
@@ -3273,7 +3273,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_FAM_MASK      ((uint32_t)0x0F000000u)
-#define SYSCTL_DID1_R_FAM_BIT       (24)
+#define SYSCTL_DID1_R_FAM_BIT       (24u)
 #define SYSCTL_DID1_R_FAM_TIVAC     ((uint32_t)0x00000000u)
 
 #define SYSCTL_DID1_FAM_MASK        ((uint32_t)0x0000000Fu)
@@ -3282,7 +3282,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DID1_R_VER_MASK      ((uint32_t)0xF0000000u)
-#define SYSCTL_DID1_R_VER_BIT       (28)
+#define SYSCTL_DID1_R_VER_BIT       (28u)
 #define SYSCTL_DID1_R_VER_INI       ((uint32_t)0x00000000u)
 #define SYSCTL_DID1_R_VER_SECOND    ((uint32_t)0x10000000u)
 
@@ -3296,11 +3296,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PBORCTL            (((PBORCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_PBORCTL_OFFSET )))
 #define SYSCTL_PBORCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PBORCTL_OFFSET)))
-#define SYSCTL_BITBANDING_PBORCTL      (((BITBANDING_PBORCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PBORCTL      (((BITBANDING_PBORCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PBORCTL_R_BOR1_MASK  ((uint32_t)0x00000002u)
-#define SYSCTL_PBORCTL_R_BOR1_BIT   (1)
+#define SYSCTL_PBORCTL_R_BOR1_BIT   (1u)
 #define SYSCTL_PBORCTL_R_BOR1_INT   ((uint32_t)0x00000000u)
 #define SYSCTL_PBORCTL_R_BOR1_RESET ((uint32_t)0x00000002u)
 
@@ -3311,7 +3311,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PBORCTL_R_BOR0_MASK  ((uint32_t)0x00000004u)
-#define SYSCTL_PBORCTL_R_BOR0_BIT   (2)
+#define SYSCTL_PBORCTL_R_BOR0_BIT   (2u)
 #define SYSCTL_PBORCTL_R_BOR0_INT   ((uint32_t)0x00000000u)
 #define SYSCTL_PBORCTL_R_BOR0_RESET ((uint32_t)0x00000004u)
 
@@ -3320,19 +3320,19 @@ typedef volatile struct
 #define SYSCTL_PBORCTL_BOR0_RESET   ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PBORCTL_BOR1 (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32)+(SYSCTL_PBORCTL_R_BOR1_BIT*4))))
-#define SYSCTL_BITBANDING_PBORCTL_BOR0 (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32)+(SYSCTL_PBORCTL_R_BOR0_BIT*4))))
+#define SYSCTL_BITBANDING_PBORCTL_BOR1 (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32u)+(SYSCTL_PBORCTL_R_BOR1_BIT*4u))))
+#define SYSCTL_BITBANDING_PBORCTL_BOR0 (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PBORCTL_OFFSET)*32u)+(SYSCTL_PBORCTL_R_BOR0_BIT*4u))))
 
 /******************************************************************************************
 ************************************ 4 RIS *********************************************
 ******************************************************************************************/
 #define SYSCTL_RIS            (((RIS_TypeDef*)(SYSCTL_BASE+SYSCTL_RIS_OFFSET )))
 #define SYSCTL_RIS_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RIS_OFFSET)))
-#define SYSCTL_BITBANDING_RIS      (((BITBANDING_RIS_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RIS      (((BITBANDING_RIS_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RIS_R_BOR1RIS_MASK       ((uint32_t)0x00000002u)
-#define SYSCTL_RIS_R_BOR1RIS_BIT        (1)
+#define SYSCTL_RIS_R_BOR1RIS_BIT        (1u)
 #define SYSCTL_RIS_R_BOR1RIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_BOR1RIS_ACTIVE     ((uint32_t)0x00000002u)
 
@@ -3343,7 +3343,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RIS_R_MOFRIS_MASK       ((uint32_t)0x00000008u)
-#define SYSCTL_RIS_R_MOFRIS_BIT        (3)
+#define SYSCTL_RIS_R_MOFRIS_BIT        (3u)
 #define SYSCTL_RIS_R_MOFRIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_MOFRIS_ACTIVE     ((uint32_t)0x00000008u)
 
@@ -3354,7 +3354,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RIS_R_PLLLRIS_MASK       ((uint32_t)0x00000040u)
-#define SYSCTL_RIS_R_PLLLRIS_BIT        (6)
+#define SYSCTL_RIS_R_PLLLRIS_BIT        (6u)
 #define SYSCTL_RIS_R_PLLLRIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_PLLLRIS_ACTIVE     ((uint32_t)0x00000040u)
 
@@ -3365,7 +3365,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RIS_R_USBPLLLRIS_MASK       ((uint32_t)0x00000080u)
-#define SYSCTL_RIS_R_USBPLLLRIS_BIT        (7)
+#define SYSCTL_RIS_R_USBPLLLRIS_BIT        (7u)
 #define SYSCTL_RIS_R_USBPLLLRIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_USBPLLLRIS_ACTIVE     ((uint32_t)0x00000080u)
 
@@ -3376,7 +3376,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RIS_R_MOSCPUPRIS_MASK       ((uint32_t)0x00000100u)
-#define SYSCTL_RIS_R_MOSCPUPRIS_BIT        (8)
+#define SYSCTL_RIS_R_MOSCPUPRIS_BIT        (8u)
 #define SYSCTL_RIS_R_MOSCPUPRIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_MOSCPUPRIS_ACTIVE     ((uint32_t)0x00000100u)
 
@@ -3387,7 +3387,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RIS_R_VDDARIS_MASK       ((uint32_t)0x00000400u)
-#define SYSCTL_RIS_R_VDDARIS_BIT        (10)
+#define SYSCTL_RIS_R_VDDARIS_BIT        (10u)
 #define SYSCTL_RIS_R_VDDARIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_VDDARIS_ACTIVE     ((uint32_t)0x00000400u)
 
@@ -3398,7 +3398,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RIS_R_BOR0RIS_MASK       ((uint32_t)0x00000800u)
-#define SYSCTL_RIS_R_BOR0RIS_BIT        (11)
+#define SYSCTL_RIS_R_BOR0RIS_BIT        (11u)
 #define SYSCTL_RIS_R_BOR0RIS_NOACTIVE   ((uint32_t)0x00000000u)
 #define SYSCTL_RIS_R_BOR0RIS_ACTIVE     ((uint32_t)0x00000800u)
 
@@ -3408,13 +3408,13 @@ typedef volatile struct
 /*--------*/
 
 
-#define SYSCTL_BITBANDING_RIS_BOR1RIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_BOR1RIS_BIT*4))))
-#define SYSCTL_BITBANDING_RIS_MOFRIS        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_MOFRIS_BIT*4))))
-#define SYSCTL_BITBANDING_RIS_PLLLRIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_PLLLRIS_BIT*4))))
-#define SYSCTL_BITBANDING_RIS_USBPLLLRIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_USBPLLLRIS_BIT*4))))
-#define SYSCTL_BITBANDING_RIS_MOSCPUPRIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_MOSCPUPRIS_BIT*4))))
-#define SYSCTL_BITBANDING_RIS_VDDARIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_VDDARIS_BIT*4))))
-#define SYSCTL_BITBANDING_RIS_BOR0RIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32)+(SYSCTL_RIS_R_BOR0RIS_BIT*4))))
+#define SYSCTL_BITBANDING_RIS_BOR1RIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_BOR1RIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RIS_MOFRIS        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_MOFRIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RIS_PLLLRIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_PLLLRIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RIS_USBPLLLRIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_USBPLLLRIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RIS_MOSCPUPRIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_MOSCPUPRIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RIS_VDDARIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_VDDARIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RIS_BOR0RIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RIS_OFFSET)*32u)+(SYSCTL_RIS_R_BOR0RIS_BIT*4u))))
 
 
 /******************************************************************************************
@@ -3422,11 +3422,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_IMC            (((IMC_TypeDef*)(SYSCTL_BASE+SYSCTL_IMC_OFFSET )))
 #define SYSCTL_IMC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_IMC_OFFSET)))
-#define SYSCTL_BITBANDING_IMC      (((BITBANDING_IMC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_IMC      (((BITBANDING_IMC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_IMC_R_BOR1IM_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_IMC_R_BOR1IM_BIT     (1)
+#define SYSCTL_IMC_R_BOR1IM_BIT     (1u)
 #define SYSCTL_IMC_R_BOR1IM_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_BOR1IM_EN      ((uint32_t)0x00000002u)
 
@@ -3437,7 +3437,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_IMC_R_MOFIM_MASK     ((uint32_t)0x00000008u)
-#define SYSCTL_IMC_R_MOFIM_BIT      (3)
+#define SYSCTL_IMC_R_MOFIM_BIT      (3u)
 #define SYSCTL_IMC_R_MOFIM_DIS      ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_MOFIM_EN       ((uint32_t)0x00000008u)
 
@@ -3448,7 +3448,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_IMC_R_PLLLIM_MASK    ((uint32_t)0x00000040u)
-#define SYSCTL_IMC_R_PLLLIM_BIT     (6)
+#define SYSCTL_IMC_R_PLLLIM_BIT     (6u)
 #define SYSCTL_IMC_R_PLLLIM_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_PLLLIM_EN      ((uint32_t)0x00000040u)
 
@@ -3459,7 +3459,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_IMC_R_USBPLLLIM_MASK ((uint32_t)0x00000080u)
-#define SYSCTL_IMC_R_USBPLLLIM_BIT  (7)
+#define SYSCTL_IMC_R_USBPLLLIM_BIT  (7u)
 #define SYSCTL_IMC_R_USBPLLLIM_DIS  ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_USBPLLLIM_EN   ((uint32_t)0x00000080u)
 
@@ -3470,7 +3470,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_IMC_R_MOSCPUPIM_MASK ((uint32_t)0x00000100u)
-#define SYSCTL_IMC_R_MOSCPUPIM_BIT  (8)
+#define SYSCTL_IMC_R_MOSCPUPIM_BIT  (8u)
 #define SYSCTL_IMC_R_MOSCPUPIM_DIS  ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_MOSCPUPIM_EN   ((uint32_t)0x00000100u)
 
@@ -3481,7 +3481,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_IMC_R_VDDAIM_MASK    ((uint32_t)0x00000400u)
-#define SYSCTL_IMC_R_VDDAIM_BIT     (10)
+#define SYSCTL_IMC_R_VDDAIM_BIT     (10u)
 #define SYSCTL_IMC_R_VDDAIM_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_VDDAIM_EN      ((uint32_t)0x00000400u)
 
@@ -3492,7 +3492,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_IMC_R_BOR0IM_MASK    ((uint32_t)0x00000800u)
-#define SYSCTL_IMC_R_BOR0IM_BIT     (11)
+#define SYSCTL_IMC_R_BOR0IM_BIT     (11u)
 #define SYSCTL_IMC_R_BOR0IM_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_IMC_R_BOR0IM_EN      ((uint32_t)0x00000800u)
 
@@ -3501,24 +3501,24 @@ typedef volatile struct
 #define SYSCTL_IMC_BOR0IM_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_IMC_BOR1IM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_BOR1IM_BIT*4))))
-#define SYSCTL_BITBANDING_IMC_MOFIM        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_MOFIM_BIT*4))))
-#define SYSCTL_BITBANDING_IMC_PLLLIM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_PLLLIM_BIT*4))))
-#define SYSCTL_BITBANDING_IMC_USBPLLLIM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_USBPLLLIM_BIT*4))))
-#define SYSCTL_BITBANDING_IMC_MOSCPUPIM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_MOSCPUPIM_BIT*4))))
-#define SYSCTL_BITBANDING_IMC_VDDAIM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_VDDAIM_BIT*4))))
-#define SYSCTL_BITBANDING_IMC_BOR0IM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32)+(SYSCTL_IMC_R_BOR0IM_BIT*4))))
+#define SYSCTL_BITBANDING_IMC_BOR1IM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_BOR1IM_BIT*4u))))
+#define SYSCTL_BITBANDING_IMC_MOFIM        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_MOFIM_BIT*4u))))
+#define SYSCTL_BITBANDING_IMC_PLLLIM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_PLLLIM_BIT*4u))))
+#define SYSCTL_BITBANDING_IMC_USBPLLLIM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_USBPLLLIM_BIT*4u))))
+#define SYSCTL_BITBANDING_IMC_MOSCPUPIM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_MOSCPUPIM_BIT*4u))))
+#define SYSCTL_BITBANDING_IMC_VDDAIM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_VDDAIM_BIT*4u))))
+#define SYSCTL_BITBANDING_IMC_BOR0IM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_IMC_OFFSET)*32u)+(SYSCTL_IMC_R_BOR0IM_BIT*4u))))
 
 /******************************************************************************************
 ************************************ 6 MISC *********************************************
 ******************************************************************************************/
 #define SYSCTL_MISC            (((MISC_TypeDef*)(SYSCTL_BASE+SYSCTL_MISC_OFFSET )))
 #define SYSCTL_MISC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_MISC_OFFSET)))
-#define SYSCTL_BITBANDING_MISC      (((BITBANDING_MISC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_MISC      (((BITBANDING_MISC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_MISC_R_BOR1MIS_MASK      ((uint32_t)0x00000002u)
-#define SYSCTL_MISC_R_BOR1MIS_BIT       (1)
+#define SYSCTL_MISC_R_BOR1MIS_BIT       (1u)
 #define SYSCTL_MISC_R_BOR1MIS_NOOCCUR   ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_BOR1MIS_OCCUR     ((uint32_t)0x00000002u)
 
@@ -3529,7 +3529,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MISC_R_MOFMIS_MASK       ((uint32_t)0x00000008u)
-#define SYSCTL_MISC_R_MOFMIS_BIT        (3)
+#define SYSCTL_MISC_R_MOFMIS_BIT        (3u)
 #define SYSCTL_MISC_R_MOFMIS_NOOCCUR    ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_MOFMIS_OCCUR      ((uint32_t)0x00000008u)
 
@@ -3540,7 +3540,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MISC_R_PLLLMIS_MASK      ((uint32_t)0x00000040u)
-#define SYSCTL_MISC_R_PLLLMIS_BIT       (6)
+#define SYSCTL_MISC_R_PLLLMIS_BIT       (6u)
 #define SYSCTL_MISC_R_PLLLMIS_NOOCCUR   ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_PLLLMIS_OCCUR     ((uint32_t)0x00000040u)
 
@@ -3551,7 +3551,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MISC_R_USBPLLLMIS_MASK   ((uint32_t)0x00000080u)
-#define SYSCTL_MISC_R_USBPLLLMIS_BIT    (7)
+#define SYSCTL_MISC_R_USBPLLLMIS_BIT    (7u)
 #define SYSCTL_MISC_R_USBPLLLMIS_NOOCCUR  ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_USBPLLLMIS_OCCUR   ((uint32_t)0x00000080u)
 
@@ -3562,7 +3562,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MISC_R_MOSCPUPMIS_MASK   ((uint32_t)0x00000100u)
-#define SYSCTL_MISC_R_MOSCPUPMIS_BIT    (8)
+#define SYSCTL_MISC_R_MOSCPUPMIS_BIT    (8u)
 #define SYSCTL_MISC_R_MOSCPUPMIS_NOOCCUR  ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_MOSCPUPMIS_OCCUR   ((uint32_t)0x00000100u)
 
@@ -3573,7 +3573,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MISC_R_VDDAMIS_MASK      ((uint32_t)0x00000400u)
-#define SYSCTL_MISC_R_VDDAMIS_BIT       (10)
+#define SYSCTL_MISC_R_VDDAMIS_BIT       (10u)
 #define SYSCTL_MISC_R_VDDAMIS_NOOCCUR   ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_VDDAMIS_OCCUR     ((uint32_t)0x00000400u)
 
@@ -3584,7 +3584,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MISC_R_BOR0MIS_MASK      ((uint32_t)0x00000800u)
-#define SYSCTL_MISC_R_BOR0MIS_BIT       (11)
+#define SYSCTL_MISC_R_BOR0MIS_BIT       (11u)
 #define SYSCTL_MISC_R_BOR0MIS_NOOCCUR   ((uint32_t)0x00000000u)
 #define SYSCTL_MISC_R_BOR0MIS_OCCUR     ((uint32_t)0x00000800u)
 
@@ -3593,24 +3593,24 @@ typedef volatile struct
 #define SYSCTL_MISC_BOR0MIS_OCCUR       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_MISC_BOR1MIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_BOR1MIS_BIT*4))))
-#define SYSCTL_BITBANDING_MISC_MOFMIS        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_MOFMIS_BIT*4))))
-#define SYSCTL_BITBANDING_MISC_PLLLMIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_PLLLMIS_BIT*4))))
-#define SYSCTL_BITBANDING_MISC_USBPLLLMIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_USBPLLLMIS_BIT*4))))
-#define SYSCTL_BITBANDING_MISC_MOSCPUPMIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_MOSCPUPMIS_BIT*4))))
-#define SYSCTL_BITBANDING_MISC_VDDAMIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_VDDAMIS_BIT*4))))
-#define SYSCTL_BITBANDING_MISC_BOR0MIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32)+(SYSCTL_MISC_R_BOR0MIS_BIT*4))))
+#define SYSCTL_BITBANDING_MISC_BOR1MIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_BOR1MIS_BIT*4u))))
+#define SYSCTL_BITBANDING_MISC_MOFMIS        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_MOFMIS_BIT*4u))))
+#define SYSCTL_BITBANDING_MISC_PLLLMIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_PLLLMIS_BIT*4u))))
+#define SYSCTL_BITBANDING_MISC_USBPLLLMIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_USBPLLLMIS_BIT*4u))))
+#define SYSCTL_BITBANDING_MISC_MOSCPUPMIS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_MOSCPUPMIS_BIT*4u))))
+#define SYSCTL_BITBANDING_MISC_VDDAMIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_VDDAMIS_BIT*4u))))
+#define SYSCTL_BITBANDING_MISC_BOR0MIS       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MISC_OFFSET)*32u)+(SYSCTL_MISC_R_BOR0MIS_BIT*4u))))
 
 /******************************************************************************************
 ************************************ 7 RESC *********************************************
 ******************************************************************************************/
 #define SYSCTL_RESC            (((RESC_TypeDef*)(SYSCTL_BASE+SYSCTL_RESC_OFFSET )))
 #define SYSCTL_RESC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RESC_OFFSET)))
-#define SYSCTL_BITBANDING_RESC      (((BITBANDING_RESC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RESC      (((BITBANDING_RESC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RESC_R_EXT_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_RESC_R_EXT_BIT       (0)
+#define SYSCTL_RESC_R_EXT_BIT       (0u)
 #define SYSCTL_RESC_R_EXT_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_EXT_RESET     ((uint32_t)0x00000001u)
 
@@ -3621,7 +3621,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RESC_R_POR_MASK      ((uint32_t)0x00000002u)
-#define SYSCTL_RESC_R_POR_BIT       (1)
+#define SYSCTL_RESC_R_POR_BIT       (1u)
 #define SYSCTL_RESC_R_POR_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_POR_RESET     ((uint32_t)0x00000002u)
 
@@ -3632,7 +3632,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RESC_R_BOR_MASK      ((uint32_t)0x00000004u)
-#define SYSCTL_RESC_R_BOR_BIT       (2)
+#define SYSCTL_RESC_R_BOR_BIT       (2u)
 #define SYSCTL_RESC_R_BOR_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_BOR_RESET     ((uint32_t)0x00000004u)
 
@@ -3643,7 +3643,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RESC_R_WDT0_MASK      ((uint32_t)0x00000008u)
-#define SYSCTL_RESC_R_WDT0_BIT       (3)
+#define SYSCTL_RESC_R_WDT0_BIT       (3u)
 #define SYSCTL_RESC_R_WDT0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_WDT0_RESET     ((uint32_t)0x00000008u)
 
@@ -3654,7 +3654,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RESC_R_SW_MASK      ((uint32_t)0x00000010u)
-#define SYSCTL_RESC_R_SW_BIT       (4)
+#define SYSCTL_RESC_R_SW_BIT       (4u)
 #define SYSCTL_RESC_R_SW_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_SW_RESET     ((uint32_t)0x00000010u)
 
@@ -3665,7 +3665,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RESC_R_WDT1_MASK      ((uint32_t)0x00000020u)
-#define SYSCTL_RESC_R_WDT1_BIT       (5)
+#define SYSCTL_RESC_R_WDT1_BIT       (5u)
 #define SYSCTL_RESC_R_WDT1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_WDT1_RESET     ((uint32_t)0x00000020u)
 
@@ -3676,7 +3676,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RESC_R_MOSCFAIL_MASK      ((uint32_t)0x00010000u)
-#define SYSCTL_RESC_R_MOSCFAIL_BIT       (16)
+#define SYSCTL_RESC_R_MOSCFAIL_BIT       (16u)
 #define SYSCTL_RESC_R_MOSCFAIL_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_RESC_R_MOSCFAIL_RESET     ((uint32_t)0x00010000u)
 
@@ -3685,24 +3685,24 @@ typedef volatile struct
 #define SYSCTL_RESC_MOSCFAIL_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RESC_EXT      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_EXT_BIT*4))))
-#define SYSCTL_BITBANDING_RESC_POR      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_POR_BIT*4))))
-#define SYSCTL_BITBANDING_RESC_BOR      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_BOR_BIT*4))))
-#define SYSCTL_BITBANDING_RESC_WDT0     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_RESC_SW       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_SW_BIT*4))))
-#define SYSCTL_BITBANDING_RESC_WDT1     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_WDT1_BIT*4))))
-#define SYSCTL_BITBANDING_RESC_MOSCFAIL (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32)+(SYSCTL_RESC_R_MOSCFAIL_BIT*4))))
+#define SYSCTL_BITBANDING_RESC_EXT      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_EXT_BIT*4u))))
+#define SYSCTL_BITBANDING_RESC_POR      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_POR_BIT*4u))))
+#define SYSCTL_BITBANDING_RESC_BOR      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_BOR_BIT*4u))))
+#define SYSCTL_BITBANDING_RESC_WDT0     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_RESC_SW       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_SW_BIT*4u))))
+#define SYSCTL_BITBANDING_RESC_WDT1     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_WDT1_BIT*4u))))
+#define SYSCTL_BITBANDING_RESC_MOSCFAIL (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RESC_OFFSET)*32u)+(SYSCTL_RESC_R_MOSCFAIL_BIT*4u))))
 
 /******************************************************************************************
 ************************************ 8 RCC *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCC            (((RCC_TypeDef*)(SYSCTL_BASE+SYSCTL_RCC_OFFSET )))
 #define SYSCTL_RCC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCC_OFFSET)))
-#define SYSCTL_BITBANDING_RCC      (((BITBANDING_RCC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCC      (((BITBANDING_RCC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCC_R_MOSCDIS_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_RCC_R_MOSCDIS_BIT     (0)
+#define SYSCTL_RCC_R_MOSCDIS_BIT     (0u)
 #define SYSCTL_RCC_R_MOSCDIS_EN      ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_MOSCDIS_DIS     ((uint32_t)0x00000001u)
 
@@ -3713,7 +3713,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_OSCSRC_MASK    ((uint32_t)0x00000030u)
-#define SYSCTL_RCC_R_OSCSRC_BIT     (4)
+#define SYSCTL_RCC_R_OSCSRC_BIT     (4u)
 #define SYSCTL_RCC_R_OSCSRC_MOSC    ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_OSCSRC_PIOSC   ((uint32_t)0x00000010u)
 #define SYSCTL_RCC_R_OSCSRC_PIOSC4  ((uint32_t)0x00000020u)
@@ -3728,7 +3728,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_XTAL_MASK      ((uint32_t)0x000007C0u)
-#define SYSCTL_RCC_R_XTAL_BIT       (6)
+#define SYSCTL_RCC_R_XTAL_BIT       (6u)
 #define SYSCTL_RCC_R_XTAL_4MHZ      ((uint32_t)0x00000180u)
 #define SYSCTL_RCC_R_XTAL_4_096MHZ  ((uint32_t)0x000001C0u)
 #define SYSCTL_RCC_R_XTAL_4_9152MHZ ((uint32_t)0x00000200u)
@@ -3777,7 +3777,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_BYPASS_MASK    ((uint32_t)0x00000800u)
-#define SYSCTL_RCC_R_BYPASS_BIT     (11)
+#define SYSCTL_RCC_R_BYPASS_BIT     (11u)
 #define SYSCTL_RCC_R_BYPASS_PLL     ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_BYPASS_OSC     ((uint32_t)0x00000800u)
 
@@ -3788,7 +3788,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_PWRDN_MASK    ((uint32_t)0x00002000u)
-#define SYSCTL_RCC_R_PWRDN_BIT     (13)
+#define SYSCTL_RCC_R_PWRDN_BIT     (13u)
 #define SYSCTL_RCC_R_PWRDN_ON      ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_PWRDN_DOWN    ((uint32_t)0x00002000u)
 
@@ -3799,7 +3799,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_PWMDIV_MASK    ((uint32_t)0x000E0000u)
-#define SYSCTL_RCC_R_PWMDIV_BIT     (17)
+#define SYSCTL_RCC_R_PWMDIV_BIT     (17u)
 #define SYSCTL_RCC_R_PWMDIV_2       ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_PWMDIV_4       ((uint32_t)0x00020000u)
 #define SYSCTL_RCC_R_PWMDIV_8       ((uint32_t)0x00040000u)
@@ -3818,7 +3818,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_USEPWMDIV_MASK    ((uint32_t)0x00100000u)
-#define SYSCTL_RCC_R_USEPWMDIV_BIT     (20)
+#define SYSCTL_RCC_R_USEPWMDIV_BIT     (20u)
 #define SYSCTL_RCC_R_USEPWMDIV_SYSCLK  ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_USEPWMDIV_PWMDIV  ((uint32_t)0x00100000u)
 
@@ -3829,7 +3829,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_USESYSDIV_MASK    ((uint32_t)0x00400000u)
-#define SYSCTL_RCC_R_USESYSDIV_BIT     (22)
+#define SYSCTL_RCC_R_USESYSDIV_BIT     (22u)
 #define SYSCTL_RCC_R_USESYSDIV_SYSCLK  ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_USESYSDIV_SYSDIV  ((uint32_t)0x00400000u)
 
@@ -3840,7 +3840,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_SYSDIV_MASK    ((uint32_t)0x07800000u)
-#define SYSCTL_RCC_R_SYSDIV_BIT     (23)
+#define SYSCTL_RCC_R_SYSDIV_BIT     (23u)
 
 #define SYSCTL_RCC_SYSDIV_MASK      ((uint32_t)0x0000000Fu)
 /*--------*/
@@ -3848,7 +3848,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC_R_ACG_MASK    ((uint32_t)0x08000000u)
-#define SYSCTL_RCC_R_ACG_BIT     (27)
+#define SYSCTL_RCC_R_ACG_BIT     (27u)
 #define SYSCTL_RCC_R_ACG_RCGCn  ((uint32_t)0x00000000u)
 #define SYSCTL_RCC_R_ACG_SCGCn  ((uint32_t)0x08000000u)
 
@@ -3857,23 +3857,23 @@ typedef volatile struct
 #define SYSCTL_RCC_ACG_SCGCn    ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCC_MOSCDIS   (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_MOSCDIS_BIT*4))))
-#define SYSCTL_BITBANDING_RCC_BYPASS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_BYPASS_BIT*4))))
-#define SYSCTL_BITBANDING_RCC_PWRDN     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_PWRDN_BIT*4))))
-#define SYSCTL_BITBANDING_RCC_USEPWMDIV (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_USEPWMDIV_BIT*4))))
-#define SYSCTL_BITBANDING_RCC_USESYSDIV (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_USESYSDIV_BIT*4))))
-#define SYSCTL_BITBANDING_RCC_ACG       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32)+(SYSCTL_RCC_R_ACG_BIT*4))))
+#define SYSCTL_BITBANDING_RCC_MOSCDIS   (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u)+(SYSCTL_RCC_R_MOSCDIS_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC_BYPASS    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u)+(SYSCTL_RCC_R_BYPASS_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC_PWRDN     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u)+(SYSCTL_RCC_R_PWRDN_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC_USEPWMDIV (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u)+(SYSCTL_RCC_R_USEPWMDIV_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC_USESYSDIV (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u)+(SYSCTL_RCC_R_USESYSDIV_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC_ACG       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC_OFFSET)*32u)+(SYSCTL_RCC_R_ACG_BIT*4u))))
 
 /******************************************************************************************
 ************************************ 9 GPIOHBCTL *********************************************
 ******************************************************************************************/
 #define SYSCTL_GPIOHBCTL            (((GPIOHBCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_GPIOHBCTL_OFFSET )))
 #define SYSCTL_GPIOHBCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_GPIOHBCTL_OFFSET)))
-#define SYSCTL_BITBANDING_GPIOBHCTL      (((BITBANDING_GPIOBHCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOBHCTL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_GPIOBHCTL      (((BITBANDING_GPIOBHCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOBHCTL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_GPIOHBCTL_R_PORTA_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_R_PORTA_BIT     (0)
+#define SYSCTL_GPIOHBCTL_R_PORTA_BIT     (0u)
 #define SYSCTL_GPIOHBCTL_R_PORTA_APB      ((uint32_t)0x00000000u)
 #define SYSCTL_GPIOHBCTL_R_PORTA_AHB     ((uint32_t)0x00000001u)
 
@@ -3884,7 +3884,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_GPIOHBCTL_R_PORTB_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_GPIOHBCTL_R_PORTB_BIT     (1)
+#define SYSCTL_GPIOHBCTL_R_PORTB_BIT     (1u)
 #define SYSCTL_GPIOHBCTL_R_PORTB_APB      ((uint32_t)0x00000000u)
 #define SYSCTL_GPIOHBCTL_R_PORTB_AHB     ((uint32_t)0x00000002u)
 
@@ -3895,7 +3895,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_GPIOHBCTL_R_PORTC_MASK    ((uint32_t)0x00000004u)
-#define SYSCTL_GPIOHBCTL_R_PORTC_BIT     (2)
+#define SYSCTL_GPIOHBCTL_R_PORTC_BIT     (2u)
 #define SYSCTL_GPIOHBCTL_R_PORTC_APB      ((uint32_t)0x00000000u)
 #define SYSCTL_GPIOHBCTL_R_PORTC_AHB     ((uint32_t)0x00000004u)
 
@@ -3906,7 +3906,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_GPIOHBCTL_R_PORTD_MASK    ((uint32_t)0x00000008u)
-#define SYSCTL_GPIOHBCTL_R_PORTD_BIT     (3)
+#define SYSCTL_GPIOHBCTL_R_PORTD_BIT     (3u)
 #define SYSCTL_GPIOHBCTL_R_PORTD_APB      ((uint32_t)0x00000000u)
 #define SYSCTL_GPIOHBCTL_R_PORTD_AHB     ((uint32_t)0x00000008u)
 
@@ -3917,7 +3917,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_GPIOHBCTL_R_PORTE_MASK    ((uint32_t)0x00000010u)
-#define SYSCTL_GPIOHBCTL_R_PORTE_BIT     (4)
+#define SYSCTL_GPIOHBCTL_R_PORTE_BIT     (4u)
 #define SYSCTL_GPIOHBCTL_R_PORTE_APB      ((uint32_t)0x00000000u)
 #define SYSCTL_GPIOHBCTL_R_PORTE_AHB     ((uint32_t)0x00000010u)
 
@@ -3928,7 +3928,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_GPIOHBCTL_R_PORTF_MASK    ((uint32_t)0x00000020u)
-#define SYSCTL_GPIOHBCTL_R_PORTF_BIT     (5)
+#define SYSCTL_GPIOHBCTL_R_PORTF_BIT     (5u)
 #define SYSCTL_GPIOHBCTL_R_PORTF_APB      ((uint32_t)0x00000000u)
 #define SYSCTL_GPIOHBCTL_R_PORTF_AHB     ((uint32_t)0x00000020u)
 
@@ -3937,12 +3937,12 @@ typedef volatile struct
 #define SYSCTL_GPIOHBCTL_PORTF_AHB       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_GPIOHBCTL_PORTA (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTA_BIT*4))))
-#define SYSCTL_BITBANDING_GPIOHBCTL_PORTB (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTB_BIT*4))))
-#define SYSCTL_BITBANDING_GPIOHBCTL_PORTC (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTC_BIT*4))))
-#define SYSCTL_BITBANDING_GPIOHBCTL_PORTD (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTD_BIT*4))))
-#define SYSCTL_BITBANDING_GPIOHBCTL_PORTE (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTE_BIT*4))))
-#define SYSCTL_BITBANDING_GPIOHBCTL_PORTF (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32)+(SYSCTL_GPIOHBCTL_R_PORTF_BIT*4))))
+#define SYSCTL_BITBANDING_GPIOHBCTL_PORTA (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32u)+(SYSCTL_GPIOHBCTL_R_PORTA_BIT*4u))))
+#define SYSCTL_BITBANDING_GPIOHBCTL_PORTB (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32u)+(SYSCTL_GPIOHBCTL_R_PORTB_BIT*4u))))
+#define SYSCTL_BITBANDING_GPIOHBCTL_PORTC (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32u)+(SYSCTL_GPIOHBCTL_R_PORTC_BIT*4u))))
+#define SYSCTL_BITBANDING_GPIOHBCTL_PORTD (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32u)+(SYSCTL_GPIOHBCTL_R_PORTD_BIT*4u))))
+#define SYSCTL_BITBANDING_GPIOHBCTL_PORTE (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32u)+(SYSCTL_GPIOHBCTL_R_PORTE_BIT*4u))))
+#define SYSCTL_BITBANDING_GPIOHBCTL_PORTF (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_GPIOHBCTL_OFFSET)*32u)+(SYSCTL_GPIOHBCTL_R_PORTF_BIT*4u))))
 
 
 
@@ -3951,12 +3951,12 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_RCC2            (((RCC2_TypeDef*)(SYSCTL_BASE+SYSCTL_RCC2_OFFSET )))
 #define SYSCTL_RCC2_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCC2_OFFSET)))
-#define SYSCTL_BITBANDING_RCC2      (((BITBANDING_RCC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCC2      (((BITBANDING_RCC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u))))
 
 
 /*--------*/
 #define SYSCTL_RCC2_R_OSCSRC2_MASK    ((uint32_t)0x00000070u)
-#define SYSCTL_RCC2_R_OSCSRC2_BIT     (4)
+#define SYSCTL_RCC2_R_OSCSRC2_BIT     (4u)
 #define SYSCTL_RCC2_R_OSCSRC2_MOSC    ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_OSCSRC2_PIOSC   ((uint32_t)0x00000010u)
 #define SYSCTL_RCC2_R_OSCSRC2_PIOSC4  ((uint32_t)0x00000020u)
@@ -3973,7 +3973,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC2_R_BYPASS2_MASK    ((uint32_t)0x00000800u)
-#define SYSCTL_RCC2_R_BYPASS2_BIT     (11)
+#define SYSCTL_RCC2_R_BYPASS2_BIT     (11u)
 #define SYSCTL_RCC2_R_BYPASS2_PLL     ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_BYPASS2_OSC     ((uint32_t)0x00000800u)
 
@@ -3984,7 +3984,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC2_R_PWRDN2_MASK    ((uint32_t)0x00002000u)
-#define SYSCTL_RCC2_R_PWRDN2_BIT     (13)
+#define SYSCTL_RCC2_R_PWRDN2_BIT     (13u)
 #define SYSCTL_RCC2_R_PWRDN2_ON      ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_PWRDN2_DOWN    ((uint32_t)0x00002000u)
 
@@ -3995,7 +3995,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC2_R_USBPWRDN_MASK    ((uint32_t)0x00004000u)
-#define SYSCTL_RCC2_R_USBPWRDN_BIT     (14)
+#define SYSCTL_RCC2_R_USBPWRDN_BIT     (14u)
 #define SYSCTL_RCC2_R_USBPWRDN_ON      ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_USBPWRDN_DOWN    ((uint32_t)0x00004000u)
 
@@ -4006,7 +4006,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC2_R_SYSDIV2LSB_MASK    ((uint32_t)0x00400000u)
-#define SYSCTL_RCC2_R_SYSDIV2LSB_BIT     (22)
+#define SYSCTL_RCC2_R_SYSDIV2LSB_BIT     (22u)
 #define SYSCTL_RCC2_R_SYSDIV2LSB_CLEAR   ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_SYSDIV2LSB_SET     ((uint32_t)0x00400000u)
 
@@ -4017,14 +4017,14 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC2_R_SYSDIV2_MASK    ((uint32_t)0x1F800000u)
-#define SYSCTL_RCC2_R_SYSDIV2_BIT     (23)
+#define SYSCTL_RCC2_R_SYSDIV2_BIT     (23u)
 
 #define SYSCTL_RCC2_SYSDIV2_MASK      ((uint32_t)0x0000003Fu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_RCC2_R_DIV400_MASK    ((uint32_t)0x40000000u)
-#define SYSCTL_RCC2_R_DIV400_BIT     (30)
+#define SYSCTL_RCC2_R_DIV400_BIT     (30u)
 #define SYSCTL_RCC2_R_DIV400_200MHZ  ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_DIV400_400MHZ  ((uint32_t)0x40000000u)
 
@@ -4035,7 +4035,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCC2_R_USERCC2_MASK    ((uint32_t)0x80000000u)
-#define SYSCTL_RCC2_R_USERCC2_BIT     (31)
+#define SYSCTL_RCC2_R_USERCC2_BIT     (31u)
 #define SYSCTL_RCC2_R_USERCC2_RCC     ((uint32_t)0x00000000u)
 #define SYSCTL_RCC2_R_USERCC2_RCC2    ((uint32_t)0x80000000u)
 
@@ -4044,12 +4044,12 @@ typedef volatile struct
 #define SYSCTL_RCC2_USERCC2_RCC2      ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCC2_BYPASS2   (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_BYPASS2_BIT*4))))
-#define SYSCTL_BITBANDING_RCC2_PWRDN2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_PWRDN2_BIT*4))))
-#define SYSCTL_BITBANDING_RCC2_USBPWRDN     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_USBPWRDN_BIT*4))))
-#define SYSCTL_BITBANDING_RCC2_SYSDIV2LSB (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_SYSDIV2LSB_BIT*4))))
-#define SYSCTL_BITBANDING_RCC2_DIV400 (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_DIV400_BIT*4))))
-#define SYSCTL_BITBANDING_RCC2_USERCC2       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32)+(SYSCTL_RCC2_R_USERCC2_BIT*4))))
+#define SYSCTL_BITBANDING_RCC2_BYPASS2   (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u)+(SYSCTL_RCC2_R_BYPASS2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC2_PWRDN2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u)+(SYSCTL_RCC2_R_PWRDN2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC2_USBPWRDN     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u)+(SYSCTL_RCC2_R_USBPWRDN_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC2_SYSDIV2LSB (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u)+(SYSCTL_RCC2_R_SYSDIV2LSB_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC2_DIV400 (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u)+(SYSCTL_RCC2_R_DIV400_BIT*4u))))
+#define SYSCTL_BITBANDING_RCC2_USERCC2       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCC2_OFFSET)*32u)+(SYSCTL_RCC2_R_USERCC2_BIT*4u))))
 
 
 /******************************************************************************************
@@ -4057,11 +4057,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_MOSCCTL            (((MOSCCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_MOSCCTL_OFFSET )))
 #define SYSCTL_MOSCCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_MOSCCTL_OFFSET)))
-#define SYSCTL_BITBANDING_MOSCCTL      (((BITBANDING_MOSCCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_MOSCCTL      (((BITBANDING_MOSCCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_MOSCCTL_R_CVAL_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_MOSCCTL_R_CVAL_BIT     (0)
+#define SYSCTL_MOSCCTL_R_CVAL_BIT     (0u)
 #define SYSCTL_MOSCCTL_R_CVAL_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_MOSCCTL_R_CVAL_EN      ((uint32_t)0x00000001u)
 
@@ -4072,7 +4072,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MOSCCTL_R_MOSCIM_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_MOSCCTL_R_MOSCIM_BIT     (1)
+#define SYSCTL_MOSCCTL_R_MOSCIM_BIT     (1u)
 #define SYSCTL_MOSCCTL_R_MOSCIM_RESET   ((uint32_t)0x00000000u)
 #define SYSCTL_MOSCCTL_R_MOSCIM_INT     ((uint32_t)0x00000002u)
 
@@ -4083,7 +4083,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_MOSCCTL_R_NOXTAL_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_MOSCCTL_R_NOXTAL_BIT         (2)
+#define SYSCTL_MOSCCTL_R_NOXTAL_BIT         (2u)
 #define SYSCTL_MOSCCTL_R_NOXTAL_PRESENT     ((uint32_t)0x00000000u)
 #define SYSCTL_MOSCCTL_R_NOXTAL_NOPRESENT   ((uint32_t)0x00000004u)
 
@@ -4092,20 +4092,20 @@ typedef volatile struct
 #define SYSCTL_MOSCCTL_NOXTAL_NOPRESENT     ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_MOSCCTL_CVAL      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_CVAL_BIT*4))))
-#define SYSCTL_BITBANDING_MOSCCTL_MOSCIM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_MOSCIM_BIT*4))))
-#define SYSCTL_BITBANDING_MOSCCTL_NOXTAL     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32)+(SYSCTL_MOSCCTL_R_NOXTAL_BIT*4))))
+#define SYSCTL_BITBANDING_MOSCCTL_CVAL      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32u)+(SYSCTL_MOSCCTL_R_CVAL_BIT*4u))))
+#define SYSCTL_BITBANDING_MOSCCTL_MOSCIM       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32u)+(SYSCTL_MOSCCTL_R_MOSCIM_BIT*4u))))
+#define SYSCTL_BITBANDING_MOSCCTL_NOXTAL     (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_MOSCCTL_OFFSET)*32u)+(SYSCTL_MOSCCTL_R_NOXTAL_BIT*4u))))
 
 /******************************************************************************************
 ************************************12 DSLPCLKCFG *********************************************
 ******************************************************************************************/
 #define SYSCTL_DSLPCLKCFG            (((DSLPCLKCFG_TypeDef*)(SYSCTL_BASE+SYSCTL_DSLPCLKCFG_OFFSET )))
 #define SYSCTL_DSLPCLKCFG_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DSLPCLKCFG_OFFSET)))
-#define SYSCTL_BITBANDING_DSLPCLKCFG      (((BITBANDING_DSLPCLKCFG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DSLPCLKCFG_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DSLPCLKCFG      (((BITBANDING_DSLPCLKCFG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DSLPCLKCFG_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DSLPCLKCFG_R_PIOSCPD_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_BIT     (1)
+#define SYSCTL_DSLPCLKCFG_R_PIOSCPD_BIT     (1u)
 #define SYSCTL_DSLPCLKCFG_R_PIOSCPD_NOACTION ((uint32_t)0x00000000u)
 #define SYSCTL_DSLPCLKCFG_R_PIOSCPD_DOWN    ((uint32_t)0x00000002u)
 
@@ -4116,7 +4116,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_MASK    ((uint32_t)0x00000070u)
-#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_BIT     (4)
+#define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_BIT     (4u)
 #define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_MOSC    ((uint32_t)0x00000000u)
 #define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_PIOSC   ((uint32_t)0x00000010u)
 #define SYSCTL_DSLPCLKCFG_R_DSOSCSRC_LFIOSC  ((uint32_t)0x00000030u)
@@ -4131,12 +4131,12 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DSLPCLKCFG_R_DSDIVORIDE_MASK    ((uint32_t)0x1F800000u)
-#define SYSCTL_DSLPCLKCFG_R_DSDIVORIDE_BIT     (23)
+#define SYSCTL_DSLPCLKCFG_R_DSDIVORIDE_BIT     (23u)
 
 #define SYSCTL_DSLPCLKCFG_DSDIVORIDE_MASK      ((uint32_t)0x0000003Fu)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DSLPCLKCFG_PIOSCPD      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DSLPCLKCFG_OFFSET)*32)+(SYSCTL_DSLPCLKCFG_R_PIOSCPD_BIT*4))))
+#define SYSCTL_BITBANDING_DSLPCLKCFG_PIOSCPD      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DSLPCLKCFG_OFFSET)*32u)+(SYSCTL_DSLPCLKCFG_R_PIOSCPD_BIT*4u))))
 
 
 /******************************************************************************************
@@ -4144,11 +4144,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_SYSPROP            (((SYSPROP_TypeDef*)(SYSCTL_BASE+SYSCTL_SYSPROP_OFFSET )))
 #define SYSCTL_SYSPROP_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SYSPROP_OFFSET)))
-#define SYSCTL_BITBANDING_SYSPROP      (((BITBANDING_SYSPROP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SYSPROP      (((BITBANDING_SYSPROP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SYSPROP_R_FPU_MASK       ((uint32_t)0x00000001u)
-#define SYSCTL_SYSPROP_R_FPU_BIT        (0)
+#define SYSCTL_SYSPROP_R_FPU_BIT        (0u)
 #define SYSCTL_SYSPROP_R_FPU_NOPRESENT  ((uint32_t)0x00000000u)
 #define SYSCTL_SYSPROP_R_FPU_PRESENT    ((uint32_t)0x00000001u)
 
@@ -4159,7 +4159,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SYSPROP_R_FLASHLPM_MASK       ((uint32_t)0x00000100u)
-#define SYSCTL_SYSPROP_R_FLASHLPM_BIT        (8)
+#define SYSCTL_SYSPROP_R_FLASHLPM_BIT        (8u)
 #define SYSCTL_SYSPROP_R_FLASHLPM_NOPRESENT  ((uint32_t)0x00000000u)
 #define SYSCTL_SYSPROP_R_FLASHLPM_PRESENT    ((uint32_t)0x00000100u)
 
@@ -4170,7 +4170,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SYSPROP_R_SRAMLPM_MASK       ((uint32_t)0x00000400u)
-#define SYSCTL_SYSPROP_R_SRAMLPM_BIT        (10)
+#define SYSCTL_SYSPROP_R_SRAMLPM_BIT        (10u)
 #define SYSCTL_SYSPROP_R_SRAMLPM_NOPRESENT  ((uint32_t)0x00000000u)
 #define SYSCTL_SYSPROP_R_SRAMLPM_PRESENT    ((uint32_t)0x00000400u)
 
@@ -4181,7 +4181,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SYSPROP_R_SRAMSM_MASK       ((uint32_t)0x00000800u)
-#define SYSCTL_SYSPROP_R_SRAMSM_BIT        (11)
+#define SYSCTL_SYSPROP_R_SRAMSM_BIT        (11u)
 #define SYSCTL_SYSPROP_R_SRAMSM_NOPRESENT  ((uint32_t)0x00000000u)
 #define SYSCTL_SYSPROP_R_SRAMSM_PRESENT    ((uint32_t)0x00000800u)
 
@@ -4192,7 +4192,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SYSPROP_R_PIOSCPDE_MASK       ((uint32_t)0x00001000u)
-#define SYSCTL_SYSPROP_R_PIOSCPDE_BIT        (12)
+#define SYSCTL_SYSPROP_R_PIOSCPDE_BIT        (12u)
 #define SYSCTL_SYSPROP_R_PIOSCPDE_NOPRESENT  ((uint32_t)0x00000000u)
 #define SYSCTL_SYSPROP_R_PIOSCPDE_PRESENT    ((uint32_t)0x00001000u)
 
@@ -4201,11 +4201,11 @@ typedef volatile struct
 #define SYSCTL_SYSPROP_PIOSCPDE_PRESENT      ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SYSPROP_FPU       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_FPU_BIT*4))))
-#define SYSCTL_BITBANDING_SYSPROP_FLASHLPM        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_FLASHLPM_BIT*4))))
-#define SYSCTL_BITBANDING_SYSPROP_SRAMLPM      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_SRAMLPM_BIT*4))))
-#define SYSCTL_BITBANDING_SYSPROP_SRAMSM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_SRAMSM_BIT*4))))
-#define SYSCTL_BITBANDING_SYSPROP_PIOSCPDE    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32)+(SYSCTL_SYSPROP_R_PIOSCPDE_BIT*4))))
+#define SYSCTL_BITBANDING_SYSPROP_FPU       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32u)+(SYSCTL_SYSPROP_R_FPU_BIT*4u))))
+#define SYSCTL_BITBANDING_SYSPROP_FLASHLPM        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32u)+(SYSCTL_SYSPROP_R_FLASHLPM_BIT*4u))))
+#define SYSCTL_BITBANDING_SYSPROP_SRAMLPM      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32u)+(SYSCTL_SYSPROP_R_SRAMLPM_BIT*4u))))
+#define SYSCTL_BITBANDING_SYSPROP_SRAMSM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32u)+(SYSCTL_SYSPROP_R_SRAMSM_BIT*4u))))
+#define SYSCTL_BITBANDING_SYSPROP_PIOSCPDE    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SYSPROP_OFFSET)*32u)+(SYSCTL_SYSPROP_R_PIOSCPDE_BIT*4u))))
 
 
 /******************************************************************************************
@@ -4213,18 +4213,18 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PIOSCCAL            (((PIOSCCAL_TypeDef*)(SYSCTL_BASE+SYSCTL_PIOSCCAL_OFFSET )))
 #define SYSCTL_PIOSCCAL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PIOSCCAL_OFFSET)))
-#define SYSCTL_BITBANDING_PIOSCCAL      (((BITBANDING_PIOSCCAL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PIOSCCAL      (((BITBANDING_PIOSCCAL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PIOSCCAL_R_UT_MASK    ((uint32_t)0x0000007Fu)
-#define SYSCTL_PIOSCCAL_R_UT_BIT     (0)
+#define SYSCTL_PIOSCCAL_R_UT_BIT     (0u)
 
 #define SYSCTL_PIOSCCAL_UT_MASK      ((uint32_t)0x0000007Fu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_PIOSCCAL_R_UPDATE_MASK       ((uint32_t)0x00000100u)
-#define SYSCTL_PIOSCCAL_R_UPDATE_BIT        (8)
+#define SYSCTL_PIOSCCAL_R_UPDATE_BIT        (8u)
 #define SYSCTL_PIOSCCAL_R_UPDATE_NOACTION   ((uint32_t)0x00000000u)
 #define SYSCTL_PIOSCCAL_R_UPDATE_UPDATE     ((uint32_t)0x00000100u)
 
@@ -4235,7 +4235,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PIOSCCAL_R_CAL_MASK       ((uint32_t)0x00000200u)
-#define SYSCTL_PIOSCCAL_R_CAL_BIT        (9)
+#define SYSCTL_PIOSCCAL_R_CAL_BIT        (9u)
 #define SYSCTL_PIOSCCAL_R_CAL_NOACTION   ((uint32_t)0x00000000u)
 #define SYSCTL_PIOSCCAL_R_CAL_START      ((uint32_t)0x00000200u)
 
@@ -4246,7 +4246,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PIOSCCAL_R_UTEN_MASK       ((uint32_t)0x80000000u)
-#define SYSCTL_PIOSCCAL_R_UTEN_BIT        (31)
+#define SYSCTL_PIOSCCAL_R_UTEN_BIT        (31u)
 #define SYSCTL_PIOSCCAL_R_UTEN_FACTORY    ((uint32_t)0x00000000u)
 #define SYSCTL_PIOSCCAL_R_UTEN_TRIM       ((uint32_t)0x80000000u)
 
@@ -4255,34 +4255,34 @@ typedef volatile struct
 #define SYSCTL_PIOSCCAL_UTEN_TRIM         ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PIOSCCAL_UPDATE       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32)+(SYSCTL_PIOSCCAL_R_UPDATE_BIT*4))))
-#define SYSCTL_BITBANDING_PIOSCCAL_CAL       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32)+(SYSCTL_PIOSCCAL_R_CAL_BIT*4))))
-#define SYSCTL_BITBANDING_PIOSCCAL_UTEN       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32)+(SYSCTL_PIOSCCAL_R_UTEN_BIT*4))))
+#define SYSCTL_BITBANDING_PIOSCCAL_UPDATE       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32u)+(SYSCTL_PIOSCCAL_R_UPDATE_BIT*4u))))
+#define SYSCTL_BITBANDING_PIOSCCAL_CAL       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32u)+(SYSCTL_PIOSCCAL_R_CAL_BIT*4u))))
+#define SYSCTL_BITBANDING_PIOSCCAL_UTEN       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCCAL_OFFSET)*32u)+(SYSCTL_PIOSCCAL_R_UTEN_BIT*4u))))
 
 /******************************************************************************************
 ************************************15 PIOSCSTAT *********************************************
 ******************************************************************************************/
 #define SYSCTL_PIOSCSTAT            (((PIOSCSTAT_TypeDef*)(SYSCTL_BASE+SYSCTL_PIOSCSTAT_OFFSET )))
 #define SYSCTL_PIOSCSTAT_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PIOSCSTAT_OFFSET)))
-#define SYSCTL_BITBANDING_PIOSCSTAT      (((BITBANDING_PIOSCSTAT_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCSTAT_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PIOSCSTAT      (((BITBANDING_PIOSCSTAT_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PIOSCSTAT_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PIOSCSTAT_R_CT_MASK    ((uint32_t)0x0000007Fu)
-#define SYSCTL_PIOSCSTAT_R_CT_BIT     (0)
+#define SYSCTL_PIOSCSTAT_R_CT_BIT     (0u)
 
 #define SYSCTL_PIOSCSTAT_CT_MASK      ((uint32_t)0x0000007Fu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_PIOSCSTAT_R_RESULT_MASK    ((uint32_t)0x00000300u)
-#define SYSCTL_PIOSCSTAT_R_RESULT_BIT     (8)
+#define SYSCTL_PIOSCSTAT_R_RESULT_BIT     (8u)
 
 #define SYSCTL_PIOSCSTAT_RESULT_MASK      ((uint32_t)0x00000003u)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_PIOSCSTAT_R_DT_MASK      ((uint32_t)0x007F0000u)
-#define SYSCTL_PIOSCSTAT_R_DT_BIT       (16)
+#define SYSCTL_PIOSCSTAT_R_DT_BIT       (16u)
 
 #define SYSCTL_PIOSCSTAT_v_MASK         ((uint32_t)0x0000007Fu)
 /*--------*/
@@ -4292,18 +4292,18 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PLLFREQ0            (((PLLFREQ0_TypeDef*)(SYSCTL_BASE+SYSCTL_PLLFREQ0_OFFSET )))
 #define SYSCTL_PLLFREQ0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PLLFREQ0_OFFSET)))
-#define SYSCTL_BITBANDING_PLLFREQ0      (((BITBANDING_PLLFREQ0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLFREQ0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PLLFREQ0      (((BITBANDING_PLLFREQ0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLFREQ0_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PLLFREQ0_R_MINT_MASK    ((uint32_t)0x000003FFu)
-#define SYSCTL_PLLFREQ0_R_MINT_BIT     (0)
+#define SYSCTL_PLLFREQ0_R_MINT_BIT     (0u)
 
 #define SYSCTL_PLLFREQ0_MINT_MASK      ((uint32_t)0x000003FFu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_PLLFREQ0_R_MFRAC_MASK    ((uint32_t)0x000FFC00u)
-#define SYSCTL_PLLFREQ0_R_MFRAC_BIT     (10)
+#define SYSCTL_PLLFREQ0_R_MFRAC_BIT     (10u)
 
 #define SYSCTL_PLLFREQ0_MFRAC_MASK      ((uint32_t)0x000003FFu)
 /*--------*/
@@ -4313,17 +4313,17 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PLLFREQ1            (((PLLFREQ1_TypeDef*)(SYSCTL_BASE+SYSCTL_PLLFREQ1_OFFSET )))
 #define SYSCTL_PLLFREQ1_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PLLFREQ1_OFFSET)))
-#define SYSCTL_BITBANDING_PLLFREQ1      (((BITBANDING_PLLFREQ1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLFREQ1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PLLFREQ1      (((BITBANDING_PLLFREQ1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLFREQ1_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PLLFREQ1_R_N_MASK    ((uint32_t)0x0000001Fu)
-#define SYSCTL_PLLFREQ1_R_N_BIT     (0)
+#define SYSCTL_PLLFREQ1_R_N_BIT     (0u)
 
 #define SYSCTL_PLLFREQ1_N_MASK      ((uint32_t)0x0000001Fu)
 /*--------*/
 /*--------*/
 #define SYSCTL_PLLFREQ1_R_Q_MASK    ((uint32_t)0x00001F00u)
-#define SYSCTL_PLLFREQ1_R_Q_BIT     (8)
+#define SYSCTL_PLLFREQ1_R_Q_BIT     (8u)
 
 #define SYSCTL_PLLFREQ1_Q_MASK      ((uint32_t)0x0000001Fu)
 /*--------*/
@@ -4333,11 +4333,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PLLSTAT            (((PLLSTAT_TypeDef*)(SYSCTL_BASE+SYSCTL_PLLSTAT_OFFSET )))
 #define SYSCTL_PLLSTAT_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PLLSTAT_OFFSET)))
-#define SYSCTL_BITBANDING_PLLSTAT      (((BITBANDING_PLLSTAT_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLSTAT_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PLLSTAT      (((BITBANDING_PLLSTAT_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLSTAT_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PLLSTAT_R_LOCK_MASK       ((uint32_t)0x00000001u)
-#define SYSCTL_PLLSTAT_R_LOCK_BIT        (0)
+#define SYSCTL_PLLSTAT_R_LOCK_BIT        (0u)
 #define SYSCTL_PLLSTAT_R_LOCK_NOLOCK    ((uint32_t)0x00000000u)
 #define SYSCTL_PLLSTAT_R_LOCK_LOCK      ((uint32_t)0x00000001u)
 
@@ -4346,18 +4346,18 @@ typedef volatile struct
 #define SYSCTL_PLLSTAT_LOCK_LOCK        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PLLSTAT_LOCK    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLSTAT_OFFSET)*32)+(SYSCTL_PLLSTAT_R_LOCK_BIT*4))))
+#define SYSCTL_BITBANDING_PLLSTAT_LOCK    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PLLSTAT_OFFSET)*32u)+(SYSCTL_PLLSTAT_R_LOCK_BIT*4u))))
 
 /******************************************************************************************
 ************************************19 SLSRWRCFG *********************************************
 ******************************************************************************************/
 #define SYSCTL_SLSRWRCFG            (((SLSRWRCFG_TypeDef*)(SYSCTL_BASE+SYSCTL_SLSRWRCFG_OFFSET )))
 #define SYSCTL_SLSRWRCFG_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SLSRWRCFG_OFFSET)))
-#define SYSCTL_BITBANDING_SLSRWRCFG      (((BITBANDING_SLSRWRCFG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SLSRWRCFG_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SLSRWRCFG      (((BITBANDING_SLSRWRCFG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SLSRWRCFG_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SLSRWRCFG_R_SRAMPM_MASK       ((uint32_t)0x00000003u)
-#define SYSCTL_SLSRWRCFG_R_SRAMPM_BIT        (0)
+#define SYSCTL_SLSRWRCFG_R_SRAMPM_BIT        (0u)
 #define SYSCTL_SLSRWRCFG_R_SRAMPM_ACTIVE     ((uint32_t)0x00000000u)
 #define SYSCTL_SLSRWRCFG_R_SRAMPM_STANDBY    ((uint32_t)0x00000001u)
 #define SYSCTL_SLSRWRCFG_R_SRAMPM_LOWPOWER   ((uint32_t)0x00000003u)
@@ -4370,7 +4370,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SLSRWRCFG_R_FLASHPM_MASK       ((uint32_t)0x00000030u)
-#define SYSCTL_SLSRWRCFG_R_FLASHPM_BIT        (2)
+#define SYSCTL_SLSRWRCFG_R_FLASHPM_BIT        (2u)
 #define SYSCTL_SLSRWRCFG_R_FLASHPM_ACTIVE     ((uint32_t)0x00000000u)
 #define SYSCTL_SLSRWRCFG_R_FLASHPM_LOWPOWER   ((uint32_t)0x00000020u)
 
@@ -4384,11 +4384,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_DSLSRWRCFG            (((DSLSRWRCFG_TypeDef*)(SYSCTL_BASE+SYSCTL_DSLSRWRCFG_OFFSET )))
 #define SYSCTL_DSLSRWRCFG_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DSLSRWRCFG_OFFSET)))
-#define SYSCTL_BITBANDING_DSLSRWRCFG      (((BITBANDING_DSLSRWRCFG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DSLSRWRCFG_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DSLSRWRCFG      (((BITBANDING_DSLSRWRCFG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DSLSRWRCFG_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DSLSRWRCFG_R_SRAMPM_MASK       ((uint32_t)0x00000003u)
-#define SYSCTL_DSLSRWRCFG_R_SRAMPM_BIT        (0)
+#define SYSCTL_DSLSRWRCFG_R_SRAMPM_BIT        (0u)
 #define SYSCTL_DSLSRWRCFG_R_SRAMPM_ACTIVE     ((uint32_t)0x00000000u)
 #define SYSCTL_DSLSRWRCFG_R_SRAMPM_STANDBY    ((uint32_t)0x00000001u)
 #define SYSCTL_DSLSRWRCFG_R_SRAMPM_LOWPOWER   ((uint32_t)0x00000003u)
@@ -4401,7 +4401,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DSLSRWRCFG_R_FLASHPM_MASK       ((uint32_t)0x00000030u)
-#define SYSCTL_DSLSRWRCFG_R_FLASHPM_BIT        (2)
+#define SYSCTL_DSLSRWRCFG_R_FLASHPM_BIT        (2u)
 #define SYSCTL_DSLSRWRCFG_R_FLASHPM_ACTIVE     ((uint32_t)0x00000000u)
 #define SYSCTL_DSLSRWRCFG_R_FLASHPM_LOWPOWER   ((uint32_t)0x00000020u)
 
@@ -4415,23 +4415,23 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_LDOSPCTL            (((LDOSPCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_LDOSPCTL_OFFSET )))
 #define SYSCTL_LDOSPCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_LDOSPCTL_OFFSET)))
-#define SYSCTL_BITBANDING_LDOSPCTL      (((BITBANDING_LDOSPCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDOSPCTL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_LDOSPCTL      (((BITBANDING_LDOSPCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDOSPCTL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_LDOSPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDOSPCTL_R_VLDO_BIT     (0)
+#define SYSCTL_LDOSPCTL_R_VLDO_BIT     (0u)
 
 #define SYSCTL_LDOSPCTL_VLDO_MASK      ((uint32_t)0x000000FFu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_LDOSPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000u)
-#define SYSCTL_LDOSPCTL_R_VADJEN_BIT     (31)
+#define SYSCTL_LDOSPCTL_R_VADJEN_BIT     (31u)
 
 #define SYSCTL_LDOSPCTL_VADJEN_MASK      ((uint32_t)0x000000F01u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_LDOSPCTL_VADJEN    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDOSPCTL_OFFSET)*32)+(SYSCTL_LDOSPCTL_R_VADJEN_BIT*4))))
+#define SYSCTL_BITBANDING_LDOSPCTL_VADJEN    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDOSPCTL_OFFSET)*32u)+(SYSCTL_LDOSPCTL_R_VADJEN_BIT*4u))))
 
 
 /******************************************************************************************
@@ -4439,18 +4439,18 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_LDOSPCAL            (((LDOSPCAL_TypeDef*)(SYSCTL_BASE+SYSCTL_LDOSPCAL_OFFSET )))
 #define SYSCTL_LDOSPCAL_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_LDOSPCAL_OFFSET)))
-#define SYSCTL_BITBANDING_LDOSPCAL      (((BITBANDING_LDOSPCAL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDOSPCAL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_LDOSPCAL      (((BITBANDING_LDOSPCAL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDOSPCAL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_LDOSPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDOSPCAL_R_NOPLL_BIT     (0)
+#define SYSCTL_LDOSPCAL_R_NOPLL_BIT     (0u)
 
 #define SYSCTL_LDOSPCAL_NOPLL_MASK      ((uint32_t)0x000000FFu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_LDOSPCAL_R_WITHPLL_MASK    ((uint32_t)0x0000FF00u)
-#define SYSCTL_LDOSPCAL_R_WITHPLL_BIT     (8)
+#define SYSCTL_LDOSPCAL_R_WITHPLL_BIT     (8u)
 
 #define SYSCTL_LDOSPCAL_WITHPLL_MASK      ((uint32_t)0x000000FFu)
 /*--------*/
@@ -4460,23 +4460,23 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_LDODPCTL            (((LDODPCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_LDODPCTL_OFFSET )))
 #define SYSCTL_LDODPCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_LDODPCTL_OFFSET)))
-#define SYSCTL_BITBANDING_LDODPCTL      (((BITBANDING_LDODPCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDODPCTL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_LDODPCTL      (((BITBANDING_LDODPCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDODPCTL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_LDODPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDODPCTL_R_VLDO_BIT     (0)
+#define SYSCTL_LDODPCTL_R_VLDO_BIT     (0u)
 
 #define SYSCTL_LDODPCTL_VLDO_MASK      ((uint32_t)0x000000FFu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_LDODPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000u)
-#define SYSCTL_LDODPCTL_R_VADJEN_BIT     (31)
+#define SYSCTL_LDODPCTL_R_VADJEN_BIT     (31u)
 
 #define SYSCTL_LDODPCTL_VADJEN_MASK      ((uint32_t)0x000000F01u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_LDODPCTL_VADJEN    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDODPCTL_OFFSET)*32)+(SYSCTL_LDODPCTL_R_VADJEN_BIT*4))))
+#define SYSCTL_BITBANDING_LDODPCTL_VADJEN    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDODPCTL_OFFSET)*32u)+(SYSCTL_LDODPCTL_R_VADJEN_BIT*4u))))
 
 
 /******************************************************************************************
@@ -4484,18 +4484,18 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_LDODPCAL            (((LDODPCAL_TypeDef*)(SYSCTL_BASE+SYSCTL_LDODPCAL_OFFSET )))
 #define SYSCTL_LDODPCAL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_LDODPCAL_OFFSET)))
-#define SYSCTL_BITBANDING_LDODPCAL      (((BITBANDING_LDODPCAL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDODPCAL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_LDODPCAL      (((BITBANDING_LDODPCAL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_LDODPCAL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_LDODPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDODPCAL_R_NOPLL_BIT     (0)
+#define SYSCTL_LDODPCAL_R_NOPLL_BIT     (0u)
 
 #define SYSCTL_LDODPCAL_NOPLL_MASK      ((uint32_t)0x000000FFu)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_LDODPCAL_R_KHZ30_MASK    ((uint32_t)0x0000FF00u)
-#define SYSCTL_LDODPCAL_R_KHZ30_BIT     (8)
+#define SYSCTL_LDODPCAL_R_KHZ30_BIT     (8u)
 
 #define SYSCTL_LDODPCAL_KHZ30_MASK      ((uint32_t)0x000000FFu)
 /*--------*/
@@ -4505,11 +4505,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_SDPMST            (((SDPMST_TypeDef*)(SYSCTL_BASE+SYSCTL_SDPMSTL_OFFSET )))
 #define SYSCTL_SDPMST_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SDPMST_OFFSET)))
-#define SYSCTL_BITBANDING_SDPMST      (((BITBANDING_SDPMST_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SDPMST      (((BITBANDING_SDPMST_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SDPMST_R_SPDERR_MASK     ((uint32_t)0x00000001u)
-#define SYSCTL_SDPMST_R_SPDERR_BIT      (0)
+#define SYSCTL_SDPMST_R_SPDERR_BIT      (0u)
 #define SYSCTL_SDPMST_R_SPDERR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_SPDERR_ERROR    ((uint32_t)0x00000001u)
 
@@ -4520,7 +4520,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_FPDERR_MASK     ((uint32_t)0x00000002u)
-#define SYSCTL_SDPMST_R_FPDERR_BIT      (1)
+#define SYSCTL_SDPMST_R_FPDERR_BIT      (1u)
 #define SYSCTL_SDPMST_R_FPDERR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_FPDERR_ERROR    ((uint32_t)0x00000002u)
 
@@ -4531,7 +4531,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_SRDERR_MASK     ((uint32_t)0x00000004u)
-#define SYSCTL_SDPMST_R_SRDERR_BIT      (2)
+#define SYSCTL_SDPMST_R_SRDERR_BIT      (2u)
 #define SYSCTL_SDPMST_R_SRDERR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_SRDERR_ERROR    ((uint32_t)0x00000004u)
 
@@ -4542,7 +4542,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_LDMINERR_MASK     ((uint32_t)0x00000008u)
-#define SYSCTL_SDPMST_R_LDMINERR_BIT      (3)
+#define SYSCTL_SDPMST_R_LDMINERR_BIT      (3u)
 #define SYSCTL_SDPMST_R_LDMINERR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_LDMINERR_ERROR    ((uint32_t)0x00000008u)
 
@@ -4553,7 +4553,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_LSMINERR_MASK     ((uint32_t)0x00000010u)
-#define SYSCTL_SDPMST_R_LSMINERR_BIT      (4)
+#define SYSCTL_SDPMST_R_LSMINERR_BIT      (4u)
 #define SYSCTL_SDPMST_R_LSMINERR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_LSMINERR_ERROR    ((uint32_t)0x00000010u)
 
@@ -4564,7 +4564,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_LMAXERR_MASK     ((uint32_t)0x00000040u)
-#define SYSCTL_SDPMST_R_LMAXERR_BIT      (6)
+#define SYSCTL_SDPMST_R_LMAXERR_BIT      (6u)
 #define SYSCTL_SDPMST_R_LMAXERR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_LMAXERR_ERROR    ((uint32_t)0x00000040u)
 
@@ -4575,7 +4575,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_SRDW_MASK     ((uint32_t)0x00000080u)
-#define SYSCTL_SDPMST_R_SRDW_BIT      (7)
+#define SYSCTL_SDPMST_R_SRDW_BIT      (7u)
 #define SYSCTL_SDPMST_R_SRDW_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_SRDW_ERROR    ((uint32_t)0x00000080u)
 
@@ -4586,7 +4586,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_PRACT_MASK     ((uint32_t)0x00010000u)
-#define SYSCTL_SDPMST_R_PRACT_BIT      (16)
+#define SYSCTL_SDPMST_R_PRACT_BIT      (16u)
 #define SYSCTL_SDPMST_R_PRACT_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_PRACT_ERROR    ((uint32_t)0x00010000u)
 
@@ -4597,7 +4597,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_LOWPWR_MASK     ((uint32_t)0x00020000u)
-#define SYSCTL_SDPMST_R_LOWPWR_BIT      (17)
+#define SYSCTL_SDPMST_R_LOWPWR_BIT      (17u)
 #define SYSCTL_SDPMST_R_LOWPWR_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_LOWPWR_ERROR    ((uint32_t)0x00020000u)
 
@@ -4608,7 +4608,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_FLASHLP_MASK     ((uint32_t)0x00040000u)
-#define SYSCTL_SDPMST_R_FLASHLP_BIT      (18)
+#define SYSCTL_SDPMST_R_FLASHLP_BIT      (18u)
 #define SYSCTL_SDPMST_R_FLASHLP_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_FLASHLP_ERROR    ((uint32_t)0x00040000u)
 
@@ -4619,7 +4619,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SDPMST_R_LDOUA_MASK     ((uint32_t)0x00080000u)
-#define SYSCTL_SDPMST_R_LDOUA_BIT      (19)
+#define SYSCTL_SDPMST_R_LDOUA_BIT      (19u)
 #define SYSCTL_SDPMST_R_LDOUA_NOERROR  ((uint32_t)0x00000000u)
 #define SYSCTL_SDPMST_R_LDOUA_ERROR    ((uint32_t)0x00080000u)
 
@@ -4630,28 +4630,28 @@ typedef volatile struct
 
 
 
-#define SYSCTL_BITBANDING_SDPMST_SPDERR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_SPDERR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_FPDERR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_FPDERR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_SRDERR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_SRDERR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_LDMINERR (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_LDMINERR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_LSMINERR (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_LSMINERR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_LMAXERR  (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_LMAXERR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_SRDW     (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_SRDW_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_PRACT    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_PRACT_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_LOWPWR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_LOWPWR_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_FLASHLP  (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_FLASHLP_BIT*4))))
-#define SYSCTL_BITBANDING_SDPMST_LDOUA    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32)+(SYSCTL_SDPMST_R_LDOUA_BIT*4))))
+#define SYSCTL_BITBANDING_SDPMST_SPDERR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_SPDERR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_FPDERR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_FPDERR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_SRDERR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_SRDERR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_LDMINERR (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_LDMINERR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_LSMINERR (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_LSMINERR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_LMAXERR  (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_LMAXERR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_SRDW     (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_SRDW_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_PRACT    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_PRACT_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_LOWPWR   (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_LOWPWR_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_FLASHLP  (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_FLASHLP_BIT*4u))))
+#define SYSCTL_BITBANDING_SDPMST_LDOUA    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SDPMST_OFFSET)*32u)+(SYSCTL_SDPMST_R_LDOUA_BIT*4u))))
 
 /******************************************************************************************
 ************************************26 PPWD *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPWD            (((PERIPHERAL_WD_TypeDef*)(SYSCTL_BASE+SYSCTL_PPWD_OFFSET )))
 #define SYSCTL_PPWD_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPWD_OFFSET)))
-#define SYSCTL_BITBANDING_PPWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWD_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWD_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPWD_R_WDT0_MASK         ((uint32_t)0x00000001u)
-#define SYSCTL_PPWD_R_WDT0_BIT          (0)
+#define SYSCTL_PPWD_R_WDT0_BIT          (0u)
 #define SYSCTL_PPWD_R_WDT0_NOPRESENT    ((uint32_t)0x00000000u)
 #define SYSCTL_PPWD_R_WDT0_PRESENT      ((uint32_t)0x00000001u)
 
@@ -4662,7 +4662,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPWD_R_WDT1_MASK         ((uint32_t)0x00000002u)
-#define SYSCTL_PPWD_R_WDT1_BIT          (1)
+#define SYSCTL_PPWD_R_WDT1_BIT          (1u)
 #define SYSCTL_PPWD_R_WDT1_NOPRESENT    ((uint32_t)0x00000000u)
 #define SYSCTL_PPWD_R_WDT1_PRESENT      ((uint32_t)0x00000002u)
 
@@ -4671,8 +4671,8 @@ typedef volatile struct
 #define SYSCTL_PPWD_WDT1_PRESENT        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPWD_WDT0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWD_OFFSET)*32)+(SYSCTL_PPWD_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_PPWD_WDT1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWD_OFFSET)*32)+(SYSCTL_PPWD_R_WDT1_BIT*4))))
+#define SYSCTL_BITBANDING_PPWD_WDT0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWD_OFFSET)*32u)+(SYSCTL_PPWD_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPWD_WDT1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWD_OFFSET)*32u)+(SYSCTL_PPWD_R_WDT1_BIT*4u))))
 
 
 /******************************************************************************************
@@ -4680,11 +4680,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PPTIMER            (((PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_PPTIMER_OFFSET )))
 #define SYSCTL_PPTIMER_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_PPTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPTIMER_R_TIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPTIMER_R_TIMER0_BIT         (0)
+#define SYSCTL_PPTIMER_R_TIMER0_BIT         (0u)
 #define SYSCTL_PPTIMER_R_TIMER0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPTIMER_R_TIMER0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -4695,7 +4695,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPTIMER_R_TIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPTIMER_R_TIMER1_BIT         (1)
+#define SYSCTL_PPTIMER_R_TIMER1_BIT         (1u)
 #define SYSCTL_PPTIMER_R_TIMER1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPTIMER_R_TIMER1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -4706,7 +4706,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPTIMER_R_TIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PPTIMER_R_TIMER2_BIT         (2)
+#define SYSCTL_PPTIMER_R_TIMER2_BIT         (2u)
 #define SYSCTL_PPTIMER_R_TIMER2_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPTIMER_R_TIMER2_PRESENT     ((uint32_t)0x00000004u)
 
@@ -4717,7 +4717,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPTIMER_R_TIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PPTIMER_R_TIMER3_BIT         (3)
+#define SYSCTL_PPTIMER_R_TIMER3_BIT         (3u)
 #define SYSCTL_PPTIMER_R_TIMER3_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPTIMER_R_TIMER3_PRESENT     ((uint32_t)0x00000008u)
 
@@ -4728,7 +4728,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPTIMER_R_TIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PPTIMER_R_TIMER4_BIT         (4)
+#define SYSCTL_PPTIMER_R_TIMER4_BIT         (4u)
 #define SYSCTL_PPTIMER_R_TIMER4_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPTIMER_R_TIMER4_PRESENT     ((uint32_t)0x00000010u)
 
@@ -4739,7 +4739,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPTIMER_R_TIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PPTIMER_R_TIMER5_BIT         (5)
+#define SYSCTL_PPTIMER_R_TIMER5_BIT         (5u)
 #define SYSCTL_PPTIMER_R_TIMER5_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPTIMER_R_TIMER5_PRESENT     ((uint32_t)0x00000020u)
 
@@ -4748,23 +4748,23 @@ typedef volatile struct
 #define SYSCTL_PPTIMER_TIMER5_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPTIMER_TIMER0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32)+(SYSCTL_PPTIMER_R_TIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_PPTIMER_TIMER1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32)+(SYSCTL_PPTIMER_R_TIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_PPTIMER_TIMER2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32)+(SYSCTL_PPTIMER_R_TIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_PPTIMER_TIMER3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32)+(SYSCTL_PPTIMER_R_TIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_PPTIMER_TIMER4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32)+(SYSCTL_PPTIMER_R_TIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_PPTIMER_TIMER5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32)+(SYSCTL_PPTIMER_R_TIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_PPTIMER_TIMER0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u)+(SYSCTL_PPTIMER_R_TIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPTIMER_TIMER1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u)+(SYSCTL_PPTIMER_R_TIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_PPTIMER_TIMER2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u)+(SYSCTL_PPTIMER_R_TIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_PPTIMER_TIMER3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u)+(SYSCTL_PPTIMER_R_TIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_PPTIMER_TIMER4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u)+(SYSCTL_PPTIMER_R_TIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_PPTIMER_TIMER5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPTIMER_OFFSET)*32u)+(SYSCTL_PPTIMER_R_TIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************28 PPGPIO *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPGPIO            (((PERIPHERAL_GPIO_TypeDef*)(SYSCTL_BASE+SYSCTL_PPGPIO_OFFSET )))
 #define SYSCTL_PPGPIO_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPGPIO_OFFSET)))
-#define SYSCTL_BITBANDING_PPGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPGPIO_R_GPIOA_BIT         (0)
+#define SYSCTL_PPGPIO_R_GPIOA_BIT         (0u)
 #define SYSCTL_PPGPIO_R_GPIOA_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOA_PRESENT     ((uint32_t)0x00000001u)
 
@@ -4775,7 +4775,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOB_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPGPIO_R_GPIOB_BIT         (1)
+#define SYSCTL_PPGPIO_R_GPIOB_BIT         (1u)
 #define SYSCTL_PPGPIO_R_GPIOB_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOB_PRESENT     ((uint32_t)0x00000002u)
 
@@ -4786,7 +4786,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOC_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PPGPIO_R_GPIOC_BIT         (2)
+#define SYSCTL_PPGPIO_R_GPIOC_BIT         (2u)
 #define SYSCTL_PPGPIO_R_GPIOC_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOC_PRESENT     ((uint32_t)0x00000004u)
 
@@ -4797,7 +4797,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOD_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PPGPIO_R_GPIOD_BIT         (3)
+#define SYSCTL_PPGPIO_R_GPIOD_BIT         (3u)
 #define SYSCTL_PPGPIO_R_GPIOD_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOD_PRESENT     ((uint32_t)0x00000008u)
 
@@ -4808,7 +4808,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOE_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PPGPIO_R_GPIOE_BIT         (4)
+#define SYSCTL_PPGPIO_R_GPIOE_BIT         (4u)
 #define SYSCTL_PPGPIO_R_GPIOE_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOE_PRESENT     ((uint32_t)0x00000010u)
 
@@ -4819,7 +4819,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOF_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PPGPIO_R_GPIOF_BIT         (5)
+#define SYSCTL_PPGPIO_R_GPIOF_BIT         (5u)
 #define SYSCTL_PPGPIO_R_GPIOF_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOF_PRESENT     ((uint32_t)0x00000020u)
 
@@ -4830,7 +4830,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_PPGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_PPGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_PPGPIO_R_GPIOG_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOG_PRESENT     ((uint32_t)0x00000040u)
 
@@ -4841,7 +4841,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_PPGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_PPGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_PPGPIO_R_GPIOG_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOG_PRESENT     ((uint32_t)0x00000040u)
 
@@ -4852,7 +4852,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOH_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_PPGPIO_R_GPIOH_BIT         (7)
+#define SYSCTL_PPGPIO_R_GPIOH_BIT         (7u)
 #define SYSCTL_PPGPIO_R_GPIOH_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOH_PRESENT     ((uint32_t)0x00000080u)
 
@@ -4863,7 +4863,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOJ_MASK        ((uint32_t)0x00000100u)
-#define SYSCTL_PPGPIO_R_GPIOJ_BIT         (8)
+#define SYSCTL_PPGPIO_R_GPIOJ_BIT         (8u)
 #define SYSCTL_PPGPIO_R_GPIOJ_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOJ_PRESENT     ((uint32_t)0x00000100u)
 
@@ -4874,7 +4874,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOK_MASK        ((uint32_t)0x00000200u)
-#define SYSCTL_PPGPIO_R_GPIOK_BIT         (9)
+#define SYSCTL_PPGPIO_R_GPIOK_BIT         (9u)
 #define SYSCTL_PPGPIO_R_GPIOK_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOK_PRESENT     ((uint32_t)0x00000200u)
 
@@ -4885,7 +4885,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOL_MASK        ((uint32_t)0x00000400u)
-#define SYSCTL_PPGPIO_R_GPIOL_BIT         (10)
+#define SYSCTL_PPGPIO_R_GPIOL_BIT         (10u)
 #define SYSCTL_PPGPIO_R_GPIOL_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOL_PRESENT     ((uint32_t)0x00000400u)
 
@@ -4896,7 +4896,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOM_MASK        ((uint32_t)0x00000800u)
-#define SYSCTL_PPGPIO_R_GPIOM_BIT         (11)
+#define SYSCTL_PPGPIO_R_GPIOM_BIT         (11u)
 #define SYSCTL_PPGPIO_R_GPIOM_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOM_PRESENT     ((uint32_t)0x00000800u)
 
@@ -4907,7 +4907,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPION_MASK        ((uint32_t)0x00001000u)
-#define SYSCTL_PPGPIO_R_GPION_BIT         (12)
+#define SYSCTL_PPGPIO_R_GPION_BIT         (12u)
 #define SYSCTL_PPGPIO_R_GPION_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPION_PRESENT     ((uint32_t)0x00001000u)
 
@@ -4918,7 +4918,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOP_MASK        ((uint32_t)0x00002000u)
-#define SYSCTL_PPGPIO_R_GPIOP_BIT         (13)
+#define SYSCTL_PPGPIO_R_GPIOP_BIT         (13u)
 #define SYSCTL_PPGPIO_R_GPIOP_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOP_PRESENT     ((uint32_t)0x00002000u)
 
@@ -4929,7 +4929,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPGPIO_R_GPIOQ_MASK        ((uint32_t)0x00004000u)
-#define SYSCTL_PPGPIO_R_GPIOQ_BIT         (14)
+#define SYSCTL_PPGPIO_R_GPIOQ_BIT         (14u)
 #define SYSCTL_PPGPIO_R_GPIOQ_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_R_GPIOQ_PRESENT     ((uint32_t)0x00004000u)
 
@@ -4937,32 +4937,32 @@ typedef volatile struct
 #define SYSCTL_PPGPIO_GPIOQ_NOPRESENT     ((uint32_t)0x00000000u)
 #define SYSCTL_PPGPIO_GPIOQ_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOA    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOB    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOC    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOD    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOE    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOF    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOG    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOG_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOH    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOH_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOJ    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOJ_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOK    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOK_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOL    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOL_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOM    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOM_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPION    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPION_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOP    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOP_BIT*4))))
-#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOQ    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32)+(SYSCTL_PPGPIO_R_GPIOQ_BIT*4))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOA    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOB    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOC    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOD    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOE    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOF    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOG    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOG_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOH    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOH_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOJ    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOJ_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOK    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOK_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOL    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOL_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOM    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOM_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPION    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPION_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOP    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOP_BIT*4u))))
+#define SYSCTL_BITBANDING_PPGPIO_BITBANDING_GPIOQ    (*((volatile const uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PPGPIO_OFFSET)*32u)+(SYSCTL_PPGPIO_R_GPIOQ_BIT*4u))))
 
 /******************************************************************************************
 ************************************29 PPDMA *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPDMA            (((PERIPHERAL_DMA_TypeDef*)(SYSCTL_BASE+SYSCTL_PPDMA_OFFSET )))
 #define SYSCTL_PPDMA_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPDMA_OFFSET)))
-#define SYSCTL_BITBANDING_PPDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPDMA_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPDMA_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPDMA_R_UDMA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPDMA_R_UDMA_BIT         (0)
+#define SYSCTL_PPDMA_R_UDMA_BIT         (0u)
 #define SYSCTL_PPDMA_R_UDMA_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPDMA_R_UDMA_PRESENT     ((uint32_t)0x00000001u)
 
@@ -4971,18 +4971,18 @@ typedef volatile struct
 #define SYSCTL_PPDMA_UDMA_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPDMA_UDMA    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPDMA_OFFSET)*32)+(SYSCTL_PPDMA_R_UDMA_BIT*4))))
+#define SYSCTL_BITBANDING_PPDMA_UDMA    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPDMA_OFFSET)*32u)+(SYSCTL_PPDMA_R_UDMA_BIT*4u))))
 
 /******************************************************************************************
 ************************************30 PPHIB *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPHIB            (((PERIPHERAL_HIB_TypeDef*)(SYSCTL_BASE+SYSCTL_PPHIB_OFFSET )))
 #define SYSCTL_PPHIB_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPHIB_OFFSET)))
-#define SYSCTL_BITBANDING_PPHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPHIB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPHIB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPHIB_R_HIB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPHIB_R_HIB_BIT         (0)
+#define SYSCTL_PPHIB_R_HIB_BIT         (0u)
 #define SYSCTL_PPHIB_R_HIB_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPHIB_R_HIB_PRESENT     ((uint32_t)0x00000001u)
 
@@ -4991,18 +4991,18 @@ typedef volatile struct
 #define SYSCTL_PPHIB_HIB_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPHIB_HIB    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPHIB_OFFSET)*32)+(SYSCTL_PPHIB_R_HIB_BIT*4))))
+#define SYSCTL_BITBANDING_PPHIB_HIB    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPHIB_OFFSET)*32u)+(SYSCTL_PPHIB_R_HIB_BIT*4u))))
 
 /******************************************************************************************
 ************************************31 PPUART *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPUART            (((PERIPHERAL_UART_TypeDef*)(SYSCTL_BASE+SYSCTL_PPUART_OFFSET )))
 #define SYSCTL_PPUART_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PPUART_OFFSET)))
-#define SYSCTL_BITBANDING_PPUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPUART_R_UART0_BIT         (0)
+#define SYSCTL_PPUART_R_UART0_BIT         (0u)
 #define SYSCTL_PPUART_R_UART0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5013,7 +5013,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPUART_R_UART1_BIT         (1)
+#define SYSCTL_PPUART_R_UART1_BIT         (1u)
 #define SYSCTL_PPUART_R_UART1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5024,7 +5024,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PPUART_R_UART2_BIT         (2)
+#define SYSCTL_PPUART_R_UART2_BIT         (2u)
 #define SYSCTL_PPUART_R_UART2_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART2_PRESENT     ((uint32_t)0x00000004u)
 
@@ -5035,7 +5035,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PPUART_R_UART3_BIT         (3)
+#define SYSCTL_PPUART_R_UART3_BIT         (3u)
 #define SYSCTL_PPUART_R_UART3_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART3_PRESENT     ((uint32_t)0x00000008u)
 
@@ -5046,7 +5046,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PPUART_R_UART4_BIT         (4)
+#define SYSCTL_PPUART_R_UART4_BIT         (4u)
 #define SYSCTL_PPUART_R_UART4_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART4_PRESENT     ((uint32_t)0x00000010u)
 
@@ -5057,7 +5057,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PPUART_R_UART5_BIT         (5)
+#define SYSCTL_PPUART_R_UART5_BIT         (5u)
 #define SYSCTL_PPUART_R_UART5_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART5_PRESENT     ((uint32_t)0x00000020u)
 
@@ -5068,7 +5068,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART6_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_PPUART_R_UART6_BIT         (6)
+#define SYSCTL_PPUART_R_UART6_BIT         (6u)
 #define SYSCTL_PPUART_R_UART6_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART6_PRESENT     ((uint32_t)0x00000040u)
 
@@ -5079,7 +5079,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPUART_R_UART7_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_PPUART_R_UART7_BIT         (7)
+#define SYSCTL_PPUART_R_UART7_BIT         (7u)
 #define SYSCTL_PPUART_R_UART7_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUART_R_UART7_PRESENT     ((uint32_t)0x00000080u)
 
@@ -5088,25 +5088,25 @@ typedef volatile struct
 #define SYSCTL_PPUART_UART7_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPUART_UART0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART0_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART1_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART2_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART3_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART4_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART5_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART6    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART6_BIT*4))))
-#define SYSCTL_BITBANDING_PPUART_UART7    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32)+(SYSCTL_PPUART_R_UART7_BIT*4))))
+#define SYSCTL_BITBANDING_PPUART_UART0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART1_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART2_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART3_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART4_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART5_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART6    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART6_BIT*4u))))
+#define SYSCTL_BITBANDING_PPUART_UART7    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUART_OFFSET)*32u)+(SYSCTL_PPUART_R_UART7_BIT*4u))))
 
 /******************************************************************************************
 ************************************32 PPSSI *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPSSI            (((PERIPHERAL_SSI_TypeDef*)(SYSCTL_BASE+SYSCTL_PPSSI_OFFSET )))
 #define SYSCTL_PPSSI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PPSSI_OFFSET)))
-#define SYSCTL_BITBANDING_PPSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPSSI_R_SSI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPSSI_R_SSI0_BIT         (0)
+#define SYSCTL_PPSSI_R_SSI0_BIT         (0u)
 #define SYSCTL_PPSSI_R_SSI0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPSSI_R_SSI0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5117,7 +5117,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPSSI_R_SSI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPSSI_R_SSI1_BIT         (1)
+#define SYSCTL_PPSSI_R_SSI1_BIT         (1u)
 #define SYSCTL_PPSSI_R_SSI1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPSSI_R_SSI1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5128,7 +5128,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPSSI_R_SSI2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PPSSI_R_SSI2_BIT         (2)
+#define SYSCTL_PPSSI_R_SSI2_BIT         (2u)
 #define SYSCTL_PPSSI_R_SSI2_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPSSI_R_SSI2_PRESENT     ((uint32_t)0x00000004u)
 
@@ -5139,7 +5139,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPSSI_R_SSI3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PPSSI_R_SSI3_BIT         (3)
+#define SYSCTL_PPSSI_R_SSI3_BIT         (3u)
 #define SYSCTL_PPSSI_R_SSI3_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPSSI_R_SSI3_PRESENT     ((uint32_t)0x00000008u)
 
@@ -5148,21 +5148,21 @@ typedef volatile struct
 #define SYSCTL_PPSSI_SSI3_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPSSI_SSI0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32)+(SYSCTL_PPSSI_R_SSI0_BIT*4))))
-#define SYSCTL_BITBANDING_PPSSI_SSI1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32)+(SYSCTL_PPSSI_R_SSI1_BIT*4))))
-#define SYSCTL_BITBANDING_PPSSI_SSI2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32)+(SYSCTL_PPSSI_R_SSI2_BIT*4))))
-#define SYSCTL_BITBANDING_PPSSI_SSI3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32)+(SYSCTL_PPSSI_R_SSI3_BIT*4))))
+#define SYSCTL_BITBANDING_PPSSI_SSI0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32u)+(SYSCTL_PPSSI_R_SSI0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPSSI_SSI1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32u)+(SYSCTL_PPSSI_R_SSI1_BIT*4u))))
+#define SYSCTL_BITBANDING_PPSSI_SSI2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32u)+(SYSCTL_PPSSI_R_SSI2_BIT*4u))))
+#define SYSCTL_BITBANDING_PPSSI_SSI3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPSSI_OFFSET)*32u)+(SYSCTL_PPSSI_R_SSI3_BIT*4u))))
 
 /******************************************************************************************
 ************************************33 PPI2C *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPI2C            (((PERIPHERAL_I2C_TypeDef*)(SYSCTL_BASE+SYSCTL_PPI2C_OFFSET )))
 #define SYSCTL_PPI2C_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PPI2C_OFFSET)))
-#define SYSCTL_BITBANDING_PPI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPI2C_R_I2C0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPI2C_R_I2C0_BIT         (0)
+#define SYSCTL_PPI2C_R_I2C0_BIT         (0u)
 #define SYSCTL_PPI2C_R_I2C0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPI2C_R_I2C0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5173,7 +5173,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPI2C_R_I2C1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPI2C_R_I2C1_BIT         (1)
+#define SYSCTL_PPI2C_R_I2C1_BIT         (1u)
 #define SYSCTL_PPI2C_R_I2C1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPI2C_R_I2C1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5184,7 +5184,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPI2C_R_I2C2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PPI2C_R_I2C2_BIT         (2)
+#define SYSCTL_PPI2C_R_I2C2_BIT         (2u)
 #define SYSCTL_PPI2C_R_I2C2_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPI2C_R_I2C2_PRESENT     ((uint32_t)0x00000004u)
 
@@ -5195,7 +5195,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPI2C_R_I2C3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PPI2C_R_I2C3_BIT         (3)
+#define SYSCTL_PPI2C_R_I2C3_BIT         (3u)
 #define SYSCTL_PPI2C_R_I2C3_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPI2C_R_I2C3_PRESENT     ((uint32_t)0x00000008u)
 
@@ -5206,7 +5206,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPI2C_R_I2C4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PPI2C_R_I2C4_BIT         (4)
+#define SYSCTL_PPI2C_R_I2C4_BIT         (4u)
 #define SYSCTL_PPI2C_R_I2C4_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPI2C_R_I2C4_PRESENT     ((uint32_t)0x00000010u)
 
@@ -5217,7 +5217,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPI2C_R_I2C5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PPI2C_R_I2C5_BIT         (5)
+#define SYSCTL_PPI2C_R_I2C5_BIT         (5u)
 #define SYSCTL_PPI2C_R_I2C5_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPI2C_R_I2C5_PRESENT     ((uint32_t)0x00000020u)
 
@@ -5226,23 +5226,23 @@ typedef volatile struct
 #define SYSCTL_PPI2C_I2C5_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPI2C_I2C0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32)+(SYSCTL_PPI2C_R_I2C0_BIT*4))))
-#define SYSCTL_BITBANDING_PPI2C_I2C1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32)+(SYSCTL_PPI2C_R_I2C1_BIT*4))))
-#define SYSCTL_BITBANDING_PPI2C_I2C2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32)+(SYSCTL_PPI2C_R_I2C2_BIT*4))))
-#define SYSCTL_BITBANDING_PPI2C_I2C3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32)+(SYSCTL_PPI2C_R_I2C3_BIT*4))))
-#define SYSCTL_BITBANDING_PPI2C_I2C4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32)+(SYSCTL_PPI2C_R_I2C4_BIT*4))))
-#define SYSCTL_BITBANDING_PPI2C_I2C5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32)+(SYSCTL_PPI2C_R_I2C5_BIT*4))))
+#define SYSCTL_BITBANDING_PPI2C_I2C0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u)+(SYSCTL_PPI2C_R_I2C0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPI2C_I2C1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u)+(SYSCTL_PPI2C_R_I2C1_BIT*4u))))
+#define SYSCTL_BITBANDING_PPI2C_I2C2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u)+(SYSCTL_PPI2C_R_I2C2_BIT*4u))))
+#define SYSCTL_BITBANDING_PPI2C_I2C3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u)+(SYSCTL_PPI2C_R_I2C3_BIT*4u))))
+#define SYSCTL_BITBANDING_PPI2C_I2C4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u)+(SYSCTL_PPI2C_R_I2C4_BIT*4u))))
+#define SYSCTL_BITBANDING_PPI2C_I2C5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPI2C_OFFSET)*32u)+(SYSCTL_PPI2C_R_I2C5_BIT*4u))))
 
 /******************************************************************************************
 ************************************34 PPUSB *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPUSB            (((PERIPHERAL_USB_TypeDef*)(SYSCTL_BASE+SYSCTL_PPUSB_OFFSET )))
 #define SYSCTL_PPUSB_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPUSB_OFFSET)))
-#define SYSCTL_BITBANDING_PPUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUSB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUSB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPUSB_R_USB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPUSB_R_USB_BIT         (0)
+#define SYSCTL_PPUSB_R_USB_BIT         (0u)
 #define SYSCTL_PPUSB_R_USB_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPUSB_R_USB_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5251,18 +5251,18 @@ typedef volatile struct
 #define SYSCTL_PPUSB_USB_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPUSB_USB    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUSB_OFFSET)*32)+(SYSCTL_PPUSB_R_USB_BIT*4))))
+#define SYSCTL_BITBANDING_PPUSB_USB    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPUSB_OFFSET)*32u)+(SYSCTL_PPUSB_R_USB_BIT*4u))))
 
 /******************************************************************************************
 ************************************35 PPCAN *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPCAN            (((PERIPHERAL_CAN_TypeDef*)(SYSCTL_BASE+SYSCTL_PPCAN_OFFSET )))
 #define SYSCTL_PPCAN_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPCAN_OFFSET)))
-#define SYSCTL_BITBANDING_PPCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPCAN_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPCAN_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPCAN_R_CAN0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPCAN_R_CAN0_BIT         (0)
+#define SYSCTL_PPCAN_R_CAN0_BIT         (0u)
 #define SYSCTL_PPCAN_R_CAN0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPCAN_R_CAN0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5273,7 +5273,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPCAN_R_CAN1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPCAN_R_CAN1_BIT         (1)
+#define SYSCTL_PPCAN_R_CAN1_BIT         (1u)
 #define SYSCTL_PPCAN_R_CAN1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPCAN_R_CAN1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5282,19 +5282,19 @@ typedef volatile struct
 #define SYSCTL_PPCAN_CAN1_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPCAN_CAN0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPCAN_OFFSET)*32)+(SYSCTL_PPCAN_R_CAN0_BIT*4))))
-#define SYSCTL_BITBANDING_PPCAN_CAN1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPCAN_OFFSET)*32)+(SYSCTL_PPCAN_R_CAN1_BIT*4))))
+#define SYSCTL_BITBANDING_PPCAN_CAN0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPCAN_OFFSET)*32u)+(SYSCTL_PPCAN_R_CAN0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPCAN_CAN1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPCAN_OFFSET)*32u)+(SYSCTL_PPCAN_R_CAN1_BIT*4u))))
 
 /******************************************************************************************
 ************************************36 PPADC *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPADC            (((PERIPHERAL_ADC_TypeDef*)(SYSCTL_BASE+SYSCTL_PPADC_OFFSET )))
 #define SYSCTL_PPADC_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPADC_OFFSET)))
-#define SYSCTL_BITBANDING_PPADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPADC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPADC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPADC_R_ADC0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPADC_R_ADC0_BIT         (0)
+#define SYSCTL_PPADC_R_ADC0_BIT         (0u)
 #define SYSCTL_PPADC_R_ADC0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPADC_R_ADC0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5305,7 +5305,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPADC_R_ADC1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPADC_R_ADC1_BIT         (1)
+#define SYSCTL_PPADC_R_ADC1_BIT         (1u)
 #define SYSCTL_PPADC_R_ADC1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPADC_R_ADC1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5314,19 +5314,19 @@ typedef volatile struct
 #define SYSCTL_PPADC_ADC1_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPADC_ADC0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPADC_OFFSET)*32)+(SYSCTL_PPADC_R_ADC0_BIT*4))))
-#define SYSCTL_BITBANDING_PPADC_ADC1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPADC_OFFSET)*32)+(SYSCTL_PPADC_R_ADC1_BIT*4))))
+#define SYSCTL_BITBANDING_PPADC_ADC0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPADC_OFFSET)*32u)+(SYSCTL_PPADC_R_ADC0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPADC_ADC1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPADC_OFFSET)*32u)+(SYSCTL_PPADC_R_ADC1_BIT*4u))))
 
 /******************************************************************************************
 ************************************37 PPACMP *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPACMP            (((PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BASE+SYSCTL_PPACMP_OFFSET )))
 #define SYSCTL_PPACMP_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPACMP_OFFSET)))
-#define SYSCTL_BITBANDING_PPACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPACMP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPACMP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPACMP_R_ACMP_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPACMP_R_ACMP_BIT         (0)
+#define SYSCTL_PPACMP_R_ACMP_BIT         (0u)
 #define SYSCTL_PPACMP_R_ACMP_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPACMP_R_ACMP_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5335,18 +5335,18 @@ typedef volatile struct
 #define SYSCTL_PPACMP_ACMP_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPACMP_ACMP    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPACMP_OFFSET)*32)+(SYSCTL_PPACMP_R_ACMP_BIT*4))))
+#define SYSCTL_BITBANDING_PPACMP_ACMP    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPACMP_OFFSET)*32u)+(SYSCTL_PPACMP_R_ACMP_BIT*4u))))
 
 /****************************************************************************************
 ************************************38 PPPWM *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPPWM            (((PERIPHERAL_PWM_TypeDef*)(SYSCTL_BASE+SYSCTL_PPPWM_OFFSET )))
 #define SYSCTL_PPPWM_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPPWM_OFFSET)))
-#define SYSCTL_BITBANDING_PPPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPPWM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPPWM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPPWM_R_PWM0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPPWM_R_PWM0_BIT         (0)
+#define SYSCTL_PPPWM_R_PWM0_BIT         (0u)
 #define SYSCTL_PPPWM_R_PWM0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPPWM_R_PWM0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5357,7 +5357,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPPWM_R_PWM1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPPWM_R_PWM1_BIT         (1)
+#define SYSCTL_PPPWM_R_PWM1_BIT         (1u)
 #define SYSCTL_PPPWM_R_PWM1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPPWM_R_PWM1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5366,19 +5366,19 @@ typedef volatile struct
 #define SYSCTL_PPPWM_PWM1_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPPWM_PWM0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPPWM_OFFSET)*32)+(SYSCTL_PPPWM_R_PWM0_BIT*4))))
-#define SYSCTL_BITBANDING_PPPWM_PWM1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPPWM_OFFSET)*32)+(SYSCTL_PPPWM_R_PWM1_BIT*4))))
+#define SYSCTL_BITBANDING_PPPWM_PWM0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPPWM_OFFSET)*32u)+(SYSCTL_PPPWM_R_PWM0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPPWM_PWM1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPPWM_OFFSET)*32u)+(SYSCTL_PPPWM_R_PWM1_BIT*4u))))
 
 /******************************************************************************************
 ************************************39 PPQEI *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPQEI            (((PERIPHERAL_QEI_TypeDef*)(SYSCTL_BASE+SYSCTL_PPQEI_OFFSET )))
 #define SYSCTL_PPQEI_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPQEI_OFFSET)))
-#define SYSCTL_BITBANDING_PPQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPQEI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPQEI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPQEI_R_QEI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPQEI_R_QEI0_BIT         (0)
+#define SYSCTL_PPQEI_R_QEI0_BIT         (0u)
 #define SYSCTL_PPQEI_R_QEI0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPQEI_R_QEI0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5389,7 +5389,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPQEI_R_QEI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPQEI_R_QEI1_BIT         (1)
+#define SYSCTL_PPQEI_R_QEI1_BIT         (1u)
 #define SYSCTL_PPQEI_R_QEI1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPQEI_R_QEI1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5398,19 +5398,19 @@ typedef volatile struct
 #define SYSCTL_PPQEI_QEI1_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPQEI_QEI0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPQEI_OFFSET)*32)+(SYSCTL_PPQEI_R_QEI0_BIT*4))))
-#define SYSCTL_BITBANDING_PPQEI_QEI1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPQEI_OFFSET)*32)+(SYSCTL_PPQEI_R_QEI1_BIT*4))))
+#define SYSCTL_BITBANDING_PPQEI_QEI0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPQEI_OFFSET)*32u)+(SYSCTL_PPQEI_R_QEI0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPQEI_QEI1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPQEI_OFFSET)*32u)+(SYSCTL_PPQEI_R_QEI1_BIT*4u))))
 
 /******************************************************************************************
 ************************************40 PPEEPROM *********************************************
 ******************************************************************************************/
 #define SYSCTL_PPEEPROM            (((PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BASE+SYSCTL_PPEEPROM_OFFSET )))
 #define SYSCTL_PPEEPROM_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPEEPROM_OFFSET)))
-#define SYSCTL_BITBANDING_PPEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPEEPROM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPEEPROM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPEEPROM_R_EEPROM_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPEEPROM_R_EEPROM_BIT         (0)
+#define SYSCTL_PPEEPROM_R_EEPROM_BIT         (0u)
 #define SYSCTL_PPEEPROM_R_EEPROM_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPEEPROM_R_EEPROM_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5419,7 +5419,7 @@ typedef volatile struct
 #define SYSCTL_PPEEPROM_EEPROM_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPEEPROM_EEPROM    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPEEPROM_OFFSET)*32)+(SYSCTL_PPEEPROM_R_EEPROM_BIT*4))))
+#define SYSCTL_BITBANDING_PPEEPROM_EEPROM    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPEEPROM_OFFSET)*32u)+(SYSCTL_PPEEPROM_R_EEPROM_BIT*4u))))
 
 
 /**********************************************************************************
@@ -5427,11 +5427,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PPWTIMER            (((PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_PPWTIMER_OFFSET )))
 #define SYSCTL_PPWTIMER_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_PPWTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_PPWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PPWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PPWTIMER_R_WTIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PPWTIMER_R_WTIMER0_BIT         (0)
+#define SYSCTL_PPWTIMER_R_WTIMER0_BIT         (0u)
 #define SYSCTL_PPWTIMER_R_WTIMER0_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPWTIMER_R_WTIMER0_PRESENT     ((uint32_t)0x00000001u)
 
@@ -5442,7 +5442,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPWTIMER_R_WTIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PPWTIMER_R_WTIMER1_BIT         (1)
+#define SYSCTL_PPWTIMER_R_WTIMER1_BIT         (1u)
 #define SYSCTL_PPWTIMER_R_WTIMER1_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPWTIMER_R_WTIMER1_PRESENT     ((uint32_t)0x00000002u)
 
@@ -5453,7 +5453,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPWTIMER_R_WTIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PPWTIMER_R_WTIMER2_BIT         (2)
+#define SYSCTL_PPWTIMER_R_WTIMER2_BIT         (2u)
 #define SYSCTL_PPWTIMER_R_WTIMER2_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPWTIMER_R_WTIMER2_PRESENT     ((uint32_t)0x00000004u)
 
@@ -5464,7 +5464,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPWTIMER_R_WTIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PPWTIMER_R_WTIMER3_BIT         (3)
+#define SYSCTL_PPWTIMER_R_WTIMER3_BIT         (3u)
 #define SYSCTL_PPWTIMER_R_WTIMER3_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPWTIMER_R_WTIMER3_PRESENT     ((uint32_t)0x00000008u)
 
@@ -5475,7 +5475,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPWTIMER_R_WTIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PPWTIMER_R_WTIMER4_BIT         (4)
+#define SYSCTL_PPWTIMER_R_WTIMER4_BIT         (4u)
 #define SYSCTL_PPWTIMER_R_WTIMER4_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPWTIMER_R_WTIMER4_PRESENT     ((uint32_t)0x00000010u)
 
@@ -5486,7 +5486,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PPWTIMER_R_WTIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PPWTIMER_R_WTIMER5_BIT         (5)
+#define SYSCTL_PPWTIMER_R_WTIMER5_BIT         (5u)
 #define SYSCTL_PPWTIMER_R_WTIMER5_NOPRESENT   ((uint32_t)0x00000000u)
 #define SYSCTL_PPWTIMER_R_WTIMER5_PRESENT     ((uint32_t)0x00000020u)
 
@@ -5495,23 +5495,23 @@ typedef volatile struct
 #define SYSCTL_PPWTIMER_WTIMER5_PRESENT       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PPWTIMER_WTIMER0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32)+(SYSCTL_PPWTIMER_R_WTIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_PPWTIMER_WTIMER1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32)+(SYSCTL_PPWTIMER_R_WTIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_PPWTIMER_WTIMER2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32)+(SYSCTL_PPWTIMER_R_WTIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_PPWTIMER_WTIMER3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32)+(SYSCTL_PPWTIMER_R_WTIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_PPWTIMER_WTIMER4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32)+(SYSCTL_PPWTIMER_R_WTIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_PPWTIMER_WTIMER5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32)+(SYSCTL_PPWTIMER_R_WTIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_PPWTIMER_WTIMER0    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u)+(SYSCTL_PPWTIMER_R_WTIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_PPWTIMER_WTIMER1    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u)+(SYSCTL_PPWTIMER_R_WTIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_PPWTIMER_WTIMER2    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u)+(SYSCTL_PPWTIMER_R_WTIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_PPWTIMER_WTIMER3    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u)+(SYSCTL_PPWTIMER_R_WTIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_PPWTIMER_WTIMER4    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u)+(SYSCTL_PPWTIMER_R_WTIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_PPWTIMER_WTIMER5    (*((volatile const uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PPWTIMER_OFFSET)*32u)+(SYSCTL_PPWTIMER_R_WTIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************42 SRWD *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRWD            (((PERIPHERAL_WD_TypeDef*)(SYSCTL_BASE+SYSCTL_SRWD_OFFSET )))
 #define SYSCTL_SRWD_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRWD_OFFSET)))
-#define SYSCTL_BITBANDING_SRWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWD_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWD_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRWD_R_WDT0_MASK         ((uint32_t)0x00000001u)
-#define SYSCTL_SRWD_R_WDT0_BIT          (0)
+#define SYSCTL_SRWD_R_WDT0_BIT          (0u)
 #define SYSCTL_SRWD_R_WDT0_NORESET    ((uint32_t)0x00000000u)
 #define SYSCTL_SRWD_R_WDT0_RESET      ((uint32_t)0x00000001u)
 
@@ -5522,7 +5522,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRWD_R_WDT1_MASK         ((uint32_t)0x00000002u)
-#define SYSCTL_SRWD_R_WDT1_BIT          (1)
+#define SYSCTL_SRWD_R_WDT1_BIT          (1u)
 #define SYSCTL_SRWD_R_WDT1_NORESET    ((uint32_t)0x00000000u)
 #define SYSCTL_SRWD_R_WDT1_RESET      ((uint32_t)0x00000002u)
 
@@ -5531,19 +5531,19 @@ typedef volatile struct
 #define SYSCTL_SRWD_WDT1_RESET        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWD_OFFSET)*32)+(SYSCTL_SRWD_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_SRWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWD_OFFSET)*32)+(SYSCTL_SRWD_R_WDT1_BIT*4))))
+#define SYSCTL_BITBANDING_SRWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWD_OFFSET)*32u)+(SYSCTL_SRWD_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWD_OFFSET)*32u)+(SYSCTL_SRWD_R_WDT1_BIT*4u))))
 
 /******************************************************************************************
 ************************************43 SRTIMER *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRTIMER            (((PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_SRTIMER_OFFSET )))
 #define SYSCTL_SRTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_SRTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRTIMER_R_TIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRTIMER_R_TIMER0_BIT         (0)
+#define SYSCTL_SRTIMER_R_TIMER0_BIT         (0u)
 #define SYSCTL_SRTIMER_R_TIMER0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRTIMER_R_TIMER0_RESET     ((uint32_t)0x00000001u)
 
@@ -5554,7 +5554,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRTIMER_R_TIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRTIMER_R_TIMER1_BIT         (1)
+#define SYSCTL_SRTIMER_R_TIMER1_BIT         (1u)
 #define SYSCTL_SRTIMER_R_TIMER1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRTIMER_R_TIMER1_RESET     ((uint32_t)0x00000002u)
 
@@ -5565,7 +5565,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRTIMER_R_TIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SRTIMER_R_TIMER2_BIT         (2)
+#define SYSCTL_SRTIMER_R_TIMER2_BIT         (2u)
 #define SYSCTL_SRTIMER_R_TIMER2_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRTIMER_R_TIMER2_RESET     ((uint32_t)0x00000004u)
 
@@ -5576,7 +5576,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRTIMER_R_TIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SRTIMER_R_TIMER3_BIT         (3)
+#define SYSCTL_SRTIMER_R_TIMER3_BIT         (3u)
 #define SYSCTL_SRTIMER_R_TIMER3_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRTIMER_R_TIMER3_RESET     ((uint32_t)0x00000008u)
 
@@ -5587,7 +5587,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRTIMER_R_TIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SRTIMER_R_TIMER4_BIT         (4)
+#define SYSCTL_SRTIMER_R_TIMER4_BIT         (4u)
 #define SYSCTL_SRTIMER_R_TIMER4_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRTIMER_R_TIMER4_RESET     ((uint32_t)0x00000010u)
 
@@ -5598,7 +5598,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRTIMER_R_TIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SRTIMER_R_TIMER5_BIT         (5)
+#define SYSCTL_SRTIMER_R_TIMER5_BIT         (5u)
 #define SYSCTL_SRTIMER_R_TIMER5_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRTIMER_R_TIMER5_RESET     ((uint32_t)0x00000020u)
 
@@ -5607,23 +5607,23 @@ typedef volatile struct
 #define SYSCTL_SRTIMER_TIMER5_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32)+(SYSCTL_SRTIMER_R_TIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_SRTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32)+(SYSCTL_SRTIMER_R_TIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_SRTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32)+(SYSCTL_SRTIMER_R_TIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_SRTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32)+(SYSCTL_SRTIMER_R_TIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_SRTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32)+(SYSCTL_SRTIMER_R_TIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_SRTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32)+(SYSCTL_SRTIMER_R_TIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_SRTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u)+(SYSCTL_SRTIMER_R_TIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u)+(SYSCTL_SRTIMER_R_TIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_SRTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u)+(SYSCTL_SRTIMER_R_TIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_SRTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u)+(SYSCTL_SRTIMER_R_TIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_SRTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u)+(SYSCTL_SRTIMER_R_TIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_SRTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRTIMER_OFFSET)*32u)+(SYSCTL_SRTIMER_R_TIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************44 SRGPIO *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRGPIO            (((PERIPHERAL_GPIO_TypeDef*)(SYSCTL_BASE+SYSCTL_SRGPIO_OFFSET )))
 #define SYSCTL_SRGPIO_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRGPIO_OFFSET)))
-#define SYSCTL_BITBANDING_SRGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRGPIO_R_GPIOA_BIT         (0)
+#define SYSCTL_SRGPIO_R_GPIOA_BIT         (0u)
 #define SYSCTL_SRGPIO_R_GPIOA_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOA_RESET     ((uint32_t)0x00000001u)
 
@@ -5634,7 +5634,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOB_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRGPIO_R_GPIOB_BIT         (1)
+#define SYSCTL_SRGPIO_R_GPIOB_BIT         (1u)
 #define SYSCTL_SRGPIO_R_GPIOB_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOB_RESET     ((uint32_t)0x00000002u)
 
@@ -5645,7 +5645,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOC_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SRGPIO_R_GPIOC_BIT         (2)
+#define SYSCTL_SRGPIO_R_GPIOC_BIT         (2u)
 #define SYSCTL_SRGPIO_R_GPIOC_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOC_RESET     ((uint32_t)0x00000004u)
 
@@ -5656,7 +5656,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOD_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SRGPIO_R_GPIOD_BIT         (3)
+#define SYSCTL_SRGPIO_R_GPIOD_BIT         (3u)
 #define SYSCTL_SRGPIO_R_GPIOD_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOD_RESET     ((uint32_t)0x00000008u)
 
@@ -5667,7 +5667,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOE_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SRGPIO_R_GPIOE_BIT         (4)
+#define SYSCTL_SRGPIO_R_GPIOE_BIT         (4u)
 #define SYSCTL_SRGPIO_R_GPIOE_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOE_RESET     ((uint32_t)0x00000010u)
 
@@ -5678,7 +5678,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOF_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SRGPIO_R_GPIOF_BIT         (5)
+#define SYSCTL_SRGPIO_R_GPIOF_BIT         (5u)
 #define SYSCTL_SRGPIO_R_GPIOF_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOF_RESET     ((uint32_t)0x00000020u)
 
@@ -5689,7 +5689,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_SRGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_SRGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_SRGPIO_R_GPIOG_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOG_RESET     ((uint32_t)0x00000040u)
 
@@ -5700,7 +5700,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_SRGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_SRGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_SRGPIO_R_GPIOG_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOG_RESET     ((uint32_t)0x00000040u)
 
@@ -5711,7 +5711,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOH_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_SRGPIO_R_GPIOH_BIT         (7)
+#define SYSCTL_SRGPIO_R_GPIOH_BIT         (7u)
 #define SYSCTL_SRGPIO_R_GPIOH_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOH_RESET     ((uint32_t)0x00000080u)
 
@@ -5722,7 +5722,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOJ_MASK        ((uint32_t)0x00000100u)
-#define SYSCTL_SRGPIO_R_GPIOJ_BIT         (8)
+#define SYSCTL_SRGPIO_R_GPIOJ_BIT         (8u)
 #define SYSCTL_SRGPIO_R_GPIOJ_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOJ_RESET     ((uint32_t)0x00000100u)
 
@@ -5733,7 +5733,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOK_MASK        ((uint32_t)0x00000200u)
-#define SYSCTL_SRGPIO_R_GPIOK_BIT         (9)
+#define SYSCTL_SRGPIO_R_GPIOK_BIT         (9u)
 #define SYSCTL_SRGPIO_R_GPIOK_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOK_RESET     ((uint32_t)0x00000200u)
 
@@ -5744,7 +5744,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOL_MASK        ((uint32_t)0x00000400u)
-#define SYSCTL_SRGPIO_R_GPIOL_BIT         (10)
+#define SYSCTL_SRGPIO_R_GPIOL_BIT         (10u)
 #define SYSCTL_SRGPIO_R_GPIOL_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOL_RESET     ((uint32_t)0x00000400u)
 
@@ -5755,7 +5755,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOM_MASK        ((uint32_t)0x00000800u)
-#define SYSCTL_SRGPIO_R_GPIOM_BIT         (11)
+#define SYSCTL_SRGPIO_R_GPIOM_BIT         (11u)
 #define SYSCTL_SRGPIO_R_GPIOM_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOM_RESET     ((uint32_t)0x00000800u)
 
@@ -5766,7 +5766,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPION_MASK        ((uint32_t)0x00001000u)
-#define SYSCTL_SRGPIO_R_GPION_BIT         (12)
+#define SYSCTL_SRGPIO_R_GPION_BIT         (12u)
 #define SYSCTL_SRGPIO_R_GPION_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPION_RESET     ((uint32_t)0x00001000u)
 
@@ -5777,7 +5777,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOP_MASK        ((uint32_t)0x00002000u)
-#define SYSCTL_SRGPIO_R_GPIOP_BIT         (13)
+#define SYSCTL_SRGPIO_R_GPIOP_BIT         (13u)
 #define SYSCTL_SRGPIO_R_GPIOP_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOP_RESET     ((uint32_t)0x00002000u)
 
@@ -5788,7 +5788,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRGPIO_R_GPIOQ_MASK        ((uint32_t)0x00004000u)
-#define SYSCTL_SRGPIO_R_GPIOQ_BIT         (14)
+#define SYSCTL_SRGPIO_R_GPIOQ_BIT         (14u)
 #define SYSCTL_SRGPIO_R_GPIOQ_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_R_GPIOQ_RESET     ((uint32_t)0x00004000u)
 
@@ -5796,32 +5796,32 @@ typedef volatile struct
 #define SYSCTL_SRGPIO_GPIOQ_NORESET     ((uint32_t)0x00000000u)
 #define SYSCTL_SRGPIO_GPIOQ_RESET       ((uint32_t)0x00000001u)
 /*--------*/
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOG_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOH_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOJ_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOK_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOL_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOM_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPION_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOP_BIT*4))))
-#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32)+(SYSCTL_SRGPIO_R_GPIOQ_BIT*4))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOG_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOH_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOJ_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOK_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOL_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOM_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPION_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOP_BIT*4u))))
+#define SYSCTL_BITBANDING_SRGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SRGPIO_OFFSET)*32u)+(SYSCTL_SRGPIO_R_GPIOQ_BIT*4u))))
 
 /******************************************************************************************
 ************************************45 SRDMA *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRDMA            (((PERIPHERAL_DMA_TypeDef*)(SYSCTL_BASE+SYSCTL_SRDMA_OFFSET )))
 #define SYSCTL_SRDMA_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRDMA_OFFSET)))
-#define SYSCTL_BITBANDING_SRDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRDMA_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRDMA_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRDMA_R_UDMA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRDMA_R_UDMA_BIT         (0)
+#define SYSCTL_SRDMA_R_UDMA_BIT         (0u)
 #define SYSCTL_SRDMA_R_UDMA_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRDMA_R_UDMA_RESET     ((uint32_t)0x00000001u)
 
@@ -5830,18 +5830,18 @@ typedef volatile struct
 #define SYSCTL_SRDMA_UDMA_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRDMA_OFFSET)*32)+(SYSCTL_SRDMA_R_UDMA_BIT*4))))
+#define SYSCTL_BITBANDING_SRDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRDMA_OFFSET)*32u)+(SYSCTL_SRDMA_R_UDMA_BIT*4u))))
 
 /******************************************************************************************
 ************************************46 SRHIB *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRHIB            (((PERIPHERAL_HIB_TypeDef*)(SYSCTL_BASE+SYSCTL_SRHIB_OFFSET )))
 #define SYSCTL_SRHIB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRHIB_OFFSET)))
-#define SYSCTL_BITBANDING_SRHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRHIB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRHIB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRHIB_R_HIB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRHIB_R_HIB_BIT         (0)
+#define SYSCTL_SRHIB_R_HIB_BIT         (0u)
 #define SYSCTL_SRHIB_R_HIB_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRHIB_R_HIB_RESET     ((uint32_t)0x00000001u)
 
@@ -5850,18 +5850,18 @@ typedef volatile struct
 #define SYSCTL_SRHIB_HIB_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRHIB_OFFSET)*32)+(SYSCTL_SRHIB_R_HIB_BIT*4))))
+#define SYSCTL_BITBANDING_SRHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRHIB_OFFSET)*32u)+(SYSCTL_SRHIB_R_HIB_BIT*4u))))
 
 /******************************************************************************************
 ************************************47 SRUART *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRUART            (((PERIPHERAL_UART_TypeDef*)(SYSCTL_BASE+SYSCTL_SRUART_OFFSET )))
 #define SYSCTL_SRUART_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRUART_OFFSET)))
-#define SYSCTL_BITBANDING_SRUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRUART_R_UART0_BIT         (0)
+#define SYSCTL_SRUART_R_UART0_BIT         (0u)
 #define SYSCTL_SRUART_R_UART0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART0_RESET     ((uint32_t)0x00000001u)
 
@@ -5872,7 +5872,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRUART_R_UART1_BIT         (1)
+#define SYSCTL_SRUART_R_UART1_BIT         (1u)
 #define SYSCTL_SRUART_R_UART1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART1_RESET     ((uint32_t)0x00000002u)
 
@@ -5883,7 +5883,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SRUART_R_UART2_BIT         (2)
+#define SYSCTL_SRUART_R_UART2_BIT         (2u)
 #define SYSCTL_SRUART_R_UART2_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART2_RESET     ((uint32_t)0x00000004u)
 
@@ -5894,7 +5894,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SRUART_R_UART3_BIT         (3)
+#define SYSCTL_SRUART_R_UART3_BIT         (3u)
 #define SYSCTL_SRUART_R_UART3_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART3_RESET     ((uint32_t)0x00000008u)
 
@@ -5905,7 +5905,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SRUART_R_UART4_BIT         (4)
+#define SYSCTL_SRUART_R_UART4_BIT         (4u)
 #define SYSCTL_SRUART_R_UART4_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART4_RESET     ((uint32_t)0x00000010u)
 
@@ -5916,7 +5916,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SRUART_R_UART5_BIT         (5)
+#define SYSCTL_SRUART_R_UART5_BIT         (5u)
 #define SYSCTL_SRUART_R_UART5_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART5_RESET     ((uint32_t)0x00000020u)
 
@@ -5927,7 +5927,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART6_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_SRUART_R_UART6_BIT         (6)
+#define SYSCTL_SRUART_R_UART6_BIT         (6u)
 #define SYSCTL_SRUART_R_UART6_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART6_RESET     ((uint32_t)0x00000040u)
 
@@ -5938,7 +5938,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRUART_R_UART7_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_SRUART_R_UART7_BIT         (7)
+#define SYSCTL_SRUART_R_UART7_BIT         (7u)
 #define SYSCTL_SRUART_R_UART7_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUART_R_UART7_RESET     ((uint32_t)0x00000080u)
 
@@ -5947,25 +5947,25 @@ typedef volatile struct
 #define SYSCTL_SRUART_UART7_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART0_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART1_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART2_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART3_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART4_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART5_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART6_BIT*4))))
-#define SYSCTL_BITBANDING_SRUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32)+(SYSCTL_SRUART_R_UART7_BIT*4))))
+#define SYSCTL_BITBANDING_SRUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART1_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART2_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART3_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART4_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART5_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART6_BIT*4u))))
+#define SYSCTL_BITBANDING_SRUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUART_OFFSET)*32u)+(SYSCTL_SRUART_R_UART7_BIT*4u))))
 
 /******************************************************************************************
 ************************************48 SRSSI *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRSSI            (((PERIPHERAL_SSI_TypeDef*)(SYSCTL_BASE+SYSCTL_SRSSI_OFFSET )))
 #define SYSCTL_SRSSI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRSSI_OFFSET)))
-#define SYSCTL_BITBANDING_SRSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRSSI_R_SSI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRSSI_R_SSI0_BIT         (0)
+#define SYSCTL_SRSSI_R_SSI0_BIT         (0u)
 #define SYSCTL_SRSSI_R_SSI0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRSSI_R_SSI0_RESET     ((uint32_t)0x00000001u)
 
@@ -5976,7 +5976,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRSSI_R_SSI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRSSI_R_SSI1_BIT         (1)
+#define SYSCTL_SRSSI_R_SSI1_BIT         (1u)
 #define SYSCTL_SRSSI_R_SSI1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRSSI_R_SSI1_RESET     ((uint32_t)0x00000002u)
 
@@ -5987,7 +5987,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRSSI_R_SSI2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SRSSI_R_SSI2_BIT         (2)
+#define SYSCTL_SRSSI_R_SSI2_BIT         (2u)
 #define SYSCTL_SRSSI_R_SSI2_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRSSI_R_SSI2_RESET     ((uint32_t)0x00000004u)
 
@@ -5998,7 +5998,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRSSI_R_SSI3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SRSSI_R_SSI3_BIT         (3)
+#define SYSCTL_SRSSI_R_SSI3_BIT         (3u)
 #define SYSCTL_SRSSI_R_SSI3_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRSSI_R_SSI3_RESET     ((uint32_t)0x00000008u)
 
@@ -6007,21 +6007,21 @@ typedef volatile struct
 #define SYSCTL_SRSSI_SSI3_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32)+(SYSCTL_SRSSI_R_SSI0_BIT*4))))
-#define SYSCTL_BITBANDING_SRSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32)+(SYSCTL_SRSSI_R_SSI1_BIT*4))))
-#define SYSCTL_BITBANDING_SRSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32)+(SYSCTL_SRSSI_R_SSI2_BIT*4))))
-#define SYSCTL_BITBANDING_SRSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32)+(SYSCTL_SRSSI_R_SSI3_BIT*4))))
+#define SYSCTL_BITBANDING_SRSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32u)+(SYSCTL_SRSSI_R_SSI0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32u)+(SYSCTL_SRSSI_R_SSI1_BIT*4u))))
+#define SYSCTL_BITBANDING_SRSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32u)+(SYSCTL_SRSSI_R_SSI2_BIT*4u))))
+#define SYSCTL_BITBANDING_SRSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRSSI_OFFSET)*32u)+(SYSCTL_SRSSI_R_SSI3_BIT*4u))))
 
 /******************************************************************************************
 ************************************49 SRI2C *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRI2C            (((PERIPHERAL_I2C_TypeDef*)(SYSCTL_BASE+SYSCTL_SRI2C_OFFSET )))
 #define SYSCTL_SRI2C_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRI2C_OFFSET)))
-#define SYSCTL_BITBANDING_SRI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRI2C_R_I2C0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRI2C_R_I2C0_BIT         (0)
+#define SYSCTL_SRI2C_R_I2C0_BIT         (0u)
 #define SYSCTL_SRI2C_R_I2C0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRI2C_R_I2C0_RESET     ((uint32_t)0x00000001u)
 
@@ -6032,7 +6032,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRI2C_R_I2C1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRI2C_R_I2C1_BIT         (1)
+#define SYSCTL_SRI2C_R_I2C1_BIT         (1u)
 #define SYSCTL_SRI2C_R_I2C1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRI2C_R_I2C1_RESET     ((uint32_t)0x00000002u)
 
@@ -6043,7 +6043,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRI2C_R_I2C2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SRI2C_R_I2C2_BIT         (2)
+#define SYSCTL_SRI2C_R_I2C2_BIT         (2u)
 #define SYSCTL_SRI2C_R_I2C2_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRI2C_R_I2C2_RESET     ((uint32_t)0x00000004u)
 
@@ -6054,7 +6054,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRI2C_R_I2C3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SRI2C_R_I2C3_BIT         (3)
+#define SYSCTL_SRI2C_R_I2C3_BIT         (3u)
 #define SYSCTL_SRI2C_R_I2C3_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRI2C_R_I2C3_RESET     ((uint32_t)0x00000008u)
 
@@ -6065,7 +6065,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRI2C_R_I2C4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SRI2C_R_I2C4_BIT         (4)
+#define SYSCTL_SRI2C_R_I2C4_BIT         (4u)
 #define SYSCTL_SRI2C_R_I2C4_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRI2C_R_I2C4_RESET     ((uint32_t)0x00000010u)
 
@@ -6076,7 +6076,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRI2C_R_I2C5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SRI2C_R_I2C5_BIT         (5)
+#define SYSCTL_SRI2C_R_I2C5_BIT         (5u)
 #define SYSCTL_SRI2C_R_I2C5_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRI2C_R_I2C5_RESET     ((uint32_t)0x00000020u)
 
@@ -6085,23 +6085,23 @@ typedef volatile struct
 #define SYSCTL_SRI2C_I2C5_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32)+(SYSCTL_SRI2C_R_I2C0_BIT*4))))
-#define SYSCTL_BITBANDING_SRI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32)+(SYSCTL_SRI2C_R_I2C1_BIT*4))))
-#define SYSCTL_BITBANDING_SRI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32)+(SYSCTL_SRI2C_R_I2C2_BIT*4))))
-#define SYSCTL_BITBANDING_SRI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32)+(SYSCTL_SRI2C_R_I2C3_BIT*4))))
-#define SYSCTL_BITBANDING_SRI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32)+(SYSCTL_SRI2C_R_I2C4_BIT*4))))
-#define SYSCTL_BITBANDING_SRI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32)+(SYSCTL_SRI2C_R_I2C5_BIT*4))))
+#define SYSCTL_BITBANDING_SRI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u)+(SYSCTL_SRI2C_R_I2C0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u)+(SYSCTL_SRI2C_R_I2C1_BIT*4u))))
+#define SYSCTL_BITBANDING_SRI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u)+(SYSCTL_SRI2C_R_I2C2_BIT*4u))))
+#define SYSCTL_BITBANDING_SRI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u)+(SYSCTL_SRI2C_R_I2C3_BIT*4u))))
+#define SYSCTL_BITBANDING_SRI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u)+(SYSCTL_SRI2C_R_I2C4_BIT*4u))))
+#define SYSCTL_BITBANDING_SRI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRI2C_OFFSET)*32u)+(SYSCTL_SRI2C_R_I2C5_BIT*4u))))
 
 /******************************************************************************************
 ************************************50 SRUSB *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRUSB            (((PERIPHERAL_USB_TypeDef*)(SYSCTL_BASE+SYSCTL_SRUSB_OFFSET )))
 #define SYSCTL_SRUSB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRUSB_OFFSET)))
-#define SYSCTL_BITBANDING_SRUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUSB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUSB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRUSB_R_USB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRUSB_R_USB_BIT         (0)
+#define SYSCTL_SRUSB_R_USB_BIT         (0u)
 #define SYSCTL_SRUSB_R_USB_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRUSB_R_USB_RESET     ((uint32_t)0x00000001u)
 
@@ -6110,18 +6110,18 @@ typedef volatile struct
 #define SYSCTL_SRUSB_USB_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUSB_OFFSET)*32)+(SYSCTL_SRUSB_R_USB_BIT*4))))
+#define SYSCTL_BITBANDING_SRUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRUSB_OFFSET)*32u)+(SYSCTL_SRUSB_R_USB_BIT*4u))))
 
 /******************************************************************************************
 ************************************51 SRCAN *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRCAN            (((PERIPHERAL_CAN_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCAN_OFFSET )))
 #define SYSCTL_SRCAN_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRCAN_OFFSET)))
-#define SYSCTL_BITBANDING_SRCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCAN_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCAN_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRCAN_R_CAN0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRCAN_R_CAN0_BIT         (0)
+#define SYSCTL_SRCAN_R_CAN0_BIT         (0u)
 #define SYSCTL_SRCAN_R_CAN0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRCAN_R_CAN0_RESET     ((uint32_t)0x00000001u)
 
@@ -6132,7 +6132,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRCAN_R_CAN1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRCAN_R_CAN1_BIT         (1)
+#define SYSCTL_SRCAN_R_CAN1_BIT         (1u)
 #define SYSCTL_SRCAN_R_CAN1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRCAN_R_CAN1_RESET     ((uint32_t)0x00000002u)
 
@@ -6141,19 +6141,19 @@ typedef volatile struct
 #define SYSCTL_SRCAN_CAN1_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCAN_OFFSET)*32)+(SYSCTL_SRCAN_R_CAN0_BIT*4))))
-#define SYSCTL_BITBANDING_SRCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCAN_OFFSET)*32)+(SYSCTL_SRCAN_R_CAN1_BIT*4))))
+#define SYSCTL_BITBANDING_SRCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCAN_OFFSET)*32u)+(SYSCTL_SRCAN_R_CAN0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCAN_OFFSET)*32u)+(SYSCTL_SRCAN_R_CAN1_BIT*4u))))
 
 /******************************************************************************************
 ************************************52 SRADC *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRADC            (((PERIPHERAL_ADC_TypeDef*)(SYSCTL_BASE+SYSCTL_SRADC_OFFSET )))
 #define SYSCTL_SRADC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRADC_OFFSET)))
-#define SYSCTL_BITBANDING_SRADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRADC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRADC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRADC_R_ADC0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRADC_R_ADC0_BIT         (0)
+#define SYSCTL_SRADC_R_ADC0_BIT         (0u)
 #define SYSCTL_SRADC_R_ADC0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRADC_R_ADC0_RESET     ((uint32_t)0x00000001u)
 
@@ -6164,7 +6164,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRADC_R_ADC1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRADC_R_ADC1_BIT         (1)
+#define SYSCTL_SRADC_R_ADC1_BIT         (1u)
 #define SYSCTL_SRADC_R_ADC1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRADC_R_ADC1_RESET     ((uint32_t)0x00000002u)
 
@@ -6173,19 +6173,19 @@ typedef volatile struct
 #define SYSCTL_SRADC_ADC1_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRADC_OFFSET)*32)+(SYSCTL_SRADC_R_ADC0_BIT*4))))
-#define SYSCTL_BITBANDING_SRADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRADC_OFFSET)*32)+(SYSCTL_SRADC_R_ADC1_BIT*4))))
+#define SYSCTL_BITBANDING_SRADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRADC_OFFSET)*32u)+(SYSCTL_SRADC_R_ADC0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRADC_OFFSET)*32u)+(SYSCTL_SRADC_R_ADC1_BIT*4u))))
 
 /******************************************************************************************
 ************************************53 SRACMP *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRACMP            (((PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BASE+SYSCTL_SRACMP_OFFSET )))
 #define SYSCTL_SRACMP_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRACMP_OFFSET)))
-#define SYSCTL_BITBANDING_SRACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRACMP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRACMP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRACMP_R_ACMP_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRACMP_R_ACMP_BIT         (0)
+#define SYSCTL_SRACMP_R_ACMP_BIT         (0u)
 #define SYSCTL_SRACMP_R_ACMP_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRACMP_R_ACMP_RESET     ((uint32_t)0x00000001u)
 
@@ -6194,18 +6194,18 @@ typedef volatile struct
 #define SYSCTL_SRACMP_ACMP_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRACMP_OFFSET)*32)+(SYSCTL_SRACMP_R_ACMP_BIT*4))))
+#define SYSCTL_BITBANDING_SRACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRACMP_OFFSET)*32u)+(SYSCTL_SRACMP_R_ACMP_BIT*4u))))
 
 /****************************************************************************************
 ************************************54 SRPWM *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRPWM            (((PERIPHERAL_PWM_TypeDef*)(SYSCTL_BASE+SYSCTL_SRPWM_OFFSET )))
 #define SYSCTL_SRPWM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRPWM_OFFSET)))
-#define SYSCTL_BITBANDING_SRPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRPWM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRPWM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRPWM_R_PWM0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRPWM_R_PWM0_BIT         (0)
+#define SYSCTL_SRPWM_R_PWM0_BIT         (0u)
 #define SYSCTL_SRPWM_R_PWM0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRPWM_R_PWM0_RESET     ((uint32_t)0x00000001u)
 
@@ -6216,7 +6216,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRPWM_R_PWM1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRPWM_R_PWM1_BIT         (1)
+#define SYSCTL_SRPWM_R_PWM1_BIT         (1u)
 #define SYSCTL_SRPWM_R_PWM1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRPWM_R_PWM1_RESET     ((uint32_t)0x00000002u)
 
@@ -6225,19 +6225,19 @@ typedef volatile struct
 #define SYSCTL_SRPWM_PWM1_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRPWM_OFFSET)*32)+(SYSCTL_SRPWM_R_PWM0_BIT*4))))
-#define SYSCTL_BITBANDING_SRPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRPWM_OFFSET)*32)+(SYSCTL_SRPWM_R_PWM1_BIT*4))))
+#define SYSCTL_BITBANDING_SRPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRPWM_OFFSET)*32u)+(SYSCTL_SRPWM_R_PWM0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRPWM_OFFSET)*32u)+(SYSCTL_SRPWM_R_PWM1_BIT*4u))))
 
 /******************************************************************************************
 ************************************55 SRQEI *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRQEI            (((PERIPHERAL_QEI_TypeDef*)(SYSCTL_BASE+SYSCTL_SRQEI_OFFSET )))
 #define SYSCTL_SRQEI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRQEI_OFFSET)))
-#define SYSCTL_BITBANDING_SRQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRQEI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRQEI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRQEI_R_QEI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRQEI_R_QEI0_BIT         (0)
+#define SYSCTL_SRQEI_R_QEI0_BIT         (0u)
 #define SYSCTL_SRQEI_R_QEI0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRQEI_R_QEI0_RESET     ((uint32_t)0x00000001u)
 
@@ -6248,7 +6248,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRQEI_R_QEI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRQEI_R_QEI1_BIT         (1)
+#define SYSCTL_SRQEI_R_QEI1_BIT         (1u)
 #define SYSCTL_SRQEI_R_QEI1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRQEI_R_QEI1_RESET     ((uint32_t)0x00000002u)
 
@@ -6257,19 +6257,19 @@ typedef volatile struct
 #define SYSCTL_SRQEI_QEI1_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRQEI_OFFSET)*32)+(SYSCTL_SRQEI_R_QEI0_BIT*4))))
-#define SYSCTL_BITBANDING_SRQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRQEI_OFFSET)*32)+(SYSCTL_SRQEI_R_QEI1_BIT*4))))
+#define SYSCTL_BITBANDING_SRQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRQEI_OFFSET)*32u)+(SYSCTL_SRQEI_R_QEI0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRQEI_OFFSET)*32u)+(SYSCTL_SRQEI_R_QEI1_BIT*4u))))
 
 /******************************************************************************************
 ************************************56 SREEPROM *********************************************
 ******************************************************************************************/
 #define SYSCTL_SREEPROM            (((PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BASE+SYSCTL_SREEPROM_OFFSET )))
 #define SYSCTL_SREEPROM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SREEPROM_OFFSET)))
-#define SYSCTL_BITBANDING_SREEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SREEPROM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SREEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SREEPROM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SREEPROM_R_EEPROM_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SREEPROM_R_EEPROM_BIT         (0)
+#define SYSCTL_SREEPROM_R_EEPROM_BIT         (0u)
 #define SYSCTL_SREEPROM_R_EEPROM_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SREEPROM_R_EEPROM_RESET     ((uint32_t)0x00000001u)
 
@@ -6278,7 +6278,7 @@ typedef volatile struct
 #define SYSCTL_SREEPROM_EEPROM_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SREEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SREEPROM_OFFSET)*32)+(SYSCTL_SREEPROM_R_EEPROM_BIT*4))))
+#define SYSCTL_BITBANDING_SREEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SREEPROM_OFFSET)*32u)+(SYSCTL_SREEPROM_R_EEPROM_BIT*4u))))
 
 
 /**********************************************************************************
@@ -6286,11 +6286,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_SRWTIMER            (((PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_SRWTIMER_OFFSET )))
 #define SYSCTL_SRWTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SRWTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_SRWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SRWTIMER_R_WTIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SRWTIMER_R_WTIMER0_BIT         (0)
+#define SYSCTL_SRWTIMER_R_WTIMER0_BIT         (0u)
 #define SYSCTL_SRWTIMER_R_WTIMER0_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRWTIMER_R_WTIMER0_RESET     ((uint32_t)0x00000001u)
 
@@ -6301,7 +6301,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRWTIMER_R_WTIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SRWTIMER_R_WTIMER1_BIT         (1)
+#define SYSCTL_SRWTIMER_R_WTIMER1_BIT         (1u)
 #define SYSCTL_SRWTIMER_R_WTIMER1_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRWTIMER_R_WTIMER1_RESET     ((uint32_t)0x00000002u)
 
@@ -6312,7 +6312,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRWTIMER_R_WTIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SRWTIMER_R_WTIMER2_BIT         (2)
+#define SYSCTL_SRWTIMER_R_WTIMER2_BIT         (2u)
 #define SYSCTL_SRWTIMER_R_WTIMER2_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRWTIMER_R_WTIMER2_RESET     ((uint32_t)0x00000004u)
 
@@ -6323,7 +6323,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRWTIMER_R_WTIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SRWTIMER_R_WTIMER3_BIT         (3)
+#define SYSCTL_SRWTIMER_R_WTIMER3_BIT         (3u)
 #define SYSCTL_SRWTIMER_R_WTIMER3_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRWTIMER_R_WTIMER3_RESET     ((uint32_t)0x00000008u)
 
@@ -6334,7 +6334,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRWTIMER_R_WTIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SRWTIMER_R_WTIMER4_BIT         (4)
+#define SYSCTL_SRWTIMER_R_WTIMER4_BIT         (4u)
 #define SYSCTL_SRWTIMER_R_WTIMER4_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRWTIMER_R_WTIMER4_RESET     ((uint32_t)0x00000010u)
 
@@ -6345,7 +6345,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SRWTIMER_R_WTIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SRWTIMER_R_WTIMER5_BIT         (5)
+#define SYSCTL_SRWTIMER_R_WTIMER5_BIT         (5u)
 #define SYSCTL_SRWTIMER_R_WTIMER5_NORESET   ((uint32_t)0x00000000u)
 #define SYSCTL_SRWTIMER_R_WTIMER5_RESET     ((uint32_t)0x00000020u)
 
@@ -6354,23 +6354,23 @@ typedef volatile struct
 #define SYSCTL_SRWTIMER_WTIMER5_RESET       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SRWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32)+(SYSCTL_SRWTIMER_R_WTIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_SRWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32)+(SYSCTL_SRWTIMER_R_WTIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_SRWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32)+(SYSCTL_SRWTIMER_R_WTIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_SRWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32)+(SYSCTL_SRWTIMER_R_WTIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_SRWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32)+(SYSCTL_SRWTIMER_R_WTIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_SRWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32)+(SYSCTL_SRWTIMER_R_WTIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_SRWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u)+(SYSCTL_SRWTIMER_R_WTIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_SRWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u)+(SYSCTL_SRWTIMER_R_WTIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_SRWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u)+(SYSCTL_SRWTIMER_R_WTIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_SRWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u)+(SYSCTL_SRWTIMER_R_WTIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_SRWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u)+(SYSCTL_SRWTIMER_R_WTIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_SRWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRWTIMER_OFFSET)*32u)+(SYSCTL_SRWTIMER_R_WTIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************58 RCGCWD *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCWD            (((PERIPHERAL_WD_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCWD_OFFSET )))
 #define SYSCTL_RCGCWD_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCWD_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWD_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWD_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCWD_R_WDT0_MASK         ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCWD_R_WDT0_BIT          (0)
+#define SYSCTL_RCGCWD_R_WDT0_BIT          (0u)
 #define SYSCTL_RCGCWD_R_WDT0_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWD_R_WDT0_EN      ((uint32_t)0x00000001u)
 
@@ -6381,7 +6381,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCWD_R_WDT1_MASK         ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCWD_R_WDT1_BIT          (1)
+#define SYSCTL_RCGCWD_R_WDT1_BIT          (1u)
 #define SYSCTL_RCGCWD_R_WDT1_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWD_R_WDT1_EN      ((uint32_t)0x00000002u)
 
@@ -6390,19 +6390,19 @@ typedef volatile struct
 #define SYSCTL_RCGCWD_WDT1_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWD_OFFSET)*32)+(SYSCTL_RCGCWD_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWD_OFFSET)*32)+(SYSCTL_RCGCWD_R_WDT1_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWD_OFFSET)*32u)+(SYSCTL_RCGCWD_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWD_OFFSET)*32u)+(SYSCTL_RCGCWD_R_WDT1_BIT*4u))))
 
 /******************************************************************************************
 ************************************59 RCGCTIMER *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCTIMER            (((PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCTIMER_OFFSET )))
 #define SYSCTL_RCGCTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCTIMER_R_TIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCTIMER_R_TIMER0_BIT         (0)
+#define SYSCTL_RCGCTIMER_R_TIMER0_BIT         (0u)
 #define SYSCTL_RCGCTIMER_R_TIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCTIMER_R_TIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -6413,7 +6413,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCTIMER_R_TIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCTIMER_R_TIMER1_BIT         (1)
+#define SYSCTL_RCGCTIMER_R_TIMER1_BIT         (1u)
 #define SYSCTL_RCGCTIMER_R_TIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCTIMER_R_TIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -6424,7 +6424,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCTIMER_R_TIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_RCGCTIMER_R_TIMER2_BIT         (2)
+#define SYSCTL_RCGCTIMER_R_TIMER2_BIT         (2u)
 #define SYSCTL_RCGCTIMER_R_TIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCTIMER_R_TIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -6435,7 +6435,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCTIMER_R_TIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_RCGCTIMER_R_TIMER3_BIT         (3)
+#define SYSCTL_RCGCTIMER_R_TIMER3_BIT         (3u)
 #define SYSCTL_RCGCTIMER_R_TIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCTIMER_R_TIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -6446,7 +6446,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCTIMER_R_TIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_RCGCTIMER_R_TIMER4_BIT         (4)
+#define SYSCTL_RCGCTIMER_R_TIMER4_BIT         (4u)
 #define SYSCTL_RCGCTIMER_R_TIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCTIMER_R_TIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -6457,7 +6457,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCTIMER_R_TIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_RCGCTIMER_R_TIMER5_BIT         (5)
+#define SYSCTL_RCGCTIMER_R_TIMER5_BIT         (5u)
 #define SYSCTL_RCGCTIMER_R_TIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCTIMER_R_TIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -6466,23 +6466,23 @@ typedef volatile struct
 #define SYSCTL_RCGCTIMER_TIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32)+(SYSCTL_RCGCTIMER_R_TIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32)+(SYSCTL_RCGCTIMER_R_TIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32)+(SYSCTL_RCGCTIMER_R_TIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32)+(SYSCTL_RCGCTIMER_R_TIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32)+(SYSCTL_RCGCTIMER_R_TIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32)+(SYSCTL_RCGCTIMER_R_TIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u)+(SYSCTL_RCGCTIMER_R_TIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u)+(SYSCTL_RCGCTIMER_R_TIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u)+(SYSCTL_RCGCTIMER_R_TIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u)+(SYSCTL_RCGCTIMER_R_TIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u)+(SYSCTL_RCGCTIMER_R_TIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCTIMER_OFFSET)*32u)+(SYSCTL_RCGCTIMER_R_TIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************60 RCGCGPIO *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCGPIO            (((PERIPHERAL_GPIO_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCGPIO_OFFSET )))
 #define SYSCTL_RCGCGPIO_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCGPIO_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCGPIO_R_GPIOA_BIT         (0)
+#define SYSCTL_RCGCGPIO_R_GPIOA_BIT         (0u)
 #define SYSCTL_RCGCGPIO_R_GPIOA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOA_EN     ((uint32_t)0x00000001u)
 
@@ -6493,7 +6493,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOB_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCGPIO_R_GPIOB_BIT         (1)
+#define SYSCTL_RCGCGPIO_R_GPIOB_BIT         (1u)
 #define SYSCTL_RCGCGPIO_R_GPIOB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOB_EN     ((uint32_t)0x00000002u)
 
@@ -6504,7 +6504,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOC_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_RCGCGPIO_R_GPIOC_BIT         (2)
+#define SYSCTL_RCGCGPIO_R_GPIOC_BIT         (2u)
 #define SYSCTL_RCGCGPIO_R_GPIOC_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOC_EN     ((uint32_t)0x00000004u)
 
@@ -6515,7 +6515,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOD_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_RCGCGPIO_R_GPIOD_BIT         (3)
+#define SYSCTL_RCGCGPIO_R_GPIOD_BIT         (3u)
 #define SYSCTL_RCGCGPIO_R_GPIOD_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOD_EN     ((uint32_t)0x00000008u)
 
@@ -6526,7 +6526,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOE_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_RCGCGPIO_R_GPIOE_BIT         (4)
+#define SYSCTL_RCGCGPIO_R_GPIOE_BIT         (4u)
 #define SYSCTL_RCGCGPIO_R_GPIOE_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOE_EN     ((uint32_t)0x00000010u)
 
@@ -6537,7 +6537,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOF_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_RCGCGPIO_R_GPIOF_BIT         (5)
+#define SYSCTL_RCGCGPIO_R_GPIOF_BIT         (5u)
 #define SYSCTL_RCGCGPIO_R_GPIOF_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOF_EN     ((uint32_t)0x00000020u)
 
@@ -6548,7 +6548,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_RCGCGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_RCGCGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_RCGCGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -6559,7 +6559,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_RCGCGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_RCGCGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_RCGCGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -6570,7 +6570,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOH_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_RCGCGPIO_R_GPIOH_BIT         (7)
+#define SYSCTL_RCGCGPIO_R_GPIOH_BIT         (7u)
 #define SYSCTL_RCGCGPIO_R_GPIOH_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOH_EN     ((uint32_t)0x00000080u)
 
@@ -6581,7 +6581,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOJ_MASK        ((uint32_t)0x00000100u)
-#define SYSCTL_RCGCGPIO_R_GPIOJ_BIT         (8)
+#define SYSCTL_RCGCGPIO_R_GPIOJ_BIT         (8u)
 #define SYSCTL_RCGCGPIO_R_GPIOJ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOJ_EN     ((uint32_t)0x00000100u)
 
@@ -6592,7 +6592,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOK_MASK        ((uint32_t)0x00000200u)
-#define SYSCTL_RCGCGPIO_R_GPIOK_BIT         (9)
+#define SYSCTL_RCGCGPIO_R_GPIOK_BIT         (9u)
 #define SYSCTL_RCGCGPIO_R_GPIOK_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOK_EN     ((uint32_t)0x00000200u)
 
@@ -6603,7 +6603,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOL_MASK        ((uint32_t)0x00000400u)
-#define SYSCTL_RCGCGPIO_R_GPIOL_BIT         (10)
+#define SYSCTL_RCGCGPIO_R_GPIOL_BIT         (10u)
 #define SYSCTL_RCGCGPIO_R_GPIOL_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOL_EN     ((uint32_t)0x00000400u)
 
@@ -6614,7 +6614,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOM_MASK        ((uint32_t)0x00000800u)
-#define SYSCTL_RCGCGPIO_R_GPIOM_BIT         (11)
+#define SYSCTL_RCGCGPIO_R_GPIOM_BIT         (11u)
 #define SYSCTL_RCGCGPIO_R_GPIOM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOM_EN     ((uint32_t)0x00000800u)
 
@@ -6625,7 +6625,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPION_MASK        ((uint32_t)0x00001000u)
-#define SYSCTL_RCGCGPIO_R_GPION_BIT         (12)
+#define SYSCTL_RCGCGPIO_R_GPION_BIT         (12u)
 #define SYSCTL_RCGCGPIO_R_GPION_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPION_EN     ((uint32_t)0x00001000u)
 
@@ -6636,7 +6636,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOP_MASK        ((uint32_t)0x00002000u)
-#define SYSCTL_RCGCGPIO_R_GPIOP_BIT         (13)
+#define SYSCTL_RCGCGPIO_R_GPIOP_BIT         (13u)
 #define SYSCTL_RCGCGPIO_R_GPIOP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOP_EN     ((uint32_t)0x00002000u)
 
@@ -6647,7 +6647,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCGPIO_R_GPIOQ_MASK        ((uint32_t)0x00004000u)
-#define SYSCTL_RCGCGPIO_R_GPIOQ_BIT         (14)
+#define SYSCTL_RCGCGPIO_R_GPIOQ_BIT         (14u)
 #define SYSCTL_RCGCGPIO_R_GPIOQ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_R_GPIOQ_EN     ((uint32_t)0x00004000u)
 
@@ -6655,32 +6655,32 @@ typedef volatile struct
 #define SYSCTL_RCGCGPIO_GPIOQ_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCGPIO_GPIOQ_EN       ((uint32_t)0x00000001u)
 /*--------*/
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOG_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOH_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOJ_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOK_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOL_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOM_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPION_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOP_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32)+(SYSCTL_RCGCGPIO_R_GPIOQ_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOG_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOH_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOJ_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOK_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOL_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOM_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPION_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOP_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_RCGCGPIO_OFFSET)*32u)+(SYSCTL_RCGCGPIO_R_GPIOQ_BIT*4u))))
 
 /******************************************************************************************
 ************************************61 RCGCDMA *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCDMA            (((PERIPHERAL_DMA_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCDMA_OFFSET )))
 #define SYSCTL_RCGCDMA_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCDMA_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCDMA_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCDMA_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCDMA_R_UDMA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCDMA_R_UDMA_BIT         (0)
+#define SYSCTL_RCGCDMA_R_UDMA_BIT         (0u)
 #define SYSCTL_RCGCDMA_R_UDMA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCDMA_R_UDMA_EN     ((uint32_t)0x00000001u)
 
@@ -6689,18 +6689,18 @@ typedef volatile struct
 #define SYSCTL_RCGCDMA_UDMA_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCDMA_OFFSET)*32)+(SYSCTL_RCGCDMA_R_UDMA_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCDMA_OFFSET)*32u)+(SYSCTL_RCGCDMA_R_UDMA_BIT*4u))))
 
 /******************************************************************************************
 ************************************62 RCGCHIB *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCHIB            (((PERIPHERAL_HIB_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCHIB_OFFSET )))
 #define SYSCTL_RCGCHIB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCHIB_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCHIB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCHIB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCHIB_R_HIB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCHIB_R_HIB_BIT         (0)
+#define SYSCTL_RCGCHIB_R_HIB_BIT         (0u)
 #define SYSCTL_RCGCHIB_R_HIB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCHIB_R_HIB_EN     ((uint32_t)0x00000001u)
 
@@ -6709,18 +6709,18 @@ typedef volatile struct
 #define SYSCTL_RCGCHIB_HIB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCHIB_OFFSET)*32)+(SYSCTL_RCGCHIB_R_HIB_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCHIB_OFFSET)*32u)+(SYSCTL_RCGCHIB_R_HIB_BIT*4u))))
 
 /******************************************************************************************
 ************************************63 RCGCUART *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCUART            (((PERIPHERAL_UART_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCUART_OFFSET )))
 #define SYSCTL_RCGCUART_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCUART_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCUART_R_UART0_BIT         (0)
+#define SYSCTL_RCGCUART_R_UART0_BIT         (0u)
 #define SYSCTL_RCGCUART_R_UART0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART0_EN     ((uint32_t)0x00000001u)
 
@@ -6731,7 +6731,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCUART_R_UART1_BIT         (1)
+#define SYSCTL_RCGCUART_R_UART1_BIT         (1u)
 #define SYSCTL_RCGCUART_R_UART1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART1_EN     ((uint32_t)0x00000002u)
 
@@ -6742,7 +6742,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_RCGCUART_R_UART2_BIT         (2)
+#define SYSCTL_RCGCUART_R_UART2_BIT         (2u)
 #define SYSCTL_RCGCUART_R_UART2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART2_EN     ((uint32_t)0x00000004u)
 
@@ -6753,7 +6753,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_RCGCUART_R_UART3_BIT         (3)
+#define SYSCTL_RCGCUART_R_UART3_BIT         (3u)
 #define SYSCTL_RCGCUART_R_UART3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART3_EN     ((uint32_t)0x00000008u)
 
@@ -6764,7 +6764,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_RCGCUART_R_UART4_BIT         (4)
+#define SYSCTL_RCGCUART_R_UART4_BIT         (4u)
 #define SYSCTL_RCGCUART_R_UART4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART4_EN     ((uint32_t)0x00000010u)
 
@@ -6775,7 +6775,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_RCGCUART_R_UART5_BIT         (5)
+#define SYSCTL_RCGCUART_R_UART5_BIT         (5u)
 #define SYSCTL_RCGCUART_R_UART5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART5_EN     ((uint32_t)0x00000020u)
 
@@ -6786,7 +6786,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART6_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_RCGCUART_R_UART6_BIT         (6)
+#define SYSCTL_RCGCUART_R_UART6_BIT         (6u)
 #define SYSCTL_RCGCUART_R_UART6_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART6_EN     ((uint32_t)0x00000040u)
 
@@ -6797,7 +6797,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCUART_R_UART7_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_RCGCUART_R_UART7_BIT         (7)
+#define SYSCTL_RCGCUART_R_UART7_BIT         (7u)
 #define SYSCTL_RCGCUART_R_UART7_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUART_R_UART7_EN     ((uint32_t)0x00000080u)
 
@@ -6806,25 +6806,25 @@ typedef volatile struct
 #define SYSCTL_RCGCUART_UART7_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART1_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART2_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART3_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART4_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART5_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART6_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32)+(SYSCTL_RCGCUART_R_UART7_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART1_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART3_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART4_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART5_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART6_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUART_OFFSET)*32u)+(SYSCTL_RCGCUART_R_UART7_BIT*4u))))
 
 /******************************************************************************************
 ************************************64 RCGCSSI *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCSSI            (((PERIPHERAL_SSI_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCSSI_OFFSET )))
 #define SYSCTL_RCGCSSI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCSSI_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCSSI_R_SSI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCSSI_R_SSI0_BIT         (0)
+#define SYSCTL_RCGCSSI_R_SSI0_BIT         (0u)
 #define SYSCTL_RCGCSSI_R_SSI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCSSI_R_SSI0_EN     ((uint32_t)0x00000001u)
 
@@ -6835,7 +6835,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCSSI_R_SSI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCSSI_R_SSI1_BIT         (1)
+#define SYSCTL_RCGCSSI_R_SSI1_BIT         (1u)
 #define SYSCTL_RCGCSSI_R_SSI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCSSI_R_SSI1_EN     ((uint32_t)0x00000002u)
 
@@ -6846,7 +6846,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCSSI_R_SSI2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_RCGCSSI_R_SSI2_BIT         (2)
+#define SYSCTL_RCGCSSI_R_SSI2_BIT         (2u)
 #define SYSCTL_RCGCSSI_R_SSI2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCSSI_R_SSI2_EN     ((uint32_t)0x00000004u)
 
@@ -6857,7 +6857,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCSSI_R_SSI3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_RCGCSSI_R_SSI3_BIT         (3)
+#define SYSCTL_RCGCSSI_R_SSI3_BIT         (3u)
 #define SYSCTL_RCGCSSI_R_SSI3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCSSI_R_SSI3_EN     ((uint32_t)0x00000008u)
 
@@ -6866,21 +6866,21 @@ typedef volatile struct
 #define SYSCTL_RCGCSSI_SSI3_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32)+(SYSCTL_RCGCSSI_R_SSI0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32)+(SYSCTL_RCGCSSI_R_SSI1_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32)+(SYSCTL_RCGCSSI_R_SSI2_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32)+(SYSCTL_RCGCSSI_R_SSI3_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32u)+(SYSCTL_RCGCSSI_R_SSI0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32u)+(SYSCTL_RCGCSSI_R_SSI1_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32u)+(SYSCTL_RCGCSSI_R_SSI2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCSSI_OFFSET)*32u)+(SYSCTL_RCGCSSI_R_SSI3_BIT*4u))))
 
 /******************************************************************************************
 ************************************65 RCGCI2C *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCI2C            (((PERIPHERAL_I2C_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCI2C_OFFSET )))
 #define SYSCTL_RCGCI2C_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCI2C_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCI2C_R_I2C0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCI2C_R_I2C0_BIT         (0)
+#define SYSCTL_RCGCI2C_R_I2C0_BIT         (0u)
 #define SYSCTL_RCGCI2C_R_I2C0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCI2C_R_I2C0_EN     ((uint32_t)0x00000001u)
 
@@ -6891,7 +6891,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCI2C_R_I2C1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCI2C_R_I2C1_BIT         (1)
+#define SYSCTL_RCGCI2C_R_I2C1_BIT         (1u)
 #define SYSCTL_RCGCI2C_R_I2C1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCI2C_R_I2C1_EN     ((uint32_t)0x00000002u)
 
@@ -6902,7 +6902,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCI2C_R_I2C2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_RCGCI2C_R_I2C2_BIT         (2)
+#define SYSCTL_RCGCI2C_R_I2C2_BIT         (2u)
 #define SYSCTL_RCGCI2C_R_I2C2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCI2C_R_I2C2_EN     ((uint32_t)0x00000004u)
 
@@ -6913,7 +6913,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCI2C_R_I2C3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_RCGCI2C_R_I2C3_BIT         (3)
+#define SYSCTL_RCGCI2C_R_I2C3_BIT         (3u)
 #define SYSCTL_RCGCI2C_R_I2C3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCI2C_R_I2C3_EN     ((uint32_t)0x00000008u)
 
@@ -6924,7 +6924,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCI2C_R_I2C4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_RCGCI2C_R_I2C4_BIT         (4)
+#define SYSCTL_RCGCI2C_R_I2C4_BIT         (4u)
 #define SYSCTL_RCGCI2C_R_I2C4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCI2C_R_I2C4_EN     ((uint32_t)0x00000010u)
 
@@ -6935,7 +6935,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCI2C_R_I2C5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_RCGCI2C_R_I2C5_BIT         (5)
+#define SYSCTL_RCGCI2C_R_I2C5_BIT         (5u)
 #define SYSCTL_RCGCI2C_R_I2C5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCI2C_R_I2C5_EN     ((uint32_t)0x00000020u)
 
@@ -6944,23 +6944,23 @@ typedef volatile struct
 #define SYSCTL_RCGCI2C_I2C5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32)+(SYSCTL_RCGCI2C_R_I2C0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32)+(SYSCTL_RCGCI2C_R_I2C1_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32)+(SYSCTL_RCGCI2C_R_I2C2_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32)+(SYSCTL_RCGCI2C_R_I2C3_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32)+(SYSCTL_RCGCI2C_R_I2C4_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32)+(SYSCTL_RCGCI2C_R_I2C5_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u)+(SYSCTL_RCGCI2C_R_I2C0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u)+(SYSCTL_RCGCI2C_R_I2C1_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u)+(SYSCTL_RCGCI2C_R_I2C2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u)+(SYSCTL_RCGCI2C_R_I2C3_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u)+(SYSCTL_RCGCI2C_R_I2C4_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCI2C_OFFSET)*32u)+(SYSCTL_RCGCI2C_R_I2C5_BIT*4u))))
 
 /******************************************************************************************
 ************************************66 RCGCUSB *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCUSB            (((PERIPHERAL_USB_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCUSB_OFFSET )))
 #define SYSCTL_RCGCUSB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCUSB_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUSB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUSB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCUSB_R_USB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCUSB_R_USB_BIT         (0)
+#define SYSCTL_RCGCUSB_R_USB_BIT         (0u)
 #define SYSCTL_RCGCUSB_R_USB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCUSB_R_USB_EN     ((uint32_t)0x00000001u)
 
@@ -6969,18 +6969,18 @@ typedef volatile struct
 #define SYSCTL_RCGCUSB_USB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUSB_OFFSET)*32)+(SYSCTL_RCGCUSB_R_USB_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCUSB_OFFSET)*32u)+(SYSCTL_RCGCUSB_R_USB_BIT*4u))))
 
 /******************************************************************************************
 ************************************67 RCGCCAN *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCCAN            (((PERIPHERAL_CAN_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCCAN_OFFSET )))
 #define SYSCTL_RCGCCAN_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCCAN_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCCAN_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCCAN_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCCAN_R_CAN0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCCAN_R_CAN0_BIT         (0)
+#define SYSCTL_RCGCCAN_R_CAN0_BIT         (0u)
 #define SYSCTL_RCGCCAN_R_CAN0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCCAN_R_CAN0_EN     ((uint32_t)0x00000001u)
 
@@ -6991,7 +6991,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCCAN_R_CAN1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCCAN_R_CAN1_BIT         (1)
+#define SYSCTL_RCGCCAN_R_CAN1_BIT         (1u)
 #define SYSCTL_RCGCCAN_R_CAN1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCCAN_R_CAN1_EN     ((uint32_t)0x00000002u)
 
@@ -7000,19 +7000,19 @@ typedef volatile struct
 #define SYSCTL_RCGCCAN_CAN1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCCAN_OFFSET)*32)+(SYSCTL_RCGCCAN_R_CAN0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCCAN_OFFSET)*32)+(SYSCTL_RCGCCAN_R_CAN1_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCCAN_OFFSET)*32u)+(SYSCTL_RCGCCAN_R_CAN0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCCAN_OFFSET)*32u)+(SYSCTL_RCGCCAN_R_CAN1_BIT*4u))))
 
 /******************************************************************************************
 ************************************68 RCGCADC *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCADC            (((PERIPHERAL_ADC_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCADC_OFFSET )))
 #define SYSCTL_RCGCADC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCADC_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCADC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCADC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCADC_R_ADC0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCADC_R_ADC0_BIT         (0)
+#define SYSCTL_RCGCADC_R_ADC0_BIT         (0u)
 #define SYSCTL_RCGCADC_R_ADC0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCADC_R_ADC0_EN     ((uint32_t)0x00000001u)
 
@@ -7023,7 +7023,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCADC_R_ADC1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCADC_R_ADC1_BIT         (1)
+#define SYSCTL_RCGCADC_R_ADC1_BIT         (1u)
 #define SYSCTL_RCGCADC_R_ADC1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCADC_R_ADC1_EN     ((uint32_t)0x00000002u)
 
@@ -7032,19 +7032,19 @@ typedef volatile struct
 #define SYSCTL_RCGCADC_ADC1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCADC_OFFSET)*32)+(SYSCTL_RCGCADC_R_ADC0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCADC_OFFSET)*32)+(SYSCTL_RCGCADC_R_ADC1_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCADC_OFFSET)*32u)+(SYSCTL_RCGCADC_R_ADC0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCADC_OFFSET)*32u)+(SYSCTL_RCGCADC_R_ADC1_BIT*4u))))
 
 /******************************************************************************************
 ************************************69 RCGCACMP *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCACMP            (((PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCACMP_OFFSET )))
 #define SYSCTL_RCGCACMP_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCACMP_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCACMP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCACMP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCACMP_R_ACMP_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCACMP_R_ACMP_BIT         (0)
+#define SYSCTL_RCGCACMP_R_ACMP_BIT         (0u)
 #define SYSCTL_RCGCACMP_R_ACMP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCACMP_R_ACMP_EN     ((uint32_t)0x00000001u)
 
@@ -7053,18 +7053,18 @@ typedef volatile struct
 #define SYSCTL_RCGCACMP_ACMP_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCACMP_OFFSET)*32)+(SYSCTL_RCGCACMP_R_ACMP_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCACMP_OFFSET)*32u)+(SYSCTL_RCGCACMP_R_ACMP_BIT*4u))))
 
 /****************************************************************************************
 ************************************70 RCGCPWM *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCPWM            (((PERIPHERAL_PWM_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCPWM_OFFSET )))
 #define SYSCTL_RCGCPWM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCPWM_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCPWM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCPWM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCPWM_R_PWM0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCPWM_R_PWM0_BIT         (0)
+#define SYSCTL_RCGCPWM_R_PWM0_BIT         (0u)
 #define SYSCTL_RCGCPWM_R_PWM0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCPWM_R_PWM0_EN     ((uint32_t)0x00000001u)
 
@@ -7075,7 +7075,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCPWM_R_PWM1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCPWM_R_PWM1_BIT         (1)
+#define SYSCTL_RCGCPWM_R_PWM1_BIT         (1u)
 #define SYSCTL_RCGCPWM_R_PWM1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCPWM_R_PWM1_EN     ((uint32_t)0x00000002u)
 
@@ -7084,19 +7084,19 @@ typedef volatile struct
 #define SYSCTL_RCGCPWM_PWM1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCPWM_OFFSET)*32)+(SYSCTL_RCGCPWM_R_PWM0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCPWM_OFFSET)*32)+(SYSCTL_RCGCPWM_R_PWM1_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCPWM_OFFSET)*32u)+(SYSCTL_RCGCPWM_R_PWM0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCPWM_OFFSET)*32u)+(SYSCTL_RCGCPWM_R_PWM1_BIT*4u))))
 
 /******************************************************************************************
 ************************************71 RCGCQEI *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCQEI            (((PERIPHERAL_QEI_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCQEI_OFFSET )))
 #define SYSCTL_RCGCQEI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCQEI_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCQEI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCQEI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCQEI_R_QEI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCQEI_R_QEI0_BIT         (0)
+#define SYSCTL_RCGCQEI_R_QEI0_BIT         (0u)
 #define SYSCTL_RCGCQEI_R_QEI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCQEI_R_QEI0_EN     ((uint32_t)0x00000001u)
 
@@ -7107,7 +7107,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCQEI_R_QEI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCQEI_R_QEI1_BIT         (1)
+#define SYSCTL_RCGCQEI_R_QEI1_BIT         (1u)
 #define SYSCTL_RCGCQEI_R_QEI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCQEI_R_QEI1_EN     ((uint32_t)0x00000002u)
 
@@ -7116,19 +7116,19 @@ typedef volatile struct
 #define SYSCTL_RCGCQEI_QEI1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCQEI_OFFSET)*32)+(SYSCTL_RCGCQEI_R_QEI0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCQEI_OFFSET)*32)+(SYSCTL_RCGCQEI_R_QEI1_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCQEI_OFFSET)*32u)+(SYSCTL_RCGCQEI_R_QEI0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCQEI_OFFSET)*32u)+(SYSCTL_RCGCQEI_R_QEI1_BIT*4u))))
 
 /******************************************************************************************
 ************************************72 RCGCEEPROM *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGCEEPROM            (((PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCEEPROM_OFFSET )))
 #define SYSCTL_RCGCEEPROM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCEEPROM_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCEEPROM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCEEPROM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCEEPROM_R_EEPROM_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCEEPROM_R_EEPROM_BIT         (0)
+#define SYSCTL_RCGCEEPROM_R_EEPROM_BIT         (0u)
 #define SYSCTL_RCGCEEPROM_R_EEPROM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCEEPROM_R_EEPROM_EN     ((uint32_t)0x00000001u)
 
@@ -7137,7 +7137,7 @@ typedef volatile struct
 #define SYSCTL_RCGCEEPROM_EEPROM_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCEEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCEEPROM_OFFSET)*32)+(SYSCTL_RCGCEEPROM_R_EEPROM_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCEEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCEEPROM_OFFSET)*32u)+(SYSCTL_RCGCEEPROM_R_EEPROM_BIT*4u))))
 
 
 /**********************************************************************************
@@ -7145,11 +7145,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_RCGCWTIMER            (((PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGCWTIMER_OFFSET )))
 #define SYSCTL_RCGCWTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RCGCWTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_RCGCWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGCWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RCGCWTIMER_R_WTIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_RCGCWTIMER_R_WTIMER0_BIT         (0)
+#define SYSCTL_RCGCWTIMER_R_WTIMER0_BIT         (0u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -7160,7 +7160,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCWTIMER_R_WTIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_RCGCWTIMER_R_WTIMER1_BIT         (1)
+#define SYSCTL_RCGCWTIMER_R_WTIMER1_BIT         (1u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -7171,7 +7171,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCWTIMER_R_WTIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_RCGCWTIMER_R_WTIMER2_BIT         (2)
+#define SYSCTL_RCGCWTIMER_R_WTIMER2_BIT         (2u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -7182,7 +7182,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCWTIMER_R_WTIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_RCGCWTIMER_R_WTIMER3_BIT         (3)
+#define SYSCTL_RCGCWTIMER_R_WTIMER3_BIT         (3u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -7193,7 +7193,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCWTIMER_R_WTIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_RCGCWTIMER_R_WTIMER4_BIT         (4)
+#define SYSCTL_RCGCWTIMER_R_WTIMER4_BIT         (4u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -7204,7 +7204,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_RCGCWTIMER_R_WTIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_RCGCWTIMER_R_WTIMER5_BIT         (5)
+#define SYSCTL_RCGCWTIMER_R_WTIMER5_BIT         (5u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_RCGCWTIMER_R_WTIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -7213,23 +7213,23 @@ typedef volatile struct
 #define SYSCTL_RCGCWTIMER_WTIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32)+(SYSCTL_RCGCWTIMER_R_WTIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32)+(SYSCTL_RCGCWTIMER_R_WTIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32)+(SYSCTL_RCGCWTIMER_R_WTIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32)+(SYSCTL_RCGCWTIMER_R_WTIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32)+(SYSCTL_RCGCWTIMER_R_WTIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32)+(SYSCTL_RCGCWTIMER_R_WTIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u)+(SYSCTL_RCGCWTIMER_R_WTIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u)+(SYSCTL_RCGCWTIMER_R_WTIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u)+(SYSCTL_RCGCWTIMER_R_WTIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u)+(SYSCTL_RCGCWTIMER_R_WTIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u)+(SYSCTL_RCGCWTIMER_R_WTIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_RCGCWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGCWTIMER_OFFSET)*32u)+(SYSCTL_RCGCWTIMER_R_WTIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************74 SCGCWD *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCWD            (((PERIPHERAL_WD_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCWD_OFFSET )))
 #define SYSCTL_SCGCWD_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCWD_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWD_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWD_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCWD_R_WDT0_MASK         ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCWD_R_WDT0_BIT          (0)
+#define SYSCTL_SCGCWD_R_WDT0_BIT          (0u)
 #define SYSCTL_SCGCWD_R_WDT0_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWD_R_WDT0_EN      ((uint32_t)0x00000001u)
 
@@ -7240,7 +7240,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCWD_R_WDT1_MASK         ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCWD_R_WDT1_BIT          (1)
+#define SYSCTL_SCGCWD_R_WDT1_BIT          (1u)
 #define SYSCTL_SCGCWD_R_WDT1_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWD_R_WDT1_EN      ((uint32_t)0x00000002u)
 
@@ -7249,19 +7249,19 @@ typedef volatile struct
 #define SYSCTL_SCGCWD_WDT1_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWD_OFFSET)*32)+(SYSCTL_SCGCWD_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWD_OFFSET)*32)+(SYSCTL_SCGCWD_R_WDT1_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWD_OFFSET)*32u)+(SYSCTL_SCGCWD_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWD_OFFSET)*32u)+(SYSCTL_SCGCWD_R_WDT1_BIT*4u))))
 
 /******************************************************************************************
 ************************************75 SCGCTIMER *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCTIMER            (((PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCTIMER_OFFSET )))
 #define SYSCTL_SCGCTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCTIMER_R_TIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCTIMER_R_TIMER0_BIT         (0)
+#define SYSCTL_SCGCTIMER_R_TIMER0_BIT         (0u)
 #define SYSCTL_SCGCTIMER_R_TIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCTIMER_R_TIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -7272,7 +7272,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCTIMER_R_TIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCTIMER_R_TIMER1_BIT         (1)
+#define SYSCTL_SCGCTIMER_R_TIMER1_BIT         (1u)
 #define SYSCTL_SCGCTIMER_R_TIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCTIMER_R_TIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -7283,7 +7283,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCTIMER_R_TIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SCGCTIMER_R_TIMER2_BIT         (2)
+#define SYSCTL_SCGCTIMER_R_TIMER2_BIT         (2u)
 #define SYSCTL_SCGCTIMER_R_TIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCTIMER_R_TIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -7294,7 +7294,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCTIMER_R_TIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SCGCTIMER_R_TIMER3_BIT         (3)
+#define SYSCTL_SCGCTIMER_R_TIMER3_BIT         (3u)
 #define SYSCTL_SCGCTIMER_R_TIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCTIMER_R_TIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -7305,7 +7305,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCTIMER_R_TIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SCGCTIMER_R_TIMER4_BIT         (4)
+#define SYSCTL_SCGCTIMER_R_TIMER4_BIT         (4u)
 #define SYSCTL_SCGCTIMER_R_TIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCTIMER_R_TIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -7316,7 +7316,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCTIMER_R_TIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SCGCTIMER_R_TIMER5_BIT         (5)
+#define SYSCTL_SCGCTIMER_R_TIMER5_BIT         (5u)
 #define SYSCTL_SCGCTIMER_R_TIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCTIMER_R_TIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -7325,23 +7325,23 @@ typedef volatile struct
 #define SYSCTL_SCGCTIMER_TIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32)+(SYSCTL_SCGCTIMER_R_TIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32)+(SYSCTL_SCGCTIMER_R_TIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32)+(SYSCTL_SCGCTIMER_R_TIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32)+(SYSCTL_SCGCTIMER_R_TIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32)+(SYSCTL_SCGCTIMER_R_TIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32)+(SYSCTL_SCGCTIMER_R_TIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u)+(SYSCTL_SCGCTIMER_R_TIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u)+(SYSCTL_SCGCTIMER_R_TIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u)+(SYSCTL_SCGCTIMER_R_TIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u)+(SYSCTL_SCGCTIMER_R_TIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u)+(SYSCTL_SCGCTIMER_R_TIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCTIMER_OFFSET)*32u)+(SYSCTL_SCGCTIMER_R_TIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************76 SCGCGPIO *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCGPIO            (((PERIPHERAL_GPIO_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCGPIO_OFFSET )))
 #define SYSCTL_SCGCGPIO_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCGPIO_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCGPIO_R_GPIOA_BIT         (0)
+#define SYSCTL_SCGCGPIO_R_GPIOA_BIT         (0u)
 #define SYSCTL_SCGCGPIO_R_GPIOA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOA_EN     ((uint32_t)0x00000001u)
 
@@ -7352,7 +7352,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOB_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCGPIO_R_GPIOB_BIT         (1)
+#define SYSCTL_SCGCGPIO_R_GPIOB_BIT         (1u)
 #define SYSCTL_SCGCGPIO_R_GPIOB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOB_EN     ((uint32_t)0x00000002u)
 
@@ -7363,7 +7363,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOC_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SCGCGPIO_R_GPIOC_BIT         (2)
+#define SYSCTL_SCGCGPIO_R_GPIOC_BIT         (2u)
 #define SYSCTL_SCGCGPIO_R_GPIOC_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOC_EN     ((uint32_t)0x00000004u)
 
@@ -7374,7 +7374,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOD_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SCGCGPIO_R_GPIOD_BIT         (3)
+#define SYSCTL_SCGCGPIO_R_GPIOD_BIT         (3u)
 #define SYSCTL_SCGCGPIO_R_GPIOD_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOD_EN     ((uint32_t)0x00000008u)
 
@@ -7385,7 +7385,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOE_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SCGCGPIO_R_GPIOE_BIT         (4)
+#define SYSCTL_SCGCGPIO_R_GPIOE_BIT         (4u)
 #define SYSCTL_SCGCGPIO_R_GPIOE_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOE_EN     ((uint32_t)0x00000010u)
 
@@ -7396,7 +7396,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOF_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SCGCGPIO_R_GPIOF_BIT         (5)
+#define SYSCTL_SCGCGPIO_R_GPIOF_BIT         (5u)
 #define SYSCTL_SCGCGPIO_R_GPIOF_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOF_EN     ((uint32_t)0x00000020u)
 
@@ -7407,7 +7407,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_SCGCGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_SCGCGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_SCGCGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -7418,7 +7418,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_SCGCGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_SCGCGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_SCGCGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -7429,7 +7429,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOH_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_SCGCGPIO_R_GPIOH_BIT         (7)
+#define SYSCTL_SCGCGPIO_R_GPIOH_BIT         (7u)
 #define SYSCTL_SCGCGPIO_R_GPIOH_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOH_EN     ((uint32_t)0x00000080u)
 
@@ -7440,7 +7440,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOJ_MASK        ((uint32_t)0x00000100u)
-#define SYSCTL_SCGCGPIO_R_GPIOJ_BIT         (8)
+#define SYSCTL_SCGCGPIO_R_GPIOJ_BIT         (8u)
 #define SYSCTL_SCGCGPIO_R_GPIOJ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOJ_EN     ((uint32_t)0x00000100u)
 
@@ -7451,7 +7451,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOK_MASK        ((uint32_t)0x00000200u)
-#define SYSCTL_SCGCGPIO_R_GPIOK_BIT         (9)
+#define SYSCTL_SCGCGPIO_R_GPIOK_BIT         (9u)
 #define SYSCTL_SCGCGPIO_R_GPIOK_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOK_EN     ((uint32_t)0x00000200u)
 
@@ -7462,7 +7462,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOL_MASK        ((uint32_t)0x00000400u)
-#define SYSCTL_SCGCGPIO_R_GPIOL_BIT         (10)
+#define SYSCTL_SCGCGPIO_R_GPIOL_BIT         (10u)
 #define SYSCTL_SCGCGPIO_R_GPIOL_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOL_EN     ((uint32_t)0x00000400u)
 
@@ -7473,7 +7473,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOM_MASK        ((uint32_t)0x00000800u)
-#define SYSCTL_SCGCGPIO_R_GPIOM_BIT         (11)
+#define SYSCTL_SCGCGPIO_R_GPIOM_BIT         (11u)
 #define SYSCTL_SCGCGPIO_R_GPIOM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOM_EN     ((uint32_t)0x00000800u)
 
@@ -7484,7 +7484,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPION_MASK        ((uint32_t)0x00001000u)
-#define SYSCTL_SCGCGPIO_R_GPION_BIT         (12)
+#define SYSCTL_SCGCGPIO_R_GPION_BIT         (12u)
 #define SYSCTL_SCGCGPIO_R_GPION_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPION_EN     ((uint32_t)0x00001000u)
 
@@ -7495,7 +7495,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOP_MASK        ((uint32_t)0x00002000u)
-#define SYSCTL_SCGCGPIO_R_GPIOP_BIT         (13)
+#define SYSCTL_SCGCGPIO_R_GPIOP_BIT         (13u)
 #define SYSCTL_SCGCGPIO_R_GPIOP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOP_EN     ((uint32_t)0x00002000u)
 
@@ -7506,7 +7506,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCGPIO_R_GPIOQ_MASK        ((uint32_t)0x00004000u)
-#define SYSCTL_SCGCGPIO_R_GPIOQ_BIT         (14)
+#define SYSCTL_SCGCGPIO_R_GPIOQ_BIT         (14u)
 #define SYSCTL_SCGCGPIO_R_GPIOQ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_R_GPIOQ_EN     ((uint32_t)0x00004000u)
 
@@ -7514,32 +7514,32 @@ typedef volatile struct
 #define SYSCTL_SCGCGPIO_GPIOQ_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCGPIO_GPIOQ_EN       ((uint32_t)0x00000001u)
 /*--------*/
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOG_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOH_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOJ_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOK_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOL_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOM_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPION_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOP_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32)+(SYSCTL_SCGCGPIO_R_GPIOQ_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOG_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOH_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOJ_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOK_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOL_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOM_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPION_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOP_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_SCGCGPIO_OFFSET)*32u)+(SYSCTL_SCGCGPIO_R_GPIOQ_BIT*4u))))
 
 /******************************************************************************************
 ************************************77 SCGCDMA *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCDMA            (((PERIPHERAL_DMA_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCDMA_OFFSET )))
 #define SYSCTL_SCGCDMA_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCDMA_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCDMA_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCDMA_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCDMA_R_UDMA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCDMA_R_UDMA_BIT         (0)
+#define SYSCTL_SCGCDMA_R_UDMA_BIT         (0u)
 #define SYSCTL_SCGCDMA_R_UDMA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCDMA_R_UDMA_EN     ((uint32_t)0x00000001u)
 
@@ -7548,18 +7548,18 @@ typedef volatile struct
 #define SYSCTL_SCGCDMA_UDMA_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCDMA_OFFSET)*32)+(SYSCTL_SCGCDMA_R_UDMA_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCDMA_OFFSET)*32u)+(SYSCTL_SCGCDMA_R_UDMA_BIT*4u))))
 
 /******************************************************************************************
 ************************************78 SCGCHIB *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCHIB            (((PERIPHERAL_HIB_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCHIB_OFFSET )))
 #define SYSCTL_SCGCHIB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCHIB_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCHIB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCHIB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCHIB_R_HIB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCHIB_R_HIB_BIT         (0)
+#define SYSCTL_SCGCHIB_R_HIB_BIT         (0u)
 #define SYSCTL_SCGCHIB_R_HIB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCHIB_R_HIB_EN     ((uint32_t)0x00000001u)
 
@@ -7568,18 +7568,18 @@ typedef volatile struct
 #define SYSCTL_SCGCHIB_HIB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCHIB_OFFSET)*32)+(SYSCTL_SCGCHIB_R_HIB_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCHIB_OFFSET)*32u)+(SYSCTL_SCGCHIB_R_HIB_BIT*4u))))
 
 /******************************************************************************************
 ************************************79 SCGCUART *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCUART            (((PERIPHERAL_UART_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCUART_OFFSET )))
 #define SYSCTL_SCGCUART_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCUART_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCUART_R_UART0_BIT         (0)
+#define SYSCTL_SCGCUART_R_UART0_BIT         (0u)
 #define SYSCTL_SCGCUART_R_UART0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART0_EN     ((uint32_t)0x00000001u)
 
@@ -7590,7 +7590,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCUART_R_UART1_BIT         (1)
+#define SYSCTL_SCGCUART_R_UART1_BIT         (1u)
 #define SYSCTL_SCGCUART_R_UART1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART1_EN     ((uint32_t)0x00000002u)
 
@@ -7601,7 +7601,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SCGCUART_R_UART2_BIT         (2)
+#define SYSCTL_SCGCUART_R_UART2_BIT         (2u)
 #define SYSCTL_SCGCUART_R_UART2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART2_EN     ((uint32_t)0x00000004u)
 
@@ -7612,7 +7612,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SCGCUART_R_UART3_BIT         (3)
+#define SYSCTL_SCGCUART_R_UART3_BIT         (3u)
 #define SYSCTL_SCGCUART_R_UART3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART3_EN     ((uint32_t)0x00000008u)
 
@@ -7623,7 +7623,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SCGCUART_R_UART4_BIT         (4)
+#define SYSCTL_SCGCUART_R_UART4_BIT         (4u)
 #define SYSCTL_SCGCUART_R_UART4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART4_EN     ((uint32_t)0x00000010u)
 
@@ -7634,7 +7634,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SCGCUART_R_UART5_BIT         (5)
+#define SYSCTL_SCGCUART_R_UART5_BIT         (5u)
 #define SYSCTL_SCGCUART_R_UART5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART5_EN     ((uint32_t)0x00000020u)
 
@@ -7645,7 +7645,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART6_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_SCGCUART_R_UART6_BIT         (6)
+#define SYSCTL_SCGCUART_R_UART6_BIT         (6u)
 #define SYSCTL_SCGCUART_R_UART6_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART6_EN     ((uint32_t)0x00000040u)
 
@@ -7656,7 +7656,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCUART_R_UART7_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_SCGCUART_R_UART7_BIT         (7)
+#define SYSCTL_SCGCUART_R_UART7_BIT         (7u)
 #define SYSCTL_SCGCUART_R_UART7_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUART_R_UART7_EN     ((uint32_t)0x00000080u)
 
@@ -7665,25 +7665,25 @@ typedef volatile struct
 #define SYSCTL_SCGCUART_UART7_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART1_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART2_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART3_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART4_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART5_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART6_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32)+(SYSCTL_SCGCUART_R_UART7_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART1_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART2_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART3_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART4_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART5_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART6_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUART_OFFSET)*32u)+(SYSCTL_SCGCUART_R_UART7_BIT*4u))))
 
 /******************************************************************************************
 ************************************80 SCGCSSI *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCSSI            (((PERIPHERAL_SSI_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCSSI_OFFSET )))
 #define SYSCTL_SCGCSSI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCSSI_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCSSI_R_SSI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCSSI_R_SSI0_BIT         (0)
+#define SYSCTL_SCGCSSI_R_SSI0_BIT         (0u)
 #define SYSCTL_SCGCSSI_R_SSI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCSSI_R_SSI0_EN     ((uint32_t)0x00000001u)
 
@@ -7694,7 +7694,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCSSI_R_SSI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCSSI_R_SSI1_BIT         (1)
+#define SYSCTL_SCGCSSI_R_SSI1_BIT         (1u)
 #define SYSCTL_SCGCSSI_R_SSI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCSSI_R_SSI1_EN     ((uint32_t)0x00000002u)
 
@@ -7705,7 +7705,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCSSI_R_SSI2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SCGCSSI_R_SSI2_BIT         (2)
+#define SYSCTL_SCGCSSI_R_SSI2_BIT         (2u)
 #define SYSCTL_SCGCSSI_R_SSI2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCSSI_R_SSI2_EN     ((uint32_t)0x00000004u)
 
@@ -7716,7 +7716,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCSSI_R_SSI3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SCGCSSI_R_SSI3_BIT         (3)
+#define SYSCTL_SCGCSSI_R_SSI3_BIT         (3u)
 #define SYSCTL_SCGCSSI_R_SSI3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCSSI_R_SSI3_EN     ((uint32_t)0x00000008u)
 
@@ -7725,21 +7725,21 @@ typedef volatile struct
 #define SYSCTL_SCGCSSI_SSI3_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32)+(SYSCTL_SCGCSSI_R_SSI0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32)+(SYSCTL_SCGCSSI_R_SSI1_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32)+(SYSCTL_SCGCSSI_R_SSI2_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32)+(SYSCTL_SCGCSSI_R_SSI3_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32u)+(SYSCTL_SCGCSSI_R_SSI0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32u)+(SYSCTL_SCGCSSI_R_SSI1_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32u)+(SYSCTL_SCGCSSI_R_SSI2_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCSSI_OFFSET)*32u)+(SYSCTL_SCGCSSI_R_SSI3_BIT*4u))))
 
 /******************************************************************************************
 ************************************81 SCGCI2C *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCI2C            (((PERIPHERAL_I2C_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCI2C_OFFSET )))
 #define SYSCTL_SCGCI2C_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCI2C_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCI2C_R_I2C0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCI2C_R_I2C0_BIT         (0)
+#define SYSCTL_SCGCI2C_R_I2C0_BIT         (0u)
 #define SYSCTL_SCGCI2C_R_I2C0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCI2C_R_I2C0_EN     ((uint32_t)0x00000001u)
 
@@ -7750,7 +7750,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCI2C_R_I2C1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCI2C_R_I2C1_BIT         (1)
+#define SYSCTL_SCGCI2C_R_I2C1_BIT         (1u)
 #define SYSCTL_SCGCI2C_R_I2C1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCI2C_R_I2C1_EN     ((uint32_t)0x00000002u)
 
@@ -7761,7 +7761,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCI2C_R_I2C2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SCGCI2C_R_I2C2_BIT         (2)
+#define SYSCTL_SCGCI2C_R_I2C2_BIT         (2u)
 #define SYSCTL_SCGCI2C_R_I2C2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCI2C_R_I2C2_EN     ((uint32_t)0x00000004u)
 
@@ -7772,7 +7772,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCI2C_R_I2C3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SCGCI2C_R_I2C3_BIT         (3)
+#define SYSCTL_SCGCI2C_R_I2C3_BIT         (3u)
 #define SYSCTL_SCGCI2C_R_I2C3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCI2C_R_I2C3_EN     ((uint32_t)0x00000008u)
 
@@ -7783,7 +7783,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCI2C_R_I2C4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SCGCI2C_R_I2C4_BIT         (4)
+#define SYSCTL_SCGCI2C_R_I2C4_BIT         (4u)
 #define SYSCTL_SCGCI2C_R_I2C4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCI2C_R_I2C4_EN     ((uint32_t)0x00000010u)
 
@@ -7794,7 +7794,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCI2C_R_I2C5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SCGCI2C_R_I2C5_BIT         (5)
+#define SYSCTL_SCGCI2C_R_I2C5_BIT         (5u)
 #define SYSCTL_SCGCI2C_R_I2C5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCI2C_R_I2C5_EN     ((uint32_t)0x00000020u)
 
@@ -7803,23 +7803,23 @@ typedef volatile struct
 #define SYSCTL_SCGCI2C_I2C5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32)+(SYSCTL_SCGCI2C_R_I2C0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32)+(SYSCTL_SCGCI2C_R_I2C1_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32)+(SYSCTL_SCGCI2C_R_I2C2_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32)+(SYSCTL_SCGCI2C_R_I2C3_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32)+(SYSCTL_SCGCI2C_R_I2C4_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32)+(SYSCTL_SCGCI2C_R_I2C5_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u)+(SYSCTL_SCGCI2C_R_I2C0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u)+(SYSCTL_SCGCI2C_R_I2C1_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u)+(SYSCTL_SCGCI2C_R_I2C2_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u)+(SYSCTL_SCGCI2C_R_I2C3_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u)+(SYSCTL_SCGCI2C_R_I2C4_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCI2C_OFFSET)*32u)+(SYSCTL_SCGCI2C_R_I2C5_BIT*4u))))
 
 /******************************************************************************************
 ************************************82 SCGCUSB *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCUSB            (((PERIPHERAL_USB_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCUSB_OFFSET )))
 #define SYSCTL_SCGCUSB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCUSB_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUSB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUSB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCUSB_R_USB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCUSB_R_USB_BIT         (0)
+#define SYSCTL_SCGCUSB_R_USB_BIT         (0u)
 #define SYSCTL_SCGCUSB_R_USB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCUSB_R_USB_EN     ((uint32_t)0x00000001u)
 
@@ -7828,18 +7828,18 @@ typedef volatile struct
 #define SYSCTL_SCGCUSB_USB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUSB_OFFSET)*32)+(SYSCTL_SCGCUSB_R_USB_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCUSB_OFFSET)*32u)+(SYSCTL_SCGCUSB_R_USB_BIT*4u))))
 
 /******************************************************************************************
 ************************************83 SCGCCAN *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCCAN            (((PERIPHERAL_CAN_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCCAN_OFFSET )))
 #define SYSCTL_SCGCCAN_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCCAN_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCCAN_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCCAN_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCCAN_R_CAN0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCCAN_R_CAN0_BIT         (0)
+#define SYSCTL_SCGCCAN_R_CAN0_BIT         (0u)
 #define SYSCTL_SCGCCAN_R_CAN0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCCAN_R_CAN0_EN     ((uint32_t)0x00000001u)
 
@@ -7850,7 +7850,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCCAN_R_CAN1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCCAN_R_CAN1_BIT         (1)
+#define SYSCTL_SCGCCAN_R_CAN1_BIT         (1u)
 #define SYSCTL_SCGCCAN_R_CAN1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCCAN_R_CAN1_EN     ((uint32_t)0x00000002u)
 
@@ -7859,19 +7859,19 @@ typedef volatile struct
 #define SYSCTL_SCGCCAN_CAN1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCCAN_OFFSET)*32)+(SYSCTL_SCGCCAN_R_CAN0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCCAN_OFFSET)*32)+(SYSCTL_SCGCCAN_R_CAN1_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCCAN_OFFSET)*32u)+(SYSCTL_SCGCCAN_R_CAN0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCCAN_OFFSET)*32u)+(SYSCTL_SCGCCAN_R_CAN1_BIT*4u))))
 
 /******************************************************************************************
 ************************************84 SCGCADC *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCADC            (((PERIPHERAL_ADC_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCADC_OFFSET )))
 #define SYSCTL_SCGCADC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCADC_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCADC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCADC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCADC_R_ADC0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCADC_R_ADC0_BIT         (0)
+#define SYSCTL_SCGCADC_R_ADC0_BIT         (0u)
 #define SYSCTL_SCGCADC_R_ADC0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCADC_R_ADC0_EN     ((uint32_t)0x00000001u)
 
@@ -7882,7 +7882,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCADC_R_ADC1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCADC_R_ADC1_BIT         (1)
+#define SYSCTL_SCGCADC_R_ADC1_BIT         (1u)
 #define SYSCTL_SCGCADC_R_ADC1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCADC_R_ADC1_EN     ((uint32_t)0x00000002u)
 
@@ -7891,19 +7891,19 @@ typedef volatile struct
 #define SYSCTL_SCGCADC_ADC1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCADC_OFFSET)*32)+(SYSCTL_SCGCADC_R_ADC0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCADC_OFFSET)*32)+(SYSCTL_SCGCADC_R_ADC1_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCADC_OFFSET)*32u)+(SYSCTL_SCGCADC_R_ADC0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCADC_OFFSET)*32u)+(SYSCTL_SCGCADC_R_ADC1_BIT*4u))))
 
 /******************************************************************************************
 ************************************85 SCGCACMP *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCACMP            (((PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCACMP_OFFSET )))
 #define SYSCTL_SCGCACMP_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCACMP_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCACMP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCACMP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCACMP_R_ACMP_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCACMP_R_ACMP_BIT         (0)
+#define SYSCTL_SCGCACMP_R_ACMP_BIT         (0u)
 #define SYSCTL_SCGCACMP_R_ACMP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCACMP_R_ACMP_EN     ((uint32_t)0x00000001u)
 
@@ -7912,18 +7912,18 @@ typedef volatile struct
 #define SYSCTL_SCGCACMP_ACMP_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCACMP_OFFSET)*32)+(SYSCTL_SCGCACMP_R_ACMP_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCACMP_OFFSET)*32u)+(SYSCTL_SCGCACMP_R_ACMP_BIT*4u))))
 
 /****************************************************************************************
 ************************************86 SCGCPWM *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCPWM            (((PERIPHERAL_PWM_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCPWM_OFFSET )))
 #define SYSCTL_SCGCPWM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCPWM_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCPWM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCPWM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCPWM_R_PWM0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCPWM_R_PWM0_BIT         (0)
+#define SYSCTL_SCGCPWM_R_PWM0_BIT         (0u)
 #define SYSCTL_SCGCPWM_R_PWM0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCPWM_R_PWM0_EN     ((uint32_t)0x00000001u)
 
@@ -7934,7 +7934,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCPWM_R_PWM1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCPWM_R_PWM1_BIT         (1)
+#define SYSCTL_SCGCPWM_R_PWM1_BIT         (1u)
 #define SYSCTL_SCGCPWM_R_PWM1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCPWM_R_PWM1_EN     ((uint32_t)0x00000002u)
 
@@ -7943,19 +7943,19 @@ typedef volatile struct
 #define SYSCTL_SCGCPWM_PWM1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCPWM_OFFSET)*32)+(SYSCTL_SCGCPWM_R_PWM0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCPWM_OFFSET)*32)+(SYSCTL_SCGCPWM_R_PWM1_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCPWM_OFFSET)*32u)+(SYSCTL_SCGCPWM_R_PWM0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCPWM_OFFSET)*32u)+(SYSCTL_SCGCPWM_R_PWM1_BIT*4u))))
 
 /******************************************************************************************
 ************************************87 SCGCQEI *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCQEI            (((PERIPHERAL_QEI_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCQEI_OFFSET )))
 #define SYSCTL_SCGCQEI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCQEI_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCQEI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCQEI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCQEI_R_QEI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCQEI_R_QEI0_BIT         (0)
+#define SYSCTL_SCGCQEI_R_QEI0_BIT         (0u)
 #define SYSCTL_SCGCQEI_R_QEI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCQEI_R_QEI0_EN     ((uint32_t)0x00000001u)
 
@@ -7966,7 +7966,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCQEI_R_QEI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCQEI_R_QEI1_BIT         (1)
+#define SYSCTL_SCGCQEI_R_QEI1_BIT         (1u)
 #define SYSCTL_SCGCQEI_R_QEI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCQEI_R_QEI1_EN     ((uint32_t)0x00000002u)
 
@@ -7975,19 +7975,19 @@ typedef volatile struct
 #define SYSCTL_SCGCQEI_QEI1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCQEI_OFFSET)*32)+(SYSCTL_SCGCQEI_R_QEI0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCQEI_OFFSET)*32)+(SYSCTL_SCGCQEI_R_QEI1_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCQEI_OFFSET)*32u)+(SYSCTL_SCGCQEI_R_QEI0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCQEI_OFFSET)*32u)+(SYSCTL_SCGCQEI_R_QEI1_BIT*4u))))
 
 /******************************************************************************************
 ************************************88 SCGCEEPROM *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGCEEPROM            (((PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCEEPROM_OFFSET )))
 #define SYSCTL_SCGCEEPROM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCEEPROM_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCEEPROM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCEEPROM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCEEPROM_R_EEPROM_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCEEPROM_R_EEPROM_BIT         (0)
+#define SYSCTL_SCGCEEPROM_R_EEPROM_BIT         (0u)
 #define SYSCTL_SCGCEEPROM_R_EEPROM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCEEPROM_R_EEPROM_EN     ((uint32_t)0x00000001u)
 
@@ -7996,7 +7996,7 @@ typedef volatile struct
 #define SYSCTL_SCGCEEPROM_EEPROM_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCEEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCEEPROM_OFFSET)*32)+(SYSCTL_SCGCEEPROM_R_EEPROM_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCEEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCEEPROM_OFFSET)*32u)+(SYSCTL_SCGCEEPROM_R_EEPROM_BIT*4u))))
 
 
 /**********************************************************************************
@@ -8004,11 +8004,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_SCGCWTIMER            (((PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGCWTIMER_OFFSET )))
 #define SYSCTL_SCGCWTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_SCGCWTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_SCGCWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGCWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_SCGCWTIMER_R_WTIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_SCGCWTIMER_R_WTIMER0_BIT         (0)
+#define SYSCTL_SCGCWTIMER_R_WTIMER0_BIT         (0u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -8019,7 +8019,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCWTIMER_R_WTIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_SCGCWTIMER_R_WTIMER1_BIT         (1)
+#define SYSCTL_SCGCWTIMER_R_WTIMER1_BIT         (1u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -8030,7 +8030,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCWTIMER_R_WTIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_SCGCWTIMER_R_WTIMER2_BIT         (2)
+#define SYSCTL_SCGCWTIMER_R_WTIMER2_BIT         (2u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -8041,7 +8041,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCWTIMER_R_WTIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_SCGCWTIMER_R_WTIMER3_BIT         (3)
+#define SYSCTL_SCGCWTIMER_R_WTIMER3_BIT         (3u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -8052,7 +8052,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCWTIMER_R_WTIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_SCGCWTIMER_R_WTIMER4_BIT         (4)
+#define SYSCTL_SCGCWTIMER_R_WTIMER4_BIT         (4u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -8063,7 +8063,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_SCGCWTIMER_R_WTIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_SCGCWTIMER_R_WTIMER5_BIT         (5)
+#define SYSCTL_SCGCWTIMER_R_WTIMER5_BIT         (5u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_SCGCWTIMER_R_WTIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -8072,23 +8072,23 @@ typedef volatile struct
 #define SYSCTL_SCGCWTIMER_WTIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32)+(SYSCTL_SCGCWTIMER_R_WTIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32)+(SYSCTL_SCGCWTIMER_R_WTIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32)+(SYSCTL_SCGCWTIMER_R_WTIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32)+(SYSCTL_SCGCWTIMER_R_WTIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32)+(SYSCTL_SCGCWTIMER_R_WTIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32)+(SYSCTL_SCGCWTIMER_R_WTIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u)+(SYSCTL_SCGCWTIMER_R_WTIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u)+(SYSCTL_SCGCWTIMER_R_WTIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u)+(SYSCTL_SCGCWTIMER_R_WTIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u)+(SYSCTL_SCGCWTIMER_R_WTIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u)+(SYSCTL_SCGCWTIMER_R_WTIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_SCGCWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGCWTIMER_OFFSET)*32u)+(SYSCTL_SCGCWTIMER_R_WTIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************90 DCGCWD *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCWD            (((PERIPHERAL_WD_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCWD_OFFSET )))
 #define SYSCTL_DCGCWD_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCWD_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWD_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWD_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCWD_R_WDT0_MASK         ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCWD_R_WDT0_BIT          (0)
+#define SYSCTL_DCGCWD_R_WDT0_BIT          (0u)
 #define SYSCTL_DCGCWD_R_WDT0_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWD_R_WDT0_EN      ((uint32_t)0x00000001u)
 
@@ -8099,7 +8099,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCWD_R_WDT1_MASK         ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCWD_R_WDT1_BIT          (1)
+#define SYSCTL_DCGCWD_R_WDT1_BIT          (1u)
 #define SYSCTL_DCGCWD_R_WDT1_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWD_R_WDT1_EN      ((uint32_t)0x00000002u)
 
@@ -8108,19 +8108,19 @@ typedef volatile struct
 #define SYSCTL_DCGCWD_WDT1_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWD_OFFSET)*32)+(SYSCTL_DCGCWD_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWD_OFFSET)*32)+(SYSCTL_DCGCWD_R_WDT1_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWD_OFFSET)*32u)+(SYSCTL_DCGCWD_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWD_OFFSET)*32u)+(SYSCTL_DCGCWD_R_WDT1_BIT*4u))))
 
 /******************************************************************************************
 ************************************91 DCGCTIMER *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCTIMER            (((PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCTIMER_OFFSET )))
 #define SYSCTL_DCGCTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCTIMER_R_TIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCTIMER_R_TIMER0_BIT         (0)
+#define SYSCTL_DCGCTIMER_R_TIMER0_BIT         (0u)
 #define SYSCTL_DCGCTIMER_R_TIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCTIMER_R_TIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -8131,7 +8131,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCTIMER_R_TIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCTIMER_R_TIMER1_BIT         (1)
+#define SYSCTL_DCGCTIMER_R_TIMER1_BIT         (1u)
 #define SYSCTL_DCGCTIMER_R_TIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCTIMER_R_TIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -8142,7 +8142,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCTIMER_R_TIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_DCGCTIMER_R_TIMER2_BIT         (2)
+#define SYSCTL_DCGCTIMER_R_TIMER2_BIT         (2u)
 #define SYSCTL_DCGCTIMER_R_TIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCTIMER_R_TIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -8153,7 +8153,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCTIMER_R_TIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_DCGCTIMER_R_TIMER3_BIT         (3)
+#define SYSCTL_DCGCTIMER_R_TIMER3_BIT         (3u)
 #define SYSCTL_DCGCTIMER_R_TIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCTIMER_R_TIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -8164,7 +8164,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCTIMER_R_TIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_DCGCTIMER_R_TIMER4_BIT         (4)
+#define SYSCTL_DCGCTIMER_R_TIMER4_BIT         (4u)
 #define SYSCTL_DCGCTIMER_R_TIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCTIMER_R_TIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -8175,7 +8175,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCTIMER_R_TIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_DCGCTIMER_R_TIMER5_BIT         (5)
+#define SYSCTL_DCGCTIMER_R_TIMER5_BIT         (5u)
 #define SYSCTL_DCGCTIMER_R_TIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCTIMER_R_TIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -8184,23 +8184,23 @@ typedef volatile struct
 #define SYSCTL_DCGCTIMER_TIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32)+(SYSCTL_DCGCTIMER_R_TIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32)+(SYSCTL_DCGCTIMER_R_TIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32)+(SYSCTL_DCGCTIMER_R_TIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32)+(SYSCTL_DCGCTIMER_R_TIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32)+(SYSCTL_DCGCTIMER_R_TIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32)+(SYSCTL_DCGCTIMER_R_TIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u)+(SYSCTL_DCGCTIMER_R_TIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u)+(SYSCTL_DCGCTIMER_R_TIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u)+(SYSCTL_DCGCTIMER_R_TIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u)+(SYSCTL_DCGCTIMER_R_TIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u)+(SYSCTL_DCGCTIMER_R_TIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCTIMER_OFFSET)*32u)+(SYSCTL_DCGCTIMER_R_TIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************92 DCGCGPIO *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCGPIO            (((PERIPHERAL_GPIO_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCGPIO_OFFSET )))
 #define SYSCTL_DCGCGPIO_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCGPIO_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCGPIO_R_GPIOA_BIT         (0)
+#define SYSCTL_DCGCGPIO_R_GPIOA_BIT         (0u)
 #define SYSCTL_DCGCGPIO_R_GPIOA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOA_EN     ((uint32_t)0x00000001u)
 
@@ -8211,7 +8211,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOB_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCGPIO_R_GPIOB_BIT         (1)
+#define SYSCTL_DCGCGPIO_R_GPIOB_BIT         (1u)
 #define SYSCTL_DCGCGPIO_R_GPIOB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOB_EN     ((uint32_t)0x00000002u)
 
@@ -8222,7 +8222,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOC_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_DCGCGPIO_R_GPIOC_BIT         (2)
+#define SYSCTL_DCGCGPIO_R_GPIOC_BIT         (2u)
 #define SYSCTL_DCGCGPIO_R_GPIOC_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOC_EN     ((uint32_t)0x00000004u)
 
@@ -8233,7 +8233,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOD_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_DCGCGPIO_R_GPIOD_BIT         (3)
+#define SYSCTL_DCGCGPIO_R_GPIOD_BIT         (3u)
 #define SYSCTL_DCGCGPIO_R_GPIOD_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOD_EN     ((uint32_t)0x00000008u)
 
@@ -8244,7 +8244,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOE_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_DCGCGPIO_R_GPIOE_BIT         (4)
+#define SYSCTL_DCGCGPIO_R_GPIOE_BIT         (4u)
 #define SYSCTL_DCGCGPIO_R_GPIOE_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOE_EN     ((uint32_t)0x00000010u)
 
@@ -8255,7 +8255,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOF_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_DCGCGPIO_R_GPIOF_BIT         (5)
+#define SYSCTL_DCGCGPIO_R_GPIOF_BIT         (5u)
 #define SYSCTL_DCGCGPIO_R_GPIOF_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOF_EN     ((uint32_t)0x00000020u)
 
@@ -8266,7 +8266,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_DCGCGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_DCGCGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_DCGCGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -8277,7 +8277,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_DCGCGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_DCGCGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_DCGCGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -8288,7 +8288,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOH_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_DCGCGPIO_R_GPIOH_BIT         (7)
+#define SYSCTL_DCGCGPIO_R_GPIOH_BIT         (7u)
 #define SYSCTL_DCGCGPIO_R_GPIOH_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOH_EN     ((uint32_t)0x00000080u)
 
@@ -8299,7 +8299,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOJ_MASK        ((uint32_t)0x00000100u)
-#define SYSCTL_DCGCGPIO_R_GPIOJ_BIT         (8)
+#define SYSCTL_DCGCGPIO_R_GPIOJ_BIT         (8u)
 #define SYSCTL_DCGCGPIO_R_GPIOJ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOJ_EN     ((uint32_t)0x00000100u)
 
@@ -8310,7 +8310,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOK_MASK        ((uint32_t)0x00000200u)
-#define SYSCTL_DCGCGPIO_R_GPIOK_BIT         (9)
+#define SYSCTL_DCGCGPIO_R_GPIOK_BIT         (9u)
 #define SYSCTL_DCGCGPIO_R_GPIOK_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOK_EN     ((uint32_t)0x00000200u)
 
@@ -8321,7 +8321,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOL_MASK        ((uint32_t)0x00000400u)
-#define SYSCTL_DCGCGPIO_R_GPIOL_BIT         (10)
+#define SYSCTL_DCGCGPIO_R_GPIOL_BIT         (10u)
 #define SYSCTL_DCGCGPIO_R_GPIOL_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOL_EN     ((uint32_t)0x00000400u)
 
@@ -8332,7 +8332,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOM_MASK        ((uint32_t)0x00000800u)
-#define SYSCTL_DCGCGPIO_R_GPIOM_BIT         (11)
+#define SYSCTL_DCGCGPIO_R_GPIOM_BIT         (11u)
 #define SYSCTL_DCGCGPIO_R_GPIOM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOM_EN     ((uint32_t)0x00000800u)
 
@@ -8343,7 +8343,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPION_MASK        ((uint32_t)0x00001000u)
-#define SYSCTL_DCGCGPIO_R_GPION_BIT         (12)
+#define SYSCTL_DCGCGPIO_R_GPION_BIT         (12u)
 #define SYSCTL_DCGCGPIO_R_GPION_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPION_EN     ((uint32_t)0x00001000u)
 
@@ -8354,7 +8354,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOP_MASK        ((uint32_t)0x00002000u)
-#define SYSCTL_DCGCGPIO_R_GPIOP_BIT         (13)
+#define SYSCTL_DCGCGPIO_R_GPIOP_BIT         (13u)
 #define SYSCTL_DCGCGPIO_R_GPIOP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOP_EN     ((uint32_t)0x00002000u)
 
@@ -8365,7 +8365,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCGPIO_R_GPIOQ_MASK        ((uint32_t)0x00004000u)
-#define SYSCTL_DCGCGPIO_R_GPIOQ_BIT         (14)
+#define SYSCTL_DCGCGPIO_R_GPIOQ_BIT         (14u)
 #define SYSCTL_DCGCGPIO_R_GPIOQ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_R_GPIOQ_EN     ((uint32_t)0x00004000u)
 
@@ -8373,32 +8373,32 @@ typedef volatile struct
 #define SYSCTL_DCGCGPIO_GPIOQ_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCGPIO_GPIOQ_EN       ((uint32_t)0x00000001u)
 /*--------*/
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOG_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOH_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOJ_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOK_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOL_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOM_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPION_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOP_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32)+(SYSCTL_DCGCGPIO_R_GPIOQ_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOG_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOH_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOJ_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOK_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOL_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOM_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPION_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOP_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_DCGCGPIO_OFFSET)*32u)+(SYSCTL_DCGCGPIO_R_GPIOQ_BIT*4u))))
 
 /******************************************************************************************
 ************************************93 DCGCDMA *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCDMA            (((PERIPHERAL_DMA_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCDMA_OFFSET )))
 #define SYSCTL_DCGCDMA_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCDMA_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCDMA_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCDMA_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCDMA_R_UDMA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCDMA_R_UDMA_BIT         (0)
+#define SYSCTL_DCGCDMA_R_UDMA_BIT         (0u)
 #define SYSCTL_DCGCDMA_R_UDMA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCDMA_R_UDMA_EN     ((uint32_t)0x00000001u)
 
@@ -8407,18 +8407,18 @@ typedef volatile struct
 #define SYSCTL_DCGCDMA_UDMA_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCDMA_OFFSET)*32)+(SYSCTL_DCGCDMA_R_UDMA_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCDMA_OFFSET)*32u)+(SYSCTL_DCGCDMA_R_UDMA_BIT*4u))))
 
 /******************************************************************************************
 ************************************94 DCGCHIB *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCHIB            (((PERIPHERAL_HIB_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCHIB_OFFSET )))
 #define SYSCTL_DCGCHIB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCHIB_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCHIB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCHIB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCHIB_R_HIB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCHIB_R_HIB_BIT         (0)
+#define SYSCTL_DCGCHIB_R_HIB_BIT         (0u)
 #define SYSCTL_DCGCHIB_R_HIB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCHIB_R_HIB_EN     ((uint32_t)0x00000001u)
 
@@ -8427,18 +8427,18 @@ typedef volatile struct
 #define SYSCTL_DCGCHIB_HIB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCHIB_OFFSET)*32)+(SYSCTL_DCGCHIB_R_HIB_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCHIB_OFFSET)*32u)+(SYSCTL_DCGCHIB_R_HIB_BIT*4u))))
 
 /******************************************************************************************
 ************************************95 DCGCUART *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCUART            (((PERIPHERAL_UART_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCUART_OFFSET )))
 #define SYSCTL_DCGCUART_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCUART_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCUART_R_UART0_BIT         (0)
+#define SYSCTL_DCGCUART_R_UART0_BIT         (0u)
 #define SYSCTL_DCGCUART_R_UART0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART0_EN     ((uint32_t)0x00000001u)
 
@@ -8449,7 +8449,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCUART_R_UART1_BIT         (1)
+#define SYSCTL_DCGCUART_R_UART1_BIT         (1u)
 #define SYSCTL_DCGCUART_R_UART1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART1_EN     ((uint32_t)0x00000002u)
 
@@ -8460,7 +8460,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_DCGCUART_R_UART2_BIT         (2)
+#define SYSCTL_DCGCUART_R_UART2_BIT         (2u)
 #define SYSCTL_DCGCUART_R_UART2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART2_EN     ((uint32_t)0x00000004u)
 
@@ -8471,7 +8471,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_DCGCUART_R_UART3_BIT         (3)
+#define SYSCTL_DCGCUART_R_UART3_BIT         (3u)
 #define SYSCTL_DCGCUART_R_UART3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART3_EN     ((uint32_t)0x00000008u)
 
@@ -8482,7 +8482,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_DCGCUART_R_UART4_BIT         (4)
+#define SYSCTL_DCGCUART_R_UART4_BIT         (4u)
 #define SYSCTL_DCGCUART_R_UART4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART4_EN     ((uint32_t)0x00000010u)
 
@@ -8493,7 +8493,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_DCGCUART_R_UART5_BIT         (5)
+#define SYSCTL_DCGCUART_R_UART5_BIT         (5u)
 #define SYSCTL_DCGCUART_R_UART5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART5_EN     ((uint32_t)0x00000020u)
 
@@ -8504,7 +8504,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART6_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_DCGCUART_R_UART6_BIT         (6)
+#define SYSCTL_DCGCUART_R_UART6_BIT         (6u)
 #define SYSCTL_DCGCUART_R_UART6_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART6_EN     ((uint32_t)0x00000040u)
 
@@ -8515,7 +8515,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCUART_R_UART7_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_DCGCUART_R_UART7_BIT         (7)
+#define SYSCTL_DCGCUART_R_UART7_BIT         (7u)
 #define SYSCTL_DCGCUART_R_UART7_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUART_R_UART7_EN     ((uint32_t)0x00000080u)
 
@@ -8524,25 +8524,25 @@ typedef volatile struct
 #define SYSCTL_DCGCUART_UART7_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART1_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART2_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART3_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART4_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART5_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART6_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32)+(SYSCTL_DCGCUART_R_UART7_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART1_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART2_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART3_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART4_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART5_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART6_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUART_OFFSET)*32u)+(SYSCTL_DCGCUART_R_UART7_BIT*4u))))
 
 /******************************************************************************************
 ************************************96 DCGCSSI *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCSSI            (((PERIPHERAL_SSI_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCSSI_OFFSET )))
 #define SYSCTL_DCGCSSI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCSSI_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCSSI_R_SSI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCSSI_R_SSI0_BIT         (0)
+#define SYSCTL_DCGCSSI_R_SSI0_BIT         (0u)
 #define SYSCTL_DCGCSSI_R_SSI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCSSI_R_SSI0_EN     ((uint32_t)0x00000001u)
 
@@ -8553,7 +8553,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCSSI_R_SSI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCSSI_R_SSI1_BIT         (1)
+#define SYSCTL_DCGCSSI_R_SSI1_BIT         (1u)
 #define SYSCTL_DCGCSSI_R_SSI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCSSI_R_SSI1_EN     ((uint32_t)0x00000002u)
 
@@ -8564,7 +8564,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCSSI_R_SSI2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_DCGCSSI_R_SSI2_BIT         (2)
+#define SYSCTL_DCGCSSI_R_SSI2_BIT         (2u)
 #define SYSCTL_DCGCSSI_R_SSI2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCSSI_R_SSI2_EN     ((uint32_t)0x00000004u)
 
@@ -8575,7 +8575,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCSSI_R_SSI3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_DCGCSSI_R_SSI3_BIT         (3)
+#define SYSCTL_DCGCSSI_R_SSI3_BIT         (3u)
 #define SYSCTL_DCGCSSI_R_SSI3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCSSI_R_SSI3_EN     ((uint32_t)0x00000008u)
 
@@ -8584,21 +8584,21 @@ typedef volatile struct
 #define SYSCTL_DCGCSSI_SSI3_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32)+(SYSCTL_DCGCSSI_R_SSI0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32)+(SYSCTL_DCGCSSI_R_SSI1_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32)+(SYSCTL_DCGCSSI_R_SSI2_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32)+(SYSCTL_DCGCSSI_R_SSI3_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32u)+(SYSCTL_DCGCSSI_R_SSI0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32u)+(SYSCTL_DCGCSSI_R_SSI1_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32u)+(SYSCTL_DCGCSSI_R_SSI2_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCSSI_OFFSET)*32u)+(SYSCTL_DCGCSSI_R_SSI3_BIT*4u))))
 
 /******************************************************************************************
 ************************************97 DCGCI2C *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCI2C            (((PERIPHERAL_I2C_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCI2C_OFFSET )))
 #define SYSCTL_DCGCI2C_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCI2C_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCI2C_R_I2C0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCI2C_R_I2C0_BIT         (0)
+#define SYSCTL_DCGCI2C_R_I2C0_BIT         (0u)
 #define SYSCTL_DCGCI2C_R_I2C0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCI2C_R_I2C0_EN     ((uint32_t)0x00000001u)
 
@@ -8609,7 +8609,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCI2C_R_I2C1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCI2C_R_I2C1_BIT         (1)
+#define SYSCTL_DCGCI2C_R_I2C1_BIT         (1u)
 #define SYSCTL_DCGCI2C_R_I2C1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCI2C_R_I2C1_EN     ((uint32_t)0x00000002u)
 
@@ -8620,7 +8620,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCI2C_R_I2C2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_DCGCI2C_R_I2C2_BIT         (2)
+#define SYSCTL_DCGCI2C_R_I2C2_BIT         (2u)
 #define SYSCTL_DCGCI2C_R_I2C2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCI2C_R_I2C2_EN     ((uint32_t)0x00000004u)
 
@@ -8631,7 +8631,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCI2C_R_I2C3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_DCGCI2C_R_I2C3_BIT         (3)
+#define SYSCTL_DCGCI2C_R_I2C3_BIT         (3u)
 #define SYSCTL_DCGCI2C_R_I2C3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCI2C_R_I2C3_EN     ((uint32_t)0x00000008u)
 
@@ -8642,7 +8642,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCI2C_R_I2C4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_DCGCI2C_R_I2C4_BIT         (4)
+#define SYSCTL_DCGCI2C_R_I2C4_BIT         (4u)
 #define SYSCTL_DCGCI2C_R_I2C4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCI2C_R_I2C4_EN     ((uint32_t)0x00000010u)
 
@@ -8653,7 +8653,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCI2C_R_I2C5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_DCGCI2C_R_I2C5_BIT         (5)
+#define SYSCTL_DCGCI2C_R_I2C5_BIT         (5u)
 #define SYSCTL_DCGCI2C_R_I2C5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCI2C_R_I2C5_EN     ((uint32_t)0x00000020u)
 
@@ -8662,23 +8662,23 @@ typedef volatile struct
 #define SYSCTL_DCGCI2C_I2C5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32)+(SYSCTL_DCGCI2C_R_I2C0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32)+(SYSCTL_DCGCI2C_R_I2C1_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32)+(SYSCTL_DCGCI2C_R_I2C2_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32)+(SYSCTL_DCGCI2C_R_I2C3_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32)+(SYSCTL_DCGCI2C_R_I2C4_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32)+(SYSCTL_DCGCI2C_R_I2C5_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u)+(SYSCTL_DCGCI2C_R_I2C0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u)+(SYSCTL_DCGCI2C_R_I2C1_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u)+(SYSCTL_DCGCI2C_R_I2C2_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u)+(SYSCTL_DCGCI2C_R_I2C3_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u)+(SYSCTL_DCGCI2C_R_I2C4_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCI2C_OFFSET)*32u)+(SYSCTL_DCGCI2C_R_I2C5_BIT*4u))))
 
 /******************************************************************************************
 ************************************98 DCGCUSB *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCUSB            (((PERIPHERAL_USB_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCUSB_OFFSET )))
 #define SYSCTL_DCGCUSB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCUSB_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUSB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUSB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCUSB_R_USB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCUSB_R_USB_BIT         (0)
+#define SYSCTL_DCGCUSB_R_USB_BIT         (0u)
 #define SYSCTL_DCGCUSB_R_USB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCUSB_R_USB_EN     ((uint32_t)0x00000001u)
 
@@ -8687,18 +8687,18 @@ typedef volatile struct
 #define SYSCTL_DCGCUSB_USB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUSB_OFFSET)*32)+(SYSCTL_DCGCUSB_R_USB_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCUSB_OFFSET)*32u)+(SYSCTL_DCGCUSB_R_USB_BIT*4u))))
 
 /******************************************************************************************
 ************************************99 DCGCCAN *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCCAN            (((PERIPHERAL_CAN_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCCAN_OFFSET )))
 #define SYSCTL_DCGCCAN_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCCAN_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCCAN_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCCAN_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCCAN_R_CAN0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCCAN_R_CAN0_BIT         (0)
+#define SYSCTL_DCGCCAN_R_CAN0_BIT         (0u)
 #define SYSCTL_DCGCCAN_R_CAN0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCCAN_R_CAN0_EN     ((uint32_t)0x00000001u)
 
@@ -8709,7 +8709,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCCAN_R_CAN1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCCAN_R_CAN1_BIT         (1)
+#define SYSCTL_DCGCCAN_R_CAN1_BIT         (1u)
 #define SYSCTL_DCGCCAN_R_CAN1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCCAN_R_CAN1_EN     ((uint32_t)0x00000002u)
 
@@ -8718,19 +8718,19 @@ typedef volatile struct
 #define SYSCTL_DCGCCAN_CAN1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCCAN_OFFSET)*32)+(SYSCTL_DCGCCAN_R_CAN0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCCAN_OFFSET)*32)+(SYSCTL_DCGCCAN_R_CAN1_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCCAN_OFFSET)*32u)+(SYSCTL_DCGCCAN_R_CAN0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCCAN_OFFSET)*32u)+(SYSCTL_DCGCCAN_R_CAN1_BIT*4u))))
 
 /******************************************************************************************
 ************************************100 DCGCADC *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCADC            (((PERIPHERAL_ADC_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCADC_OFFSET )))
 #define SYSCTL_DCGCADC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCADC_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCADC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCADC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCADC_R_ADC0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCADC_R_ADC0_BIT         (0)
+#define SYSCTL_DCGCADC_R_ADC0_BIT         (0u)
 #define SYSCTL_DCGCADC_R_ADC0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCADC_R_ADC0_EN     ((uint32_t)0x00000001u)
 
@@ -8741,7 +8741,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCADC_R_ADC1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCADC_R_ADC1_BIT         (1)
+#define SYSCTL_DCGCADC_R_ADC1_BIT         (1u)
 #define SYSCTL_DCGCADC_R_ADC1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCADC_R_ADC1_EN     ((uint32_t)0x00000002u)
 
@@ -8750,19 +8750,19 @@ typedef volatile struct
 #define SYSCTL_DCGCADC_ADC1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCADC_OFFSET)*32)+(SYSCTL_DCGCADC_R_ADC0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCADC_OFFSET)*32)+(SYSCTL_DCGCADC_R_ADC1_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCADC_OFFSET)*32u)+(SYSCTL_DCGCADC_R_ADC0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCADC_OFFSET)*32u)+(SYSCTL_DCGCADC_R_ADC1_BIT*4u))))
 
 /******************************************************************************************
 ************************************101 DCGCACMP *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCACMP            (((PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCACMP_OFFSET )))
 #define SYSCTL_DCGCACMP_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCACMP_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCACMP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCACMP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCACMP_R_ACMP_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCACMP_R_ACMP_BIT         (0)
+#define SYSCTL_DCGCACMP_R_ACMP_BIT         (0u)
 #define SYSCTL_DCGCACMP_R_ACMP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCACMP_R_ACMP_EN     ((uint32_t)0x00000001u)
 
@@ -8771,18 +8771,18 @@ typedef volatile struct
 #define SYSCTL_DCGCACMP_ACMP_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCACMP_OFFSET)*32)+(SYSCTL_DCGCACMP_R_ACMP_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCACMP_OFFSET)*32u)+(SYSCTL_DCGCACMP_R_ACMP_BIT*4u))))
 
 /****************************************************************************************
 ************************************102 DCGCPWM *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCPWM            (((PERIPHERAL_PWM_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCPWM_OFFSET )))
 #define SYSCTL_DCGCPWM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCPWM_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCPWM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCPWM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCPWM_R_PWM0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCPWM_R_PWM0_BIT         (0)
+#define SYSCTL_DCGCPWM_R_PWM0_BIT         (0u)
 #define SYSCTL_DCGCPWM_R_PWM0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCPWM_R_PWM0_EN     ((uint32_t)0x00000001u)
 
@@ -8793,7 +8793,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCPWM_R_PWM1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCPWM_R_PWM1_BIT         (1)
+#define SYSCTL_DCGCPWM_R_PWM1_BIT         (1u)
 #define SYSCTL_DCGCPWM_R_PWM1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCPWM_R_PWM1_EN     ((uint32_t)0x00000002u)
 
@@ -8802,19 +8802,19 @@ typedef volatile struct
 #define SYSCTL_DCGCPWM_PWM1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCPWM_OFFSET)*32)+(SYSCTL_DCGCPWM_R_PWM0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCPWM_OFFSET)*32)+(SYSCTL_DCGCPWM_R_PWM1_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCPWM_OFFSET)*32u)+(SYSCTL_DCGCPWM_R_PWM0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCPWM_OFFSET)*32u)+(SYSCTL_DCGCPWM_R_PWM1_BIT*4u))))
 
 /******************************************************************************************
 ************************************103 DCGCQEI *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCQEI            (((PERIPHERAL_QEI_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCQEI_OFFSET )))
 #define SYSCTL_DCGCQEI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCQEI_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCQEI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCQEI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCQEI_R_QEI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCQEI_R_QEI0_BIT         (0)
+#define SYSCTL_DCGCQEI_R_QEI0_BIT         (0u)
 #define SYSCTL_DCGCQEI_R_QEI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCQEI_R_QEI0_EN     ((uint32_t)0x00000001u)
 
@@ -8825,7 +8825,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCQEI_R_QEI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCQEI_R_QEI1_BIT         (1)
+#define SYSCTL_DCGCQEI_R_QEI1_BIT         (1u)
 #define SYSCTL_DCGCQEI_R_QEI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCQEI_R_QEI1_EN     ((uint32_t)0x00000002u)
 
@@ -8834,19 +8834,19 @@ typedef volatile struct
 #define SYSCTL_DCGCQEI_QEI1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCQEI_OFFSET)*32)+(SYSCTL_DCGCQEI_R_QEI0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCQEI_OFFSET)*32)+(SYSCTL_DCGCQEI_R_QEI1_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCQEI_OFFSET)*32u)+(SYSCTL_DCGCQEI_R_QEI0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCQEI_OFFSET)*32u)+(SYSCTL_DCGCQEI_R_QEI1_BIT*4u))))
 
 /******************************************************************************************
 ************************************104 DCGCEEPROM *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGCEEPROM            (((PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCEEPROM_OFFSET )))
 #define SYSCTL_DCGCEEPROM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCEEPROM_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCEEPROM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCEEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCEEPROM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCEEPROM_R_EEPROM_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCEEPROM_R_EEPROM_BIT         (0)
+#define SYSCTL_DCGCEEPROM_R_EEPROM_BIT         (0u)
 #define SYSCTL_DCGCEEPROM_R_EEPROM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCEEPROM_R_EEPROM_EN     ((uint32_t)0x00000001u)
 
@@ -8855,7 +8855,7 @@ typedef volatile struct
 #define SYSCTL_DCGCEEPROM_EEPROM_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCEEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCEEPROM_OFFSET)*32)+(SYSCTL_DCGCEEPROM_R_EEPROM_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCEEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCEEPROM_OFFSET)*32u)+(SYSCTL_DCGCEEPROM_R_EEPROM_BIT*4u))))
 
 
 /**********************************************************************************
@@ -8863,11 +8863,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_DCGCWTIMER            (((PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGCWTIMER_OFFSET )))
 #define SYSCTL_DCGCWTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_DCGCWTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_DCGCWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGCWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_DCGCWTIMER_R_WTIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_DCGCWTIMER_R_WTIMER0_BIT         (0)
+#define SYSCTL_DCGCWTIMER_R_WTIMER0_BIT         (0u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -8878,7 +8878,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCWTIMER_R_WTIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_DCGCWTIMER_R_WTIMER1_BIT         (1)
+#define SYSCTL_DCGCWTIMER_R_WTIMER1_BIT         (1u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -8889,7 +8889,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCWTIMER_R_WTIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_DCGCWTIMER_R_WTIMER2_BIT         (2)
+#define SYSCTL_DCGCWTIMER_R_WTIMER2_BIT         (2u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -8900,7 +8900,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCWTIMER_R_WTIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_DCGCWTIMER_R_WTIMER3_BIT         (3)
+#define SYSCTL_DCGCWTIMER_R_WTIMER3_BIT         (3u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -8911,7 +8911,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCWTIMER_R_WTIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_DCGCWTIMER_R_WTIMER4_BIT         (4)
+#define SYSCTL_DCGCWTIMER_R_WTIMER4_BIT         (4u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -8922,7 +8922,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_DCGCWTIMER_R_WTIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_DCGCWTIMER_R_WTIMER5_BIT         (5)
+#define SYSCTL_DCGCWTIMER_R_WTIMER5_BIT         (5u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_DCGCWTIMER_R_WTIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -8931,23 +8931,23 @@ typedef volatile struct
 #define SYSCTL_DCGCWTIMER_WTIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32)+(SYSCTL_DCGCWTIMER_R_WTIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32)+(SYSCTL_DCGCWTIMER_R_WTIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32)+(SYSCTL_DCGCWTIMER_R_WTIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32)+(SYSCTL_DCGCWTIMER_R_WTIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32)+(SYSCTL_DCGCWTIMER_R_WTIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32)+(SYSCTL_DCGCWTIMER_R_WTIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u)+(SYSCTL_DCGCWTIMER_R_WTIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u)+(SYSCTL_DCGCWTIMER_R_WTIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u)+(SYSCTL_DCGCWTIMER_R_WTIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u)+(SYSCTL_DCGCWTIMER_R_WTIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u)+(SYSCTL_DCGCWTIMER_R_WTIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGCWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGCWTIMER_OFFSET)*32u)+(SYSCTL_DCGCWTIMER_R_WTIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************106 PRWD *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRWD            (((PERIPHERAL_WD_TypeDef*)(SYSCTL_BASE+SYSCTL_PRWD_OFFSET )))
 #define SYSCTL_PRWD_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRWD_OFFSET)))
-#define SYSCTL_BITBANDING_PRWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWD_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRWD      (((BITBANDING_PERIPHERAL_WD_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWD_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRWD_R_WDT0_MASK         ((uint32_t)0x00000001u)
-#define SYSCTL_PRWD_R_WDT0_BIT          (0)
+#define SYSCTL_PRWD_R_WDT0_BIT          (0u)
 #define SYSCTL_PRWD_R_WDT0_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_PRWD_R_WDT0_EN      ((uint32_t)0x00000001u)
 
@@ -8958,7 +8958,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRWD_R_WDT1_MASK         ((uint32_t)0x00000002u)
-#define SYSCTL_PRWD_R_WDT1_BIT          (1)
+#define SYSCTL_PRWD_R_WDT1_BIT          (1u)
 #define SYSCTL_PRWD_R_WDT1_DIS    ((uint32_t)0x00000000u)
 #define SYSCTL_PRWD_R_WDT1_EN      ((uint32_t)0x00000002u)
 
@@ -8967,19 +8967,19 @@ typedef volatile struct
 #define SYSCTL_PRWD_WDT1_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWD_OFFSET)*32)+(SYSCTL_PRWD_R_WDT0_BIT*4))))
-#define SYSCTL_BITBANDING_PRWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWD_OFFSET)*32)+(SYSCTL_PRWD_R_WDT1_BIT*4))))
+#define SYSCTL_BITBANDING_PRWD_WDT0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWD_OFFSET)*32u)+(SYSCTL_PRWD_R_WDT0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRWD_WDT1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWD_OFFSET)*32u)+(SYSCTL_PRWD_R_WDT1_BIT*4u))))
 
 /******************************************************************************************
 ************************************107 PRTIMER *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRTIMER            (((PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_PRTIMER_OFFSET )))
 #define SYSCTL_PRTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_PRTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRTIMER      (((BITBANDING_PERIPHERAL_TIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRTIMER_R_TIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRTIMER_R_TIMER0_BIT         (0)
+#define SYSCTL_PRTIMER_R_TIMER0_BIT         (0u)
 #define SYSCTL_PRTIMER_R_TIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRTIMER_R_TIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -8990,7 +8990,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRTIMER_R_TIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRTIMER_R_TIMER1_BIT         (1)
+#define SYSCTL_PRTIMER_R_TIMER1_BIT         (1u)
 #define SYSCTL_PRTIMER_R_TIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRTIMER_R_TIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -9001,7 +9001,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRTIMER_R_TIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PRTIMER_R_TIMER2_BIT         (2)
+#define SYSCTL_PRTIMER_R_TIMER2_BIT         (2u)
 #define SYSCTL_PRTIMER_R_TIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRTIMER_R_TIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -9012,7 +9012,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRTIMER_R_TIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PRTIMER_R_TIMER3_BIT         (3)
+#define SYSCTL_PRTIMER_R_TIMER3_BIT         (3u)
 #define SYSCTL_PRTIMER_R_TIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRTIMER_R_TIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -9023,7 +9023,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRTIMER_R_TIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PRTIMER_R_TIMER4_BIT         (4)
+#define SYSCTL_PRTIMER_R_TIMER4_BIT         (4u)
 #define SYSCTL_PRTIMER_R_TIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRTIMER_R_TIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -9034,7 +9034,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRTIMER_R_TIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PRTIMER_R_TIMER5_BIT         (5)
+#define SYSCTL_PRTIMER_R_TIMER5_BIT         (5u)
 #define SYSCTL_PRTIMER_R_TIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRTIMER_R_TIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -9043,23 +9043,23 @@ typedef volatile struct
 #define SYSCTL_PRTIMER_TIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32)+(SYSCTL_PRTIMER_R_TIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_PRTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32)+(SYSCTL_PRTIMER_R_TIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_PRTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32)+(SYSCTL_PRTIMER_R_TIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_PRTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32)+(SYSCTL_PRTIMER_R_TIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_PRTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32)+(SYSCTL_PRTIMER_R_TIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_PRTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32)+(SYSCTL_PRTIMER_R_TIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_PRTIMER_TIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u)+(SYSCTL_PRTIMER_R_TIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRTIMER_TIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u)+(SYSCTL_PRTIMER_R_TIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_PRTIMER_TIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u)+(SYSCTL_PRTIMER_R_TIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_PRTIMER_TIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u)+(SYSCTL_PRTIMER_R_TIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_PRTIMER_TIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u)+(SYSCTL_PRTIMER_R_TIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_PRTIMER_TIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRTIMER_OFFSET)*32u)+(SYSCTL_PRTIMER_R_TIMER5_BIT*4u))))
 
 /******************************************************************************************
 ************************************108 PRGPIO *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRGPIO            (((PERIPHERAL_GPIO_TypeDef*)(SYSCTL_BASE+SYSCTL_PRGPIO_OFFSET )))
 #define SYSCTL_PRGPIO_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRGPIO_OFFSET)))
-#define SYSCTL_BITBANDING_PRGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRGPIO      (((BITBANDING_PERIPHERAL_GPIO_BITBANDING_TypeDef*)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRGPIO_R_GPIOA_BIT         (0)
+#define SYSCTL_PRGPIO_R_GPIOA_BIT         (0u)
 #define SYSCTL_PRGPIO_R_GPIOA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOA_EN     ((uint32_t)0x00000001u)
 
@@ -9070,7 +9070,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOB_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRGPIO_R_GPIOB_BIT         (1)
+#define SYSCTL_PRGPIO_R_GPIOB_BIT         (1u)
 #define SYSCTL_PRGPIO_R_GPIOB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOB_EN     ((uint32_t)0x00000002u)
 
@@ -9081,7 +9081,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOC_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PRGPIO_R_GPIOC_BIT         (2)
+#define SYSCTL_PRGPIO_R_GPIOC_BIT         (2u)
 #define SYSCTL_PRGPIO_R_GPIOC_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOC_EN     ((uint32_t)0x00000004u)
 
@@ -9092,7 +9092,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOD_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PRGPIO_R_GPIOD_BIT         (3)
+#define SYSCTL_PRGPIO_R_GPIOD_BIT         (3u)
 #define SYSCTL_PRGPIO_R_GPIOD_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOD_EN     ((uint32_t)0x00000008u)
 
@@ -9103,7 +9103,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOE_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PRGPIO_R_GPIOE_BIT         (4)
+#define SYSCTL_PRGPIO_R_GPIOE_BIT         (4u)
 #define SYSCTL_PRGPIO_R_GPIOE_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOE_EN     ((uint32_t)0x00000010u)
 
@@ -9114,7 +9114,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOF_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PRGPIO_R_GPIOF_BIT         (5)
+#define SYSCTL_PRGPIO_R_GPIOF_BIT         (5u)
 #define SYSCTL_PRGPIO_R_GPIOF_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOF_EN     ((uint32_t)0x00000020u)
 
@@ -9125,7 +9125,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_PRGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_PRGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_PRGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -9136,7 +9136,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOG_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_PRGPIO_R_GPIOG_BIT         (6)
+#define SYSCTL_PRGPIO_R_GPIOG_BIT         (6u)
 #define SYSCTL_PRGPIO_R_GPIOG_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOG_EN     ((uint32_t)0x00000040u)
 
@@ -9147,7 +9147,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOH_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_PRGPIO_R_GPIOH_BIT         (7)
+#define SYSCTL_PRGPIO_R_GPIOH_BIT         (7u)
 #define SYSCTL_PRGPIO_R_GPIOH_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOH_EN     ((uint32_t)0x00000080u)
 
@@ -9158,7 +9158,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOJ_MASK        ((uint32_t)0x00000100u)
-#define SYSCTL_PRGPIO_R_GPIOJ_BIT         (8)
+#define SYSCTL_PRGPIO_R_GPIOJ_BIT         (8u)
 #define SYSCTL_PRGPIO_R_GPIOJ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOJ_EN     ((uint32_t)0x00000100u)
 
@@ -9169,7 +9169,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOK_MASK        ((uint32_t)0x00000200u)
-#define SYSCTL_PRGPIO_R_GPIOK_BIT         (9)
+#define SYSCTL_PRGPIO_R_GPIOK_BIT         (9u)
 #define SYSCTL_PRGPIO_R_GPIOK_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOK_EN     ((uint32_t)0x00000200u)
 
@@ -9180,7 +9180,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOL_MASK        ((uint32_t)0x00000400u)
-#define SYSCTL_PRGPIO_R_GPIOL_BIT         (10)
+#define SYSCTL_PRGPIO_R_GPIOL_BIT         (10u)
 #define SYSCTL_PRGPIO_R_GPIOL_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOL_EN     ((uint32_t)0x00000400u)
 
@@ -9191,7 +9191,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOM_MASK        ((uint32_t)0x00000800u)
-#define SYSCTL_PRGPIO_R_GPIOM_BIT         (11)
+#define SYSCTL_PRGPIO_R_GPIOM_BIT         (11u)
 #define SYSCTL_PRGPIO_R_GPIOM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOM_EN     ((uint32_t)0x00000800u)
 
@@ -9202,7 +9202,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPION_MASK        ((uint32_t)0x00001000u)
-#define SYSCTL_PRGPIO_R_GPION_BIT         (12)
+#define SYSCTL_PRGPIO_R_GPION_BIT         (12u)
 #define SYSCTL_PRGPIO_R_GPION_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPION_EN     ((uint32_t)0x00001000u)
 
@@ -9213,7 +9213,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOP_MASK        ((uint32_t)0x00002000u)
-#define SYSCTL_PRGPIO_R_GPIOP_BIT         (13)
+#define SYSCTL_PRGPIO_R_GPIOP_BIT         (13u)
 #define SYSCTL_PRGPIO_R_GPIOP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOP_EN     ((uint32_t)0x00002000u)
 
@@ -9224,7 +9224,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRGPIO_R_GPIOQ_MASK        ((uint32_t)0x00004000u)
-#define SYSCTL_PRGPIO_R_GPIOQ_BIT         (14)
+#define SYSCTL_PRGPIO_R_GPIOQ_BIT         (14u)
 #define SYSCTL_PRGPIO_R_GPIOQ_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_R_GPIOQ_EN     ((uint32_t)0x00004000u)
 
@@ -9232,32 +9232,32 @@ typedef volatile struct
 #define SYSCTL_PRGPIO_GPIOQ_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_PRGPIO_GPIOQ_EN       ((uint32_t)0x00000001u)
 /*--------*/
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOG_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOH_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOJ_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOK_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOL_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOM_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPION_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOP_BIT*4))))
-#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32)+(SYSCTL_PRGPIO_R_GPIOQ_BIT*4))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOA    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOB    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOC    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOD    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOE    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOF    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOG    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOG_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOH    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOH_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOJ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOJ_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOK    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOK_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOL    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOL_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOM    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOM_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPION    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPION_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOP    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOP_BIT*4u))))
+#define SYSCTL_BITBANDING_PRGPIO_BITBANDING_GPIOQ    (*((volatile uint32_t *)(SYSCTL_BASE +((SYSCTL_OFFSET+SYSCTL_PRGPIO_OFFSET)*32u)+(SYSCTL_PRGPIO_R_GPIOQ_BIT*4u))))
 
 /******************************************************************************************
 ************************************109 PRDMA *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRDMA            (((PERIPHERAL_DMA_TypeDef*)(SYSCTL_BASE+SYSCTL_PRDMA_OFFSET )))
 #define SYSCTL_PRDMA_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRDMA_OFFSET)))
-#define SYSCTL_BITBANDING_PRDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRDMA_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRDMA      (((BITBANDING_PERIPHERAL_DMA_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRDMA_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRDMA_R_UDMA_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRDMA_R_UDMA_BIT         (0)
+#define SYSCTL_PRDMA_R_UDMA_BIT         (0u)
 #define SYSCTL_PRDMA_R_UDMA_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRDMA_R_UDMA_EN     ((uint32_t)0x00000001u)
 
@@ -9266,18 +9266,18 @@ typedef volatile struct
 #define SYSCTL_PRDMA_UDMA_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRDMA_OFFSET)*32)+(SYSCTL_PRDMA_R_UDMA_BIT*4))))
+#define SYSCTL_BITBANDING_PRDMA_UDMA    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRDMA_OFFSET)*32u)+(SYSCTL_PRDMA_R_UDMA_BIT*4u))))
 
 /******************************************************************************************
 ************************************110 PRHIB *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRHIB            (((PERIPHERAL_HIB_TypeDef*)(SYSCTL_BASE+SYSCTL_PRHIB_OFFSET )))
 #define SYSCTL_PRHIB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRHIB_OFFSET)))
-#define SYSCTL_BITBANDING_PRHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRHIB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRHIB      (((BITBANDING_PERIPHERAL_HIB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRHIB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRHIB_R_HIB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRHIB_R_HIB_BIT         (0)
+#define SYSCTL_PRHIB_R_HIB_BIT         (0u)
 #define SYSCTL_PRHIB_R_HIB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRHIB_R_HIB_EN     ((uint32_t)0x00000001u)
 
@@ -9286,18 +9286,18 @@ typedef volatile struct
 #define SYSCTL_PRHIB_HIB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRHIB_OFFSET)*32)+(SYSCTL_PRHIB_R_HIB_BIT*4))))
+#define SYSCTL_BITBANDING_PRHIB_HIB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRHIB_OFFSET)*32u)+(SYSCTL_PRHIB_R_HIB_BIT*4u))))
 
 /******************************************************************************************
 ************************************111 PRUART *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRUART            (((PERIPHERAL_UART_TypeDef*)(SYSCTL_BASE+SYSCTL_PRUART_OFFSET )))
 #define SYSCTL_PRUART_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRUART_OFFSET)))
-#define SYSCTL_BITBANDING_PRUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRUART      (((BITBANDING_PERIPHERAL_UART_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRUART_R_UART0_BIT         (0)
+#define SYSCTL_PRUART_R_UART0_BIT         (0u)
 #define SYSCTL_PRUART_R_UART0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART0_EN     ((uint32_t)0x00000001u)
 
@@ -9308,7 +9308,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRUART_R_UART1_BIT         (1)
+#define SYSCTL_PRUART_R_UART1_BIT         (1u)
 #define SYSCTL_PRUART_R_UART1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART1_EN     ((uint32_t)0x00000002u)
 
@@ -9319,7 +9319,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PRUART_R_UART2_BIT         (2)
+#define SYSCTL_PRUART_R_UART2_BIT         (2u)
 #define SYSCTL_PRUART_R_UART2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART2_EN     ((uint32_t)0x00000004u)
 
@@ -9330,7 +9330,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PRUART_R_UART3_BIT         (3)
+#define SYSCTL_PRUART_R_UART3_BIT         (3u)
 #define SYSCTL_PRUART_R_UART3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART3_EN     ((uint32_t)0x00000008u)
 
@@ -9341,7 +9341,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PRUART_R_UART4_BIT         (4)
+#define SYSCTL_PRUART_R_UART4_BIT         (4u)
 #define SYSCTL_PRUART_R_UART4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART4_EN     ((uint32_t)0x00000010u)
 
@@ -9352,7 +9352,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PRUART_R_UART5_BIT         (5)
+#define SYSCTL_PRUART_R_UART5_BIT         (5u)
 #define SYSCTL_PRUART_R_UART5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART5_EN     ((uint32_t)0x00000020u)
 
@@ -9363,7 +9363,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART6_MASK        ((uint32_t)0x00000040u)
-#define SYSCTL_PRUART_R_UART6_BIT         (6)
+#define SYSCTL_PRUART_R_UART6_BIT         (6u)
 #define SYSCTL_PRUART_R_UART6_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART6_EN     ((uint32_t)0x00000040u)
 
@@ -9374,7 +9374,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRUART_R_UART7_MASK        ((uint32_t)0x00000080u)
-#define SYSCTL_PRUART_R_UART7_BIT         (7)
+#define SYSCTL_PRUART_R_UART7_BIT         (7u)
 #define SYSCTL_PRUART_R_UART7_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUART_R_UART7_EN     ((uint32_t)0x00000080u)
 
@@ -9383,25 +9383,25 @@ typedef volatile struct
 #define SYSCTL_PRUART_UART7_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART0_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART1_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART2_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART3_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART4_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART5_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART6_BIT*4))))
-#define SYSCTL_BITBANDING_PRUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32)+(SYSCTL_PRUART_R_UART7_BIT*4))))
+#define SYSCTL_BITBANDING_PRUART_UART0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART1_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART2_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART3_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART4_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART5_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART6    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART6_BIT*4u))))
+#define SYSCTL_BITBANDING_PRUART_UART7    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUART_OFFSET)*32u)+(SYSCTL_PRUART_R_UART7_BIT*4u))))
 
 /******************************************************************************************
 ************************************112 PRSSI *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRSSI            (((PERIPHERAL_SSI_TypeDef*)(SYSCTL_BASE+SYSCTL_PRSSI_OFFSET )))
 #define SYSCTL_PRSSI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRSSI_OFFSET)))
-#define SYSCTL_BITBANDING_PRSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRSSI      (((BITBANDING_PERIPHERAL_SSI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRSSI_R_SSI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRSSI_R_SSI0_BIT         (0)
+#define SYSCTL_PRSSI_R_SSI0_BIT         (0u)
 #define SYSCTL_PRSSI_R_SSI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRSSI_R_SSI0_EN     ((uint32_t)0x00000001u)
 
@@ -9412,7 +9412,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRSSI_R_SSI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRSSI_R_SSI1_BIT         (1)
+#define SYSCTL_PRSSI_R_SSI1_BIT         (1u)
 #define SYSCTL_PRSSI_R_SSI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRSSI_R_SSI1_EN     ((uint32_t)0x00000002u)
 
@@ -9423,7 +9423,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRSSI_R_SSI2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PRSSI_R_SSI2_BIT         (2)
+#define SYSCTL_PRSSI_R_SSI2_BIT         (2u)
 #define SYSCTL_PRSSI_R_SSI2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRSSI_R_SSI2_EN     ((uint32_t)0x00000004u)
 
@@ -9434,7 +9434,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRSSI_R_SSI3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PRSSI_R_SSI3_BIT         (3)
+#define SYSCTL_PRSSI_R_SSI3_BIT         (3u)
 #define SYSCTL_PRSSI_R_SSI3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRSSI_R_SSI3_EN     ((uint32_t)0x00000008u)
 
@@ -9443,21 +9443,21 @@ typedef volatile struct
 #define SYSCTL_PRSSI_SSI3_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32)+(SYSCTL_PRSSI_R_SSI0_BIT*4))))
-#define SYSCTL_BITBANDING_PRSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32)+(SYSCTL_PRSSI_R_SSI1_BIT*4))))
-#define SYSCTL_BITBANDING_PRSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32)+(SYSCTL_PRSSI_R_SSI2_BIT*4))))
-#define SYSCTL_BITBANDING_PRSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32)+(SYSCTL_PRSSI_R_SSI3_BIT*4))))
+#define SYSCTL_BITBANDING_PRSSI_SSI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32u)+(SYSCTL_PRSSI_R_SSI0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRSSI_SSI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32u)+(SYSCTL_PRSSI_R_SSI1_BIT*4u))))
+#define SYSCTL_BITBANDING_PRSSI_SSI2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32u)+(SYSCTL_PRSSI_R_SSI2_BIT*4u))))
+#define SYSCTL_BITBANDING_PRSSI_SSI3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRSSI_OFFSET)*32u)+(SYSCTL_PRSSI_R_SSI3_BIT*4u))))
 
 /******************************************************************************************
 ************************************113 PRI2C *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRI2C            (((PERIPHERAL_I2C_TypeDef*)(SYSCTL_BASE+SYSCTL_PRI2C_OFFSET )))
 #define SYSCTL_PRI2C_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRI2C_OFFSET)))
-#define SYSCTL_BITBANDING_PRI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRI2C      (((BITBANDING_PERIPHERAL_I2C_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRI2C_R_I2C0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRI2C_R_I2C0_BIT         (0)
+#define SYSCTL_PRI2C_R_I2C0_BIT         (0u)
 #define SYSCTL_PRI2C_R_I2C0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRI2C_R_I2C0_EN     ((uint32_t)0x00000001u)
 
@@ -9468,7 +9468,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRI2C_R_I2C1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRI2C_R_I2C1_BIT         (1)
+#define SYSCTL_PRI2C_R_I2C1_BIT         (1u)
 #define SYSCTL_PRI2C_R_I2C1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRI2C_R_I2C1_EN     ((uint32_t)0x00000002u)
 
@@ -9479,7 +9479,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRI2C_R_I2C2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PRI2C_R_I2C2_BIT         (2)
+#define SYSCTL_PRI2C_R_I2C2_BIT         (2u)
 #define SYSCTL_PRI2C_R_I2C2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRI2C_R_I2C2_EN     ((uint32_t)0x00000004u)
 
@@ -9490,7 +9490,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRI2C_R_I2C3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PRI2C_R_I2C3_BIT         (3)
+#define SYSCTL_PRI2C_R_I2C3_BIT         (3u)
 #define SYSCTL_PRI2C_R_I2C3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRI2C_R_I2C3_EN     ((uint32_t)0x00000008u)
 
@@ -9501,7 +9501,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRI2C_R_I2C4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PRI2C_R_I2C4_BIT         (4)
+#define SYSCTL_PRI2C_R_I2C4_BIT         (4u)
 #define SYSCTL_PRI2C_R_I2C4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRI2C_R_I2C4_EN     ((uint32_t)0x00000010u)
 
@@ -9512,7 +9512,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRI2C_R_I2C5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PRI2C_R_I2C5_BIT         (5)
+#define SYSCTL_PRI2C_R_I2C5_BIT         (5u)
 #define SYSCTL_PRI2C_R_I2C5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRI2C_R_I2C5_EN     ((uint32_t)0x00000020u)
 
@@ -9521,23 +9521,23 @@ typedef volatile struct
 #define SYSCTL_PRI2C_I2C5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32)+(SYSCTL_PRI2C_R_I2C0_BIT*4))))
-#define SYSCTL_BITBANDING_PRI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32)+(SYSCTL_PRI2C_R_I2C1_BIT*4))))
-#define SYSCTL_BITBANDING_PRI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32)+(SYSCTL_PRI2C_R_I2C2_BIT*4))))
-#define SYSCTL_BITBANDING_PRI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32)+(SYSCTL_PRI2C_R_I2C3_BIT*4))))
-#define SYSCTL_BITBANDING_PRI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32)+(SYSCTL_PRI2C_R_I2C4_BIT*4))))
-#define SYSCTL_BITBANDING_PRI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32)+(SYSCTL_PRI2C_R_I2C5_BIT*4))))
+#define SYSCTL_BITBANDING_PRI2C_I2C0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u)+(SYSCTL_PRI2C_R_I2C0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRI2C_I2C1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u)+(SYSCTL_PRI2C_R_I2C1_BIT*4u))))
+#define SYSCTL_BITBANDING_PRI2C_I2C2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u)+(SYSCTL_PRI2C_R_I2C2_BIT*4u))))
+#define SYSCTL_BITBANDING_PRI2C_I2C3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u)+(SYSCTL_PRI2C_R_I2C3_BIT*4u))))
+#define SYSCTL_BITBANDING_PRI2C_I2C4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u)+(SYSCTL_PRI2C_R_I2C4_BIT*4u))))
+#define SYSCTL_BITBANDING_PRI2C_I2C5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRI2C_OFFSET)*32u)+(SYSCTL_PRI2C_R_I2C5_BIT*4u))))
 
 /******************************************************************************************
 ************************************114 PRUSB *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRUSB            (((PERIPHERAL_USB_TypeDef*)(SYSCTL_BASE+SYSCTL_PRUSB_OFFSET )))
 #define SYSCTL_PRUSB_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRUSB_OFFSET)))
-#define SYSCTL_BITBANDING_PRUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUSB_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRUSB      (((BITBANDING_PERIPHERAL_USB_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUSB_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRUSB_R_USB_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRUSB_R_USB_BIT         (0)
+#define SYSCTL_PRUSB_R_USB_BIT         (0u)
 #define SYSCTL_PRUSB_R_USB_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRUSB_R_USB_EN     ((uint32_t)0x00000001u)
 
@@ -9546,18 +9546,18 @@ typedef volatile struct
 #define SYSCTL_PRUSB_USB_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUSB_OFFSET)*32)+(SYSCTL_PRUSB_R_USB_BIT*4))))
+#define SYSCTL_BITBANDING_PRUSB_USB    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRUSB_OFFSET)*32u)+(SYSCTL_PRUSB_R_USB_BIT*4u))))
 
 /******************************************************************************************
 ************************************115 PRCAN *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRCAN            (((PERIPHERAL_CAN_TypeDef*)(SYSCTL_BASE+SYSCTL_PRCAN_OFFSET )))
 #define SYSCTL_PRCAN_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRCAN_OFFSET)))
-#define SYSCTL_BITBANDING_PRCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRCAN_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRCAN      (((BITBANDING_PERIPHERAL_CAN_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRCAN_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRCAN_R_CAN0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRCAN_R_CAN0_BIT         (0)
+#define SYSCTL_PRCAN_R_CAN0_BIT         (0u)
 #define SYSCTL_PRCAN_R_CAN0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRCAN_R_CAN0_EN     ((uint32_t)0x00000001u)
 
@@ -9568,7 +9568,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRCAN_R_CAN1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRCAN_R_CAN1_BIT         (1)
+#define SYSCTL_PRCAN_R_CAN1_BIT         (1u)
 #define SYSCTL_PRCAN_R_CAN1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRCAN_R_CAN1_EN     ((uint32_t)0x00000002u)
 
@@ -9577,19 +9577,19 @@ typedef volatile struct
 #define SYSCTL_PRCAN_CAN1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRCAN_OFFSET)*32)+(SYSCTL_PRCAN_R_CAN0_BIT*4))))
-#define SYSCTL_BITBANDING_PRCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRCAN_OFFSET)*32)+(SYSCTL_PRCAN_R_CAN1_BIT*4))))
+#define SYSCTL_BITBANDING_PRCAN_CAN0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRCAN_OFFSET)*32u)+(SYSCTL_PRCAN_R_CAN0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRCAN_CAN1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRCAN_OFFSET)*32u)+(SYSCTL_PRCAN_R_CAN1_BIT*4u))))
 
 /******************************************************************************************
 ************************************116 PRADC *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRADC            (((PERIPHERAL_ADC_TypeDef*)(SYSCTL_BASE+SYSCTL_PRADC_OFFSET )))
 #define SYSCTL_PRADC_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRADC_OFFSET)))
-#define SYSCTL_BITBANDING_PRADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRADC_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRADC      (((BITBANDING_PERIPHERAL_ADC_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRADC_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRADC_R_ADC0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRADC_R_ADC0_BIT         (0)
+#define SYSCTL_PRADC_R_ADC0_BIT         (0u)
 #define SYSCTL_PRADC_R_ADC0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRADC_R_ADC0_EN     ((uint32_t)0x00000001u)
 
@@ -9600,7 +9600,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRADC_R_ADC1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRADC_R_ADC1_BIT         (1)
+#define SYSCTL_PRADC_R_ADC1_BIT         (1u)
 #define SYSCTL_PRADC_R_ADC1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRADC_R_ADC1_EN     ((uint32_t)0x00000002u)
 
@@ -9609,19 +9609,19 @@ typedef volatile struct
 #define SYSCTL_PRADC_ADC1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRADC_OFFSET)*32)+(SYSCTL_PRADC_R_ADC0_BIT*4))))
-#define SYSCTL_BITBANDING_PRADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRADC_OFFSET)*32)+(SYSCTL_PRADC_R_ADC1_BIT*4))))
+#define SYSCTL_BITBANDING_PRADC_ADC0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRADC_OFFSET)*32u)+(SYSCTL_PRADC_R_ADC0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRADC_ADC1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRADC_OFFSET)*32u)+(SYSCTL_PRADC_R_ADC1_BIT*4u))))
 
 /******************************************************************************************
 ************************************117 PRACMP *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRACMP            (((PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BASE+SYSCTL_PRACMP_OFFSET )))
 #define SYSCTL_PRACMP_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRACMP_OFFSET)))
-#define SYSCTL_BITBANDING_PRACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRACMP_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRACMP      (((BITBANDING_PERIPHERAL_ACMP_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRACMP_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRACMP_R_ACMP_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRACMP_R_ACMP_BIT         (0)
+#define SYSCTL_PRACMP_R_ACMP_BIT         (0u)
 #define SYSCTL_PRACMP_R_ACMP_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRACMP_R_ACMP_EN     ((uint32_t)0x00000001u)
 
@@ -9630,18 +9630,18 @@ typedef volatile struct
 #define SYSCTL_PRACMP_ACMP_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRACMP_OFFSET)*32)+(SYSCTL_PRACMP_R_ACMP_BIT*4))))
+#define SYSCTL_BITBANDING_PRACMP_ACMP    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRACMP_OFFSET)*32u)+(SYSCTL_PRACMP_R_ACMP_BIT*4u))))
 
 /****************************************************************************************
 ************************************118 PRPWM *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRPWM            (((PERIPHERAL_PWM_TypeDef*)(SYSCTL_BASE+SYSCTL_PRPWM_OFFSET )))
 #define SYSCTL_PRPWM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRPWM_OFFSET)))
-#define SYSCTL_BITBANDING_PRPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRPWM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRPWM      (((BITBANDING_PERIPHERAL_PWM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRPWM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRPWM_R_PWM0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRPWM_R_PWM0_BIT         (0)
+#define SYSCTL_PRPWM_R_PWM0_BIT         (0u)
 #define SYSCTL_PRPWM_R_PWM0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRPWM_R_PWM0_EN     ((uint32_t)0x00000001u)
 
@@ -9652,7 +9652,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRPWM_R_PWM1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRPWM_R_PWM1_BIT         (1)
+#define SYSCTL_PRPWM_R_PWM1_BIT         (1u)
 #define SYSCTL_PRPWM_R_PWM1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRPWM_R_PWM1_EN     ((uint32_t)0x00000002u)
 
@@ -9661,19 +9661,19 @@ typedef volatile struct
 #define SYSCTL_PRPWM_PWM1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRPWM_OFFSET)*32)+(SYSCTL_PRPWM_R_PWM0_BIT*4))))
-#define SYSCTL_BITBANDING_PRPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRPWM_OFFSET)*32)+(SYSCTL_PRPWM_R_PWM1_BIT*4))))
+#define SYSCTL_BITBANDING_PRPWM_PWM0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRPWM_OFFSET)*32u)+(SYSCTL_PRPWM_R_PWM0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRPWM_PWM1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRPWM_OFFSET)*32u)+(SYSCTL_PRPWM_R_PWM1_BIT*4u))))
 
 /******************************************************************************************
 ************************************119 PRQEI *********************************************
 ******************************************************************************************/
 #define SYSCTL_PRQEI            (((PERIPHERAL_QEI_TypeDef*)(SYSCTL_BASE+SYSCTL_PRQEI_OFFSET )))
 #define SYSCTL_PRQEI_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRQEI_OFFSET)))
-#define SYSCTL_BITBANDING_PRQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRQEI_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRQEI      (((BITBANDING_PERIPHERAL_QEI_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRQEI_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRQEI_R_QEI0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRQEI_R_QEI0_BIT         (0)
+#define SYSCTL_PRQEI_R_QEI0_BIT         (0u)
 #define SYSCTL_PRQEI_R_QEI0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRQEI_R_QEI0_EN     ((uint32_t)0x00000001u)
 
@@ -9684,7 +9684,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRQEI_R_QEI1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRQEI_R_QEI1_BIT         (1)
+#define SYSCTL_PRQEI_R_QEI1_BIT         (1u)
 #define SYSCTL_PRQEI_R_QEI1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRQEI_R_QEI1_EN     ((uint32_t)0x00000002u)
 
@@ -9693,19 +9693,19 @@ typedef volatile struct
 #define SYSCTL_PRQEI_QEI1_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRQEI_OFFSET)*32)+(SYSCTL_PRQEI_R_QEI0_BIT*4))))
-#define SYSCTL_BITBANDING_PRQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRQEI_OFFSET)*32)+(SYSCTL_PRQEI_R_QEI1_BIT*4))))
+#define SYSCTL_BITBANDING_PRQEI_QEI0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRQEI_OFFSET)*32u)+(SYSCTL_PRQEI_R_QEI0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRQEI_QEI1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRQEI_OFFSET)*32u)+(SYSCTL_PRQEI_R_QEI1_BIT*4u))))
 
 /******************************************************************************************
 ************************************120 PREEPROM *********************************************
 ******************************************************************************************/
 #define SYSCTL_PREEPROM            (((PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BASE+SYSCTL_PREEPROM_OFFSET )))
 #define SYSCTL_PREEPROM_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PREEPROM_OFFSET)))
-#define SYSCTL_BITBANDING_PREEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PREEPROM_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PREEPROM      (((BITBANDING_PERIPHERAL_EEPROM_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PREEPROM_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PREEPROM_R_EEPROM_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PREEPROM_R_EEPROM_BIT         (0)
+#define SYSCTL_PREEPROM_R_EEPROM_BIT         (0u)
 #define SYSCTL_PREEPROM_R_EEPROM_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PREEPROM_R_EEPROM_EN     ((uint32_t)0x00000001u)
 
@@ -9714,7 +9714,7 @@ typedef volatile struct
 #define SYSCTL_PREEPROM_EEPROM_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PREEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PREEPROM_OFFSET)*32)+(SYSCTL_PREEPROM_R_EEPROM_BIT*4))))
+#define SYSCTL_BITBANDING_PREEPROM_EEPROM    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PREEPROM_OFFSET)*32u)+(SYSCTL_PREEPROM_R_EEPROM_BIT*4u))))
 
 
 /**********************************************************************************
@@ -9722,11 +9722,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_PRWTIMER            (((PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BASE+SYSCTL_PRWTIMER_OFFSET )))
 #define SYSCTL_PRWTIMER_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_PRWTIMER_OFFSET)))
-#define SYSCTL_BITBANDING_PRWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32))))
+#define SYSCTL_BITBANDING_PRWTIMER      (((BITBANDING_PERIPHERAL_WTIMER_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_PRWTIMER_R_WTIMER0_MASK        ((uint32_t)0x00000001u)
-#define SYSCTL_PRWTIMER_R_WTIMER0_BIT         (0)
+#define SYSCTL_PRWTIMER_R_WTIMER0_BIT         (0u)
 #define SYSCTL_PRWTIMER_R_WTIMER0_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRWTIMER_R_WTIMER0_EN     ((uint32_t)0x00000001u)
 
@@ -9737,7 +9737,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRWTIMER_R_WTIMER1_MASK        ((uint32_t)0x00000002u)
-#define SYSCTL_PRWTIMER_R_WTIMER1_BIT         (1)
+#define SYSCTL_PRWTIMER_R_WTIMER1_BIT         (1u)
 #define SYSCTL_PRWTIMER_R_WTIMER1_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRWTIMER_R_WTIMER1_EN     ((uint32_t)0x00000002u)
 
@@ -9748,7 +9748,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRWTIMER_R_WTIMER2_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_PRWTIMER_R_WTIMER2_BIT         (2)
+#define SYSCTL_PRWTIMER_R_WTIMER2_BIT         (2u)
 #define SYSCTL_PRWTIMER_R_WTIMER2_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRWTIMER_R_WTIMER2_EN     ((uint32_t)0x00000004u)
 
@@ -9759,7 +9759,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRWTIMER_R_WTIMER3_MASK        ((uint32_t)0x00000008u)
-#define SYSCTL_PRWTIMER_R_WTIMER3_BIT         (3)
+#define SYSCTL_PRWTIMER_R_WTIMER3_BIT         (3u)
 #define SYSCTL_PRWTIMER_R_WTIMER3_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRWTIMER_R_WTIMER3_EN     ((uint32_t)0x00000008u)
 
@@ -9770,7 +9770,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRWTIMER_R_WTIMER4_MASK        ((uint32_t)0x00000010u)
-#define SYSCTL_PRWTIMER_R_WTIMER4_BIT         (4)
+#define SYSCTL_PRWTIMER_R_WTIMER4_BIT         (4u)
 #define SYSCTL_PRWTIMER_R_WTIMER4_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRWTIMER_R_WTIMER4_EN     ((uint32_t)0x00000010u)
 
@@ -9781,7 +9781,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_PRWTIMER_R_WTIMER5_MASK        ((uint32_t)0x00000020u)
-#define SYSCTL_PRWTIMER_R_WTIMER5_BIT         (5)
+#define SYSCTL_PRWTIMER_R_WTIMER5_BIT         (5u)
 #define SYSCTL_PRWTIMER_R_WTIMER5_DIS   ((uint32_t)0x00000000u)
 #define SYSCTL_PRWTIMER_R_WTIMER5_EN     ((uint32_t)0x00000020u)
 
@@ -9790,24 +9790,24 @@ typedef volatile struct
 #define SYSCTL_PRWTIMER_WTIMER5_EN       ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_PRWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER0_BIT*4))))
-#define SYSCTL_BITBANDING_PRWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER1_BIT*4))))
-#define SYSCTL_BITBANDING_PRWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER2_BIT*4))))
-#define SYSCTL_BITBANDING_PRWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER3_BIT*4))))
-#define SYSCTL_BITBANDING_PRWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER4_BIT*4))))
-#define SYSCTL_BITBANDING_PRWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32)+(SYSCTL_PRWTIMER_R_WTIMER5_BIT*4))))
+#define SYSCTL_BITBANDING_PRWTIMER_WTIMER0    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u)+(SYSCTL_PRWTIMER_R_WTIMER0_BIT*4u))))
+#define SYSCTL_BITBANDING_PRWTIMER_WTIMER1    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u)+(SYSCTL_PRWTIMER_R_WTIMER1_BIT*4u))))
+#define SYSCTL_BITBANDING_PRWTIMER_WTIMER2    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u)+(SYSCTL_PRWTIMER_R_WTIMER2_BIT*4u))))
+#define SYSCTL_BITBANDING_PRWTIMER_WTIMER3    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u)+(SYSCTL_PRWTIMER_R_WTIMER3_BIT*4u))))
+#define SYSCTL_BITBANDING_PRWTIMER_WTIMER4    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u)+(SYSCTL_PRWTIMER_R_WTIMER4_BIT*4u))))
+#define SYSCTL_BITBANDING_PRWTIMER_WTIMER5    (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_PRWTIMER_OFFSET)*32u)+(SYSCTL_PRWTIMER_R_WTIMER5_BIT*4u))))
 
 /**********************************************************************************
 ************************************122 DC0 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC0            (((DC0_TypeDef*)(SYSCTL_BASE+SYSCTL_DC0_OFFSET )))
 #define SYSCTL_DC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC0_OFFSET)))
-#define SYSCTL_BITBANDING_DC0      (((BITBANDING_DC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC0      (((BITBANDING_DC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC0_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_DC0_R_FLASHSZ_MASK       (0x0000FFFFu)
-#define SYSCTL_DC0_R_FLASHSZ_BIT        (0)
+#define SYSCTL_DC0_R_FLASHSZ_BIT        (0u)
 #define SYSCTL_DC0_R_FLASHSZ_8K         (0x00000003u)
 #define SYSCTL_DC0_R_FLASHSZ_16K        (0x00000007u)
 #define SYSCTL_DC0_R_FLASHSZ_32K        (0x0000000Fu)
@@ -9830,7 +9830,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC0_R_SRAMSZ_MASK       (0xFFFF0000u)
-#define SYSCTL_DC0_R_SRAMSZ_BIT        (16)
+#define SYSCTL_DC0_R_SRAMSZ_BIT        (16u)
 #define SYSCTL_DC0_R_SRAMSZ_2K         (0x00070000u)
 #define SYSCTL_DC0_R_SRAMSZ_4K         (0x000F0000u)
 #define SYSCTL_DC0_R_SRAMSZ_6K         (0x00170000u)
@@ -9858,12 +9858,12 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_DC1            (((DC1_TypeDef*)(SYSCTL_BASE+SYSCTL_DC1_OFFSET )))
 #define SYSCTL_DC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC1_OFFSET)))
-#define SYSCTL_BITBANDING_DC1      (((BITBANDING_DC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC1      (((BITBANDING_DC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_DC1_R_DCJTAG_MASK       (0x00000001u)
-#define SYSCTL_DC1_R_DCJTAG_BIT        (0)
+#define SYSCTL_DC1_R_DCJTAG_BIT        (0u)
 #define SYSCTL_DC1_R_DCJTAG_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCJTAG_PRESENT    (0x00000001u)
 
@@ -9874,7 +9874,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCSWD_MASK       (0x00000002u)
-#define SYSCTL_DC1_R_DCSWD_BIT        (1)
+#define SYSCTL_DC1_R_DCSWD_BIT        (1u)
 #define SYSCTL_DC1_R_DCSWD_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCSWD_PRESENT    (0x00000002u)
 
@@ -9885,7 +9885,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCSWO_MASK       (0x00000004u)
-#define SYSCTL_DC1_R_DCSWO_BIT        (2)
+#define SYSCTL_DC1_R_DCSWO_BIT        (2u)
 #define SYSCTL_DC1_R_DCSWO_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCSWO_PRESENT    (0x00000004u)
 
@@ -9896,7 +9896,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCWDT0_MASK       (0x00000008u)
-#define SYSCTL_DC1_R_DCWDT0_BIT        (3)
+#define SYSCTL_DC1_R_DCWDT0_BIT        (3u)
 #define SYSCTL_DC1_R_DCWDT0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCWDT0_PRESENT    (0x00000008u)
 
@@ -9907,7 +9907,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCPLL_MASK       (0x00000010u)
-#define SYSCTL_DC1_R_DCPLL_BIT        (4)
+#define SYSCTL_DC1_R_DCPLL_BIT        (4u)
 #define SYSCTL_DC1_R_DCPLL_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCPLL_PRESENT    (0x00000010u)
 
@@ -9918,7 +9918,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCTEMPSNS_MASK       (0x00000020u)
-#define SYSCTL_DC1_R_DCTEMPSNS_BIT        (5)
+#define SYSCTL_DC1_R_DCTEMPSNS_BIT        (5u)
 #define SYSCTL_DC1_R_DCTEMPSNS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCTEMPSNS_PRESENT    (0x00000010u)
 
@@ -9929,7 +9929,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCHIB_MASK       (0x00000040u)
-#define SYSCTL_DC1_R_DCHIB_BIT        (6)
+#define SYSCTL_DC1_R_DCHIB_BIT        (6u)
 #define SYSCTL_DC1_R_DCHIB_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCHIB_PRESENT    (0x00000040u)
 
@@ -9940,7 +9940,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCMPU_MASK       (0x00000080u)
-#define SYSCTL_DC1_R_DCMPU_BIT        (7)
+#define SYSCTL_DC1_R_DCMPU_BIT        (7u)
 #define SYSCTL_DC1_R_DCMPU_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCMPU_PRESENT    (0x00000080u)
 
@@ -9951,7 +9951,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCMAXADC0SPD_MASK       (0x00000300u)
-#define SYSCTL_DC1_R_DCMAXADC0SPD_BIT        (8)
+#define SYSCTL_DC1_R_DCMAXADC0SPD_BIT        (8u)
 #define SYSCTL_DC1_R_DCMAXADC0SPD_125K       (0x00000000u)
 #define SYSCTL_DC1_R_DCMAXADC0SPD_250K       (0x00000100u)
 #define SYSCTL_DC1_R_DCMAXADC0SPD_500K       (0x00000200u)
@@ -9966,7 +9966,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCMAXADC1SPD_MASK       (0x00000C00u)
-#define SYSCTL_DC1_R_DCMAXADC1SPD_BIT        (10)
+#define SYSCTL_DC1_R_DCMAXADC1SPD_BIT        (10u)
 #define SYSCTL_DC1_R_DCMAXADC1SPD_125K       (0x00000000u)
 #define SYSCTL_DC1_R_DCMAXADC1SPD_250K       (0x00000400u)
 #define SYSCTL_DC1_R_DCMAXADC1SPD_500K       (0x00000600u)
@@ -9981,7 +9981,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCMINSYSDIV_MASK       (0x0000F000u)
-#define SYSCTL_DC1_R_DCMINSYSDIV_BIT        (12)
+#define SYSCTL_DC1_R_DCMINSYSDIV_BIT        (12u)
 #define SYSCTL_DC1_R_DCMINSYSDIV_PLL2_5     (0x00002000u)
 #define SYSCTL_DC1_R_DCMINSYSDIV_PLL4       (0x00003000u)
 #define SYSCTL_DC1_R_DCMINSYSDIV_PLL5       (0x00004000u)
@@ -9998,7 +9998,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCADC0_MASK       (0x00010000u)
-#define SYSCTL_DC1_R_DCADC0_BIT        (16)
+#define SYSCTL_DC1_R_DCADC0_BIT        (16u)
 #define SYSCTL_DC1_R_DCADC0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCADC0_PRESENT    (0x00010000u)
 
@@ -10009,7 +10009,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCADC1_MASK       (0x00020000u)
-#define SYSCTL_DC1_R_DCADC1_BIT        (17)
+#define SYSCTL_DC1_R_DCADC1_BIT        (17u)
 #define SYSCTL_DC1_R_DCADC1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCADC1_PRESENT    (0x00020000u)
 
@@ -10020,7 +10020,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCPWM0_MASK       (0x00100000u)
-#define SYSCTL_DC1_R_DCPWM0_BIT        (20)
+#define SYSCTL_DC1_R_DCPWM0_BIT        (20u)
 #define SYSCTL_DC1_R_DCPWM0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCPWM0_PRESENT    (0x00100000u)
 
@@ -10031,7 +10031,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCPWM1_MASK       (0x00200000u)
-#define SYSCTL_DC1_R_DCPWM1_BIT        (21)
+#define SYSCTL_DC1_R_DCPWM1_BIT        (21u)
 #define SYSCTL_DC1_R_DCPWM1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCPWM1_PRESENT    (0x00200000u)
 
@@ -10042,7 +10042,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCCAN0_MASK       (0x01000000u)
-#define SYSCTL_DC1_R_DCCAN0_BIT        (24)
+#define SYSCTL_DC1_R_DCCAN0_BIT        (24u)
 #define SYSCTL_DC1_R_DCCAN0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCCAN0_PRESENT    (0x01000000u)
 
@@ -10053,7 +10053,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCCAN1_MASK       (0x02000000u)
-#define SYSCTL_DC1_R_DCCAN1_BIT        (25)
+#define SYSCTL_DC1_R_DCCAN1_BIT        (25u)
 #define SYSCTL_DC1_R_DCCAN1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCCAN1_PRESENT    (0x02000000u)
 
@@ -10064,7 +10064,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC1_R_DCWDT1_MASK       (0x10000000u)
-#define SYSCTL_DC1_R_DCWDT1_BIT        (28)
+#define SYSCTL_DC1_R_DCWDT1_BIT        (28u)
 #define SYSCTL_DC1_R_DCWDT1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC1_R_DCWDT1_PRESENT    (0x10000000u)
 
@@ -10074,34 +10074,34 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_DC1_DCJTAG      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC1_DCSWD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC1_DCSWO       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC1_DCWDT0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DC1_DCPLL       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC1_DCTEMPSNS   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC1_DCHIB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DC1_DCMPU       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(7*4))))
-#define SYSCTL_BITBANDING_DC1_DCADC0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DC1_DCADC1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DC1_DCPWM0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_DC1_DCPWM1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(21*4))))
-#define SYSCTL_BITBANDING_DC1_DCCAN0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC1_DCCAN1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DC1_DCWDT1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32)+(28*4))))
+#define SYSCTL_BITBANDING_DC1_DCJTAG      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC1_DCSWD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC1_DCSWO       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC1_DCWDT0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DC1_DCPLL       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC1_DCTEMPSNS   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC1_DCHIB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DC1_DCMPU       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(7*4u))))
+#define SYSCTL_BITBANDING_DC1_DCADC0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DC1_DCADC1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DC1_DCPWM0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_DC1_DCPWM1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(21*4u))))
+#define SYSCTL_BITBANDING_DC1_DCCAN0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC1_DCCAN1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DC1_DCWDT1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC1_OFFSET)*32u)+(28*4u))))
 
 /**********************************************************************************
 ************************************124 DC2 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC2            (((DC2_TypeDef*)(SYSCTL_BASE+SYSCTL_DC2_OFFSET )))
 #define SYSCTL_DC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC2_OFFSET)))
-#define SYSCTL_BITBANDING_DC2      (((BITBANDING_DC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC2      (((BITBANDING_DC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_DC2_R_DCUART0_MASK       (0x00000001u)
-#define SYSCTL_DC2_R_DCUART0_BIT        (0)
+#define SYSCTL_DC2_R_DCUART0_BIT        (0u)
 #define SYSCTL_DC2_R_DCUART0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCUART0_PRESENT    (0x00000001u)
 
@@ -10112,7 +10112,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCUART1_MASK       (0x00000002u)
-#define SYSCTL_DC2_R_DCUART1_BIT        (1)
+#define SYSCTL_DC2_R_DCUART1_BIT        (1u)
 #define SYSCTL_DC2_R_DCUART1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCUART1_PRESENT    (0x00000002u)
 
@@ -10123,7 +10123,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCUART2_MASK       (0x00000004u)
-#define SYSCTL_DC2_R_DCUART2_BIT        (2)
+#define SYSCTL_DC2_R_DCUART2_BIT        (2u)
 #define SYSCTL_DC2_R_DCUART2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCUART2_PRESENT    (0x00000004u)
 
@@ -10134,7 +10134,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCSSI0_MASK       (0x00000010u)
-#define SYSCTL_DC2_R_DCSSI0_BIT        (4)
+#define SYSCTL_DC2_R_DCSSI0_BIT        (4u)
 #define SYSCTL_DC2_R_DCSSI0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCSSI0_PRESENT    (0x00000010u)
 
@@ -10145,7 +10145,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCSSI1_MASK       (0x00000020u)
-#define SYSCTL_DC2_R_DCSSI1_BIT        (5)
+#define SYSCTL_DC2_R_DCSSI1_BIT        (5u)
 #define SYSCTL_DC2_R_DCSSI1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCSSI1_PRESENT    (0x00000010u)
 
@@ -10156,7 +10156,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCQEI0_MASK       (0x00000100u)
-#define SYSCTL_DC2_R_DCQEI0_BIT        (8)
+#define SYSCTL_DC2_R_DCQEI0_BIT        (8u)
 #define SYSCTL_DC2_R_DCQEI0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCQEI0_PRESENT    (0x00000100u)
 
@@ -10167,7 +10167,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCQEI1_MASK       (0x00000200u)
-#define SYSCTL_DC2_R_DCQEI1_BIT        (9)
+#define SYSCTL_DC2_R_DCQEI1_BIT        (9u)
 #define SYSCTL_DC2_R_DCQEI1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCQEI1_PRESENT    (0x00000200u)
 
@@ -10178,7 +10178,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCI2C0_MASK       (0x00001000u)
-#define SYSCTL_DC2_R_DCI2C0_BIT        (12)
+#define SYSCTL_DC2_R_DCI2C0_BIT        (12u)
 #define SYSCTL_DC2_R_DCI2C0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCI2C0_PRESENT    (0x00001000u)
 
@@ -10189,7 +10189,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCI2C0HS_MASK       (0x00002000u)
-#define SYSCTL_DC2_R_DCI2C0HS_BIT        (13)
+#define SYSCTL_DC2_R_DCI2C0HS_BIT        (13u)
 #define SYSCTL_DC2_R_DCI2C0HS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCI2C0HS_PRESENT    (0x00002000u)
 
@@ -10200,7 +10200,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCI2C1_MASK       (0x00004000u)
-#define SYSCTL_DC2_R_DCI2C1_BIT        (14)
+#define SYSCTL_DC2_R_DCI2C1_BIT        (14u)
 #define SYSCTL_DC2_R_DCI2C1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCI2C1_PRESENT    (0x00004000u)
 
@@ -10211,7 +10211,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCI2C1HS_MASK       (0x00008000u)
-#define SYSCTL_DC2_R_DCI2C1HS_BIT        (15)
+#define SYSCTL_DC2_R_DCI2C1HS_BIT        (15u)
 #define SYSCTL_DC2_R_DCI2C1HS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCI2C1HS_PRESENT    (0x00008000u)
 
@@ -10222,7 +10222,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCTIMER0_MASK       (0x00010000u)
-#define SYSCTL_DC2_R_DCTIMER0_BIT        (16)
+#define SYSCTL_DC2_R_DCTIMER0_BIT        (16u)
 #define SYSCTL_DC2_R_DCTIMER0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCTIMER0_PRESENT    (0x00010000u)
 
@@ -10233,7 +10233,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCTIMER1_MASK       (0x00020000u)
-#define SYSCTL_DC2_R_DCTIMER1_BIT        (17)
+#define SYSCTL_DC2_R_DCTIMER1_BIT        (17u)
 #define SYSCTL_DC2_R_DCTIMER1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCTIMER1_PRESENT    (0x00020000u)
 
@@ -10244,7 +10244,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCTIMER2_MASK       (0x00040000u)
-#define SYSCTL_DC2_R_DCTIMER2_BIT        (18)
+#define SYSCTL_DC2_R_DCTIMER2_BIT        (18u)
 #define SYSCTL_DC2_R_DCTIMER2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCTIMER2_PRESENT    (0x00040000u)
 
@@ -10255,7 +10255,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCTIMER3_MASK       (0x00080000u)
-#define SYSCTL_DC2_R_DCTIMER3_BIT        (19)
+#define SYSCTL_DC2_R_DCTIMER3_BIT        (19u)
 #define SYSCTL_DC2_R_DCTIMER3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCTIMER3_PRESENT    (0x00080000u)
 
@@ -10267,7 +10267,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCCOMP0_MASK       (0x01000000u)
-#define SYSCTL_DC2_R_DCCOMP0_BIT        (24)
+#define SYSCTL_DC2_R_DCCOMP0_BIT        (24u)
 #define SYSCTL_DC2_R_DCCOMP0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCCOMP0_PRESENT    (0x01000000u)
 
@@ -10278,7 +10278,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCCOMP1_MASK       (0x02000000u)
-#define SYSCTL_DC2_R_DCCOMP1_BIT        (25)
+#define SYSCTL_DC2_R_DCCOMP1_BIT        (25u)
 #define SYSCTL_DC2_R_DCCOMP1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCCOMP1_PRESENT    (0x02000000u)
 
@@ -10289,7 +10289,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCCOMP2_MASK       (0x04000000u)
-#define SYSCTL_DC2_R_DCCOMP2_BIT        (26)
+#define SYSCTL_DC2_R_DCCOMP2_BIT        (26u)
 #define SYSCTL_DC2_R_DCCOMP2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCCOMP2_PRESENT    (0x04000000u)
 
@@ -10300,7 +10300,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCI2S0_MASK       (0x10000000u)
-#define SYSCTL_DC2_R_DCI2S0_BIT        (28)
+#define SYSCTL_DC2_R_DCI2S0_BIT        (28u)
 #define SYSCTL_DC2_R_DCI2S0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCI2S0_PRESENT    (0x10000000u)
 
@@ -10311,7 +10311,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC2_R_DCEPI0_MASK       (0x40000000u)
-#define SYSCTL_DC2_R_DCEPI0_BIT        (30)
+#define SYSCTL_DC2_R_DCEPI0_BIT        (30u)
 #define SYSCTL_DC2_R_DCEPI0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC2_R_DCEPI0_PRESENT    (0x40000000u)
 
@@ -10320,39 +10320,39 @@ typedef volatile struct
 #define SYSCTL_DC2_DCEPI0_PRESENT    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DC2_DCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC2_DCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC2_DCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC2_DCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC2_DCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC2_DCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_DC2_DCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_DC2_DCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_DC2_DCI2C0HS      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_DC2_DCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_DC2_DCI2C1HS      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(15*4))))
-#define SYSCTL_BITBANDING_DC2_DCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DC2_DCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DC2_DCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_DC2_DCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_DC2_DCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC2_DCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DC2_DCCOMP2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(26*4))))
-#define SYSCTL_BITBANDING_DC2_DCI2S0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(28*4))))
-#define SYSCTL_BITBANDING_DC2_DCEPI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32)+(29*4))))
+#define SYSCTL_BITBANDING_DC2_DCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC2_DCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC2_DCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC2_DCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC2_DCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC2_DCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_DC2_DCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_DC2_DCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_DC2_DCI2C0HS      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_DC2_DCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_DC2_DCI2C1HS      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(15*4u))))
+#define SYSCTL_BITBANDING_DC2_DCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DC2_DCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DC2_DCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_DC2_DCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_DC2_DCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC2_DCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DC2_DCCOMP2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(26*4u))))
+#define SYSCTL_BITBANDING_DC2_DCI2S0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(28*4u))))
+#define SYSCTL_BITBANDING_DC2_DCEPI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC2_OFFSET)*32u)+(29*4u))))
 
 /**********************************************************************************
 ************************************125 DC3 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC3            (((DC3_TypeDef*)(SYSCTL_BASE+SYSCTL_DC3_OFFSET )))
 #define SYSCTL_DC3_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC3_OFFSET)))
-#define SYSCTL_BITBANDING_DC3      (((BITBANDING_DC3_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC3      (((BITBANDING_DC3_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWM0_MASK       (0x00000001u)
-#define SYSCTL_DC3_R_DCPWM0_BIT        (0)
+#define SYSCTL_DC3_R_DCPWM0_BIT        (0u)
 #define SYSCTL_DC3_R_DCPWM0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWM0_PRESENT    (0x00000001u)
 
@@ -10363,7 +10363,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWM1_MASK       (0x00000002u)
-#define SYSCTL_DC3_R_DCPWM1_BIT        (1)
+#define SYSCTL_DC3_R_DCPWM1_BIT        (1u)
 #define SYSCTL_DC3_R_DCPWM1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWM1_PRESENT    (0x00000002u)
 
@@ -10374,7 +10374,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWM2_MASK       (0x00000004u)
-#define SYSCTL_DC3_R_DCPWM2_BIT        (2)
+#define SYSCTL_DC3_R_DCPWM2_BIT        (2u)
 #define SYSCTL_DC3_R_DCPWM2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWM2_PRESENT    (0x00000004u)
 
@@ -10385,7 +10385,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWM3_MASK       (0x00000008u)
-#define SYSCTL_DC3_R_DCPWM3_BIT        (3)
+#define SYSCTL_DC3_R_DCPWM3_BIT        (3u)
 #define SYSCTL_DC3_R_DCPWM3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWM3_PRESENT    (0x00000008u)
 
@@ -10396,7 +10396,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWM4_MASK       (0x00000010u)
-#define SYSCTL_DC3_R_DCPWM4_BIT        (4)
+#define SYSCTL_DC3_R_DCPWM4_BIT        (4u)
 #define SYSCTL_DC3_R_DCPWM4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWM4_PRESENT    (0x00000010u)
 
@@ -10407,7 +10407,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWM5_MASK       (0x00000020u)
-#define SYSCTL_DC3_R_DCPWM5_BIT        (5)
+#define SYSCTL_DC3_R_DCPWM5_BIT        (5u)
 #define SYSCTL_DC3_R_DCPWM5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWM5_PRESENT    (0x00000020u)
 
@@ -10418,7 +10418,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC0MINUS_MASK       (0x00000040u)
-#define SYSCTL_DC3_R_DCC0MINUS_BIT        (6)
+#define SYSCTL_DC3_R_DCC0MINUS_BIT        (6u)
 #define SYSCTL_DC3_R_DCC0MINUS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC0MINUS_PRESENT    (0x00000040u)
 
@@ -10429,7 +10429,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC0PLUS_MASK       (0x00000080u)
-#define SYSCTL_DC3_R_DCC0PLUS_BIT        (7)
+#define SYSCTL_DC3_R_DCC0PLUS_BIT        (7u)
 #define SYSCTL_DC3_R_DCC0PLUS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC0PLUS_PRESENT    (0x00000080u)
 
@@ -10440,7 +10440,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC0O_MASK       (0x00000100u)
-#define SYSCTL_DC3_R_DCC0O_BIT        (8)
+#define SYSCTL_DC3_R_DCC0O_BIT        (8u)
 #define SYSCTL_DC3_R_DCC0O_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC0O_PRESENT    (0x00000100u)
 
@@ -10451,7 +10451,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC1MINUS_MASK       (0x00000200u)
-#define SYSCTL_DC3_R_DCC1MINUS_BIT        (9)
+#define SYSCTL_DC3_R_DCC1MINUS_BIT        (9u)
 #define SYSCTL_DC3_R_DCC1MINUS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC1MINUS_PRESENT    (0x00000200u)
 
@@ -10462,7 +10462,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC1PLUS_MASK       (0x00000400u)
-#define SYSCTL_DC3_R_DCC1PLUS_BIT        (10)
+#define SYSCTL_DC3_R_DCC1PLUS_BIT        (10u)
 #define SYSCTL_DC3_R_DCC1PLUS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC1PLUS_PRESENT    (0x00000400u)
 
@@ -10473,7 +10473,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC1O_MASK       (0x00000800u)
-#define SYSCTL_DC3_R_DCC1O_BIT        (11)
+#define SYSCTL_DC3_R_DCC1O_BIT        (11u)
 #define SYSCTL_DC3_R_DCC1O_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC1O_PRESENT    (0x00000800u)
 
@@ -10484,7 +10484,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC2MINUS_MASK       (0x00001000u)
-#define SYSCTL_DC3_R_DCC2MINUS_BIT        (12)
+#define SYSCTL_DC3_R_DCC2MINUS_BIT        (12u)
 #define SYSCTL_DC3_R_DCC2MINUS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC2MINUS_PRESENT    (0x00001000u)
 
@@ -10495,7 +10495,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC2PLUS_MASK       (0x00002000u)
-#define SYSCTL_DC3_R_DCC2PLUS_BIT        (13)
+#define SYSCTL_DC3_R_DCC2PLUS_BIT        (13u)
 #define SYSCTL_DC3_R_DCC2PLUS_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC2PLUS_PRESENT    (0x00002000u)
 
@@ -10506,7 +10506,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCC2O_MASK       (0x00004000u)
-#define SYSCTL_DC3_R_DCC2O_BIT        (14)
+#define SYSCTL_DC3_R_DCC2O_BIT        (14u)
 #define SYSCTL_DC3_R_DCC2O_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCC2O_PRESENT    (0x00004000u)
 
@@ -10517,7 +10517,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCPWMFAULT_MASK       (0x00008000u)
-#define SYSCTL_DC3_R_DCPWMFAULT_BIT        (15)
+#define SYSCTL_DC3_R_DCPWMFAULT_BIT        (15u)
 #define SYSCTL_DC3_R_DCPWMFAULT_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCPWMFAULT_PRESENT    (0x00008000u)
 
@@ -10528,7 +10528,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN0_MASK       (0x00010000u)
-#define SYSCTL_DC3_R_DCADC0AIN0_BIT        (16)
+#define SYSCTL_DC3_R_DCADC0AIN0_BIT        (16u)
 #define SYSCTL_DC3_R_DCADC0AIN0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN0_PRESENT    (0x00010000u)
 
@@ -10539,7 +10539,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN1_MASK       (0x00020000u)
-#define SYSCTL_DC3_R_DCADC0AIN1_BIT        (17)
+#define SYSCTL_DC3_R_DCADC0AIN1_BIT        (17u)
 #define SYSCTL_DC3_R_DCADC0AIN1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN1_PRESENT    (0x00020000u)
 
@@ -10550,7 +10550,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN2_MASK       (0x00040000u)
-#define SYSCTL_DC3_R_DCADC0AIN2_BIT        (18)
+#define SYSCTL_DC3_R_DCADC0AIN2_BIT        (18u)
 #define SYSCTL_DC3_R_DCADC0AIN2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN2_PRESENT    (0x00040000u)
 
@@ -10561,7 +10561,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN3_MASK       (0x00080000u)
-#define SYSCTL_DC3_R_DCADC0AIN3_BIT        (19)
+#define SYSCTL_DC3_R_DCADC0AIN3_BIT        (19u)
 #define SYSCTL_DC3_R_DCADC0AIN3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN3_PRESENT    (0x00080000u)
 
@@ -10572,7 +10572,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN4_MASK       (0x00100000u)
-#define SYSCTL_DC3_R_DCADC0AIN4_BIT        (20)
+#define SYSCTL_DC3_R_DCADC0AIN4_BIT        (20u)
 #define SYSCTL_DC3_R_DCADC0AIN4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN4_PRESENT    (0x00100000u)
 
@@ -10583,7 +10583,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN5_MASK       (0x00200000u)
-#define SYSCTL_DC3_R_DCADC0AIN5_BIT        (21)
+#define SYSCTL_DC3_R_DCADC0AIN5_BIT        (21u)
 #define SYSCTL_DC3_R_DCADC0AIN5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN5_PRESENT    (0x00200000u)
 
@@ -10594,7 +10594,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN6_MASK       (0x00400000u)
-#define SYSCTL_DC3_R_DCADC0AIN6_BIT        (22)
+#define SYSCTL_DC3_R_DCADC0AIN6_BIT        (22u)
 #define SYSCTL_DC3_R_DCADC0AIN6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN6_PRESENT    (0x00400000u)
 
@@ -10605,7 +10605,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCADC0AIN7_MASK       (0x00800000u)
-#define SYSCTL_DC3_R_DCADC0AIN7_BIT        (23)
+#define SYSCTL_DC3_R_DCADC0AIN7_BIT        (23u)
 #define SYSCTL_DC3_R_DCADC0AIN7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCADC0AIN7_PRESENT    (0x00800000u)
 
@@ -10616,7 +10616,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCCCP0_MASK       (0x01000000u)
-#define SYSCTL_DC3_R_DCCCP0_BIT        (24)
+#define SYSCTL_DC3_R_DCCCP0_BIT        (24u)
 #define SYSCTL_DC3_R_DCCCP0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCCCP0_PRESENT    (0x01000000u)
 
@@ -10627,7 +10627,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCCCP1_MASK       (0x02000000u)
-#define SYSCTL_DC3_R_DCCCP1_BIT        (25)
+#define SYSCTL_DC3_R_DCCCP1_BIT        (25u)
 #define SYSCTL_DC3_R_DCCCP1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCCCP1_PRESENT    (0x02000000u)
 
@@ -10638,7 +10638,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCCCP2_MASK       (0x04000000u)
-#define SYSCTL_DC3_R_DCCCP2_BIT        (26)
+#define SYSCTL_DC3_R_DCCCP2_BIT        (26u)
 #define SYSCTL_DC3_R_DCCCP2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCCCP2_PRESENT    (0x04000000u)
 
@@ -10649,7 +10649,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCCCP3_MASK       (0x08000000u)
-#define SYSCTL_DC3_R_DCCCP3_BIT        (27)
+#define SYSCTL_DC3_R_DCCCP3_BIT        (27u)
 #define SYSCTL_DC3_R_DCCCP3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCCCP3_PRESENT    (0x08000000u)
 
@@ -10660,7 +10660,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCCCP4_MASK       (0x10000000u)
-#define SYSCTL_DC3_R_DCCCP4_BIT        (28)
+#define SYSCTL_DC3_R_DCCCP4_BIT        (28u)
 #define SYSCTL_DC3_R_DCCCP4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCCCP4_PRESENT    (0x10000000u)
 
@@ -10671,7 +10671,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DCCCP5_MASK       (0x20000000u)
-#define SYSCTL_DC3_R_DCCCP5_BIT        (29)
+#define SYSCTL_DC3_R_DCCCP5_BIT        (29u)
 #define SYSCTL_DC3_R_DCCCP5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DCCCP5_PRESENT    (0x20000000u)
 
@@ -10682,7 +10682,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC3_R_DC32KHZ_MASK       (0x80000000u)
-#define SYSCTL_DC3_R_DC32KHZ_BIT        (31)
+#define SYSCTL_DC3_R_DC32KHZ_BIT        (31u)
 #define SYSCTL_DC3_R_DC32KHZ_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC3_R_DC32KHZ_PRESENT    (0x80000000u)
 
@@ -10691,50 +10691,50 @@ typedef volatile struct
 #define SYSCTL_DC3_DC32KHZ_PRESENT    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DC3_DCPWM0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC3_DCPWM1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC3_DCPWM2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC3_DCPWM3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DC3_DCPWM4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC3_DCPWM5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC3_DCC0MINUS    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DC3_DCC0PLUS     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(7*4))))
-#define SYSCTL_BITBANDING_DC3_DCC0O        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_DC3_DCC1MINUS    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_DC3_DCC1PLUS     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(10*4))))
-#define SYSCTL_BITBANDING_DC3_DCC1O        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(11*4))))
-#define SYSCTL_BITBANDING_DC3_DCC2MINUS    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_DC3_DCC2PLUS     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_DC3_DCC2O        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_DC3_DCPWMFAULT   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(15*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN0   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN1   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN2   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN3   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN4   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN5   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(21*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN6   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(22*4))))
-#define SYSCTL_BITBANDING_DC3_DCADC0AIN7   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(23*4))))
-#define SYSCTL_BITBANDING_DC3_DCCCP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC3_DCCCP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DC3_DCCCP2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(26*4))))
-#define SYSCTL_BITBANDING_DC3_DCCCP3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(27*4))))
-#define SYSCTL_BITBANDING_DC3_DCCCP4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(28*4))))
-#define SYSCTL_BITBANDING_DC3_DCCCP5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(29*4))))
-#define SYSCTL_BITBANDING_DC3_DC32KHZ      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32)+(31*4))))
+#define SYSCTL_BITBANDING_DC3_DCPWM0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC3_DCPWM1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC3_DCPWM2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC3_DCPWM3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DC3_DCPWM4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC3_DCPWM5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC0MINUS    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC0PLUS     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(7*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC0O        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC1MINUS    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC1PLUS     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(10*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC1O        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(11*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC2MINUS    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC2PLUS     (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_DC3_DCC2O        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_DC3_DCPWMFAULT   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(15*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN0   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN1   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN2   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN3   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN4   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN5   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(21*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN6   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(22*4u))))
+#define SYSCTL_BITBANDING_DC3_DCADC0AIN7   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(23*4u))))
+#define SYSCTL_BITBANDING_DC3_DCCCP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC3_DCCCP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DC3_DCCCP2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(26*4u))))
+#define SYSCTL_BITBANDING_DC3_DCCCP3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(27*4u))))
+#define SYSCTL_BITBANDING_DC3_DCCCP4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(28*4u))))
+#define SYSCTL_BITBANDING_DC3_DCCCP5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(29*4u))))
+#define SYSCTL_BITBANDING_DC3_DC32KHZ      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC3_OFFSET)*32u)+(31*4u))))
 
 /**********************************************************************************
 ************************************126 DC4 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC4            (((DC4_TypeDef*)(SYSCTL_BASE+SYSCTL_DC4_OFFSET )))
 #define SYSCTL_DC4_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC4_OFFSET)))
-#define SYSCTL_BITBANDING_DC4      (((BITBANDING_DC4_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC4      (((BITBANDING_DC4_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOA_MASK       (0x00000001u)
-#define SYSCTL_DC4_R_DCGPIOA_BIT        (0)
+#define SYSCTL_DC4_R_DCGPIOA_BIT        (0u)
 #define SYSCTL_DC4_R_DCGPIOA_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOA_PRESENT    (0x00000001u)
 
@@ -10745,7 +10745,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOB_MASK       (0x00000002u)
-#define SYSCTL_DC4_R_DCGPIOB_BIT        (1)
+#define SYSCTL_DC4_R_DCGPIOB_BIT        (1u)
 #define SYSCTL_DC4_R_DCGPIOB_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOB_PRESENT    (0x00000002u)
 
@@ -10756,7 +10756,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOC_MASK       (0x00000004u)
-#define SYSCTL_DC4_R_DCGPIOC_BIT        (2)
+#define SYSCTL_DC4_R_DCGPIOC_BIT        (2u)
 #define SYSCTL_DC4_R_DCGPIOC_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOC_PRESENT    (0x00000004u)
 
@@ -10767,7 +10767,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOD_MASK       (0x00000008u)
-#define SYSCTL_DC4_R_DCGPIOD_BIT        (3)
+#define SYSCTL_DC4_R_DCGPIOD_BIT        (3u)
 #define SYSCTL_DC4_R_DCGPIOD_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOD_PRESENT    (0x00000008u)
 
@@ -10778,7 +10778,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOE_MASK       (0x00000010u)
-#define SYSCTL_DC4_R_DCGPIOE_BIT        (4)
+#define SYSCTL_DC4_R_DCGPIOE_BIT        (4u)
 #define SYSCTL_DC4_R_DCGPIOE_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOE_PRESENT    (0x00000010u)
 
@@ -10789,7 +10789,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOF_MASK       (0x00000020u)
-#define SYSCTL_DC4_R_DCGPIOF_BIT        (5)
+#define SYSCTL_DC4_R_DCGPIOF_BIT        (5u)
 #define SYSCTL_DC4_R_DCGPIOF_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOF_PRESENT    (0x00000020u)
 
@@ -10800,7 +10800,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOG_MASK       (0x00000040u)
-#define SYSCTL_DC4_R_DCGPIOG_BIT        (6)
+#define SYSCTL_DC4_R_DCGPIOG_BIT        (6u)
 #define SYSCTL_DC4_R_DCGPIOG_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOG_PRESENT    (0x00000040u)
 
@@ -10811,7 +10811,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOH_MASK       (0x00000080u)
-#define SYSCTL_DC4_R_DCGPIOH_BIT        (7)
+#define SYSCTL_DC4_R_DCGPIOH_BIT        (7u)
 #define SYSCTL_DC4_R_DCGPIOH_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOH_PRESENT    (0x00000080u)
 
@@ -10822,7 +10822,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCGPIOJ_MASK       (0x00000100u)
-#define SYSCTL_DC4_R_DCGPIOJ_BIT        (8)
+#define SYSCTL_DC4_R_DCGPIOJ_BIT        (8u)
 #define SYSCTL_DC4_R_DCGPIOJ_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCGPIOJ_PRESENT    (0x00000100u)
 
@@ -10833,7 +10833,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCROM_MASK       (0x00001000u)
-#define SYSCTL_DC4_R_DCROM_BIT        (12)
+#define SYSCTL_DC4_R_DCROM_BIT        (12u)
 #define SYSCTL_DC4_R_DCROM_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCROM_PRESENT    (0x00001000u)
 
@@ -10844,7 +10844,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCUDMA_MASK       (0x00002000u)
-#define SYSCTL_DC4_R_DCUDMA_BIT        (13)
+#define SYSCTL_DC4_R_DCUDMA_BIT        (13u)
 #define SYSCTL_DC4_R_DCUDMA_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCUDMA_PRESENT    (0x00002000u)
 
@@ -10855,7 +10855,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCCCP6_MASK       (0x00004000u)
-#define SYSCTL_DC4_R_DCCCP6_BIT        (14)
+#define SYSCTL_DC4_R_DCCCP6_BIT        (14u)
 #define SYSCTL_DC4_R_DCCCP6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCCCP6_PRESENT    (0x00004000u)
 
@@ -10866,7 +10866,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCCCP7_MASK       (0x00008000u)
-#define SYSCTL_DC4_R_DCCCP7_BIT        (15)
+#define SYSCTL_DC4_R_DCCCP7_BIT        (15u)
 #define SYSCTL_DC4_R_DCCCP7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCCCP7_PRESENT    (0x00008000u)
 
@@ -10877,7 +10877,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCPICAL_MASK       (0x00040000u)
-#define SYSCTL_DC4_R_DCPICAL_BIT        (18)
+#define SYSCTL_DC4_R_DCPICAL_BIT        (18u)
 #define SYSCTL_DC4_R_DCPICAL_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCPICAL_PRESENT    (0x00040000u)
 
@@ -10888,7 +10888,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCE1588_MASK       (0x01000000u)
-#define SYSCTL_DC4_R_DCE1588_BIT        (24)
+#define SYSCTL_DC4_R_DCE1588_BIT        (24u)
 #define SYSCTL_DC4_R_DCE1588_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCE1588_PRESENT    (0x01000000u)
 
@@ -10899,7 +10899,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCEMAC0_MASK       (0x10000000u)
-#define SYSCTL_DC4_R_DCEMAC0_BIT        (28)
+#define SYSCTL_DC4_R_DCEMAC0_BIT        (28u)
 #define SYSCTL_DC4_R_DCEMAC0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCEMAC0_PRESENT    (0x10000000u)
 
@@ -10910,7 +10910,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC4_R_DCEPHY0_MASK       (0x40000000u)
-#define SYSCTL_DC4_R_DCEPHY0_BIT        (30)
+#define SYSCTL_DC4_R_DCEPHY0_BIT        (30u)
 #define SYSCTL_DC4_R_DCEPHY0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC4_R_DCEPHY0_PRESENT    (0x40000000u)
 
@@ -10919,36 +10919,36 @@ typedef volatile struct
 #define SYSCTL_DC4_DCEPHY0_PRESENT    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DC4_DCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOG       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOH       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(7*4))))
-#define SYSCTL_BITBANDING_DC4_DCGPIOJ       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_DC4_DCROM         (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_DC4_DCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_DC4_DCCCP6        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_DC4_DCCCP7        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(15*4))))
-#define SYSCTL_BITBANDING_DC4_DCPICAL       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_DC4_DCE1588       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC4_DCEMAC0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(28*4))))
-#define SYSCTL_BITBANDING_DC4_DCEPHY0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32)+(30*4))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOG       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOH       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(7*4u))))
+#define SYSCTL_BITBANDING_DC4_DCGPIOJ       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_DC4_DCROM         (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_DC4_DCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_DC4_DCCCP6        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_DC4_DCCCP7        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(15*4u))))
+#define SYSCTL_BITBANDING_DC4_DCPICAL       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_DC4_DCE1588       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC4_DCEMAC0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(28*4u))))
+#define SYSCTL_BITBANDING_DC4_DCEPHY0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC4_OFFSET)*32u)+(30*4u))))
 
 /**********************************************************************************
 ************************************127 DC5 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC5            (((DC5_TypeDef*)(SYSCTL_BASE+SYSCTL_DC5_OFFSET )))
 #define SYSCTL_DC5_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC5_OFFSET)))
-#define SYSCTL_BITBANDING_DC5      (((BITBANDING_DC5_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC5      (((BITBANDING_DC5_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM0_MASK       (0x00000001u)
-#define SYSCTL_DC5_R_DCPWM0_BIT        (0)
+#define SYSCTL_DC5_R_DCPWM0_BIT        (0u)
 #define SYSCTL_DC5_R_DCPWM0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM0_PRESENT    (0x00000001u)
 
@@ -10959,7 +10959,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM1_MASK       (0x00000002u)
-#define SYSCTL_DC5_R_DCPWM1_BIT        (1)
+#define SYSCTL_DC5_R_DCPWM1_BIT        (1u)
 #define SYSCTL_DC5_R_DCPWM1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM1_PRESENT    (0x00000002u)
 
@@ -10970,7 +10970,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM2_MASK       (0x00000004u)
-#define SYSCTL_DC5_R_DCPWM2_BIT        (2)
+#define SYSCTL_DC5_R_DCPWM2_BIT        (2u)
 #define SYSCTL_DC5_R_DCPWM2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM2_PRESENT    (0x00000004u)
 
@@ -10981,7 +10981,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM3_MASK       (0x00000008u)
-#define SYSCTL_DC5_R_DCPWM3_BIT        (3)
+#define SYSCTL_DC5_R_DCPWM3_BIT        (3u)
 #define SYSCTL_DC5_R_DCPWM3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM3_PRESENT    (0x00000008u)
 
@@ -10992,7 +10992,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM4_MASK       (0x00000010u)
-#define SYSCTL_DC5_R_DCPWM4_BIT        (4)
+#define SYSCTL_DC5_R_DCPWM4_BIT        (4u)
 #define SYSCTL_DC5_R_DCPWM4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM4_PRESENT    (0x00000010u)
 
@@ -11003,7 +11003,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM5_MASK       (0x00000020u)
-#define SYSCTL_DC5_R_DCPWM5_BIT        (5)
+#define SYSCTL_DC5_R_DCPWM5_BIT        (5u)
 #define SYSCTL_DC5_R_DCPWM5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM5_PRESENT    (0x00000020u)
 
@@ -11014,7 +11014,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM6_MASK       (0x00000040u)
-#define SYSCTL_DC5_R_DCPWM6_BIT        (6)
+#define SYSCTL_DC5_R_DCPWM6_BIT        (6u)
 #define SYSCTL_DC5_R_DCPWM6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM6_PRESENT    (0x00000040u)
 
@@ -11025,7 +11025,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWM7_MASK       (0x00000080u)
-#define SYSCTL_DC5_R_DCPWM7_BIT        (7)
+#define SYSCTL_DC5_R_DCPWM7_BIT        (7u)
 #define SYSCTL_DC5_R_DCPWM7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWM7_PRESENT    (0x00000080u)
 
@@ -11036,7 +11036,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWMESYNC_MASK       (0x00100000u)
-#define SYSCTL_DC5_R_DCPWMESYNC_BIT        (20)
+#define SYSCTL_DC5_R_DCPWMESYNC_BIT        (20u)
 #define SYSCTL_DC5_R_DCPWMESYNC_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWMESYNC_PRESENT    (0x00100000u)
 
@@ -11047,7 +11047,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWMEFLT_MASK       (0x00200000u)
-#define SYSCTL_DC5_R_DCPWMEFLT_BIT        (21)
+#define SYSCTL_DC5_R_DCPWMEFLT_BIT        (21u)
 #define SYSCTL_DC5_R_DCPWMEFLT_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWMEFLT_PRESENT    (0x00200000u)
 
@@ -11058,7 +11058,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWMFAULT0_MASK       (0x01000000u)
-#define SYSCTL_DC5_R_DCPWMFAULT0_BIT        (24)
+#define SYSCTL_DC5_R_DCPWMFAULT0_BIT        (24u)
 #define SYSCTL_DC5_R_DCPWMFAULT0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWMFAULT0_PRESENT    (0x01000000u)
 
@@ -11069,7 +11069,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWMFAULT1_MASK       (0x02000000u)
-#define SYSCTL_DC5_R_DCPWMFAULT1_BIT        (25)
+#define SYSCTL_DC5_R_DCPWMFAULT1_BIT        (25u)
 #define SYSCTL_DC5_R_DCPWMFAULT1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWMFAULT1_PRESENT    (0x02000000u)
 
@@ -11080,7 +11080,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWMFAULT2_MASK       (0x04000000u)
-#define SYSCTL_DC5_R_DCPWMFAULT2_BIT        (26)
+#define SYSCTL_DC5_R_DCPWMFAULT2_BIT        (26u)
 #define SYSCTL_DC5_R_DCPWMFAULT2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWMFAULT2_PRESENT    (0x04000000u)
 
@@ -11091,7 +11091,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC5_R_DCPWMFAULT3_MASK       (0x08000000u)
-#define SYSCTL_DC5_R_DCPWMFAULT3_BIT        (27)
+#define SYSCTL_DC5_R_DCPWMFAULT3_BIT        (27u)
 #define SYSCTL_DC5_R_DCPWMFAULT3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC5_R_DCPWMFAULT3_PRESENT    (0x08000000u)
 
@@ -11101,34 +11101,34 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_DC5_DCPWM0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWM7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(7*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWMESYNC   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWMEFLT    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(21*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWMFAULT0  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWMFAULT1  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWMFAULT2  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(26*4))))
-#define SYSCTL_BITBANDING_DC5_DCPWMFAULT3  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32)+(27*4))))
+#define SYSCTL_BITBANDING_DC5_DCPWM0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWM7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(7*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWMESYNC   (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWMEFLT    (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(21*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWMFAULT0  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWMFAULT1  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWMFAULT2  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(26*4u))))
+#define SYSCTL_BITBANDING_DC5_DCPWMFAULT3  (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC5_OFFSET)*32u)+(27*4u))))
 
 /**********************************************************************************
 ************************************128 DC6 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC6            (((DC6_TypeDef*)(SYSCTL_BASE+SYSCTL_DC6_OFFSET )))
 #define SYSCTL_DC6_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC6_OFFSET)))
-#define SYSCTL_BITBANDING_DC6      (((BITBANDING_DC6_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC6_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC6      (((BITBANDING_DC6_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC6_OFFSET)*32u))))
 
 
 
 
 /*----------*/
 #define SYSCTL_DC6_R_DCUSB0_MASK       (0x00000003u)
-#define SYSCTL_DC6_R_DCUSB0_BIT        (0)
+#define SYSCTL_DC6_R_DCUSB0_BIT        (0u)
 #define SYSCTL_DC6_R_DCUSB0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC6_R_DCUSB0_DEVICE     (0x00000001u)
 #define SYSCTL_DC6_R_DCUSB0_HOST       (0x00000002u)
@@ -11143,7 +11143,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC6_R_DCUSB0PHY_MASK       (0x00000010u)
-#define SYSCTL_DC6_R_DCUSB0PHY_BIT        (4)
+#define SYSCTL_DC6_R_DCUSB0PHY_BIT        (4u)
 #define SYSCTL_DC6_R_DCUSB0PHY_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC6_R_DCUSB0PHY_PRESENT    (0x00000010u)
 
@@ -11153,20 +11153,20 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_DC6_DCUSB0PHY       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC6_OFFSET)*32)+(4*4))))
+#define SYSCTL_BITBANDING_DC6_DCUSB0PHY       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC6_OFFSET)*32u)+(4*4u))))
 
 /**********************************************************************************
 ************************************129 DC7 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC7            (((DC7_TypeDef*)(SYSCTL_BASE+SYSCTL_DC7_OFFSET )))
 #define SYSCTL_DC7_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC7_OFFSET)))
-#define SYSCTL_BITBANDING_DC7      (((BITBANDING_DC7_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC7      (((BITBANDING_DC7_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH0_MASK       (0x00000001u)
-#define SYSCTL_DC7_R_DCDMACH0_BIT        (0)
+#define SYSCTL_DC7_R_DCDMACH0_BIT        (0u)
 #define SYSCTL_DC7_R_DCDMACH0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH0_PRESENT    (0x00000001u)
 
@@ -11177,7 +11177,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH1_MASK       (0x00000002u)
-#define SYSCTL_DC7_R_DCDMACH1_BIT        (1)
+#define SYSCTL_DC7_R_DCDMACH1_BIT        (1u)
 #define SYSCTL_DC7_R_DCDMACH1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH1_PRESENT    (0x00000002u)
 
@@ -11188,7 +11188,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH2_MASK       (0x00000004u)
-#define SYSCTL_DC7_R_DCDMACH2_BIT        (2)
+#define SYSCTL_DC7_R_DCDMACH2_BIT        (2u)
 #define SYSCTL_DC7_R_DCDMACH2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH2_PRESENT    (0x00000004u)
 
@@ -11199,7 +11199,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH3_MASK       (0x00000008u)
-#define SYSCTL_DC7_R_DCDMACH3_BIT        (3)
+#define SYSCTL_DC7_R_DCDMACH3_BIT        (3u)
 #define SYSCTL_DC7_R_DCDMACH3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH3_PRESENT    (0x00000008u)
 
@@ -11210,7 +11210,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH4_MASK       (0x00000010u)
-#define SYSCTL_DC7_R_DCDMACH4_BIT        (4)
+#define SYSCTL_DC7_R_DCDMACH4_BIT        (4u)
 #define SYSCTL_DC7_R_DCDMACH4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH4_PRESENT    (0x00000010u)
 
@@ -11221,7 +11221,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH5_MASK       (0x00000020u)
-#define SYSCTL_DC7_R_DCDMACH5_BIT        (5)
+#define SYSCTL_DC7_R_DCDMACH5_BIT        (5u)
 #define SYSCTL_DC7_R_DCDMACH5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH5_PRESENT    (0x00000020u)
 
@@ -11232,7 +11232,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH6_MASK       (0x00000040u)
-#define SYSCTL_DC7_R_DCDMACH6_BIT        (6)
+#define SYSCTL_DC7_R_DCDMACH6_BIT        (6u)
 #define SYSCTL_DC7_R_DCDMACH6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH6_PRESENT    (0x00000040u)
 
@@ -11243,7 +11243,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH7_MASK       (0x00000080u)
-#define SYSCTL_DC7_R_DCDMACH7_BIT        (7)
+#define SYSCTL_DC7_R_DCDMACH7_BIT        (7u)
 #define SYSCTL_DC7_R_DCDMACH7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH7_PRESENT    (0x00000080u)
 
@@ -11254,7 +11254,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH8_MASK       (0x00000100u)
-#define SYSCTL_DC7_R_DCDMACH8_BIT        (8)
+#define SYSCTL_DC7_R_DCDMACH8_BIT        (8u)
 #define SYSCTL_DC7_R_DCDMACH8_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH8_PRESENT    (0x00000100u)
 
@@ -11265,7 +11265,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH9_MASK       (0x00000200u)
-#define SYSCTL_DC7_R_DCDMACH9_BIT        (9)
+#define SYSCTL_DC7_R_DCDMACH9_BIT        (9u)
 #define SYSCTL_DC7_R_DCDMACH9_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH9_PRESENT    (0x00000200u)
 
@@ -11276,7 +11276,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH10_MASK       (0x00000400u)
-#define SYSCTL_DC7_R_DCDMACH10_BIT        (10)
+#define SYSCTL_DC7_R_DCDMACH10_BIT        (10u)
 #define SYSCTL_DC7_R_DCDMACH10_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH10_PRESENT    (0x00000400u)
 
@@ -11287,7 +11287,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH11_MASK       (0x00000800u)
-#define SYSCTL_DC7_R_DCDMACH11_BIT        (11)
+#define SYSCTL_DC7_R_DCDMACH11_BIT        (11u)
 #define SYSCTL_DC7_R_DCDMACH11_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH11_PRESENT    (0x00000800u)
 
@@ -11298,7 +11298,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH12_MASK       (0x00001000u)
-#define SYSCTL_DC7_R_DCDMACH12_BIT        (12)
+#define SYSCTL_DC7_R_DCDMACH12_BIT        (12u)
 #define SYSCTL_DC7_R_DCDMACH12_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH12_PRESENT    (0x00001000u)
 
@@ -11309,7 +11309,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH13_MASK       (0x00002000u)
-#define SYSCTL_DC7_R_DCDMACH13_BIT        (13)
+#define SYSCTL_DC7_R_DCDMACH13_BIT        (13u)
 #define SYSCTL_DC7_R_DCDMACH13_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH13_PRESENT    (0x00002000u)
 
@@ -11320,7 +11320,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH14_MASK       (0x00004000u)
-#define SYSCTL_DC7_R_DCDMACH14_BIT        (14)
+#define SYSCTL_DC7_R_DCDMACH14_BIT        (14u)
 #define SYSCTL_DC7_R_DCDMACH14_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH14_PRESENT    (0x00004000u)
 
@@ -11331,7 +11331,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH15_MASK       (0x00008000u)
-#define SYSCTL_DC7_R_DCDMACH15_BIT        (15)
+#define SYSCTL_DC7_R_DCDMACH15_BIT        (15u)
 #define SYSCTL_DC7_R_DCDMACH15_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH15_PRESENT    (0x00008000u)
 
@@ -11342,7 +11342,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH16_MASK       (0x00010000u)
-#define SYSCTL_DC7_R_DCDMACH16_BIT        (16)
+#define SYSCTL_DC7_R_DCDMACH16_BIT        (16u)
 #define SYSCTL_DC7_R_DCDMACH16_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH16_PRESENT    (0x00010000u)
 
@@ -11353,7 +11353,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH17_MASK       (0x00020000u)
-#define SYSCTL_DC7_R_DCDMACH17_BIT        (17)
+#define SYSCTL_DC7_R_DCDMACH17_BIT        (17u)
 #define SYSCTL_DC7_R_DCDMACH17_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH17_PRESENT    (0x00020000u)
 
@@ -11364,7 +11364,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH18_MASK       (0x00040000u)
-#define SYSCTL_DC7_R_DCDMACH18_BIT        (18)
+#define SYSCTL_DC7_R_DCDMACH18_BIT        (18u)
 #define SYSCTL_DC7_R_DCDMACH18_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH18_PRESENT    (0x00040000u)
 
@@ -11375,7 +11375,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH19_MASK       (0x00080000u)
-#define SYSCTL_DC7_R_DCDMACH19_BIT        (19)
+#define SYSCTL_DC7_R_DCDMACH19_BIT        (19u)
 #define SYSCTL_DC7_R_DCDMACH19_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH19_PRESENT    (0x00080000u)
 
@@ -11386,7 +11386,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH20_MASK       (0x00100000u)
-#define SYSCTL_DC7_R_DCDMACH20_BIT        (20)
+#define SYSCTL_DC7_R_DCDMACH20_BIT        (20u)
 #define SYSCTL_DC7_R_DCDMACH20_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH20_PRESENT    (0x00100000u)
 
@@ -11397,7 +11397,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH21_MASK       (0x00200000u)
-#define SYSCTL_DC7_R_DCDMACH21_BIT        (21)
+#define SYSCTL_DC7_R_DCDMACH21_BIT        (21u)
 #define SYSCTL_DC7_R_DCDMACH21_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH21_PRESENT    (0x00200000u)
 
@@ -11408,7 +11408,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH22_MASK       (0x00400000u)
-#define SYSCTL_DC7_R_DCDMACH22_BIT        (22)
+#define SYSCTL_DC7_R_DCDMACH22_BIT        (22u)
 #define SYSCTL_DC7_R_DCDMACH22_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH22_PRESENT    (0x00400000u)
 
@@ -11419,7 +11419,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH23_MASK       (0x00800000u)
-#define SYSCTL_DC7_R_DCDMACH23_BIT        (23)
+#define SYSCTL_DC7_R_DCDMACH23_BIT        (23u)
 #define SYSCTL_DC7_R_DCDMACH23_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH23_PRESENT    (0x00800000u)
 
@@ -11430,7 +11430,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH24_MASK       (0x01000000u)
-#define SYSCTL_DC7_R_DCDMACH24_BIT        (24)
+#define SYSCTL_DC7_R_DCDMACH24_BIT        (24u)
 #define SYSCTL_DC7_R_DCDMACH24_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH24_PRESENT    (0x01000000u)
 
@@ -11441,7 +11441,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH25_MASK       (0x02000000u)
-#define SYSCTL_DC7_R_DCDMACH25_BIT        (25)
+#define SYSCTL_DC7_R_DCDMACH25_BIT        (25u)
 #define SYSCTL_DC7_R_DCDMACH25_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH25_PRESENT    (0x02000000u)
 
@@ -11452,7 +11452,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH26_MASK       (0x04000000u)
-#define SYSCTL_DC7_R_DCDMACH26_BIT        (26)
+#define SYSCTL_DC7_R_DCDMACH26_BIT        (26u)
 #define SYSCTL_DC7_R_DCDMACH26_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH26_PRESENT    (0x04000000u)
 
@@ -11463,7 +11463,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH27_MASK       (0x08000000u)
-#define SYSCTL_DC7_R_DCDMACH27_BIT        (27)
+#define SYSCTL_DC7_R_DCDMACH27_BIT        (27u)
 #define SYSCTL_DC7_R_DCDMACH27_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH27_PRESENT    (0x08000000u)
 
@@ -11474,7 +11474,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH28_MASK       (0x10000000u)
-#define SYSCTL_DC7_R_DCDMACH28_BIT        (28)
+#define SYSCTL_DC7_R_DCDMACH28_BIT        (28u)
 #define SYSCTL_DC7_R_DCDMACH28_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH28_PRESENT    (0x10000000u)
 
@@ -11485,7 +11485,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH29_MASK       (0x20000000u)
-#define SYSCTL_DC7_R_DCDMACH29_BIT        (29)
+#define SYSCTL_DC7_R_DCDMACH29_BIT        (29u)
 #define SYSCTL_DC7_R_DCDMACH29_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH29_PRESENT    (0x20000000u)
 
@@ -11496,7 +11496,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC7_R_DCDMACH30_MASK       (0x40000000u)
-#define SYSCTL_DC7_R_DCDMACH30_BIT        (30)
+#define SYSCTL_DC7_R_DCDMACH30_BIT        (30u)
 #define SYSCTL_DC7_R_DCDMACH30_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC7_R_DCDMACH30_PRESENT    (0x40000000u)
 
@@ -11505,50 +11505,50 @@ typedef volatile struct
 #define SYSCTL_DC7_DCDMACH30_PRESENT    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DC7_DCDMACH0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(7*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH8       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH9       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH10      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(10*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH11      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(11*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH12      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH13      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH14      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH15      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(15*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH16      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH17      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH18      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH19      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH20      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH21      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(21*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH22      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(22*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH23      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(23*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH24      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH25      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH26      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(26*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH27      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(27*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH28      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(28*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH29      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(29*4))))
-#define SYSCTL_BITBANDING_DC7_DCDMACH30      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32)+(30*4))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(7*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH8       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH9       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH10      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(10*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH11      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(11*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH12      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH13      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH14      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH15      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(15*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH16      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH17      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH18      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH19      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH20      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH21      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(21*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH22      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(22*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH23      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(23*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH24      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH25      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH26      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(26*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH27      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(27*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH28      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(28*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH29      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(29*4u))))
+#define SYSCTL_BITBANDING_DC7_DCDMACH30      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC7_OFFSET)*32u)+(30*4u))))
 
 /**********************************************************************************
 ************************************130 DC8 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC8            (((DC8_TypeDef*)(SYSCTL_BASE+SYSCTL_DC8_OFFSET )))
 #define SYSCTL_DC8_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC8_OFFSET)))
-#define SYSCTL_BITBANDING_DC8      (((BITBANDING_DC8_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC8      (((BITBANDING_DC8_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN0_MASK       (0x00000001u)
-#define SYSCTL_DC8_R_DCADC0AIN0_BIT        (0)
+#define SYSCTL_DC8_R_DCADC0AIN0_BIT        (0u)
 #define SYSCTL_DC8_R_DCADC0AIN0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN0_PRESENT    (0x00000001u)
 
@@ -11559,7 +11559,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN1_MASK       (0x00000002u)
-#define SYSCTL_DC8_R_DCADC0AIN1_BIT        (1)
+#define SYSCTL_DC8_R_DCADC0AIN1_BIT        (1u)
 #define SYSCTL_DC8_R_DCADC0AIN1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN1_PRESENT    (0x00000002u)
 
@@ -11570,7 +11570,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN2_MASK       (0x00000004u)
-#define SYSCTL_DC8_R_DCADC0AIN2_BIT        (2)
+#define SYSCTL_DC8_R_DCADC0AIN2_BIT        (2u)
 #define SYSCTL_DC8_R_DCADC0AIN2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN2_PRESENT    (0x00000004u)
 
@@ -11581,7 +11581,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN3_MASK       (0x00000008u)
-#define SYSCTL_DC8_R_DCADC0AIN3_BIT        (3)
+#define SYSCTL_DC8_R_DCADC0AIN3_BIT        (3u)
 #define SYSCTL_DC8_R_DCADC0AIN3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN3_PRESENT    (0x00000008u)
 
@@ -11592,7 +11592,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN4_MASK       (0x00000010u)
-#define SYSCTL_DC8_R_DCADC0AIN4_BIT        (4)
+#define SYSCTL_DC8_R_DCADC0AIN4_BIT        (4u)
 #define SYSCTL_DC8_R_DCADC0AIN4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN4_PRESENT    (0x00000010u)
 
@@ -11603,7 +11603,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN5_MASK       (0x00000020u)
-#define SYSCTL_DC8_R_DCADC0AIN5_BIT        (5)
+#define SYSCTL_DC8_R_DCADC0AIN5_BIT        (5u)
 #define SYSCTL_DC8_R_DCADC0AIN5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN5_PRESENT    (0x00000020u)
 
@@ -11614,7 +11614,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN6_MASK       (0x00000040u)
-#define SYSCTL_DC8_R_DCADC0AIN6_BIT        (6)
+#define SYSCTL_DC8_R_DCADC0AIN6_BIT        (6u)
 #define SYSCTL_DC8_R_DCADC0AIN6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN6_PRESENT    (0x00000040u)
 
@@ -11625,7 +11625,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN7_MASK       (0x00000080u)
-#define SYSCTL_DC8_R_DCADC0AIN7_BIT        (7)
+#define SYSCTL_DC8_R_DCADC0AIN7_BIT        (7u)
 #define SYSCTL_DC8_R_DCADC0AIN7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN7_PRESENT    (0x00000080u)
 
@@ -11636,7 +11636,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN8_MASK       (0x00000100u)
-#define SYSCTL_DC8_R_DCADC0AIN8_BIT        (8)
+#define SYSCTL_DC8_R_DCADC0AIN8_BIT        (8u)
 #define SYSCTL_DC8_R_DCADC0AIN8_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN8_PRESENT    (0x00000100u)
 
@@ -11647,7 +11647,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN9_MASK       (0x00000200u)
-#define SYSCTL_DC8_R_DCADC0AIN9_BIT        (9)
+#define SYSCTL_DC8_R_DCADC0AIN9_BIT        (9u)
 #define SYSCTL_DC8_R_DCADC0AIN9_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN9_PRESENT    (0x00000200u)
 
@@ -11658,7 +11658,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN10_MASK       (0x00000400u)
-#define SYSCTL_DC8_R_DCADC0AIN10_BIT        (10)
+#define SYSCTL_DC8_R_DCADC0AIN10_BIT        (10u)
 #define SYSCTL_DC8_R_DCADC0AIN10_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN10_PRESENT    (0x00000400u)
 
@@ -11669,7 +11669,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN11_MASK       (0x00000800u)
-#define SYSCTL_DC8_R_DCADC0AIN11_BIT        (11)
+#define SYSCTL_DC8_R_DCADC0AIN11_BIT        (11u)
 #define SYSCTL_DC8_R_DCADC0AIN11_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN11_PRESENT    (0x00000800u)
 
@@ -11680,7 +11680,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN12_MASK       (0x00001000u)
-#define SYSCTL_DC8_R_DCADC0AIN12_BIT        (12)
+#define SYSCTL_DC8_R_DCADC0AIN12_BIT        (12u)
 #define SYSCTL_DC8_R_DCADC0AIN12_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN12_PRESENT    (0x00001000u)
 
@@ -11691,7 +11691,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN13_MASK       (0x00002000u)
-#define SYSCTL_DC8_R_DCADC0AIN13_BIT        (13)
+#define SYSCTL_DC8_R_DCADC0AIN13_BIT        (13u)
 #define SYSCTL_DC8_R_DCADC0AIN13_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN13_PRESENT    (0x00002000u)
 
@@ -11702,7 +11702,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN14_MASK       (0x00004000u)
-#define SYSCTL_DC8_R_DCADC0AIN14_BIT        (14)
+#define SYSCTL_DC8_R_DCADC0AIN14_BIT        (14u)
 #define SYSCTL_DC8_R_DCADC0AIN14_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN14_PRESENT    (0x00004000u)
 
@@ -11713,7 +11713,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC0AIN15_MASK       (0x00008000u)
-#define SYSCTL_DC8_R_DCADC0AIN15_BIT        (15)
+#define SYSCTL_DC8_R_DCADC0AIN15_BIT        (15u)
 #define SYSCTL_DC8_R_DCADC0AIN15_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC0AIN15_PRESENT    (0x00008000u)
 
@@ -11724,7 +11724,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN0_MASK       (0x00010000u)
-#define SYSCTL_DC8_R_DCADC1AIN0_BIT        (16)
+#define SYSCTL_DC8_R_DCADC1AIN0_BIT        (16u)
 #define SYSCTL_DC8_R_DCADC1AIN0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN0_PRESENT    (0x00010000u)
 
@@ -11735,7 +11735,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN1_MASK       (0x00020000u)
-#define SYSCTL_DC8_R_DCADC1AIN1_BIT        (17)
+#define SYSCTL_DC8_R_DCADC1AIN1_BIT        (17u)
 #define SYSCTL_DC8_R_DCADC1AIN1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN1_PRESENT    (0x00020000u)
 
@@ -11746,7 +11746,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN2_MASK       (0x00040000u)
-#define SYSCTL_DC8_R_DCADC1AIN2_BIT        (18)
+#define SYSCTL_DC8_R_DCADC1AIN2_BIT        (18u)
 #define SYSCTL_DC8_R_DCADC1AIN2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN2_PRESENT    (0x00040000u)
 
@@ -11757,7 +11757,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN3_MASK       (0x00080000u)
-#define SYSCTL_DC8_R_DCADC1AIN3_BIT        (19)
+#define SYSCTL_DC8_R_DCADC1AIN3_BIT        (19u)
 #define SYSCTL_DC8_R_DCADC1AIN3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN3_PRESENT    (0x00080000u)
 
@@ -11768,7 +11768,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN4_MASK       (0x00100000u)
-#define SYSCTL_DC8_R_DCADC1AIN4_BIT        (20)
+#define SYSCTL_DC8_R_DCADC1AIN4_BIT        (20u)
 #define SYSCTL_DC8_R_DCADC1AIN4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN4_PRESENT    (0x00100000u)
 
@@ -11779,7 +11779,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN5_MASK       (0x00200000u)
-#define SYSCTL_DC8_R_DCADC1AIN5_BIT        (21)
+#define SYSCTL_DC8_R_DCADC1AIN5_BIT        (21u)
 #define SYSCTL_DC8_R_DCADC1AIN5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN5_PRESENT    (0x00200000u)
 
@@ -11790,7 +11790,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN6_MASK       (0x00400000u)
-#define SYSCTL_DC8_R_DCADC1AIN6_BIT        (22)
+#define SYSCTL_DC8_R_DCADC1AIN6_BIT        (22u)
 #define SYSCTL_DC8_R_DCADC1AIN6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN6_PRESENT    (0x00400000u)
 
@@ -11801,7 +11801,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN7_MASK       (0x00800000u)
-#define SYSCTL_DC8_R_DCADC1AIN7_BIT        (23)
+#define SYSCTL_DC8_R_DCADC1AIN7_BIT        (23u)
 #define SYSCTL_DC8_R_DCADC1AIN7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN7_PRESENT    (0x00800000u)
 
@@ -11812,7 +11812,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN8_MASK       (0x01000000u)
-#define SYSCTL_DC8_R_DCADC1AIN8_BIT        (24)
+#define SYSCTL_DC8_R_DCADC1AIN8_BIT        (24u)
 #define SYSCTL_DC8_R_DCADC1AIN8_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN8_PRESENT    (0x01000000u)
 
@@ -11823,7 +11823,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN9_MASK       (0x02000000u)
-#define SYSCTL_DC8_R_DCADC1AIN9_BIT        (25)
+#define SYSCTL_DC8_R_DCADC1AIN9_BIT        (25u)
 #define SYSCTL_DC8_R_DCADC1AIN9_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN9_PRESENT    (0x02000000u)
 
@@ -11834,7 +11834,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN10_MASK       (0x04000000u)
-#define SYSCTL_DC8_R_DCADC1AIN10_BIT        (26)
+#define SYSCTL_DC8_R_DCADC1AIN10_BIT        (26u)
 #define SYSCTL_DC8_R_DCADC1AIN10_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN10_PRESENT    (0x04000000u)
 
@@ -11845,7 +11845,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN11_MASK       (0x08000000u)
-#define SYSCTL_DC8_R_DCADC1AIN11_BIT        (27)
+#define SYSCTL_DC8_R_DCADC1AIN11_BIT        (27u)
 #define SYSCTL_DC8_R_DCADC1AIN11_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN11_PRESENT    (0x08000000u)
 
@@ -11856,7 +11856,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN12_MASK       (0x10000000u)
-#define SYSCTL_DC8_R_DCADC1AIN12_BIT        (28)
+#define SYSCTL_DC8_R_DCADC1AIN12_BIT        (28u)
 #define SYSCTL_DC8_R_DCADC1AIN12_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN12_PRESENT    (0x10000000u)
 
@@ -11867,7 +11867,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN13_MASK       (0x20000000u)
-#define SYSCTL_DC8_R_DCADC1AIN13_BIT        (29)
+#define SYSCTL_DC8_R_DCADC1AIN13_BIT        (29u)
 #define SYSCTL_DC8_R_DCADC1AIN13_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN13_PRESENT    (0x20000000u)
 
@@ -11878,7 +11878,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN14_MASK       (0x40000000u)
-#define SYSCTL_DC8_R_DCADC1AIN14_BIT        (30)
+#define SYSCTL_DC8_R_DCADC1AIN14_BIT        (30u)
 #define SYSCTL_DC8_R_DCADC1AIN14_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN14_PRESENT    (0x40000000u)
 
@@ -11890,7 +11890,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC8_R_DCADC1AIN15_MASK       (0x80000000u)
-#define SYSCTL_DC8_R_DCADC1AIN15_BIT        (31)
+#define SYSCTL_DC8_R_DCADC1AIN15_BIT        (31u)
 #define SYSCTL_DC8_R_DCADC1AIN15_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC8_R_DCADC1AIN15_PRESENT    (0x80000000u)
 
@@ -11899,49 +11899,49 @@ typedef volatile struct
 #define SYSCTL_DC8_DCADC1AIN15_PRESENT    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(7*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN8       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN9       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN10      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(10*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN11      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(11*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN12      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN13      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN14      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC0AIN15      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(15*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(21*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(22*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(23*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN8       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN9       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN10      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(26*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN11      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(27*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN12      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(28*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN13      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(29*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN14      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(30*4))))
-#define SYSCTL_BITBANDING_DC8_DCADC1AIN15      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32)+(31*4))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(7*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN8       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN9       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN10      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(10*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN11      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(11*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN12      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN13      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN14      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC0AIN15      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(15*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(21*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(22*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(23*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN8       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN9       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN10      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(26*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN11      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(27*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN12      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(28*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN13      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(29*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN14      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(30*4u))))
+#define SYSCTL_BITBANDING_DC8_DCADC1AIN15      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC8_OFFSET)*32u)+(31*4u))))
 
 /**********************************************************************************
 ************************************131 SRCR0 *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRCR0            (((SRCR0_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCR0_OFFSET )))
 #define SYSCTL_SRCR0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SRCR0_OFFSET)))
-#define SYSCTL_BITBANDING_SRCR0      (((BITBANDING_SRCR0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRCR0      (((BITBANDING_SRCR0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u))))
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRWDT0_MASK       (0x00000008u)
-#define SYSCTL_SRCR0_R_SRCRWDT0_BIT        (3)
+#define SYSCTL_SRCR0_R_SRCRWDT0_BIT        (3u)
 #define SYSCTL_SRCR0_R_SRCRWDT0_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRWDT0_RESET    (0x00000008u)
 
@@ -11952,7 +11952,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRHIB_MASK       (0x00000040u)
-#define SYSCTL_SRCR0_R_SRCRHIB_BIT        (6)
+#define SYSCTL_SRCR0_R_SRCRHIB_BIT        (6u)
 #define SYSCTL_SRCR0_R_SRCRHIB_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRHIB_RESET    (0x00000040u)
 
@@ -11963,7 +11963,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRADC0_MASK       (0x00010000u)
-#define SYSCTL_SRCR0_R_SRCRADC0_BIT        (16)
+#define SYSCTL_SRCR0_R_SRCRADC0_BIT        (16u)
 #define SYSCTL_SRCR0_R_SRCRADC0_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRADC0_RESET    (0x00010000u)
 
@@ -11974,7 +11974,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRADC1_MASK       (0x00020000u)
-#define SYSCTL_SRCR0_R_SRCRADC1_BIT        (17)
+#define SYSCTL_SRCR0_R_SRCRADC1_BIT        (17u)
 #define SYSCTL_SRCR0_R_SRCRADC1_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRADC1_RESET    (0x00020000u)
 
@@ -11985,7 +11985,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRPWM0_MASK       (0x00100000u)
-#define SYSCTL_SRCR0_R_SRCRPWM0_BIT        (20)
+#define SYSCTL_SRCR0_R_SRCRPWM0_BIT        (20u)
 #define SYSCTL_SRCR0_R_SRCRPWM0_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRPWM0_RESET    (0x00100000u)
 
@@ -11996,7 +11996,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRCAN0_MASK       (0x01000000u)
-#define SYSCTL_SRCR0_R_SRCRCAN0_BIT        (24)
+#define SYSCTL_SRCR0_R_SRCRCAN0_BIT        (24u)
 #define SYSCTL_SRCR0_R_SRCRCAN0_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRCAN0_RESET    (0x01000000u)
 
@@ -12007,7 +12007,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRCAN1_MASK       (0x02000000u)
-#define SYSCTL_SRCR0_R_SRCRCAN1_BIT        (25)
+#define SYSCTL_SRCR0_R_SRCRCAN1_BIT        (25u)
 #define SYSCTL_SRCR0_R_SRCRCAN1_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRCAN1_RESET    (0x02000000u)
 
@@ -12018,7 +12018,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR0_R_SRCRWDT1_MASK       (0x10000000u)
-#define SYSCTL_SRCR0_R_SRCRWDT1_BIT        (28)
+#define SYSCTL_SRCR0_R_SRCRWDT1_BIT        (28u)
 #define SYSCTL_SRCR0_R_SRCRWDT1_SET  (0x00000000u)
 #define SYSCTL_SRCR0_R_SRCRWDT1_RESET    (0x10000000u)
 
@@ -12027,26 +12027,26 @@ typedef volatile struct
 #define SYSCTL_SRCR0_SRCRWDT1_RESET    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_SRCR0_SRCRWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_SRCR0_SRCRWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32)+(28*4))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_SRCR0_SRCRWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR0_OFFSET)*32u)+(28*4u))))
 
 /**********************************************************************************
 ************************************132 SRCR1 *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRCR1            (((SRCR1_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCR1_OFFSET )))
 #define SYSCTL_SRCR1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SRCR1_OFFSET)))
-#define SYSCTL_BITBANDING_SRCR1      (((BITBANDING_SRCR1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRCR1      (((BITBANDING_SRCR1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRUART0_MASK       (0x00000001u)
-#define SYSCTL_SRCR1_R_SRCRUART0_BIT        (0)
+#define SYSCTL_SRCR1_R_SRCRUART0_BIT        (0u)
 #define SYSCTL_SRCR1_R_SRCRUART0_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRUART0_RESET    (0x00000001u)
 
@@ -12057,7 +12057,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRUART1_MASK       (0x00000002u)
-#define SYSCTL_SRCR1_R_SRCRUART1_BIT        (1)
+#define SYSCTL_SRCR1_R_SRCRUART1_BIT        (1u)
 #define SYSCTL_SRCR1_R_SRCRUART1_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRUART1_RESET    (0x00000002u)
 
@@ -12068,7 +12068,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRUART2_MASK       (0x00000004u)
-#define SYSCTL_SRCR1_R_SRCRUART2_BIT        (2)
+#define SYSCTL_SRCR1_R_SRCRUART2_BIT        (2u)
 #define SYSCTL_SRCR1_R_SRCRUART2_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRUART2_RESET    (0x00000004u)
 
@@ -12079,7 +12079,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRSSI0_MASK       (0x00000010u)
-#define SYSCTL_SRCR1_R_SRCRSSI0_BIT        (4)
+#define SYSCTL_SRCR1_R_SRCRSSI0_BIT        (4u)
 #define SYSCTL_SRCR1_R_SRCRSSI0_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRSSI0_RESET    (0x00000010u)
 
@@ -12090,7 +12090,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRSSI1_MASK       (0x00000020u)
-#define SYSCTL_SRCR1_R_SRCRSSI1_BIT        (5)
+#define SYSCTL_SRCR1_R_SRCRSSI1_BIT        (5u)
 #define SYSCTL_SRCR1_R_SRCRSSI1_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRSSI1_RESET    (0x00000010u)
 
@@ -12101,7 +12101,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRQEI0_MASK       (0x00000100u)
-#define SYSCTL_SRCR1_R_SRCRQEI0_BIT        (8)
+#define SYSCTL_SRCR1_R_SRCRQEI0_BIT        (8u)
 #define SYSCTL_SRCR1_R_SRCRQEI0_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRQEI0_RESET    (0x00000100u)
 
@@ -12112,7 +12112,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRQEI1_MASK       (0x00000200u)
-#define SYSCTL_SRCR1_R_SRCRQEI1_BIT        (9)
+#define SYSCTL_SRCR1_R_SRCRQEI1_BIT        (9u)
 #define SYSCTL_SRCR1_R_SRCRQEI1_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRQEI1_RESET    (0x00000200u)
 
@@ -12123,7 +12123,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRI2C0_MASK       (0x00001000u)
-#define SYSCTL_SRCR1_R_SRCRI2C0_BIT        (12)
+#define SYSCTL_SRCR1_R_SRCRI2C0_BIT        (12u)
 #define SYSCTL_SRCR1_R_SRCRI2C0_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRI2C0_RESET    (0x00001000u)
 
@@ -12134,7 +12134,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRI2C1_MASK       (0x00004000u)
-#define SYSCTL_SRCR1_R_SRCRI2C1_BIT        (14)
+#define SYSCTL_SRCR1_R_SRCRI2C1_BIT        (14u)
 #define SYSCTL_SRCR1_R_SRCRI2C1_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRI2C1_RESET    (0x00004000u)
 
@@ -12145,7 +12145,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRTIMER0_MASK       (0x00010000u)
-#define SYSCTL_SRCR1_R_SRCRTIMER0_BIT        (16)
+#define SYSCTL_SRCR1_R_SRCRTIMER0_BIT        (16u)
 #define SYSCTL_SRCR1_R_SRCRTIMER0_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRTIMER0_RESET    (0x00010000u)
 
@@ -12156,7 +12156,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRTIMER1_MASK       (0x00020000u)
-#define SYSCTL_SRCR1_R_SRCRTIMER1_BIT        (17)
+#define SYSCTL_SRCR1_R_SRCRTIMER1_BIT        (17u)
 #define SYSCTL_SRCR1_R_SRCRTIMER1_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRTIMER1_RESET    (0x00020000u)
 
@@ -12167,7 +12167,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRTIMER2_MASK       (0x00040000u)
-#define SYSCTL_SRCR1_R_SRCRTIMER2_BIT        (18)
+#define SYSCTL_SRCR1_R_SRCRTIMER2_BIT        (18u)
 #define SYSCTL_SRCR1_R_SRCRTIMER2_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRTIMER2_RESET    (0x00040000u)
 
@@ -12178,7 +12178,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRTIMER3_MASK       (0x00080000u)
-#define SYSCTL_SRCR1_R_SRCRTIMER3_BIT        (19)
+#define SYSCTL_SRCR1_R_SRCRTIMER3_BIT        (19u)
 #define SYSCTL_SRCR1_R_SRCRTIMER3_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRTIMER3_RESET    (0x00080000u)
 
@@ -12190,7 +12190,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRCOMP0_MASK       (0x01000000u)
-#define SYSCTL_SRCR1_R_SRCRCOMP0_BIT        (24)
+#define SYSCTL_SRCR1_R_SRCRCOMP0_BIT        (24u)
 #define SYSCTL_SRCR1_R_SRCRCOMP0_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRCOMP0_RESET    (0x01000000u)
 
@@ -12201,7 +12201,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR1_R_SRCRCOMP1_MASK       (0x02000000u)
-#define SYSCTL_SRCR1_R_SRCRCOMP1_BIT        (25)
+#define SYSCTL_SRCR1_R_SRCRCOMP1_BIT        (25u)
 #define SYSCTL_SRCR1_R_SRCRCOMP1_SET  (0x00000000u)
 #define SYSCTL_SRCR1_R_SRCRCOMP1_RESET    (0x02000000u)
 
@@ -12211,34 +12211,34 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_SRCR1_SRCRUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_SRCR1_SRCRCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32)+(25*4))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_SRCR1_SRCRCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR1_OFFSET)*32u)+(25*4u))))
 
 /**********************************************************************************
 ************************************133 SRCR2 *********************************************
 ******************************************************************************************/
 #define SYSCTL_SRCR2            (((SRCR2_TypeDef*)(SYSCTL_BASE+SYSCTL_SRCR2_OFFSET )))
 #define SYSCTL_SRCR2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SRCR2_OFFSET)))
-#define SYSCTL_BITBANDING_SRCR2      (((BITBANDING_SRCR2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SRCR2      (((BITBANDING_SRCR2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRGPIOA_MASK       (0x00000001u)
-#define SYSCTL_SRCR2_R_SRCRGPIOA_BIT        (0)
+#define SYSCTL_SRCR2_R_SRCRGPIOA_BIT        (0u)
 #define SYSCTL_SRCR2_R_SRCRGPIOA_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRGPIOA_RESET    (0x00000001u)
 
@@ -12249,7 +12249,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRGPIOB_MASK       (0x00000002u)
-#define SYSCTL_SRCR2_R_SRCRGPIOB_BIT        (1)
+#define SYSCTL_SRCR2_R_SRCRGPIOB_BIT        (1u)
 #define SYSCTL_SRCR2_R_SRCRGPIOB_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRGPIOB_RESET    (0x00000002u)
 
@@ -12260,7 +12260,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRGPIOC_MASK       (0x00000004u)
-#define SYSCTL_SRCR2_R_SRCRGPIOC_BIT        (2)
+#define SYSCTL_SRCR2_R_SRCRGPIOC_BIT        (2u)
 #define SYSCTL_SRCR2_R_SRCRGPIOC_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRGPIOC_RESET    (0x00000004u)
 
@@ -12271,7 +12271,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRGPIOD_MASK       (0x00000008u)
-#define SYSCTL_SRCR2_R_SRCRGPIOD_BIT        (3)
+#define SYSCTL_SRCR2_R_SRCRGPIOD_BIT        (3u)
 #define SYSCTL_SRCR2_R_SRCRGPIOD_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRGPIOD_RESET    (0x00000008u)
 
@@ -12282,7 +12282,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRGPIOE_MASK       (0x00000010u)
-#define SYSCTL_SRCR2_R_SRCRGPIOE_BIT        (4)
+#define SYSCTL_SRCR2_R_SRCRGPIOE_BIT        (4u)
 #define SYSCTL_SRCR2_R_SRCRGPIOE_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRGPIOE_RESET    (0x00000010u)
 
@@ -12293,7 +12293,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRGPIOF_MASK       (0x00000020u)
-#define SYSCTL_SRCR2_R_SRCRGPIOF_BIT        (5)
+#define SYSCTL_SRCR2_R_SRCRGPIOF_BIT        (5u)
 #define SYSCTL_SRCR2_R_SRCRGPIOF_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRGPIOF_RESET    (0x00000020u)
 
@@ -12304,7 +12304,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRUDMA_MASK       (0x00002000u)
-#define SYSCTL_SRCR2_R_SRCRUDMA_BIT        (13)
+#define SYSCTL_SRCR2_R_SRCRUDMA_BIT        (13u)
 #define SYSCTL_SRCR2_R_SRCRUDMA_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRUDMA_RESET    (0x00002000u)
 
@@ -12315,7 +12315,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SRCR2_R_SRCRUSB0_MASK       (0x00010000u)
-#define SYSCTL_SRCR2_R_SRCRUSB0_BIT        (16)
+#define SYSCTL_SRCR2_R_SRCRUSB0_BIT        (16u)
 #define SYSCTL_SRCR2_R_SRCRUSB0_SET  (0x00000000u)
 #define SYSCTL_SRCR2_R_SRCRUSB0_RESET    (0x00010000u)
 
@@ -12324,25 +12324,25 @@ typedef volatile struct
 #define SYSCTL_SRCR2_SRCRUSB0_RESET    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_SRCR2_SRCRUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32)+(16*4))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_SRCR2_SRCRUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SRCR2_OFFSET)*32u)+(16*4u))))
 
 /**********************************************************************************
 ************************************134 RCGC0 *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGC0            (((RCGC0_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGC0_OFFSET )))
 #define SYSCTL_RCGC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RCGC0_OFFSET)))
-#define SYSCTL_BITBANDING_RCGC0      (((BITBANDING_RCGC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGC0      (((BITBANDING_RCGC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u))))
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCWDT0_MASK       (0x00000008u)
-#define SYSCTL_RCGC0_R_RCGCWDT0_BIT        (3)
+#define SYSCTL_RCGC0_R_RCGCWDT0_BIT        (3u)
 #define SYSCTL_RCGC0_R_RCGCWDT0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCWDT0_CLOCK         (0x00000008u)
 
@@ -12353,7 +12353,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCHIB_MASK       (0x00000040u)
-#define SYSCTL_RCGC0_R_RCGCHIB_BIT        (6)
+#define SYSCTL_RCGC0_R_RCGCHIB_BIT        (6u)
 #define SYSCTL_RCGC0_R_RCGCHIB_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCHIB_CLOCK         (0x00000040u)
 
@@ -12364,7 +12364,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_MASK       (0x00000030u)
-#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_BIT        (8)
+#define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_BIT        (8u)
 #define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_125K       (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_250K       (0x00000010u)
 #define SYSCTL_RCGC0_R_RCGCMAXADC0SPD_500K       (0x00000020u)
@@ -12379,7 +12379,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_MASK       (0x000000C0u)
-#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_BIT        (10)
+#define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_BIT        (10u)
 #define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_125K       (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_250K       (0x00000040u)
 #define SYSCTL_RCGC0_R_RCGCMAXADC1SPD_500K       (0x00000080u)
@@ -12394,7 +12394,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCADC0_MASK       (0x00010000u)
-#define SYSCTL_RCGC0_R_RCGCADC0_BIT        (16)
+#define SYSCTL_RCGC0_R_RCGCADC0_BIT        (16u)
 #define SYSCTL_RCGC0_R_RCGCADC0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCADC0_CLOCK         (0x00010000u)
 
@@ -12405,7 +12405,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCADC1_MASK       (0x00020000u)
-#define SYSCTL_RCGC0_R_RCGCADC1_BIT        (17)
+#define SYSCTL_RCGC0_R_RCGCADC1_BIT        (17u)
 #define SYSCTL_RCGC0_R_RCGCADC1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCADC1_CLOCK         (0x00020000u)
 
@@ -12416,7 +12416,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCPWM0_MASK       (0x00100000u)
-#define SYSCTL_RCGC0_R_RCGCPWM0_BIT        (20)
+#define SYSCTL_RCGC0_R_RCGCPWM0_BIT        (20u)
 #define SYSCTL_RCGC0_R_RCGCPWM0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCPWM0_CLOCK         (0x00100000u)
 
@@ -12427,7 +12427,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCCAN0_MASK       (0x01000000u)
-#define SYSCTL_RCGC0_R_RCGCCAN0_BIT        (24)
+#define SYSCTL_RCGC0_R_RCGCCAN0_BIT        (24u)
 #define SYSCTL_RCGC0_R_RCGCCAN0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCCAN0_CLOCK         (0x01000000u)
 
@@ -12438,7 +12438,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCCAN1_MASK       (0x02000000u)
-#define SYSCTL_RCGC0_R_RCGCCAN1_BIT        (25)
+#define SYSCTL_RCGC0_R_RCGCCAN1_BIT        (25u)
 #define SYSCTL_RCGC0_R_RCGCCAN1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCCAN1_CLOCK         (0x02000000u)
 
@@ -12449,7 +12449,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC0_R_RCGCWDT1_MASK       (0x10000000u)
-#define SYSCTL_RCGC0_R_RCGCWDT1_BIT        (28)
+#define SYSCTL_RCGC0_R_RCGCWDT1_BIT        (28u)
 #define SYSCTL_RCGC0_R_RCGCWDT1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC0_R_RCGCWDT1_CLOCK         (0x10000000u)
 
@@ -12458,26 +12458,26 @@ typedef volatile struct
 #define SYSCTL_RCGC0_RCGCWDT1_CLOCK         (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_RCGC0_RCGCWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_RCGC0_RCGCWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32)+(28*4))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_RCGC0_RCGCWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC0_OFFSET)*32u)+(28*4u))))
 
 /**********************************************************************************
 ************************************135 RCGC1 *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGC1            (((RCGC1_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGC1_OFFSET )))
 #define SYSCTL_RCGC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RCGC1_OFFSET)))
-#define SYSCTL_BITBANDING_RCGC1      (((BITBANDING_RCGC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGC1      (((BITBANDING_RCGC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCUART0_MASK       (0x00000001u)
-#define SYSCTL_RCGC1_R_RCGCUART0_BIT        (0)
+#define SYSCTL_RCGC1_R_RCGCUART0_BIT        (0u)
 #define SYSCTL_RCGC1_R_RCGCUART0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCUART0_CLOCK         (0x00000001u)
 
@@ -12488,7 +12488,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCUART1_MASK       (0x00000002u)
-#define SYSCTL_RCGC1_R_RCGCUART1_BIT        (1)
+#define SYSCTL_RCGC1_R_RCGCUART1_BIT        (1u)
 #define SYSCTL_RCGC1_R_RCGCUART1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCUART1_CLOCK         (0x00000002u)
 
@@ -12499,7 +12499,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCUART2_MASK       (0x00000004u)
-#define SYSCTL_RCGC1_R_RCGCUART2_BIT        (2)
+#define SYSCTL_RCGC1_R_RCGCUART2_BIT        (2u)
 #define SYSCTL_RCGC1_R_RCGCUART2_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCUART2_CLOCK         (0x00000004u)
 
@@ -12510,7 +12510,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCSSI0_MASK       (0x00000010u)
-#define SYSCTL_RCGC1_R_RCGCSSI0_BIT        (4)
+#define SYSCTL_RCGC1_R_RCGCSSI0_BIT        (4u)
 #define SYSCTL_RCGC1_R_RCGCSSI0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCSSI0_CLOCK         (0x00000010u)
 
@@ -12521,7 +12521,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCSSI1_MASK       (0x00000020u)
-#define SYSCTL_RCGC1_R_RCGCSSI1_BIT        (5)
+#define SYSCTL_RCGC1_R_RCGCSSI1_BIT        (5u)
 #define SYSCTL_RCGC1_R_RCGCSSI1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCSSI1_CLOCK         (0x00000010u)
 
@@ -12532,7 +12532,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCQEI0_MASK       (0x00000100u)
-#define SYSCTL_RCGC1_R_RCGCQEI0_BIT        (8)
+#define SYSCTL_RCGC1_R_RCGCQEI0_BIT        (8u)
 #define SYSCTL_RCGC1_R_RCGCQEI0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCQEI0_CLOCK         (0x00000100u)
 
@@ -12543,7 +12543,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCQEI1_MASK       (0x00000200u)
-#define SYSCTL_RCGC1_R_RCGCQEI1_BIT        (9)
+#define SYSCTL_RCGC1_R_RCGCQEI1_BIT        (9u)
 #define SYSCTL_RCGC1_R_RCGCQEI1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCQEI1_CLOCK         (0x00000200u)
 
@@ -12554,7 +12554,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCI2C0_MASK       (0x00001000u)
-#define SYSCTL_RCGC1_R_RCGCI2C0_BIT        (12)
+#define SYSCTL_RCGC1_R_RCGCI2C0_BIT        (12u)
 #define SYSCTL_RCGC1_R_RCGCI2C0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCI2C0_CLOCK         (0x00001000u)
 
@@ -12565,7 +12565,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCI2C1_MASK       (0x00004000u)
-#define SYSCTL_RCGC1_R_RCGCI2C1_BIT        (14)
+#define SYSCTL_RCGC1_R_RCGCI2C1_BIT        (14u)
 #define SYSCTL_RCGC1_R_RCGCI2C1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCI2C1_CLOCK         (0x00004000u)
 
@@ -12576,7 +12576,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCTIMER0_MASK       (0x00010000u)
-#define SYSCTL_RCGC1_R_RCGCTIMER0_BIT        (16)
+#define SYSCTL_RCGC1_R_RCGCTIMER0_BIT        (16u)
 #define SYSCTL_RCGC1_R_RCGCTIMER0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCTIMER0_CLOCK         (0x00010000u)
 
@@ -12587,7 +12587,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCTIMER1_MASK       (0x00020000u)
-#define SYSCTL_RCGC1_R_RCGCTIMER1_BIT        (17)
+#define SYSCTL_RCGC1_R_RCGCTIMER1_BIT        (17u)
 #define SYSCTL_RCGC1_R_RCGCTIMER1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCTIMER1_CLOCK         (0x00020000u)
 
@@ -12598,7 +12598,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCTIMER2_MASK       (0x00040000u)
-#define SYSCTL_RCGC1_R_RCGCTIMER2_BIT        (18)
+#define SYSCTL_RCGC1_R_RCGCTIMER2_BIT        (18u)
 #define SYSCTL_RCGC1_R_RCGCTIMER2_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCTIMER2_CLOCK         (0x00040000u)
 
@@ -12609,7 +12609,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCTIMER3_MASK       (0x00080000u)
-#define SYSCTL_RCGC1_R_RCGCTIMER3_BIT        (19)
+#define SYSCTL_RCGC1_R_RCGCTIMER3_BIT        (19u)
 #define SYSCTL_RCGC1_R_RCGCTIMER3_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCTIMER3_CLOCK         (0x00080000u)
 
@@ -12621,7 +12621,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCCOMP0_MASK       (0x01000000u)
-#define SYSCTL_RCGC1_R_RCGCCOMP0_BIT        (24)
+#define SYSCTL_RCGC1_R_RCGCCOMP0_BIT        (24u)
 #define SYSCTL_RCGC1_R_RCGCCOMP0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCCOMP0_CLOCK         (0x01000000u)
 
@@ -12632,7 +12632,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC1_R_RCGCCOMP1_MASK       (0x02000000u)
-#define SYSCTL_RCGC1_R_RCGCCOMP1_BIT        (25)
+#define SYSCTL_RCGC1_R_RCGCCOMP1_BIT        (25u)
 #define SYSCTL_RCGC1_R_RCGCCOMP1_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC1_R_RCGCCOMP1_CLOCK         (0x02000000u)
 
@@ -12642,34 +12642,34 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_RCGC1_RCGCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_RCGC1_RCGCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32)+(25*4))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_RCGC1_RCGCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC1_OFFSET)*32u)+(25*4u))))
 
 /**********************************************************************************
 ************************************136 RCGC2 *********************************************
 ******************************************************************************************/
 #define SYSCTL_RCGC2            (((RCGC2_TypeDef*)(SYSCTL_BASE+SYSCTL_RCGC2_OFFSET )))
 #define SYSCTL_RCGC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_RCGC2_OFFSET)))
-#define SYSCTL_BITBANDING_RCGC2      (((BITBANDING_RCGC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RCGC2      (((BITBANDING_RCGC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u))))
 
 
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCGPIOA_MASK       (0x00000001u)
-#define SYSCTL_RCGC2_R_RCGCGPIOA_BIT        (0)
+#define SYSCTL_RCGC2_R_RCGCGPIOA_BIT        (0u)
 #define SYSCTL_RCGC2_R_RCGCGPIOA_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCGPIOA_CLOCK         (0x00000001u)
 
@@ -12680,7 +12680,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCGPIOB_MASK       (0x00000002u)
-#define SYSCTL_RCGC2_R_RCGCGPIOB_BIT        (1)
+#define SYSCTL_RCGC2_R_RCGCGPIOB_BIT        (1u)
 #define SYSCTL_RCGC2_R_RCGCGPIOB_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCGPIOB_CLOCK         (0x00000002u)
 
@@ -12691,7 +12691,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCGPIOC_MASK       (0x00000004u)
-#define SYSCTL_RCGC2_R_RCGCGPIOC_BIT        (2)
+#define SYSCTL_RCGC2_R_RCGCGPIOC_BIT        (2u)
 #define SYSCTL_RCGC2_R_RCGCGPIOC_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCGPIOC_CLOCK         (0x00000004u)
 
@@ -12702,7 +12702,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCGPIOD_MASK       (0x00000008u)
-#define SYSCTL_RCGC2_R_RCGCGPIOD_BIT        (3)
+#define SYSCTL_RCGC2_R_RCGCGPIOD_BIT        (3u)
 #define SYSCTL_RCGC2_R_RCGCGPIOD_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCGPIOD_CLOCK         (0x00000008u)
 
@@ -12713,7 +12713,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCGPIOE_MASK       (0x00000010u)
-#define SYSCTL_RCGC2_R_RCGCGPIOE_BIT        (4)
+#define SYSCTL_RCGC2_R_RCGCGPIOE_BIT        (4u)
 #define SYSCTL_RCGC2_R_RCGCGPIOE_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCGPIOE_CLOCK         (0x00000010u)
 
@@ -12724,7 +12724,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCGPIOF_MASK       (0x00000020u)
-#define SYSCTL_RCGC2_R_RCGCGPIOF_BIT        (5)
+#define SYSCTL_RCGC2_R_RCGCGPIOF_BIT        (5u)
 #define SYSCTL_RCGC2_R_RCGCGPIOF_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCGPIOF_CLOCK         (0x00000020u)
 
@@ -12735,7 +12735,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCUDMA_MASK       (0x00002000u)
-#define SYSCTL_RCGC2_R_RCGCUDMA_BIT        (13)
+#define SYSCTL_RCGC2_R_RCGCUDMA_BIT        (13u)
 #define SYSCTL_RCGC2_R_RCGCUDMA_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCUDMA_CLOCK         (0x00002000u)
 
@@ -12746,7 +12746,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_RCGC2_R_RCGCUSB0_MASK       (0x00010000u)
-#define SYSCTL_RCGC2_R_RCGCUSB0_BIT        (16)
+#define SYSCTL_RCGC2_R_RCGCUSB0_BIT        (16u)
 #define SYSCTL_RCGC2_R_RCGCUSB0_UNCLOCK        (0x00000000u)
 #define SYSCTL_RCGC2_R_RCGCUSB0_CLOCK         (0x00010000u)
 
@@ -12755,26 +12755,26 @@ typedef volatile struct
 #define SYSCTL_RCGC2_RCGCUSB0_CLOCK         (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_RCGC2_RCGCUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32)+(16*4))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_RCGC2_RCGCUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_RCGC2_OFFSET)*32u)+(16*4u))))
 
 /**********************************************************************************
 ************************************137 SCGC0 *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGC0            (((SCGC0_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGC0_OFFSET )))
 #define SYSCTL_SCGC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SCGC0_OFFSET)))
-#define SYSCTL_BITBANDING_SCGC0      (((BITBANDING_SCGC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGC0      (((BITBANDING_SCGC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCWDT0_MASK       (0x00000008u)
-#define SYSCTL_SCGC0_R_SCGCWDT0_BIT        (3)
+#define SYSCTL_SCGC0_R_SCGCWDT0_BIT        (3u)
 #define SYSCTL_SCGC0_R_SCGCWDT0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCWDT0_CLOCK         (0x00000008u)
 
@@ -12785,7 +12785,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCHIB_MASK       (0x00000040u)
-#define SYSCTL_SCGC0_R_SCGCHIB_BIT        (6)
+#define SYSCTL_SCGC0_R_SCGCHIB_BIT        (6u)
 #define SYSCTL_SCGC0_R_SCGCHIB_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCHIB_CLOCK         (0x00000040u)
 
@@ -12796,7 +12796,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_MASK       (0x00000030u)
-#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_BIT        (8)
+#define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_BIT        (8u)
 #define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_125K       (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_250K       (0x00000010u)
 #define SYSCTL_SCGC0_R_SCGCMAXADC0SPD_500K       (0x00000020u)
@@ -12811,7 +12811,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_MASK       (0x000000C0u)
-#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_BIT        (10)
+#define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_BIT        (10u)
 #define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_125K       (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_250K       (0x00000040u)
 #define SYSCTL_SCGC0_R_SCGCMAXADC1SPD_500K       (0x00000080u)
@@ -12826,7 +12826,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCADC0_MASK       (0x00010000u)
-#define SYSCTL_SCGC0_R_SCGCADC0_BIT        (16)
+#define SYSCTL_SCGC0_R_SCGCADC0_BIT        (16u)
 #define SYSCTL_SCGC0_R_SCGCADC0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCADC0_CLOCK         (0x00010000u)
 
@@ -12837,7 +12837,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCADC1_MASK       (0x00020000u)
-#define SYSCTL_SCGC0_R_SCGCADC1_BIT        (17)
+#define SYSCTL_SCGC0_R_SCGCADC1_BIT        (17u)
 #define SYSCTL_SCGC0_R_SCGCADC1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCADC1_CLOCK         (0x00020000u)
 
@@ -12848,7 +12848,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCPWM0_MASK       (0x00100000u)
-#define SYSCTL_SCGC0_R_SCGCPWM0_BIT        (20)
+#define SYSCTL_SCGC0_R_SCGCPWM0_BIT        (20u)
 #define SYSCTL_SCGC0_R_SCGCPWM0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCPWM0_CLOCK         (0x00100000u)
 
@@ -12859,7 +12859,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCCAN0_MASK       (0x01000000u)
-#define SYSCTL_SCGC0_R_SCGCCAN0_BIT        (24)
+#define SYSCTL_SCGC0_R_SCGCCAN0_BIT        (24u)
 #define SYSCTL_SCGC0_R_SCGCCAN0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCCAN0_CLOCK         (0x01000000u)
 
@@ -12870,7 +12870,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCCAN1_MASK       (0x02000000u)
-#define SYSCTL_SCGC0_R_SCGCCAN1_BIT        (25)
+#define SYSCTL_SCGC0_R_SCGCCAN1_BIT        (25u)
 #define SYSCTL_SCGC0_R_SCGCCAN1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCCAN1_CLOCK         (0x02000000u)
 
@@ -12881,7 +12881,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC0_R_SCGCWDT1_MASK       (0x10000000u)
-#define SYSCTL_SCGC0_R_SCGCWDT1_BIT        (28)
+#define SYSCTL_SCGC0_R_SCGCWDT1_BIT        (28u)
 #define SYSCTL_SCGC0_R_SCGCWDT1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC0_R_SCGCWDT1_CLOCK         (0x10000000u)
 
@@ -12890,26 +12890,26 @@ typedef volatile struct
 #define SYSCTL_SCGC0_SCGCWDT1_CLOCK         (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_SCGC0_SCGCWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_SCGC0_SCGCWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32)+(28*4))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_SCGC0_SCGCWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC0_OFFSET)*32u)+(28*4u))))
 
 /**********************************************************************************
 ************************************138 SCGC1 *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGC1            (((SCGC1_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGC1_OFFSET )))
 #define SYSCTL_SCGC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SCGC1_OFFSET)))
-#define SYSCTL_BITBANDING_SCGC1      (((BITBANDING_SCGC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGC1      (((BITBANDING_SCGC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCUART0_MASK       (0x00000001u)
-#define SYSCTL_SCGC1_R_SCGCUART0_BIT        (0)
+#define SYSCTL_SCGC1_R_SCGCUART0_BIT        (0u)
 #define SYSCTL_SCGC1_R_SCGCUART0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCUART0_CLOCK         (0x00000001u)
 
@@ -12920,7 +12920,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCUART1_MASK       (0x00000002u)
-#define SYSCTL_SCGC1_R_SCGCUART1_BIT        (1)
+#define SYSCTL_SCGC1_R_SCGCUART1_BIT        (1u)
 #define SYSCTL_SCGC1_R_SCGCUART1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCUART1_CLOCK         (0x00000002u)
 
@@ -12931,7 +12931,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCUART2_MASK       (0x00000004u)
-#define SYSCTL_SCGC1_R_SCGCUART2_BIT        (2)
+#define SYSCTL_SCGC1_R_SCGCUART2_BIT        (2u)
 #define SYSCTL_SCGC1_R_SCGCUART2_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCUART2_CLOCK         (0x00000004u)
 
@@ -12942,7 +12942,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCSSI0_MASK       (0x00000010u)
-#define SYSCTL_SCGC1_R_SCGCSSI0_BIT        (4)
+#define SYSCTL_SCGC1_R_SCGCSSI0_BIT        (4u)
 #define SYSCTL_SCGC1_R_SCGCSSI0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCSSI0_CLOCK         (0x00000010u)
 
@@ -12953,7 +12953,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCSSI1_MASK       (0x00000020u)
-#define SYSCTL_SCGC1_R_SCGCSSI1_BIT        (5)
+#define SYSCTL_SCGC1_R_SCGCSSI1_BIT        (5u)
 #define SYSCTL_SCGC1_R_SCGCSSI1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCSSI1_CLOCK         (0x00000010u)
 
@@ -12964,7 +12964,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCQEI0_MASK       (0x00000100u)
-#define SYSCTL_SCGC1_R_SCGCQEI0_BIT        (8)
+#define SYSCTL_SCGC1_R_SCGCQEI0_BIT        (8u)
 #define SYSCTL_SCGC1_R_SCGCQEI0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCQEI0_CLOCK         (0x00000100u)
 
@@ -12975,7 +12975,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCQEI1_MASK       (0x00000200u)
-#define SYSCTL_SCGC1_R_SCGCQEI1_BIT        (9)
+#define SYSCTL_SCGC1_R_SCGCQEI1_BIT        (9u)
 #define SYSCTL_SCGC1_R_SCGCQEI1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCQEI1_CLOCK         (0x00000200u)
 
@@ -12986,7 +12986,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCI2C0_MASK       (0x00001000u)
-#define SYSCTL_SCGC1_R_SCGCI2C0_BIT        (12)
+#define SYSCTL_SCGC1_R_SCGCI2C0_BIT        (12u)
 #define SYSCTL_SCGC1_R_SCGCI2C0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCI2C0_CLOCK         (0x00001000u)
 
@@ -12997,7 +12997,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCI2C1_MASK       (0x00004000u)
-#define SYSCTL_SCGC1_R_SCGCI2C1_BIT        (14)
+#define SYSCTL_SCGC1_R_SCGCI2C1_BIT        (14u)
 #define SYSCTL_SCGC1_R_SCGCI2C1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCI2C1_CLOCK         (0x00004000u)
 
@@ -13008,7 +13008,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCTIMER0_MASK       (0x00010000u)
-#define SYSCTL_SCGC1_R_SCGCTIMER0_BIT        (16)
+#define SYSCTL_SCGC1_R_SCGCTIMER0_BIT        (16u)
 #define SYSCTL_SCGC1_R_SCGCTIMER0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCTIMER0_CLOCK         (0x00010000u)
 
@@ -13019,7 +13019,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCTIMER1_MASK       (0x00020000u)
-#define SYSCTL_SCGC1_R_SCGCTIMER1_BIT        (17)
+#define SYSCTL_SCGC1_R_SCGCTIMER1_BIT        (17u)
 #define SYSCTL_SCGC1_R_SCGCTIMER1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCTIMER1_CLOCK         (0x00020000u)
 
@@ -13030,7 +13030,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCTIMER2_MASK       (0x00040000u)
-#define SYSCTL_SCGC1_R_SCGCTIMER2_BIT        (18)
+#define SYSCTL_SCGC1_R_SCGCTIMER2_BIT        (18u)
 #define SYSCTL_SCGC1_R_SCGCTIMER2_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCTIMER2_CLOCK         (0x00040000u)
 
@@ -13041,7 +13041,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCTIMER3_MASK       (0x00080000u)
-#define SYSCTL_SCGC1_R_SCGCTIMER3_BIT        (19)
+#define SYSCTL_SCGC1_R_SCGCTIMER3_BIT        (19u)
 #define SYSCTL_SCGC1_R_SCGCTIMER3_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCTIMER3_CLOCK         (0x00080000u)
 
@@ -13053,7 +13053,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCCOMP0_MASK       (0x01000000u)
-#define SYSCTL_SCGC1_R_SCGCCOMP0_BIT        (24)
+#define SYSCTL_SCGC1_R_SCGCCOMP0_BIT        (24u)
 #define SYSCTL_SCGC1_R_SCGCCOMP0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCCOMP0_CLOCK         (0x01000000u)
 
@@ -13064,7 +13064,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC1_R_SCGCCOMP1_MASK       (0x02000000u)
-#define SYSCTL_SCGC1_R_SCGCCOMP1_BIT        (25)
+#define SYSCTL_SCGC1_R_SCGCCOMP1_BIT        (25u)
 #define SYSCTL_SCGC1_R_SCGCCOMP1_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC1_R_SCGCCOMP1_CLOCK         (0x02000000u)
 
@@ -13074,33 +13074,33 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_SCGC1_SCGCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_SCGC1_SCGCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32)+(25*4))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_SCGC1_SCGCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC1_OFFSET)*32u)+(25*4u))))
 
 /**********************************************************************************
 ************************************139 SCGC2 *********************************************
 ******************************************************************************************/
 #define SYSCTL_SCGC2            (((SCGC2_TypeDef*)(SYSCTL_BASE+SYSCTL_SCGC2_OFFSET )))
 #define SYSCTL_SCGC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_SCGC2_OFFSET)))
-#define SYSCTL_BITBANDING_SCGC2      (((BITBANDING_SCGC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_SCGC2      (((BITBANDING_SCGC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCGPIOA_MASK       (0x00000001u)
-#define SYSCTL_SCGC2_R_SCGCGPIOA_BIT        (0)
+#define SYSCTL_SCGC2_R_SCGCGPIOA_BIT        (0u)
 #define SYSCTL_SCGC2_R_SCGCGPIOA_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCGPIOA_CLOCK         (0x00000001u)
 
@@ -13111,7 +13111,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCGPIOB_MASK       (0x00000002u)
-#define SYSCTL_SCGC2_R_SCGCGPIOB_BIT        (1)
+#define SYSCTL_SCGC2_R_SCGCGPIOB_BIT        (1u)
 #define SYSCTL_SCGC2_R_SCGCGPIOB_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCGPIOB_CLOCK         (0x00000002u)
 
@@ -13122,7 +13122,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCGPIOC_MASK       (0x00000004u)
-#define SYSCTL_SCGC2_R_SCGCGPIOC_BIT        (2)
+#define SYSCTL_SCGC2_R_SCGCGPIOC_BIT        (2u)
 #define SYSCTL_SCGC2_R_SCGCGPIOC_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCGPIOC_CLOCK         (0x00000004u)
 
@@ -13133,7 +13133,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCGPIOD_MASK       (0x00000008u)
-#define SYSCTL_SCGC2_R_SCGCGPIOD_BIT        (3)
+#define SYSCTL_SCGC2_R_SCGCGPIOD_BIT        (3u)
 #define SYSCTL_SCGC2_R_SCGCGPIOD_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCGPIOD_CLOCK         (0x00000008u)
 
@@ -13144,7 +13144,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCGPIOE_MASK       (0x00000010u)
-#define SYSCTL_SCGC2_R_SCGCGPIOE_BIT        (4)
+#define SYSCTL_SCGC2_R_SCGCGPIOE_BIT        (4u)
 #define SYSCTL_SCGC2_R_SCGCGPIOE_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCGPIOE_CLOCK         (0x00000010u)
 
@@ -13155,7 +13155,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCGPIOF_MASK       (0x00000020u)
-#define SYSCTL_SCGC2_R_SCGCGPIOF_BIT        (5)
+#define SYSCTL_SCGC2_R_SCGCGPIOF_BIT        (5u)
 #define SYSCTL_SCGC2_R_SCGCGPIOF_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCGPIOF_CLOCK         (0x00000020u)
 
@@ -13166,7 +13166,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCUDMA_MASK       (0x00002000u)
-#define SYSCTL_SCGC2_R_SCGCUDMA_BIT        (13)
+#define SYSCTL_SCGC2_R_SCGCUDMA_BIT        (13u)
 #define SYSCTL_SCGC2_R_SCGCUDMA_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCUDMA_CLOCK         (0x00002000u)
 
@@ -13177,7 +13177,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_SCGC2_R_SCGCUSB0_MASK       (0x00010000u)
-#define SYSCTL_SCGC2_R_SCGCUSB0_BIT        (16)
+#define SYSCTL_SCGC2_R_SCGCUSB0_BIT        (16u)
 #define SYSCTL_SCGC2_R_SCGCUSB0_UNCLOCK        (0x00000000u)
 #define SYSCTL_SCGC2_R_SCGCUSB0_CLOCK         (0x00010000u)
 
@@ -13186,26 +13186,26 @@ typedef volatile struct
 #define SYSCTL_SCGC2_SCGCUSB0_CLOCK         (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(13*4))))
-#define SYSCTL_BITBANDING_SCGC2_SCGCUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32)+(16*4))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(13*4u))))
+#define SYSCTL_BITBANDING_SCGC2_SCGCUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_SCGC2_OFFSET)*32u)+(16*4u))))
 
 /**********************************************************************************
 ************************************140 DCGC0 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGC0            (((DCGC0_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGC0_OFFSET )))
 #define SYSCTL_DCGC0_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DCGC0_OFFSET)))
-#define SYSCTL_BITBANDING_DCGC0      (((BITBANDING_DCGC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGC0      (((BITBANDING_DCGC0_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCWDT0_MASK       (0x00000008u)
-#define SYSCTL_DCGC0_R_DCGCWDT0_BIT        (3)
+#define SYSCTL_DCGC0_R_DCGCWDT0_BIT        (3u)
 #define SYSCTL_DCGC0_R_DCGCWDT0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCWDT0_CLOCK         (0x00000008u)
 
@@ -13216,7 +13216,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCHIB_MASK       (0x00000040u)
-#define SYSCTL_DCGC0_R_DCGCHIB_BIT        (6)
+#define SYSCTL_DCGC0_R_DCGCHIB_BIT        (6u)
 #define SYSCTL_DCGC0_R_DCGCHIB_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCHIB_CLOCK         (0x00000040u)
 
@@ -13227,7 +13227,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCMAXADC0SPD_MASK       (0x00000030u)
-#define SYSCTL_DCGC0_R_DCGCMAXADC0SPD_BIT        (8)
+#define SYSCTL_DCGC0_R_DCGCMAXADC0SPD_BIT        (8u)
 #define SYSCTL_DCGC0_R_DCGCMAXADC0SPD_125K       (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCMAXADC0SPD_250K       (0x00000010u)
 #define SYSCTL_DCGC0_R_DCGCMAXADC0SPD_500K       (0x00000020u)
@@ -13242,7 +13242,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCMAXADC1SPD_MASK       (0x000000C0u)
-#define SYSCTL_DCGC0_R_DCGCMAXADC1SPD_BIT        (10)
+#define SYSCTL_DCGC0_R_DCGCMAXADC1SPD_BIT        (10u)
 #define SYSCTL_DCGC0_R_DCGCMAXADC1SPD_125K       (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCMAXADC1SPD_250K       (0x00000040u)
 #define SYSCTL_DCGC0_R_DCGCMAXADC1SPD_500K       (0x00000080u)
@@ -13257,7 +13257,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCADC0_MASK       (0x00010000u)
-#define SYSCTL_DCGC0_R_DCGCADC0_BIT        (16)
+#define SYSCTL_DCGC0_R_DCGCADC0_BIT        (16u)
 #define SYSCTL_DCGC0_R_DCGCADC0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCADC0_CLOCK         (0x00010000u)
 
@@ -13268,7 +13268,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCADC1_MASK       (0x00020000u)
-#define SYSCTL_DCGC0_R_DCGCADC1_BIT        (17)
+#define SYSCTL_DCGC0_R_DCGCADC1_BIT        (17u)
 #define SYSCTL_DCGC0_R_DCGCADC1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCADC1_CLOCK         (0x00020000u)
 
@@ -13279,7 +13279,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCPWM0_MASK       (0x00100000u)
-#define SYSCTL_DCGC0_R_DCGCPWM0_BIT        (20)
+#define SYSCTL_DCGC0_R_DCGCPWM0_BIT        (20u)
 #define SYSCTL_DCGC0_R_DCGCPWM0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCPWM0_CLOCK         (0x00100000u)
 
@@ -13290,7 +13290,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCCAN0_MASK       (0x01000000u)
-#define SYSCTL_DCGC0_R_DCGCCAN0_BIT        (24)
+#define SYSCTL_DCGC0_R_DCGCCAN0_BIT        (24u)
 #define SYSCTL_DCGC0_R_DCGCCAN0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCCAN0_CLOCK         (0x01000000u)
 
@@ -13301,7 +13301,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCCAN1_MASK       (0x02000000u)
-#define SYSCTL_DCGC0_R_DCGCCAN1_BIT        (25)
+#define SYSCTL_DCGC0_R_DCGCCAN1_BIT        (25u)
 #define SYSCTL_DCGC0_R_DCGCCAN1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCCAN1_CLOCK         (0x02000000u)
 
@@ -13312,7 +13312,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC0_R_DCGCWDT1_MASK       (0x10000000u)
-#define SYSCTL_DCGC0_R_DCGCWDT1_BIT        (28)
+#define SYSCTL_DCGC0_R_DCGCWDT1_BIT        (28u)
 #define SYSCTL_DCGC0_R_DCGCWDT1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC0_R_DCGCWDT1_CLOCK         (0x10000000u)
 
@@ -13321,26 +13321,26 @@ typedef volatile struct
 #define SYSCTL_DCGC0_DCGCWDT1_CLOCK         (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DCGC0_DCGCWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(3*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(6*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(20*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(25*4))))
-#define SYSCTL_BITBANDING_DCGC0_DCGCWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32)+(28*4))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCWDT0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(3*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCHIB       (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(6*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCADC0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCADC1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCPWM0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(20*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCCAN0      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCCAN1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(25*4u))))
+#define SYSCTL_BITBANDING_DCGC0_DCGCWDT1      (*((volatile uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC0_OFFSET)*32u)+(28*4u))))
 
 /**********************************************************************************
 ************************************141 DCGC1 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGC1            (((DCGC1_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGC1_OFFSET )))
 #define SYSCTL_DCGC1_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DCGC1_OFFSET)))
-#define SYSCTL_BITBANDING_DCGC1      (((BITBANDING_DCGC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGC1      (((BITBANDING_DCGC1_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCUART0_MASK       (0x00000001u)
-#define SYSCTL_DCGC1_R_DCGCUART0_BIT        (0)
+#define SYSCTL_DCGC1_R_DCGCUART0_BIT        (0u)
 #define SYSCTL_DCGC1_R_DCGCUART0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCUART0_CLOCK         (0x00000001u)
 
@@ -13351,7 +13351,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCUART1_MASK       (0x00000002u)
-#define SYSCTL_DCGC1_R_DCGCUART1_BIT        (1)
+#define SYSCTL_DCGC1_R_DCGCUART1_BIT        (1u)
 #define SYSCTL_DCGC1_R_DCGCUART1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCUART1_CLOCK         (0x00000002u)
 
@@ -13362,7 +13362,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCUART2_MASK       (0x00000004u)
-#define SYSCTL_DCGC1_R_DCGCUART2_BIT        (2)
+#define SYSCTL_DCGC1_R_DCGCUART2_BIT        (2u)
 #define SYSCTL_DCGC1_R_DCGCUART2_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCUART2_CLOCK         (0x00000004u)
 
@@ -13373,7 +13373,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCSSI0_MASK       (0x00000010u)
-#define SYSCTL_DCGC1_R_DCGCSSI0_BIT        (4)
+#define SYSCTL_DCGC1_R_DCGCSSI0_BIT        (4u)
 #define SYSCTL_DCGC1_R_DCGCSSI0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCSSI0_CLOCK         (0x00000010u)
 
@@ -13384,7 +13384,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCSSI1_MASK       (0x00000020u)
-#define SYSCTL_DCGC1_R_DCGCSSI1_BIT        (5)
+#define SYSCTL_DCGC1_R_DCGCSSI1_BIT        (5u)
 #define SYSCTL_DCGC1_R_DCGCSSI1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCSSI1_CLOCK         (0x00000010u)
 
@@ -13395,7 +13395,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCQEI0_MASK       (0x00000100u)
-#define SYSCTL_DCGC1_R_DCGCQEI0_BIT        (8)
+#define SYSCTL_DCGC1_R_DCGCQEI0_BIT        (8u)
 #define SYSCTL_DCGC1_R_DCGCQEI0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCQEI0_CLOCK         (0x00000100u)
 
@@ -13406,7 +13406,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCQEI1_MASK       (0x00000200u)
-#define SYSCTL_DCGC1_R_DCGCQEI1_BIT        (9)
+#define SYSCTL_DCGC1_R_DCGCQEI1_BIT        (9u)
 #define SYSCTL_DCGC1_R_DCGCQEI1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCQEI1_CLOCK         (0x00000200u)
 
@@ -13417,7 +13417,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCI2C0_MASK       (0x00001000u)
-#define SYSCTL_DCGC1_R_DCGCI2C0_BIT        (12)
+#define SYSCTL_DCGC1_R_DCGCI2C0_BIT        (12u)
 #define SYSCTL_DCGC1_R_DCGCI2C0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCI2C0_CLOCK         (0x00001000u)
 
@@ -13428,7 +13428,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCI2C1_MASK       (0x00004000u)
-#define SYSCTL_DCGC1_R_DCGCI2C1_BIT        (14)
+#define SYSCTL_DCGC1_R_DCGCI2C1_BIT        (14u)
 #define SYSCTL_DCGC1_R_DCGCI2C1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCI2C1_CLOCK         (0x00004000u)
 
@@ -13439,7 +13439,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCTIMER0_MASK       (0x00010000u)
-#define SYSCTL_DCGC1_R_DCGCTIMER0_BIT        (16)
+#define SYSCTL_DCGC1_R_DCGCTIMER0_BIT        (16u)
 #define SYSCTL_DCGC1_R_DCGCTIMER0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCTIMER0_CLOCK         (0x00010000u)
 
@@ -13450,7 +13450,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCTIMER1_MASK       (0x00020000u)
-#define SYSCTL_DCGC1_R_DCGCTIMER1_BIT        (17)
+#define SYSCTL_DCGC1_R_DCGCTIMER1_BIT        (17u)
 #define SYSCTL_DCGC1_R_DCGCTIMER1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCTIMER1_CLOCK         (0x00020000u)
 
@@ -13461,7 +13461,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCTIMER2_MASK       (0x00040000u)
-#define SYSCTL_DCGC1_R_DCGCTIMER2_BIT        (18)
+#define SYSCTL_DCGC1_R_DCGCTIMER2_BIT        (18u)
 #define SYSCTL_DCGC1_R_DCGCTIMER2_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCTIMER2_CLOCK         (0x00040000u)
 
@@ -13472,7 +13472,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCTIMER3_MASK       (0x00080000u)
-#define SYSCTL_DCGC1_R_DCGCTIMER3_BIT        (19)
+#define SYSCTL_DCGC1_R_DCGCTIMER3_BIT        (19u)
 #define SYSCTL_DCGC1_R_DCGCTIMER3_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCTIMER3_CLOCK         (0x00080000u)
 
@@ -13484,7 +13484,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCCOMP0_MASK       (0x01000000u)
-#define SYSCTL_DCGC1_R_DCGCCOMP0_BIT        (24)
+#define SYSCTL_DCGC1_R_DCGCCOMP0_BIT        (24u)
 #define SYSCTL_DCGC1_R_DCGCCOMP0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCCOMP0_CLOCK         (0x01000000u)
 
@@ -13495,7 +13495,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC1_R_DCGCCOMP1_MASK       (0x02000000u)
-#define SYSCTL_DCGC1_R_DCGCCOMP1_BIT        (25)
+#define SYSCTL_DCGC1_R_DCGCCOMP1_BIT        (25u)
 #define SYSCTL_DCGC1_R_DCGCCOMP1_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC1_R_DCGCCOMP1_CLOCK         (0x02000000u)
 
@@ -13505,33 +13505,33 @@ typedef volatile struct
 /*----------*/
 
 
-#define SYSCTL_BITBANDING_DCGC1_DCGCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(0*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(1*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(2*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(4*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(5*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(8*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(9*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(12*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(14*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(16*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(17*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(18*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(19*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(24*4))))
-#define SYSCTL_BITBANDING_DCGC1_DCGCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32)+(25*4))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCUART0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(0*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCUART1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(1*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCUART2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(2*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCSSI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(4*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCSSI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(5*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCQEI0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(8*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCQEI1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(9*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCI2C0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(12*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCI2C1        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(14*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER0      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(16*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER1      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(17*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER2      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(18*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCTIMER3      (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(19*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCCOMP0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(24*4u))))
+#define SYSCTL_BITBANDING_DCGC1_DCGCCOMP1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC1_OFFSET)*32u)+(25*4u))))
 
 /**********************************************************************************
 ************************************142 DCGC2 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DCGC2            (((DCGC2_TypeDef*)(SYSCTL_BASE+SYSCTL_DCGC2_OFFSET )))
 #define SYSCTL_DCGC2_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DCGC2_OFFSET)))
-#define SYSCTL_BITBANDING_DCGC2      (((BITBANDING_DCGC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DCGC2      (((BITBANDING_DCGC2_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCGPIOA_MASK       (0x00000001u)
-#define SYSCTL_DCGC2_R_DCGCGPIOA_BIT        (0)
+#define SYSCTL_DCGC2_R_DCGCGPIOA_BIT        (0u)
 #define SYSCTL_DCGC2_R_DCGCGPIOA_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCGPIOA_CLOCK         (0x00000001u)
 
@@ -13542,7 +13542,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCGPIOB_MASK       (0x00000002u)
-#define SYSCTL_DCGC2_R_DCGCGPIOB_BIT        (1)
+#define SYSCTL_DCGC2_R_DCGCGPIOB_BIT        (1u)
 #define SYSCTL_DCGC2_R_DCGCGPIOB_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCGPIOB_CLOCK         (0x00000002u)
 
@@ -13553,7 +13553,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCGPIOC_MASK       (0x00000004u)
-#define SYSCTL_DCGC2_R_DCGCGPIOC_BIT        (2)
+#define SYSCTL_DCGC2_R_DCGCGPIOC_BIT        (2u)
 #define SYSCTL_DCGC2_R_DCGCGPIOC_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCGPIOC_CLOCK         (0x00000004u)
 
@@ -13564,7 +13564,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCGPIOD_MASK       (0x00000008u)
-#define SYSCTL_DCGC2_R_DCGCGPIOD_BIT        (3)
+#define SYSCTL_DCGC2_R_DCGCGPIOD_BIT        (3u)
 #define SYSCTL_DCGC2_R_DCGCGPIOD_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCGPIOD_CLOCK         (0x00000008u)
 
@@ -13575,7 +13575,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCGPIOE_MASK       (0x00000010u)
-#define SYSCTL_DCGC2_R_DCGCGPIOE_BIT        (4)
+#define SYSCTL_DCGC2_R_DCGCGPIOE_BIT        (4u)
 #define SYSCTL_DCGC2_R_DCGCGPIOE_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCGPIOE_CLOCK         (0x00000010u)
 
@@ -13586,7 +13586,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCGPIOF_MASK       (0x00000020u)
-#define SYSCTL_DCGC2_R_DCGCGPIOF_BIT        (5)
+#define SYSCTL_DCGC2_R_DCGCGPIOF_BIT        (5u)
 #define SYSCTL_DCGC2_R_DCGCGPIOF_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCGPIOF_CLOCK         (0x00000020u)
 
@@ -13597,7 +13597,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCUDMA_MASK       (0x00002000u)
-#define SYSCTL_DCGC2_R_DCGCUDMA_BIT        (13)
+#define SYSCTL_DCGC2_R_DCGCUDMA_BIT        (13u)
 #define SYSCTL_DCGC2_R_DCGCUDMA_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCUDMA_CLOCK         (0x00002000u)
 
@@ -13608,7 +13608,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DCGC2_R_DCGCUSB0_MASK       (0x00010000u)
-#define SYSCTL_DCGC2_R_DCGCUSB0_BIT        (16)
+#define SYSCTL_DCGC2_R_DCGCUSB0_BIT        (16u)
 #define SYSCTL_DCGC2_R_DCGCUSB0_UNCLOCK        (0x00000000u)
 #define SYSCTL_DCGC2_R_DCGCUSB0_CLOCK         (0x00010000u)
 
@@ -13617,26 +13617,26 @@ typedef volatile struct
 #define SYSCTL_DCGC2_DCGCUSB0_CLOCK         (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCGPIOA_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCGPIOB_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCGPIOC_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCGPIOD_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCGPIOE_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCGPIOF_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCUDMA_BIT*4))))
-#define SYSCTL_BITBANDING_DCGC2_DCGCUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32)+(SYSCTL_DCGC2_R_DCGCUSB0_BIT*4))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOA       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCGPIOA_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCGPIOB_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOC       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCGPIOC_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOD       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCGPIOD_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOE       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCGPIOE_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCGPIOF       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCGPIOF_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCUDMA        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCUDMA_BIT*4u))))
+#define SYSCTL_BITBANDING_DCGC2_DCGCUSB0        (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DCGC2_OFFSET)*32u)+(SYSCTL_DCGC2_R_DCGCUSB0_BIT*4u))))
 
 /**********************************************************************************
 ************************************143 DC9 *********************************************
 ******************************************************************************************/
 #define SYSCTL_DC9            (((DC9_TypeDef*)(SYSCTL_BASE+SYSCTL_DC9_OFFSET )))
 #define SYSCTL_DC9_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_DC9_OFFSET)))
-#define SYSCTL_BITBANDING_DC9      (((BITBANDING_DC9_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32))))
+#define SYSCTL_BITBANDING_DC9      (((BITBANDING_DC9_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u))))
 
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC0_MASK       (0x00000001u)
-#define SYSCTL_DC9_R_DCADC0DC0_BIT        (0)
+#define SYSCTL_DC9_R_DCADC0DC0_BIT        (0u)
 #define SYSCTL_DC9_R_DCADC0DC0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC0_PRESENT    (0x00000001u)
 
@@ -13647,7 +13647,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC1_MASK       (0x00000002u)
-#define SYSCTL_DC9_R_DCADC0DC1_BIT        (1)
+#define SYSCTL_DC9_R_DCADC0DC1_BIT        (1u)
 #define SYSCTL_DC9_R_DCADC0DC1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC1_PRESENT    (0x00000002u)
 
@@ -13658,7 +13658,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC2_MASK       (0x00000004u)
-#define SYSCTL_DC9_R_DCADC0DC2_BIT        (2)
+#define SYSCTL_DC9_R_DCADC0DC2_BIT        (2u)
 #define SYSCTL_DC9_R_DCADC0DC2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC2_PRESENT    (0x00000004u)
 
@@ -13669,7 +13669,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC3_MASK       (0x00000008u)
-#define SYSCTL_DC9_R_DCADC0DC3_BIT        (3)
+#define SYSCTL_DC9_R_DCADC0DC3_BIT        (3u)
 #define SYSCTL_DC9_R_DCADC0DC3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC3_PRESENT    (0x00000008u)
 
@@ -13680,7 +13680,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC4_MASK       (0x00000010u)
-#define SYSCTL_DC9_R_DCADC0DC4_BIT        (4)
+#define SYSCTL_DC9_R_DCADC0DC4_BIT        (4u)
 #define SYSCTL_DC9_R_DCADC0DC4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC4_PRESENT    (0x00000010u)
 
@@ -13691,7 +13691,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC5_MASK       (0x00000020u)
-#define SYSCTL_DC9_R_DCADC0DC5_BIT        (5)
+#define SYSCTL_DC9_R_DCADC0DC5_BIT        (5u)
 #define SYSCTL_DC9_R_DCADC0DC5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC5_PRESENT    (0x00000020u)
 
@@ -13702,7 +13702,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC6_MASK       (0x00000040u)
-#define SYSCTL_DC9_R_DCADC0DC6_BIT        (6)
+#define SYSCTL_DC9_R_DCADC0DC6_BIT        (6u)
 #define SYSCTL_DC9_R_DCADC0DC6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC6_PRESENT    (0x00000040u)
 
@@ -13713,7 +13713,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC0DC7_MASK       (0x00000080u)
-#define SYSCTL_DC9_R_DCADC0DC7_BIT        (7)
+#define SYSCTL_DC9_R_DCADC0DC7_BIT        (7u)
 #define SYSCTL_DC9_R_DCADC0DC7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC0DC7_PRESENT    (0x00000080u)
 
@@ -13724,7 +13724,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC0_MASK       (0x00010000u)
-#define SYSCTL_DC9_R_DCADC1DC0_BIT        (16)
+#define SYSCTL_DC9_R_DCADC1DC0_BIT        (16u)
 #define SYSCTL_DC9_R_DCADC1DC0_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC0_PRESENT    (0x00010000u)
 
@@ -13735,7 +13735,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC1_MASK       (0x00020000u)
-#define SYSCTL_DC9_R_DCADC1DC1_BIT        (17)
+#define SYSCTL_DC9_R_DCADC1DC1_BIT        (17u)
 #define SYSCTL_DC9_R_DCADC1DC1_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC1_PRESENT    (0x00020000u)
 
@@ -13746,7 +13746,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC2_MASK       (0x00040000u)
-#define SYSCTL_DC9_R_DCADC1DC2_BIT        (18)
+#define SYSCTL_DC9_R_DCADC1DC2_BIT        (18u)
 #define SYSCTL_DC9_R_DCADC1DC2_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC2_PRESENT    (0x00040000u)
 
@@ -13757,7 +13757,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC3_MASK       (0x00080000u)
-#define SYSCTL_DC9_R_DCADC1DC3_BIT        (19)
+#define SYSCTL_DC9_R_DCADC1DC3_BIT        (19u)
 #define SYSCTL_DC9_R_DCADC1DC3_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC3_PRESENT    (0x00080000u)
 
@@ -13768,7 +13768,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC4_MASK       (0x00100000u)
-#define SYSCTL_DC9_R_DCADC1DC4_BIT        (20)
+#define SYSCTL_DC9_R_DCADC1DC4_BIT        (20u)
 #define SYSCTL_DC9_R_DCADC1DC4_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC4_PRESENT    (0x00100000u)
 
@@ -13779,7 +13779,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC5_MASK       (0x00200000u)
-#define SYSCTL_DC9_R_DCADC1DC5_BIT        (21)
+#define SYSCTL_DC9_R_DCADC1DC5_BIT        (21u)
 #define SYSCTL_DC9_R_DCADC1DC5_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC5_PRESENT    (0x00200000u)
 
@@ -13790,7 +13790,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC6_MASK       (0x00400000u)
-#define SYSCTL_DC9_R_DCADC1DC6_BIT        (22)
+#define SYSCTL_DC9_R_DCADC1DC6_BIT        (22u)
 #define SYSCTL_DC9_R_DCADC1DC6_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC6_PRESENT    (0x00400000u)
 
@@ -13801,7 +13801,7 @@ typedef volatile struct
 
 /*----------*/
 #define SYSCTL_DC9_R_DCADC1DC7_MASK       (0x00800000u)
-#define SYSCTL_DC9_R_DCADC1DC7_BIT        (23)
+#define SYSCTL_DC9_R_DCADC1DC7_BIT        (23u)
 #define SYSCTL_DC9_R_DCADC1DC7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_R_DCADC1DC7_PRESENT    (0x00800000u)
 
@@ -13809,33 +13809,33 @@ typedef volatile struct
 #define SYSCTL_DC9_DCADC1DC7_NOPRESENT  (0x00000000u)
 #define SYSCTL_DC9_DCADC1DC7_PRESENT    (0x00000001u)
 /*----------*/
-#define SYSCTL_BITBANDING_DC9_DCADC0DC0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC0_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC1_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC2_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC3_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC4_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC5_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC6_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC0DC7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC0DC7_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC0_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC1_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC2_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC3_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC4_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC5_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC6_BIT*4))))
-#define SYSCTL_BITBANDING_DC9_DCADC1DC7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32)+(SYSCTL_DC9_R_DCADC1DC7_BIT*4))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC0_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC1_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC2_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC3_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC4_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC5_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC6_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC0DC7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC0DC7_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC0       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC0_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC1       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC1_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC2       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC2_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC3       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC3_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC4       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC4_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC5       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC5_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC6       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC6_BIT*4u))))
+#define SYSCTL_BITBANDING_DC9_DCADC1DC7       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_DC9_OFFSET)*32u)+(SYSCTL_DC9_R_DCADC1DC7_BIT*4u))))
 
 /**********************************************************************************
 ************************************144 NVMSTAT *********************************************
 ******************************************************************************************/
 #define SYSCTL_NVMSTAT            (((NVMSTAT_TypeDef*)(SYSCTL_BASE+SYSCTL_NVMSTAT_OFFSET )))
 #define SYSCTL_NVMSTAT_R          (*((volatile const uint32_t *)(SYSCTL_BASE+SYSCTL_NVMSTAT_OFFSET)))
-#define SYSCTL_BITBANDING_NVMSTAT      (((BITBANDING_NVMSTAT_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32))))
+#define SYSCTL_BITBANDING_NVMSTAT      (((BITBANDING_NVMSTAT_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32u))))
 
 /*----------*/
 #define SYSCTL_NVMSTAT_R_FWB_MASK       (0x00000001u)
-#define SYSCTL_NVMSTAT_R_FWB_BIT        (0)
+#define SYSCTL_NVMSTAT_R_FWB_BIT        (0u)
 #define SYSCTL_NVMSTAT_R_FWB_NOPRESENT  (0x00000000u)
 #define SYSCTL_NVMSTAT_R_FWB_PRESENT    (0x00000001u)
 
@@ -13844,7 +13844,7 @@ typedef volatile struct
 #define SYSCTL_NVMSTAT_FWB_PRESENT    (0x00000001u)
 /*----------*/
 
-#define SYSCTL_BITBANDING_NVMSTAT_FWB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32)+(SYSCTL_NVMSTAT_R_FWB_BIT*4))))
+#define SYSCTL_BITBANDING_NVMSTAT_FWB       (*((volatile const uint32_t *)(0x42000000+((SYSCTL_OFFSET+SYSCTL_NVMSTAT_OFFSET)*32u)+(SYSCTL_NVMSTAT_R_FWB_BIT*4u))))
 
 
 /******************************************************************************************
@@ -13852,11 +13852,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_RMCTL            (((RMCTL_TypeDef*)(SYSCTL_BASE+SYSCTL_RMCTL_OFFSET )))
 #define SYSCTL_RMCTL_R          (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_RMCTL_OFFSET)))
-#define SYSCTL_BITBANDING_RMCTL      (((BITBANDING_RMCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RMCTL_OFFSET)*32))))
+#define SYSCTL_BITBANDING_RMCTL      (((BITBANDING_RMCTL_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RMCTL_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_RMCTL_R_BA_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_RMCTL_R_BA_BIT     (0)
+#define SYSCTL_RMCTL_R_BA_BIT     (0u)
 #define SYSCTL_RMCTL_R_BA_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_RMCTL_R_BA_EN      ((uint32_t)0x00000001u)
 
@@ -13865,7 +13865,7 @@ typedef volatile struct
 #define SYSCTL_RMCTL_BA_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_RMCTL_BA        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RMCTL_OFFSET)*32)+(SYSCTL_RMCTL_R_BA_BIT*4))))
+#define SYSCTL_BITBANDING_RMCTL_BA        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_RMCTL_OFFSET)*32u)+(SYSCTL_RMCTL_R_BA_BIT*4u))))
 
 
 /******************************************************************************************
@@ -13873,11 +13873,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPRE0_ALIAS                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE0_ALIAS_OFFSET )))
 #define SYSCTL_FMPRE0_ALIAS_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE0_ALIAS_OFFSET)))
-#define SYSCTL_BITBANDING_FMPRE0_ALIAS        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE0_ALIAS_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPRE0_ALIAS        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE0_ALIAS_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPRE0_ALIAS_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPRE0_ALIAS_R_READ_ENABLE_BIT     (0)
+#define SYSCTL_FMPRE0_ALIAS_R_READ_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPRE0_ALIAS_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13887,11 +13887,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPRE0                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE0_OFFSET )))
 #define SYSCTL_FMPRE0_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE0_OFFSET)))
-#define SYSCTL_BITBANDING_FMPRE0        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPRE0        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE0_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPRE0_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPRE0_R_READ_ENABLE_BIT     (0)
+#define SYSCTL_FMPRE0_R_READ_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPRE0_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13901,11 +13901,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPRE1                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE1_OFFSET )))
 #define SYSCTL_FMPRE1_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE1_OFFSET)))
-#define SYSCTL_BITBANDING_FMPRE1        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPRE1        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE1_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPRE1_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPRE1_R_READ_ENABLE_BIT     (0)
+#define SYSCTL_FMPRE1_R_READ_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPRE1_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13915,11 +13915,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPRE2                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE2_OFFSET )))
 #define SYSCTL_FMPRE2_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE2_OFFSET)))
-#define SYSCTL_BITBANDING_FMPRE2        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPRE2        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE2_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPRE2_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPRE2_R_READ_ENABLE_BIT     (0)
+#define SYSCTL_FMPRE2_R_READ_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPRE2_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13929,11 +13929,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPRE3                   (((FMPRE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPRE3_OFFSET )))
 #define SYSCTL_FMPRE3_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPRE3_OFFSET)))
-#define SYSCTL_BITBANDING_FMPRE3        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE3_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPRE3        (((BITBANDING_FMPRE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPRE3_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPRE3_R_READ_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPRE3_R_READ_ENABLE_BIT     (0)
+#define SYSCTL_FMPRE3_R_READ_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPRE3_READ_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13943,11 +13943,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPPE0_ALIAS                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE0_ALIAS_OFFSET )))
 #define SYSCTL_FMPPE0_ALIAS_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE0_ALIAS_OFFSET)))
-#define SYSCTL_BITBANDING_FMPPE0_ALIAS        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE0_ALIAS_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPPE0_ALIAS        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE0_ALIAS_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPPE0_ALIAS_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPPE0_ALIAS_R_PROG_ENABLE_BIT     (0)
+#define SYSCTL_FMPPE0_ALIAS_R_PROG_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPPE0_ALIAS_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13957,11 +13957,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPPE0                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE0_OFFSET )))
 #define SYSCTL_FMPPE0_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE0_OFFSET)))
-#define SYSCTL_BITBANDING_FMPPE0        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPPE0        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE0_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPPE0_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPPE0_R_PROG_ENABLE_BIT     (0)
+#define SYSCTL_FMPPE0_R_PROG_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPPE0_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13971,11 +13971,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPPE1                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE1_OFFSET )))
 #define SYSCTL_FMPPE1_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE1_OFFSET)))
-#define SYSCTL_BITBANDING_FMPPE1        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPPE1        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE1_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPPE1_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPPE1_R_PROG_ENABLE_BIT     (0)
+#define SYSCTL_FMPPE1_R_PROG_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPPE1_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13985,11 +13985,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPPE2                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE2_OFFSET )))
 #define SYSCTL_FMPPE2_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE2_OFFSET)))
-#define SYSCTL_BITBANDING_FMPPE2        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPPE2        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE2_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPPE2_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPPE2_R_PROG_ENABLE_BIT     (0)
+#define SYSCTL_FMPPE2_R_PROG_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPPE2_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -13999,11 +13999,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_FMPPE3                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_FMPPE3_OFFSET )))
 #define SYSCTL_FMPPE3_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_FMPPE3_OFFSET)))
-#define SYSCTL_BITBANDING_FMPPE3        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE3_OFFSET)*32))))
+#define SYSCTL_BITBANDING_FMPPE3        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_FMPPE3_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_FMPPE3_R_PROG_ENABLE_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_FMPPE3_R_PROG_ENABLE_BIT     (0)
+#define SYSCTL_FMPPE3_R_PROG_ENABLE_BIT     (0u)
 
 #define SYSCTL_FMPPE3_PROG_ENABLE_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -14014,25 +14014,25 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_BOOTCFG                   (((FMPPE_TypeDef*)(SYSCTL_BASE+SYSCTL_BOOTCFG_OFFSET )))
 #define SYSCTL_BOOTCFG_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_BOOTCFG_OFFSET)))
-#define SYSCTL_BITBANDING_BOOTCFG        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32))))
+#define SYSCTL_BITBANDING_BOOTCFG        (((BITBANDING_FMPPE_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_DBG0_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_BOOTCFG_R_DBG0_BIT     (0)
+#define SYSCTL_BOOTCFG_R_DBG0_BIT     (0u)
 
 #define SYSCTL_BOOTCFG_DBG0_MASK      ((uint32_t)0x00000001u)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_DBG1_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_BOOTCFG_R_DBG1_BIT     (1)
+#define SYSCTL_BOOTCFG_R_DBG1_BIT     (1u)
 
 #define SYSCTL_BOOTCFG_DBG1_MASK      ((uint32_t)0x00000001u)
 /*--------*/
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_KEY_MASK    ((uint32_t)0x00000010u)
-#define SYSCTL_BOOTCFG_R_KEY_BIT     (4)
+#define SYSCTL_BOOTCFG_R_KEY_BIT     (4u)
 #define SYSCTL_BOOTCFG_R_KEY_71D5    ((uint32_t)0x00000000u)
 #define SYSCTL_BOOTCFG_R_KEY_A442    ((uint32_t)0x00000010u)
 
@@ -14043,7 +14043,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_EN_MASK    ((uint32_t)0x00000100u)
-#define SYSCTL_BOOTCFG_R_EN_BIT     (8)
+#define SYSCTL_BOOTCFG_R_EN_BIT     (8u)
 #define SYSCTL_BOOTCFG_R_EN_GPIO    ((uint32_t)0x00000000u)
 #define SYSCTL_BOOTCFG_R_EN_ADDRESS ((uint32_t)0x00000100u)
 
@@ -14054,7 +14054,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_POL_MASK    ((uint32_t)0x00000200u)
-#define SYSCTL_BOOTCFG_R_POL_BIT     (9)
+#define SYSCTL_BOOTCFG_R_POL_BIT     (9u)
 #define SYSCTL_BOOTCFG_R_POL_LOW     ((uint32_t)0x00000000u)
 #define SYSCTL_BOOTCFG_R_POL_HIGH    ((uint32_t)0x00000200u)
 
@@ -14065,7 +14065,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_PIN_MASK    ((uint32_t)0x00001C00u)
-#define SYSCTL_BOOTCFG_R_PIN_BIT     (10)
+#define SYSCTL_BOOTCFG_R_PIN_BIT     (10u)
 #define SYSCTL_BOOTCFG_R_PIN_0       ((uint32_t)0x00000000u)
 #define SYSCTL_BOOTCFG_R_PIN_1       ((uint32_t)0x00000400u)
 #define SYSCTL_BOOTCFG_R_PIN_2       ((uint32_t)0x00000800u)
@@ -14088,7 +14088,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_PORT_MASK    ((uint32_t)0x0000E000u)
-#define SYSCTL_BOOTCFG_R_PORT_BIT     (13)
+#define SYSCTL_BOOTCFG_R_PORT_BIT     (13u)
 #define SYSCTL_BOOTCFG_R_PORT_A       ((uint32_t)0x00000000u)
 #define SYSCTL_BOOTCFG_R_PORT_B       ((uint32_t)0x00002000u)
 #define SYSCTL_BOOTCFG_R_PORT_C       ((uint32_t)0x00004000u)
@@ -14111,7 +14111,7 @@ typedef volatile struct
 
 /*--------*/
 #define SYSCTL_BOOTCFG_R_NW_MASK    ((uint32_t)0x80000000u)
-#define SYSCTL_BOOTCFG_R_NW_BIT     (31)
+#define SYSCTL_BOOTCFG_R_NW_BIT     (31u)
 #define SYSCTL_BOOTCFG_R_NW_DIS     ((uint32_t)0x00000000u)
 #define SYSCTL_BOOTCFG_R_NW_EN      ((uint32_t)0x80000000u)
 
@@ -14120,23 +14120,23 @@ typedef volatile struct
 #define SYSCTL_BOOTCFG_NW_EN        ((uint32_t)0x00000001u)
 /*--------*/
 
-#define SYSCTL_BITBANDING_BOOTCFG_DBG0      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_DBG0_BIT*4))))
-#define SYSCTL_BITBANDING_BOOTCFG_DBG1      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_DBG1_BIT*4))))
-#define SYSCTL_BITBANDING_BOOTCFG_KEY       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_KEY_BIT*4))))
-#define SYSCTL_BITBANDING_BOOTCFG_EN        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_EN_BIT*4))))
-#define SYSCTL_BITBANDING_BOOTCFG_POL       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_POL_BIT*4))))
-#define SYSCTL_BITBANDING_BOOTCFG_NW        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32)+(SYSCTL_BOOTCFG_R_NW_BIT*4))))
+#define SYSCTL_BITBANDING_BOOTCFG_DBG0      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u)+(SYSCTL_BOOTCFG_R_DBG0_BIT*4u))))
+#define SYSCTL_BITBANDING_BOOTCFG_DBG1      (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u)+(SYSCTL_BOOTCFG_R_DBG1_BIT*4u))))
+#define SYSCTL_BITBANDING_BOOTCFG_KEY       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u)+(SYSCTL_BOOTCFG_R_KEY_BIT*4u))))
+#define SYSCTL_BITBANDING_BOOTCFG_EN        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u)+(SYSCTL_BOOTCFG_R_EN_BIT*4u))))
+#define SYSCTL_BITBANDING_BOOTCFG_POL       (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u)+(SYSCTL_BOOTCFG_R_POL_BIT*4u))))
+#define SYSCTL_BITBANDING_BOOTCFG_NW        (*((volatile uint32_t *)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_BOOTCFG_OFFSET)*32u)+(SYSCTL_BOOTCFG_R_NW_BIT*4u))))
 
 /******************************************************************************************
 ************************************ 157-Flash USER_REG0 *********************************************
 ******************************************************************************************/
 #define SYSCTL_USER_REG0                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG0_OFFSET )))
 #define SYSCTL_USER_REG0_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG0_OFFSET)))
-#define SYSCTL_BITBANDING_USER_REG0        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG0_OFFSET)*32))))
+#define SYSCTL_BITBANDING_USER_REG0        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG0_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_USER_REG0_R_DATA_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_USER_REG0_R_DATA_BIT     (0)
+#define SYSCTL_USER_REG0_R_DATA_BIT     (0u)
 
 #define SYSCTL_USER_REG0_DATA_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -14146,11 +14146,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_USER_REG1                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG1_OFFSET )))
 #define SYSCTL_USER_REG1_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG1_OFFSET)))
-#define SYSCTL_BITBANDING_USER_REG1        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG1_OFFSET)*32))))
+#define SYSCTL_BITBANDING_USER_REG1        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG1_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_USER_REG1_R_DATA_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_USER_REG1_R_DATA_BIT     (0)
+#define SYSCTL_USER_REG1_R_DATA_BIT     (0u)
 
 #define SYSCTL_USER_REG1_DATA_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -14160,11 +14160,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_USER_REG2                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG2_OFFSET )))
 #define SYSCTL_USER_REG2_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG2_OFFSET)))
-#define SYSCTL_BITBANDING_USER_REG2        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG2_OFFSET)*32))))
+#define SYSCTL_BITBANDING_USER_REG2        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG2_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_USER_REG2_R_DATA_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_USER_REG2_R_DATA_BIT     (0)
+#define SYSCTL_USER_REG2_R_DATA_BIT     (0u)
 
 #define SYSCTL_USER_REG2_DATA_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -14174,11 +14174,11 @@ typedef volatile struct
 ******************************************************************************************/
 #define SYSCTL_USER_REG3                   (((USER_REG_TypeDef*)(SYSCTL_BASE+SYSCTL_USER_REG3_OFFSET )))
 #define SYSCTL_USER_REG3_R                 (*((volatile uint32_t *)(SYSCTL_BASE+SYSCTL_USER_REG3_OFFSET)))
-#define SYSCTL_BITBANDING_USER_REG3        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG3_OFFSET)*32))))
+#define SYSCTL_BITBANDING_USER_REG3        (((BITBANDING_USER_REG_TypeDef*)(SYSCTL_BITBANDING_BASE+((SYSCTL_OFFSET+SYSCTL_USER_REG3_OFFSET)*32u))))
 
 /*--------*/
 #define SYSCTL_USER_REG3_R_DATA_MASK    ((uint32_t)0xFFFFFFFFu)
-#define SYSCTL_USER_REG3_R_DATA_BIT     (0)
+#define SYSCTL_USER_REG3_R_DATA_BIT     (0u)
 
 #define SYSCTL_USER_REG3_DATA_MASK      ((uint32_t)0xFFFFFFFFu)
 /*--------*/
@@ -14219,81 +14219,81 @@ typedef enum
 
 typedef enum
 {
-    SYSCTL_enWDT0 = ((0<<8)|(0)),
-    SYSCTL_enWDT1 = ((0<<8)|(1)),
+    SYSCTL_enWDT0 = ((0<<8)|(0u)),
+    SYSCTL_enWDT1 = ((0<<8)|(1u)),
 
-    SYSCTL_enTIMER0 = ((1<<8)|(0)),
-    SYSCTL_enTIMER1 = ((1<<8)|(1)),
-    SYSCTL_enTIMER2 = ((1<<8)|(2)),
-    SYSCTL_enTIMER3 = ((1<<8)|(3)),
-    SYSCTL_enTIMER4 = ((1<<8)|(4)),
-    SYSCTL_enTIMER5 = ((1<<8)|(5)),
+    SYSCTL_enTIMER0 = ((1<<8)|(0u)),
+    SYSCTL_enTIMER1 = ((1<<8)|(1u)),
+    SYSCTL_enTIMER2 = ((1<<8)|(2u)),
+    SYSCTL_enTIMER3 = ((1<<8)|(3u)),
+    SYSCTL_enTIMER4 = ((1<<8)|(4u)),
+    SYSCTL_enTIMER5 = ((1<<8)|(5u)),
 
-    SYSCTL_enGPIOA = ((2<<8)|(0)),
-    SYSCTL_enGPIOB = ((2<<8)|(1)),
-    SYSCTL_enGPIOC = ((2<<8)|(2)),
-    SYSCTL_enGPIOD = ((2<<8)|(3)),
-    SYSCTL_enGPIOE = ((2<<8)|(4)),
-    SYSCTL_enGPIOF = ((2<<8)|(5)),
-    SYSCTL_enGPIOG = ((2<<8)|(6)),
-    SYSCTL_enGPIOH = ((2<<8)|(7)),
-    SYSCTL_enGPIOJ = ((2<<8)|(8)),
-    SYSCTL_enGPIOK = ((2<<8)|(9)),
-    SYSCTL_enGPIOL = ((2<<8)|(10)),
-    SYSCTL_enGPIOM = ((2<<8)|(11)),
-    SYSCTL_enGPION = ((2<<8)|(12)),
-    SYSCTL_enGPIOP = ((2<<8)|(13)),
-    SYSCTL_enGPIOQ = ((2<<8)|(14)),
+    SYSCTL_enGPIOA = ((2<<8)|(0u)),
+    SYSCTL_enGPIOB = ((2<<8)|(1u)),
+    SYSCTL_enGPIOC = ((2<<8)|(2u)),
+    SYSCTL_enGPIOD = ((2<<8)|(3u)),
+    SYSCTL_enGPIOE = ((2<<8)|(4u)),
+    SYSCTL_enGPIOF = ((2<<8)|(5u)),
+    SYSCTL_enGPIOG = ((2<<8)|(6u)),
+    SYSCTL_enGPIOH = ((2<<8)|(7u)),
+    SYSCTL_enGPIOJ = ((2<<8)|(8u)),
+    SYSCTL_enGPIOK = ((2<<8)|(9u)),
+    SYSCTL_enGPIOL = ((2<<8)|(10u)),
+    SYSCTL_enGPIOM = ((2<<8)|(11u)),
+    SYSCTL_enGPION = ((2<<8)|(12u)),
+    SYSCTL_enGPIOP = ((2<<8)|(13u)),
+    SYSCTL_enGPIOQ = ((2<<8)|(14u)),
 
-    SYSCTL_enUDMA = ((3<<8)|(0)),
+    SYSCTL_enUDMA = ((3<<8)|(0u)),
 
-    SYSCTL_enHIB = ((5<<8)|(0)),
+    SYSCTL_enHIB = ((5<<8)|(0u)),
 
-    SYSCTL_enUART0 = ((6<<8)|(0)),
-    SYSCTL_enUART1 = ((6<<8)|(1)),
-    SYSCTL_enUART2 = ((6<<8)|(2)),
-    SYSCTL_enUART3 = ((6<<8)|(3)),
-    SYSCTL_enUART4 = ((6<<8)|(4)),
-    SYSCTL_enUART5 = ((6<<8)|(5)),
-    SYSCTL_enUART6 = ((6<<8)|(6)),
-    SYSCTL_enUART7 = ((6<<8)|(7)),
+    SYSCTL_enUART0 = ((6<<8)|(0u)),
+    SYSCTL_enUART1 = ((6<<8)|(1u)),
+    SYSCTL_enUART2 = ((6<<8)|(2u)),
+    SYSCTL_enUART3 = ((6<<8)|(3u)),
+    SYSCTL_enUART4 = ((6<<8)|(4u)),
+    SYSCTL_enUART5 = ((6<<8)|(5u)),
+    SYSCTL_enUART6 = ((6<<8)|(6u)),
+    SYSCTL_enUART7 = ((6<<8)|(7u)),
 
-    SYSCTL_enSSI0 = ((7<<8)|(0)),
-    SYSCTL_enSSI1 = ((7<<8)|(1)),
-    SYSCTL_enSSI2 = ((7<<8)|(2)),
-    SYSCTL_enSSI3 = ((7<<8)|(3)),
+    SYSCTL_enSSI0 = ((7<<8)|(0u)),
+    SYSCTL_enSSI1 = ((7<<8)|(1u)),
+    SYSCTL_enSSI2 = ((7<<8)|(2u)),
+    SYSCTL_enSSI3 = ((7<<8)|(3u)),
 
-    SYSCTL_enI2C0 = ((8<<8)|(0)),
-    SYSCTL_enI2C1 = ((8<<8)|(1)),
-    SYSCTL_enI2C2 = ((8<<8)|(2)),
-    SYSCTL_enI2C3 = ((8<<8)|(3)),
-    SYSCTL_enI2C4 = ((8<<8)|(4)),
-    SYSCTL_enI2C5 = ((8<<8)|(5)),
+    SYSCTL_enI2C0 = ((8<<8)|(0u)),
+    SYSCTL_enI2C1 = ((8<<8)|(1u)),
+    SYSCTL_enI2C2 = ((8<<8)|(2u)),
+    SYSCTL_enI2C3 = ((8<<8)|(3u)),
+    SYSCTL_enI2C4 = ((8<<8)|(4u)),
+    SYSCTL_enI2C5 = ((8<<8)|(5u)),
 
-    SYSCTL_enUSB = ((10<<8)|(0)),
+    SYSCTL_enUSB = ((10<<8)|(0u)),
 
-    SYSCTL_enCAN0 = ((13<<8)|(0)),
-    SYSCTL_enCAN1 = ((13<<8)|(1)),
+    SYSCTL_enCAN0 = ((13<<8)|(0u)),
+    SYSCTL_enCAN1 = ((13<<8)|(1u)),
 
-    SYSCTL_enADC0 = ((14<<8)|(0)),
-    SYSCTL_enADC1 = ((14<<8)|(1)),
+    SYSCTL_enADC0 = ((14<<8)|(0u)),
+    SYSCTL_enADC1 = ((14<<8)|(1u)),
 
-    SYSCTL_enACMP = ((15<<8)|(0)),
+    SYSCTL_enACMP = ((15<<8)|(0u)),
 
-    SYSCTL_enPWM0 = ((16<<8)|(0)),
-    SYSCTL_enPWM1 = ((16<<8)|(1)),
+    SYSCTL_enPWM0 = ((16<<8)|(0u)),
+    SYSCTL_enPWM1 = ((16<<8)|(1u)),
 
-    SYSCTL_enQEI0 = ((17<<8)|(0)),
-    SYSCTL_enQEI1 = ((17<<8)|(1)),
+    SYSCTL_enQEI0 = ((17<<8)|(0u)),
+    SYSCTL_enQEI1 = ((17<<8)|(1u)),
 
-    SYSCTL_enEEPROM = ((22<<8)|(0)),
+    SYSCTL_enEEPROM = ((22<<8)|(0u)),
 
-    SYSCTL_enWTIMER0 = ((23<<8)|(0)),
-    SYSCTL_enWTIMER1 = ((23<<8)|(1)),
-    SYSCTL_enWTIMER2 = ((23<<8)|(2)),
-    SYSCTL_enWTIMER3 = ((23<<8)|(3)),
-    SYSCTL_enWTIMER4 = ((23<<8)|(4)),
-    SYSCTL_enWTIMER5 = ((23<<8)|(5)),
+    SYSCTL_enWTIMER0 = ((23<<8)|(0u)),
+    SYSCTL_enWTIMER1 = ((23<<8)|(1u)),
+    SYSCTL_enWTIMER2 = ((23<<8)|(2u)),
+    SYSCTL_enWTIMER3 = ((23<<8)|(3u)),
+    SYSCTL_enWTIMER4 = ((23<<8)|(4u)),
+    SYSCTL_enWTIMER5 = ((23<<8)|(5u)),
 }SYSCTL_nPERIPHERAL;
 
 typedef enum

@@ -17,7 +17,7 @@ FLASH_nSTATUS FLASH__enWaitWrite (void)
     while(FLASH_FMC_R_WRITE_NOCOMPLETE == (FLASH_FMC_R & FLASH_FMC_R_WRITE_MASK))
     {
         u32TimeOut--;
-        if(0 == u32TimeOut)
+        if(0u == u32TimeOut)
         {
             enReturn = FLASH_enERROR;
             break;
@@ -33,7 +33,7 @@ FLASH_nSTATUS FLASH__enWaitBufWrite (void)
     while(FLASH_FMC2_R_WRBUF_NOCOMPLETE == (FLASH_FMC2_R & FLASH_FMC2_R_WRBUF_MASK))
     {
         u32TimeOut--;
-        if(0 == u32TimeOut)
+        if(0u == u32TimeOut)
         {
             enReturn = FLASH_enERROR;
             break;
@@ -48,7 +48,7 @@ FLASH_nSTATUS FLASH__enWaitPageErase (void)
     while(FLASH_FMC_R_ERASE_NOCOMPLETE == (FLASH_FMC_R & FLASH_FMC_R_ERASE_MASK))
     {
         u32TimeOut--;
-        if( 0 == u32TimeOut)
+        if( 0u == u32TimeOut)
         {
             enReturn = FLASH_enERROR;
             break;
@@ -64,7 +64,7 @@ FLASH_nSTATUS FLASH__enWaitMassErase(void)
     while(FLASH_FMC_R_MERASE_NOCOMPLETE == (FLASH_FMC_R & FLASH_FMC_R_MERASE_MASK))
     {
         u32TimeOut--;
-        if( 0 == u32TimeOut)
+        if( 0u == u32TimeOut)
         {
             enReturn = FLASH_enERROR;
             break;

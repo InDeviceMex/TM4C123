@@ -134,7 +134,7 @@ inline void SCB__vReqSysReset(void)
         SCB_AIRCR_R=u32Reg;
         __asm(" DSB");
 
-        while(1)
+        while(1u)
         {
             __asm(" NOP");
         }
@@ -154,7 +154,7 @@ inline void SCB__vReqSysReset_Peripheral(void)
         SCB_AIRCR_R=u32Reg;
         __asm(" DSB");
 
-        while(1)
+        while(1u)
         {
             __asm(" NOP");
         }
@@ -617,7 +617,7 @@ void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
         if(u32BaseVector<=0x00010000u)
         {
             __asm(" cpsid i");
-            FLASH__enWriteWorld((uint32_t)Isr|1,u32BaseVector+((uint32_t)enVector*4));
+            FLASH__enWriteWorld((uint32_t)Isr|1,u32BaseVector+((uint32_t)enVector*4u));
             __asm(" cpsie i");
         }
         else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
@@ -635,7 +635,7 @@ void SCB__vUnRegisterISR(SCB_nVECISR enVector)
     if(u32BaseVector<=0x00010000u)
     {
         __asm(" cpsid i");
-        FLASH__enWrite((uint32_t)IntDefaultHandler|1,u32BaseVector+((uint32_t)enVector*4));
+        FLASH__enWrite((uint32_t)IntDefaultHandler|1,u32BaseVector+((uint32_t)enVector*4u));
         __asm(" cpsie i");
     }
     else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
@@ -665,13 +665,13 @@ typedef enum
 void NMI_vISR(void)
 {
     /*use for GPIO activation*/
-    while(1);
+    while(1u);
 }
 
 void PendSV_vISR(void)
 {
     /*context switch, lower priority*/
-    while(1);
+    while(1u);
 }
 
 uint32_t SCB_pu32Context[8];
@@ -706,19 +706,19 @@ void UsageFault_vISR(void)
     switch(SCB_u16UsageFault)
     {
         case SCB_enUCFSR_UNDEFINSTR:
-            while(1);
+            while(1u);
         case SCB_enUCFSR_INVSTATE:
-            while(1);
+            while(1u);
         case SCB_enUCFSR_INVPC:
-            while(1);
+            while(1u);
         case SCB_enUCFSR_NOCP:
-            while(1);
+            while(1u);
         case SCB_enUCFSR_UNALIGNED:
-            while(1);
+            while(1u);
         case SCB_enUCFSR_DIVBYZERO:
-            while(1);
+            while(1u);
         default:
-            while(1);
+            while(1u);
     }
 }
 void BusFault_vISR(void)
@@ -760,19 +760,19 @@ void BusFault_vISR(void)
     switch(SCB_u8BusFault)
     {
         case SCB_enBCFSR_LSPERR:
-            while(1);
+            while(1u);
         case SCB_enBCFSR_STKERR:
-            while(1);
+            while(1u);
         case SCB_enBCFSR_UNSTKERR:
-            while(1);
+            while(1u);
         case SCB_enBCFSR_IMPRECISERR:
-            while(1);
+            while(1u);
         case SCB_enBCFSR_PRECISERR:
-            while(1);
+            while(1u);
         case SCB_enBCFSR_IBUSERR:
-            while(1);
+            while(1u);
         default:
-            while(1);
+            while(1u);
     }
 }
 void MemoryFault_vISR(void)
@@ -814,17 +814,17 @@ void MemoryFault_vISR(void)
     switch(SCB_u8MemFault)
     {
         case SCB_enMCFSR_MLSPERR:
-            while(1);
+            while(1u);
         case SCB_enMCFSR_MSTKERR:
-            while(1);
+            while(1u);
         case SCB_enMCFSR_MUNSTKERR:
-            while(1);
+            while(1u);
         case SCB_enMCFSR_DACCVIOL:
-            while(1);
+            while(1u);
         case SCB_enMCFSR_IACCVIOL:
-            while(1);
+            while(1u);
         default:
-            while(1);
+            while(1u);
     }
 }
 void HardFault_vISR(void)
@@ -853,11 +853,11 @@ void HardFault_vISR(void)
     " str R1, [R2, #0x18]\n"/*SCB_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_pu32Context[7] PSR*/
-    while(1);
+    while(1u);
 }
 void SVCall_vISR(void)
 {
-    while(1);
+    while(1u);
 }
 
 

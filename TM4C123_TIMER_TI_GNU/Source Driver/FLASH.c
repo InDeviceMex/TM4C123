@@ -449,7 +449,7 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,u
 
     u32AddressCurrent=u32Address&~0x3;
 
-    if((u32AddressCurrent+(u32Count*4))<=FLASH_ADDRESS_MAX)
+    if((u32AddressCurrent+(u32Count*4u))<=FLASH_ADDRESS_MAX)
     {
         if(0!=u32Count)
         {
@@ -544,7 +544,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(uint16_t* pu16Data, uint32_t u32Addre
 
     u32AddressCurrent=u32Address&~0x1;
 
-    if((u32AddressCurrent+(u32Count*2))<=FLASH_ADDRESS_MAX)
+    if((u32AddressCurrent+(u32Count*2u))<=FLASH_ADDRESS_MAX)
     {
         if(0!=u32Count)
         {

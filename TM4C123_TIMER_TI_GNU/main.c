@@ -51,9 +51,9 @@ int main(void)
     MAIN_vInitGPIO();
     MAIN_vInitTIMER();
 
-    while(1)
+    while(1u)
     {
-        /*SysTick__vDelayUs(100000);*/
+        /*SysTick__vDelayUs(100000u);*/
         if(1==u32Update)
         {
             u32Update=0;
@@ -180,7 +180,7 @@ void TIMER2W__vISR(void)
     }
     else
     {
-        if(u32Counter==(1))
+        if(u32Counter==(1u))
         {
             u8Dir=0;
             if(u32Priority==4)

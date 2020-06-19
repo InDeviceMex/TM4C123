@@ -212,7 +212,7 @@ uint32_t pu32Interrupt[6]={GPTM_GPTMIMR_R_TATOIM_EN,
                            GPTM_GPTMIMR_R_WUEIM_EN};
 void TIMER_vDUMMY(void)
 {
-    while(1);
+    while(1u);
 }
 void TIMER__vInit(void)
 {

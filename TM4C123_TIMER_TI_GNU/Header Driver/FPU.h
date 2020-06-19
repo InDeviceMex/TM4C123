@@ -159,7 +159,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_CPACR_R_CP10_MASK      ((uint32_t)0x00300000u)
-#define FPU_CPACR_R_CP10_BIT       (20)
+#define FPU_CPACR_R_CP10_BIT       (20u)
 #define FPU_CPACR_R_CP10_DENIED    ((uint32_t)0x00000000u)
 #define FPU_CPACR_R_CP10_PRIVILEGE ((uint32_t)0x00100000u)
 #define FPU_CPACR_R_CP10_FULL      ((uint32_t)0x00300000u)
@@ -172,7 +172,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_CPACR_R_CP11_MASK      ((uint32_t)0x00C00000u)
-#define FPU_CPACR_R_CP11_BIT       (22)
+#define FPU_CPACR_R_CP11_BIT       (22u)
 #define FPU_CPACR_R_CP11_DENIED    ((uint32_t)0x00000000u)
 #define FPU_CPACR_R_CP11_PRIVILEGE ((uint32_t)0x00400000u)
 #define FPU_CPACR_R_CP11_FULL      ((uint32_t)0x00C00000u)
@@ -191,7 +191,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_LSPACT_MASK      ((uint32_t)0x00000001u)
-#define FPU_FPCCR_R_LSPACT_BIT       (0)
+#define FPU_FPCCR_R_LSPACT_BIT       (0u)
 #define FPU_FPCCR_R_LSPACT_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_LSPACT_SET       ((uint32_t)0x00000001u)
 
@@ -202,7 +202,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_USER_MASK      ((uint32_t)0x00000002u)
-#define FPU_FPCCR_R_USER_BIT       (1)
+#define FPU_FPCCR_R_USER_BIT       (1u)
 #define FPU_FPCCR_R_USER_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_USER_SET       ((uint32_t)0x00000002u)
 
@@ -213,7 +213,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_THREAD_MASK      ((uint32_t)0x00000008u)
-#define FPU_FPCCR_R_THREAD_BIT       (3)
+#define FPU_FPCCR_R_THREAD_BIT       (3u)
 #define FPU_FPCCR_R_THREAD_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_THREAD_SET       ((uint32_t)0x00000008u)
 
@@ -224,7 +224,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_HFRDY_MASK      ((uint32_t)0x00000010u)
-#define FPU_FPCCR_R_HFRDY_BIT       (4)
+#define FPU_FPCCR_R_HFRDY_BIT       (4u)
 #define FPU_FPCCR_R_HFRDY_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_HFRDY_SET       ((uint32_t)0x00000010u)
 
@@ -235,7 +235,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_MMRDY_MASK      ((uint32_t)0x00000020u)
-#define FPU_FPCCR_R_MMRDY_BIT       (5)
+#define FPU_FPCCR_R_MMRDY_BIT       (5u)
 #define FPU_FPCCR_R_MMRDY_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_MMRDY_SET       ((uint32_t)0x00000020u)
 
@@ -246,7 +246,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_BFRDY_MASK      ((uint32_t)0x00000040u)
-#define FPU_FPCCR_R_BFRDY_BIT       (6)
+#define FPU_FPCCR_R_BFRDY_BIT       (6u)
 #define FPU_FPCCR_R_BFRDY_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_BFRDY_SET       ((uint32_t)0x00000040u)
 
@@ -257,7 +257,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_MONRDY_MASK      ((uint32_t)0x00000100u)
-#define FPU_FPCCR_R_MONRDY_BIT       (8)
+#define FPU_FPCCR_R_MONRDY_BIT       (8u)
 #define FPU_FPCCR_R_MONRDY_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_MONRDY_SET       ((uint32_t)0x00000100u)
 
@@ -268,7 +268,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_LSPEN_MASK      ((uint32_t)0x40000000u)
-#define FPU_FPCCR_R_LSPEN_BIT       (30)
+#define FPU_FPCCR_R_LSPEN_BIT       (30u)
 #define FPU_FPCCR_R_LSPEN_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_LSPEN_SET       ((uint32_t)0x40000000u)
 
@@ -279,7 +279,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCCR_R_ASPEN_MASK      ((uint32_t)0x80000000u)
-#define FPU_FPCCR_R_ASPEN_BIT       (31)
+#define FPU_FPCCR_R_ASPEN_BIT       (31u)
 #define FPU_FPCCR_R_ASPEN_NOSET     ((uint32_t)0x00000000u)
 #define FPU_FPCCR_R_ASPEN_SET       ((uint32_t)0x80000000u)
 
@@ -297,7 +297,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPCAR_R_ADDRESS_MASK      ((uint32_t)0xFFFFFFF8u)
-#define FPU_FPCAR_R_ADDRESS_BIT       (3)
+#define FPU_FPCAR_R_ADDRESS_BIT       (3u)
 
 #define FPU_FPCAR_ADDRESS_MASK        ((uint32_t)0x1FFFFFFFu)
 /*----------*/
@@ -310,7 +310,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPDSCR_R_RMODE_MASK      ((uint32_t)0x00C00000u)
-#define FPU_FPDSCR_R_RMODE_BIT       (22)
+#define FPU_FPDSCR_R_RMODE_BIT       (22u)
 #define FPU_FPDSCR_R_RMODE_RN        ((uint32_t)0x00000000u)
 #define FPU_FPDSCR_R_RMODE_RP        ((uint32_t)0x00400000u)
 #define FPU_FPDSCR_R_RMODE_RM        ((uint32_t)0x00800000u)
@@ -325,7 +325,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPDSCR_R_FZ_MASK      ((uint32_t)0x01000000u)
-#define FPU_FPDSCR_R_FZ_BIT       (24)
+#define FPU_FPDSCR_R_FZ_BIT       (24u)
 #define FPU_FPDSCR_R_FZ_0         ((uint32_t)0x00000000u)
 #define FPU_FPDSCR_R_FZ_1         ((uint32_t)0x01000000u)
 
@@ -336,7 +336,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPDSCR_R_DN_MASK      ((uint32_t)0x02000000u)
-#define FPU_FPDSCR_R_DN_BIT       (25)
+#define FPU_FPDSCR_R_DN_BIT       (25u)
 #define FPU_FPDSCR_R_DN_0         ((uint32_t)0x00000000u)
 #define FPU_FPDSCR_R_DN_1         ((uint32_t)0x02000000u)
 
@@ -347,7 +347,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_FPDSCR_R_AHP_MASK      ((uint32_t)0x04000000u)
-#define FPU_FPDSCR_R_AHP_BIT       (26)
+#define FPU_FPDSCR_R_AHP_BIT       (26u)
 #define FPU_FPDSCR_R_AHP_0         ((uint32_t)0x00000000u)
 #define FPU_FPDSCR_R_AHP_1         ((uint32_t)0x04000000u)
 
@@ -364,14 +364,14 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_MVFR0_R_A_SIMD_registers_MASK      ((uint32_t)0x0000000Fu)
-#define FPU_MVFR0_R_A_SIMD_registers_BIT       (0)
+#define FPU_MVFR0_R_A_SIMD_registers_BIT       (0u)
 
 #define FPU_MVFR0_A_SIMD_registers_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR0_R_Single_precision_MASK      ((uint32_t)0x000000F0u)
-#define FPU_MVFR0_R_Single_precision_BIT       (4)
+#define FPU_MVFR0_R_Single_precision_BIT       (4u)
 #define FPU_MVFR0_R_Single_precision_PRESENT   ((uint32_t)0x00000020u)
 #define FPU_MVFR0_R_Single_precision_NOPRESENT ((uint32_t)0x00000000u)
 
@@ -382,7 +382,7 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_MVFR0_R_Double_precision_MASK      ((uint32_t)0x00000F00u)
-#define FPU_MVFR0_R_Double_precision_BIT       (8)
+#define FPU_MVFR0_R_Double_precision_BIT       (8u)
 #define FPU_MVFR0_R_Double_precision_PRESENT   ((uint32_t)0x00000200u)
 #define FPU_MVFR0_R_Double_precision_NOPRESENT ((uint32_t)0x00000000u)
 
@@ -393,35 +393,35 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_MVFR0_R_FP_excep_trapping_MASK      ((uint32_t)0x0000F000u)
-#define FPU_MVFR0_R_FP_excep_trapping_BIT       (12)
+#define FPU_MVFR0_R_FP_excep_trapping_BIT       (12u)
 
 #define FPU_MVFR0_FP_excep_trapping_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR0_R_Divide_MASK                 ((uint32_t)0x000F0000u)
-#define FPU_MVFR0_R_Divide_BIT                  (16)
+#define FPU_MVFR0_R_Divide_BIT                  (16u)
 
 #define FPU_MVFR0_Divide_MASK                   ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR0_R_Square_root_MASK            ((uint32_t)0x00F00000u)
-#define FPU_MVFR0_R_Square_root_BIT             (20)
+#define FPU_MVFR0_R_Square_root_BIT             (20u)
 
 #define FPU_MVFR0_Square_root_MASK              ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR0_R_Short_vectors_MASK          ((uint32_t)0x0F000000u)
-#define FPU_MVFR0_R_Short_vectors_BIT           (24)
+#define FPU_MVFR0_R_Short_vectors_BIT           (24u)
 
 #define FPU_MVFR0_Short_vectors_MASK            ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR0_R_FP_rounding_modes_MASK      ((uint32_t)0xF0000000u)
-#define FPU_MVFR0_R_FP_rounding_modes_BIT       (28)
+#define FPU_MVFR0_R_FP_rounding_modes_BIT       (28u)
 
 #define FPU_MVFR0_FP_rounding_modes_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/
@@ -434,28 +434,28 @@ typedef volatile struct
 
 /*----------*/
 #define FPU_MVFR1_R_FtZ_mode_MASK      ((uint32_t)0x0000000Fu)
-#define FPU_MVFR1_R_FtZ_mode_BIT       (0)
+#define FPU_MVFR1_R_FtZ_mode_BIT       (0u)
 
 #define FPU_MVFR1_FtZ_mode_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR1_R_D_NaN_mode_MASK      ((uint32_t)0x000000F0u)
-#define FPU_MVFR1_R_D_NaN_mode_BIT       (4)
+#define FPU_MVFR1_R_D_NaN_mode_BIT       (4u)
 
 #define FPU_MVFR1_D_NaN_mode_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR1_R_FP_HPFP_MASK        ((uint32_t)0x0F000000u)
-#define FPU_MVFR1_R_FP_HPFP_BIT         (24)
+#define FPU_MVFR1_R_FP_HPFP_BIT         (24u)
 
 #define FPU_MVFR1_FP_HPFP_MASK          ((uint32_t)0x0000000Fu)
 /*----------*/
 
 /*----------*/
 #define FPU_MVFR1_R_FP_fused_MAC_MASK      ((uint32_t)0xF0000000u)
-#define FPU_MVFR1_R_FP_fused_MAC_BIT       (28)
+#define FPU_MVFR1_R_FP_fused_MAC_BIT       (28u)
 
 #define FPU_MVFR1_FP_fused_MAC_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/

@@ -23,25 +23,25 @@ SYSCTL_nRESET SYSCTL__enGetResetCause(void)
 {
     uint32_t u32Reg=0;
     uint32_t u32BitBanding=0;
-    u32BitBanding=SYSCTL_BITBANDING_RESC_EXT;
+    u32BitBanding=(uint32_t)SYSCTL_BITBANDING_RESC_EXT;
     u32Reg=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_POR<<1;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_POR<<1u;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_BOR<<2;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_BOR<<2u;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT0<<3;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT0<<3u;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_SW<<4;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_SW<<4u;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT1<<5;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT1<<5u;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_MOSCFAIL<<6;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_MOSCFAIL<<6u;
     u32Reg|=u32BitBanding;
 
     return (SYSCTL_nRESET)u32Reg;
@@ -51,25 +51,25 @@ void SYSCTL__vClearResetCause(SYSCTL_nRESET enReset)
 {
 
     if(SYSCTL_enRESET_EXT == (enReset&SYSCTL_enRESET_EXT))
-        SYSCTL_BITBANDING_RESC_EXT=0;
+        SYSCTL_BITBANDING_RESC_EXT=0u;
 
     if(SYSCTL_enRESET_POR == (enReset&SYSCTL_enRESET_POR))
-        SYSCTL_BITBANDING_RESC_POR=0;
+        SYSCTL_BITBANDING_RESC_POR=0u;
 
     if(SYSCTL_enRESET_BOR == (enReset&SYSCTL_enRESET_BOR))
-        SYSCTL_BITBANDING_RESC_BOR=0;
+        SYSCTL_BITBANDING_RESC_BOR=0u;
 
     if(SYSCTL_enRESET_WDT0 == (enReset&SYSCTL_enRESET_WDT0))
-        SYSCTL_BITBANDING_RESC_WDT0=0;
+        SYSCTL_BITBANDING_RESC_WDT0=0u;
 
     if(SYSCTL_enRESET_SW == (enReset&SYSCTL_enRESET_SW))
-        SYSCTL_BITBANDING_RESC_SW=0;
+        SYSCTL_BITBANDING_RESC_SW=0u;
 
     if(SYSCTL_enRESET_WDT1 == (enReset&SYSCTL_enRESET_WDT1))
-        SYSCTL_BITBANDING_RESC_WDT1=0;
+        SYSCTL_BITBANDING_RESC_WDT1=0u;
 
     if(SYSCTL_enRESET_MOSCFAIL== (enReset&SYSCTL_enRESET_MOSCFAIL))
-        SYSCTL_BITBANDING_RESC_MOSCFAIL=0;
+        SYSCTL_BITBANDING_RESC_MOSCFAIL=0u;
 }
 
 
@@ -107,7 +107,7 @@ uint32_t SYSCTL__u32GetClock(void)
                     /*OSC source/div*/
                     if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                     {
-                        u32Frequency/= u32RegSYSDIV2+1;
+                        u32Frequency/= u32RegSYSDIV2+1u;
                     }
                     else
                     {
@@ -121,40 +121,40 @@ uint32_t SYSCTL__u32GetClock(void)
                     if(SYSCTL_RCC2_R_PWRDN2_ON==(u32RegRCC2&SYSCTL_RCC2_R_PWRDN2_MASK))
                     {
                         /*Initial Frequencyof PLL*/
-                        u32Frequency=200000000;
+                        u32Frequency=200000000u;
 
                         /*If PLL 400MHz is enabled, SYSDIV2LSB needs to be considered*/
                         if(SYSCTL_RCC2_R_DIV400_400MHZ==(u32RegRCC2&SYSCTL_RCC2_R_DIV400_MASK))
                         {
-                            u32Frequency*=2;
-                            u32Frequency/= ((u32RegSYSDIV2<<1)+u32RegSYSDIVLSB2)+1;
+                            u32Frequency*=2u;
+                            u32Frequency/= ((u32RegSYSDIV2<<1)+u32RegSYSDIVLSB2)+1u;
                         }
                         else
                         {
-                            u32Frequency/= u32RegSYSDIV2+1;
+                            u32Frequency/= u32RegSYSDIV2+1u;
                         }
                     }
                     else
                     {
-                        u32Frequency = 0; /*Invalid configuration*/
+                        u32Frequency = 0u; /*Invalid configuration*/
                     }
                 }
             }
             else
             {
-                u32Frequency = 0; /*Invalid configuration*/
+                u32Frequency = 0u; /*Invalid configuration*/
             }
             break;
 
         case SYSCTL_RCC2_R_OSCSRC2_PIOSC:
-            u32Frequency= 16000000;
+            u32Frequency= 16000000u;
             /*OSC source*/
             if(SYSCTL_RCC2_R_BYPASS2_OSC==(u32RegRCC2&SYSCTL_RCC2_R_BYPASS2_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -167,34 +167,34 @@ uint32_t SYSCTL__u32GetClock(void)
                 if(SYSCTL_RCC2_R_PWRDN2_ON==(u32RegRCC2&SYSCTL_RCC2_R_PWRDN2_MASK))
                 {
                     /*Initial Frequencyof PLL*/
-                    u32Frequency=200000000;
+                    u32Frequency=200000000u;
 
                     /*If PLL 400MHz is enabled, SYSDIV2LSB needs to be considered*/
                     if(SYSCTL_RCC2_R_DIV400_400MHZ==(u32RegRCC2&SYSCTL_RCC2_R_DIV400_MASK))
                     {
-                        u32Frequency*=2;
-                        u32Frequency/= ((u32RegSYSDIV2<<1)+u32RegSYSDIVLSB2)+1;
+                        u32Frequency*=2u;
+                        u32Frequency/= ((u32RegSYSDIV2<<1u)+u32RegSYSDIVLSB2)+1u;
                     }
                     else
                     {
-                        u32Frequency/= u32RegSYSDIV2+1;
+                        u32Frequency/= u32RegSYSDIV2+1u;
                     }
                 }
                 else
                 {
-                    u32Frequency = 0; /*Invalid configuration*/
+                    u32Frequency = 0u; /*Invalid configuration*/
                 }
             }
             break;
         case SYSCTL_RCC2_R_OSCSRC2_PIOSC4:
-            u32Frequency= 4000000;
+            u32Frequency= 4000000u;
             /*OSC source*/
             if(SYSCTL_RCC2_R_BYPASS2_OSC==(u32RegRCC2&SYSCTL_RCC2_R_BYPASS2_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -207,14 +207,14 @@ uint32_t SYSCTL__u32GetClock(void)
             }
             break;
         case SYSCTL_RCC2_R_OSCSRC2_LFIOSC:
-            u32Frequency= 33000;
+            u32Frequency= 33000u;
             /*OSC source*/
             if(SYSCTL_RCC2_R_BYPASS2_OSC==(u32RegRCC2&SYSCTL_RCC2_R_BYPASS2_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -227,14 +227,14 @@ uint32_t SYSCTL__u32GetClock(void)
             }
             break;
         case SYSCTL_RCC2_R_OSCSRC2_32_768KHZ:
-            u32Frequency= 32768;
+            u32Frequency= 32768u;
             /*OSC source*/
             if(SYSCTL_RCC2_R_BYPASS2_OSC==(u32RegRCC2&SYSCTL_RCC2_R_BYPASS2_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -261,7 +261,7 @@ uint32_t SYSCTL__u32GetClock(void)
                  /*OSC source/div*/
                  if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                  {
-                     u32Frequency/= u32RegSYSDIV2+1;
+                     u32Frequency/= u32RegSYSDIV2+1u;
                  }
                  else
                  {
@@ -273,23 +273,23 @@ uint32_t SYSCTL__u32GetClock(void)
                  if(SYSCTL_RCC_R_PWRDN_ON==(u32RegRCC&SYSCTL_RCC_R_PWRDN_MASK))
                  {
                      /*Initial Frequencyof PLL*/
-                     u32Frequency=200000000;
-                     u32Frequency/= u32RegSYSDIV2+1;
+                     u32Frequency=200000000u;
+                     u32Frequency/= u32RegSYSDIV2+1u;
                  }
                  else
                  {
-                     u32Frequency = 0; /*Invalid configuration*/
+                     u32Frequency = 0u; /*Invalid configuration*/
                  }
              }
             break;
         case SYSCTL_RCC_R_OSCSRC_PIOSC:
-            u32Frequency= 16000000;
+            u32Frequency= 16000000u;
             if(SYSCTL_RCC_R_BYPASS_OSC==(u32RegRCC&SYSCTL_RCC_R_BYPASS_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -301,23 +301,23 @@ uint32_t SYSCTL__u32GetClock(void)
                 if(SYSCTL_RCC_R_PWRDN_ON==(u32RegRCC&SYSCTL_RCC_R_PWRDN_MASK))
                 {
                     /*Initial Frequencyof PLL*/
-                    u32Frequency=200000000;
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency=200000000u;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
-                    u32Frequency = 0; /*Invalid configuration*/
+                    u32Frequency = 0u; /*Invalid configuration*/
                 }
             }
             break;
         case SYSCTL_RCC_R_OSCSRC_PIOSC4:
-            u32Frequency= 4000000;
+            u32Frequency= 4000000u;
             if(SYSCTL_RCC_R_BYPASS_OSC==(u32RegRCC&SYSCTL_RCC_R_BYPASS_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -330,13 +330,13 @@ uint32_t SYSCTL__u32GetClock(void)
             }
             break;
         case SYSCTL_RCC_R_OSCSRC_LFIOSC:
-            u32Frequency= 33000;            /*OSC source*/
+            u32Frequency= 33000u;            /*OSC source*/
             if(SYSCTL_RCC_R_BYPASS_OSC==(u32RegRCC&SYSCTL_RCC_R_BYPASS_MASK))
             {
                 /*OSC source/div*/
                 if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
                 {
-                    u32Frequency/= u32RegSYSDIV2+1;
+                    u32Frequency/= u32RegSYSDIV2+1u;
                 }
                 else
                 {
@@ -362,7 +362,7 @@ void SYSCTL__vSetGPIOBus_AHB(SYSCTL_nGPIOBUS enGPIO)
 
 void SYSCTL__vSetGPIOBus_APB(SYSCTL_nGPIOBUS enGPIO)
 {
-    SYSCTL_GPIOHBCTL_R&=~(enGPIO);
+    SYSCTL_GPIOHBCTL_R&=~((uint32_t)enGPIO);
 }
 
 SYSCTL_nGPIOBUS_CURRENT SYSCTL__vGetGPIOBus(SYSCTL_nGPIOBUS enGPIO)
@@ -370,7 +370,7 @@ SYSCTL_nGPIOBUS_CURRENT SYSCTL__vGetGPIOBus(SYSCTL_nGPIOBUS enGPIO)
     SYSCTL_nGPIOBUS_CURRENT enCurrent =SYSCTL_enGPIOBUS_APB;
     uint32_t u32Reg=SYSCTL_GPIOHBCTL_R;
     u32Reg&=enGPIO;
-    if(0!=u32Reg)
+    if(0u!=u32Reg)
     {
         enCurrent=SYSCTL_enGPIOBUS_AHB;
     }
@@ -448,14 +448,14 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
 
 SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
-    uint32_t u32Reg=0;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
+    uint32_t u32Reg=0u;
     SYSCTL_nPERIPHERAL_PRESENT enReturn = SYSCTL_enNOPRESENT;
 
     u32Reg= SYSCTL->PP[u32NoRegister];
     u32Reg>>=u32NoPeripheral;
-    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32Reg&1);
+    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32Reg&1u);
 
     return enReturn;
 
@@ -463,14 +463,14 @@ SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPe
 
 SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
     uint32_t u32Reg=0;
     SYSCTL_nPERIPHERAL_READY enReturn = SYSCTL_enNOREADY;
 
     u32Reg= SYSCTL->PR[u32NoRegister];
     u32Reg>>=u32NoPeripheral;
-    enReturn=(SYSCTL_nPERIPHERAL_READY)(u32Reg&1);
+    enReturn=(SYSCTL_nPERIPHERAL_READY)(u32Reg&1u);
 
     return enReturn;
 
@@ -479,8 +479,8 @@ SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeriph
 
 void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
     SYSCTL->SR[u32NoRegister]|=(1<<u32NoPeripheral);
     SYSCTL_vNoOperation();
@@ -496,25 +496,25 @@ void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
 
-    if(0==(SYSCTL->RCGC[u32NoRegister]&(1<<u32NoPeripheral)))
+    if(0u==(uint32_t)(SYSCTL->RCGC[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)))
     {
         SYSCTL->RCGC[u32NoRegister]|=(1<<u32NoPeripheral);
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
+        while(0u==(uint32_t)(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)));
     }
 }
 
 void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
     if((1<<u32NoPeripheral)==(SYSCTL->RCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
@@ -529,25 +529,25 @@ void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 
 void SYSCTL__vEnSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
 
-    if(0==(SYSCTL->SCGC[u32NoRegister]&(1<<u32NoPeripheral)))
+    if(0u==(SYSCTL->SCGC[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)))
     {
-        SYSCTL->SCGC[u32NoRegister]|=(1<<u32NoPeripheral);
+        SYSCTL->SCGC[u32NoRegister]|=(uint32_t)((uint32_t)1u<<u32NoPeripheral);
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
+        while(0u==(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)));
     }
 }
 
 void SYSCTL__vDisSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
     if((1<<u32NoPeripheral)==(SYSCTL->SCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
@@ -561,27 +561,27 @@ void SYSCTL__vDisSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 
 void SYSCTL__vEnDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
 
-    if(0==(SYSCTL->DCGC[u32NoRegister]&(1<<u32NoPeripheral)))
+    if(0u==(SYSCTL->DCGC[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)))
     {
         SYSCTL->DCGC[u32NoRegister]|=(1<<u32NoPeripheral);
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
+        while(0u==(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)));
     }
 }
 
 void SYSCTL__vDisDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8)& 0x1F;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
 
-    if((1<<u32NoPeripheral)==(SYSCTL->DCGC[u32NoRegister]&(1<<u32NoPeripheral)))
+    if((uint32_t)((uint32_t)1u<<u32NoPeripheral)==(SYSCTL->DCGC[u32NoRegister]&(uint32_t)((uint32_t)1<<u32NoPeripheral)))
     {
         SYSCTL->DCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
         SYSCTL_vNoOperation();

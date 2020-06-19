@@ -21,7 +21,7 @@ HIB_nSTATUS HIB__enEnInterrupt(HIB_nINTERRUPT enInterrupt)
         while(HIB_HIBCTL_R_WRC_BUSY==(HIB_HIBCTL_R&HIB_HIBCTL_R_WRC_MASK))
         {
             u32TimeOut--;
-            if( 0 == u32TimeOut)
+            if( 0u == u32TimeOut)
             {
                 enReturn = HIB_enERROR;
                 break;
@@ -48,7 +48,7 @@ HIB_nSTATUS HIB__enDisInterrupt(HIB_nINTERRUPT enInterrupt)
         while(HIB_HIBCTL_R_WRC_BUSY==(HIB_HIBCTL_R&HIB_HIBCTL_R_WRC_MASK))
         {
             u32TimeOut--;
-            if( 0 == u32TimeOut)
+            if( 0u == u32TimeOut)
             {
                 enReturn = HIB_enERROR;
                 break;
@@ -75,7 +75,7 @@ HIB_nSTATUS HIB__enClearInterrupt(HIB_nINTERRUPT enInterrupt)
         while(HIB_HIBCTL_R_WRC_BUSY==(HIB_HIBCTL_R&HIB_HIBCTL_R_WRC_MASK))
         {
             u32TimeOut--;
-            if( 0 == u32TimeOut)
+            if( 0u == u32TimeOut)
             {
                 enReturn = HIB_enERROR;
                 break;

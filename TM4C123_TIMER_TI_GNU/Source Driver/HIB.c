@@ -45,7 +45,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     }
     if(HIB_enOK == enReturn)
     {
-        enReturn= HIB__enSetCounter(0);
+        enReturn= HIB__enSetCounter(0u);
     }
 
     if(HIB_enOK == enReturn)

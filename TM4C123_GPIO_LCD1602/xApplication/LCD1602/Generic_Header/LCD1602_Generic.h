@@ -84,13 +84,13 @@ typedef struct
 
 
 /*Indexes start on 0*/
-#define LCD1602_COLUMN_MIN (1)
-#define LCD1602_COLUMN_MAX (16)
-#define LCD1602_ROW_MIN (1)
-#define LCD1602_ROW_MAX (2)
+#define LCD1602_COLUMN_MIN (1u)
+#define LCD1602_COLUMN_MAX (16u)
+#define LCD1602_ROW_MIN (1u)
+#define LCD1602_ROW_MAX (2u)
 #define LCD1602_TAB_SIZE (0x2u)
 
-#define LCD1602_MAX_COUNT (32)
+#define LCD1602_MAX_COUNT (32u)
 
 LCD1602_nSTATUS LCD1602__enInit(void);
 LCD1602_nSTATUS LCD1602__enWriteGCRam(const char* pcChar, uint8_t u8Address);

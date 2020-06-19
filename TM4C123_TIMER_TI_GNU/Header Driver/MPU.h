@@ -176,7 +176,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_TYPER_R_SEPARATE_MASK      	((uint32_t)0x00000001u)
-#define MPU_TYPER_R_SEPARATE_BIT       	(0)
+#define MPU_TYPER_R_SEPARATE_BIT       	(0u)
 #define MPU_TYPER_R_SEPARATE_UNIFIED   	((uint32_t)0x00000000u)
 #define MPU_TYPER_R_SEPARATE_SEPARATE  	((uint32_t)0x00000001u)
 
@@ -187,7 +187,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_TYPER_R_DREGION_MASK      	((uint32_t)0x0000FF00u)
-#define MPU_TYPER_R_DREGION_BIT       	(8)
+#define MPU_TYPER_R_DREGION_BIT       	(8u)
 #define MPU_TYPER_R_DREGION_D8        	((uint32_t)0x00000800u)
 #define MPU_TYPER_R_DREGION_D16        	((uint32_t)0x00000F00u)
 
@@ -199,7 +199,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_TYPER_R_IREGION_MASK      ((uint32_t)0x00FF0000u)
-#define MPU_TYPER_R_IREGION_BIT       (16)
+#define MPU_TYPER_R_IREGION_BIT       (16u)
 #define MPU_TYPER_R_IREGION_I0        ((uint32_t)0x00000000u)
 
 #define MPU_TYPER_IREGION_MASK        ((uint32_t)0x000000FFu)
@@ -215,7 +215,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_CTRL_R_ENABLE_MASK      	((uint32_t)0x00000001u)
-#define MPU_CTRL_R_ENABLE_BIT       	(0)
+#define MPU_CTRL_R_ENABLE_BIT       	(0u)
 #define MPU_CTRL_R_ENABLE_DIS       	((uint32_t)0x00000000u)
 #define MPU_CTRL_R_ENABLE_EN        	((uint32_t)0x00000001u)
 
@@ -227,7 +227,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_CTRL_R_HFNMIENA_MASK      	((uint32_t)0x00000002u)
-#define MPU_CTRL_R_HFNMIENA_BIT       	(1)
+#define MPU_CTRL_R_HFNMIENA_BIT       	(1u)
 #define MPU_CTRL_R_HFNMIENA_DIS       	((uint32_t)0x00000000u)
 #define MPU_CTRL_R_HFNMIENA_EN        	((uint32_t)0x00000002u)
 
@@ -238,7 +238,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_CTRL_R_PRIVDEFENA_MASK      ((uint32_t)0x00000004u)
-#define MPU_CTRL_R_PRIVDEFENA_BIT       (2)
+#define MPU_CTRL_R_PRIVDEFENA_BIT       (2u)
 #define MPU_CTRL_R_PRIVDEFENA_DIS       ((uint32_t)0x00000000u)
 #define MPU_CTRL_R_PRIVDEFENA_EN        ((uint32_t)0x00000004u)
 
@@ -256,7 +256,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RNR_R_REGION_MASK      ((uint32_t)0x0000000Fu)
-#define MPU_RNR_R_REGION_BIT       (0)
+#define MPU_RNR_R_REGION_BIT       (0u)
 #define MPU_RNR_R_REGION_REG0      ((uint32_t)0x00000000u)
 #define MPU_RNR_R_REGION_REG1      ((uint32_t)0x00000001u)
 #define MPU_RNR_R_REGION_REG2      ((uint32_t)0x00000002u)
@@ -302,7 +302,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR_R_REGION_MASK      ((uint32_t)0x0000000Fu)
-#define MPU_RBAR_R_REGION_BIT       (0)
+#define MPU_RBAR_R_REGION_BIT       (0u)
 #define MPU_RBAR_R_REGION_REG0      ((uint32_t)0x00000000u)
 #define MPU_RBAR_R_REGION_REG1      ((uint32_t)0x00000001u)
 #define MPU_RBAR_R_REGION_REG2      ((uint32_t)0x00000002u)
@@ -342,7 +342,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR_R_VALID_MASK      ((uint32_t)0x00000010u)
-#define MPU_RBAR_R_VALID_BIT       (4)
+#define MPU_RBAR_R_VALID_BIT       (4u)
 #define MPU_RBAR_R_VALID_DIS       ((uint32_t)0x00000000u)
 #define MPU_RBAR_R_VALID_EN        ((uint32_t)0x00000010u)
 
@@ -354,7 +354,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
-#define MPU_RBAR_R_ADDR_BIT       (5)
+#define MPU_RBAR_R_ADDR_BIT       (5u)
 
 #define MPU_RBAR_ADDR_MASK        ((uint32_t)0x01FFFFFFu)
 /*--------*/
@@ -369,7 +369,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_ENABLE_MASK      ((uint32_t)0x00000001u)
-#define MPU_RASR_R_ENABLE_BIT       (0)
+#define MPU_RASR_R_ENABLE_BIT       (0u)
 #define MPU_RASR_R_ENABLE_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR_R_ENABLE_EN        ((uint32_t)0x00000001u)
 
@@ -381,7 +381,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
-#define MPU_RASR_R_SIZE_BIT       (1)
+#define MPU_RASR_R_SIZE_BIT       (1u)
 #define MPU_RASR_R_SIZE_32B       ((uint32_t)0x00000008u)
 #define MPU_RASR_R_SIZE_1KB       ((uint32_t)0x00000012u)
 #define MPU_RASR_R_SIZE_1MB       ((uint32_t)0x00000026u)
@@ -398,7 +398,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD0_MASK      ((uint32_t)0x00000100u)
-#define MPU_RASR_R_SRD0_BIT       (8)
+#define MPU_RASR_R_SRD0_BIT       (8u)
 #define MPU_RASR_R_SRD0_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD0_DIS       ((uint32_t)0x00000100u)
 
@@ -409,7 +409,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD1_MASK      ((uint32_t)0x00000200u)
-#define MPU_RASR_R_SRD1_BIT       (9)
+#define MPU_RASR_R_SRD1_BIT       (9u)
 #define MPU_RASR_R_SRD1_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD1_DIS       ((uint32_t)0x00000200u)
 
@@ -420,7 +420,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD2_MASK      ((uint32_t)0x00000400u)
-#define MPU_RASR_R_SRD2_BIT       (10)
+#define MPU_RASR_R_SRD2_BIT       (10u)
 #define MPU_RASR_R_SRD2_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD2_DIS       ((uint32_t)0x00000400u)
 
@@ -431,7 +431,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD3_MASK      ((uint32_t)0x00000800u)
-#define MPU_RASR_R_SRD3_BIT       (11)
+#define MPU_RASR_R_SRD3_BIT       (11u)
 #define MPU_RASR_R_SRD3_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD3_DIS       ((uint32_t)0x00000800u)
 
@@ -442,7 +442,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD4_MASK      ((uint32_t)0x00001000u)
-#define MPU_RASR_R_SRD4_BIT       (12)
+#define MPU_RASR_R_SRD4_BIT       (12u)
 #define MPU_RASR_R_SRD4_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD4_DIS       ((uint32_t)0x00001000u)
 
@@ -453,7 +453,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD5_MASK      ((uint32_t)0x00002000u)
-#define MPU_RASR_R_SRD5_BIT       (13)
+#define MPU_RASR_R_SRD5_BIT       (13u)
 #define MPU_RASR_R_SRD5_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD5_DIS       ((uint32_t)0x00002000u)
 
@@ -464,7 +464,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD6_MASK      ((uint32_t)0x00004000u)
-#define MPU_RASR_R_SRD6_BIT       (14)
+#define MPU_RASR_R_SRD6_BIT       (14u)
 #define MPU_RASR_R_SRD6_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD6_DIS       ((uint32_t)0x00004000u)
 
@@ -475,7 +475,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_SRD7_MASK      ((uint32_t)0x00008000u)
-#define MPU_RASR_R_SRD7_BIT       (15)
+#define MPU_RASR_R_SRD7_BIT       (15u)
 #define MPU_RASR_R_SRD7_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_SRD7_DIS       ((uint32_t)0x00008000u)
 
@@ -486,7 +486,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_B_MASK      ((uint32_t)0x00010000u)
-#define MPU_RASR_R_B_BIT       (16)
+#define MPU_RASR_R_B_BIT       (16u)
 #define MPU_RASR_R_B_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR_R_B_EN        ((uint32_t)0x00010000u)
 
@@ -497,7 +497,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_C_MASK      ((uint32_t)0x00020000u)
-#define MPU_RASR_R_C_BIT       (17)
+#define MPU_RASR_R_C_BIT       (17u)
 #define MPU_RASR_R_C_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR_R_C_EN        ((uint32_t)0x00020000u)
 
@@ -508,7 +508,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_S_MASK      ((uint32_t)0x00040000u)
-#define MPU_RASR_R_S_BIT       (18)
+#define MPU_RASR_R_S_BIT       (18u)
 #define MPU_RASR_R_S_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR_R_S_EN        ((uint32_t)0x00040000u)
 
@@ -519,7 +519,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_TEX_MASK      ((uint32_t)0x00380000u)
-#define MPU_RASR_R_TEX_BIT       (19)
+#define MPU_RASR_R_TEX_BIT       (19u)
 #define MPU_RASR_R_TEX_NC        ((uint32_t)0x00000000u)
 #define MPU_RASR_R_TEX_WB_WRA    ((uint32_t)0x00080000u)
 #define MPU_RASR_R_TEX_WT_NWA    ((uint32_t)0x00100000u)
@@ -534,7 +534,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_AP_MASK      ((uint32_t)0x07000000u)
-#define MPU_RASR_R_AP_BIT       (24)
+#define MPU_RASR_R_AP_BIT       (24u)
 #define MPU_RASR_R_AP_NANA      ((uint32_t)0x00000000u)
 #define MPU_RASR_R_AP_RWNA      ((uint32_t)0x01000000u)
 #define MPU_RASR_R_AP_RWRO      ((uint32_t)0x02000000u)
@@ -554,7 +554,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR_R_XN_MASK      ((uint32_t)0x10000000u)
-#define MPU_RASR_R_XN_BIT       (28)
+#define MPU_RASR_R_XN_BIT       (28u)
 #define MPU_RASR_R_XN_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR_R_XN_EN        ((uint32_t)0x10000000u)
 
@@ -572,7 +572,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR1_R_REGION_MASK      ((uint32_t)0x0000000Fu)
-#define MPU_RBAR1_R_REGION_BIT       (0)
+#define MPU_RBAR1_R_REGION_BIT       (0u)
 #define MPU_RBAR1_R_REGION_REG0      ((uint32_t)0x00000000u)
 #define MPU_RBAR1_R_REGION_REG1      ((uint32_t)0x00000001u)
 #define MPU_RBAR1_R_REGION_REG2      ((uint32_t)0x00000002u)
@@ -612,7 +612,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR1_R_VALID_MASK      ((uint32_t)0x00000010u)
-#define MPU_RBAR1_R_VALID_BIT       (4)
+#define MPU_RBAR1_R_VALID_BIT       (4u)
 #define MPU_RBAR1_R_VALID_DIS       ((uint32_t)0x00000000u)
 #define MPU_RBAR1_R_VALID_EN        ((uint32_t)0x00000010u)
 
@@ -624,7 +624,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR1_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
-#define MPU_RBAR1_R_ADDR_BIT       (5)
+#define MPU_RBAR1_R_ADDR_BIT       (5u)
 
 #define MPU_RBAR1_ADDR_MASK        ((uint32_t)0x01FFFFFFu)
 /*--------*/
@@ -641,7 +641,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_ENABLE_MASK      ((uint32_t)0x00000001u)
-#define MPU_RASR1_R_ENABLE_BIT       (0)
+#define MPU_RASR1_R_ENABLE_BIT       (0u)
 #define MPU_RASR1_R_ENABLE_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_ENABLE_EN        ((uint32_t)0x00000001u)
 
@@ -653,7 +653,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
-#define MPU_RASR1_R_SIZE_BIT       (1)
+#define MPU_RASR1_R_SIZE_BIT       (1u)
 #define MPU_RASR1_R_SIZE_32B       ((uint32_t)0x00000008u)
 #define MPU_RASR1_R_SIZE_1KB       ((uint32_t)0x00000012u)
 #define MPU_RASR1_R_SIZE_1MB       ((uint32_t)0x00000026u)
@@ -670,7 +670,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD0_MASK      ((uint32_t)0x00000100u)
-#define MPU_RASR1_R_SRD0_BIT       (8)
+#define MPU_RASR1_R_SRD0_BIT       (8u)
 #define MPU_RASR1_R_SRD0_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD0_DIS       ((uint32_t)0x00000100u)
 
@@ -681,7 +681,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD1_MASK      ((uint32_t)0x00000200u)
-#define MPU_RASR1_R_SRD1_BIT       (9)
+#define MPU_RASR1_R_SRD1_BIT       (9u)
 #define MPU_RASR1_R_SRD1_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD1_DIS       ((uint32_t)0x00000200u)
 
@@ -692,7 +692,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD2_MASK      ((uint32_t)0x00000400u)
-#define MPU_RASR1_R_SRD2_BIT       (10)
+#define MPU_RASR1_R_SRD2_BIT       (10u)
 #define MPU_RASR1_R_SRD2_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD2_DIS       ((uint32_t)0x00000400u)
 
@@ -703,7 +703,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD3_MASK      ((uint32_t)0x00000800u)
-#define MPU_RASR1_R_SRD3_BIT       (11)
+#define MPU_RASR1_R_SRD3_BIT       (11u)
 #define MPU_RASR1_R_SRD3_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD3_DIS       ((uint32_t)0x00000800u)
 
@@ -714,7 +714,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD4_MASK      ((uint32_t)0x00001000u)
-#define MPU_RASR1_R_SRD4_BIT       (12)
+#define MPU_RASR1_R_SRD4_BIT       (12u)
 #define MPU_RASR1_R_SRD4_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD4_DIS       ((uint32_t)0x00001000u)
 
@@ -725,7 +725,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD5_MASK      ((uint32_t)0x00002000u)
-#define MPU_RASR1_R_SRD5_BIT       (13)
+#define MPU_RASR1_R_SRD5_BIT       (13u)
 #define MPU_RASR1_R_SRD5_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD5_DIS       ((uint32_t)0x00002000u)
 
@@ -736,7 +736,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD6_MASK      ((uint32_t)0x00004000u)
-#define MPU_RASR1_R_SRD6_BIT       (14)
+#define MPU_RASR1_R_SRD6_BIT       (14u)
 #define MPU_RASR1_R_SRD6_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD6_DIS       ((uint32_t)0x00004000u)
 
@@ -747,7 +747,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_SRD7_MASK      ((uint32_t)0x00008000u)
-#define MPU_RASR1_R_SRD7_BIT       (15)
+#define MPU_RASR1_R_SRD7_BIT       (15u)
 #define MPU_RASR1_R_SRD7_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_SRD7_DIS       ((uint32_t)0x00008000u)
 
@@ -758,7 +758,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_B_MASK      ((uint32_t)0x00010000u)
-#define MPU_RASR1_R_B_BIT       (16)
+#define MPU_RASR1_R_B_BIT       (16u)
 #define MPU_RASR1_R_B_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_B_EN        ((uint32_t)0x00010000u)
 
@@ -769,7 +769,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_C_MASK      ((uint32_t)0x00020000u)
-#define MPU_RASR1_R_C_BIT       (17)
+#define MPU_RASR1_R_C_BIT       (17u)
 #define MPU_RASR1_R_C_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_C_EN        ((uint32_t)0x00020000u)
 
@@ -780,7 +780,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_S_MASK      ((uint32_t)0x00040000u)
-#define MPU_RASR1_R_S_BIT       (18)
+#define MPU_RASR1_R_S_BIT       (18u)
 #define MPU_RASR1_R_S_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_S_EN        ((uint32_t)0x00040000u)
 
@@ -791,7 +791,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_TEX_MASK      ((uint32_t)0x00380000u)
-#define MPU_RASR1_R_TEX_BIT       (19)
+#define MPU_RASR1_R_TEX_BIT       (19u)
 #define MPU_RASR1_R_TEX_NC        ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_TEX_WB_WRA    ((uint32_t)0x00080000u)
 #define MPU_RASR1_R_TEX_WT_NWA    ((uint32_t)0x00100000u)
@@ -806,7 +806,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_AP_MASK      ((uint32_t)0x07000000u)
-#define MPU_RASR1_R_AP_BIT       (24)
+#define MPU_RASR1_R_AP_BIT       (24u)
 #define MPU_RASR1_R_AP_NANA      ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_AP_RWNA      ((uint32_t)0x01000000u)
 #define MPU_RASR1_R_AP_RWRO      ((uint32_t)0x02000000u)
@@ -826,7 +826,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR1_R_XN_MASK      ((uint32_t)0x10000000u)
-#define MPU_RASR1_R_XN_BIT       (28)
+#define MPU_RASR1_R_XN_BIT       (28u)
 #define MPU_RASR1_R_XN_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR1_R_XN_EN        ((uint32_t)0x10000000u)
 
@@ -844,7 +844,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR2_R_REGION_MASK      ((uint32_t)0x0000000Fu)
-#define MPU_RBAR2_R_REGION_BIT       (0)
+#define MPU_RBAR2_R_REGION_BIT       (0u)
 #define MPU_RBAR2_R_REGION_REG0      ((uint32_t)0x00000000u)
 #define MPU_RBAR2_R_REGION_REG1      ((uint32_t)0x00000001u)
 #define MPU_RBAR2_R_REGION_REG2      ((uint32_t)0x00000002u)
@@ -884,7 +884,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR2_R_VALID_MASK      ((uint32_t)0x00000010u)
-#define MPU_RBAR2_R_VALID_BIT       (4)
+#define MPU_RBAR2_R_VALID_BIT       (4u)
 #define MPU_RBAR2_R_VALID_DIS       ((uint32_t)0x00000000u)
 #define MPU_RBAR2_R_VALID_EN        ((uint32_t)0x00000010u)
 
@@ -896,7 +896,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR2_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
-#define MPU_RBAR2_R_ADDR_BIT       (5)
+#define MPU_RBAR2_R_ADDR_BIT       (5u)
 
 #define MPU_RBAR2_ADDR_MASK        ((uint32_t)0x01FFFFFFu)
 /*--------*/
@@ -911,7 +911,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_ENABLE_MASK      ((uint32_t)0x00000001u)
-#define MPU_RASR2_R_ENABLE_BIT       (0)
+#define MPU_RASR2_R_ENABLE_BIT       (0u)
 #define MPU_RASR2_R_ENABLE_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_ENABLE_EN        ((uint32_t)0x00000001u)
 
@@ -923,7 +923,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
-#define MPU_RASR2_R_SIZE_BIT       (1)
+#define MPU_RASR2_R_SIZE_BIT       (1u)
 #define MPU_RASR2_R_SIZE_32B       ((uint32_t)0x00000008u)
 #define MPU_RASR2_R_SIZE_1KB       ((uint32_t)0x00000012u)
 #define MPU_RASR2_R_SIZE_1MB       ((uint32_t)0x00000026u)
@@ -940,7 +940,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD0_MASK      ((uint32_t)0x00000100u)
-#define MPU_RASR2_R_SRD0_BIT       (8)
+#define MPU_RASR2_R_SRD0_BIT       (8u)
 #define MPU_RASR2_R_SRD0_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD0_DIS       ((uint32_t)0x00000100u)
 
@@ -951,7 +951,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD1_MASK      ((uint32_t)0x00000200u)
-#define MPU_RASR2_R_SRD1_BIT       (9)
+#define MPU_RASR2_R_SRD1_BIT       (9u)
 #define MPU_RASR2_R_SRD1_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD1_DIS       ((uint32_t)0x00000200u)
 
@@ -962,7 +962,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD2_MASK      ((uint32_t)0x00000400u)
-#define MPU_RASR2_R_SRD2_BIT       (10)
+#define MPU_RASR2_R_SRD2_BIT       (10u)
 #define MPU_RASR2_R_SRD2_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD2_DIS       ((uint32_t)0x00000400u)
 
@@ -973,7 +973,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD3_MASK      ((uint32_t)0x00000800u)
-#define MPU_RASR2_R_SRD3_BIT       (11)
+#define MPU_RASR2_R_SRD3_BIT       (11u)
 #define MPU_RASR2_R_SRD3_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD3_DIS       ((uint32_t)0x00000800u)
 
@@ -984,7 +984,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD4_MASK      ((uint32_t)0x00001000u)
-#define MPU_RASR2_R_SRD4_BIT       (12)
+#define MPU_RASR2_R_SRD4_BIT       (12u)
 #define MPU_RASR2_R_SRD4_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD4_DIS       ((uint32_t)0x00001000u)
 
@@ -995,7 +995,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD5_MASK      ((uint32_t)0x00002000u)
-#define MPU_RASR2_R_SRD5_BIT       (13)
+#define MPU_RASR2_R_SRD5_BIT       (13u)
 #define MPU_RASR2_R_SRD5_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD5_DIS       ((uint32_t)0x00002000u)
 
@@ -1006,7 +1006,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD6_MASK      ((uint32_t)0x00004000u)
-#define MPU_RASR2_R_SRD6_BIT       (14)
+#define MPU_RASR2_R_SRD6_BIT       (14u)
 #define MPU_RASR2_R_SRD6_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD6_DIS       ((uint32_t)0x00004000u)
 
@@ -1017,7 +1017,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_SRD7_MASK      ((uint32_t)0x00008000u)
-#define MPU_RASR2_R_SRD7_BIT       (15)
+#define MPU_RASR2_R_SRD7_BIT       (15u)
 #define MPU_RASR2_R_SRD7_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_SRD7_DIS       ((uint32_t)0x00008000u)
 
@@ -1028,7 +1028,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_B_MASK      ((uint32_t)0x00010000u)
-#define MPU_RASR2_R_B_BIT       (16)
+#define MPU_RASR2_R_B_BIT       (16u)
 #define MPU_RASR2_R_B_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_B_EN        ((uint32_t)0x00010000u)
 
@@ -1039,7 +1039,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_C_MASK      ((uint32_t)0x00020000u)
-#define MPU_RASR2_R_C_BIT       (17)
+#define MPU_RASR2_R_C_BIT       (17u)
 #define MPU_RASR2_R_C_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_C_EN        ((uint32_t)0x00020000u)
 
@@ -1050,7 +1050,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_S_MASK      ((uint32_t)0x00040000u)
-#define MPU_RASR2_R_S_BIT       (18)
+#define MPU_RASR2_R_S_BIT       (18u)
 #define MPU_RASR2_R_S_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_S_EN        ((uint32_t)0x00040000u)
 
@@ -1061,7 +1061,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_TEX_MASK      ((uint32_t)0x00380000u)
-#define MPU_RASR2_R_TEX_BIT       (19)
+#define MPU_RASR2_R_TEX_BIT       (19u)
 #define MPU_RASR2_R_TEX_NC        ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_TEX_WB_WRA    ((uint32_t)0x00080000u)
 #define MPU_RASR2_R_TEX_WT_NWA    ((uint32_t)0x00100000u)
@@ -1076,7 +1076,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_AP_MASK      ((uint32_t)0x07000000u)
-#define MPU_RASR2_R_AP_BIT       (24)
+#define MPU_RASR2_R_AP_BIT       (24u)
 #define MPU_RASR2_R_AP_NANA      ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_AP_RWNA      ((uint32_t)0x01000000u)
 #define MPU_RASR2_R_AP_RWRO      ((uint32_t)0x02000000u)
@@ -1096,7 +1096,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR2_R_XN_MASK      ((uint32_t)0x10000000u)
-#define MPU_RASR2_R_XN_BIT       (28)
+#define MPU_RASR2_R_XN_BIT       (28u)
 #define MPU_RASR2_R_XN_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR2_R_XN_EN        ((uint32_t)0x10000000u)
 
@@ -1114,7 +1114,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR3_R_REGION_MASK      ((uint32_t)0x0000000Fu)
-#define MPU_RBAR3_R_REGION_BIT       (0)
+#define MPU_RBAR3_R_REGION_BIT       (0u)
 #define MPU_RBAR3_R_REGION_REG0      ((uint32_t)0x00000000u)
 #define MPU_RBAR3_R_REGION_REG1      ((uint32_t)0x00000001u)
 #define MPU_RBAR3_R_REGION_REG2      ((uint32_t)0x00000002u)
@@ -1154,7 +1154,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR3_R_VALID_MASK      ((uint32_t)0x00000010u)
-#define MPU_RBAR3_R_VALID_BIT       (4)
+#define MPU_RBAR3_R_VALID_BIT       (4u)
 #define MPU_RBAR3_R_VALID_DIS       ((uint32_t)0x00000000u)
 #define MPU_RBAR3_R_VALID_EN        ((uint32_t)0x00000010u)
 
@@ -1166,7 +1166,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RBAR3_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
-#define MPU_RBAR3_R_ADDR_BIT       (5)
+#define MPU_RBAR3_R_ADDR_BIT       (5u)
 
 #define MPU_RBAR3_ADDR_MASK        ((uint32_t)0x01FFFFFFu)
 /*--------*/
@@ -1181,7 +1181,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_ENABLE_MASK      ((uint32_t)0x00000001u)
-#define MPU_RASR3_R_ENABLE_BIT       (0)
+#define MPU_RASR3_R_ENABLE_BIT       (0u)
 #define MPU_RASR3_R_ENABLE_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_ENABLE_EN        ((uint32_t)0x00000001u)
 
@@ -1193,7 +1193,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
-#define MPU_RASR3_R_SIZE_BIT       (1)
+#define MPU_RASR3_R_SIZE_BIT       (1u)
 #define MPU_RASR3_R_SIZE_32B       ((uint32_t)0x00000008u)
 #define MPU_RASR3_R_SIZE_1KB       ((uint32_t)0x00000012u)
 #define MPU_RASR3_R_SIZE_1MB       ((uint32_t)0x00000026u)
@@ -1210,7 +1210,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD0_MASK      ((uint32_t)0x00000100u)
-#define MPU_RASR3_R_SRD0_BIT       (8)
+#define MPU_RASR3_R_SRD0_BIT       (8u)
 #define MPU_RASR3_R_SRD0_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD0_DIS       ((uint32_t)0x00000100u)
 
@@ -1221,7 +1221,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD1_MASK      ((uint32_t)0x00000200u)
-#define MPU_RASR3_R_SRD1_BIT       (9)
+#define MPU_RASR3_R_SRD1_BIT       (9u)
 #define MPU_RASR3_R_SRD1_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD1_DIS       ((uint32_t)0x00000200u)
 
@@ -1232,7 +1232,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD2_MASK      ((uint32_t)0x00000400u)
-#define MPU_RASR3_R_SRD2_BIT       (10)
+#define MPU_RASR3_R_SRD2_BIT       (10u)
 #define MPU_RASR3_R_SRD2_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD2_DIS       ((uint32_t)0x00000400u)
 
@@ -1243,7 +1243,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD3_MASK      ((uint32_t)0x00000800u)
-#define MPU_RASR3_R_SRD3_BIT       (11)
+#define MPU_RASR3_R_SRD3_BIT       (11u)
 #define MPU_RASR3_R_SRD3_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD3_DIS       ((uint32_t)0x00000800u)
 
@@ -1254,7 +1254,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD4_MASK      ((uint32_t)0x00001000u)
-#define MPU_RASR3_R_SRD4_BIT       (12)
+#define MPU_RASR3_R_SRD4_BIT       (12u)
 #define MPU_RASR3_R_SRD4_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD4_DIS       ((uint32_t)0x00001000u)
 
@@ -1265,7 +1265,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD5_MASK      ((uint32_t)0x00002000u)
-#define MPU_RASR3_R_SRD5_BIT       (13)
+#define MPU_RASR3_R_SRD5_BIT       (13u)
 #define MPU_RASR3_R_SRD5_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD5_DIS       ((uint32_t)0x00002000u)
 
@@ -1276,7 +1276,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD6_MASK      ((uint32_t)0x00004000u)
-#define MPU_RASR3_R_SRD6_BIT       (14)
+#define MPU_RASR3_R_SRD6_BIT       (14u)
 #define MPU_RASR3_R_SRD6_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD6_DIS       ((uint32_t)0x00004000u)
 
@@ -1287,7 +1287,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_SRD7_MASK      ((uint32_t)0x00008000u)
-#define MPU_RASR3_R_SRD7_BIT       (15)
+#define MPU_RASR3_R_SRD7_BIT       (15u)
 #define MPU_RASR3_R_SRD7_EN 	      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_SRD7_DIS       ((uint32_t)0x00008000u)
 
@@ -1298,7 +1298,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_B_MASK      ((uint32_t)0x00010000u)
-#define MPU_RASR3_R_B_BIT       (16)
+#define MPU_RASR3_R_B_BIT       (16u)
 #define MPU_RASR3_R_B_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_B_EN        ((uint32_t)0x00010000u)
 
@@ -1309,7 +1309,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_C_MASK      ((uint32_t)0x00020000u)
-#define MPU_RASR3_R_C_BIT       (17)
+#define MPU_RASR3_R_C_BIT       (17u)
 #define MPU_RASR3_R_C_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_C_EN        ((uint32_t)0x00020000u)
 
@@ -1320,7 +1320,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_S_MASK      ((uint32_t)0x00040000u)
-#define MPU_RASR3_R_S_BIT       (18)
+#define MPU_RASR3_R_S_BIT       (18u)
 #define MPU_RASR3_R_S_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_S_EN        ((uint32_t)0x00040000u)
 
@@ -1331,7 +1331,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_TEX_MASK      ((uint32_t)0x00380000u)
-#define MPU_RASR3_R_TEX_BIT       (19)
+#define MPU_RASR3_R_TEX_BIT       (19u)
 #define MPU_RASR3_R_TEX_NC        ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_TEX_WB_WRA    ((uint32_t)0x00080000u)
 #define MPU_RASR3_R_TEX_WT_NWA    ((uint32_t)0x00100000u)
@@ -1346,7 +1346,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_AP_MASK      ((uint32_t)0x07000000u)
-#define MPU_RASR3_R_AP_BIT       (24)
+#define MPU_RASR3_R_AP_BIT       (24u)
 #define MPU_RASR3_R_AP_NANA      ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_AP_RWNA      ((uint32_t)0x01000000u)
 #define MPU_RASR3_R_AP_RWRO      ((uint32_t)0x02000000u)
@@ -1366,7 +1366,7 @@ typedef volatile struct
 
 /*--------*/
 #define MPU_RASR3_R_XN_MASK      ((uint32_t)0x10000000u)
-#define MPU_RASR3_R_XN_BIT       (28)
+#define MPU_RASR3_R_XN_BIT       (28u)
 #define MPU_RASR3_R_XN_DIS       ((uint32_t)0x00000000u)
 #define MPU_RASR3_R_XN_EN        ((uint32_t)0x10000000u)
 

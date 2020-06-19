@@ -40,20 +40,20 @@ LCD1602_nSTATUS LCD1602_enCheckLimits(uint8_t* pu8WidthMin,uint8_t* pu8WidthMax,
 LCD1602_nSTATUS LCD1602_enAdreesLimitSection(LCD1602_SET_ADDRESS_TypeDef penFunctionSetAddress, uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 const uint8_t LCD1602_pu8SpecialChar[8][8]= /*ḞỲḂ?\ẀṀñ*/
 {
- {2,5,2,0,0,0,0,0}, /* Ḟ*/
- {0,0,0,0,0xF,1,0,0}, /* Ỳ*/
- {4,0,0,4,4,4,4,0},/* Ḃ*/
- {4,0,4,8,0x10,0x11,0xE,0}, /*ṡ*/
- {0,0x10,8,4,2,1,0,0},/* diagonal invertida*/
- {0xA,0,0,0,0,0,0,0}, /*Ẁ*/
- {0,2,4,8,0,0,0,0},/*Ṁ*/
- {0xA,0x05,0,0x16,0x19,0x11,0x11,0}/*ñ*/
+ {2,5,2,0u,0u,0u,0u,0}, /* Ḟ*/
+ {0u,0u,0u,0u,0xF,1,0u,0}, /* Ỳ*/
+ {4,0u,0u,4,4,4,4,0},/* Ḃ*/
+ {4,0u,4,8,0x10u,0x11,0xE,0}, /*ṡ*/
+ {0u,0x10u,8,4,2,1,0u,0},/* diagonal invertida*/
+ {0xA,0u,0u,0u,0u,0u,0u,0}, /*Ẁ*/
+ {0u,2,4,8,0u,0u,0u,0},/*Ṁ*/
+ {0xA,0x05,0u,0x16,0x19,0x11,0x11,0}/*ñ*/
 /* {0xE,0x1B,0x11,0x11,0x13,0x17,0x1F,0x1F},//simbolo bateria*/
 };
 
-uint8_t LCD1602_pu8Buffer[LCD1602_COLUMN_MAX*LCD1602_ROW_MAX+1]       ={" INDEVICE TIVAC   LCD1602 SW:   "};
+uint8_t LCD1602_pu8Buffer[LCD1602_COLUMN_MAX*LCD1602_ROW_MAX+1u]       ={" INDEVICE TIVAC   LCD1602 SW:   "};
 
-uint8_t LCD1602_pu8BufferClear[LCD1602_COLUMN_MAX*LCD1602_ROW_MAX+1]  ={"                                "};
+uint8_t LCD1602_pu8BufferClear[LCD1602_COLUMN_MAX*LCD1602_ROW_MAX+1u]  ={"                                "};
 
 /*ToDO Change SYSTICK delays for a TIMER delay*/
 LCD1602_nSTATUS LCD1602__enInit(void)
@@ -63,23 +63,23 @@ LCD1602_nSTATUS LCD1602__enInit(void)
 
     LCD1602__vInitGPIO();
 
-    LCD1602__vDelay(15000);/*15 ms*/
+    LCD1602__vDelay(15000.0f);/*15 ms*/
 
     /*Wirte 0x3x to LCD*/
     LCD1602__vWritePin8Bit(0x30u);
-    LCD1602__vDelay(4100);/*4.1 ms*/
+    LCD1602__vDelay(4100.0f);/*4.1 ms*/
 
     /*Wirte 0x3x to LCD*/
     LCD1602__vWritePin8Bit(0x30u);
-    LCD1602__vDelay(100000);/*100 ms*/
+    LCD1602__vDelay(100000.0f);/*100 ms*/
 
     /*Wirte 0x3x to LCD*/
     LCD1602__vWritePin8Bit(0x30u);
-    LCD1602__vDelay(40);/*40 us*/
+    LCD1602__vDelay(40.0f);/*40 us*/
 
     /*Write 0x2x to LCD in order to configure as 4 bits*/
     LCD1602__vWritePin8Bit(0x20u);
-    LCD1602__vDelay(40);/*40 us*/
+    LCD1602__vDelay(40.0f);/*40 us*/
 
 
     /*M8BIT o M4BIT,M2LINE o M1LINE, M5_8_Font o M5_11_Font */
@@ -108,16 +108,16 @@ LCD1602_nSTATUS LCD1602__enInit(void)
         return enStatus;
     }
 
-    for(u32WriteSpecialChar=0;u32WriteSpecialChar<8;u32WriteSpecialChar++)
+    for(u32WriteSpecialChar=0u;u32WriteSpecialChar<8u;u32WriteSpecialChar++)
     {
-        enStatus= LCD1602__enWriteGCRam((char*)&LCD1602_pu8SpecialChar[u32WriteSpecialChar][0], u32WriteSpecialChar);
+        enStatus= LCD1602__enWriteGCRam((char*)&LCD1602_pu8SpecialChar[u32WriteSpecialChar][0u],(uint8_t) u32WriteSpecialChar);
         if(LCD1602_enSTATUS_ERROR==enStatus)
             return enStatus;
     }
 
 
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enHOME));/*Manda cursor a home*/
-    LCD1602__vDelay(1640);
+    LCD1602__vDelay(1640.0f);
     if(LCD1602_enSTATUS_ERROR==enStatus)
     {
         return enStatus;
@@ -167,33 +167,33 @@ LCD1602_nSTATUS LCD1602_enWriteChar(char cData)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     /*°¬¡?\¨´ñ*/
-    switch((uint16_t)cData)
+    switch((uint32_t)cData)
     {
     /*Character specials*/
-    case 17:
-        cData=0;
+    case 17u:
+        cData=(char)0;
         break;
-    case 18:
-        cData=1;
+    case 18u:
+        cData=(char)1;
         break;
-    case 19:
-        cData=2;
+    case 19u:
+        cData=(char)2;
         break;
-    case 20:
-        cData=3;
+    case 20u:
+        cData=(char)3;
         break;
-    case 21:
-        cData=4;
+    case 21u:
+        cData=(char)4;
         break;
-    case 22:
-        cData=5;
+    case 22u:
+        cData=(char)5;
         break;
-    case 23:
-        cData=6;
+    case 23u:
+        cData=(char)6;
         break;
-    case 24:
-    case 25:
-        cData=7;
+    case 24u:
+    case 25u:
+        cData=(char)7;
         break;
 
     default:
@@ -277,11 +277,11 @@ LCD1602_nSTATUS LCD1602_enGetAddress(uint8_t* pu8Column,uint8_t* pu8Row)
         u8DataRead=LCD1602__u8Read(LCD1602_enCOMMAND);
 
         if(GPIO_enPIN6 & u8DataRead)
-            *pu8Row=(LCD1602_ROW_MAX-1);
+            *pu8Row=(uint8_t)(LCD1602_ROW_MAX-1u);
         else
-            *pu8Row=(LCD1602_ROW_MIN-1);
+            *pu8Row=(uint8_t)(LCD1602_ROW_MIN-1u);
 
-        *pu8Column=u8DataRead&(LCD1602_COLUMN_MAX-1);
+        *pu8Column=u8DataRead&(uint8_t)(LCD1602_COLUMN_MAX-1u);
         enStatus= LCD1602_enSTATUS_OK;
     }
     return enStatus;
@@ -291,8 +291,8 @@ LCD1602_nSTATUS LCD1602_enSetAddress(uint8_t u8Column, uint8_t u8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     uint8_t u8Address=0x80;
-    u8Address|=u8Column&(LCD1602_COLUMN_MAX-1);
-    u8Address|=((u8Row&(LCD1602_ROW_MAX-1))<<6);
+    u8Address|=u8Column&(LCD1602_COLUMN_MAX-1u);
+    u8Address|=(uint8_t)((u8Row&(uint8_t) (LCD1602_ROW_MAX-1u))<<6u);
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)u8Address);
     return enStatus;
 }
@@ -301,20 +301,20 @@ LCD1602_nBUSY   LCD1602_enReadCommand(uint8_t* pu8Column,uint8_t* pu8Row)
 {
 
     LCD1602_nBUSY enBusyBit=LCD1602_enBUSY;
-    uint8_t u8DataRead=0;
+    uint8_t u8DataRead=0u;
     if(((uint32_t)0!=(uint32_t)pu8Column)&&((uint32_t)0!=(uint32_t)pu8Row))
     {
-        *pu8Column=0;
-        *pu8Row=0;
+        *pu8Column=0u;
+        *pu8Row=0u;
         u8DataRead=LCD1602__u8Read(LCD1602_enCOMMAND);
 
-        if(0==(GPIO_enPIN7 & u8DataRead))
+        if(0u==(GPIO_enPIN7 & u8DataRead))
             enBusyBit=LCD1602_enOK;
 
         if(GPIO_enPIN6 & u8DataRead)
-            *pu8Row=1;
+            *pu8Row=1u;
 
-        *pu8Column=u8DataRead&(LCD1602_COLUMN_MAX-1);
+        *pu8Column=u8DataRead&(uint8_t)(LCD1602_COLUMN_MAX-1u);
     }
     return enBusyBit;
 }
@@ -323,10 +323,10 @@ LCD1602_nBUSY   LCD1602_enReadBusy(void)
 {
 
     LCD1602_nBUSY enBusyBit=LCD1602_enBUSY;
-    uint8_t u8DataRead=0;
+    uint8_t u8DataRead=0u;
     u8DataRead=LCD1602__u8Read(LCD1602_enCOMMAND);
 
-    if(0==(GPIO_enPIN7 & u8DataRead))
+    if(0u==((uint8_t)GPIO_enPIN7 & u8DataRead))
         enBusyBit=LCD1602_enOK;
 
     return enBusyBit;
@@ -343,7 +343,7 @@ LCD1602_nBUSY LCD1602_enWait(void)
     {
         enBusyBit=LCD1602_enReadBusy();
         u32TimeOut--;
-    }while((LCD1602_enBUSY==enBusyBit)&&(0!=u32TimeOut));
+    }while((LCD1602_enBUSY==enBusyBit)&&(0u!=u32TimeOut));
 
     return enBusyBit;
 }
@@ -399,7 +399,7 @@ LCD1602_nSTATUS LCD1602_enCheckLimits(uint8_t* pu8WidthMin,uint8_t* pu8WidthMax,
 
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     uint8_t u8Aux=0;
-    if((pu8WidthMin!=0) && (pu8WidthMax!=0) && (pu8HeightMin!=0) && (pu8HeightMax!=0))
+    if((pu8WidthMin!=0u) && (pu8WidthMax!=0u) && (pu8HeightMin!=0u) && (pu8HeightMax!=0u))
     {
         if((*pu8WidthMin<(LCD1602_COLUMN_MAX)) && (*pu8WidthMax<(LCD1602_COLUMN_MAX)) && (*pu8HeightMin<(LCD1602_ROW_MAX)) && (*pu8HeightMax<(LCD1602_ROW_MAX)))
         {
@@ -437,7 +437,7 @@ LCD1602_nSTATUS LCD1602_enAdreesLimitSection(LCD1602_SET_ADDRESS_TypeDef penFunc
                 (*pu8Row)=u8HeightMin;
             if(0!=penFunctionSetAddress)
             {
-                enStatus= penFunctionSetAddress(*pu8Column,*pu8Row);/*pone el cursor en 0,x*/
+                enStatus= penFunctionSetAddress(*pu8Column,*pu8Row);/*pone el cursor en 0u,x*/
             }
         }
     }
@@ -455,12 +455,12 @@ LCD1602_nSTATUS LCD1602__enWriteGCRam(const char* pcChar, uint8_t u8Address)
     uint8_t u8Iter=0;
     if((uint32_t)0 != (uint32_t)pcChar)
     {
-        if( u8Address<=7) /*solo tiene espacio para guardar 8 caracteres*/
+        if( u8Address<=7u) /*solo tiene espacio para guardar 8 caracteres*/
         {
-            enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)((uint8_t)LCD1602_enGCRAM+(u8Address<<3)));/* 01xx xddd x=caracter d=posicion*/
+            enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)((uint8_t)LCD1602_enGCRAM+(uint8_t)(u8Address<<3u)));/* 01xx xddd x=caracter d=posicion*/
             if(LCD1602_enSTATUS_OK == enStatus)
             {
-                while(u8Iter<8)
+                while(u8Iter<8u)
                 {
                     enStatus=LCD1602_enWriteData(pcChar[u8Iter++]);
                     if(LCD1602_enSTATUS_ERROR == enStatus)
@@ -510,14 +510,14 @@ LCD1602_nSTATUS LCD1602__enClearBufferSectionDirect(uint8_t u8WidthMin,uint8_t u
 LCD1602_nSTATUS LCD1602__enClearBuffer(uint8_t* pu8Buffer)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enClearBufferSection(pu8Buffer,LCD1602_COLUMN_MIN-1,LCD1602_COLUMN_MAX-1,LCD1602_ROW_MIN-1,LCD1602_ROW_MAX-1);
+    enStatus=LCD1602__enClearBufferSection(pu8Buffer,LCD1602_COLUMN_MIN-1u,LCD1602_COLUMN_MAX-1u,LCD1602_ROW_MIN-1u,LCD1602_ROW_MAX-1u);
     return enStatus;
 }
 
 LCD1602_nSTATUS LCD1602__enClearBufferDirect(void)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enClearBufferSectionDirect(LCD1602_COLUMN_MIN-1,LCD1602_COLUMN_MAX-1,LCD1602_ROW_MIN-1,LCD1602_ROW_MAX-1);
+    enStatus=LCD1602__enClearBufferSectionDirect(LCD1602_COLUMN_MIN-1u,LCD1602_COLUMN_MAX-1u,LCD1602_ROW_MIN-1u,LCD1602_ROW_MAX-1u);
     return enStatus;
 }
 
@@ -533,14 +533,14 @@ LCD1602_nSTATUS LCD1602__enClearBufferDirect(void)
 LCD1602_nSTATUS LCD1602_enAdreesBufferLimitSection(uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602_enAdreesLimitSection(0,pu8Column,pu8Row,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
+    enStatus=LCD1602_enAdreesLimitSection((LCD1602_SET_ADDRESS_TypeDef)0u,pu8Column,pu8Row,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
     return enStatus;
 }
 
 LCD1602_nSTATUS LCD1602_enAdreesBufferLimit(uint8_t* pu8Column, uint8_t* pu8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602_enAdreesBufferLimitSection(pu8Column, pu8Row,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+    enStatus=LCD1602_enAdreesBufferLimitSection(pu8Column, pu8Row,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
     return enStatus;
 }
 
@@ -555,11 +555,11 @@ LCD1602_nSTATUS LCD1602_enAdreesBufferLimit(uint8_t* pu8Column, uint8_t* pu8Row)
 LCD1602_nSTATUS LCD1602__enWriteBuffer(uint8_t u8Data, uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    if((0!=*pu8Column)&&(0!=*pu8Row) && (0!=pu8Buffer))
+    if((0u!=*pu8Column)&&(0u!=*pu8Row) && (0u!=pu8Buffer))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {
-            pu8Buffer[(LCD1602_COLUMN_MAX*(*pu8Row))+(*pu8Column)]=u8Data;
+            pu8Buffer[(uint32_t)((uint32_t)(LCD1602_COLUMN_MAX*(uint32_t)(*pu8Row))+(uint32_t)(*pu8Column))]=u8Data;
             enStatus=LCD1602_enSTATUS_OK;
         }
     }
@@ -581,11 +581,11 @@ LCD1602_nSTATUS LCD1602__enWriteBufferDirect(uint8_t u8Data, uint8_t* pu8Column,
 LCD1602_nSTATUS LCD1602__enReadBuffer(uint8_t* pu8Data, uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    if((0!=*pu8Column)&&(0!=*pu8Row) && (0!=pu8Buffer)&& (0!=pu8Data))
+    if((0u!=*pu8Column)&&(0u!=*pu8Row) && (0u!=pu8Buffer)&& (0!=pu8Data))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {
-            *pu8Data= pu8Buffer[(LCD1602_COLUMN_MAX*(*pu8Row))+(*pu8Column)];
+            *pu8Data= (uint8_t)pu8Buffer[(uint32_t)((uint32_t)LCD1602_COLUMN_MAX*(uint32_t)(*pu8Row))+(uint32_t)(*pu8Column)];
             enStatus=LCD1602_enSTATUS_OK;
         }
     }
@@ -618,8 +618,8 @@ LCD1602_nSTATUS LCD1602__enWriteStringBufferSection_Secure(char* pcBuffer, char*
         {
             if(((*pu8Column)<=u8WidthMax) && ((*pu8Row)<=u8HeightMax) && ((*pu8Column)>=u8WidthMin) && ((*pu8Row)>=u8HeightMin))
             {
-                *pu8Count=0;
-                while((0!=*pcString) && (u8MaxCount>(*pu8Count)))
+                *pu8Count=0u;
+                while((0u!=*pcString) && (u8MaxCount>(*pu8Count)))
                 {
                     pcBuffer[(LCD1602_COLUMN_MAX*(*pu8Row))+(*pu8Column)]=*pcString;
                     pcString++;/*el puntero apunta al siguiente caracter*/
@@ -664,7 +664,7 @@ LCD1602_nSTATUS LCD1602__enWriteStringBuffer(char* pcBuffer, char* pcString,uint
 {
 
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enWriteStringBufferSection_Secure(pcBuffer,pcString,pu8Column,pu8Row,pu8Count,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1),LCD1602_MAX_COUNT);
+    enStatus=LCD1602__enWriteStringBufferSection_Secure(pcBuffer,pcString,pu8Column,pu8Row,pu8Count,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u),LCD1602_MAX_COUNT);
         return enStatus;
 }
 
@@ -731,14 +731,14 @@ LCD1602_nSTATUS LCD1602__enReloadScreenSectionDirect(uint8_t u8WidthMin,uint8_t 
 LCD1602_nSTATUS LCD1602__enReloadScreen(uint8_t* pu8Buffer)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enReloadScreenSection(pu8Buffer,LCD1602_COLUMN_MIN-1,LCD1602_COLUMN_MAX-1,LCD1602_ROW_MIN-1,LCD1602_ROW_MAX-1);
+    enStatus=LCD1602__enReloadScreenSection(pu8Buffer,LCD1602_COLUMN_MIN-1u,LCD1602_COLUMN_MAX-1u,LCD1602_ROW_MIN-1u,LCD1602_ROW_MAX-1u);
     return enStatus;
 }
 
 LCD1602_nSTATUS LCD1602__enReloadScreenDirect(void)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enReloadScreenSection(LCD1602_pu8Buffer,LCD1602_COLUMN_MIN-1,LCD1602_COLUMN_MAX-1,LCD1602_ROW_MIN-1,LCD1602_ROW_MAX-1);
+    enStatus=LCD1602__enReloadScreenSection(LCD1602_pu8Buffer,LCD1602_COLUMN_MIN-1u,LCD1602_COLUMN_MAX-1u,LCD1602_ROW_MIN-1u,LCD1602_ROW_MAX-1u);
     return enStatus;
 }
 
@@ -768,7 +768,7 @@ LCD1602_nSTATUS LCD1602__enClearScreen(uint8_t* pu8Buffer)
     (void)pu8Buffer;
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR));/*limpia la pantalla*/
-    LCD1602__vDelay(1640);
+    LCD1602__vDelay(1640.0f);
     return enStatus;
 }
 
@@ -776,7 +776,7 @@ LCD1602_nSTATUS LCD1602__enClearScreenDirect(void)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR));/*limpia la pantalla*/
-    LCD1602__vDelay(1640);
+    LCD1602__vDelay(1640.0f);
     return enStatus;
 }
 
@@ -791,14 +791,14 @@ LCD1602_nSTATUS LCD1602__enClearScreenDirect(void)
 LCD1602_nSTATUS LCD1602_enAdreesScreenLimitSection(uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_OK;
-    enStatus=LCD1602_enAdreesLimitSection(LCD1602_enSetAddress,pu8Column,pu8Row,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
+    enStatus=LCD1602_enAdreesLimitSection((LCD1602_SET_ADDRESS_TypeDef)LCD1602_enSetAddress,pu8Column,pu8Row,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
     return enStatus;
 }
 
 LCD1602_nSTATUS LCD1602_enAdreesScreenLimit(uint8_t* pu8Column, uint8_t* pu8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_OK;
-    enStatus=LCD1602_enAdreesBufferLimitSection(pu8Column, pu8Row,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+    enStatus=LCD1602_enAdreesBufferLimitSection(pu8Column, pu8Row,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
     return enStatus;
 }
 
@@ -815,7 +815,7 @@ LCD1602_nSTATUS LCD1602__enWriteScreen(uint8_t u8Data, uint8_t* pu8Buffer, uint8
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     (void)pu8Buffer;
 
-    if((0!=*pu8Column)&&(0!=*pu8Row))
+    if((0u!=*pu8Column)&&(0u!=*pu8Row))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {
@@ -832,7 +832,7 @@ LCD1602_nSTATUS LCD1602__enWriteScreen(uint8_t u8Data, uint8_t* pu8Buffer, uint8
 LCD1602_nSTATUS LCD1602__enWriteScreenDirect(uint8_t u8Data, uint8_t* pu8Column,uint8_t* pu8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    LCD1602__enWriteScreen(u8Data,0,pu8Column,pu8Row);
+    LCD1602__enWriteScreen(u8Data,(uint8_t*)0u,pu8Column,pu8Row);
     return enStatus;
 }
 
@@ -850,7 +850,7 @@ LCD1602_nSTATUS LCD1602__enReadScreen(uint8_t* pu8Data, uint8_t* pu8Buffer, uint
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     (void)pu8Buffer;
 
-    if((0!=*pu8Column)&&(0!=*pu8Row))
+    if((0u!=*pu8Column)&&(0u!=*pu8Row))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {
@@ -863,7 +863,7 @@ LCD1602_nSTATUS LCD1602__enReadScreen(uint8_t* pu8Data, uint8_t* pu8Buffer, uint
 LCD1602_nSTATUS LCD1602__enReadScreenDirect(uint8_t* pu8Data, uint8_t* pu8Column,uint8_t* pu8Row)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    LCD1602__enReadScreen(pu8Data,0,pu8Column,pu8Row);
+    LCD1602__enReadScreen(pu8Data,(uint8_t*)0u,pu8Column,pu8Row);
     return enStatus;
 }
 
@@ -890,8 +890,8 @@ LCD1602_nSTATUS LCD1602__enWriteStringScreenSection_Secure(char* pcBuffer,char* 
                 enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
                 if(LCD1602_enSTATUS_OK ==enStatus)
                 {
-                    *pu8Count=0;
-                    while((0!=*pcString) && (u8MaxCount>(*pu8Count)))
+                    *pu8Count=0u;
+                    while((0u!=*pcString) && (u8MaxCount>(*pu8Count)))
                     {
                         enStatus=LCD1602_enWriteChar((uint8_t)*pcString);
                         pcString++;/*el puntero apunta al siguiente caracter*/
@@ -917,7 +917,7 @@ LCD1602_nSTATUS LCD1602__enWriteStringScreenSectionDirect_Secure(char* pcString,
 {
 
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enWriteStringScreenSection_Secure(0,pcString,pu8Column,pu8Row,pu8Count,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax,u8MaxCount);
+    enStatus=LCD1602__enWriteStringScreenSection_Secure((char*)0u,pcString,pu8Column,pu8Row,pu8Count,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax,u8MaxCount);
     return enStatus;
 }
 
@@ -941,7 +941,7 @@ LCD1602_nSTATUS LCD1602__enWriteStringScreen(char* pcBuffer, char* pcString,uint
 {
 
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enWriteStringScreenSection_Secure(pcBuffer,pcString,pu8Column,pu8Row,pu8Count,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1),LCD1602_MAX_COUNT);
+    enStatus=LCD1602__enWriteStringScreenSection_Secure(pcBuffer,pcString,pu8Column,pu8Row,pu8Count,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u),LCD1602_MAX_COUNT);
         return enStatus;
 }
 
@@ -949,7 +949,7 @@ LCD1602_nSTATUS LCD1602__enWriteStringScreenDirect(char* pcString,uint8_t* pu8Co
 {
 
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enWriteStringScreen(0,pcString,pu8Column,pu8Row,pu8Count);
+    enStatus=LCD1602__enWriteStringScreen((char*)0u,pcString,pu8Column,pu8Row,pu8Count);
         return enStatus;
 }
 
@@ -976,7 +976,7 @@ LCD1602_nSTATUS LCD1602__enReadString(char* pcString, uint8_t u8Column,uint8_t u
                     enStatus=LCD1602_enSetAddress(u8Column,u8Row);
                     if(LCD1602_enSTATUS_OK==enStatus)
                     {
-                        while(0!=u8Count)
+                        while(0u!=u8Count)
                         {
                             LCD1602_enReadChar((char*)pcString,u8Column,u8Row);
                             enStatus=LCD1602_enAdreesScreenLimit(&u8Column, &u8Row);
@@ -985,7 +985,7 @@ LCD1602_nSTATUS LCD1602__enReadString(char* pcString, uint8_t u8Column,uint8_t u
                             if(LCD1602_enSTATUS_ERROR==enStatus)
                                 break;
                         }
-                        *pcString=0;
+                        *pcString=0u;
                         if(LCD1602_enSTATUS_OK==enStatus)
                         {
                             enStatus=LCD1602_enSetAddress(u8CurrentColumn,u8CurrentRow);
@@ -1009,13 +1009,13 @@ LCD1602_nSTATUS LCD1602__enPrintSection_Secure(char* pcString,uint8_t* pu8Column
     {
         *penFinish=LCD1602_enCONITNUE;
         pcStringAux=pcString;
-        if(u8WidthMin>(LCD1602_COLUMN_MAX-1))
+        if(u8WidthMin>(LCD1602_COLUMN_MAX-1u))
             return enStatus;
-        if(u8WidthMax>(LCD1602_COLUMN_MAX-1))
+        if(u8WidthMax>(LCD1602_COLUMN_MAX-1u))
             return enStatus;
-        if(u8HeightMin>(LCD1602_ROW_MAX-1))
+        if(u8HeightMin>(LCD1602_ROW_MAX-1u))
             return enStatus;
-        if(u8HeightMax>(LCD1602_ROW_MAX-1))
+        if(u8HeightMax>(LCD1602_ROW_MAX-1u))
             return enStatus;
 
         if(u8WidthMax<u8WidthMin)
@@ -1032,22 +1032,22 @@ LCD1602_nSTATUS LCD1602__enPrintSection_Secure(char* pcString,uint8_t* pu8Column
             u8HeightMax=u8Auxiliar;
         }
 
-        if(((*pu8Column)>u8WidthMax) ||((int8_t)(*pu8Column)<(int8_t)u8WidthMin) )
+        if(((uint8_t)(*pu8Column)>(uint8_t)u8WidthMax) ||((int8_t)(*pu8Column)<(int8_t)u8WidthMin) )
             return enStatus;
 
-        if(((*pu8Row)>u8HeightMax) ||((int8_t)(*pu8Row)<(int8_t)u8HeightMin)  )
+        if(((uint8_t)(*pu8Row)>(uint8_t)u8HeightMax) ||((int8_t)(*pu8Row)<(int8_t)u8HeightMin)  )
             return enStatus;
 
         enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
         if(LCD1602_enSTATUS_OK ==enStatus)
         {
-            *pu8Count=0;
-            while((0!=*pcStringAux) && (u8MaxCount>(*pu8Count)))
+            *pu8Count=0u;
+            while((0u!=*pcStringAux) && (u8MaxCount>(*pu8Count)))
             {
                 switch(*pcStringAux)
                 {
                 case '\n':
-                    if((u8WidthMin !=*pu8Column) || (0==*pu8Count))
+                    if((u8WidthMin !=*pu8Column) || (0u==*pu8Count))
                     {
                         LCD1602_vAddRow(pu8Row,u8HeightMin,u8HeightMax);
                     }
@@ -1105,13 +1105,13 @@ LCD1602_nSTATUS LCD1602__enPrintSection_Secure(char* pcString,uint8_t* pu8Column
                         }
                     }
                     break;
-                case 0x1B: /* 0x1b is a scape in ascci \e is violating MISRA 4.1*/
+                case (char)0x1B: /* 0x1b is a scape in ascci \e is violating MISRA 4.1*/
                     *penFinish=LCD1602_enFINISH;
                     break;
                 case '\f':
                     LCD1602_vResetColumn(pu8Column,u8WidthMin);
                     LCD1602_vResetRow(pu8Row,u8HeightMin);
-                    enStatus=LCD1602__enClearScreenSection(0,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
+                    enStatus=LCD1602__enClearScreenSection((uint8_t*) 0u,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
                     *penFinish=LCD1602_enFINISH;
                     if(LCD1602_enSTATUS_OK == enStatus)
                     {
@@ -1157,14 +1157,14 @@ LCD1602_nSTATUS LCD1602__enPrintSection(char* pcString,uint8_t* pu8Column, uint8
 LCD1602_nSTATUS LCD1602__enPrint_Secure(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8MaxCount, LCD1602_nFINISH *penFinish)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enPrintSection_Secure(pcString,pu8Column,pu8Row,pu8Count,0,15,0,1,u8MaxCount,penFinish);
+    enStatus=LCD1602__enPrintSection_Secure(pcString,pu8Column,pu8Row,pu8Count,0u,15u,0u,1u,u8MaxCount,penFinish);
     return enStatus;
 }
 
 LCD1602_nSTATUS LCD1602__enPrint(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count, LCD1602_nFINISH *penFinish)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602__enPrintSection_Secure(pcString,pu8Column,pu8Row,pu8Count,0,15,0,1,LCD1602_MAX_COUNT,penFinish);
+    enStatus=LCD1602__enPrintSection_Secure(pcString,pu8Column,pu8Row,pu8Count,0u,15u,0u,1u,LCD1602_MAX_COUNT,penFinish);
     return enStatus;
 }
 
@@ -1193,13 +1193,13 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
     {
 
         pcStringAux=pcString;
-        if(u8WidthMin>(LCD1602_COLUMN_MAX-1))
+        if(u8WidthMin>(LCD1602_COLUMN_MAX-1u))
             return enStatus;
-        if(u8WidthMax>(LCD1602_COLUMN_MAX-1))
+        if(u8WidthMax>(LCD1602_COLUMN_MAX-1u))
             return enStatus;
-        if(u8HeightMin>(LCD1602_ROW_MAX-1))
+        if(u8HeightMin>(LCD1602_ROW_MAX-1u))
             return enStatus;
-        if(u8HeightMax>(LCD1602_ROW_MAX-1))
+        if(u8HeightMax>(LCD1602_ROW_MAX-1u))
             return enStatus;
 
         if(u8WidthMax<u8WidthMin)
@@ -1216,8 +1216,8 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
             u8HeightMax=u8Auxiliar;
         }
 
-        *pu8Count=0;
-        while(0!=*pcStringAux)
+        *pu8Count=0u;
+        while(0u!=*pcStringAux)
         {
             switch(*pcStringAux)
             {
@@ -1229,44 +1229,44 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                 case 'i':
                     cNumberConversion=cNumberConv;
                     s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
-                    CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+                    CONV__u8IntToString((int64_t)s32ValueARGInteger,cNumberConversion);
                     break;
                 case 'u':
                     cNumberConversion=cNumberConv;
                     u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                    CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                    CONV__u8UIntToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                     break;
                 case 'x':
                     cNumberConversion=cNumberConv;
                     u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                    CONV__u8HexToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                    CONV__u8HexToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                     break;
                 case 'X':
                     cNumberConversion=cNumberConv;
                     u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                    CONV__u8HEXToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                    CONV__u8HEXToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                     break;
                 case 'o':
                     cNumberConversion=cNumberConv;
                     u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                    CONV__u8OctToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                    CONV__u8OctToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                     break;
                 case 'p':
                     cNumberConversion=cNumberConv;
                     vValueARGPointer=(void*)va_arg(ap, void*);
-                    CONV__u8BinToString((uint32_t)vValueARGPointer,cNumberConversion);
+                    CONV__u8BinToString((uint64_t)vValueARGPointer,cNumberConversion);
                     break;
                 case 'F':
                 case 'f':
                     cNumberConversion=cNumberConv;
                     fValueARGFloat=(double)va_arg(ap, double);
-                    CONV__u8FloatToString((float)fValueARGFloat,0,1,2,3,cNumberConversion);
+                    CONV__u8FloatToString((double)fValueARGFloat,0u,1u,2,3,cNumberConversion);
                     break;
                 case 'c':
                     cNumberConversion=cNumberConv;
                     cValueARGChar=(char)va_arg(ap, uint32_t);
                     cNumberConversion[0]=cValueARGChar;
-                    cNumberConversion[1]=0;
+                    cNumberConversion[1]=0u;
                     break;
                 case 's':
                     cNumberConversion=(char*)va_arg(ap,char*);
@@ -1279,7 +1279,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                     case 'f':
                         cNumberConversion=cNumberConv;
                         fValueARGFloat=(double)va_arg(ap, double);
-                        CONV__u8FloatToString((double)fValueARGFloat,0,1,2,5,cNumberConversion);
+                        CONV__u8FloatToString((double)fValueARGFloat,0u,1u,2,5,cNumberConversion);
                         break;
                     case 'l':
                         pcStringAux++;
@@ -1300,7 +1300,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                             cNumberConversion=cNumberConv;
                             pcStringAux-=3;/*1 for % other for 'l' other for 'l'*/
                             cNumberConversion[0]=*pcStringAux;
-                            cNumberConversion[1]=0;
+                            cNumberConversion[1]=0u;
                             break;
                         }
 
@@ -1309,18 +1309,18 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                     case 'i':
                         cNumberConversion=cNumberConv;
                         s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
-                        CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+                        CONV__u8IntToString((int64_t)s32ValueARGInteger,cNumberConversion);
 
                         break;
                     case 'u':
                         cNumberConversion=cNumberConv;
                         u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                        CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        CONV__u8UIntToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                     default:
                         cNumberConversion=cNumberConv;
                         pcStringAux-=2;/*1 for % other for 'l'*/
                         cNumberConversion[0]=*pcStringAux;
-                        cNumberConversion[1]=0;
+                        cNumberConversion[1]=0u;
                         break;
                     }
                     break;
@@ -1328,14 +1328,14 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                     cNumberConversion=cNumberConv;
                     pcStringAux--;
                     cNumberConversion[0]=*pcStringAux;
-                    cNumberConversion[1]=0;
+                    cNumberConversion[1]=0u;
                     break;
                 }
                 break;
             default:
                 cNumberConversion=cNumberConv;
                 cNumberConversion[0]=*pcStringAux;
-                cNumberConversion[1]=0;
+                cNumberConversion[1]=0u;
                 break;
             }
             enStatus=LCD1602__enPrintSection(cNumberConversion,pu8Column,pu8Row,&u8CounterAux,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax,&enFinish);
@@ -1376,26 +1376,26 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
 
     if(((uint32_t)0!=(uint32_t)pu8Column) && ((uint32_t)0!=(uint32_t)pu8Row) && ((uint32_t)0!=(uint32_t)pcString) && ((uint32_t)0!=(uint32_t)pu8Count))
     {
-        (*pu8Column)+=(LCD1602_COLUMN_MIN-1);
-        if((*pu8Column)>(LCD1602_COLUMN_MAX-1))
+        (*pu8Column)+=(LCD1602_COLUMN_MIN-1u);
+        if((*pu8Column)>(LCD1602_COLUMN_MAX-1u))
             return enStatus;
 
-        (*pu8Row)+=(LCD1602_ROW_MIN-1);
-        if((*pu8Row)>(LCD1602_ROW_MAX-1))
+        (*pu8Row)+=(LCD1602_ROW_MIN-1u);
+        if((*pu8Row)>(LCD1602_ROW_MAX-1u))
             return enStatus;
 
         enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
         if(LCD1602_enSTATUS_OK ==enStatus)
         {
-            *pu8Count=0;
-            while(0!=*pcString)
+            *pu8Count=0u;
+            while(0u!=*pcString)
             {
                 switch(*pcString)
                 {
                 case '\n':
-                    if(((LCD1602_COLUMN_MIN-1) !=*pu8Column) || (0==*pu8Count))
+                    if(((LCD1602_COLUMN_MIN-1u) !=*pu8Column) || (0u==*pu8Count))
                     {
-                        LCD1602_vAddRow(pu8Row,(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                        LCD1602_vAddRow(pu8Row,(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                     }
                     enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
@@ -1404,7 +1404,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     }
                     break;
                 case '\r':
-                    LCD1602_vResetColumn(pu8Column,(LCD1602_COLUMN_MIN-1));
+                    LCD1602_vResetColumn(pu8Column,(LCD1602_COLUMN_MIN-1u));
                     enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
@@ -1412,12 +1412,12 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     }
                     break;
                 case '\t':
-                    if((*pu8Column)<((LCD1602_COLUMN_MAX-1)-LCD1602_TAB_SIZE))
+                    if((*pu8Column)<((LCD1602_COLUMN_MAX-1u)-LCD1602_TAB_SIZE))
                         (*pu8Column)+=LCD1602_TAB_SIZE;
                     else
                     {
-                        LCD1602_vResetColumn(pu8Column,(LCD1602_COLUMN_MIN-1));
-                        LCD1602_vAddRow(pu8Row,(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                        LCD1602_vResetColumn(pu8Column,(LCD1602_COLUMN_MIN-1u));
+                        LCD1602_vAddRow(pu8Row,(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                     }
                     enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
@@ -1426,7 +1426,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     }
                     break;
                 case '\b':
-                    LCD1602_vBackspace(pu8Column,pu8Row,(LCD1602_COLUMN_MIN-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                    LCD1602_vBackspace(pu8Column,pu8Row,(LCD1602_COLUMN_MIN-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                     enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
                     if(LCD1602_enSTATUS_ERROR ==enStatus)
                     {
@@ -1434,7 +1434,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     }
                     break;
                 case '\a':
-                    LCD1602_vBackspace(pu8Column,pu8Row,(LCD1602_COLUMN_MIN-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                    LCD1602_vBackspace(pu8Column,pu8Row,(LCD1602_COLUMN_MIN-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                     enStatus=LCD1602_enSetAddress(*pu8Column,*pu8Row);
                     enFinish=LCD1602_enFINISH;
                     if(LCD1602_enSTATUS_OK ==enStatus)
@@ -1451,13 +1451,13 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                         }
                     }
                     break;
-                case 0x1B:
+                case (char)0x1B:
                     enFinish=LCD1602_enFINISH;
                     break;
                 case '\f':
-                    LCD1602_vResetColumn(pu8Column,(LCD1602_COLUMN_MIN-1));
-                    LCD1602_vResetRow(pu8Row,(LCD1602_ROW_MIN-1));
-                    enStatus=LCD1602__enClearScreenSection(0,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                    LCD1602_vResetColumn(pu8Column,(LCD1602_COLUMN_MIN-1u));
+                    LCD1602_vResetRow(pu8Row,(LCD1602_ROW_MIN-1u));
+                    enStatus=LCD1602__enClearScreenSection(0u,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                     enFinish=LCD1602_enFINISH;
                     if(LCD1602_enSTATUS_OK == enStatus)
                     {
@@ -1475,44 +1475,44 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     case 'i':
                         cNumberConversion=cNumberConv;
                         s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
-                        CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+                        CONV__u8IntToString((int64_t)s32ValueARGInteger,cNumberConversion);
                         break;
                     case 'u':
                         cNumberConversion=cNumberConv;
                         u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                        CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        CONV__u8UIntToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                         break;
                     case 'x':
                         cNumberConversion=cNumberConv;
                         u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                        CONV__u8HexToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        CONV__u8HexToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                         break;
                     case 'X':
                         cNumberConversion=cNumberConv;
                         u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                        CONV__u8HEXToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        CONV__u8HEXToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                         break;
                     case 'o':
                         cNumberConversion=cNumberConv;
                         u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                        CONV__u8OctToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                        CONV__u8OctToString((uint64_t)u32ValueARGInteger,cNumberConversion);
                         break;
                     case 'p':
                         cNumberConversion=cNumberConv;
                         vValueARGPointer=(void*)va_arg(ap, void*);
-                        CONV__u8BinToString((uint32_t)vValueARGPointer,cNumberConversion);
+                        CONV__u8BinToString((uint64_t)vValueARGPointer,cNumberConversion);
                         break;
                     case 'F':
                     case 'f':
                         cNumberConversion=cNumberConv;
                         fValueARGFloat=(double)va_arg(ap, double);
-                        CONV__u8FloatToString((float)fValueARGFloat,0,1,2,3,cNumberConversion);
+                        CONV__u8FloatToString((double)fValueARGFloat,0u,1u,(int32_t)2,(int32_t)3,cNumberConversion);
                         break;
                     case 'c':
                         cNumberConversion=cNumberConv;
                         cValueARGChar=(char)va_arg(ap, uint32_t);
                         cNumberConversion[0]=cValueARGChar;
-                        cNumberConversion[1]=0;
+                        cNumberConversion[1]=0u;
                         break;
                     case 's':
                         cNumberConversion=(char*)va_arg(ap,char*);
@@ -1525,7 +1525,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                         case 'f':
                             cNumberConversion=cNumberConv;
                             fValueARGFloat=(double)va_arg(ap, double);
-                            CONV__u8FloatToString((double)fValueARGFloat,0,1,2,5,cNumberConversion);
+                            CONV__u8FloatToString((double)fValueARGFloat,0u,1u,2,5,cNumberConversion);
                             break;
                         case 'l':
                             pcString++;
@@ -1546,7 +1546,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                                 cNumberConversion=cNumberConv;
                                 pcString-=3;/*1 for % other for 'l' other for 'l'*/
                                 cNumberConversion[0]=*pcString;
-                                cNumberConversion[1]=0;
+                                cNumberConversion[1]=0u;
                                 break;
                             }
 
@@ -1555,18 +1555,18 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                         case 'i':
                             cNumberConversion=cNumberConv;
                             s32ValueARGInteger=(int32_t)va_arg(ap, int32_t);
-                            CONV__u8IntToString((int32_t)s32ValueARGInteger,cNumberConversion);
+                            CONV__u8IntToString((int64_t)s32ValueARGInteger,cNumberConversion);
 
                             break;
                         case 'u':
                             cNumberConversion=cNumberConv;
                             u32ValueARGInteger=(uint32_t)va_arg(ap, uint32_t);
-                            CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
+                            CONV__u8UIntToString((uint64_t)u32ValueARGInteger,(char*)cNumberConversion);
                         default:
                             cNumberConversion=cNumberConv;
                             pcString-=2;/*1 for % other for 'l'*/
                             cNumberConversion[0]=*pcString;
-                            cNumberConversion[1]=0;
+                            cNumberConversion[1]=0u;
                             break;
                         }
                         break;
@@ -1574,15 +1574,15 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                         cNumberConversion=cNumberConv;
                         pcString--;
                         cNumberConversion[0]=*pcString;
-                        cNumberConversion[1]=0;
+                        cNumberConversion[1]=0u;
                         break;
                     }
-                    enStatus=LCD1602__enWriteStringScreenSection(0,cNumberConversion,pu8Column,pu8Row,&u8CounterAux,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                    enStatus=LCD1602__enWriteStringScreenSection((char*)0u,cNumberConversion,pu8Column,pu8Row,&u8CounterAux,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                     enFinish=LCD1602_enFINISH;
                     if(LCD1602_enSTATUS_OK == enStatus)
                     {
                         enFinish=LCD1602_enCONITNUE;
-                        *pu8Count+=(u8CounterAux-1);
+                        *pu8Count+=(u8CounterAux-1u);
                     }
                     break;
                 default:
@@ -1590,7 +1590,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     enFinish=LCD1602_enFINISH;
                     if(LCD1602_enSTATUS_OK == enStatus)
                     {
-                        enStatus=LCD1602_enAdreesScreenLimitSection(pu8Column, pu8Row,(LCD1602_COLUMN_MIN-1),(LCD1602_COLUMN_MAX-1),(LCD1602_ROW_MIN-1),(LCD1602_ROW_MAX-1));
+                        enStatus=LCD1602_enAdreesScreenLimitSection(pu8Column, pu8Row,(LCD1602_COLUMN_MIN-1u),(LCD1602_COLUMN_MAX-1u),(LCD1602_ROW_MIN-1u),(LCD1602_ROW_MAX-1u));
                         if(LCD1602_enSTATUS_OK == enStatus)
                         {
                             enFinish=LCD1602_enCONITNUE;

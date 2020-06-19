@@ -14,11 +14,11 @@
 #define NVIC_BASE            ((uint32_t)0xE000E000UL)
 #define NVIC_OFFSET          ((uint32_t)0x00000100UL)
 
-#define NVIC_IRQ_MAX		(138)
-#define NVIC_MAX			(3)
-#define NVIC_PRI_MAX        (7)
-#define NVIC_PRI_MASK        (7)
-#define NVIC_IPR_MAX		(34)
+#define NVIC_IRQ_MAX		(138u)
+#define NVIC_MAX			(3u)
+#define NVIC_PRI_MAX        (7u)
+#define NVIC_PRI_MASK        (7u)
+#define NVIC_IPR_MAX		(34u)
 /*
 enum
 {
@@ -1353,7 +1353,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_GPIOA_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ISER0_R_NVIC_GPIOA_BIT     (0)
+#define NVIC_ISER0_R_NVIC_GPIOA_BIT     (0u)
 #define NVIC_ISER0_R_NVIC_GPIOA_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_GPIOA_EN      ((uint32_t)0x00000001u)
 
@@ -1364,7 +1364,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_GPIOB_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ISER0_R_NVIC_GPIOB_BIT     (1)
+#define NVIC_ISER0_R_NVIC_GPIOB_BIT     (1u)
 #define NVIC_ISER0_R_NVIC_GPIOB_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_GPIOB_EN      ((uint32_t)0x00000002u)
 
@@ -1375,7 +1375,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_GPIOC_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ISER0_R_NVIC_GPIOC_BIT     (2)
+#define NVIC_ISER0_R_NVIC_GPIOC_BIT     (2u)
 #define NVIC_ISER0_R_NVIC_GPIOC_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_GPIOC_EN      ((uint32_t)0x00000004u)
 
@@ -1387,7 +1387,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_GPIOD_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ISER0_R_NVIC_GPIOD_BIT     (3)
+#define NVIC_ISER0_R_NVIC_GPIOD_BIT     (3u)
 #define NVIC_ISER0_R_NVIC_GPIOD_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_GPIOD_EN      ((uint32_t)0x00000008u)
 
@@ -1398,7 +1398,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_GPIOE_MASK    ((uint32_t)0x00000010u)
-#define NVIC_ISER0_R_NVIC_GPIOE_BIT     (4)
+#define NVIC_ISER0_R_NVIC_GPIOE_BIT     (4u)
 #define NVIC_ISER0_R_NVIC_GPIOE_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_GPIOE_EN      ((uint32_t)0x00000010u)
 
@@ -1409,7 +1409,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_UART0_MASK    ((uint32_t)0x00000020u)
-#define NVIC_ISER0_R_NVIC_UART0_BIT     (5)
+#define NVIC_ISER0_R_NVIC_UART0_BIT     (5u)
 #define NVIC_ISER0_R_NVIC_UART0_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_UART0_EN      ((uint32_t)0x00000020u)
 
@@ -1420,7 +1420,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_UART1_MASK    ((uint32_t)0x00000040u)
-#define NVIC_ISER0_R_NVIC_UART1_BIT     (6)
+#define NVIC_ISER0_R_NVIC_UART1_BIT     (6u)
 #define NVIC_ISER0_R_NVIC_UART1_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_UART1_EN      ((uint32_t)0x00000040u)
 
@@ -1431,7 +1431,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_SSI0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ISER0_R_NVIC_SSI0_BIT      (7)
+#define NVIC_ISER0_R_NVIC_SSI0_BIT      (7u)
 #define NVIC_ISER0_R_NVIC_SSI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_SSI0_EN       ((uint32_t)0x00000080u)
 
@@ -1442,7 +1442,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_I2C0_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ISER0_R_NVIC_I2C0_BIT      (8)
+#define NVIC_ISER0_R_NVIC_I2C0_BIT      (8u)
 #define NVIC_ISER0_R_NVIC_I2C0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_I2C0_EN       ((uint32_t)0x00000100u)
 
@@ -1453,7 +1453,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_PWM0FAULT_MASK ((uint32_t)0x00000200u)
-#define NVIC_ISER0_R_NVIC_PWM0FAULT_BIT  (9)
+#define NVIC_ISER0_R_NVIC_PWM0FAULT_BIT  (9u)
 #define NVIC_ISER0_R_NVIC_PWM0FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_PWM0FAULT_EN   ((uint32_t)0x00000200u)
 
@@ -1464,7 +1464,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_PWM0GEN0_MASK  ((uint32_t)0x00000400u)
-#define NVIC_ISER0_R_NVIC_PWM0GEN0_BIT   (10)
+#define NVIC_ISER0_R_NVIC_PWM0GEN0_BIT   (10u)
 #define NVIC_ISER0_R_NVIC_PWM0GEN0_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_PWM0GEN0_EN    ((uint32_t)0x00000400u)
 
@@ -1475,7 +1475,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_PWM0GEN1_MASK  ((uint32_t)0x00000800u)
-#define NVIC_ISER0_R_NVIC_PWM0GEN1_BIT   (11)
+#define NVIC_ISER0_R_NVIC_PWM0GEN1_BIT   (11u)
 #define NVIC_ISER0_R_NVIC_PWM0GEN1_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_PWM0GEN1_EN    ((uint32_t)0x00000800u)
 
@@ -1486,7 +1486,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_PWM0GEN2_MASK  ((uint32_t)0x00001000u)
-#define NVIC_ISER0_R_NVIC_PWM0GEN2_BIT   (12)
+#define NVIC_ISER0_R_NVIC_PWM0GEN2_BIT   (12u)
 #define NVIC_ISER0_R_NVIC_PWM0GEN2_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_PWM0GEN2_EN    ((uint32_t)0x00001000u)
 
@@ -1497,7 +1497,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_QEI0_MASK     ((uint32_t)0x00002000u)
-#define NVIC_ISER0_R_NVIC_QEI0_BIT      (13)
+#define NVIC_ISER0_R_NVIC_QEI0_BIT      (13u)
 #define NVIC_ISER0_R_NVIC_QEI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_QEI0_EN       ((uint32_t)0x00002000u)
 
@@ -1508,7 +1508,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_ADC0SEQ0_MASK ((uint32_t)0x00004000u)
-#define NVIC_ISER0_R_NVIC_ADC0SEQ0_BIT  (14)
+#define NVIC_ISER0_R_NVIC_ADC0SEQ0_BIT  (14u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ0_EN   ((uint32_t)0x00004000u)
 
@@ -1519,7 +1519,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_ADC0SEQ1_MASK ((uint32_t)0x00008000u)
-#define NVIC_ISER0_R_NVIC_ADC0SEQ1_BIT  (15)
+#define NVIC_ISER0_R_NVIC_ADC0SEQ1_BIT  (15u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ1_EN   ((uint32_t)0x00008000u)
 
@@ -1530,7 +1530,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_ADC0SEQ2_MASK ((uint32_t)0x00010000u)
-#define NVIC_ISER0_R_NVIC_ADC0SEQ2_BIT  (16)
+#define NVIC_ISER0_R_NVIC_ADC0SEQ2_BIT  (16u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ2_EN   ((uint32_t)0x00010000u)
 
@@ -1541,7 +1541,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_ADC0SEQ3_MASK ((uint32_t)0x00020000u)
-#define NVIC_ISER0_R_NVIC_ADC0SEQ3_BIT  (17)
+#define NVIC_ISER0_R_NVIC_ADC0SEQ3_BIT  (17u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_ADC0SEQ3_EN   ((uint32_t)0x00020000u)
 
@@ -1552,7 +1552,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_WDT01_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ISER0_R_NVIC_WDT01_BIT     (18)
+#define NVIC_ISER0_R_NVIC_WDT01_BIT     (18u)
 #define NVIC_ISER0_R_NVIC_WDT01_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_WDT01_EN      ((uint32_t)0x00040000u)
 
@@ -1563,7 +1563,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_TIMER0A_MASK  ((uint32_t)0x00080000u)
-#define NVIC_ISER0_R_NVIC_TIMER0A_BIT   (19)
+#define NVIC_ISER0_R_NVIC_TIMER0A_BIT   (19u)
 #define NVIC_ISER0_R_NVIC_TIMER0A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_TIMER0A_EN    ((uint32_t)0x00080000u)
 
@@ -1574,7 +1574,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_TIMER0B_MASK  ((uint32_t)0x00100000u)
-#define NVIC_ISER0_R_NVIC_TIMER0B_BIT   (20)
+#define NVIC_ISER0_R_NVIC_TIMER0B_BIT   (20u)
 #define NVIC_ISER0_R_NVIC_TIMER0B_DI    ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_TIMER0B_EN    ((uint32_t)0x00100000u)
 
@@ -1585,7 +1585,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_TIMER1A_MASK  ((uint32_t)0x00200000u)
-#define NVIC_ISER0_R_NVIC_TIMER1A_BIT   (21)
+#define NVIC_ISER0_R_NVIC_TIMER1A_BIT   (21u)
 #define NVIC_ISER0_R_NVIC_TIMER1A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_TIMER1A_EN    ((uint32_t)0x00200000u)
 
@@ -1596,7 +1596,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_TIMER1B_MASK  ((uint32_t)0x00400000u)
-#define NVIC_ISER0_R_NVIC_TIMER1B_BIT   (22)
+#define NVIC_ISER0_R_NVIC_TIMER1B_BIT   (22u)
 #define NVIC_ISER0_R_NVIC_TIMER1B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_TIMER1B_EN    ((uint32_t)0x00400000u)
 
@@ -1607,7 +1607,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_TIMER2A_MASK  ((uint32_t)0x00800000u)
-#define NVIC_ISER0_R_NVIC_TIMER2A_BIT   (23)
+#define NVIC_ISER0_R_NVIC_TIMER2A_BIT   (23u)
 #define NVIC_ISER0_R_NVIC_TIMER2A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_TIMER2A_EN    ((uint32_t)0x00800000u)
 
@@ -1618,7 +1618,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_TIMER2B_MASK  ((uint32_t)0x01000000u)
-#define NVIC_ISER0_R_NVIC_TIMER2B_BIT   (24)
+#define NVIC_ISER0_R_NVIC_TIMER2B_BIT   (24u)
 #define NVIC_ISER0_R_NVIC_TIMER2B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_TIMER2B_EN    ((uint32_t)0x01000000u)
 
@@ -1629,7 +1629,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_ACOMP0_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ISER0_R_NVIC_ACOMP0_BIT    (25)
+#define NVIC_ISER0_R_NVIC_ACOMP0_BIT    (25u)
 #define NVIC_ISER0_R_NVIC_ACOMP0_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_ACOMP0_EN     ((uint32_t)0x02000000u)
 
@@ -1640,7 +1640,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_ACOMP1_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ISER0_R_NVIC_ACOMP1_BIT    (26)
+#define NVIC_ISER0_R_NVIC_ACOMP1_BIT    (26u)
 #define NVIC_ISER0_R_NVIC_ACOMP1_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_ACOMP1_EN     ((uint32_t)0x04000000u)
 
@@ -1651,7 +1651,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_RES43_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ISER0_R_NVIC_RES43_BIT     (27)
+#define NVIC_ISER0_R_NVIC_RES43_BIT     (27u)
 #define NVIC_ISER0_R_NVIC_RES43_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_RES43_EN      ((uint32_t)0x08000000u)
 
@@ -1662,7 +1662,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_SYSCTL_MASK   ((uint32_t)0x10000000u)
-#define NVIC_ISER0_R_NVIC_SYSCTL_BIT    (28)
+#define NVIC_ISER0_R_NVIC_SYSCTL_BIT    (28u)
 #define NVIC_ISER0_R_NVIC_SYSCTL_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_SYSCTL_EN     ((uint32_t)0x10000000u)
 
@@ -1673,7 +1673,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_FLASH_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ISER0_R_NVIC_FLASH_BIT     (29)
+#define NVIC_ISER0_R_NVIC_FLASH_BIT     (29u)
 #define NVIC_ISER0_R_NVIC_FLASH_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_FLASH_EN      ((uint32_t)0x20000000u)
 
@@ -1684,7 +1684,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_GPIOF_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ISER0_R_NVIC_GPIOF_BIT     (30)
+#define NVIC_ISER0_R_NVIC_GPIOF_BIT     (30u)
 #define NVIC_ISER0_R_NVIC_GPIOF_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_GPIOF_EN      ((uint32_t)0x40000000u)
 
@@ -1695,7 +1695,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER0_R_NVIC_RES47_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ISER0_R_NVIC_RES47_BIT     (31)
+#define NVIC_ISER0_R_NVIC_RES47_BIT     (31u)
 #define NVIC_ISER0_R_NVIC_RES47_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER0_R_NVIC_RES47_EN      ((uint32_t)0x80000000u)
 
@@ -1714,7 +1714,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_GPIOA_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ICER0_R_NVIC_GPIOA_BIT     (0)
+#define NVIC_ICER0_R_NVIC_GPIOA_BIT     (0u)
 #define NVIC_ICER0_R_NVIC_GPIOA_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_GPIOA_EN      ((uint32_t)0x00000001u)
 
@@ -1725,7 +1725,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_GPIOB_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ICER0_R_NVIC_GPIOB_BIT     (1)
+#define NVIC_ICER0_R_NVIC_GPIOB_BIT     (1u)
 #define NVIC_ICER0_R_NVIC_GPIOB_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_GPIOB_EN      ((uint32_t)0x00000002u)
 
@@ -1736,7 +1736,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_GPIOC_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ICER0_R_NVIC_GPIOC_BIT     (2)
+#define NVIC_ICER0_R_NVIC_GPIOC_BIT     (2u)
 #define NVIC_ICER0_R_NVIC_GPIOC_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_GPIOC_EN      ((uint32_t)0x00000004u)
 
@@ -1748,7 +1748,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_GPIOD_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ICER0_R_NVIC_GPIOD_BIT     (3)
+#define NVIC_ICER0_R_NVIC_GPIOD_BIT     (3u)
 #define NVIC_ICER0_R_NVIC_GPIOD_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_GPIOD_EN      ((uint32_t)0x00000008u)
 
@@ -1759,7 +1759,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_GPIOE_MASK    ((uint32_t)0x00000010u)
-#define NVIC_ICER0_R_NVIC_GPIOE_BIT     (4)
+#define NVIC_ICER0_R_NVIC_GPIOE_BIT     (4u)
 #define NVIC_ICER0_R_NVIC_GPIOE_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_GPIOE_EN      ((uint32_t)0x00000010u)
 
@@ -1770,7 +1770,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_UART0_MASK    ((uint32_t)0x00000020u)
-#define NVIC_ICER0_R_NVIC_UART0_BIT     (5)
+#define NVIC_ICER0_R_NVIC_UART0_BIT     (5u)
 #define NVIC_ICER0_R_NVIC_UART0_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_UART0_EN      ((uint32_t)0x00000020u)
 
@@ -1781,7 +1781,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_UART1_MASK    ((uint32_t)0x00000040u)
-#define NVIC_ICER0_R_NVIC_UART1_BIT     (6)
+#define NVIC_ICER0_R_NVIC_UART1_BIT     (6u)
 #define NVIC_ICER0_R_NVIC_UART1_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_UART1_EN      ((uint32_t)0x00000040u)
 
@@ -1792,7 +1792,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_SSI0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ICER0_R_NVIC_SSI0_BIT      (7)
+#define NVIC_ICER0_R_NVIC_SSI0_BIT      (7u)
 #define NVIC_ICER0_R_NVIC_SSI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_SSI0_EN       ((uint32_t)0x00000080u)
 
@@ -1803,7 +1803,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_I2C0_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ICER0_R_NVIC_I2C0_BIT      (8)
+#define NVIC_ICER0_R_NVIC_I2C0_BIT      (8u)
 #define NVIC_ICER0_R_NVIC_I2C0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_I2C0_EN       ((uint32_t)0x00000100u)
 
@@ -1814,7 +1814,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_PWM0FAULT_MASK ((uint32_t)0x00000200u)
-#define NVIC_ICER0_R_NVIC_PWM0FAULT_BIT  (9)
+#define NVIC_ICER0_R_NVIC_PWM0FAULT_BIT  (9u)
 #define NVIC_ICER0_R_NVIC_PWM0FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_PWM0FAULT_EN   ((uint32_t)0x00000200u)
 
@@ -1825,7 +1825,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_PWM0GEN0_MASK  ((uint32_t)0x00000400u)
-#define NVIC_ICER0_R_NVIC_PWM0GEN0_BIT   (10)
+#define NVIC_ICER0_R_NVIC_PWM0GEN0_BIT   (10u)
 #define NVIC_ICER0_R_NVIC_PWM0GEN0_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_PWM0GEN0_EN    ((uint32_t)0x00000400u)
 
@@ -1836,7 +1836,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_PWM0GEN1_MASK  ((uint32_t)0x00000800u)
-#define NVIC_ICER0_R_NVIC_PWM0GEN1_BIT   (11)
+#define NVIC_ICER0_R_NVIC_PWM0GEN1_BIT   (11u)
 #define NVIC_ICER0_R_NVIC_PWM0GEN1_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_PWM0GEN1_EN    ((uint32_t)0x00000800u)
 
@@ -1847,7 +1847,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_PWM0GEN2_MASK  ((uint32_t)0x00001000u)
-#define NVIC_ICER0_R_NVIC_PWM0GEN2_BIT   (12)
+#define NVIC_ICER0_R_NVIC_PWM0GEN2_BIT   (12u)
 #define NVIC_ICER0_R_NVIC_PWM0GEN2_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_PWM0GEN2_EN    ((uint32_t)0x00001000u)
 
@@ -1858,7 +1858,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_QEI0_MASK     ((uint32_t)0x00002000u)
-#define NVIC_ICER0_R_NVIC_QEI0_BIT      (13)
+#define NVIC_ICER0_R_NVIC_QEI0_BIT      (13u)
 #define NVIC_ICER0_R_NVIC_QEI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_QEI0_EN       ((uint32_t)0x00002000u)
 
@@ -1869,7 +1869,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_ADC0SEQ0_MASK ((uint32_t)0x00004000u)
-#define NVIC_ICER0_R_NVIC_ADC0SEQ0_BIT  (14)
+#define NVIC_ICER0_R_NVIC_ADC0SEQ0_BIT  (14u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ0_EN   ((uint32_t)0x00004000u)
 
@@ -1880,7 +1880,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_ADC0SEQ1_MASK ((uint32_t)0x00008000u)
-#define NVIC_ICER0_R_NVIC_ADC0SEQ1_BIT  (15)
+#define NVIC_ICER0_R_NVIC_ADC0SEQ1_BIT  (15u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ1_EN   ((uint32_t)0x00008000u)
 
@@ -1891,7 +1891,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_ADC0SEQ2_MASK ((uint32_t)0x00010000u)
-#define NVIC_ICER0_R_NVIC_ADC0SEQ2_BIT  (16)
+#define NVIC_ICER0_R_NVIC_ADC0SEQ2_BIT  (16u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ2_EN   ((uint32_t)0x00010000u)
 
@@ -1902,7 +1902,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_ADC0SEQ3_MASK ((uint32_t)0x00020000u)
-#define NVIC_ICER0_R_NVIC_ADC0SEQ3_BIT  (17)
+#define NVIC_ICER0_R_NVIC_ADC0SEQ3_BIT  (17u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_ADC0SEQ3_EN   ((uint32_t)0x00020000u)
 
@@ -1913,7 +1913,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_WDT01_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ICER0_R_NVIC_WDT01_BIT     (18)
+#define NVIC_ICER0_R_NVIC_WDT01_BIT     (18u)
 #define NVIC_ICER0_R_NVIC_WDT01_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_WDT01_EN      ((uint32_t)0x00040000u)
 
@@ -1924,7 +1924,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_TIMER0A_MASK  ((uint32_t)0x00080000u)
-#define NVIC_ICER0_R_NVIC_TIMER0A_BIT   (19)
+#define NVIC_ICER0_R_NVIC_TIMER0A_BIT   (19u)
 #define NVIC_ICER0_R_NVIC_TIMER0A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_TIMER0A_EN    ((uint32_t)0x00080000u)
 
@@ -1935,7 +1935,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_TIMER0B_MASK  ((uint32_t)0x00100000u)
-#define NVIC_ICER0_R_NVIC_TIMER0B_BIT   (20)
+#define NVIC_ICER0_R_NVIC_TIMER0B_BIT   (20u)
 #define NVIC_ICER0_R_NVIC_TIMER0B_DI    ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_TIMER0B_EN    ((uint32_t)0x00100000u)
 
@@ -1946,7 +1946,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_TIMER1A_MASK  ((uint32_t)0x00200000u)
-#define NVIC_ICER0_R_NVIC_TIMER1A_BIT   (21)
+#define NVIC_ICER0_R_NVIC_TIMER1A_BIT   (21u)
 #define NVIC_ICER0_R_NVIC_TIMER1A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_TIMER1A_EN    ((uint32_t)0x00200000u)
 
@@ -1957,7 +1957,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_TIMER1B_MASK  ((uint32_t)0x00400000u)
-#define NVIC_ICER0_R_NVIC_TIMER1B_BIT   (22)
+#define NVIC_ICER0_R_NVIC_TIMER1B_BIT   (22u)
 #define NVIC_ICER0_R_NVIC_TIMER1B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_TIMER1B_EN    ((uint32_t)0x00400000u)
 
@@ -1968,7 +1968,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_TIMER2A_MASK  ((uint32_t)0x00800000u)
-#define NVIC_ICER0_R_NVIC_TIMER2A_BIT   (23)
+#define NVIC_ICER0_R_NVIC_TIMER2A_BIT   (23u)
 #define NVIC_ICER0_R_NVIC_TIMER2A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_TIMER2A_EN    ((uint32_t)0x00800000u)
 
@@ -1979,7 +1979,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_TIMER2B_MASK  ((uint32_t)0x01000000u)
-#define NVIC_ICER0_R_NVIC_TIMER2B_BIT   (24)
+#define NVIC_ICER0_R_NVIC_TIMER2B_BIT   (24u)
 #define NVIC_ICER0_R_NVIC_TIMER2B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_TIMER2B_EN    ((uint32_t)0x01000000u)
 
@@ -1990,7 +1990,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_ACOMP0_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ICER0_R_NVIC_ACOMP0_BIT    (25)
+#define NVIC_ICER0_R_NVIC_ACOMP0_BIT    (25u)
 #define NVIC_ICER0_R_NVIC_ACOMP0_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_ACOMP0_EN     ((uint32_t)0x02000000u)
 
@@ -2001,7 +2001,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_ACOMP1_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ICER0_R_NVIC_ACOMP1_BIT    (26)
+#define NVIC_ICER0_R_NVIC_ACOMP1_BIT    (26u)
 #define NVIC_ICER0_R_NVIC_ACOMP1_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_ACOMP1_EN     ((uint32_t)0x04000000u)
 
@@ -2012,7 +2012,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_RES43_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ICER0_R_NVIC_RES43_BIT     (27)
+#define NVIC_ICER0_R_NVIC_RES43_BIT     (27u)
 #define NVIC_ICER0_R_NVIC_RES43_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_RES43_EN      ((uint32_t)0x08000000u)
 
@@ -2023,7 +2023,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_SYSCTL_MASK   ((uint32_t)0x10000000u)
-#define NVIC_ICER0_R_NVIC_SYSCTL_BIT    (28)
+#define NVIC_ICER0_R_NVIC_SYSCTL_BIT    (28u)
 #define NVIC_ICER0_R_NVIC_SYSCTL_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_SYSCTL_EN     ((uint32_t)0x10000000u)
 
@@ -2034,7 +2034,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_FLASH_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ICER0_R_NVIC_FLASH_BIT     (29)
+#define NVIC_ICER0_R_NVIC_FLASH_BIT     (29u)
 #define NVIC_ICER0_R_NVIC_FLASH_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_FLASH_EN      ((uint32_t)0x20000000u)
 
@@ -2045,7 +2045,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_GPIOF_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ICER0_R_NVIC_GPIOF_BIT     (30)
+#define NVIC_ICER0_R_NVIC_GPIOF_BIT     (30u)
 #define NVIC_ICER0_R_NVIC_GPIOF_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_GPIOF_EN      ((uint32_t)0x40000000u)
 
@@ -2056,7 +2056,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER0_R_NVIC_RES47_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ICER0_R_NVIC_RES47_BIT     (31)
+#define NVIC_ICER0_R_NVIC_RES47_BIT     (31u)
 #define NVIC_ICER0_R_NVIC_RES47_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER0_R_NVIC_RES47_EN      ((uint32_t)0x80000000u)
 
@@ -2075,7 +2075,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_GPIOA_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ISPR0_R_NVIC_GPIOA_BIT     (0)
+#define NVIC_ISPR0_R_NVIC_GPIOA_BIT     (0u)
 #define NVIC_ISPR0_R_NVIC_GPIOA_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_GPIOA_EN      ((uint32_t)0x00000001u)
 
@@ -2086,7 +2086,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_GPIOB_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ISPR0_R_NVIC_GPIOB_BIT     (1)
+#define NVIC_ISPR0_R_NVIC_GPIOB_BIT     (1u)
 #define NVIC_ISPR0_R_NVIC_GPIOB_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_GPIOB_EN      ((uint32_t)0x00000002u)
 
@@ -2097,7 +2097,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_GPIOC_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ISPR0_R_NVIC_GPIOC_BIT     (2)
+#define NVIC_ISPR0_R_NVIC_GPIOC_BIT     (2u)
 #define NVIC_ISPR0_R_NVIC_GPIOC_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_GPIOC_EN      ((uint32_t)0x00000004u)
 
@@ -2109,7 +2109,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_GPIOD_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ISPR0_R_NVIC_GPIOD_BIT     (3)
+#define NVIC_ISPR0_R_NVIC_GPIOD_BIT     (3u)
 #define NVIC_ISPR0_R_NVIC_GPIOD_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_GPIOD_EN      ((uint32_t)0x00000008u)
 
@@ -2120,7 +2120,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_GPIOE_MASK    ((uint32_t)0x00000010u)
-#define NVIC_ISPR0_R_NVIC_GPIOE_BIT     (4)
+#define NVIC_ISPR0_R_NVIC_GPIOE_BIT     (4u)
 #define NVIC_ISPR0_R_NVIC_GPIOE_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_GPIOE_EN      ((uint32_t)0x00000010u)
 
@@ -2131,7 +2131,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_UART0_MASK    ((uint32_t)0x00000020u)
-#define NVIC_ISPR0_R_NVIC_UART0_BIT     (5)
+#define NVIC_ISPR0_R_NVIC_UART0_BIT     (5u)
 #define NVIC_ISPR0_R_NVIC_UART0_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_UART0_EN      ((uint32_t)0x00000020u)
 
@@ -2142,7 +2142,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_UART1_MASK    ((uint32_t)0x00000040u)
-#define NVIC_ISPR0_R_NVIC_UART1_BIT     (6)
+#define NVIC_ISPR0_R_NVIC_UART1_BIT     (6u)
 #define NVIC_ISPR0_R_NVIC_UART1_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_UART1_EN      ((uint32_t)0x00000040u)
 
@@ -2153,7 +2153,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_SSI0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ISPR0_R_NVIC_SSI0_BIT      (7)
+#define NVIC_ISPR0_R_NVIC_SSI0_BIT      (7u)
 #define NVIC_ISPR0_R_NVIC_SSI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_SSI0_EN       ((uint32_t)0x00000080u)
 
@@ -2164,7 +2164,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_I2C0_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ISPR0_R_NVIC_I2C0_BIT      (8)
+#define NVIC_ISPR0_R_NVIC_I2C0_BIT      (8u)
 #define NVIC_ISPR0_R_NVIC_I2C0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_I2C0_EN       ((uint32_t)0x00000100u)
 
@@ -2175,7 +2175,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_PWM0FAULT_MASK ((uint32_t)0x00000200u)
-#define NVIC_ISPR0_R_NVIC_PWM0FAULT_BIT  (9)
+#define NVIC_ISPR0_R_NVIC_PWM0FAULT_BIT  (9u)
 #define NVIC_ISPR0_R_NVIC_PWM0FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_PWM0FAULT_EN   ((uint32_t)0x00000200u)
 
@@ -2186,7 +2186,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_PWM0GEN0_MASK  ((uint32_t)0x00000400u)
-#define NVIC_ISPR0_R_NVIC_PWM0GEN0_BIT   (10)
+#define NVIC_ISPR0_R_NVIC_PWM0GEN0_BIT   (10u)
 #define NVIC_ISPR0_R_NVIC_PWM0GEN0_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_PWM0GEN0_EN    ((uint32_t)0x00000400u)
 
@@ -2197,7 +2197,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_PWM0GEN1_MASK  ((uint32_t)0x00000800u)
-#define NVIC_ISPR0_R_NVIC_PWM0GEN1_BIT   (11)
+#define NVIC_ISPR0_R_NVIC_PWM0GEN1_BIT   (11u)
 #define NVIC_ISPR0_R_NVIC_PWM0GEN1_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_PWM0GEN1_EN    ((uint32_t)0x00000800u)
 
@@ -2208,7 +2208,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_PWM0GEN2_MASK  ((uint32_t)0x00001000u)
-#define NVIC_ISPR0_R_NVIC_PWM0GEN2_BIT   (12)
+#define NVIC_ISPR0_R_NVIC_PWM0GEN2_BIT   (12u)
 #define NVIC_ISPR0_R_NVIC_PWM0GEN2_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_PWM0GEN2_EN    ((uint32_t)0x00001000u)
 
@@ -2219,7 +2219,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_QEI0_MASK     ((uint32_t)0x00002000u)
-#define NVIC_ISPR0_R_NVIC_QEI0_BIT      (13)
+#define NVIC_ISPR0_R_NVIC_QEI0_BIT      (13u)
 #define NVIC_ISPR0_R_NVIC_QEI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_QEI0_EN       ((uint32_t)0x00002000u)
 
@@ -2230,7 +2230,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ0_MASK ((uint32_t)0x00004000u)
-#define NVIC_ISPR0_R_NVIC_ADC0SEQ0_BIT  (14)
+#define NVIC_ISPR0_R_NVIC_ADC0SEQ0_BIT  (14u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ0_EN   ((uint32_t)0x00004000u)
 
@@ -2241,7 +2241,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ1_MASK ((uint32_t)0x00008000u)
-#define NVIC_ISPR0_R_NVIC_ADC0SEQ1_BIT  (15)
+#define NVIC_ISPR0_R_NVIC_ADC0SEQ1_BIT  (15u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ1_EN   ((uint32_t)0x00008000u)
 
@@ -2252,7 +2252,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ2_MASK ((uint32_t)0x00010000u)
-#define NVIC_ISPR0_R_NVIC_ADC0SEQ2_BIT  (16)
+#define NVIC_ISPR0_R_NVIC_ADC0SEQ2_BIT  (16u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ2_EN   ((uint32_t)0x00010000u)
 
@@ -2263,7 +2263,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ3_MASK ((uint32_t)0x00020000u)
-#define NVIC_ISPR0_R_NVIC_ADC0SEQ3_BIT  (17)
+#define NVIC_ISPR0_R_NVIC_ADC0SEQ3_BIT  (17u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_ADC0SEQ3_EN   ((uint32_t)0x00020000u)
 
@@ -2274,7 +2274,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_WDT01_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ISPR0_R_NVIC_WDT01_BIT     (18)
+#define NVIC_ISPR0_R_NVIC_WDT01_BIT     (18u)
 #define NVIC_ISPR0_R_NVIC_WDT01_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_WDT01_EN      ((uint32_t)0x00040000u)
 
@@ -2285,7 +2285,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_TIMER0A_MASK  ((uint32_t)0x00080000u)
-#define NVIC_ISPR0_R_NVIC_TIMER0A_BIT   (19)
+#define NVIC_ISPR0_R_NVIC_TIMER0A_BIT   (19u)
 #define NVIC_ISPR0_R_NVIC_TIMER0A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_TIMER0A_EN    ((uint32_t)0x00080000u)
 
@@ -2296,7 +2296,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_TIMER0B_MASK  ((uint32_t)0x00100000u)
-#define NVIC_ISPR0_R_NVIC_TIMER0B_BIT   (20)
+#define NVIC_ISPR0_R_NVIC_TIMER0B_BIT   (20u)
 #define NVIC_ISPR0_R_NVIC_TIMER0B_DI    ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_TIMER0B_EN    ((uint32_t)0x00100000u)
 
@@ -2307,7 +2307,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_TIMER1A_MASK  ((uint32_t)0x00200000u)
-#define NVIC_ISPR0_R_NVIC_TIMER1A_BIT   (21)
+#define NVIC_ISPR0_R_NVIC_TIMER1A_BIT   (21u)
 #define NVIC_ISPR0_R_NVIC_TIMER1A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_TIMER1A_EN    ((uint32_t)0x00200000u)
 
@@ -2318,7 +2318,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_TIMER1B_MASK  ((uint32_t)0x00400000u)
-#define NVIC_ISPR0_R_NVIC_TIMER1B_BIT   (22)
+#define NVIC_ISPR0_R_NVIC_TIMER1B_BIT   (22u)
 #define NVIC_ISPR0_R_NVIC_TIMER1B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_TIMER1B_EN    ((uint32_t)0x00400000u)
 
@@ -2329,7 +2329,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_TIMER2A_MASK  ((uint32_t)0x00800000u)
-#define NVIC_ISPR0_R_NVIC_TIMER2A_BIT   (23)
+#define NVIC_ISPR0_R_NVIC_TIMER2A_BIT   (23u)
 #define NVIC_ISPR0_R_NVIC_TIMER2A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_TIMER2A_EN    ((uint32_t)0x00800000u)
 
@@ -2340,7 +2340,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_TIMER2B_MASK  ((uint32_t)0x01000000u)
-#define NVIC_ISPR0_R_NVIC_TIMER2B_BIT   (24)
+#define NVIC_ISPR0_R_NVIC_TIMER2B_BIT   (24u)
 #define NVIC_ISPR0_R_NVIC_TIMER2B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_TIMER2B_EN    ((uint32_t)0x01000000u)
 
@@ -2351,7 +2351,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_ACOMP0_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ISPR0_R_NVIC_ACOMP0_BIT    (25)
+#define NVIC_ISPR0_R_NVIC_ACOMP0_BIT    (25u)
 #define NVIC_ISPR0_R_NVIC_ACOMP0_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_ACOMP0_EN     ((uint32_t)0x02000000u)
 
@@ -2362,7 +2362,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_ACOMP1_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ISPR0_R_NVIC_ACOMP1_BIT    (26)
+#define NVIC_ISPR0_R_NVIC_ACOMP1_BIT    (26u)
 #define NVIC_ISPR0_R_NVIC_ACOMP1_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_ACOMP1_EN     ((uint32_t)0x04000000u)
 
@@ -2373,7 +2373,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_RES43_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ISPR0_R_NVIC_RES43_BIT     (27)
+#define NVIC_ISPR0_R_NVIC_RES43_BIT     (27u)
 #define NVIC_ISPR0_R_NVIC_RES43_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_RES43_EN      ((uint32_t)0x08000000u)
 
@@ -2384,7 +2384,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_SYSCTL_MASK   ((uint32_t)0x10000000u)
-#define NVIC_ISPR0_R_NVIC_SYSCTL_BIT    (28)
+#define NVIC_ISPR0_R_NVIC_SYSCTL_BIT    (28u)
 #define NVIC_ISPR0_R_NVIC_SYSCTL_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_SYSCTL_EN     ((uint32_t)0x10000000u)
 
@@ -2395,7 +2395,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_FLASH_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ISPR0_R_NVIC_FLASH_BIT     (29)
+#define NVIC_ISPR0_R_NVIC_FLASH_BIT     (29u)
 #define NVIC_ISPR0_R_NVIC_FLASH_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_FLASH_EN      ((uint32_t)0x20000000u)
 
@@ -2406,7 +2406,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_GPIOF_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ISPR0_R_NVIC_GPIOF_BIT     (30)
+#define NVIC_ISPR0_R_NVIC_GPIOF_BIT     (30u)
 #define NVIC_ISPR0_R_NVIC_GPIOF_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_GPIOF_EN      ((uint32_t)0x40000000u)
 
@@ -2417,7 +2417,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR0_R_NVIC_RES47_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ISPR0_R_NVIC_RES47_BIT     (31)
+#define NVIC_ISPR0_R_NVIC_RES47_BIT     (31u)
 #define NVIC_ISPR0_R_NVIC_RES47_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR0_R_NVIC_RES47_EN      ((uint32_t)0x80000000u)
 
@@ -2437,7 +2437,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_GPIOA_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ICPR0_R_NVIC_GPIOA_BIT     (0)
+#define NVIC_ICPR0_R_NVIC_GPIOA_BIT     (0u)
 #define NVIC_ICPR0_R_NVIC_GPIOA_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_GPIOA_EN      ((uint32_t)0x00000001u)
 
@@ -2448,7 +2448,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_GPIOB_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ICPR0_R_NVIC_GPIOB_BIT     (1)
+#define NVIC_ICPR0_R_NVIC_GPIOB_BIT     (1u)
 #define NVIC_ICPR0_R_NVIC_GPIOB_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_GPIOB_EN      ((uint32_t)0x00000002u)
 
@@ -2459,7 +2459,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_GPIOC_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ICPR0_R_NVIC_GPIOC_BIT     (2)
+#define NVIC_ICPR0_R_NVIC_GPIOC_BIT     (2u)
 #define NVIC_ICPR0_R_NVIC_GPIOC_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_GPIOC_EN      ((uint32_t)0x00000004u)
 
@@ -2471,7 +2471,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_GPIOD_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ICPR0_R_NVIC_GPIOD_BIT     (3)
+#define NVIC_ICPR0_R_NVIC_GPIOD_BIT     (3u)
 #define NVIC_ICPR0_R_NVIC_GPIOD_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_GPIOD_EN      ((uint32_t)0x00000008u)
 
@@ -2482,7 +2482,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_GPIOE_MASK    ((uint32_t)0x00000010u)
-#define NVIC_ICPR0_R_NVIC_GPIOE_BIT     (4)
+#define NVIC_ICPR0_R_NVIC_GPIOE_BIT     (4u)
 #define NVIC_ICPR0_R_NVIC_GPIOE_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_GPIOE_EN      ((uint32_t)0x00000010u)
 
@@ -2493,7 +2493,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_UART0_MASK    ((uint32_t)0x00000020u)
-#define NVIC_ICPR0_R_NVIC_UART0_BIT     (5)
+#define NVIC_ICPR0_R_NVIC_UART0_BIT     (5u)
 #define NVIC_ICPR0_R_NVIC_UART0_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_UART0_EN      ((uint32_t)0x00000020u)
 
@@ -2504,7 +2504,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_UART1_MASK    ((uint32_t)0x00000040u)
-#define NVIC_ICPR0_R_NVIC_UART1_BIT     (6)
+#define NVIC_ICPR0_R_NVIC_UART1_BIT     (6u)
 #define NVIC_ICPR0_R_NVIC_UART1_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_UART1_EN      ((uint32_t)0x00000040u)
 
@@ -2515,7 +2515,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_SSI0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ICPR0_R_NVIC_SSI0_BIT      (7)
+#define NVIC_ICPR0_R_NVIC_SSI0_BIT      (7u)
 #define NVIC_ICPR0_R_NVIC_SSI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_SSI0_EN       ((uint32_t)0x00000080u)
 
@@ -2526,7 +2526,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_I2C0_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ICPR0_R_NVIC_I2C0_BIT      (8)
+#define NVIC_ICPR0_R_NVIC_I2C0_BIT      (8u)
 #define NVIC_ICPR0_R_NVIC_I2C0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_I2C0_EN       ((uint32_t)0x00000100u)
 
@@ -2537,7 +2537,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_PWM0FAULT_MASK ((uint32_t)0x00000200u)
-#define NVIC_ICPR0_R_NVIC_PWM0FAULT_BIT  (9)
+#define NVIC_ICPR0_R_NVIC_PWM0FAULT_BIT  (9u)
 #define NVIC_ICPR0_R_NVIC_PWM0FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_PWM0FAULT_EN   ((uint32_t)0x00000200u)
 
@@ -2548,7 +2548,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_PWM0GEN0_MASK  ((uint32_t)0x00000400u)
-#define NVIC_ICPR0_R_NVIC_PWM0GEN0_BIT   (10)
+#define NVIC_ICPR0_R_NVIC_PWM0GEN0_BIT   (10u)
 #define NVIC_ICPR0_R_NVIC_PWM0GEN0_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_PWM0GEN0_EN    ((uint32_t)0x00000400u)
 
@@ -2559,7 +2559,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_PWM0GEN1_MASK  ((uint32_t)0x00000800u)
-#define NVIC_ICPR0_R_NVIC_PWM0GEN1_BIT   (11)
+#define NVIC_ICPR0_R_NVIC_PWM0GEN1_BIT   (11u)
 #define NVIC_ICPR0_R_NVIC_PWM0GEN1_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_PWM0GEN1_EN    ((uint32_t)0x00000800u)
 
@@ -2570,7 +2570,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_PWM0GEN2_MASK  ((uint32_t)0x00001000u)
-#define NVIC_ICPR0_R_NVIC_PWM0GEN2_BIT   (12)
+#define NVIC_ICPR0_R_NVIC_PWM0GEN2_BIT   (12u)
 #define NVIC_ICPR0_R_NVIC_PWM0GEN2_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_PWM0GEN2_EN    ((uint32_t)0x00001000u)
 
@@ -2581,7 +2581,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_QEI0_MASK     ((uint32_t)0x00002000u)
-#define NVIC_ICPR0_R_NVIC_QEI0_BIT      (13)
+#define NVIC_ICPR0_R_NVIC_QEI0_BIT      (13u)
 #define NVIC_ICPR0_R_NVIC_QEI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_QEI0_EN       ((uint32_t)0x00002000u)
 
@@ -2592,7 +2592,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ0_MASK ((uint32_t)0x00004000u)
-#define NVIC_ICPR0_R_NVIC_ADC0SEQ0_BIT  (14)
+#define NVIC_ICPR0_R_NVIC_ADC0SEQ0_BIT  (14u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ0_EN   ((uint32_t)0x00004000u)
 
@@ -2603,7 +2603,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ1_MASK ((uint32_t)0x00008000u)
-#define NVIC_ICPR0_R_NVIC_ADC0SEQ1_BIT  (15)
+#define NVIC_ICPR0_R_NVIC_ADC0SEQ1_BIT  (15u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ1_EN   ((uint32_t)0x00008000u)
 
@@ -2614,7 +2614,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ2_MASK ((uint32_t)0x00010000u)
-#define NVIC_ICPR0_R_NVIC_ADC0SEQ2_BIT  (16)
+#define NVIC_ICPR0_R_NVIC_ADC0SEQ2_BIT  (16u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ2_EN   ((uint32_t)0x00010000u)
 
@@ -2625,7 +2625,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ3_MASK ((uint32_t)0x00020000u)
-#define NVIC_ICPR0_R_NVIC_ADC0SEQ3_BIT  (17)
+#define NVIC_ICPR0_R_NVIC_ADC0SEQ3_BIT  (17u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_ADC0SEQ3_EN   ((uint32_t)0x00020000u)
 
@@ -2636,7 +2636,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_WDT01_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ICPR0_R_NVIC_WDT01_BIT     (18)
+#define NVIC_ICPR0_R_NVIC_WDT01_BIT     (18u)
 #define NVIC_ICPR0_R_NVIC_WDT01_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_WDT01_EN      ((uint32_t)0x00040000u)
 
@@ -2647,7 +2647,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_TIMER0A_MASK  ((uint32_t)0x00080000u)
-#define NVIC_ICPR0_R_NVIC_TIMER0A_BIT   (19)
+#define NVIC_ICPR0_R_NVIC_TIMER0A_BIT   (19u)
 #define NVIC_ICPR0_R_NVIC_TIMER0A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_TIMER0A_EN    ((uint32_t)0x00080000u)
 
@@ -2658,7 +2658,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_TIMER0B_MASK  ((uint32_t)0x00100000u)
-#define NVIC_ICPR0_R_NVIC_TIMER0B_BIT   (20)
+#define NVIC_ICPR0_R_NVIC_TIMER0B_BIT   (20u)
 #define NVIC_ICPR0_R_NVIC_TIMER0B_DI    ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_TIMER0B_EN    ((uint32_t)0x00100000u)
 
@@ -2669,7 +2669,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_TIMER1A_MASK  ((uint32_t)0x00200000u)
-#define NVIC_ICPR0_R_NVIC_TIMER1A_BIT   (21)
+#define NVIC_ICPR0_R_NVIC_TIMER1A_BIT   (21u)
 #define NVIC_ICPR0_R_NVIC_TIMER1A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_TIMER1A_EN    ((uint32_t)0x00200000u)
 
@@ -2680,7 +2680,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_TIMER1B_MASK  ((uint32_t)0x00400000u)
-#define NVIC_ICPR0_R_NVIC_TIMER1B_BIT   (22)
+#define NVIC_ICPR0_R_NVIC_TIMER1B_BIT   (22u)
 #define NVIC_ICPR0_R_NVIC_TIMER1B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_TIMER1B_EN    ((uint32_t)0x00400000u)
 
@@ -2691,7 +2691,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_TIMER2A_MASK  ((uint32_t)0x00800000u)
-#define NVIC_ICPR0_R_NVIC_TIMER2A_BIT   (23)
+#define NVIC_ICPR0_R_NVIC_TIMER2A_BIT   (23u)
 #define NVIC_ICPR0_R_NVIC_TIMER2A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_TIMER2A_EN    ((uint32_t)0x00800000u)
 
@@ -2702,7 +2702,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_TIMER2B_MASK  ((uint32_t)0x01000000u)
-#define NVIC_ICPR0_R_NVIC_TIMER2B_BIT   (24)
+#define NVIC_ICPR0_R_NVIC_TIMER2B_BIT   (24u)
 #define NVIC_ICPR0_R_NVIC_TIMER2B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_TIMER2B_EN    ((uint32_t)0x01000000u)
 
@@ -2713,7 +2713,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_ACOMP0_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ICPR0_R_NVIC_ACOMP0_BIT    (25)
+#define NVIC_ICPR0_R_NVIC_ACOMP0_BIT    (25u)
 #define NVIC_ICPR0_R_NVIC_ACOMP0_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_ACOMP0_EN     ((uint32_t)0x02000000u)
 
@@ -2724,7 +2724,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_ACOMP1_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ICPR0_R_NVIC_ACOMP1_BIT    (26)
+#define NVIC_ICPR0_R_NVIC_ACOMP1_BIT    (26u)
 #define NVIC_ICPR0_R_NVIC_ACOMP1_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_ACOMP1_EN     ((uint32_t)0x04000000u)
 
@@ -2735,7 +2735,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_RES43_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ICPR0_R_NVIC_RES43_BIT     (27)
+#define NVIC_ICPR0_R_NVIC_RES43_BIT     (27u)
 #define NVIC_ICPR0_R_NVIC_RES43_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_RES43_EN      ((uint32_t)0x08000000u)
 
@@ -2746,7 +2746,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_SYSCTL_MASK   ((uint32_t)0x10000000u)
-#define NVIC_ICPR0_R_NVIC_SYSCTL_BIT    (28)
+#define NVIC_ICPR0_R_NVIC_SYSCTL_BIT    (28u)
 #define NVIC_ICPR0_R_NVIC_SYSCTL_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_SYSCTL_EN     ((uint32_t)0x10000000u)
 
@@ -2757,7 +2757,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_FLASH_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ICPR0_R_NVIC_FLASH_BIT     (29)
+#define NVIC_ICPR0_R_NVIC_FLASH_BIT     (29u)
 #define NVIC_ICPR0_R_NVIC_FLASH_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_FLASH_EN      ((uint32_t)0x20000000u)
 
@@ -2768,7 +2768,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_GPIOF_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ICPR0_R_NVIC_GPIOF_BIT     (30)
+#define NVIC_ICPR0_R_NVIC_GPIOF_BIT     (30u)
 #define NVIC_ICPR0_R_NVIC_GPIOF_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_GPIOF_EN      ((uint32_t)0x40000000u)
 
@@ -2779,7 +2779,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR0_R_NVIC_RES47_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ICPR0_R_NVIC_RES47_BIT     (31)
+#define NVIC_ICPR0_R_NVIC_RES47_BIT     (31u)
 #define NVIC_ICPR0_R_NVIC_RES47_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR0_R_NVIC_RES47_EN      ((uint32_t)0x80000000u)
 
@@ -2798,7 +2798,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_GPIOA_MASK    ((uint32_t)0x00000001u)
-#define NVIC_IABR0_R_NVIC_GPIOA_BIT     (0)
+#define NVIC_IABR0_R_NVIC_GPIOA_BIT     (0u)
 #define NVIC_IABR0_R_NVIC_GPIOA_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_GPIOA_EN      ((uint32_t)0x00000001u)
 
@@ -2809,7 +2809,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_GPIOB_MASK    ((uint32_t)0x00000002u)
-#define NVIC_IABR0_R_NVIC_GPIOB_BIT     (1)
+#define NVIC_IABR0_R_NVIC_GPIOB_BIT     (1u)
 #define NVIC_IABR0_R_NVIC_GPIOB_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_GPIOB_EN      ((uint32_t)0x00000002u)
 
@@ -2820,7 +2820,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_GPIOC_MASK    ((uint32_t)0x00000004u)
-#define NVIC_IABR0_R_NVIC_GPIOC_BIT     (2)
+#define NVIC_IABR0_R_NVIC_GPIOC_BIT     (2u)
 #define NVIC_IABR0_R_NVIC_GPIOC_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_GPIOC_EN      ((uint32_t)0x00000004u)
 
@@ -2832,7 +2832,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_GPIOD_MASK    ((uint32_t)0x00000008u)
-#define NVIC_IABR0_R_NVIC_GPIOD_BIT     (3)
+#define NVIC_IABR0_R_NVIC_GPIOD_BIT     (3u)
 #define NVIC_IABR0_R_NVIC_GPIOD_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_GPIOD_EN      ((uint32_t)0x00000008u)
 
@@ -2843,7 +2843,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_GPIOE_MASK    ((uint32_t)0x00000010u)
-#define NVIC_IABR0_R_NVIC_GPIOE_BIT     (4)
+#define NVIC_IABR0_R_NVIC_GPIOE_BIT     (4u)
 #define NVIC_IABR0_R_NVIC_GPIOE_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_GPIOE_EN      ((uint32_t)0x00000010u)
 
@@ -2854,7 +2854,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_UART0_MASK    ((uint32_t)0x00000020u)
-#define NVIC_IABR0_R_NVIC_UART0_BIT     (5)
+#define NVIC_IABR0_R_NVIC_UART0_BIT     (5u)
 #define NVIC_IABR0_R_NVIC_UART0_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_UART0_EN      ((uint32_t)0x00000020u)
 
@@ -2865,7 +2865,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_UART1_MASK    ((uint32_t)0x00000040u)
-#define NVIC_IABR0_R_NVIC_UART1_BIT     (6)
+#define NVIC_IABR0_R_NVIC_UART1_BIT     (6u)
 #define NVIC_IABR0_R_NVIC_UART1_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_UART1_EN      ((uint32_t)0x00000040u)
 
@@ -2876,7 +2876,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_SSI0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_IABR0_R_NVIC_SSI0_BIT      (7)
+#define NVIC_IABR0_R_NVIC_SSI0_BIT      (7u)
 #define NVIC_IABR0_R_NVIC_SSI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_SSI0_EN       ((uint32_t)0x00000080u)
 
@@ -2887,7 +2887,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_I2C0_MASK     ((uint32_t)0x00000100u)
-#define NVIC_IABR0_R_NVIC_I2C0_BIT      (8)
+#define NVIC_IABR0_R_NVIC_I2C0_BIT      (8u)
 #define NVIC_IABR0_R_NVIC_I2C0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_I2C0_EN       ((uint32_t)0x00000100u)
 
@@ -2898,7 +2898,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_PWM0FAULT_MASK ((uint32_t)0x00000200u)
-#define NVIC_IABR0_R_NVIC_PWM0FAULT_BIT  (9)
+#define NVIC_IABR0_R_NVIC_PWM0FAULT_BIT  (9u)
 #define NVIC_IABR0_R_NVIC_PWM0FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_PWM0FAULT_EN   ((uint32_t)0x00000200u)
 
@@ -2909,7 +2909,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_PWM0GEN0_MASK  ((uint32_t)0x00000400u)
-#define NVIC_IABR0_R_NVIC_PWM0GEN0_BIT   (10)
+#define NVIC_IABR0_R_NVIC_PWM0GEN0_BIT   (10u)
 #define NVIC_IABR0_R_NVIC_PWM0GEN0_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_PWM0GEN0_EN    ((uint32_t)0x00000400u)
 
@@ -2920,7 +2920,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_PWM0GEN1_MASK  ((uint32_t)0x00000800u)
-#define NVIC_IABR0_R_NVIC_PWM0GEN1_BIT   (11)
+#define NVIC_IABR0_R_NVIC_PWM0GEN1_BIT   (11u)
 #define NVIC_IABR0_R_NVIC_PWM0GEN1_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_PWM0GEN1_EN    ((uint32_t)0x00000800u)
 
@@ -2931,7 +2931,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_PWM0GEN2_MASK  ((uint32_t)0x00001000u)
-#define NVIC_IABR0_R_NVIC_PWM0GEN2_BIT   (12)
+#define NVIC_IABR0_R_NVIC_PWM0GEN2_BIT   (12u)
 #define NVIC_IABR0_R_NVIC_PWM0GEN2_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_PWM0GEN2_EN    ((uint32_t)0x00001000u)
 
@@ -2942,7 +2942,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_QEI0_MASK     ((uint32_t)0x00002000u)
-#define NVIC_IABR0_R_NVIC_QEI0_BIT      (13)
+#define NVIC_IABR0_R_NVIC_QEI0_BIT      (13u)
 #define NVIC_IABR0_R_NVIC_QEI0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_QEI0_EN       ((uint32_t)0x00002000u)
 
@@ -2953,7 +2953,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_ADC0SEQ0_MASK ((uint32_t)0x00004000u)
-#define NVIC_IABR0_R_NVIC_ADC0SEQ0_BIT  (14)
+#define NVIC_IABR0_R_NVIC_ADC0SEQ0_BIT  (14u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ0_EN   ((uint32_t)0x00004000u)
 
@@ -2964,7 +2964,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_ADC0SEQ1_MASK ((uint32_t)0x00008000u)
-#define NVIC_IABR0_R_NVIC_ADC0SEQ1_BIT  (15)
+#define NVIC_IABR0_R_NVIC_ADC0SEQ1_BIT  (15u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ1_EN   ((uint32_t)0x00008000u)
 
@@ -2975,7 +2975,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_ADC0SEQ2_MASK ((uint32_t)0x00010000u)
-#define NVIC_IABR0_R_NVIC_ADC0SEQ2_BIT  (16)
+#define NVIC_IABR0_R_NVIC_ADC0SEQ2_BIT  (16u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ2_EN   ((uint32_t)0x00010000u)
 
@@ -2986,7 +2986,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_ADC0SEQ3_MASK ((uint32_t)0x00020000u)
-#define NVIC_IABR0_R_NVIC_ADC0SEQ3_BIT  (17)
+#define NVIC_IABR0_R_NVIC_ADC0SEQ3_BIT  (17u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_ADC0SEQ3_EN   ((uint32_t)0x00020000u)
 
@@ -2997,7 +2997,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_WDT01_MASK    ((uint32_t)0x00040000u)
-#define NVIC_IABR0_R_NVIC_WDT01_BIT     (18)
+#define NVIC_IABR0_R_NVIC_WDT01_BIT     (18u)
 #define NVIC_IABR0_R_NVIC_WDT01_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_WDT01_EN      ((uint32_t)0x00040000u)
 
@@ -3008,7 +3008,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_TIMER0A_MASK  ((uint32_t)0x00080000u)
-#define NVIC_IABR0_R_NVIC_TIMER0A_BIT   (19)
+#define NVIC_IABR0_R_NVIC_TIMER0A_BIT   (19u)
 #define NVIC_IABR0_R_NVIC_TIMER0A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_TIMER0A_EN    ((uint32_t)0x00080000u)
 
@@ -3019,7 +3019,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_TIMER0B_MASK  ((uint32_t)0x00100000u)
-#define NVIC_IABR0_R_NVIC_TIMER0B_BIT   (20)
+#define NVIC_IABR0_R_NVIC_TIMER0B_BIT   (20u)
 #define NVIC_IABR0_R_NVIC_TIMER0B_DI    ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_TIMER0B_EN    ((uint32_t)0x00100000u)
 
@@ -3030,7 +3030,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_TIMER1A_MASK  ((uint32_t)0x00200000u)
-#define NVIC_IABR0_R_NVIC_TIMER1A_BIT   (21)
+#define NVIC_IABR0_R_NVIC_TIMER1A_BIT   (21u)
 #define NVIC_IABR0_R_NVIC_TIMER1A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_TIMER1A_EN    ((uint32_t)0x00200000u)
 
@@ -3041,7 +3041,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_TIMER1B_MASK  ((uint32_t)0x00400000u)
-#define NVIC_IABR0_R_NVIC_TIMER1B_BIT   (22)
+#define NVIC_IABR0_R_NVIC_TIMER1B_BIT   (22u)
 #define NVIC_IABR0_R_NVIC_TIMER1B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_TIMER1B_EN    ((uint32_t)0x00400000u)
 
@@ -3052,7 +3052,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_TIMER2A_MASK  ((uint32_t)0x00800000u)
-#define NVIC_IABR0_R_NVIC_TIMER2A_BIT   (23)
+#define NVIC_IABR0_R_NVIC_TIMER2A_BIT   (23u)
 #define NVIC_IABR0_R_NVIC_TIMER2A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_TIMER2A_EN    ((uint32_t)0x00800000u)
 
@@ -3063,7 +3063,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_TIMER2B_MASK  ((uint32_t)0x01000000u)
-#define NVIC_IABR0_R_NVIC_TIMER2B_BIT   (24)
+#define NVIC_IABR0_R_NVIC_TIMER2B_BIT   (24u)
 #define NVIC_IABR0_R_NVIC_TIMER2B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_TIMER2B_EN    ((uint32_t)0x01000000u)
 
@@ -3074,7 +3074,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_ACOMP0_MASK   ((uint32_t)0x02000000u)
-#define NVIC_IABR0_R_NVIC_ACOMP0_BIT    (25)
+#define NVIC_IABR0_R_NVIC_ACOMP0_BIT    (25u)
 #define NVIC_IABR0_R_NVIC_ACOMP0_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_ACOMP0_EN     ((uint32_t)0x02000000u)
 
@@ -3085,7 +3085,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_ACOMP1_MASK   ((uint32_t)0x04000000u)
-#define NVIC_IABR0_R_NVIC_ACOMP1_BIT    (26)
+#define NVIC_IABR0_R_NVIC_ACOMP1_BIT    (26u)
 #define NVIC_IABR0_R_NVIC_ACOMP1_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_ACOMP1_EN     ((uint32_t)0x04000000u)
 
@@ -3096,7 +3096,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_RES43_MASK    ((uint32_t)0x08000000u)
-#define NVIC_IABR0_R_NVIC_RES43_BIT     (27)
+#define NVIC_IABR0_R_NVIC_RES43_BIT     (27u)
 #define NVIC_IABR0_R_NVIC_RES43_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_RES43_EN      ((uint32_t)0x08000000u)
 
@@ -3107,7 +3107,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_SYSCTL_MASK   ((uint32_t)0x10000000u)
-#define NVIC_IABR0_R_NVIC_SYSCTL_BIT    (28)
+#define NVIC_IABR0_R_NVIC_SYSCTL_BIT    (28u)
 #define NVIC_IABR0_R_NVIC_SYSCTL_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_SYSCTL_EN     ((uint32_t)0x10000000u)
 
@@ -3118,7 +3118,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_FLASH_MASK    ((uint32_t)0x20000000u)
-#define NVIC_IABR0_R_NVIC_FLASH_BIT     (29)
+#define NVIC_IABR0_R_NVIC_FLASH_BIT     (29u)
 #define NVIC_IABR0_R_NVIC_FLASH_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_FLASH_EN      ((uint32_t)0x20000000u)
 
@@ -3129,7 +3129,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_GPIOF_MASK    ((uint32_t)0x40000000u)
-#define NVIC_IABR0_R_NVIC_GPIOF_BIT     (30)
+#define NVIC_IABR0_R_NVIC_GPIOF_BIT     (30u)
 #define NVIC_IABR0_R_NVIC_GPIOF_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_GPIOF_EN      ((uint32_t)0x40000000u)
 
@@ -3140,7 +3140,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR0_R_NVIC_RES47_MASK    ((uint32_t)0x80000000u)
-#define NVIC_IABR0_R_NVIC_RES47_BIT     (31)
+#define NVIC_IABR0_R_NVIC_RES47_BIT     (31u)
 #define NVIC_IABR0_R_NVIC_RES47_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR0_R_NVIC_RES47_EN      ((uint32_t)0x80000000u)
 
@@ -3159,7 +3159,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES48_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ISER1_R_NVIC_RES48_BIT     (0)
+#define NVIC_ISER1_R_NVIC_RES48_BIT     (0u)
 #define NVIC_ISER1_R_NVIC_RES48_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES48_EN      ((uint32_t)0x00000001u)
 
@@ -3170,7 +3170,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UART2_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ISER1_R_NVIC_UART2_BIT     (1)
+#define NVIC_ISER1_R_NVIC_UART2_BIT     (1u)
 #define NVIC_ISER1_R_NVIC_UART2_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UART2_EN      ((uint32_t)0x00000002u)
 
@@ -3181,7 +3181,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_SSI1_MASK     ((uint32_t)0x00000004u)
-#define NVIC_ISER1_R_NVIC_SSI1_BIT      (2)
+#define NVIC_ISER1_R_NVIC_SSI1_BIT      (2u)
 #define NVIC_ISER1_R_NVIC_SSI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_SSI1_EN       ((uint32_t)0x00000004u)
 
@@ -3193,7 +3193,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_TIMER3A_MASK  ((uint32_t)0x00000008u)
-#define NVIC_ISER1_R_NVIC_TIMER3A_BIT   (3)
+#define NVIC_ISER1_R_NVIC_TIMER3A_BIT   (3u)
 #define NVIC_ISER1_R_NVIC_TIMER3A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_TIMER3A_EN    ((uint32_t)0x00000008u)
 
@@ -3204,7 +3204,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_TIMER3B_MASK  ((uint32_t)0x00000010u)
-#define NVIC_ISER1_R_NVIC_TIMER3B_BIT   (4)
+#define NVIC_ISER1_R_NVIC_TIMER3B_BIT   (4u)
 #define NVIC_ISER1_R_NVIC_TIMER3B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_TIMER3B_EN    ((uint32_t)0x00000010u)
 
@@ -3215,7 +3215,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_I2C1_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ISER1_R_NVIC_I2C1_BIT      (5)
+#define NVIC_ISER1_R_NVIC_I2C1_BIT      (5u)
 #define NVIC_ISER1_R_NVIC_I2C1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_I2C1_EN       ((uint32_t)0x00000020u)
 
@@ -3226,7 +3226,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_QEI1_MASK     ((uint32_t)0x00000040u)
-#define NVIC_ISER1_R_NVIC_QEI1_BIT      (6)
+#define NVIC_ISER1_R_NVIC_QEI1_BIT      (6u)
 #define NVIC_ISER1_R_NVIC_QEI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_QEI1_EN       ((uint32_t)0x00000040u)
 
@@ -3237,7 +3237,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_CAN0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ISER1_R_NVIC_CAN0_BIT      (7)
+#define NVIC_ISER1_R_NVIC_CAN0_BIT      (7u)
 #define NVIC_ISER1_R_NVIC_CAN0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_CAN0_EN       ((uint32_t)0x00000080u)
 
@@ -3248,7 +3248,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_CAN1_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ISER1_R_NVIC_CAN1_BIT      (8)
+#define NVIC_ISER1_R_NVIC_CAN1_BIT      (8u)
 #define NVIC_ISER1_R_NVIC_CAN1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_CAN1_EN       ((uint32_t)0x00000100u)
 
@@ -3260,7 +3260,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES57_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ISER1_R_NVIC_RES57_BIT     (9)
+#define NVIC_ISER1_R_NVIC_RES57_BIT     (9u)
 #define NVIC_ISER1_R_NVIC_RES57_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES57_EN      ((uint32_t)0x00000200u)
 
@@ -3272,7 +3272,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES58_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ISER1_R_NVIC_RES58_BIT     (10)
+#define NVIC_ISER1_R_NVIC_RES58_BIT     (10u)
 #define NVIC_ISER1_R_NVIC_RES58_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES58_EN      ((uint32_t)0x00000400u)
 
@@ -3283,7 +3283,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_HIB_MASK      ((uint32_t)0x00000800u)
-#define NVIC_ISER1_R_NVIC_HIB_BIT       (11)
+#define NVIC_ISER1_R_NVIC_HIB_BIT       (11u)
 #define NVIC_ISER1_R_NVIC_HIB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_HIB_EN        ((uint32_t)0x00000800u)
 
@@ -3294,7 +3294,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_USB_MASK      ((uint32_t)0x00001000u)
-#define NVIC_ISER1_R_NVIC_USB_BIT       (12)
+#define NVIC_ISER1_R_NVIC_USB_BIT       (12u)
 #define NVIC_ISER1_R_NVIC_USB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_USB_EN        ((uint32_t)0x00001000u)
 
@@ -3306,7 +3306,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_PWM0GEN3_MASK ((uint32_t)0x00002000u)
-#define NVIC_ISER1_R_NVIC_PWM0GEN3_BIT  (13)
+#define NVIC_ISER1_R_NVIC_PWM0GEN3_BIT  (13u)
 #define NVIC_ISER1_R_NVIC_PWM0GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_PWM0GEN3_EN   ((uint32_t)0x00002000u)
 
@@ -3317,7 +3317,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UDMASOFT_MASK ((uint32_t)0x00004000u)
-#define NVIC_ISER1_R_NVIC_UDMASOFT_BIT  (14)
+#define NVIC_ISER1_R_NVIC_UDMASOFT_BIT  (14u)
 #define NVIC_ISER1_R_NVIC_UDMASOFT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UDMASOFT_EN   ((uint32_t)0x00004000u)
 
@@ -3328,7 +3328,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UDMAERROR_MASK ((uint32_t)0x00008000u)
-#define NVIC_ISER1_R_NVIC_UDMAERROR_BIT (15)
+#define NVIC_ISER1_R_NVIC_UDMAERROR_BIT (15u)
 #define NVIC_ISER1_R_NVIC_UDMAERROR_DIS ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UDMAERROR_EN  ((uint32_t)0x00008000u)
 
@@ -3339,7 +3339,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_ADC1SEQ0_MASK ((uint32_t)0x00010000u)
-#define NVIC_ISER1_R_NVIC_ADC1SEQ0_BIT  (16)
+#define NVIC_ISER1_R_NVIC_ADC1SEQ0_BIT  (16u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ0_EN   ((uint32_t)0x00010000u)
 
@@ -3350,7 +3350,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_ADC1SEQ1_MASK ((uint32_t)0x00020000u)
-#define NVIC_ISER1_R_NVIC_ADC1SEQ1_BIT  (17)
+#define NVIC_ISER1_R_NVIC_ADC1SEQ1_BIT  (17u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ1_EN   ((uint32_t)0x00020000u)
 
@@ -3361,7 +3361,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_ADC1SEQ2_MASK ((uint32_t)0x00040000u)
-#define NVIC_ISER1_R_NVIC_ADC1SEQ2_BIT  (18)
+#define NVIC_ISER1_R_NVIC_ADC1SEQ2_BIT  (18u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ2_EN   ((uint32_t)0x00040000u)
 
@@ -3372,7 +3372,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_ADC1SEQ3_MASK ((uint32_t)0x00080000u)
-#define NVIC_ISER1_R_NVIC_ADC1SEQ3_BIT  (19)
+#define NVIC_ISER1_R_NVIC_ADC1SEQ3_BIT  (19u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_ADC1SEQ3_EN   ((uint32_t)0x00080000u)
 
@@ -3383,7 +3383,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES68_MASK    ((uint32_t)0x00100000u)
-#define NVIC_ISER1_R_NVIC_RES68_BIT     (20)
+#define NVIC_ISER1_R_NVIC_RES68_BIT     (20u)
 #define NVIC_ISER1_R_NVIC_RES68_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES68_EN      ((uint32_t)0x00100000u)
 
@@ -3394,7 +3394,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES69_MASK    ((uint32_t)0x00200000u)
-#define NVIC_ISER1_R_NVIC_RES69_BIT     (21)
+#define NVIC_ISER1_R_NVIC_RES69_BIT     (21u)
 #define NVIC_ISER1_R_NVIC_RES69_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES69_EN      ((uint32_t)0x00200000u)
 
@@ -3405,7 +3405,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES70_MASK    ((uint32_t)0x00400000u)
-#define NVIC_ISER1_R_NVIC_RES70_BIT     (22)
+#define NVIC_ISER1_R_NVIC_RES70_BIT     (22u)
 #define NVIC_ISER1_R_NVIC_RES70_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES70_EN      ((uint32_t)0x00400000u)
 
@@ -3417,7 +3417,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES71_MASK    ((uint32_t)0x00800000u)
-#define NVIC_ISER1_R_NVIC_RES71_BIT     (23)
+#define NVIC_ISER1_R_NVIC_RES71_BIT     (23u)
 #define NVIC_ISER1_R_NVIC_RES71_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES71_EN      ((uint32_t)0x00800000u)
 
@@ -3428,7 +3428,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_RES72_MASK    ((uint32_t)0x01000000u)
-#define NVIC_ISER1_R_NVIC_RES72_BIT     (24)
+#define NVIC_ISER1_R_NVIC_RES72_BIT     (24u)
 #define NVIC_ISER1_R_NVIC_RES72_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_RES72_EN      ((uint32_t)0x01000000u)
 
@@ -3439,7 +3439,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_SSI2_MASK     ((uint32_t)0x02000000u)
-#define NVIC_ISER1_R_NVIC_SSI2_BIT      (25)
+#define NVIC_ISER1_R_NVIC_SSI2_BIT      (25u)
 #define NVIC_ISER1_R_NVIC_SSI2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_SSI2_EN       ((uint32_t)0x02000000u)
 
@@ -3450,7 +3450,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_SSI3_MASK     ((uint32_t)0x04000000u)
-#define NVIC_ISER1_R_NVIC_SSI3_BIT      (26)
+#define NVIC_ISER1_R_NVIC_SSI3_BIT      (26u)
 #define NVIC_ISER1_R_NVIC_SSI3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_SSI3_EN       ((uint32_t)0x04000000u)
 
@@ -3461,7 +3461,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UART3_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ISER1_R_NVIC_UART3_BIT     (27)
+#define NVIC_ISER1_R_NVIC_UART3_BIT     (27u)
 #define NVIC_ISER1_R_NVIC_UART3_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UART3_EN      ((uint32_t)0x08000000u)
 
@@ -3472,7 +3472,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UART4_MASK    ((uint32_t)0x10000000u)
-#define NVIC_ISER1_R_NVIC_UART4_BIT     (28)
+#define NVIC_ISER1_R_NVIC_UART4_BIT     (28u)
 #define NVIC_ISER1_R_NVIC_UART4_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UART4_EN      ((uint32_t)0x10000000u)
 
@@ -3483,7 +3483,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UART5_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ISER1_R_NVIC_UART5_BIT     (29)
+#define NVIC_ISER1_R_NVIC_UART5_BIT     (29u)
 #define NVIC_ISER1_R_NVIC_UART5_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UART5_EN      ((uint32_t)0x20000000u)
 
@@ -3494,7 +3494,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UART6_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ISER1_R_NVIC_UART6_BIT     (30)
+#define NVIC_ISER1_R_NVIC_UART6_BIT     (30u)
 #define NVIC_ISER1_R_NVIC_UART6_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UART6_EN      ((uint32_t)0x40000000u)
 
@@ -3505,7 +3505,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER1_R_NVIC_UART7_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ISER1_R_NVIC_UART7_BIT     (31)
+#define NVIC_ISER1_R_NVIC_UART7_BIT     (31u)
 #define NVIC_ISER1_R_NVIC_UART7_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER1_R_NVIC_UART7_EN      ((uint32_t)0x80000000u)
 
@@ -3524,7 +3524,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES48_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ICER1_R_NVIC_RES48_BIT     (0)
+#define NVIC_ICER1_R_NVIC_RES48_BIT     (0u)
 #define NVIC_ICER1_R_NVIC_RES48_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES48_EN      ((uint32_t)0x00000001u)
 
@@ -3535,7 +3535,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UART2_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ICER1_R_NVIC_UART2_BIT     (1)
+#define NVIC_ICER1_R_NVIC_UART2_BIT     (1u)
 #define NVIC_ICER1_R_NVIC_UART2_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UART2_EN      ((uint32_t)0x00000002u)
 
@@ -3546,7 +3546,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_SSI1_MASK     ((uint32_t)0x00000004u)
-#define NVIC_ICER1_R_NVIC_SSI1_BIT      (2)
+#define NVIC_ICER1_R_NVIC_SSI1_BIT      (2u)
 #define NVIC_ICER1_R_NVIC_SSI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_SSI1_EN       ((uint32_t)0x00000004u)
 
@@ -3558,7 +3558,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_TIMER3A_MASK  ((uint32_t)0x00000008u)
-#define NVIC_ICER1_R_NVIC_TIMER3A_BIT   (3)
+#define NVIC_ICER1_R_NVIC_TIMER3A_BIT   (3u)
 #define NVIC_ICER1_R_NVIC_TIMER3A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_TIMER3A_EN    ((uint32_t)0x00000008u)
 
@@ -3569,7 +3569,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_TIMER3B_MASK  ((uint32_t)0x00000010u)
-#define NVIC_ICER1_R_NVIC_TIMER3B_BIT   (4)
+#define NVIC_ICER1_R_NVIC_TIMER3B_BIT   (4u)
 #define NVIC_ICER1_R_NVIC_TIMER3B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_TIMER3B_EN    ((uint32_t)0x00000010u)
 
@@ -3580,7 +3580,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_I2C1_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ICER1_R_NVIC_I2C1_BIT      (5)
+#define NVIC_ICER1_R_NVIC_I2C1_BIT      (5u)
 #define NVIC_ICER1_R_NVIC_I2C1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_I2C1_EN       ((uint32_t)0x00000020u)
 
@@ -3591,7 +3591,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_QEI1_MASK     ((uint32_t)0x00000040u)
-#define NVIC_ICER1_R_NVIC_QEI1_BIT      (6)
+#define NVIC_ICER1_R_NVIC_QEI1_BIT      (6u)
 #define NVIC_ICER1_R_NVIC_QEI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_QEI1_EN       ((uint32_t)0x00000040u)
 
@@ -3602,7 +3602,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_CAN0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ICER1_R_NVIC_CAN0_BIT      (7)
+#define NVIC_ICER1_R_NVIC_CAN0_BIT      (7u)
 #define NVIC_ICER1_R_NVIC_CAN0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_CAN0_EN       ((uint32_t)0x00000080u)
 
@@ -3613,7 +3613,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_CAN1_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ICER1_R_NVIC_CAN1_BIT      (8)
+#define NVIC_ICER1_R_NVIC_CAN1_BIT      (8u)
 #define NVIC_ICER1_R_NVIC_CAN1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_CAN1_EN       ((uint32_t)0x00000100u)
 
@@ -3625,7 +3625,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES57_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ICER1_R_NVIC_RES57_BIT     (9)
+#define NVIC_ICER1_R_NVIC_RES57_BIT     (9u)
 #define NVIC_ICER1_R_NVIC_RES57_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES57_EN      ((uint32_t)0x00000200u)
 
@@ -3637,7 +3637,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES58_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ICER1_R_NVIC_RES58_BIT     (10)
+#define NVIC_ICER1_R_NVIC_RES58_BIT     (10u)
 #define NVIC_ICER1_R_NVIC_RES58_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES58_EN      ((uint32_t)0x00000400u)
 
@@ -3648,7 +3648,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_HIB_MASK      ((uint32_t)0x00000800u)
-#define NVIC_ICER1_R_NVIC_HIB_BIT       (11)
+#define NVIC_ICER1_R_NVIC_HIB_BIT       (11u)
 #define NVIC_ICER1_R_NVIC_HIB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_HIB_EN        ((uint32_t)0x00000800u)
 
@@ -3659,7 +3659,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_USB_MASK      ((uint32_t)0x00001000u)
-#define NVIC_ICER1_R_NVIC_USB_BIT       (12)
+#define NVIC_ICER1_R_NVIC_USB_BIT       (12u)
 #define NVIC_ICER1_R_NVIC_USB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_USB_EN        ((uint32_t)0x00001000u)
 
@@ -3671,7 +3671,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_PWM0GEN3_MASK ((uint32_t)0x00002000u)
-#define NVIC_ICER1_R_NVIC_PWM0GEN3_BIT  (13)
+#define NVIC_ICER1_R_NVIC_PWM0GEN3_BIT  (13u)
 #define NVIC_ICER1_R_NVIC_PWM0GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_PWM0GEN3_EN   ((uint32_t)0x00002000u)
 
@@ -3682,7 +3682,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UDMASOFT_MASK ((uint32_t)0x00004000u)
-#define NVIC_ICER1_R_NVIC_UDMASOFT_BIT  (14)
+#define NVIC_ICER1_R_NVIC_UDMASOFT_BIT  (14u)
 #define NVIC_ICER1_R_NVIC_UDMASOFT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UDMASOFT_EN   ((uint32_t)0x00004000u)
 
@@ -3693,7 +3693,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UDMAERROR_MASK ((uint32_t)0x00008000u)
-#define NVIC_ICER1_R_NVIC_UDMAERROR_BIT (15)
+#define NVIC_ICER1_R_NVIC_UDMAERROR_BIT (15u)
 #define NVIC_ICER1_R_NVIC_UDMAERROR_DIS ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UDMAERROR_EN  ((uint32_t)0x00008000u)
 
@@ -3704,7 +3704,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_ADC1SEQ0_MASK ((uint32_t)0x00010000u)
-#define NVIC_ICER1_R_NVIC_ADC1SEQ0_BIT  (16)
+#define NVIC_ICER1_R_NVIC_ADC1SEQ0_BIT  (16u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ0_EN   ((uint32_t)0x00010000u)
 
@@ -3715,7 +3715,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_ADC1SEQ1_MASK ((uint32_t)0x00020000u)
-#define NVIC_ICER1_R_NVIC_ADC1SEQ1_BIT  (17)
+#define NVIC_ICER1_R_NVIC_ADC1SEQ1_BIT  (17u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ1_EN   ((uint32_t)0x00020000u)
 
@@ -3726,7 +3726,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_ADC1SEQ2_MASK ((uint32_t)0x00040000u)
-#define NVIC_ICER1_R_NVIC_ADC1SEQ2_BIT  (18)
+#define NVIC_ICER1_R_NVIC_ADC1SEQ2_BIT  (18u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ2_EN   ((uint32_t)0x00040000u)
 
@@ -3737,7 +3737,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_ADC1SEQ3_MASK ((uint32_t)0x00080000u)
-#define NVIC_ICER1_R_NVIC_ADC1SEQ3_BIT  (19)
+#define NVIC_ICER1_R_NVIC_ADC1SEQ3_BIT  (19u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_ADC1SEQ3_EN   ((uint32_t)0x00080000u)
 
@@ -3748,7 +3748,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES68_MASK    ((uint32_t)0x00100000u)
-#define NVIC_ICER1_R_NVIC_RES68_BIT     (20)
+#define NVIC_ICER1_R_NVIC_RES68_BIT     (20u)
 #define NVIC_ICER1_R_NVIC_RES68_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES68_EN      ((uint32_t)0x00100000u)
 
@@ -3759,7 +3759,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES69_MASK    ((uint32_t)0x00200000u)
-#define NVIC_ICER1_R_NVIC_RES69_BIT     (21)
+#define NVIC_ICER1_R_NVIC_RES69_BIT     (21u)
 #define NVIC_ICER1_R_NVIC_RES69_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES69_EN      ((uint32_t)0x00200000u)
 
@@ -3770,7 +3770,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES70_MASK    ((uint32_t)0x00400000u)
-#define NVIC_ICER1_R_NVIC_RES70_BIT     (22)
+#define NVIC_ICER1_R_NVIC_RES70_BIT     (22u)
 #define NVIC_ICER1_R_NVIC_RES70_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES70_EN      ((uint32_t)0x00400000u)
 
@@ -3782,7 +3782,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES71_MASK    ((uint32_t)0x00800000u)
-#define NVIC_ICER1_R_NVIC_RES71_BIT     (23)
+#define NVIC_ICER1_R_NVIC_RES71_BIT     (23u)
 #define NVIC_ICER1_R_NVIC_RES71_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES71_EN      ((uint32_t)0x00800000u)
 
@@ -3793,7 +3793,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_RES72_MASK    ((uint32_t)0x01000000u)
-#define NVIC_ICER1_R_NVIC_RES72_BIT     (24)
+#define NVIC_ICER1_R_NVIC_RES72_BIT     (24u)
 #define NVIC_ICER1_R_NVIC_RES72_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_RES72_EN      ((uint32_t)0x01000000u)
 
@@ -3804,7 +3804,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_SSI2_MASK     ((uint32_t)0x02000000u)
-#define NVIC_ICER1_R_NVIC_SSI2_BIT      (25)
+#define NVIC_ICER1_R_NVIC_SSI2_BIT      (25u)
 #define NVIC_ICER1_R_NVIC_SSI2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_SSI2_EN       ((uint32_t)0x02000000u)
 
@@ -3815,7 +3815,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_SSI3_MASK     ((uint32_t)0x04000000u)
-#define NVIC_ICER1_R_NVIC_SSI3_BIT      (26)
+#define NVIC_ICER1_R_NVIC_SSI3_BIT      (26u)
 #define NVIC_ICER1_R_NVIC_SSI3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_SSI3_EN       ((uint32_t)0x04000000u)
 
@@ -3826,7 +3826,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UART3_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ICER1_R_NVIC_UART3_BIT     (27)
+#define NVIC_ICER1_R_NVIC_UART3_BIT     (27u)
 #define NVIC_ICER1_R_NVIC_UART3_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UART3_EN      ((uint32_t)0x08000000u)
 
@@ -3837,7 +3837,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UART4_MASK    ((uint32_t)0x10000000u)
-#define NVIC_ICER1_R_NVIC_UART4_BIT     (28)
+#define NVIC_ICER1_R_NVIC_UART4_BIT     (28u)
 #define NVIC_ICER1_R_NVIC_UART4_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UART4_EN      ((uint32_t)0x10000000u)
 
@@ -3848,7 +3848,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UART5_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ICER1_R_NVIC_UART5_BIT     (29)
+#define NVIC_ICER1_R_NVIC_UART5_BIT     (29u)
 #define NVIC_ICER1_R_NVIC_UART5_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UART5_EN      ((uint32_t)0x20000000u)
 
@@ -3859,7 +3859,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UART6_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ICER1_R_NVIC_UART6_BIT     (30)
+#define NVIC_ICER1_R_NVIC_UART6_BIT     (30u)
 #define NVIC_ICER1_R_NVIC_UART6_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UART6_EN      ((uint32_t)0x40000000u)
 
@@ -3870,7 +3870,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER1_R_NVIC_UART7_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ICER1_R_NVIC_UART7_BIT     (31)
+#define NVIC_ICER1_R_NVIC_UART7_BIT     (31u)
 #define NVIC_ICER1_R_NVIC_UART7_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER1_R_NVIC_UART7_EN      ((uint32_t)0x80000000u)
 
@@ -3890,7 +3890,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES48_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ISPR1_R_NVIC_RES48_BIT     (0)
+#define NVIC_ISPR1_R_NVIC_RES48_BIT     (0u)
 #define NVIC_ISPR1_R_NVIC_RES48_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES48_EN      ((uint32_t)0x00000001u)
 
@@ -3901,7 +3901,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UART2_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ISPR1_R_NVIC_UART2_BIT     (1)
+#define NVIC_ISPR1_R_NVIC_UART2_BIT     (1u)
 #define NVIC_ISPR1_R_NVIC_UART2_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UART2_EN      ((uint32_t)0x00000002u)
 
@@ -3912,7 +3912,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_SSI1_MASK     ((uint32_t)0x00000004u)
-#define NVIC_ISPR1_R_NVIC_SSI1_BIT      (2)
+#define NVIC_ISPR1_R_NVIC_SSI1_BIT      (2u)
 #define NVIC_ISPR1_R_NVIC_SSI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_SSI1_EN       ((uint32_t)0x00000004u)
 
@@ -3924,7 +3924,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_TIMER3A_MASK  ((uint32_t)0x00000008u)
-#define NVIC_ISPR1_R_NVIC_TIMER3A_BIT   (3)
+#define NVIC_ISPR1_R_NVIC_TIMER3A_BIT   (3u)
 #define NVIC_ISPR1_R_NVIC_TIMER3A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_TIMER3A_EN    ((uint32_t)0x00000008u)
 
@@ -3935,7 +3935,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_TIMER3B_MASK  ((uint32_t)0x00000010u)
-#define NVIC_ISPR1_R_NVIC_TIMER3B_BIT   (4)
+#define NVIC_ISPR1_R_NVIC_TIMER3B_BIT   (4u)
 #define NVIC_ISPR1_R_NVIC_TIMER3B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_TIMER3B_EN    ((uint32_t)0x00000010u)
 
@@ -3946,7 +3946,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_I2C1_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ISPR1_R_NVIC_I2C1_BIT      (5)
+#define NVIC_ISPR1_R_NVIC_I2C1_BIT      (5u)
 #define NVIC_ISPR1_R_NVIC_I2C1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_I2C1_EN       ((uint32_t)0x00000020u)
 
@@ -3957,7 +3957,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_QEI1_MASK     ((uint32_t)0x00000040u)
-#define NVIC_ISPR1_R_NVIC_QEI1_BIT      (6)
+#define NVIC_ISPR1_R_NVIC_QEI1_BIT      (6u)
 #define NVIC_ISPR1_R_NVIC_QEI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_QEI1_EN       ((uint32_t)0x00000040u)
 
@@ -3968,7 +3968,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_CAN0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ISPR1_R_NVIC_CAN0_BIT      (7)
+#define NVIC_ISPR1_R_NVIC_CAN0_BIT      (7u)
 #define NVIC_ISPR1_R_NVIC_CAN0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_CAN0_EN       ((uint32_t)0x00000080u)
 
@@ -3979,7 +3979,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_CAN1_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ISPR1_R_NVIC_CAN1_BIT      (8)
+#define NVIC_ISPR1_R_NVIC_CAN1_BIT      (8u)
 #define NVIC_ISPR1_R_NVIC_CAN1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_CAN1_EN       ((uint32_t)0x00000100u)
 
@@ -3991,7 +3991,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES57_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ISPR1_R_NVIC_RES57_BIT     (9)
+#define NVIC_ISPR1_R_NVIC_RES57_BIT     (9u)
 #define NVIC_ISPR1_R_NVIC_RES57_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES57_EN      ((uint32_t)0x00000200u)
 
@@ -4003,7 +4003,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES58_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ISPR1_R_NVIC_RES58_BIT     (10)
+#define NVIC_ISPR1_R_NVIC_RES58_BIT     (10u)
 #define NVIC_ISPR1_R_NVIC_RES58_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES58_EN      ((uint32_t)0x00000400u)
 
@@ -4014,7 +4014,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_HIB_MASK      ((uint32_t)0x00000800u)
-#define NVIC_ISPR1_R_NVIC_HIB_BIT       (11)
+#define NVIC_ISPR1_R_NVIC_HIB_BIT       (11u)
 #define NVIC_ISPR1_R_NVIC_HIB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_HIB_EN        ((uint32_t)0x00000800u)
 
@@ -4025,7 +4025,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_USB_MASK      ((uint32_t)0x00001000u)
-#define NVIC_ISPR1_R_NVIC_USB_BIT       (12)
+#define NVIC_ISPR1_R_NVIC_USB_BIT       (12u)
 #define NVIC_ISPR1_R_NVIC_USB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_USB_EN        ((uint32_t)0x00001000u)
 
@@ -4037,7 +4037,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_PWM0GEN3_MASK ((uint32_t)0x00002000u)
-#define NVIC_ISPR1_R_NVIC_PWM0GEN3_BIT  (13)
+#define NVIC_ISPR1_R_NVIC_PWM0GEN3_BIT  (13u)
 #define NVIC_ISPR1_R_NVIC_PWM0GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_PWM0GEN3_EN   ((uint32_t)0x00002000u)
 
@@ -4048,7 +4048,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UDMASOFT_MASK ((uint32_t)0x00004000u)
-#define NVIC_ISPR1_R_NVIC_UDMASOFT_BIT  (14)
+#define NVIC_ISPR1_R_NVIC_UDMASOFT_BIT  (14u)
 #define NVIC_ISPR1_R_NVIC_UDMASOFT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UDMASOFT_EN   ((uint32_t)0x00004000u)
 
@@ -4059,7 +4059,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UDMAERROR_MASK ((uint32_t)0x00008000u)
-#define NVIC_ISPR1_R_NVIC_UDMAERROR_BIT (15)
+#define NVIC_ISPR1_R_NVIC_UDMAERROR_BIT (15u)
 #define NVIC_ISPR1_R_NVIC_UDMAERROR_DIS ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UDMAERROR_EN  ((uint32_t)0x00008000u)
 
@@ -4070,7 +4070,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ0_MASK ((uint32_t)0x00010000u)
-#define NVIC_ISPR1_R_NVIC_ADC1SEQ0_BIT  (16)
+#define NVIC_ISPR1_R_NVIC_ADC1SEQ0_BIT  (16u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ0_EN   ((uint32_t)0x00010000u)
 
@@ -4081,7 +4081,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ1_MASK ((uint32_t)0x00020000u)
-#define NVIC_ISPR1_R_NVIC_ADC1SEQ1_BIT  (17)
+#define NVIC_ISPR1_R_NVIC_ADC1SEQ1_BIT  (17u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ1_EN   ((uint32_t)0x00020000u)
 
@@ -4092,7 +4092,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ2_MASK ((uint32_t)0x00040000u)
-#define NVIC_ISPR1_R_NVIC_ADC1SEQ2_BIT  (18)
+#define NVIC_ISPR1_R_NVIC_ADC1SEQ2_BIT  (18u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ2_EN   ((uint32_t)0x00040000u)
 
@@ -4103,7 +4103,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ3_MASK ((uint32_t)0x00080000u)
-#define NVIC_ISPR1_R_NVIC_ADC1SEQ3_BIT  (19)
+#define NVIC_ISPR1_R_NVIC_ADC1SEQ3_BIT  (19u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_ADC1SEQ3_EN   ((uint32_t)0x00080000u)
 
@@ -4114,7 +4114,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES68_MASK    ((uint32_t)0x00100000u)
-#define NVIC_ISPR1_R_NVIC_RES68_BIT     (20)
+#define NVIC_ISPR1_R_NVIC_RES68_BIT     (20u)
 #define NVIC_ISPR1_R_NVIC_RES68_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES68_EN      ((uint32_t)0x00100000u)
 
@@ -4125,7 +4125,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES69_MASK    ((uint32_t)0x00200000u)
-#define NVIC_ISPR1_R_NVIC_RES69_BIT     (21)
+#define NVIC_ISPR1_R_NVIC_RES69_BIT     (21u)
 #define NVIC_ISPR1_R_NVIC_RES69_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES69_EN      ((uint32_t)0x00200000u)
 
@@ -4136,7 +4136,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES70_MASK    ((uint32_t)0x00400000u)
-#define NVIC_ISPR1_R_NVIC_RES70_BIT     (22)
+#define NVIC_ISPR1_R_NVIC_RES70_BIT     (22u)
 #define NVIC_ISPR1_R_NVIC_RES70_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES70_EN      ((uint32_t)0x00400000u)
 
@@ -4148,7 +4148,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES71_MASK    ((uint32_t)0x00800000u)
-#define NVIC_ISPR1_R_NVIC_RES71_BIT     (23)
+#define NVIC_ISPR1_R_NVIC_RES71_BIT     (23u)
 #define NVIC_ISPR1_R_NVIC_RES71_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES71_EN      ((uint32_t)0x00800000u)
 
@@ -4159,7 +4159,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_RES72_MASK    ((uint32_t)0x01000000u)
-#define NVIC_ISPR1_R_NVIC_RES72_BIT     (24)
+#define NVIC_ISPR1_R_NVIC_RES72_BIT     (24u)
 #define NVIC_ISPR1_R_NVIC_RES72_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_RES72_EN      ((uint32_t)0x01000000u)
 
@@ -4170,7 +4170,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_SSI2_MASK     ((uint32_t)0x02000000u)
-#define NVIC_ISPR1_R_NVIC_SSI2_BIT      (25)
+#define NVIC_ISPR1_R_NVIC_SSI2_BIT      (25u)
 #define NVIC_ISPR1_R_NVIC_SSI2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_SSI2_EN       ((uint32_t)0x02000000u)
 
@@ -4181,7 +4181,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_SSI3_MASK     ((uint32_t)0x04000000u)
-#define NVIC_ISPR1_R_NVIC_SSI3_BIT      (26)
+#define NVIC_ISPR1_R_NVIC_SSI3_BIT      (26u)
 #define NVIC_ISPR1_R_NVIC_SSI3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_SSI3_EN       ((uint32_t)0x04000000u)
 
@@ -4192,7 +4192,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UART3_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ISPR1_R_NVIC_UART3_BIT     (27)
+#define NVIC_ISPR1_R_NVIC_UART3_BIT     (27u)
 #define NVIC_ISPR1_R_NVIC_UART3_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UART3_EN      ((uint32_t)0x08000000u)
 
@@ -4203,7 +4203,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UART4_MASK    ((uint32_t)0x10000000u)
-#define NVIC_ISPR1_R_NVIC_UART4_BIT     (28)
+#define NVIC_ISPR1_R_NVIC_UART4_BIT     (28u)
 #define NVIC_ISPR1_R_NVIC_UART4_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UART4_EN      ((uint32_t)0x10000000u)
 
@@ -4214,7 +4214,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UART5_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ISPR1_R_NVIC_UART5_BIT     (29)
+#define NVIC_ISPR1_R_NVIC_UART5_BIT     (29u)
 #define NVIC_ISPR1_R_NVIC_UART5_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UART5_EN      ((uint32_t)0x20000000u)
 
@@ -4225,7 +4225,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UART6_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ISPR1_R_NVIC_UART6_BIT     (30)
+#define NVIC_ISPR1_R_NVIC_UART6_BIT     (30u)
 #define NVIC_ISPR1_R_NVIC_UART6_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UART6_EN      ((uint32_t)0x40000000u)
 
@@ -4236,7 +4236,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR1_R_NVIC_UART7_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ISPR1_R_NVIC_UART7_BIT     (31)
+#define NVIC_ISPR1_R_NVIC_UART7_BIT     (31u)
 #define NVIC_ISPR1_R_NVIC_UART7_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR1_R_NVIC_UART7_EN      ((uint32_t)0x80000000u)
 
@@ -4255,7 +4255,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES48_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ICPR1_R_NVIC_RES48_BIT     (0)
+#define NVIC_ICPR1_R_NVIC_RES48_BIT     (0u)
 #define NVIC_ICPR1_R_NVIC_RES48_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES48_EN      ((uint32_t)0x00000001u)
 
@@ -4266,7 +4266,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UART2_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ICPR1_R_NVIC_UART2_BIT     (1)
+#define NVIC_ICPR1_R_NVIC_UART2_BIT     (1u)
 #define NVIC_ICPR1_R_NVIC_UART2_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UART2_EN      ((uint32_t)0x00000002u)
 
@@ -4277,7 +4277,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_SSI1_MASK     ((uint32_t)0x00000004u)
-#define NVIC_ICPR1_R_NVIC_SSI1_BIT      (2)
+#define NVIC_ICPR1_R_NVIC_SSI1_BIT      (2u)
 #define NVIC_ICPR1_R_NVIC_SSI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_SSI1_EN       ((uint32_t)0x00000004u)
 
@@ -4289,7 +4289,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_TIMER3A_MASK  ((uint32_t)0x00000008u)
-#define NVIC_ICPR1_R_NVIC_TIMER3A_BIT   (3)
+#define NVIC_ICPR1_R_NVIC_TIMER3A_BIT   (3u)
 #define NVIC_ICPR1_R_NVIC_TIMER3A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_TIMER3A_EN    ((uint32_t)0x00000008u)
 
@@ -4300,7 +4300,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_TIMER3B_MASK  ((uint32_t)0x00000010u)
-#define NVIC_ICPR1_R_NVIC_TIMER3B_BIT   (4)
+#define NVIC_ICPR1_R_NVIC_TIMER3B_BIT   (4u)
 #define NVIC_ICPR1_R_NVIC_TIMER3B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_TIMER3B_EN    ((uint32_t)0x00000010u)
 
@@ -4311,7 +4311,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_I2C1_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ICPR1_R_NVIC_I2C1_BIT      (5)
+#define NVIC_ICPR1_R_NVIC_I2C1_BIT      (5u)
 #define NVIC_ICPR1_R_NVIC_I2C1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_I2C1_EN       ((uint32_t)0x00000020u)
 
@@ -4322,7 +4322,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_QEI1_MASK     ((uint32_t)0x00000040u)
-#define NVIC_ICPR1_R_NVIC_QEI1_BIT      (6)
+#define NVIC_ICPR1_R_NVIC_QEI1_BIT      (6u)
 #define NVIC_ICPR1_R_NVIC_QEI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_QEI1_EN       ((uint32_t)0x00000040u)
 
@@ -4333,7 +4333,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_CAN0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_ICPR1_R_NVIC_CAN0_BIT      (7)
+#define NVIC_ICPR1_R_NVIC_CAN0_BIT      (7u)
 #define NVIC_ICPR1_R_NVIC_CAN0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_CAN0_EN       ((uint32_t)0x00000080u)
 
@@ -4344,7 +4344,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_CAN1_MASK     ((uint32_t)0x00000100u)
-#define NVIC_ICPR1_R_NVIC_CAN1_BIT      (8)
+#define NVIC_ICPR1_R_NVIC_CAN1_BIT      (8u)
 #define NVIC_ICPR1_R_NVIC_CAN1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_CAN1_EN       ((uint32_t)0x00000100u)
 
@@ -4356,7 +4356,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES57_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ICPR1_R_NVIC_RES57_BIT     (9)
+#define NVIC_ICPR1_R_NVIC_RES57_BIT     (9u)
 #define NVIC_ICPR1_R_NVIC_RES57_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES57_EN      ((uint32_t)0x00000200u)
 
@@ -4368,7 +4368,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES58_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ICPR1_R_NVIC_RES58_BIT     (10)
+#define NVIC_ICPR1_R_NVIC_RES58_BIT     (10u)
 #define NVIC_ICPR1_R_NVIC_RES58_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES58_EN      ((uint32_t)0x00000400u)
 
@@ -4379,7 +4379,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_HIB_MASK      ((uint32_t)0x00000800u)
-#define NVIC_ICPR1_R_NVIC_HIB_BIT       (11)
+#define NVIC_ICPR1_R_NVIC_HIB_BIT       (11u)
 #define NVIC_ICPR1_R_NVIC_HIB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_HIB_EN        ((uint32_t)0x00000800u)
 
@@ -4390,7 +4390,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_USB_MASK      ((uint32_t)0x00001000u)
-#define NVIC_ICPR1_R_NVIC_USB_BIT       (12)
+#define NVIC_ICPR1_R_NVIC_USB_BIT       (12u)
 #define NVIC_ICPR1_R_NVIC_USB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_USB_EN        ((uint32_t)0x00001000u)
 
@@ -4402,7 +4402,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_PWM0GEN3_MASK ((uint32_t)0x00002000u)
-#define NVIC_ICPR1_R_NVIC_PWM0GEN3_BIT  (13)
+#define NVIC_ICPR1_R_NVIC_PWM0GEN3_BIT  (13u)
 #define NVIC_ICPR1_R_NVIC_PWM0GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_PWM0GEN3_EN   ((uint32_t)0x00002000u)
 
@@ -4413,7 +4413,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UDMASOFT_MASK ((uint32_t)0x00004000u)
-#define NVIC_ICPR1_R_NVIC_UDMASOFT_BIT  (14)
+#define NVIC_ICPR1_R_NVIC_UDMASOFT_BIT  (14u)
 #define NVIC_ICPR1_R_NVIC_UDMASOFT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UDMASOFT_EN   ((uint32_t)0x00004000u)
 
@@ -4424,7 +4424,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UDMAERROR_MASK ((uint32_t)0x00008000u)
-#define NVIC_ICPR1_R_NVIC_UDMAERROR_BIT (15)
+#define NVIC_ICPR1_R_NVIC_UDMAERROR_BIT (15u)
 #define NVIC_ICPR1_R_NVIC_UDMAERROR_DIS ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UDMAERROR_EN  ((uint32_t)0x00008000u)
 
@@ -4435,7 +4435,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ0_MASK ((uint32_t)0x00010000u)
-#define NVIC_ICPR1_R_NVIC_ADC1SEQ0_BIT  (16)
+#define NVIC_ICPR1_R_NVIC_ADC1SEQ0_BIT  (16u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ0_EN   ((uint32_t)0x00010000u)
 
@@ -4446,7 +4446,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ1_MASK ((uint32_t)0x00020000u)
-#define NVIC_ICPR1_R_NVIC_ADC1SEQ1_BIT  (17)
+#define NVIC_ICPR1_R_NVIC_ADC1SEQ1_BIT  (17u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ1_EN   ((uint32_t)0x00020000u)
 
@@ -4457,7 +4457,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ2_MASK ((uint32_t)0x00040000u)
-#define NVIC_ICPR1_R_NVIC_ADC1SEQ2_BIT  (18)
+#define NVIC_ICPR1_R_NVIC_ADC1SEQ2_BIT  (18u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ2_EN   ((uint32_t)0x00040000u)
 
@@ -4468,7 +4468,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ3_MASK ((uint32_t)0x00080000u)
-#define NVIC_ICPR1_R_NVIC_ADC1SEQ3_BIT  (19)
+#define NVIC_ICPR1_R_NVIC_ADC1SEQ3_BIT  (19u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_ADC1SEQ3_EN   ((uint32_t)0x00080000u)
 
@@ -4479,7 +4479,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES68_MASK    ((uint32_t)0x00100000u)
-#define NVIC_ICPR1_R_NVIC_RES68_BIT     (20)
+#define NVIC_ICPR1_R_NVIC_RES68_BIT     (20u)
 #define NVIC_ICPR1_R_NVIC_RES68_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES68_EN      ((uint32_t)0x00100000u)
 
@@ -4490,7 +4490,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES69_MASK    ((uint32_t)0x00200000u)
-#define NVIC_ICPR1_R_NVIC_RES69_BIT     (21)
+#define NVIC_ICPR1_R_NVIC_RES69_BIT     (21u)
 #define NVIC_ICPR1_R_NVIC_RES69_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES69_EN      ((uint32_t)0x00200000u)
 
@@ -4501,7 +4501,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES70_MASK    ((uint32_t)0x00400000u)
-#define NVIC_ICPR1_R_NVIC_RES70_BIT     (22)
+#define NVIC_ICPR1_R_NVIC_RES70_BIT     (22u)
 #define NVIC_ICPR1_R_NVIC_RES70_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES70_EN      ((uint32_t)0x00400000u)
 
@@ -4513,7 +4513,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES71_MASK    ((uint32_t)0x00800000u)
-#define NVIC_ICPR1_R_NVIC_RES71_BIT     (23)
+#define NVIC_ICPR1_R_NVIC_RES71_BIT     (23u)
 #define NVIC_ICPR1_R_NVIC_RES71_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES71_EN      ((uint32_t)0x00800000u)
 
@@ -4524,7 +4524,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_RES72_MASK    ((uint32_t)0x01000000u)
-#define NVIC_ICPR1_R_NVIC_RES72_BIT     (24)
+#define NVIC_ICPR1_R_NVIC_RES72_BIT     (24u)
 #define NVIC_ICPR1_R_NVIC_RES72_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_RES72_EN      ((uint32_t)0x01000000u)
 
@@ -4535,7 +4535,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_SSI2_MASK     ((uint32_t)0x02000000u)
-#define NVIC_ICPR1_R_NVIC_SSI2_BIT      (25)
+#define NVIC_ICPR1_R_NVIC_SSI2_BIT      (25u)
 #define NVIC_ICPR1_R_NVIC_SSI2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_SSI2_EN       ((uint32_t)0x02000000u)
 
@@ -4546,7 +4546,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_SSI3_MASK     ((uint32_t)0x04000000u)
-#define NVIC_ICPR1_R_NVIC_SSI3_BIT      (26)
+#define NVIC_ICPR1_R_NVIC_SSI3_BIT      (26u)
 #define NVIC_ICPR1_R_NVIC_SSI3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_SSI3_EN       ((uint32_t)0x04000000u)
 
@@ -4557,7 +4557,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UART3_MASK    ((uint32_t)0x08000000u)
-#define NVIC_ICPR1_R_NVIC_UART3_BIT     (27)
+#define NVIC_ICPR1_R_NVIC_UART3_BIT     (27u)
 #define NVIC_ICPR1_R_NVIC_UART3_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UART3_EN      ((uint32_t)0x08000000u)
 
@@ -4568,7 +4568,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UART4_MASK    ((uint32_t)0x10000000u)
-#define NVIC_ICPR1_R_NVIC_UART4_BIT     (28)
+#define NVIC_ICPR1_R_NVIC_UART4_BIT     (28u)
 #define NVIC_ICPR1_R_NVIC_UART4_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UART4_EN      ((uint32_t)0x10000000u)
 
@@ -4579,7 +4579,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UART5_MASK    ((uint32_t)0x20000000u)
-#define NVIC_ICPR1_R_NVIC_UART5_BIT     (29)
+#define NVIC_ICPR1_R_NVIC_UART5_BIT     (29u)
 #define NVIC_ICPR1_R_NVIC_UART5_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UART5_EN      ((uint32_t)0x20000000u)
 
@@ -4590,7 +4590,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UART6_MASK    ((uint32_t)0x40000000u)
-#define NVIC_ICPR1_R_NVIC_UART6_BIT     (30)
+#define NVIC_ICPR1_R_NVIC_UART6_BIT     (30u)
 #define NVIC_ICPR1_R_NVIC_UART6_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UART6_EN      ((uint32_t)0x40000000u)
 
@@ -4601,7 +4601,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR1_R_NVIC_UART7_MASK    ((uint32_t)0x80000000u)
-#define NVIC_ICPR1_R_NVIC_UART7_BIT     (31)
+#define NVIC_ICPR1_R_NVIC_UART7_BIT     (31u)
 #define NVIC_ICPR1_R_NVIC_UART7_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR1_R_NVIC_UART7_EN      ((uint32_t)0x80000000u)
 
@@ -4621,7 +4621,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES48_MASK    ((uint32_t)0x00000001u)
-#define NVIC_IABR1_R_NVIC_RES48_BIT     (0)
+#define NVIC_IABR1_R_NVIC_RES48_BIT     (0u)
 #define NVIC_IABR1_R_NVIC_RES48_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES48_EN      ((uint32_t)0x00000001u)
 
@@ -4632,7 +4632,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UART2_MASK    ((uint32_t)0x00000002u)
-#define NVIC_IABR1_R_NVIC_UART2_BIT     (1)
+#define NVIC_IABR1_R_NVIC_UART2_BIT     (1u)
 #define NVIC_IABR1_R_NVIC_UART2_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UART2_EN      ((uint32_t)0x00000002u)
 
@@ -4643,7 +4643,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_SSI1_MASK     ((uint32_t)0x00000004u)
-#define NVIC_IABR1_R_NVIC_SSI1_BIT      (2)
+#define NVIC_IABR1_R_NVIC_SSI1_BIT      (2u)
 #define NVIC_IABR1_R_NVIC_SSI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_SSI1_EN       ((uint32_t)0x00000004u)
 
@@ -4655,7 +4655,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_TIMER3A_MASK  ((uint32_t)0x00000008u)
-#define NVIC_IABR1_R_NVIC_TIMER3A_BIT   (3)
+#define NVIC_IABR1_R_NVIC_TIMER3A_BIT   (3u)
 #define NVIC_IABR1_R_NVIC_TIMER3A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_TIMER3A_EN    ((uint32_t)0x00000008u)
 
@@ -4666,7 +4666,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_TIMER3B_MASK  ((uint32_t)0x00000010u)
-#define NVIC_IABR1_R_NVIC_TIMER3B_BIT   (4)
+#define NVIC_IABR1_R_NVIC_TIMER3B_BIT   (4u)
 #define NVIC_IABR1_R_NVIC_TIMER3B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_TIMER3B_EN    ((uint32_t)0x00000010u)
 
@@ -4677,7 +4677,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_I2C1_MASK     ((uint32_t)0x00000020u)
-#define NVIC_IABR1_R_NVIC_I2C1_BIT      (5)
+#define NVIC_IABR1_R_NVIC_I2C1_BIT      (5u)
 #define NVIC_IABR1_R_NVIC_I2C1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_I2C1_EN       ((uint32_t)0x00000020u)
 
@@ -4688,7 +4688,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_QEI1_MASK     ((uint32_t)0x00000040u)
-#define NVIC_IABR1_R_NVIC_QEI1_BIT      (6)
+#define NVIC_IABR1_R_NVIC_QEI1_BIT      (6u)
 #define NVIC_IABR1_R_NVIC_QEI1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_QEI1_EN       ((uint32_t)0x00000040u)
 
@@ -4699,7 +4699,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_CAN0_MASK     ((uint32_t)0x00000080u)
-#define NVIC_IABR1_R_NVIC_CAN0_BIT      (7)
+#define NVIC_IABR1_R_NVIC_CAN0_BIT      (7u)
 #define NVIC_IABR1_R_NVIC_CAN0_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_CAN0_EN       ((uint32_t)0x00000080u)
 
@@ -4710,7 +4710,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_CAN1_MASK     ((uint32_t)0x00000100u)
-#define NVIC_IABR1_R_NVIC_CAN1_BIT      (8)
+#define NVIC_IABR1_R_NVIC_CAN1_BIT      (8u)
 #define NVIC_IABR1_R_NVIC_CAN1_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_CAN1_EN       ((uint32_t)0x00000100u)
 
@@ -4722,7 +4722,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES57_MASK    ((uint32_t)0x00000200u)
-#define NVIC_IABR1_R_NVIC_RES57_BIT     (9)
+#define NVIC_IABR1_R_NVIC_RES57_BIT     (9u)
 #define NVIC_IABR1_R_NVIC_RES57_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES57_EN      ((uint32_t)0x00000200u)
 
@@ -4734,7 +4734,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES58_MASK    ((uint32_t)0x00000400u)
-#define NVIC_IABR1_R_NVIC_RES58_BIT     (10)
+#define NVIC_IABR1_R_NVIC_RES58_BIT     (10u)
 #define NVIC_IABR1_R_NVIC_RES58_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES58_EN      ((uint32_t)0x00000400u)
 
@@ -4745,7 +4745,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_HIB_MASK      ((uint32_t)0x00000800u)
-#define NVIC_IABR1_R_NVIC_HIB_BIT       (11)
+#define NVIC_IABR1_R_NVIC_HIB_BIT       (11u)
 #define NVIC_IABR1_R_NVIC_HIB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_HIB_EN        ((uint32_t)0x00000800u)
 
@@ -4756,7 +4756,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_USB_MASK      ((uint32_t)0x00001000u)
-#define NVIC_IABR1_R_NVIC_USB_BIT       (12)
+#define NVIC_IABR1_R_NVIC_USB_BIT       (12u)
 #define NVIC_IABR1_R_NVIC_USB_DIS       ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_USB_EN        ((uint32_t)0x00001000u)
 
@@ -4768,7 +4768,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_PWM0GEN3_MASK ((uint32_t)0x00002000u)
-#define NVIC_IABR1_R_NVIC_PWM0GEN3_BIT  (13)
+#define NVIC_IABR1_R_NVIC_PWM0GEN3_BIT  (13u)
 #define NVIC_IABR1_R_NVIC_PWM0GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_PWM0GEN3_EN   ((uint32_t)0x00002000u)
 
@@ -4779,7 +4779,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UDMASOFT_MASK ((uint32_t)0x00004000u)
-#define NVIC_IABR1_R_NVIC_UDMASOFT_BIT  (14)
+#define NVIC_IABR1_R_NVIC_UDMASOFT_BIT  (14u)
 #define NVIC_IABR1_R_NVIC_UDMASOFT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UDMASOFT_EN   ((uint32_t)0x00004000u)
 
@@ -4790,7 +4790,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UDMAERROR_MASK ((uint32_t)0x00008000u)
-#define NVIC_IABR1_R_NVIC_UDMAERROR_BIT (15)
+#define NVIC_IABR1_R_NVIC_UDMAERROR_BIT (15u)
 #define NVIC_IABR1_R_NVIC_UDMAERROR_DIS ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UDMAERROR_EN  ((uint32_t)0x00008000u)
 
@@ -4801,7 +4801,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_ADC1SEQ0_MASK ((uint32_t)0x00010000u)
-#define NVIC_IABR1_R_NVIC_ADC1SEQ0_BIT  (16)
+#define NVIC_IABR1_R_NVIC_ADC1SEQ0_BIT  (16u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ0_EN   ((uint32_t)0x00010000u)
 
@@ -4812,7 +4812,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_ADC1SEQ1_MASK ((uint32_t)0x00020000u)
-#define NVIC_IABR1_R_NVIC_ADC1SEQ1_BIT  (17)
+#define NVIC_IABR1_R_NVIC_ADC1SEQ1_BIT  (17u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ1_EN   ((uint32_t)0x00020000u)
 
@@ -4823,7 +4823,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_ADC1SEQ2_MASK ((uint32_t)0x00040000u)
-#define NVIC_IABR1_R_NVIC_ADC1SEQ2_BIT  (18)
+#define NVIC_IABR1_R_NVIC_ADC1SEQ2_BIT  (18u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ2_EN   ((uint32_t)0x00040000u)
 
@@ -4834,7 +4834,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_ADC1SEQ3_MASK ((uint32_t)0x00080000u)
-#define NVIC_IABR1_R_NVIC_ADC1SEQ3_BIT  (19)
+#define NVIC_IABR1_R_NVIC_ADC1SEQ3_BIT  (19u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_ADC1SEQ3_EN   ((uint32_t)0x00080000u)
 
@@ -4845,7 +4845,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES68_MASK    ((uint32_t)0x00100000u)
-#define NVIC_IABR1_R_NVIC_RES68_BIT     (20)
+#define NVIC_IABR1_R_NVIC_RES68_BIT     (20u)
 #define NVIC_IABR1_R_NVIC_RES68_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES68_EN      ((uint32_t)0x00100000u)
 
@@ -4856,7 +4856,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES69_MASK    ((uint32_t)0x00200000u)
-#define NVIC_IABR1_R_NVIC_RES69_BIT     (21)
+#define NVIC_IABR1_R_NVIC_RES69_BIT     (21u)
 #define NVIC_IABR1_R_NVIC_RES69_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES69_EN      ((uint32_t)0x00200000u)
 
@@ -4867,7 +4867,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES70_MASK    ((uint32_t)0x00400000u)
-#define NVIC_IABR1_R_NVIC_RES70_BIT     (22)
+#define NVIC_IABR1_R_NVIC_RES70_BIT     (22u)
 #define NVIC_IABR1_R_NVIC_RES70_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES70_EN      ((uint32_t)0x00400000u)
 
@@ -4879,7 +4879,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES71_MASK    ((uint32_t)0x00800000u)
-#define NVIC_IABR1_R_NVIC_RES71_BIT     (23)
+#define NVIC_IABR1_R_NVIC_RES71_BIT     (23u)
 #define NVIC_IABR1_R_NVIC_RES71_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES71_EN      ((uint32_t)0x00800000u)
 
@@ -4890,7 +4890,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_RES72_MASK    ((uint32_t)0x01000000u)
-#define NVIC_IABR1_R_NVIC_RES72_BIT     (24)
+#define NVIC_IABR1_R_NVIC_RES72_BIT     (24u)
 #define NVIC_IABR1_R_NVIC_RES72_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_RES72_EN      ((uint32_t)0x01000000u)
 
@@ -4901,7 +4901,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_SSI2_MASK     ((uint32_t)0x02000000u)
-#define NVIC_IABR1_R_NVIC_SSI2_BIT      (25)
+#define NVIC_IABR1_R_NVIC_SSI2_BIT      (25u)
 #define NVIC_IABR1_R_NVIC_SSI2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_SSI2_EN       ((uint32_t)0x02000000u)
 
@@ -4912,7 +4912,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_SSI3_MASK     ((uint32_t)0x04000000u)
-#define NVIC_IABR1_R_NVIC_SSI3_BIT      (26)
+#define NVIC_IABR1_R_NVIC_SSI3_BIT      (26u)
 #define NVIC_IABR1_R_NVIC_SSI3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_SSI3_EN       ((uint32_t)0x04000000u)
 
@@ -4923,7 +4923,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UART3_MASK    ((uint32_t)0x08000000u)
-#define NVIC_IABR1_R_NVIC_UART3_BIT     (27)
+#define NVIC_IABR1_R_NVIC_UART3_BIT     (27u)
 #define NVIC_IABR1_R_NVIC_UART3_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UART3_EN      ((uint32_t)0x08000000u)
 
@@ -4934,7 +4934,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UART4_MASK    ((uint32_t)0x10000000u)
-#define NVIC_IABR1_R_NVIC_UART4_BIT     (28)
+#define NVIC_IABR1_R_NVIC_UART4_BIT     (28u)
 #define NVIC_IABR1_R_NVIC_UART4_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UART4_EN      ((uint32_t)0x10000000u)
 
@@ -4945,7 +4945,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UART5_MASK    ((uint32_t)0x20000000u)
-#define NVIC_IABR1_R_NVIC_UART5_BIT     (29)
+#define NVIC_IABR1_R_NVIC_UART5_BIT     (29u)
 #define NVIC_IABR1_R_NVIC_UART5_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UART5_EN      ((uint32_t)0x20000000u)
 
@@ -4956,7 +4956,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UART6_MASK    ((uint32_t)0x40000000u)
-#define NVIC_IABR1_R_NVIC_UART6_BIT     (30)
+#define NVIC_IABR1_R_NVIC_UART6_BIT     (30u)
 #define NVIC_IABR1_R_NVIC_UART6_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UART6_EN      ((uint32_t)0x40000000u)
 
@@ -4967,7 +4967,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR1_R_NVIC_UART7_MASK    ((uint32_t)0x80000000u)
-#define NVIC_IABR1_R_NVIC_UART7_BIT     (31)
+#define NVIC_IABR1_R_NVIC_UART7_BIT     (31u)
 #define NVIC_IABR1_R_NVIC_UART7_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR1_R_NVIC_UART7_EN      ((uint32_t)0x80000000u)
 
@@ -4987,7 +4987,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES80_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ISER2_R_NVIC_RES80_BIT     (0)
+#define NVIC_ISER2_R_NVIC_RES80_BIT     (0u)
 #define NVIC_ISER2_R_NVIC_RES80_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES80_EN      ((uint32_t)0x00000001u)
 
@@ -4998,7 +4998,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES81_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ISER2_R_NVIC_RES81_BIT     (1)
+#define NVIC_ISER2_R_NVIC_RES81_BIT     (1u)
 #define NVIC_ISER2_R_NVIC_RES81_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES81_EN      ((uint32_t)0x00000002u)
 
@@ -5009,7 +5009,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES82_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ISER2_R_NVIC_RES82_BIT     (2)
+#define NVIC_ISER2_R_NVIC_RES82_BIT     (2u)
 #define NVIC_ISER2_R_NVIC_RES82_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES82_EN      ((uint32_t)0x00000004u)
 
@@ -5021,7 +5021,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES83_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ISER2_R_NVIC_RES83_BIT     (3)
+#define NVIC_ISER2_R_NVIC_RES83_BIT     (3u)
 #define NVIC_ISER2_R_NVIC_RES83_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES83_EN      ((uint32_t)0x00000008u)
 
@@ -5032,7 +5032,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_I2C2_MASK     ((uint32_t)0x00000010u)
-#define NVIC_ISER2_R_NVIC_I2C2_BIT      (4)
+#define NVIC_ISER2_R_NVIC_I2C2_BIT      (4u)
 #define NVIC_ISER2_R_NVIC_I2C2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_I2C2_EN       ((uint32_t)0x00000010u)
 
@@ -5043,7 +5043,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_I2C3_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ISER2_R_NVIC_I2C3_BIT      (5)
+#define NVIC_ISER2_R_NVIC_I2C3_BIT      (5u)
 #define NVIC_ISER2_R_NVIC_I2C3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_I2C3_EN       ((uint32_t)0x00000020u)
 
@@ -5054,7 +5054,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_TIMER4A_MASK  ((uint32_t)0x00000040u)
-#define NVIC_ISER2_R_NVIC_TIMER4A_BIT   (6)
+#define NVIC_ISER2_R_NVIC_TIMER4A_BIT   (6u)
 #define NVIC_ISER2_R_NVIC_TIMER4A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_TIMER4A_EN    ((uint32_t)0x00000040u)
 
@@ -5065,7 +5065,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_TIMER4B_MASK  ((uint32_t)0x00000080u)
-#define NVIC_ISER2_R_NVIC_TIMER4B_BIT   (7)
+#define NVIC_ISER2_R_NVIC_TIMER4B_BIT   (7u)
 #define NVIC_ISER2_R_NVIC_TIMER4B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_TIMER4B_EN    ((uint32_t)0x00000080u)
 
@@ -5076,7 +5076,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES88_MASK    ((uint32_t)0x00000100u)
-#define NVIC_ISER2_R_NVIC_RES88_BIT     (8)
+#define NVIC_ISER2_R_NVIC_RES88_BIT     (8u)
 #define NVIC_ISER2_R_NVIC_RES88_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES88_EN      ((uint32_t)0x00000100u)
 
@@ -5088,7 +5088,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES89_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ISER2_R_NVIC_RES89_BIT     (9)
+#define NVIC_ISER2_R_NVIC_RES89_BIT     (9u)
 #define NVIC_ISER2_R_NVIC_RES89_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES89_EN      ((uint32_t)0x00000200u)
 
@@ -5100,7 +5100,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES90_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ISER2_R_NVIC_RES90_BIT     (10)
+#define NVIC_ISER2_R_NVIC_RES90_BIT     (10u)
 #define NVIC_ISER2_R_NVIC_RES90_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES90_EN      ((uint32_t)0x00000400u)
 
@@ -5111,7 +5111,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES93_EPI_IN_MASK ((uint32_t)0x00000800u)
-#define NVIC_ISER2_R_NVIC_RES93_EPI_IN_BIT  (11)
+#define NVIC_ISER2_R_NVIC_RES93_EPI_IN_BIT  (11u)
 #define NVIC_ISER2_R_NVIC_RES93_EPI_IN_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES93_EPI_IN_EN   ((uint32_t)0x00000800u)
 
@@ -5122,7 +5122,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES92_MASK    ((uint32_t)0x00001000u)
-#define NVIC_ISER2_R_NVIC_RES92_BIT     (12)
+#define NVIC_ISER2_R_NVIC_RES92_BIT     (12u)
 #define NVIC_ISER2_R_NVIC_RES92_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES92_EN      ((uint32_t)0x00001000u)
 
@@ -5134,7 +5134,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES93_MASK    ((uint32_t)0x00002000u)
-#define NVIC_ISER2_R_NVIC_RES93_BIT     (13)
+#define NVIC_ISER2_R_NVIC_RES93_BIT     (13u)
 #define NVIC_ISER2_R_NVIC_RES93_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES93_EN      ((uint32_t)0x00002000u)
 
@@ -5145,7 +5145,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES94_MASK    ((uint32_t)0x00004000u)
-#define NVIC_ISER2_R_NVIC_RES94_BIT     (14)
+#define NVIC_ISER2_R_NVIC_RES94_BIT     (14u)
 #define NVIC_ISER2_R_NVIC_RES94_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES94_EN      ((uint32_t)0x00004000u)
 
@@ -5156,7 +5156,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES95_MASK    ((uint32_t)0x00008000u)
-#define NVIC_ISER2_R_NVIC_RES95_BIT     (15)
+#define NVIC_ISER2_R_NVIC_RES95_BIT     (15u)
 #define NVIC_ISER2_R_NVIC_RES95_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES95_EN      ((uint32_t)0x00008000u)
 
@@ -5167,7 +5167,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES96_MASK    ((uint32_t)0x00010000u)
-#define NVIC_ISER2_R_NVIC_RES96_BIT     (16)
+#define NVIC_ISER2_R_NVIC_RES96_BIT     (16u)
 #define NVIC_ISER2_R_NVIC_RES96_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES96_EN      ((uint32_t)0x00010000u)
 
@@ -5178,7 +5178,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES97_MASK    ((uint32_t)0x00020000u)
-#define NVIC_ISER2_R_NVIC_RES97_BIT     (17)
+#define NVIC_ISER2_R_NVIC_RES97_BIT     (17u)
 #define NVIC_ISER2_R_NVIC_RES97_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES97_EN      ((uint32_t)0x00020000u)
 
@@ -5189,7 +5189,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES98_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ISER2_R_NVIC_RES98_BIT     (18)
+#define NVIC_ISER2_R_NVIC_RES98_BIT     (18u)
 #define NVIC_ISER2_R_NVIC_RES98_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES98_EN      ((uint32_t)0x00040000u)
 
@@ -5200,7 +5200,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES99_MASK    ((uint32_t)0x00080000u)
-#define NVIC_ISER2_R_NVIC_RES99_BIT     (19)
+#define NVIC_ISER2_R_NVIC_RES99_BIT     (19u)
 #define NVIC_ISER2_R_NVIC_RES99_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES99_EN      ((uint32_t)0x00080000u)
 
@@ -5211,7 +5211,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES100_MASK   ((uint32_t)0x00100000u)
-#define NVIC_ISER2_R_NVIC_RES100_BIT    (20)
+#define NVIC_ISER2_R_NVIC_RES100_BIT    (20u)
 #define NVIC_ISER2_R_NVIC_RES100_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES100_EN     ((uint32_t)0x00100000u)
 
@@ -5222,7 +5222,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES101_MASK   ((uint32_t)0x00200000u)
-#define NVIC_ISER2_R_NVIC_RES101_BIT    (21)
+#define NVIC_ISER2_R_NVIC_RES101_BIT    (21u)
 #define NVIC_ISER2_R_NVIC_RES101_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES101_EN     ((uint32_t)0x00200000u)
 
@@ -5233,7 +5233,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES102_MASK   ((uint32_t)0x00400000u)
-#define NVIC_ISER2_R_NVIC_RES102_BIT    (22)
+#define NVIC_ISER2_R_NVIC_RES102_BIT    (22u)
 #define NVIC_ISER2_R_NVIC_RES102_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES102_EN     ((uint32_t)0x00400000u)
 
@@ -5245,7 +5245,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES103_MASK   ((uint32_t)0x00800000u)
-#define NVIC_ISER2_R_NVIC_RES103_BIT    (23)
+#define NVIC_ISER2_R_NVIC_RES103_BIT    (23u)
 #define NVIC_ISER2_R_NVIC_RES103_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES103_EN     ((uint32_t)0x00800000u)
 
@@ -5256,7 +5256,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES104_MASK   ((uint32_t)0x01000000u)
-#define NVIC_ISER2_R_NVIC_RES104_BIT    (24)
+#define NVIC_ISER2_R_NVIC_RES104_BIT    (24u)
 #define NVIC_ISER2_R_NVIC_RES104_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES104_EN     ((uint32_t)0x01000000u)
 
@@ -5267,7 +5267,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES105_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ISER2_R_NVIC_RES105_BIT    (25)
+#define NVIC_ISER2_R_NVIC_RES105_BIT    (25u)
 #define NVIC_ISER2_R_NVIC_RES105_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES105_EN     ((uint32_t)0x02000000u)
 
@@ -5278,7 +5278,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES106_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ISER2_R_NVIC_RES106_BIT    (26)
+#define NVIC_ISER2_R_NVIC_RES106_BIT    (26u)
 #define NVIC_ISER2_R_NVIC_RES106_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES106_EN     ((uint32_t)0x04000000u)
 
@@ -5289,7 +5289,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_RES107_MASK   ((uint32_t)0x08000000u)
-#define NVIC_ISER2_R_NVIC_RES107_BIT    (27)
+#define NVIC_ISER2_R_NVIC_RES107_BIT    (27u)
 #define NVIC_ISER2_R_NVIC_RES107_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_RES107_EN     ((uint32_t)0x08000000u)
 
@@ -5300,7 +5300,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_TIMER5A_MASK  ((uint32_t)0x10000000u)
-#define NVIC_ISER2_R_NVIC_TIMER5A_BIT   (28)
+#define NVIC_ISER2_R_NVIC_TIMER5A_BIT   (28u)
 #define NVIC_ISER2_R_NVIC_TIMER5A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_TIMER5A_EN    ((uint32_t)0x10000000u)
 
@@ -5311,7 +5311,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_TIMER5B_MASK  ((uint32_t)0x20000000u)
-#define NVIC_ISER2_R_NVIC_TIMER5B_BIT   (29)
+#define NVIC_ISER2_R_NVIC_TIMER5B_BIT   (29u)
 #define NVIC_ISER2_R_NVIC_TIMER5B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_TIMER5B_EN    ((uint32_t)0x20000000u)
 
@@ -5322,7 +5322,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_WTIMER0A_MASK ((uint32_t)0x40000000u)
-#define NVIC_ISER2_R_NVIC_WTIMER0A_BIT  (30)
+#define NVIC_ISER2_R_NVIC_WTIMER0A_BIT  (30u)
 #define NVIC_ISER2_R_NVIC_WTIMER0A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_WTIMER0A_EN   ((uint32_t)0x40000000u)
 
@@ -5333,7 +5333,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER2_R_NVIC_WTIMER0B_MASK ((uint32_t)0x80000000u)
-#define NVIC_ISER2_R_NVIC_WTIMER0B_BIT  (31)
+#define NVIC_ISER2_R_NVIC_WTIMER0B_BIT  (31u)
 #define NVIC_ISER2_R_NVIC_WTIMER0B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER2_R_NVIC_WTIMER0B_EN   ((uint32_t)0x80000000u)
 
@@ -5351,7 +5351,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES80_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ICER2_R_NVIC_RES80_BIT     (0)
+#define NVIC_ICER2_R_NVIC_RES80_BIT     (0u)
 #define NVIC_ICER2_R_NVIC_RES80_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES80_EN      ((uint32_t)0x00000001u)
 
@@ -5362,7 +5362,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES81_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ICER2_R_NVIC_RES81_BIT     (1)
+#define NVIC_ICER2_R_NVIC_RES81_BIT     (1u)
 #define NVIC_ICER2_R_NVIC_RES81_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES81_EN      ((uint32_t)0x00000002u)
 
@@ -5373,7 +5373,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES82_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ICER2_R_NVIC_RES82_BIT     (2)
+#define NVIC_ICER2_R_NVIC_RES82_BIT     (2u)
 #define NVIC_ICER2_R_NVIC_RES82_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES82_EN      ((uint32_t)0x00000004u)
 
@@ -5385,7 +5385,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES83_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ICER2_R_NVIC_RES83_BIT     (3)
+#define NVIC_ICER2_R_NVIC_RES83_BIT     (3u)
 #define NVIC_ICER2_R_NVIC_RES83_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES83_EN      ((uint32_t)0x00000008u)
 
@@ -5396,7 +5396,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_I2C2_MASK     ((uint32_t)0x00000010u)
-#define NVIC_ICER2_R_NVIC_I2C2_BIT      (4)
+#define NVIC_ICER2_R_NVIC_I2C2_BIT      (4u)
 #define NVIC_ICER2_R_NVIC_I2C2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_I2C2_EN       ((uint32_t)0x00000010u)
 
@@ -5407,7 +5407,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_I2C3_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ICER2_R_NVIC_I2C3_BIT      (5)
+#define NVIC_ICER2_R_NVIC_I2C3_BIT      (5u)
 #define NVIC_ICER2_R_NVIC_I2C3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_I2C3_EN       ((uint32_t)0x00000020u)
 
@@ -5418,7 +5418,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_TIMER4A_MASK  ((uint32_t)0x00000040u)
-#define NVIC_ICER2_R_NVIC_TIMER4A_BIT   (6)
+#define NVIC_ICER2_R_NVIC_TIMER4A_BIT   (6u)
 #define NVIC_ICER2_R_NVIC_TIMER4A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_TIMER4A_EN    ((uint32_t)0x00000040u)
 
@@ -5429,7 +5429,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_TIMER4B_MASK  ((uint32_t)0x00000080u)
-#define NVIC_ICER2_R_NVIC_TIMER4B_BIT   (7)
+#define NVIC_ICER2_R_NVIC_TIMER4B_BIT   (7u)
 #define NVIC_ICER2_R_NVIC_TIMER4B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_TIMER4B_EN    ((uint32_t)0x00000080u)
 
@@ -5440,7 +5440,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES88_MASK    ((uint32_t)0x00000100u)
-#define NVIC_ICER2_R_NVIC_RES88_BIT     (8)
+#define NVIC_ICER2_R_NVIC_RES88_BIT     (8u)
 #define NVIC_ICER2_R_NVIC_RES88_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES88_EN      ((uint32_t)0x00000100u)
 
@@ -5452,7 +5452,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES89_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ICER2_R_NVIC_RES89_BIT     (9)
+#define NVIC_ICER2_R_NVIC_RES89_BIT     (9u)
 #define NVIC_ICER2_R_NVIC_RES89_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES89_EN      ((uint32_t)0x00000200u)
 
@@ -5464,7 +5464,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES90_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ICER2_R_NVIC_RES90_BIT     (10)
+#define NVIC_ICER2_R_NVIC_RES90_BIT     (10u)
 #define NVIC_ICER2_R_NVIC_RES90_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES90_EN      ((uint32_t)0x00000400u)
 
@@ -5475,7 +5475,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES93_EPI_IN_MASK ((uint32_t)0x00000800u)
-#define NVIC_ICER2_R_NVIC_RES93_EPI_IN_BIT  (11)
+#define NVIC_ICER2_R_NVIC_RES93_EPI_IN_BIT  (11u)
 #define NVIC_ICER2_R_NVIC_RES93_EPI_IN_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES93_EPI_IN_EN   ((uint32_t)0x00000800u)
 
@@ -5486,7 +5486,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES92_MASK    ((uint32_t)0x00001000u)
-#define NVIC_ICER2_R_NVIC_RES92_BIT     (12)
+#define NVIC_ICER2_R_NVIC_RES92_BIT     (12u)
 #define NVIC_ICER2_R_NVIC_RES92_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES92_EN      ((uint32_t)0x00001000u)
 
@@ -5498,7 +5498,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES93_MASK    ((uint32_t)0x00002000u)
-#define NVIC_ICER2_R_NVIC_RES93_BIT     (13)
+#define NVIC_ICER2_R_NVIC_RES93_BIT     (13u)
 #define NVIC_ICER2_R_NVIC_RES93_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES93_EN      ((uint32_t)0x00002000u)
 
@@ -5509,7 +5509,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES94_MASK    ((uint32_t)0x00004000u)
-#define NVIC_ICER2_R_NVIC_RES94_BIT     (14)
+#define NVIC_ICER2_R_NVIC_RES94_BIT     (14u)
 #define NVIC_ICER2_R_NVIC_RES94_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES94_EN      ((uint32_t)0x00004000u)
 
@@ -5520,7 +5520,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES95_MASK    ((uint32_t)0x00008000u)
-#define NVIC_ICER2_R_NVIC_RES95_BIT     (15)
+#define NVIC_ICER2_R_NVIC_RES95_BIT     (15u)
 #define NVIC_ICER2_R_NVIC_RES95_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES95_EN      ((uint32_t)0x00008000u)
 
@@ -5531,7 +5531,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES96_MASK    ((uint32_t)0x00010000u)
-#define NVIC_ICER2_R_NVIC_RES96_BIT     (16)
+#define NVIC_ICER2_R_NVIC_RES96_BIT     (16u)
 #define NVIC_ICER2_R_NVIC_RES96_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES96_EN      ((uint32_t)0x00010000u)
 
@@ -5542,7 +5542,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES97_MASK    ((uint32_t)0x00020000u)
-#define NVIC_ICER2_R_NVIC_RES97_BIT     (17)
+#define NVIC_ICER2_R_NVIC_RES97_BIT     (17u)
 #define NVIC_ICER2_R_NVIC_RES97_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES97_EN      ((uint32_t)0x00020000u)
 
@@ -5553,7 +5553,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES98_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ICER2_R_NVIC_RES98_BIT     (18)
+#define NVIC_ICER2_R_NVIC_RES98_BIT     (18u)
 #define NVIC_ICER2_R_NVIC_RES98_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES98_EN      ((uint32_t)0x00040000u)
 
@@ -5564,7 +5564,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES99_MASK    ((uint32_t)0x00080000u)
-#define NVIC_ICER2_R_NVIC_RES99_BIT     (19)
+#define NVIC_ICER2_R_NVIC_RES99_BIT     (19u)
 #define NVIC_ICER2_R_NVIC_RES99_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES99_EN      ((uint32_t)0x00080000u)
 
@@ -5575,7 +5575,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES100_MASK   ((uint32_t)0x00100000u)
-#define NVIC_ICER2_R_NVIC_RES100_BIT    (20)
+#define NVIC_ICER2_R_NVIC_RES100_BIT    (20u)
 #define NVIC_ICER2_R_NVIC_RES100_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES100_EN     ((uint32_t)0x00100000u)
 
@@ -5586,7 +5586,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES101_MASK   ((uint32_t)0x00200000u)
-#define NVIC_ICER2_R_NVIC_RES101_BIT    (21)
+#define NVIC_ICER2_R_NVIC_RES101_BIT    (21u)
 #define NVIC_ICER2_R_NVIC_RES101_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES101_EN     ((uint32_t)0x00200000u)
 
@@ -5597,7 +5597,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES102_MASK   ((uint32_t)0x00400000u)
-#define NVIC_ICER2_R_NVIC_RES102_BIT    (22)
+#define NVIC_ICER2_R_NVIC_RES102_BIT    (22u)
 #define NVIC_ICER2_R_NVIC_RES102_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES102_EN     ((uint32_t)0x00400000u)
 
@@ -5609,7 +5609,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES103_MASK   ((uint32_t)0x00800000u)
-#define NVIC_ICER2_R_NVIC_RES103_BIT    (23)
+#define NVIC_ICER2_R_NVIC_RES103_BIT    (23u)
 #define NVIC_ICER2_R_NVIC_RES103_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES103_EN     ((uint32_t)0x00800000u)
 
@@ -5620,7 +5620,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES104_MASK   ((uint32_t)0x01000000u)
-#define NVIC_ICER2_R_NVIC_RES104_BIT    (24)
+#define NVIC_ICER2_R_NVIC_RES104_BIT    (24u)
 #define NVIC_ICER2_R_NVIC_RES104_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES104_EN     ((uint32_t)0x01000000u)
 
@@ -5631,7 +5631,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES105_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ICER2_R_NVIC_RES105_BIT    (25)
+#define NVIC_ICER2_R_NVIC_RES105_BIT    (25u)
 #define NVIC_ICER2_R_NVIC_RES105_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES105_EN     ((uint32_t)0x02000000u)
 
@@ -5642,7 +5642,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES106_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ICER2_R_NVIC_RES106_BIT    (26)
+#define NVIC_ICER2_R_NVIC_RES106_BIT    (26u)
 #define NVIC_ICER2_R_NVIC_RES106_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES106_EN     ((uint32_t)0x04000000u)
 
@@ -5653,7 +5653,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES107_MASK   ((uint32_t)0x08000000u)
-#define NVIC_ICER2_R_NVIC_RES107_BIT    (27)
+#define NVIC_ICER2_R_NVIC_RES107_BIT    (27u)
 #define NVIC_ICER2_R_NVIC_RES107_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_RES107_EN     ((uint32_t)0x08000000u)
 
@@ -5664,7 +5664,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_TIMER5A_MASK  ((uint32_t)0x10000000u)
-#define NVIC_ICER2_R_NVIC_TIMER5A_BIT   (28)
+#define NVIC_ICER2_R_NVIC_TIMER5A_BIT   (28u)
 #define NVIC_ICER2_R_NVIC_TIMER5A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_TIMER5A_EN    ((uint32_t)0x10000000u)
 
@@ -5675,7 +5675,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_TIMER5B_MASK  ((uint32_t)0x20000000u)
-#define NVIC_ICER2_R_NVIC_TIMER5B_BIT   (29)
+#define NVIC_ICER2_R_NVIC_TIMER5B_BIT   (29u)
 #define NVIC_ICER2_R_NVIC_TIMER5B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_TIMER5B_EN    ((uint32_t)0x20000000u)
 
@@ -5686,7 +5686,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_WTIMER0A_MASK ((uint32_t)0x40000000u)
-#define NVIC_ICER2_R_NVIC_WTIMER0A_BIT  (30)
+#define NVIC_ICER2_R_NVIC_WTIMER0A_BIT  (30u)
 #define NVIC_ICER2_R_NVIC_WTIMER0A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_WTIMER0A_EN   ((uint32_t)0x40000000u)
 
@@ -5697,7 +5697,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_WTIMER0B_MASK ((uint32_t)0x80000000u)
-#define NVIC_ICER2_R_NVIC_WTIMER0B_BIT  (31)
+#define NVIC_ICER2_R_NVIC_WTIMER0B_BIT  (31u)
 #define NVIC_ICER2_R_NVIC_WTIMER0B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER2_R_NVIC_WTIMER0B_EN   ((uint32_t)0x80000000u)
 
@@ -5716,7 +5716,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES80_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ISPR2_R_NVIC_RES80_BIT     (0)
+#define NVIC_ISPR2_R_NVIC_RES80_BIT     (0u)
 #define NVIC_ISPR2_R_NVIC_RES80_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES80_EN      ((uint32_t)0x00000001u)
 
@@ -5727,7 +5727,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES81_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ISPR2_R_NVIC_RES81_BIT     (1)
+#define NVIC_ISPR2_R_NVIC_RES81_BIT     (1u)
 #define NVIC_ISPR2_R_NVIC_RES81_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES81_EN      ((uint32_t)0x00000002u)
 
@@ -5738,7 +5738,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES82_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ISPR2_R_NVIC_RES82_BIT     (2)
+#define NVIC_ISPR2_R_NVIC_RES82_BIT     (2u)
 #define NVIC_ISPR2_R_NVIC_RES82_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES82_EN      ((uint32_t)0x00000004u)
 
@@ -5750,7 +5750,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES83_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ISPR2_R_NVIC_RES83_BIT     (3)
+#define NVIC_ISPR2_R_NVIC_RES83_BIT     (3u)
 #define NVIC_ISPR2_R_NVIC_RES83_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES83_EN      ((uint32_t)0x00000008u)
 
@@ -5761,7 +5761,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_I2C2_MASK     ((uint32_t)0x00000010u)
-#define NVIC_ISPR2_R_NVIC_I2C2_BIT      (4)
+#define NVIC_ISPR2_R_NVIC_I2C2_BIT      (4u)
 #define NVIC_ISPR2_R_NVIC_I2C2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_I2C2_EN       ((uint32_t)0x00000010u)
 
@@ -5772,7 +5772,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_I2C3_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ISPR2_R_NVIC_I2C3_BIT      (5)
+#define NVIC_ISPR2_R_NVIC_I2C3_BIT      (5u)
 #define NVIC_ISPR2_R_NVIC_I2C3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_I2C3_EN       ((uint32_t)0x00000020u)
 
@@ -5783,7 +5783,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_TIMER4A_MASK  ((uint32_t)0x00000040u)
-#define NVIC_ISPR2_R_NVIC_TIMER4A_BIT   (6)
+#define NVIC_ISPR2_R_NVIC_TIMER4A_BIT   (6u)
 #define NVIC_ISPR2_R_NVIC_TIMER4A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_TIMER4A_EN    ((uint32_t)0x00000040u)
 
@@ -5794,7 +5794,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_TIMER4B_MASK  ((uint32_t)0x00000080u)
-#define NVIC_ISPR2_R_NVIC_TIMER4B_BIT   (7)
+#define NVIC_ISPR2_R_NVIC_TIMER4B_BIT   (7u)
 #define NVIC_ISPR2_R_NVIC_TIMER4B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_TIMER4B_EN    ((uint32_t)0x00000080u)
 
@@ -5805,7 +5805,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES88_MASK    ((uint32_t)0x00000100u)
-#define NVIC_ISPR2_R_NVIC_RES88_BIT     (8)
+#define NVIC_ISPR2_R_NVIC_RES88_BIT     (8u)
 #define NVIC_ISPR2_R_NVIC_RES88_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES88_EN      ((uint32_t)0x00000100u)
 
@@ -5817,7 +5817,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES89_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ISPR2_R_NVIC_RES89_BIT     (9)
+#define NVIC_ISPR2_R_NVIC_RES89_BIT     (9u)
 #define NVIC_ISPR2_R_NVIC_RES89_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES89_EN      ((uint32_t)0x00000200u)
 
@@ -5829,7 +5829,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES90_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ISPR2_R_NVIC_RES90_BIT     (10)
+#define NVIC_ISPR2_R_NVIC_RES90_BIT     (10u)
 #define NVIC_ISPR2_R_NVIC_RES90_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES90_EN      ((uint32_t)0x00000400u)
 
@@ -5840,7 +5840,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES93_EPI_IN_MASK ((uint32_t)0x00000800u)
-#define NVIC_ISPR2_R_NVIC_RES93_EPI_IN_BIT  (11)
+#define NVIC_ISPR2_R_NVIC_RES93_EPI_IN_BIT  (11u)
 #define NVIC_ISPR2_R_NVIC_RES93_EPI_IN_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES93_EPI_IN_EN   ((uint32_t)0x00000800u)
 
@@ -5851,7 +5851,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES92_MASK    ((uint32_t)0x00001000u)
-#define NVIC_ISPR2_R_NVIC_RES92_BIT     (12)
+#define NVIC_ISPR2_R_NVIC_RES92_BIT     (12u)
 #define NVIC_ISPR2_R_NVIC_RES92_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES92_EN      ((uint32_t)0x00001000u)
 
@@ -5863,7 +5863,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES93_MASK    ((uint32_t)0x00002000u)
-#define NVIC_ISPR2_R_NVIC_RES93_BIT     (13)
+#define NVIC_ISPR2_R_NVIC_RES93_BIT     (13u)
 #define NVIC_ISPR2_R_NVIC_RES93_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES93_EN      ((uint32_t)0x00002000u)
 
@@ -5874,7 +5874,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES94_MASK    ((uint32_t)0x00004000u)
-#define NVIC_ISPR2_R_NVIC_RES94_BIT     (14)
+#define NVIC_ISPR2_R_NVIC_RES94_BIT     (14u)
 #define NVIC_ISPR2_R_NVIC_RES94_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES94_EN      ((uint32_t)0x00004000u)
 
@@ -5885,7 +5885,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES95_MASK    ((uint32_t)0x00008000u)
-#define NVIC_ISPR2_R_NVIC_RES95_BIT     (15)
+#define NVIC_ISPR2_R_NVIC_RES95_BIT     (15u)
 #define NVIC_ISPR2_R_NVIC_RES95_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES95_EN      ((uint32_t)0x00008000u)
 
@@ -5896,7 +5896,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES96_MASK    ((uint32_t)0x00010000u)
-#define NVIC_ISPR2_R_NVIC_RES96_BIT     (16)
+#define NVIC_ISPR2_R_NVIC_RES96_BIT     (16u)
 #define NVIC_ISPR2_R_NVIC_RES96_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES96_EN      ((uint32_t)0x00010000u)
 
@@ -5907,7 +5907,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES97_MASK    ((uint32_t)0x00020000u)
-#define NVIC_ISPR2_R_NVIC_RES97_BIT     (17)
+#define NVIC_ISPR2_R_NVIC_RES97_BIT     (17u)
 #define NVIC_ISPR2_R_NVIC_RES97_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES97_EN      ((uint32_t)0x00020000u)
 
@@ -5918,7 +5918,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES98_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ISPR2_R_NVIC_RES98_BIT     (18)
+#define NVIC_ISPR2_R_NVIC_RES98_BIT     (18u)
 #define NVIC_ISPR2_R_NVIC_RES98_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES98_EN      ((uint32_t)0x00040000u)
 
@@ -5929,7 +5929,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES99_MASK    ((uint32_t)0x00080000u)
-#define NVIC_ISPR2_R_NVIC_RES99_BIT     (19)
+#define NVIC_ISPR2_R_NVIC_RES99_BIT     (19u)
 #define NVIC_ISPR2_R_NVIC_RES99_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES99_EN      ((uint32_t)0x00080000u)
 
@@ -5940,7 +5940,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES100_MASK   ((uint32_t)0x00100000u)
-#define NVIC_ISPR2_R_NVIC_RES100_BIT    (20)
+#define NVIC_ISPR2_R_NVIC_RES100_BIT    (20u)
 #define NVIC_ISPR2_R_NVIC_RES100_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES100_EN     ((uint32_t)0x00100000u)
 
@@ -5951,7 +5951,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES101_MASK   ((uint32_t)0x00200000u)
-#define NVIC_ISPR2_R_NVIC_RES101_BIT    (21)
+#define NVIC_ISPR2_R_NVIC_RES101_BIT    (21u)
 #define NVIC_ISPR2_R_NVIC_RES101_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES101_EN     ((uint32_t)0x00200000u)
 
@@ -5962,7 +5962,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES102_MASK   ((uint32_t)0x00400000u)
-#define NVIC_ISPR2_R_NVIC_RES102_BIT    (22)
+#define NVIC_ISPR2_R_NVIC_RES102_BIT    (22u)
 #define NVIC_ISPR2_R_NVIC_RES102_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES102_EN     ((uint32_t)0x00400000u)
 
@@ -5974,7 +5974,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES103_MASK   ((uint32_t)0x00800000u)
-#define NVIC_ISPR2_R_NVIC_RES103_BIT    (23)
+#define NVIC_ISPR2_R_NVIC_RES103_BIT    (23u)
 #define NVIC_ISPR2_R_NVIC_RES103_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES103_EN     ((uint32_t)0x00800000u)
 
@@ -5985,7 +5985,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES104_MASK   ((uint32_t)0x01000000u)
-#define NVIC_ISPR2_R_NVIC_RES104_BIT    (24)
+#define NVIC_ISPR2_R_NVIC_RES104_BIT    (24u)
 #define NVIC_ISPR2_R_NVIC_RES104_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES104_EN     ((uint32_t)0x01000000u)
 
@@ -5996,7 +5996,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES105_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ISPR2_R_NVIC_RES105_BIT    (25)
+#define NVIC_ISPR2_R_NVIC_RES105_BIT    (25u)
 #define NVIC_ISPR2_R_NVIC_RES105_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES105_EN     ((uint32_t)0x02000000u)
 
@@ -6007,7 +6007,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES106_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ISPR2_R_NVIC_RES106_BIT    (26)
+#define NVIC_ISPR2_R_NVIC_RES106_BIT    (26u)
 #define NVIC_ISPR2_R_NVIC_RES106_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES106_EN     ((uint32_t)0x04000000u)
 
@@ -6018,7 +6018,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_RES107_MASK   ((uint32_t)0x08000000u)
-#define NVIC_ISPR2_R_NVIC_RES107_BIT    (27)
+#define NVIC_ISPR2_R_NVIC_RES107_BIT    (27u)
 #define NVIC_ISPR2_R_NVIC_RES107_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_RES107_EN     ((uint32_t)0x08000000u)
 
@@ -6029,7 +6029,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_TIMER5A_MASK  ((uint32_t)0x10000000u)
-#define NVIC_ISPR2_R_NVIC_TIMER5A_BIT   (28)
+#define NVIC_ISPR2_R_NVIC_TIMER5A_BIT   (28u)
 #define NVIC_ISPR2_R_NVIC_TIMER5A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_TIMER5A_EN    ((uint32_t)0x10000000u)
 
@@ -6040,7 +6040,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_TIMER5B_MASK  ((uint32_t)0x20000000u)
-#define NVIC_ISPR2_R_NVIC_TIMER5B_BIT   (29)
+#define NVIC_ISPR2_R_NVIC_TIMER5B_BIT   (29u)
 #define NVIC_ISPR2_R_NVIC_TIMER5B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_TIMER5B_EN    ((uint32_t)0x20000000u)
 
@@ -6051,7 +6051,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_WTIMER0A_MASK ((uint32_t)0x40000000u)
-#define NVIC_ISPR2_R_NVIC_WTIMER0A_BIT  (30)
+#define NVIC_ISPR2_R_NVIC_WTIMER0A_BIT  (30u)
 #define NVIC_ISPR2_R_NVIC_WTIMER0A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_WTIMER0A_EN   ((uint32_t)0x40000000u)
 
@@ -6062,7 +6062,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR2_R_NVIC_WTIMER0B_MASK ((uint32_t)0x80000000u)
-#define NVIC_ISPR2_R_NVIC_WTIMER0B_BIT  (31)
+#define NVIC_ISPR2_R_NVIC_WTIMER0B_BIT  (31u)
 #define NVIC_ISPR2_R_NVIC_WTIMER0B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR2_R_NVIC_WTIMER0B_EN   ((uint32_t)0x80000000u)
 
@@ -6081,7 +6081,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES80_MASK    ((uint32_t)0x00000001u)
-#define NVIC_ICPR2_R_NVIC_RES80_BIT     (0)
+#define NVIC_ICPR2_R_NVIC_RES80_BIT     (0u)
 #define NVIC_ICPR2_R_NVIC_RES80_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES80_EN      ((uint32_t)0x00000001u)
 
@@ -6092,7 +6092,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES81_MASK    ((uint32_t)0x00000002u)
-#define NVIC_ICPR2_R_NVIC_RES81_BIT     (1)
+#define NVIC_ICPR2_R_NVIC_RES81_BIT     (1u)
 #define NVIC_ICPR2_R_NVIC_RES81_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES81_EN      ((uint32_t)0x00000002u)
 
@@ -6103,7 +6103,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES82_MASK    ((uint32_t)0x00000004u)
-#define NVIC_ICPR2_R_NVIC_RES82_BIT     (2)
+#define NVIC_ICPR2_R_NVIC_RES82_BIT     (2u)
 #define NVIC_ICPR2_R_NVIC_RES82_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES82_EN      ((uint32_t)0x00000004u)
 
@@ -6115,7 +6115,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES83_MASK    ((uint32_t)0x00000008u)
-#define NVIC_ICPR2_R_NVIC_RES83_BIT     (3)
+#define NVIC_ICPR2_R_NVIC_RES83_BIT     (3u)
 #define NVIC_ICPR2_R_NVIC_RES83_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES83_EN      ((uint32_t)0x00000008u)
 
@@ -6126,7 +6126,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_I2C2_MASK     ((uint32_t)0x00000010u)
-#define NVIC_ICPR2_R_NVIC_I2C2_BIT      (4)
+#define NVIC_ICPR2_R_NVIC_I2C2_BIT      (4u)
 #define NVIC_ICPR2_R_NVIC_I2C2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_I2C2_EN       ((uint32_t)0x00000010u)
 
@@ -6137,7 +6137,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_I2C3_MASK     ((uint32_t)0x00000020u)
-#define NVIC_ICPR2_R_NVIC_I2C3_BIT      (5)
+#define NVIC_ICPR2_R_NVIC_I2C3_BIT      (5u)
 #define NVIC_ICPR2_R_NVIC_I2C3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_I2C3_EN       ((uint32_t)0x00000020u)
 
@@ -6148,7 +6148,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_TIMER4A_MASK  ((uint32_t)0x00000040u)
-#define NVIC_ICPR2_R_NVIC_TIMER4A_BIT   (6)
+#define NVIC_ICPR2_R_NVIC_TIMER4A_BIT   (6u)
 #define NVIC_ICPR2_R_NVIC_TIMER4A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_TIMER4A_EN    ((uint32_t)0x00000040u)
 
@@ -6159,7 +6159,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_TIMER4B_MASK  ((uint32_t)0x00000080u)
-#define NVIC_ICPR2_R_NVIC_TIMER4B_BIT   (7)
+#define NVIC_ICPR2_R_NVIC_TIMER4B_BIT   (7u)
 #define NVIC_ICPR2_R_NVIC_TIMER4B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_TIMER4B_EN    ((uint32_t)0x00000080u)
 
@@ -6170,7 +6170,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES88_MASK    ((uint32_t)0x00000100u)
-#define NVIC_ICPR2_R_NVIC_RES88_BIT     (8)
+#define NVIC_ICPR2_R_NVIC_RES88_BIT     (8u)
 #define NVIC_ICPR2_R_NVIC_RES88_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES88_EN      ((uint32_t)0x00000100u)
 
@@ -6182,7 +6182,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES89_MASK    ((uint32_t)0x00000200u)
-#define NVIC_ICPR2_R_NVIC_RES89_BIT     (9)
+#define NVIC_ICPR2_R_NVIC_RES89_BIT     (9u)
 #define NVIC_ICPR2_R_NVIC_RES89_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES89_EN      ((uint32_t)0x00000200u)
 
@@ -6194,7 +6194,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES90_MASK    ((uint32_t)0x00000400u)
-#define NVIC_ICPR2_R_NVIC_RES90_BIT     (10)
+#define NVIC_ICPR2_R_NVIC_RES90_BIT     (10u)
 #define NVIC_ICPR2_R_NVIC_RES90_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES90_EN      ((uint32_t)0x00000400u)
 
@@ -6205,7 +6205,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES93_EPI_IN_MASK ((uint32_t)0x00000800u)
-#define NVIC_ICPR2_R_NVIC_RES93_EPI_IN_BIT  (11)
+#define NVIC_ICPR2_R_NVIC_RES93_EPI_IN_BIT  (11u)
 #define NVIC_ICPR2_R_NVIC_RES93_EPI_IN_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES93_EPI_IN_EN   ((uint32_t)0x00000800u)
 
@@ -6216,7 +6216,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES92_MASK    ((uint32_t)0x00001000u)
-#define NVIC_ICPR2_R_NVIC_RES92_BIT     (12)
+#define NVIC_ICPR2_R_NVIC_RES92_BIT     (12u)
 #define NVIC_ICPR2_R_NVIC_RES92_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES92_EN      ((uint32_t)0x00001000u)
 
@@ -6228,7 +6228,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES93_MASK    ((uint32_t)0x00002000u)
-#define NVIC_ICPR2_R_NVIC_RES93_BIT     (13)
+#define NVIC_ICPR2_R_NVIC_RES93_BIT     (13u)
 #define NVIC_ICPR2_R_NVIC_RES93_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES93_EN      ((uint32_t)0x00002000u)
 
@@ -6239,7 +6239,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES94_MASK    ((uint32_t)0x00004000u)
-#define NVIC_ICPR2_R_NVIC_RES94_BIT     (14)
+#define NVIC_ICPR2_R_NVIC_RES94_BIT     (14u)
 #define NVIC_ICPR2_R_NVIC_RES94_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES94_EN      ((uint32_t)0x00004000u)
 
@@ -6250,7 +6250,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES95_MASK    ((uint32_t)0x00008000u)
-#define NVIC_ICPR2_R_NVIC_RES95_BIT     (15)
+#define NVIC_ICPR2_R_NVIC_RES95_BIT     (15u)
 #define NVIC_ICPR2_R_NVIC_RES95_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES95_EN      ((uint32_t)0x00008000u)
 
@@ -6261,7 +6261,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES96_MASK    ((uint32_t)0x00010000u)
-#define NVIC_ICPR2_R_NVIC_RES96_BIT     (16)
+#define NVIC_ICPR2_R_NVIC_RES96_BIT     (16u)
 #define NVIC_ICPR2_R_NVIC_RES96_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES96_EN      ((uint32_t)0x00010000u)
 
@@ -6272,7 +6272,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES97_MASK    ((uint32_t)0x00020000u)
-#define NVIC_ICPR2_R_NVIC_RES97_BIT     (17)
+#define NVIC_ICPR2_R_NVIC_RES97_BIT     (17u)
 #define NVIC_ICPR2_R_NVIC_RES97_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES97_EN      ((uint32_t)0x00020000u)
 
@@ -6283,7 +6283,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES98_MASK    ((uint32_t)0x00040000u)
-#define NVIC_ICPR2_R_NVIC_RES98_BIT     (18)
+#define NVIC_ICPR2_R_NVIC_RES98_BIT     (18u)
 #define NVIC_ICPR2_R_NVIC_RES98_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES98_EN      ((uint32_t)0x00040000u)
 
@@ -6294,7 +6294,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES99_MASK    ((uint32_t)0x00080000u)
-#define NVIC_ICPR2_R_NVIC_RES99_BIT     (19)
+#define NVIC_ICPR2_R_NVIC_RES99_BIT     (19u)
 #define NVIC_ICPR2_R_NVIC_RES99_DIS     ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES99_EN      ((uint32_t)0x00080000u)
 
@@ -6305,7 +6305,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES100_MASK   ((uint32_t)0x00100000u)
-#define NVIC_ICPR2_R_NVIC_RES100_BIT    (20)
+#define NVIC_ICPR2_R_NVIC_RES100_BIT    (20u)
 #define NVIC_ICPR2_R_NVIC_RES100_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES100_EN     ((uint32_t)0x00100000u)
 
@@ -6316,7 +6316,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES101_MASK   ((uint32_t)0x00200000u)
-#define NVIC_ICPR2_R_NVIC_RES101_BIT    (21)
+#define NVIC_ICPR2_R_NVIC_RES101_BIT    (21u)
 #define NVIC_ICPR2_R_NVIC_RES101_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES101_EN     ((uint32_t)0x00200000u)
 
@@ -6327,7 +6327,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES102_MASK   ((uint32_t)0x00400000u)
-#define NVIC_ICPR2_R_NVIC_RES102_BIT    (22)
+#define NVIC_ICPR2_R_NVIC_RES102_BIT    (22u)
 #define NVIC_ICPR2_R_NVIC_RES102_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES102_EN     ((uint32_t)0x00400000u)
 
@@ -6339,7 +6339,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES103_MASK   ((uint32_t)0x00800000u)
-#define NVIC_ICPR2_R_NVIC_RES103_BIT    (23)
+#define NVIC_ICPR2_R_NVIC_RES103_BIT    (23u)
 #define NVIC_ICPR2_R_NVIC_RES103_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES103_EN     ((uint32_t)0x00800000u)
 
@@ -6350,7 +6350,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES104_MASK   ((uint32_t)0x01000000u)
-#define NVIC_ICPR2_R_NVIC_RES104_BIT    (24)
+#define NVIC_ICPR2_R_NVIC_RES104_BIT    (24u)
 #define NVIC_ICPR2_R_NVIC_RES104_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES104_EN     ((uint32_t)0x01000000u)
 
@@ -6361,7 +6361,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES105_MASK   ((uint32_t)0x02000000u)
-#define NVIC_ICPR2_R_NVIC_RES105_BIT    (25)
+#define NVIC_ICPR2_R_NVIC_RES105_BIT    (25u)
 #define NVIC_ICPR2_R_NVIC_RES105_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES105_EN     ((uint32_t)0x02000000u)
 
@@ -6372,7 +6372,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES106_MASK   ((uint32_t)0x04000000u)
-#define NVIC_ICPR2_R_NVIC_RES106_BIT    (26)
+#define NVIC_ICPR2_R_NVIC_RES106_BIT    (26u)
 #define NVIC_ICPR2_R_NVIC_RES106_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES106_EN     ((uint32_t)0x04000000u)
 
@@ -6383,7 +6383,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_RES107_MASK   ((uint32_t)0x08000000u)
-#define NVIC_ICPR2_R_NVIC_RES107_BIT    (27)
+#define NVIC_ICPR2_R_NVIC_RES107_BIT    (27u)
 #define NVIC_ICPR2_R_NVIC_RES107_DIS    ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_RES107_EN     ((uint32_t)0x08000000u)
 
@@ -6394,7 +6394,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_TIMER5A_MASK  ((uint32_t)0x10000000u)
-#define NVIC_ICPR2_R_NVIC_TIMER5A_BIT   (28)
+#define NVIC_ICPR2_R_NVIC_TIMER5A_BIT   (28u)
 #define NVIC_ICPR2_R_NVIC_TIMER5A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_TIMER5A_EN    ((uint32_t)0x10000000u)
 
@@ -6405,7 +6405,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_TIMER5B_MASK  ((uint32_t)0x20000000u)
-#define NVIC_ICPR2_R_NVIC_TIMER5B_BIT   (29)
+#define NVIC_ICPR2_R_NVIC_TIMER5B_BIT   (29u)
 #define NVIC_ICPR2_R_NVIC_TIMER5B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_TIMER5B_EN    ((uint32_t)0x20000000u)
 
@@ -6416,7 +6416,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_WTIMER0A_MASK ((uint32_t)0x40000000u)
-#define NVIC_ICPR2_R_NVIC_WTIMER0A_BIT  (30)
+#define NVIC_ICPR2_R_NVIC_WTIMER0A_BIT  (30u)
 #define NVIC_ICPR2_R_NVIC_WTIMER0A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_WTIMER0A_EN   ((uint32_t)0x40000000u)
 
@@ -6427,7 +6427,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR2_R_NVIC_WTIMER0B_MASK ((uint32_t)0x80000000u)
-#define NVIC_ICPR2_R_NVIC_WTIMER0B_BIT  (31)
+#define NVIC_ICPR2_R_NVIC_WTIMER0B_BIT  (31u)
 #define NVIC_ICPR2_R_NVIC_WTIMER0B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR2_R_NVIC_WTIMER0B_EN   ((uint32_t)0x80000000u)
 
@@ -6445,7 +6445,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES80_MASK    ((uint32_t)0x00000001u)
-#define NVIC_IABR2_R_NVIC_RES80_BIT     (0)
+#define NVIC_IABR2_R_NVIC_RES80_BIT     (0u)
 #define NVIC_IABR2_R_NVIC_RES80_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES80_EN      ((uint32_t)0x00000001u)
 
@@ -6456,7 +6456,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES81_MASK    ((uint32_t)0x00000002u)
-#define NVIC_IABR2_R_NVIC_RES81_BIT     (1)
+#define NVIC_IABR2_R_NVIC_RES81_BIT     (1u)
 #define NVIC_IABR2_R_NVIC_RES81_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES81_EN      ((uint32_t)0x00000002u)
 
@@ -6467,7 +6467,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES82_MASK    ((uint32_t)0x00000004u)
-#define NVIC_IABR2_R_NVIC_RES82_BIT     (2)
+#define NVIC_IABR2_R_NVIC_RES82_BIT     (2u)
 #define NVIC_IABR2_R_NVIC_RES82_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES82_EN      ((uint32_t)0x00000004u)
 
@@ -6479,7 +6479,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES83_MASK    ((uint32_t)0x00000008u)
-#define NVIC_IABR2_R_NVIC_RES83_BIT     (3)
+#define NVIC_IABR2_R_NVIC_RES83_BIT     (3u)
 #define NVIC_IABR2_R_NVIC_RES83_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES83_EN      ((uint32_t)0x00000008u)
 
@@ -6490,7 +6490,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_I2C2_MASK     ((uint32_t)0x00000010u)
-#define NVIC_IABR2_R_NVIC_I2C2_BIT      (4)
+#define NVIC_IABR2_R_NVIC_I2C2_BIT      (4u)
 #define NVIC_IABR2_R_NVIC_I2C2_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_I2C2_EN       ((uint32_t)0x00000010u)
 
@@ -6501,7 +6501,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_I2C3_MASK     ((uint32_t)0x00000020u)
-#define NVIC_IABR2_R_NVIC_I2C3_BIT      (5)
+#define NVIC_IABR2_R_NVIC_I2C3_BIT      (5u)
 #define NVIC_IABR2_R_NVIC_I2C3_DIS      ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_I2C3_EN       ((uint32_t)0x00000020u)
 
@@ -6512,7 +6512,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_TIMER4A_MASK  ((uint32_t)0x00000040u)
-#define NVIC_IABR2_R_NVIC_TIMER4A_BIT   (6)
+#define NVIC_IABR2_R_NVIC_TIMER4A_BIT   (6u)
 #define NVIC_IABR2_R_NVIC_TIMER4A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_TIMER4A_EN    ((uint32_t)0x00000040u)
 
@@ -6523,7 +6523,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_TIMER4B_MASK  ((uint32_t)0x00000080u)
-#define NVIC_IABR2_R_NVIC_TIMER4B_BIT   (7)
+#define NVIC_IABR2_R_NVIC_TIMER4B_BIT   (7u)
 #define NVIC_IABR2_R_NVIC_TIMER4B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_TIMER4B_EN    ((uint32_t)0x00000080u)
 
@@ -6534,7 +6534,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES88_MASK    ((uint32_t)0x00000100u)
-#define NVIC_IABR2_R_NVIC_RES88_BIT     (8)
+#define NVIC_IABR2_R_NVIC_RES88_BIT     (8u)
 #define NVIC_IABR2_R_NVIC_RES88_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES88_EN      ((uint32_t)0x00000100u)
 
@@ -6546,7 +6546,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES89_MASK    ((uint32_t)0x00000200u)
-#define NVIC_IABR2_R_NVIC_RES89_BIT     (9)
+#define NVIC_IABR2_R_NVIC_RES89_BIT     (9u)
 #define NVIC_IABR2_R_NVIC_RES89_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES89_EN      ((uint32_t)0x00000200u)
 
@@ -6558,7 +6558,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES90_MASK    ((uint32_t)0x00000400u)
-#define NVIC_IABR2_R_NVIC_RES90_BIT     (10)
+#define NVIC_IABR2_R_NVIC_RES90_BIT     (10u)
 #define NVIC_IABR2_R_NVIC_RES90_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES90_EN      ((uint32_t)0x00000400u)
 
@@ -6569,7 +6569,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES93_EPI_IN_MASK ((uint32_t)0x00000800u)
-#define NVIC_IABR2_R_NVIC_RES93_EPI_IN_BIT  (11)
+#define NVIC_IABR2_R_NVIC_RES93_EPI_IN_BIT  (11u)
 #define NVIC_IABR2_R_NVIC_RES93_EPI_IN_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES93_EPI_IN_EN   ((uint32_t)0x00000800u)
 
@@ -6580,7 +6580,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES92_MASK    ((uint32_t)0x00001000u)
-#define NVIC_IABR2_R_NVIC_RES92_BIT     (12)
+#define NVIC_IABR2_R_NVIC_RES92_BIT     (12u)
 #define NVIC_IABR2_R_NVIC_RES92_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES92_EN      ((uint32_t)0x00001000u)
 
@@ -6592,7 +6592,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES93_MASK    ((uint32_t)0x00002000u)
-#define NVIC_IABR2_R_NVIC_RES93_BIT     (13)
+#define NVIC_IABR2_R_NVIC_RES93_BIT     (13u)
 #define NVIC_IABR2_R_NVIC_RES93_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES93_EN      ((uint32_t)0x00002000u)
 
@@ -6603,7 +6603,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES94_MASK    ((uint32_t)0x00004000u)
-#define NVIC_IABR2_R_NVIC_RES94_BIT     (14)
+#define NVIC_IABR2_R_NVIC_RES94_BIT     (14u)
 #define NVIC_IABR2_R_NVIC_RES94_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES94_EN      ((uint32_t)0x00004000u)
 
@@ -6614,7 +6614,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES95_MASK    ((uint32_t)0x00008000u)
-#define NVIC_IABR2_R_NVIC_RES95_BIT     (15)
+#define NVIC_IABR2_R_NVIC_RES95_BIT     (15u)
 #define NVIC_IABR2_R_NVIC_RES95_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES95_EN      ((uint32_t)0x00008000u)
 
@@ -6625,7 +6625,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES96_MASK    ((uint32_t)0x00010000u)
-#define NVIC_IABR2_R_NVIC_RES96_BIT     (16)
+#define NVIC_IABR2_R_NVIC_RES96_BIT     (16u)
 #define NVIC_IABR2_R_NVIC_RES96_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES96_EN      ((uint32_t)0x00010000u)
 
@@ -6636,7 +6636,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES97_MASK    ((uint32_t)0x00020000u)
-#define NVIC_IABR2_R_NVIC_RES97_BIT     (17)
+#define NVIC_IABR2_R_NVIC_RES97_BIT     (17u)
 #define NVIC_IABR2_R_NVIC_RES97_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES97_EN      ((uint32_t)0x00020000u)
 
@@ -6647,7 +6647,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES98_MASK    ((uint32_t)0x00040000u)
-#define NVIC_IABR2_R_NVIC_RES98_BIT     (18)
+#define NVIC_IABR2_R_NVIC_RES98_BIT     (18u)
 #define NVIC_IABR2_R_NVIC_RES98_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES98_EN      ((uint32_t)0x00040000u)
 
@@ -6658,7 +6658,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES99_MASK    ((uint32_t)0x00080000u)
-#define NVIC_IABR2_R_NVIC_RES99_BIT     (19)
+#define NVIC_IABR2_R_NVIC_RES99_BIT     (19u)
 #define NVIC_IABR2_R_NVIC_RES99_DIS     ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES99_EN      ((uint32_t)0x00080000u)
 
@@ -6669,7 +6669,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES100_MASK   ((uint32_t)0x00100000u)
-#define NVIC_IABR2_R_NVIC_RES100_BIT    (20)
+#define NVIC_IABR2_R_NVIC_RES100_BIT    (20u)
 #define NVIC_IABR2_R_NVIC_RES100_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES100_EN     ((uint32_t)0x00100000u)
 
@@ -6680,7 +6680,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES101_MASK   ((uint32_t)0x00200000u)
-#define NVIC_IABR2_R_NVIC_RES101_BIT    (21)
+#define NVIC_IABR2_R_NVIC_RES101_BIT    (21u)
 #define NVIC_IABR2_R_NVIC_RES101_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES101_EN     ((uint32_t)0x00200000u)
 
@@ -6691,7 +6691,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES102_MASK   ((uint32_t)0x00400000u)
-#define NVIC_IABR2_R_NVIC_RES102_BIT    (22)
+#define NVIC_IABR2_R_NVIC_RES102_BIT    (22u)
 #define NVIC_IABR2_R_NVIC_RES102_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES102_EN     ((uint32_t)0x00400000u)
 
@@ -6703,7 +6703,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES103_MASK   ((uint32_t)0x00800000u)
-#define NVIC_IABR2_R_NVIC_RES103_BIT    (23)
+#define NVIC_IABR2_R_NVIC_RES103_BIT    (23u)
 #define NVIC_IABR2_R_NVIC_RES103_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES103_EN     ((uint32_t)0x00800000u)
 
@@ -6714,7 +6714,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES104_MASK   ((uint32_t)0x01000000u)
-#define NVIC_IABR2_R_NVIC_RES104_BIT    (24)
+#define NVIC_IABR2_R_NVIC_RES104_BIT    (24u)
 #define NVIC_IABR2_R_NVIC_RES104_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES104_EN     ((uint32_t)0x01000000u)
 
@@ -6725,7 +6725,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES105_MASK   ((uint32_t)0x02000000u)
-#define NVIC_IABR2_R_NVIC_RES105_BIT    (25)
+#define NVIC_IABR2_R_NVIC_RES105_BIT    (25u)
 #define NVIC_IABR2_R_NVIC_RES105_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES105_EN     ((uint32_t)0x02000000u)
 
@@ -6736,7 +6736,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES106_MASK   ((uint32_t)0x04000000u)
-#define NVIC_IABR2_R_NVIC_RES106_BIT    (26)
+#define NVIC_IABR2_R_NVIC_RES106_BIT    (26u)
 #define NVIC_IABR2_R_NVIC_RES106_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES106_EN     ((uint32_t)0x04000000u)
 
@@ -6747,7 +6747,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_RES107_MASK   ((uint32_t)0x08000000u)
-#define NVIC_IABR2_R_NVIC_RES107_BIT    (27)
+#define NVIC_IABR2_R_NVIC_RES107_BIT    (27u)
 #define NVIC_IABR2_R_NVIC_RES107_DIS    ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_RES107_EN     ((uint32_t)0x08000000u)
 
@@ -6758,7 +6758,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_TIMER5A_MASK  ((uint32_t)0x10000000u)
-#define NVIC_IABR2_R_NVIC_TIMER5A_BIT   (28)
+#define NVIC_IABR2_R_NVIC_TIMER5A_BIT   (28u)
 #define NVIC_IABR2_R_NVIC_TIMER5A_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_TIMER5A_EN    ((uint32_t)0x10000000u)
 
@@ -6769,7 +6769,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_TIMER5B_MASK  ((uint32_t)0x20000000u)
-#define NVIC_IABR2_R_NVIC_TIMER5B_BIT   (29)
+#define NVIC_IABR2_R_NVIC_TIMER5B_BIT   (29u)
 #define NVIC_IABR2_R_NVIC_TIMER5B_DIS   ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_TIMER5B_EN    ((uint32_t)0x20000000u)
 
@@ -6780,7 +6780,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_WTIMER0A_MASK ((uint32_t)0x40000000u)
-#define NVIC_IABR2_R_NVIC_WTIMER0A_BIT  (30)
+#define NVIC_IABR2_R_NVIC_WTIMER0A_BIT  (30u)
 #define NVIC_IABR2_R_NVIC_WTIMER0A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_WTIMER0A_EN   ((uint32_t)0x40000000u)
 
@@ -6791,7 +6791,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR2_R_NVIC_WTIMER0B_MASK ((uint32_t)0x80000000u)
-#define NVIC_IABR2_R_NVIC_WTIMER0B_BIT  (31)
+#define NVIC_IABR2_R_NVIC_WTIMER0B_BIT  (31u)
 #define NVIC_IABR2_R_NVIC_WTIMER0B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR2_R_NVIC_WTIMER0B_EN   ((uint32_t)0x80000000u)
 
@@ -6809,7 +6809,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER1A_MASK ((uint32_t)0x00000001u)
-#define NVIC_ISER3_R_NVIC_WTIMER1A_BIT  (0)
+#define NVIC_ISER3_R_NVIC_WTIMER1A_BIT  (0u)
 #define NVIC_ISER3_R_NVIC_WTIMER1A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER1A_EN   ((uint32_t)0x00000001u)
 
@@ -6820,7 +6820,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER1B_MASK ((uint32_t)0x00000002u)
-#define NVIC_ISER3_R_NVIC_WTIMER1B_BIT  (1)
+#define NVIC_ISER3_R_NVIC_WTIMER1B_BIT  (1u)
 #define NVIC_ISER3_R_NVIC_WTIMER1B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER1B_EN   ((uint32_t)0x00000002u)
 
@@ -6831,7 +6831,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER2A_MASK ((uint32_t)0x00000004u)
-#define NVIC_ISER3_R_NVIC_WTIMER2A_BIT  (2)
+#define NVIC_ISER3_R_NVIC_WTIMER2A_BIT  (2u)
 #define NVIC_ISER3_R_NVIC_WTIMER2A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER2A_EN   ((uint32_t)0x00000004u)
 
@@ -6842,7 +6842,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER2B_MASK ((uint32_t)0x00000008u)
-#define NVIC_ISER3_R_NVIC_WTIMER2B_BIT  (3)
+#define NVIC_ISER3_R_NVIC_WTIMER2B_BIT  (3u)
 #define NVIC_ISER3_R_NVIC_WTIMER2B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER2B_EN   ((uint32_t)0x00000008u)
 
@@ -6853,7 +6853,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER3A_MASK ((uint32_t)0x00000010u)
-#define NVIC_ISER3_R_NVIC_WTIMER3A_BIT  (4)
+#define NVIC_ISER3_R_NVIC_WTIMER3A_BIT  (4u)
 #define NVIC_ISER3_R_NVIC_WTIMER3A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER3A_EN   ((uint32_t)0x00000010u)
 
@@ -6864,7 +6864,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER3B_MASK ((uint32_t)0x00000020u)
-#define NVIC_ISER3_R_NVIC_WTIMER3B_BIT  (5)
+#define NVIC_ISER3_R_NVIC_WTIMER3B_BIT  (5u)
 #define NVIC_ISER3_R_NVIC_WTIMER3B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER3B_EN   ((uint32_t)0x00000020u)
 
@@ -6875,7 +6875,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER4A_MASK ((uint32_t)0x00000040u)
-#define NVIC_ISER3_R_NVIC_WTIMER4A_BIT  (6)
+#define NVIC_ISER3_R_NVIC_WTIMER4A_BIT  (6u)
 #define NVIC_ISER3_R_NVIC_WTIMER4A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER4A_EN   ((uint32_t)0x00000040u)
 
@@ -6886,7 +6886,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER4B_MASK ((uint32_t)0x00000080u)
-#define NVIC_ISER3_R_NVIC_WTIMER4B_BIT  (7)
+#define NVIC_ISER3_R_NVIC_WTIMER4B_BIT  (7u)
 #define NVIC_ISER3_R_NVIC_WTIMER4B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER4B_EN   ((uint32_t)0x00000080u)
 
@@ -6897,7 +6897,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER5A_MASK ((uint32_t)0x00000100u)
-#define NVIC_ISER3_R_NVIC_WTIMER5A_BIT  (8)
+#define NVIC_ISER3_R_NVIC_WTIMER5A_BIT  (8u)
 #define NVIC_ISER3_R_NVIC_WTIMER5A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER5A_EN   ((uint32_t)0x00000100u)
 
@@ -6908,7 +6908,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_WTIMER5B_MASK ((uint32_t)0x00000200u)
-#define NVIC_ISER3_R_NVIC_WTIMER5B_BIT  (9)
+#define NVIC_ISER3_R_NVIC_WTIMER5B_BIT  (9u)
 #define NVIC_ISER3_R_NVIC_WTIMER5B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_WTIMER5B_EN   ((uint32_t)0x00000200u)
 
@@ -6919,7 +6919,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_SYSEXC_MASK ((uint32_t)0x00000400u)
-#define NVIC_ISER3_R_NVIC_SYSEXC_BIT  (10)
+#define NVIC_ISER3_R_NVIC_SYSEXC_BIT  (10u)
 #define NVIC_ISER3_R_NVIC_SYSEXC_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_SYSEXC_EN   ((uint32_t)0x00000400u)
 
@@ -6930,7 +6930,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES123_MASK ((uint32_t)0x00000800u)
-#define NVIC_ISER3_R_NVIC_RES123_BIT  (11)
+#define NVIC_ISER3_R_NVIC_RES123_BIT  (11u)
 #define NVIC_ISER3_R_NVIC_RES123_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES123_EN   ((uint32_t)0x00000800u)
 
@@ -6941,7 +6941,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES124_MASK ((uint32_t)0x00001000u)
-#define NVIC_ISER3_R_NVIC_RES124_BIT  (12)
+#define NVIC_ISER3_R_NVIC_RES124_BIT  (12u)
 #define NVIC_ISER3_R_NVIC_RES124_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES124_EN   ((uint32_t)0x00001000u)
 
@@ -6952,7 +6952,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES125_MASK ((uint32_t)0x00002000u)
-#define NVIC_ISER3_R_NVIC_RES125_BIT  (13)
+#define NVIC_ISER3_R_NVIC_RES125_BIT  (13u)
 #define NVIC_ISER3_R_NVIC_RES125_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES125_EN   ((uint32_t)0x00002000u)
 
@@ -6963,7 +6963,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES126_MASK ((uint32_t)0x00004000u)
-#define NVIC_ISER3_R_NVIC_RES126_BIT  (14)
+#define NVIC_ISER3_R_NVIC_RES126_BIT  (14u)
 #define NVIC_ISER3_R_NVIC_RES126_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES126_EN   ((uint32_t)0x00004000u)
 
@@ -6974,7 +6974,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES127_MASK ((uint32_t)0x00008000u)
-#define NVIC_ISER3_R_NVIC_RES127_BIT  (15)
+#define NVIC_ISER3_R_NVIC_RES127_BIT  (15u)
 #define NVIC_ISER3_R_NVIC_RES127_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES127_EN   ((uint32_t)0x00008000u)
 
@@ -6985,7 +6985,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES128_MASK ((uint32_t)0x00010000u)
-#define NVIC_ISER3_R_NVIC_RES128_BIT  (16)
+#define NVIC_ISER3_R_NVIC_RES128_BIT  (16u)
 #define NVIC_ISER3_R_NVIC_RES128_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES128_EN   ((uint32_t)0x00010000u)
 
@@ -6996,7 +6996,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES129_MASK ((uint32_t)0x00020000u)
-#define NVIC_ISER3_R_NVIC_RES129_BIT  (17)
+#define NVIC_ISER3_R_NVIC_RES129_BIT  (17u)
 #define NVIC_ISER3_R_NVIC_RES129_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES129_EN   ((uint32_t)0x00020000u)
 
@@ -7007,7 +7007,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES130_MASK ((uint32_t)0x00040000u)
-#define NVIC_ISER3_R_NVIC_RES130_BIT  (18)
+#define NVIC_ISER3_R_NVIC_RES130_BIT  (18u)
 #define NVIC_ISER3_R_NVIC_RES130_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES130_EN   ((uint32_t)0x00040000u)
 
@@ -7018,7 +7018,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES131_MASK ((uint32_t)0x00080000u)
-#define NVIC_ISER3_R_NVIC_RES131_BIT  (19)
+#define NVIC_ISER3_R_NVIC_RES131_BIT  (19u)
 #define NVIC_ISER3_R_NVIC_RES131_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES131_EN   ((uint32_t)0x00080000u)
 
@@ -7029,7 +7029,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES132_MASK ((uint32_t)0x00100000u)
-#define NVIC_ISER3_R_NVIC_RES132_BIT  (20)
+#define NVIC_ISER3_R_NVIC_RES132_BIT  (20u)
 #define NVIC_ISER3_R_NVIC_RES132_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES132_EN   ((uint32_t)0x00100000u)
 
@@ -7040,7 +7040,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES133_MASK ((uint32_t)0x00200000u)
-#define NVIC_ISER3_R_NVIC_RES133_BIT  (21)
+#define NVIC_ISER3_R_NVIC_RES133_BIT  (21u)
 #define NVIC_ISER3_R_NVIC_RES133_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES133_EN   ((uint32_t)0x00200000u)
 
@@ -7051,7 +7051,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES134_MASK ((uint32_t)0x00400000u)
-#define NVIC_ISER3_R_NVIC_RES134_BIT  (22)
+#define NVIC_ISER3_R_NVIC_RES134_BIT  (22u)
 #define NVIC_ISER3_R_NVIC_RES134_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES134_EN   ((uint32_t)0x00400000u)
 
@@ -7062,7 +7062,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES135_MASK ((uint32_t)0x00800000u)
-#define NVIC_ISER3_R_NVIC_RES135_BIT  (23)
+#define NVIC_ISER3_R_NVIC_RES135_BIT  (23u)
 #define NVIC_ISER3_R_NVIC_RES135_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES135_EN   ((uint32_t)0x00800000u)
 
@@ -7073,7 +7073,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES136_MASK ((uint32_t)0x01000000u)
-#define NVIC_ISER3_R_NVIC_RES136_BIT  (24)
+#define NVIC_ISER3_R_NVIC_RES136_BIT  (24u)
 #define NVIC_ISER3_R_NVIC_RES136_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES136_EN   ((uint32_t)0x01000000u)
 
@@ -7084,7 +7084,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES137_MASK ((uint32_t)0x02000000u)
-#define NVIC_ISER3_R_NVIC_RES137_BIT  (25)
+#define NVIC_ISER3_R_NVIC_RES137_BIT  (25u)
 #define NVIC_ISER3_R_NVIC_RES137_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES137_EN   ((uint32_t)0x02000000u)
 
@@ -7095,7 +7095,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES138_MASK ((uint32_t)0x04000000u)
-#define NVIC_ISER3_R_NVIC_RES138_BIT  (26)
+#define NVIC_ISER3_R_NVIC_RES138_BIT  (26u)
 #define NVIC_ISER3_R_NVIC_RES138_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES138_EN   ((uint32_t)0x04000000u)
 
@@ -7106,7 +7106,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES139_MASK ((uint32_t)0x08000000u)
-#define NVIC_ISER3_R_NVIC_RES139_BIT  (27)
+#define NVIC_ISER3_R_NVIC_RES139_BIT  (27u)
 #define NVIC_ISER3_R_NVIC_RES139_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES139_EN   ((uint32_t)0x08000000u)
 
@@ -7117,7 +7117,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES140_MASK ((uint32_t)0x10000000u)
-#define NVIC_ISER3_R_NVIC_RES140_BIT  (28)
+#define NVIC_ISER3_R_NVIC_RES140_BIT  (28u)
 #define NVIC_ISER3_R_NVIC_RES140_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES140_EN   ((uint32_t)0x10000000u)
 
@@ -7128,7 +7128,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES141_MASK ((uint32_t)0x20000000u)
-#define NVIC_ISER3_R_NVIC_RES141_BIT  (29)
+#define NVIC_ISER3_R_NVIC_RES141_BIT  (29u)
 #define NVIC_ISER3_R_NVIC_RES141_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES141_EN   ((uint32_t)0x20000000u)
 
@@ -7139,7 +7139,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES142_MASK ((uint32_t)0x40000000u)
-#define NVIC_ISER3_R_NVIC_RES142_BIT  (30)
+#define NVIC_ISER3_R_NVIC_RES142_BIT  (30u)
 #define NVIC_ISER3_R_NVIC_RES142_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES142_EN   ((uint32_t)0x40000000u)
 
@@ -7150,7 +7150,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER3_R_NVIC_RES143_MASK ((uint32_t)0x80000000u)
-#define NVIC_ISER3_R_NVIC_RES143_BIT  (31)
+#define NVIC_ISER3_R_NVIC_RES143_BIT  (31u)
 #define NVIC_ISER3_R_NVIC_RES143_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER3_R_NVIC_RES143_EN   ((uint32_t)0x80000000u)
 
@@ -7169,7 +7169,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER1A_MASK ((uint32_t)0x00000001u)
-#define NVIC_ICER3_R_NVIC_WTIMER1A_BIT  (0)
+#define NVIC_ICER3_R_NVIC_WTIMER1A_BIT  (0u)
 #define NVIC_ICER3_R_NVIC_WTIMER1A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER1A_EN   ((uint32_t)0x00000001u)
 
@@ -7180,7 +7180,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER1B_MASK ((uint32_t)0x00000002u)
-#define NVIC_ICER3_R_NVIC_WTIMER1B_BIT  (1)
+#define NVIC_ICER3_R_NVIC_WTIMER1B_BIT  (1u)
 #define NVIC_ICER3_R_NVIC_WTIMER1B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER1B_EN   ((uint32_t)0x00000002u)
 
@@ -7191,7 +7191,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER2A_MASK ((uint32_t)0x00000004u)
-#define NVIC_ICER3_R_NVIC_WTIMER2A_BIT  (2)
+#define NVIC_ICER3_R_NVIC_WTIMER2A_BIT  (2u)
 #define NVIC_ICER3_R_NVIC_WTIMER2A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER2A_EN   ((uint32_t)0x00000004u)
 
@@ -7202,7 +7202,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER2B_MASK ((uint32_t)0x00000008u)
-#define NVIC_ICER3_R_NVIC_WTIMER2B_BIT  (3)
+#define NVIC_ICER3_R_NVIC_WTIMER2B_BIT  (3u)
 #define NVIC_ICER3_R_NVIC_WTIMER2B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER2B_EN   ((uint32_t)0x00000008u)
 
@@ -7213,7 +7213,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER3A_MASK ((uint32_t)0x00000010u)
-#define NVIC_ICER3_R_NVIC_WTIMER3A_BIT  (4)
+#define NVIC_ICER3_R_NVIC_WTIMER3A_BIT  (4u)
 #define NVIC_ICER3_R_NVIC_WTIMER3A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER3A_EN   ((uint32_t)0x00000010u)
 
@@ -7224,7 +7224,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER3B_MASK ((uint32_t)0x00000020u)
-#define NVIC_ICER3_R_NVIC_WTIMER3B_BIT  (5)
+#define NVIC_ICER3_R_NVIC_WTIMER3B_BIT  (5u)
 #define NVIC_ICER3_R_NVIC_WTIMER3B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER3B_EN   ((uint32_t)0x00000020u)
 
@@ -7235,7 +7235,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER4A_MASK ((uint32_t)0x00000040u)
-#define NVIC_ICER3_R_NVIC_WTIMER4A_BIT  (6)
+#define NVIC_ICER3_R_NVIC_WTIMER4A_BIT  (6u)
 #define NVIC_ICER3_R_NVIC_WTIMER4A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER4A_EN   ((uint32_t)0x00000040u)
 
@@ -7246,7 +7246,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER4B_MASK ((uint32_t)0x00000080u)
-#define NVIC_ICER3_R_NVIC_WTIMER4B_BIT  (7)
+#define NVIC_ICER3_R_NVIC_WTIMER4B_BIT  (7u)
 #define NVIC_ICER3_R_NVIC_WTIMER4B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER4B_EN   ((uint32_t)0x00000080u)
 
@@ -7257,7 +7257,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER5A_MASK ((uint32_t)0x00000100u)
-#define NVIC_ICER3_R_NVIC_WTIMER5A_BIT  (8)
+#define NVIC_ICER3_R_NVIC_WTIMER5A_BIT  (8u)
 #define NVIC_ICER3_R_NVIC_WTIMER5A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER5A_EN   ((uint32_t)0x00000100u)
 
@@ -7268,7 +7268,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_WTIMER5B_MASK ((uint32_t)0x00000200u)
-#define NVIC_ICER3_R_NVIC_WTIMER5B_BIT  (9)
+#define NVIC_ICER3_R_NVIC_WTIMER5B_BIT  (9u)
 #define NVIC_ICER3_R_NVIC_WTIMER5B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_WTIMER5B_EN   ((uint32_t)0x00000200u)
 
@@ -7279,7 +7279,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_SYSEXC_MASK ((uint32_t)0x00000400u)
-#define NVIC_ICER3_R_NVIC_SYSEXC_BIT  (10)
+#define NVIC_ICER3_R_NVIC_SYSEXC_BIT  (10u)
 #define NVIC_ICER3_R_NVIC_SYSEXC_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_SYSEXC_EN   ((uint32_t)0x00000400u)
 
@@ -7290,7 +7290,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES123_MASK ((uint32_t)0x00000800u)
-#define NVIC_ICER3_R_NVIC_RES123_BIT  (11)
+#define NVIC_ICER3_R_NVIC_RES123_BIT  (11u)
 #define NVIC_ICER3_R_NVIC_RES123_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES123_EN   ((uint32_t)0x00000800u)
 
@@ -7301,7 +7301,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES124_MASK ((uint32_t)0x00001000u)
-#define NVIC_ICER3_R_NVIC_RES124_BIT  (12)
+#define NVIC_ICER3_R_NVIC_RES124_BIT  (12u)
 #define NVIC_ICER3_R_NVIC_RES124_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES124_EN   ((uint32_t)0x00001000u)
 
@@ -7312,7 +7312,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES125_MASK ((uint32_t)0x00002000u)
-#define NVIC_ICER3_R_NVIC_RES125_BIT  (13)
+#define NVIC_ICER3_R_NVIC_RES125_BIT  (13u)
 #define NVIC_ICER3_R_NVIC_RES125_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES125_EN   ((uint32_t)0x00002000u)
 
@@ -7323,7 +7323,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES126_MASK ((uint32_t)0x00004000u)
-#define NVIC_ICER3_R_NVIC_RES126_BIT  (14)
+#define NVIC_ICER3_R_NVIC_RES126_BIT  (14u)
 #define NVIC_ICER3_R_NVIC_RES126_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES126_EN   ((uint32_t)0x00004000u)
 
@@ -7334,7 +7334,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES127_MASK ((uint32_t)0x00008000u)
-#define NVIC_ICER3_R_NVIC_RES127_BIT  (15)
+#define NVIC_ICER3_R_NVIC_RES127_BIT  (15u)
 #define NVIC_ICER3_R_NVIC_RES127_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES127_EN   ((uint32_t)0x00008000u)
 
@@ -7345,7 +7345,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES128_MASK ((uint32_t)0x00010000u)
-#define NVIC_ICER3_R_NVIC_RES128_BIT  (16)
+#define NVIC_ICER3_R_NVIC_RES128_BIT  (16u)
 #define NVIC_ICER3_R_NVIC_RES128_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES128_EN   ((uint32_t)0x00010000u)
 
@@ -7356,7 +7356,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES129_MASK ((uint32_t)0x00020000u)
-#define NVIC_ICER3_R_NVIC_RES129_BIT  (17)
+#define NVIC_ICER3_R_NVIC_RES129_BIT  (17u)
 #define NVIC_ICER3_R_NVIC_RES129_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES129_EN   ((uint32_t)0x00020000u)
 
@@ -7367,7 +7367,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES130_MASK ((uint32_t)0x00040000u)
-#define NVIC_ICER3_R_NVIC_RES130_BIT  (18)
+#define NVIC_ICER3_R_NVIC_RES130_BIT  (18u)
 #define NVIC_ICER3_R_NVIC_RES130_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES130_EN   ((uint32_t)0x00040000u)
 
@@ -7378,7 +7378,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES131_MASK ((uint32_t)0x00080000u)
-#define NVIC_ICER3_R_NVIC_RES131_BIT  (19)
+#define NVIC_ICER3_R_NVIC_RES131_BIT  (19u)
 #define NVIC_ICER3_R_NVIC_RES131_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES131_EN   ((uint32_t)0x00080000u)
 
@@ -7389,7 +7389,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES132_MASK ((uint32_t)0x00100000u)
-#define NVIC_ICER3_R_NVIC_RES132_BIT  (20)
+#define NVIC_ICER3_R_NVIC_RES132_BIT  (20u)
 #define NVIC_ICER3_R_NVIC_RES132_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES132_EN   ((uint32_t)0x00100000u)
 
@@ -7400,7 +7400,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES133_MASK ((uint32_t)0x00200000u)
-#define NVIC_ICER3_R_NVIC_RES133_BIT  (21)
+#define NVIC_ICER3_R_NVIC_RES133_BIT  (21u)
 #define NVIC_ICER3_R_NVIC_RES133_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES133_EN   ((uint32_t)0x00200000u)
 
@@ -7411,7 +7411,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES134_MASK ((uint32_t)0x00400000u)
-#define NVIC_ICER3_R_NVIC_RES134_BIT  (22)
+#define NVIC_ICER3_R_NVIC_RES134_BIT  (22u)
 #define NVIC_ICER3_R_NVIC_RES134_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES134_EN   ((uint32_t)0x00400000u)
 
@@ -7422,7 +7422,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES135_MASK ((uint32_t)0x00800000u)
-#define NVIC_ICER3_R_NVIC_RES135_BIT  (23)
+#define NVIC_ICER3_R_NVIC_RES135_BIT  (23u)
 #define NVIC_ICER3_R_NVIC_RES135_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES135_EN   ((uint32_t)0x00800000u)
 
@@ -7433,7 +7433,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES136_MASK ((uint32_t)0x01000000u)
-#define NVIC_ICER3_R_NVIC_RES136_BIT  (24)
+#define NVIC_ICER3_R_NVIC_RES136_BIT  (24u)
 #define NVIC_ICER3_R_NVIC_RES136_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES136_EN   ((uint32_t)0x01000000u)
 
@@ -7444,7 +7444,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES137_MASK ((uint32_t)0x02000000u)
-#define NVIC_ICER3_R_NVIC_RES137_BIT  (25)
+#define NVIC_ICER3_R_NVIC_RES137_BIT  (25u)
 #define NVIC_ICER3_R_NVIC_RES137_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES137_EN   ((uint32_t)0x02000000u)
 
@@ -7455,7 +7455,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES138_MASK ((uint32_t)0x04000000u)
-#define NVIC_ICER3_R_NVIC_RES138_BIT  (26)
+#define NVIC_ICER3_R_NVIC_RES138_BIT  (26u)
 #define NVIC_ICER3_R_NVIC_RES138_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES138_EN   ((uint32_t)0x04000000u)
 
@@ -7466,7 +7466,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES139_MASK ((uint32_t)0x08000000u)
-#define NVIC_ICER3_R_NVIC_RES139_BIT  (27)
+#define NVIC_ICER3_R_NVIC_RES139_BIT  (27u)
 #define NVIC_ICER3_R_NVIC_RES139_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES139_EN   ((uint32_t)0x08000000u)
 
@@ -7477,7 +7477,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES140_MASK ((uint32_t)0x10000000u)
-#define NVIC_ICER3_R_NVIC_RES140_BIT  (28)
+#define NVIC_ICER3_R_NVIC_RES140_BIT  (28u)
 #define NVIC_ICER3_R_NVIC_RES140_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES140_EN   ((uint32_t)0x10000000u)
 
@@ -7488,7 +7488,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES141_MASK ((uint32_t)0x20000000u)
-#define NVIC_ICER3_R_NVIC_RES141_BIT  (29)
+#define NVIC_ICER3_R_NVIC_RES141_BIT  (29u)
 #define NVIC_ICER3_R_NVIC_RES141_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES141_EN   ((uint32_t)0x20000000u)
 
@@ -7499,7 +7499,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES142_MASK ((uint32_t)0x40000000u)
-#define NVIC_ICER3_R_NVIC_RES142_BIT  (30)
+#define NVIC_ICER3_R_NVIC_RES142_BIT  (30u)
 #define NVIC_ICER3_R_NVIC_RES142_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES142_EN   ((uint32_t)0x40000000u)
 
@@ -7510,7 +7510,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER3_R_NVIC_RES143_MASK ((uint32_t)0x80000000u)
-#define NVIC_ICER3_R_NVIC_RES143_BIT  (31)
+#define NVIC_ICER3_R_NVIC_RES143_BIT  (31u)
 #define NVIC_ICER3_R_NVIC_RES143_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER3_R_NVIC_RES143_EN   ((uint32_t)0x80000000u)
 
@@ -7529,7 +7529,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER1A_MASK ((uint32_t)0x00000001u)
-#define NVIC_ISPR3_R_NVIC_WTIMER1A_BIT  (0)
+#define NVIC_ISPR3_R_NVIC_WTIMER1A_BIT  (0u)
 #define NVIC_ISPR3_R_NVIC_WTIMER1A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER1A_EN   ((uint32_t)0x00000001u)
 
@@ -7540,7 +7540,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER1B_MASK ((uint32_t)0x00000002u)
-#define NVIC_ISPR3_R_NVIC_WTIMER1B_BIT  (1)
+#define NVIC_ISPR3_R_NVIC_WTIMER1B_BIT  (1u)
 #define NVIC_ISPR3_R_NVIC_WTIMER1B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER1B_EN   ((uint32_t)0x00000002u)
 
@@ -7551,7 +7551,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER2A_MASK ((uint32_t)0x00000004u)
-#define NVIC_ISPR3_R_NVIC_WTIMER2A_BIT  (2)
+#define NVIC_ISPR3_R_NVIC_WTIMER2A_BIT  (2u)
 #define NVIC_ISPR3_R_NVIC_WTIMER2A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER2A_EN   ((uint32_t)0x00000004u)
 
@@ -7562,7 +7562,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER2B_MASK ((uint32_t)0x00000008u)
-#define NVIC_ISPR3_R_NVIC_WTIMER2B_BIT  (3)
+#define NVIC_ISPR3_R_NVIC_WTIMER2B_BIT  (3u)
 #define NVIC_ISPR3_R_NVIC_WTIMER2B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER2B_EN   ((uint32_t)0x00000008u)
 
@@ -7573,7 +7573,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER3A_MASK ((uint32_t)0x00000010u)
-#define NVIC_ISPR3_R_NVIC_WTIMER3A_BIT  (4)
+#define NVIC_ISPR3_R_NVIC_WTIMER3A_BIT  (4u)
 #define NVIC_ISPR3_R_NVIC_WTIMER3A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER3A_EN   ((uint32_t)0x00000010u)
 
@@ -7584,7 +7584,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER3B_MASK ((uint32_t)0x00000020u)
-#define NVIC_ISPR3_R_NVIC_WTIMER3B_BIT  (5)
+#define NVIC_ISPR3_R_NVIC_WTIMER3B_BIT  (5u)
 #define NVIC_ISPR3_R_NVIC_WTIMER3B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER3B_EN   ((uint32_t)0x00000020u)
 
@@ -7595,7 +7595,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER4A_MASK ((uint32_t)0x00000040u)
-#define NVIC_ISPR3_R_NVIC_WTIMER4A_BIT  (6)
+#define NVIC_ISPR3_R_NVIC_WTIMER4A_BIT  (6u)
 #define NVIC_ISPR3_R_NVIC_WTIMER4A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER4A_EN   ((uint32_t)0x00000040u)
 
@@ -7606,7 +7606,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER4B_MASK ((uint32_t)0x00000080u)
-#define NVIC_ISPR3_R_NVIC_WTIMER4B_BIT  (7)
+#define NVIC_ISPR3_R_NVIC_WTIMER4B_BIT  (7u)
 #define NVIC_ISPR3_R_NVIC_WTIMER4B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER4B_EN   ((uint32_t)0x00000080u)
 
@@ -7617,7 +7617,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER5A_MASK ((uint32_t)0x00000100u)
-#define NVIC_ISPR3_R_NVIC_WTIMER5A_BIT  (8)
+#define NVIC_ISPR3_R_NVIC_WTIMER5A_BIT  (8u)
 #define NVIC_ISPR3_R_NVIC_WTIMER5A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER5A_EN   ((uint32_t)0x00000100u)
 
@@ -7628,7 +7628,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_WTIMER5B_MASK ((uint32_t)0x00000200u)
-#define NVIC_ISPR3_R_NVIC_WTIMER5B_BIT  (9)
+#define NVIC_ISPR3_R_NVIC_WTIMER5B_BIT  (9u)
 #define NVIC_ISPR3_R_NVIC_WTIMER5B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_WTIMER5B_EN   ((uint32_t)0x00000200u)
 
@@ -7639,7 +7639,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_SYSEXC_MASK ((uint32_t)0x00000400u)
-#define NVIC_ISPR3_R_NVIC_SYSEXC_BIT  (10)
+#define NVIC_ISPR3_R_NVIC_SYSEXC_BIT  (10u)
 #define NVIC_ISPR3_R_NVIC_SYSEXC_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_SYSEXC_EN   ((uint32_t)0x00000400u)
 
@@ -7650,7 +7650,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES123_MASK ((uint32_t)0x00000800u)
-#define NVIC_ISPR3_R_NVIC_RES123_BIT  (11)
+#define NVIC_ISPR3_R_NVIC_RES123_BIT  (11u)
 #define NVIC_ISPR3_R_NVIC_RES123_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES123_EN   ((uint32_t)0x00000800u)
 
@@ -7661,7 +7661,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES124_MASK ((uint32_t)0x00001000u)
-#define NVIC_ISPR3_R_NVIC_RES124_BIT  (12)
+#define NVIC_ISPR3_R_NVIC_RES124_BIT  (12u)
 #define NVIC_ISPR3_R_NVIC_RES124_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES124_EN   ((uint32_t)0x00001000u)
 
@@ -7672,7 +7672,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES125_MASK ((uint32_t)0x00002000u)
-#define NVIC_ISPR3_R_NVIC_RES125_BIT  (13)
+#define NVIC_ISPR3_R_NVIC_RES125_BIT  (13u)
 #define NVIC_ISPR3_R_NVIC_RES125_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES125_EN   ((uint32_t)0x00002000u)
 
@@ -7683,7 +7683,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES126_MASK ((uint32_t)0x00004000u)
-#define NVIC_ISPR3_R_NVIC_RES126_BIT  (14)
+#define NVIC_ISPR3_R_NVIC_RES126_BIT  (14u)
 #define NVIC_ISPR3_R_NVIC_RES126_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES126_EN   ((uint32_t)0x00004000u)
 
@@ -7694,7 +7694,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES127_MASK ((uint32_t)0x00008000u)
-#define NVIC_ISPR3_R_NVIC_RES127_BIT  (15)
+#define NVIC_ISPR3_R_NVIC_RES127_BIT  (15u)
 #define NVIC_ISPR3_R_NVIC_RES127_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES127_EN   ((uint32_t)0x00008000u)
 
@@ -7705,7 +7705,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES128_MASK ((uint32_t)0x00010000u)
-#define NVIC_ISPR3_R_NVIC_RES128_BIT  (16)
+#define NVIC_ISPR3_R_NVIC_RES128_BIT  (16u)
 #define NVIC_ISPR3_R_NVIC_RES128_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES128_EN   ((uint32_t)0x00010000u)
 
@@ -7716,7 +7716,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES129_MASK ((uint32_t)0x00020000u)
-#define NVIC_ISPR3_R_NVIC_RES129_BIT  (17)
+#define NVIC_ISPR3_R_NVIC_RES129_BIT  (17u)
 #define NVIC_ISPR3_R_NVIC_RES129_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES129_EN   ((uint32_t)0x00020000u)
 
@@ -7727,7 +7727,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES130_MASK ((uint32_t)0x00040000u)
-#define NVIC_ISPR3_R_NVIC_RES130_BIT  (18)
+#define NVIC_ISPR3_R_NVIC_RES130_BIT  (18u)
 #define NVIC_ISPR3_R_NVIC_RES130_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES130_EN   ((uint32_t)0x00040000u)
 
@@ -7738,7 +7738,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES131_MASK ((uint32_t)0x00080000u)
-#define NVIC_ISPR3_R_NVIC_RES131_BIT  (19)
+#define NVIC_ISPR3_R_NVIC_RES131_BIT  (19u)
 #define NVIC_ISPR3_R_NVIC_RES131_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES131_EN   ((uint32_t)0x00080000u)
 
@@ -7749,7 +7749,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES132_MASK ((uint32_t)0x00100000u)
-#define NVIC_ISPR3_R_NVIC_RES132_BIT  (20)
+#define NVIC_ISPR3_R_NVIC_RES132_BIT  (20u)
 #define NVIC_ISPR3_R_NVIC_RES132_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES132_EN   ((uint32_t)0x00100000u)
 
@@ -7760,7 +7760,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES133_MASK ((uint32_t)0x00200000u)
-#define NVIC_ISPR3_R_NVIC_RES133_BIT  (21)
+#define NVIC_ISPR3_R_NVIC_RES133_BIT  (21u)
 #define NVIC_ISPR3_R_NVIC_RES133_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES133_EN   ((uint32_t)0x00200000u)
 
@@ -7771,7 +7771,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES134_MASK ((uint32_t)0x00400000u)
-#define NVIC_ISPR3_R_NVIC_RES134_BIT  (22)
+#define NVIC_ISPR3_R_NVIC_RES134_BIT  (22u)
 #define NVIC_ISPR3_R_NVIC_RES134_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES134_EN   ((uint32_t)0x00400000u)
 
@@ -7782,7 +7782,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES135_MASK ((uint32_t)0x00800000u)
-#define NVIC_ISPR3_R_NVIC_RES135_BIT  (23)
+#define NVIC_ISPR3_R_NVIC_RES135_BIT  (23u)
 #define NVIC_ISPR3_R_NVIC_RES135_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES135_EN   ((uint32_t)0x00800000u)
 
@@ -7793,7 +7793,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES136_MASK ((uint32_t)0x01000000u)
-#define NVIC_ISPR3_R_NVIC_RES136_BIT  (24)
+#define NVIC_ISPR3_R_NVIC_RES136_BIT  (24u)
 #define NVIC_ISPR3_R_NVIC_RES136_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES136_EN   ((uint32_t)0x01000000u)
 
@@ -7804,7 +7804,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES137_MASK ((uint32_t)0x02000000u)
-#define NVIC_ISPR3_R_NVIC_RES137_BIT  (25)
+#define NVIC_ISPR3_R_NVIC_RES137_BIT  (25u)
 #define NVIC_ISPR3_R_NVIC_RES137_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES137_EN   ((uint32_t)0x02000000u)
 
@@ -7815,7 +7815,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES138_MASK ((uint32_t)0x04000000u)
-#define NVIC_ISPR3_R_NVIC_RES138_BIT  (26)
+#define NVIC_ISPR3_R_NVIC_RES138_BIT  (26u)
 #define NVIC_ISPR3_R_NVIC_RES138_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES138_EN   ((uint32_t)0x04000000u)
 
@@ -7826,7 +7826,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES139_MASK ((uint32_t)0x08000000u)
-#define NVIC_ISPR3_R_NVIC_RES139_BIT  (27)
+#define NVIC_ISPR3_R_NVIC_RES139_BIT  (27u)
 #define NVIC_ISPR3_R_NVIC_RES139_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES139_EN   ((uint32_t)0x08000000u)
 
@@ -7837,7 +7837,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES140_MASK ((uint32_t)0x10000000u)
-#define NVIC_ISPR3_R_NVIC_RES140_BIT  (28)
+#define NVIC_ISPR3_R_NVIC_RES140_BIT  (28u)
 #define NVIC_ISPR3_R_NVIC_RES140_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES140_EN   ((uint32_t)0x10000000u)
 
@@ -7848,7 +7848,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES141_MASK ((uint32_t)0x20000000u)
-#define NVIC_ISPR3_R_NVIC_RES141_BIT  (29)
+#define NVIC_ISPR3_R_NVIC_RES141_BIT  (29u)
 #define NVIC_ISPR3_R_NVIC_RES141_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES141_EN   ((uint32_t)0x20000000u)
 
@@ -7859,7 +7859,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES142_MASK ((uint32_t)0x40000000u)
-#define NVIC_ISPR3_R_NVIC_RES142_BIT  (30)
+#define NVIC_ISPR3_R_NVIC_RES142_BIT  (30u)
 #define NVIC_ISPR3_R_NVIC_RES142_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES142_EN   ((uint32_t)0x40000000u)
 
@@ -7870,7 +7870,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR3_R_NVIC_RES143_MASK ((uint32_t)0x80000000u)
-#define NVIC_ISPR3_R_NVIC_RES143_BIT  (31)
+#define NVIC_ISPR3_R_NVIC_RES143_BIT  (31u)
 #define NVIC_ISPR3_R_NVIC_RES143_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR3_R_NVIC_RES143_EN   ((uint32_t)0x80000000u)
 
@@ -7890,7 +7890,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER1A_MASK ((uint32_t)0x00000001u)
-#define NVIC_ICPR3_R_NVIC_WTIMER1A_BIT  (0)
+#define NVIC_ICPR3_R_NVIC_WTIMER1A_BIT  (0u)
 #define NVIC_ICPR3_R_NVIC_WTIMER1A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER1A_EN   ((uint32_t)0x00000001u)
 
@@ -7901,7 +7901,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER1B_MASK ((uint32_t)0x00000002u)
-#define NVIC_ICPR3_R_NVIC_WTIMER1B_BIT  (1)
+#define NVIC_ICPR3_R_NVIC_WTIMER1B_BIT  (1u)
 #define NVIC_ICPR3_R_NVIC_WTIMER1B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER1B_EN   ((uint32_t)0x00000002u)
 
@@ -7912,7 +7912,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER2A_MASK ((uint32_t)0x00000004u)
-#define NVIC_ICPR3_R_NVIC_WTIMER2A_BIT  (2)
+#define NVIC_ICPR3_R_NVIC_WTIMER2A_BIT  (2u)
 #define NVIC_ICPR3_R_NVIC_WTIMER2A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER2A_EN   ((uint32_t)0x00000004u)
 
@@ -7923,7 +7923,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER2B_MASK ((uint32_t)0x00000008u)
-#define NVIC_ICPR3_R_NVIC_WTIMER2B_BIT  (3)
+#define NVIC_ICPR3_R_NVIC_WTIMER2B_BIT  (3u)
 #define NVIC_ICPR3_R_NVIC_WTIMER2B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER2B_EN   ((uint32_t)0x00000008u)
 
@@ -7934,7 +7934,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER3A_MASK ((uint32_t)0x00000010u)
-#define NVIC_ICPR3_R_NVIC_WTIMER3A_BIT  (4)
+#define NVIC_ICPR3_R_NVIC_WTIMER3A_BIT  (4u)
 #define NVIC_ICPR3_R_NVIC_WTIMER3A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER3A_EN   ((uint32_t)0x00000010u)
 
@@ -7945,7 +7945,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER3B_MASK ((uint32_t)0x00000020u)
-#define NVIC_ICPR3_R_NVIC_WTIMER3B_BIT  (5)
+#define NVIC_ICPR3_R_NVIC_WTIMER3B_BIT  (5u)
 #define NVIC_ICPR3_R_NVIC_WTIMER3B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER3B_EN   ((uint32_t)0x00000020u)
 
@@ -7956,7 +7956,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER4A_MASK ((uint32_t)0x00000040u)
-#define NVIC_ICPR3_R_NVIC_WTIMER4A_BIT  (6)
+#define NVIC_ICPR3_R_NVIC_WTIMER4A_BIT  (6u)
 #define NVIC_ICPR3_R_NVIC_WTIMER4A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER4A_EN   ((uint32_t)0x00000040u)
 
@@ -7967,7 +7967,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER4B_MASK ((uint32_t)0x00000080u)
-#define NVIC_ICPR3_R_NVIC_WTIMER4B_BIT  (7)
+#define NVIC_ICPR3_R_NVIC_WTIMER4B_BIT  (7u)
 #define NVIC_ICPR3_R_NVIC_WTIMER4B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER4B_EN   ((uint32_t)0x00000080u)
 
@@ -7978,7 +7978,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER5A_MASK ((uint32_t)0x00000100u)
-#define NVIC_ICPR3_R_NVIC_WTIMER5A_BIT  (8)
+#define NVIC_ICPR3_R_NVIC_WTIMER5A_BIT  (8u)
 #define NVIC_ICPR3_R_NVIC_WTIMER5A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER5A_EN   ((uint32_t)0x00000100u)
 
@@ -7989,7 +7989,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_WTIMER5B_MASK ((uint32_t)0x00000200u)
-#define NVIC_ICPR3_R_NVIC_WTIMER5B_BIT  (9)
+#define NVIC_ICPR3_R_NVIC_WTIMER5B_BIT  (9u)
 #define NVIC_ICPR3_R_NVIC_WTIMER5B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_WTIMER5B_EN   ((uint32_t)0x00000200u)
 
@@ -8000,7 +8000,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_SYSEXC_MASK ((uint32_t)0x00000400u)
-#define NVIC_ICPR3_R_NVIC_SYSEXC_BIT  (10)
+#define NVIC_ICPR3_R_NVIC_SYSEXC_BIT  (10u)
 #define NVIC_ICPR3_R_NVIC_SYSEXC_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_SYSEXC_EN   ((uint32_t)0x00000400u)
 
@@ -8011,7 +8011,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES123_MASK ((uint32_t)0x00000800u)
-#define NVIC_ICPR3_R_NVIC_RES123_BIT  (11)
+#define NVIC_ICPR3_R_NVIC_RES123_BIT  (11u)
 #define NVIC_ICPR3_R_NVIC_RES123_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES123_EN   ((uint32_t)0x00000800u)
 
@@ -8022,7 +8022,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES124_MASK ((uint32_t)0x00001000u)
-#define NVIC_ICPR3_R_NVIC_RES124_BIT  (12)
+#define NVIC_ICPR3_R_NVIC_RES124_BIT  (12u)
 #define NVIC_ICPR3_R_NVIC_RES124_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES124_EN   ((uint32_t)0x00001000u)
 
@@ -8033,7 +8033,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES125_MASK ((uint32_t)0x00002000u)
-#define NVIC_ICPR3_R_NVIC_RES125_BIT  (13)
+#define NVIC_ICPR3_R_NVIC_RES125_BIT  (13u)
 #define NVIC_ICPR3_R_NVIC_RES125_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES125_EN   ((uint32_t)0x00002000u)
 
@@ -8044,7 +8044,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES126_MASK ((uint32_t)0x00004000u)
-#define NVIC_ICPR3_R_NVIC_RES126_BIT  (14)
+#define NVIC_ICPR3_R_NVIC_RES126_BIT  (14u)
 #define NVIC_ICPR3_R_NVIC_RES126_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES126_EN   ((uint32_t)0x00004000u)
 
@@ -8055,7 +8055,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES127_MASK ((uint32_t)0x00008000u)
-#define NVIC_ICPR3_R_NVIC_RES127_BIT  (15)
+#define NVIC_ICPR3_R_NVIC_RES127_BIT  (15u)
 #define NVIC_ICPR3_R_NVIC_RES127_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES127_EN   ((uint32_t)0x00008000u)
 
@@ -8066,7 +8066,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES128_MASK ((uint32_t)0x00010000u)
-#define NVIC_ICPR3_R_NVIC_RES128_BIT  (16)
+#define NVIC_ICPR3_R_NVIC_RES128_BIT  (16u)
 #define NVIC_ICPR3_R_NVIC_RES128_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES128_EN   ((uint32_t)0x00010000u)
 
@@ -8077,7 +8077,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES129_MASK ((uint32_t)0x00020000u)
-#define NVIC_ICPR3_R_NVIC_RES129_BIT  (17)
+#define NVIC_ICPR3_R_NVIC_RES129_BIT  (17u)
 #define NVIC_ICPR3_R_NVIC_RES129_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES129_EN   ((uint32_t)0x00020000u)
 
@@ -8088,7 +8088,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES130_MASK ((uint32_t)0x00040000u)
-#define NVIC_ICPR3_R_NVIC_RES130_BIT  (18)
+#define NVIC_ICPR3_R_NVIC_RES130_BIT  (18u)
 #define NVIC_ICPR3_R_NVIC_RES130_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES130_EN   ((uint32_t)0x00040000u)
 
@@ -8099,7 +8099,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES131_MASK ((uint32_t)0x00080000u)
-#define NVIC_ICPR3_R_NVIC_RES131_BIT  (19)
+#define NVIC_ICPR3_R_NVIC_RES131_BIT  (19u)
 #define NVIC_ICPR3_R_NVIC_RES131_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES131_EN   ((uint32_t)0x00080000u)
 
@@ -8110,7 +8110,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES132_MASK ((uint32_t)0x00100000u)
-#define NVIC_ICPR3_R_NVIC_RES132_BIT  (20)
+#define NVIC_ICPR3_R_NVIC_RES132_BIT  (20u)
 #define NVIC_ICPR3_R_NVIC_RES132_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES132_EN   ((uint32_t)0x00100000u)
 
@@ -8121,7 +8121,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES133_MASK ((uint32_t)0x00200000u)
-#define NVIC_ICPR3_R_NVIC_RES133_BIT  (21)
+#define NVIC_ICPR3_R_NVIC_RES133_BIT  (21u)
 #define NVIC_ICPR3_R_NVIC_RES133_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES133_EN   ((uint32_t)0x00200000u)
 
@@ -8132,7 +8132,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES134_MASK ((uint32_t)0x00400000u)
-#define NVIC_ICPR3_R_NVIC_RES134_BIT  (22)
+#define NVIC_ICPR3_R_NVIC_RES134_BIT  (22u)
 #define NVIC_ICPR3_R_NVIC_RES134_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES134_EN   ((uint32_t)0x00400000u)
 
@@ -8143,7 +8143,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES135_MASK ((uint32_t)0x00800000u)
-#define NVIC_ICPR3_R_NVIC_RES135_BIT  (23)
+#define NVIC_ICPR3_R_NVIC_RES135_BIT  (23u)
 #define NVIC_ICPR3_R_NVIC_RES135_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES135_EN   ((uint32_t)0x00800000u)
 
@@ -8154,7 +8154,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES136_MASK ((uint32_t)0x01000000u)
-#define NVIC_ICPR3_R_NVIC_RES136_BIT  (24)
+#define NVIC_ICPR3_R_NVIC_RES136_BIT  (24u)
 #define NVIC_ICPR3_R_NVIC_RES136_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES136_EN   ((uint32_t)0x01000000u)
 
@@ -8165,7 +8165,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES137_MASK ((uint32_t)0x02000000u)
-#define NVIC_ICPR3_R_NVIC_RES137_BIT  (25)
+#define NVIC_ICPR3_R_NVIC_RES137_BIT  (25u)
 #define NVIC_ICPR3_R_NVIC_RES137_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES137_EN   ((uint32_t)0x02000000u)
 
@@ -8176,7 +8176,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES138_MASK ((uint32_t)0x04000000u)
-#define NVIC_ICPR3_R_NVIC_RES138_BIT  (26)
+#define NVIC_ICPR3_R_NVIC_RES138_BIT  (26u)
 #define NVIC_ICPR3_R_NVIC_RES138_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES138_EN   ((uint32_t)0x04000000u)
 
@@ -8187,7 +8187,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES139_MASK ((uint32_t)0x08000000u)
-#define NVIC_ICPR3_R_NVIC_RES139_BIT  (27)
+#define NVIC_ICPR3_R_NVIC_RES139_BIT  (27u)
 #define NVIC_ICPR3_R_NVIC_RES139_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES139_EN   ((uint32_t)0x08000000u)
 
@@ -8198,7 +8198,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES140_MASK ((uint32_t)0x10000000u)
-#define NVIC_ICPR3_R_NVIC_RES140_BIT  (28)
+#define NVIC_ICPR3_R_NVIC_RES140_BIT  (28u)
 #define NVIC_ICPR3_R_NVIC_RES140_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES140_EN   ((uint32_t)0x10000000u)
 
@@ -8209,7 +8209,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES141_MASK ((uint32_t)0x20000000u)
-#define NVIC_ICPR3_R_NVIC_RES141_BIT  (29)
+#define NVIC_ICPR3_R_NVIC_RES141_BIT  (29u)
 #define NVIC_ICPR3_R_NVIC_RES141_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES141_EN   ((uint32_t)0x20000000u)
 
@@ -8220,7 +8220,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES142_MASK ((uint32_t)0x40000000u)
-#define NVIC_ICPR3_R_NVIC_RES142_BIT  (30)
+#define NVIC_ICPR3_R_NVIC_RES142_BIT  (30u)
 #define NVIC_ICPR3_R_NVIC_RES142_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES142_EN   ((uint32_t)0x40000000u)
 
@@ -8231,7 +8231,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR3_R_NVIC_RES143_MASK ((uint32_t)0x80000000u)
-#define NVIC_ICPR3_R_NVIC_RES143_BIT  (31)
+#define NVIC_ICPR3_R_NVIC_RES143_BIT  (31u)
 #define NVIC_ICPR3_R_NVIC_RES143_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR3_R_NVIC_RES143_EN   ((uint32_t)0x80000000u)
 
@@ -8251,7 +8251,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER1A_MASK ((uint32_t)0x00000001u)
-#define NVIC_IABR3_R_NVIC_WTIMER1A_BIT  (0)
+#define NVIC_IABR3_R_NVIC_WTIMER1A_BIT  (0u)
 #define NVIC_IABR3_R_NVIC_WTIMER1A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER1A_EN   ((uint32_t)0x00000001u)
 
@@ -8262,7 +8262,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER1B_MASK ((uint32_t)0x00000002u)
-#define NVIC_IABR3_R_NVIC_WTIMER1B_BIT  (1)
+#define NVIC_IABR3_R_NVIC_WTIMER1B_BIT  (1u)
 #define NVIC_IABR3_R_NVIC_WTIMER1B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER1B_EN   ((uint32_t)0x00000002u)
 
@@ -8273,7 +8273,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER2A_MASK ((uint32_t)0x00000004u)
-#define NVIC_IABR3_R_NVIC_WTIMER2A_BIT  (2)
+#define NVIC_IABR3_R_NVIC_WTIMER2A_BIT  (2u)
 #define NVIC_IABR3_R_NVIC_WTIMER2A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER2A_EN   ((uint32_t)0x00000004u)
 
@@ -8284,7 +8284,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER2B_MASK ((uint32_t)0x00000008u)
-#define NVIC_IABR3_R_NVIC_WTIMER2B_BIT  (3)
+#define NVIC_IABR3_R_NVIC_WTIMER2B_BIT  (3u)
 #define NVIC_IABR3_R_NVIC_WTIMER2B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER2B_EN   ((uint32_t)0x00000008u)
 
@@ -8295,7 +8295,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER3A_MASK ((uint32_t)0x00000010u)
-#define NVIC_IABR3_R_NVIC_WTIMER3A_BIT  (4)
+#define NVIC_IABR3_R_NVIC_WTIMER3A_BIT  (4u)
 #define NVIC_IABR3_R_NVIC_WTIMER3A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER3A_EN   ((uint32_t)0x00000010u)
 
@@ -8306,7 +8306,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER3B_MASK ((uint32_t)0x00000020u)
-#define NVIC_IABR3_R_NVIC_WTIMER3B_BIT  (5)
+#define NVIC_IABR3_R_NVIC_WTIMER3B_BIT  (5u)
 #define NVIC_IABR3_R_NVIC_WTIMER3B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER3B_EN   ((uint32_t)0x00000020u)
 
@@ -8317,7 +8317,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER4A_MASK ((uint32_t)0x00000040u)
-#define NVIC_IABR3_R_NVIC_WTIMER4A_BIT  (6)
+#define NVIC_IABR3_R_NVIC_WTIMER4A_BIT  (6u)
 #define NVIC_IABR3_R_NVIC_WTIMER4A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER4A_EN   ((uint32_t)0x00000040u)
 
@@ -8328,7 +8328,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER4B_MASK ((uint32_t)0x00000080u)
-#define NVIC_IABR3_R_NVIC_WTIMER4B_BIT  (7)
+#define NVIC_IABR3_R_NVIC_WTIMER4B_BIT  (7u)
 #define NVIC_IABR3_R_NVIC_WTIMER4B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER4B_EN   ((uint32_t)0x00000080u)
 
@@ -8339,7 +8339,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER5A_MASK ((uint32_t)0x00000100u)
-#define NVIC_IABR3_R_NVIC_WTIMER5A_BIT  (8)
+#define NVIC_IABR3_R_NVIC_WTIMER5A_BIT  (8u)
 #define NVIC_IABR3_R_NVIC_WTIMER5A_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER5A_EN   ((uint32_t)0x00000100u)
 
@@ -8350,7 +8350,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_WTIMER5B_MASK ((uint32_t)0x00000200u)
-#define NVIC_IABR3_R_NVIC_WTIMER5B_BIT  (9)
+#define NVIC_IABR3_R_NVIC_WTIMER5B_BIT  (9u)
 #define NVIC_IABR3_R_NVIC_WTIMER5B_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_WTIMER5B_EN   ((uint32_t)0x00000200u)
 
@@ -8361,7 +8361,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_SYSEXC_MASK ((uint32_t)0x00000400u)
-#define NVIC_IABR3_R_NVIC_SYSEXC_BIT  (10)
+#define NVIC_IABR3_R_NVIC_SYSEXC_BIT  (10u)
 #define NVIC_IABR3_R_NVIC_SYSEXC_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_SYSEXC_EN   ((uint32_t)0x00000400u)
 
@@ -8372,7 +8372,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES123_MASK ((uint32_t)0x00000800u)
-#define NVIC_IABR3_R_NVIC_RES123_BIT  (11)
+#define NVIC_IABR3_R_NVIC_RES123_BIT  (11u)
 #define NVIC_IABR3_R_NVIC_RES123_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES123_EN   ((uint32_t)0x00000800u)
 
@@ -8383,7 +8383,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES124_MASK ((uint32_t)0x00001000u)
-#define NVIC_IABR3_R_NVIC_RES124_BIT  (12)
+#define NVIC_IABR3_R_NVIC_RES124_BIT  (12u)
 #define NVIC_IABR3_R_NVIC_RES124_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES124_EN   ((uint32_t)0x00001000u)
 
@@ -8394,7 +8394,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES125_MASK ((uint32_t)0x00002000u)
-#define NVIC_IABR3_R_NVIC_RES125_BIT  (13)
+#define NVIC_IABR3_R_NVIC_RES125_BIT  (13u)
 #define NVIC_IABR3_R_NVIC_RES125_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES125_EN   ((uint32_t)0x00002000u)
 
@@ -8405,7 +8405,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES126_MASK ((uint32_t)0x00004000u)
-#define NVIC_IABR3_R_NVIC_RES126_BIT  (14)
+#define NVIC_IABR3_R_NVIC_RES126_BIT  (14u)
 #define NVIC_IABR3_R_NVIC_RES126_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES126_EN   ((uint32_t)0x00004000u)
 
@@ -8416,7 +8416,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES127_MASK ((uint32_t)0x00008000u)
-#define NVIC_IABR3_R_NVIC_RES127_BIT  (15)
+#define NVIC_IABR3_R_NVIC_RES127_BIT  (15u)
 #define NVIC_IABR3_R_NVIC_RES127_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES127_EN   ((uint32_t)0x00008000u)
 
@@ -8427,7 +8427,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES128_MASK ((uint32_t)0x00010000u)
-#define NVIC_IABR3_R_NVIC_RES128_BIT  (16)
+#define NVIC_IABR3_R_NVIC_RES128_BIT  (16u)
 #define NVIC_IABR3_R_NVIC_RES128_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES128_EN   ((uint32_t)0x00010000u)
 
@@ -8438,7 +8438,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES129_MASK ((uint32_t)0x00020000u)
-#define NVIC_IABR3_R_NVIC_RES129_BIT  (17)
+#define NVIC_IABR3_R_NVIC_RES129_BIT  (17u)
 #define NVIC_IABR3_R_NVIC_RES129_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES129_EN   ((uint32_t)0x00020000u)
 
@@ -8449,7 +8449,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES130_MASK ((uint32_t)0x00040000u)
-#define NVIC_IABR3_R_NVIC_RES130_BIT  (18)
+#define NVIC_IABR3_R_NVIC_RES130_BIT  (18u)
 #define NVIC_IABR3_R_NVIC_RES130_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES130_EN   ((uint32_t)0x00040000u)
 
@@ -8460,7 +8460,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES131_MASK ((uint32_t)0x00080000u)
-#define NVIC_IABR3_R_NVIC_RES131_BIT  (19)
+#define NVIC_IABR3_R_NVIC_RES131_BIT  (19u)
 #define NVIC_IABR3_R_NVIC_RES131_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES131_EN   ((uint32_t)0x00080000u)
 
@@ -8471,7 +8471,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES132_MASK ((uint32_t)0x00100000u)
-#define NVIC_IABR3_R_NVIC_RES132_BIT  (20)
+#define NVIC_IABR3_R_NVIC_RES132_BIT  (20u)
 #define NVIC_IABR3_R_NVIC_RES132_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES132_EN   ((uint32_t)0x00100000u)
 
@@ -8482,7 +8482,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES133_MASK ((uint32_t)0x00200000u)
-#define NVIC_IABR3_R_NVIC_RES133_BIT  (21)
+#define NVIC_IABR3_R_NVIC_RES133_BIT  (21u)
 #define NVIC_IABR3_R_NVIC_RES133_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES133_EN   ((uint32_t)0x00200000u)
 
@@ -8493,7 +8493,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES134_MASK ((uint32_t)0x00400000u)
-#define NVIC_IABR3_R_NVIC_RES134_BIT  (22)
+#define NVIC_IABR3_R_NVIC_RES134_BIT  (22u)
 #define NVIC_IABR3_R_NVIC_RES134_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES134_EN   ((uint32_t)0x00400000u)
 
@@ -8504,7 +8504,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES135_MASK ((uint32_t)0x00800000u)
-#define NVIC_IABR3_R_NVIC_RES135_BIT  (23)
+#define NVIC_IABR3_R_NVIC_RES135_BIT  (23u)
 #define NVIC_IABR3_R_NVIC_RES135_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES135_EN   ((uint32_t)0x00800000u)
 
@@ -8515,7 +8515,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES136_MASK ((uint32_t)0x01000000u)
-#define NVIC_IABR3_R_NVIC_RES136_BIT  (24)
+#define NVIC_IABR3_R_NVIC_RES136_BIT  (24u)
 #define NVIC_IABR3_R_NVIC_RES136_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES136_EN   ((uint32_t)0x01000000u)
 
@@ -8526,7 +8526,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES137_MASK ((uint32_t)0x02000000u)
-#define NVIC_IABR3_R_NVIC_RES137_BIT  (25)
+#define NVIC_IABR3_R_NVIC_RES137_BIT  (25u)
 #define NVIC_IABR3_R_NVIC_RES137_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES137_EN   ((uint32_t)0x02000000u)
 
@@ -8537,7 +8537,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES138_MASK ((uint32_t)0x04000000u)
-#define NVIC_IABR3_R_NVIC_RES138_BIT  (26)
+#define NVIC_IABR3_R_NVIC_RES138_BIT  (26u)
 #define NVIC_IABR3_R_NVIC_RES138_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES138_EN   ((uint32_t)0x04000000u)
 
@@ -8548,7 +8548,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES139_MASK ((uint32_t)0x08000000u)
-#define NVIC_IABR3_R_NVIC_RES139_BIT  (27)
+#define NVIC_IABR3_R_NVIC_RES139_BIT  (27u)
 #define NVIC_IABR3_R_NVIC_RES139_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES139_EN   ((uint32_t)0x08000000u)
 
@@ -8559,7 +8559,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES140_MASK ((uint32_t)0x10000000u)
-#define NVIC_IABR3_R_NVIC_RES140_BIT  (28)
+#define NVIC_IABR3_R_NVIC_RES140_BIT  (28u)
 #define NVIC_IABR3_R_NVIC_RES140_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES140_EN   ((uint32_t)0x10000000u)
 
@@ -8570,7 +8570,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES141_MASK ((uint32_t)0x20000000u)
-#define NVIC_IABR3_R_NVIC_RES141_BIT  (29)
+#define NVIC_IABR3_R_NVIC_RES141_BIT  (29u)
 #define NVIC_IABR3_R_NVIC_RES141_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES141_EN   ((uint32_t)0x20000000u)
 
@@ -8581,7 +8581,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES142_MASK ((uint32_t)0x40000000u)
-#define NVIC_IABR3_R_NVIC_RES142_BIT  (30)
+#define NVIC_IABR3_R_NVIC_RES142_BIT  (30u)
 #define NVIC_IABR3_R_NVIC_RES142_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES142_EN   ((uint32_t)0x40000000u)
 
@@ -8592,7 +8592,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR3_R_NVIC_RES143_MASK ((uint32_t)0x80000000u)
-#define NVIC_IABR3_R_NVIC_RES143_BIT  (31)
+#define NVIC_IABR3_R_NVIC_RES143_BIT  (31u)
 #define NVIC_IABR3_R_NVIC_RES143_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR3_R_NVIC_RES143_EN   ((uint32_t)0x80000000u)
 
@@ -8611,7 +8611,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_RES144_MASK ((uint32_t)0x00000001u)
-#define NVIC_ISER4_R_NVIC_RES144_BIT  (0)
+#define NVIC_ISER4_R_NVIC_RES144_BIT  (0u)
 #define NVIC_ISER4_R_NVIC_RES144_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_RES144_EN   ((uint32_t)0x00000001u)
 
@@ -8622,7 +8622,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_RES145_MASK ((uint32_t)0x00000002u)
-#define NVIC_ISER4_R_NVIC_RES145_BIT  (1)
+#define NVIC_ISER4_R_NVIC_RES145_BIT  (1u)
 #define NVIC_ISER4_R_NVIC_RES145_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_RES145_EN   ((uint32_t)0x00000002u)
 
@@ -8633,7 +8633,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_RES146_MASK ((uint32_t)0x00000004u)
-#define NVIC_ISER4_R_NVIC_RES146_BIT  (2)
+#define NVIC_ISER4_R_NVIC_RES146_BIT  (2u)
 #define NVIC_ISER4_R_NVIC_RES146_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_RES146_EN   ((uint32_t)0x00000004u)
 
@@ -8644,7 +8644,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_RES147_MASK ((uint32_t)0x00000008u)
-#define NVIC_ISER4_R_NVIC_RES147_BIT  (3)
+#define NVIC_ISER4_R_NVIC_RES147_BIT  (3u)
 #define NVIC_ISER4_R_NVIC_RES147_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_RES147_EN   ((uint32_t)0x00000008u)
 
@@ -8655,7 +8655,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_RES148_MASK ((uint32_t)0x00000010u)
-#define NVIC_ISER4_R_NVIC_RES148_BIT  (4)
+#define NVIC_ISER4_R_NVIC_RES148_BIT  (4u)
 #define NVIC_ISER4_R_NVIC_RES148_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_RES148_EN   ((uint32_t)0x00000010u)
 
@@ -8666,7 +8666,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_RES149_MASK ((uint32_t)0x00000020u)
-#define NVIC_ISER4_R_NVIC_RES149_BIT  (5)
+#define NVIC_ISER4_R_NVIC_RES149_BIT  (5u)
 #define NVIC_ISER4_R_NVIC_RES149_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_RES149_EN   ((uint32_t)0x00000020u)
 
@@ -8677,7 +8677,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_PWM1GEN0_MASK ((uint32_t)0x00000040u)
-#define NVIC_ISER4_R_NVIC_PWM1GEN0_BIT  (6)
+#define NVIC_ISER4_R_NVIC_PWM1GEN0_BIT  (6u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN0_EN   ((uint32_t)0x00000040u)
 
@@ -8688,7 +8688,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_PWM1GEN1_MASK ((uint32_t)0x00000080u)
-#define NVIC_ISER4_R_NVIC_PWM1GEN1_BIT  (7)
+#define NVIC_ISER4_R_NVIC_PWM1GEN1_BIT  (7u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN1_EN   ((uint32_t)0x00000080u)
 
@@ -8699,7 +8699,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_PWM1GEN2_MASK ((uint32_t)0x00000100u)
-#define NVIC_ISER4_R_NVIC_PWM1GEN2_BIT  (8)
+#define NVIC_ISER4_R_NVIC_PWM1GEN2_BIT  (8u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN2_EN   ((uint32_t)0x00000100u)
 
@@ -8710,7 +8710,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_PWM1GEN3_MASK ((uint32_t)0x00000200u)
-#define NVIC_ISER4_R_NVIC_PWM1GEN3_BIT  (9)
+#define NVIC_ISER4_R_NVIC_PWM1GEN3_BIT  (9u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_PWM1GEN3_EN   ((uint32_t)0x00000200u)
 
@@ -8721,7 +8721,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISER4_R_NVIC_PWM1FAULT_MASK ((uint32_t)0x00000400u)
-#define NVIC_ISER4_R_NVIC_PWM1FAULT_BIT  (10)
+#define NVIC_ISER4_R_NVIC_PWM1FAULT_BIT  (10u)
 #define NVIC_ISER4_R_NVIC_PWM1FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISER4_R_NVIC_PWM1FAULT_EN   ((uint32_t)0x00000400u)
 
@@ -8740,7 +8740,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_RES144_MASK ((uint32_t)0x00000001u)
-#define NVIC_ICER4_R_NVIC_RES144_BIT  (0)
+#define NVIC_ICER4_R_NVIC_RES144_BIT  (0u)
 #define NVIC_ICER4_R_NVIC_RES144_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_RES144_EN   ((uint32_t)0x00000001u)
 
@@ -8751,7 +8751,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_RES145_MASK ((uint32_t)0x00000002u)
-#define NVIC_ICER4_R_NVIC_RES145_BIT  (1)
+#define NVIC_ICER4_R_NVIC_RES145_BIT  (1u)
 #define NVIC_ICER4_R_NVIC_RES145_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_RES145_EN   ((uint32_t)0x00000002u)
 
@@ -8762,7 +8762,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_RES146_MASK ((uint32_t)0x00000004u)
-#define NVIC_ICER4_R_NVIC_RES146_BIT  (2)
+#define NVIC_ICER4_R_NVIC_RES146_BIT  (2u)
 #define NVIC_ICER4_R_NVIC_RES146_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_RES146_EN   ((uint32_t)0x00000004u)
 
@@ -8773,7 +8773,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_RES147_MASK ((uint32_t)0x00000008u)
-#define NVIC_ICER4_R_NVIC_RES147_BIT  (3)
+#define NVIC_ICER4_R_NVIC_RES147_BIT  (3u)
 #define NVIC_ICER4_R_NVIC_RES147_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_RES147_EN   ((uint32_t)0x00000008u)
 
@@ -8784,7 +8784,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_RES148_MASK ((uint32_t)0x00000010u)
-#define NVIC_ICER4_R_NVIC_RES148_BIT  (4)
+#define NVIC_ICER4_R_NVIC_RES148_BIT  (4u)
 #define NVIC_ICER4_R_NVIC_RES148_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_RES148_EN   ((uint32_t)0x00000010u)
 
@@ -8795,7 +8795,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_RES149_MASK ((uint32_t)0x00000020u)
-#define NVIC_ICER4_R_NVIC_RES149_BIT  (5)
+#define NVIC_ICER4_R_NVIC_RES149_BIT  (5u)
 #define NVIC_ICER4_R_NVIC_RES149_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_RES149_EN   ((uint32_t)0x00000020u)
 
@@ -8806,7 +8806,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_PWM1GEN0_MASK ((uint32_t)0x00000040u)
-#define NVIC_ICER4_R_NVIC_PWM1GEN0_BIT  (6)
+#define NVIC_ICER4_R_NVIC_PWM1GEN0_BIT  (6u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN0_EN   ((uint32_t)0x00000040u)
 
@@ -8817,7 +8817,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_PWM1GEN1_MASK ((uint32_t)0x00000080u)
-#define NVIC_ICER4_R_NVIC_PWM1GEN1_BIT  (7)
+#define NVIC_ICER4_R_NVIC_PWM1GEN1_BIT  (7u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN1_EN   ((uint32_t)0x00000080u)
 
@@ -8828,7 +8828,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_PWM1GEN2_MASK ((uint32_t)0x00000100u)
-#define NVIC_ICER4_R_NVIC_PWM1GEN2_BIT  (8)
+#define NVIC_ICER4_R_NVIC_PWM1GEN2_BIT  (8u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN2_EN   ((uint32_t)0x00000100u)
 
@@ -8839,7 +8839,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_PWM1GEN3_MASK ((uint32_t)0x00000200u)
-#define NVIC_ICER4_R_NVIC_PWM1GEN3_BIT  (9)
+#define NVIC_ICER4_R_NVIC_PWM1GEN3_BIT  (9u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_PWM1GEN3_EN   ((uint32_t)0x00000200u)
 
@@ -8850,7 +8850,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICER4_R_NVIC_PWM1FAULT_MASK ((uint32_t)0x00000400u)
-#define NVIC_ICER4_R_NVIC_PWM1FAULT_BIT  (10)
+#define NVIC_ICER4_R_NVIC_PWM1FAULT_BIT  (10u)
 #define NVIC_ICER4_R_NVIC_PWM1FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICER4_R_NVIC_PWM1FAULT_EN   ((uint32_t)0x00000400u)
 
@@ -8869,7 +8869,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_RES144_MASK ((uint32_t)0x00000001u)
-#define NVIC_ISPR4_R_NVIC_RES144_BIT  (0)
+#define NVIC_ISPR4_R_NVIC_RES144_BIT  (0u)
 #define NVIC_ISPR4_R_NVIC_RES144_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_RES144_EN   ((uint32_t)0x00000001u)
 
@@ -8880,7 +8880,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_RES145_MASK ((uint32_t)0x00000002u)
-#define NVIC_ISPR4_R_NVIC_RES145_BIT  (1)
+#define NVIC_ISPR4_R_NVIC_RES145_BIT  (1u)
 #define NVIC_ISPR4_R_NVIC_RES145_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_RES145_EN   ((uint32_t)0x00000002u)
 
@@ -8891,7 +8891,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_RES146_MASK ((uint32_t)0x00000004u)
-#define NVIC_ISPR4_R_NVIC_RES146_BIT  (2)
+#define NVIC_ISPR4_R_NVIC_RES146_BIT  (2u)
 #define NVIC_ISPR4_R_NVIC_RES146_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_RES146_EN   ((uint32_t)0x00000004u)
 
@@ -8902,7 +8902,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_RES147_MASK ((uint32_t)0x00000008u)
-#define NVIC_ISPR4_R_NVIC_RES147_BIT  (3)
+#define NVIC_ISPR4_R_NVIC_RES147_BIT  (3u)
 #define NVIC_ISPR4_R_NVIC_RES147_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_RES147_EN   ((uint32_t)0x00000008u)
 
@@ -8913,7 +8913,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_RES148_MASK ((uint32_t)0x00000010u)
-#define NVIC_ISPR4_R_NVIC_RES148_BIT  (4)
+#define NVIC_ISPR4_R_NVIC_RES148_BIT  (4u)
 #define NVIC_ISPR4_R_NVIC_RES148_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_RES148_EN   ((uint32_t)0x00000010u)
 
@@ -8924,7 +8924,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_RES149_MASK ((uint32_t)0x00000020u)
-#define NVIC_ISPR4_R_NVIC_RES149_BIT  (5)
+#define NVIC_ISPR4_R_NVIC_RES149_BIT  (5u)
 #define NVIC_ISPR4_R_NVIC_RES149_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_RES149_EN   ((uint32_t)0x00000020u)
 
@@ -8935,7 +8935,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_PWM1GEN0_MASK ((uint32_t)0x00000040u)
-#define NVIC_ISPR4_R_NVIC_PWM1GEN0_BIT  (6)
+#define NVIC_ISPR4_R_NVIC_PWM1GEN0_BIT  (6u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN0_EN   ((uint32_t)0x00000040u)
 
@@ -8946,7 +8946,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_PWM1GEN1_MASK ((uint32_t)0x00000080u)
-#define NVIC_ISPR4_R_NVIC_PWM1GEN1_BIT  (7)
+#define NVIC_ISPR4_R_NVIC_PWM1GEN1_BIT  (7u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN1_EN   ((uint32_t)0x00000080u)
 
@@ -8957,7 +8957,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_PWM1GEN2_MASK ((uint32_t)0x00000100u)
-#define NVIC_ISPR4_R_NVIC_PWM1GEN2_BIT  (8)
+#define NVIC_ISPR4_R_NVIC_PWM1GEN2_BIT  (8u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN2_EN   ((uint32_t)0x00000100u)
 
@@ -8968,7 +8968,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_PWM1GEN3_MASK ((uint32_t)0x00000200u)
-#define NVIC_ISPR4_R_NVIC_PWM1GEN3_BIT  (9)
+#define NVIC_ISPR4_R_NVIC_PWM1GEN3_BIT  (9u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_PWM1GEN3_EN   ((uint32_t)0x00000200u)
 
@@ -8979,7 +8979,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ISPR4_R_NVIC_PWM1FAULT_MASK ((uint32_t)0x00000400u)
-#define NVIC_ISPR4_R_NVIC_PWM1FAULT_BIT  (10)
+#define NVIC_ISPR4_R_NVIC_PWM1FAULT_BIT  (10u)
 #define NVIC_ISPR4_R_NVIC_PWM1FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ISPR4_R_NVIC_PWM1FAULT_EN   ((uint32_t)0x00000400u)
 
@@ -8998,7 +8998,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_RES144_MASK ((uint32_t)0x00000001u)
-#define NVIC_ICPR4_R_NVIC_RES144_BIT  (0)
+#define NVIC_ICPR4_R_NVIC_RES144_BIT  (0u)
 #define NVIC_ICPR4_R_NVIC_RES144_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_RES144_EN   ((uint32_t)0x00000001u)
 
@@ -9009,7 +9009,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_RES145_MASK ((uint32_t)0x00000002u)
-#define NVIC_ICPR4_R_NVIC_RES145_BIT  (1)
+#define NVIC_ICPR4_R_NVIC_RES145_BIT  (1u)
 #define NVIC_ICPR4_R_NVIC_RES145_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_RES145_EN   ((uint32_t)0x00000002u)
 
@@ -9020,7 +9020,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_RES146_MASK ((uint32_t)0x00000004u)
-#define NVIC_ICPR4_R_NVIC_RES146_BIT  (2)
+#define NVIC_ICPR4_R_NVIC_RES146_BIT  (2u)
 #define NVIC_ICPR4_R_NVIC_RES146_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_RES146_EN   ((uint32_t)0x00000004u)
 
@@ -9031,7 +9031,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_RES147_MASK ((uint32_t)0x00000008u)
-#define NVIC_ICPR4_R_NVIC_RES147_BIT  (3)
+#define NVIC_ICPR4_R_NVIC_RES147_BIT  (3u)
 #define NVIC_ICPR4_R_NVIC_RES147_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_RES147_EN   ((uint32_t)0x00000008u)
 
@@ -9042,7 +9042,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_RES148_MASK ((uint32_t)0x00000010u)
-#define NVIC_ICPR4_R_NVIC_RES148_BIT  (4)
+#define NVIC_ICPR4_R_NVIC_RES148_BIT  (4u)
 #define NVIC_ICPR4_R_NVIC_RES148_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_RES148_EN   ((uint32_t)0x00000010u)
 
@@ -9053,7 +9053,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_RES149_MASK ((uint32_t)0x00000020u)
-#define NVIC_ICPR4_R_NVIC_RES149_BIT  (5)
+#define NVIC_ICPR4_R_NVIC_RES149_BIT  (5u)
 #define NVIC_ICPR4_R_NVIC_RES149_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_RES149_EN   ((uint32_t)0x00000020u)
 
@@ -9064,7 +9064,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_PWM1GEN0_MASK ((uint32_t)0x00000040u)
-#define NVIC_ICPR4_R_NVIC_PWM1GEN0_BIT  (6)
+#define NVIC_ICPR4_R_NVIC_PWM1GEN0_BIT  (6u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN0_EN   ((uint32_t)0x00000040u)
 
@@ -9075,7 +9075,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_PWM1GEN1_MASK ((uint32_t)0x00000080u)
-#define NVIC_ICPR4_R_NVIC_PWM1GEN1_BIT  (7)
+#define NVIC_ICPR4_R_NVIC_PWM1GEN1_BIT  (7u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN1_EN   ((uint32_t)0x00000080u)
 
@@ -9086,7 +9086,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_PWM1GEN2_MASK ((uint32_t)0x00000100u)
-#define NVIC_ICPR4_R_NVIC_PWM1GEN2_BIT  (8)
+#define NVIC_ICPR4_R_NVIC_PWM1GEN2_BIT  (8u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN2_EN   ((uint32_t)0x00000100u)
 
@@ -9097,7 +9097,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_PWM1GEN3_MASK ((uint32_t)0x00000200u)
-#define NVIC_ICPR4_R_NVIC_PWM1GEN3_BIT  (9)
+#define NVIC_ICPR4_R_NVIC_PWM1GEN3_BIT  (9u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_PWM1GEN3_EN   ((uint32_t)0x00000200u)
 
@@ -9108,7 +9108,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_ICPR4_R_NVIC_PWM1FAULT_MASK ((uint32_t)0x00000400u)
-#define NVIC_ICPR4_R_NVIC_PWM1FAULT_BIT  (10)
+#define NVIC_ICPR4_R_NVIC_PWM1FAULT_BIT  (10u)
 #define NVIC_ICPR4_R_NVIC_PWM1FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_ICPR4_R_NVIC_PWM1FAULT_EN   ((uint32_t)0x00000400u)
 
@@ -9127,7 +9127,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_RES144_MASK ((uint32_t)0x00000001u)
-#define NVIC_IABR4_R_NVIC_RES144_BIT  (0)
+#define NVIC_IABR4_R_NVIC_RES144_BIT  (0u)
 #define NVIC_IABR4_R_NVIC_RES144_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_RES144_EN   ((uint32_t)0x00000001u)
 
@@ -9138,7 +9138,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_RES145_MASK ((uint32_t)0x00000002u)
-#define NVIC_IABR4_R_NVIC_RES145_BIT  (1)
+#define NVIC_IABR4_R_NVIC_RES145_BIT  (1u)
 #define NVIC_IABR4_R_NVIC_RES145_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_RES145_EN   ((uint32_t)0x00000002u)
 
@@ -9149,7 +9149,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_RES146_MASK ((uint32_t)0x00000004u)
-#define NVIC_IABR4_R_NVIC_RES146_BIT  (2)
+#define NVIC_IABR4_R_NVIC_RES146_BIT  (2u)
 #define NVIC_IABR4_R_NVIC_RES146_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_RES146_EN   ((uint32_t)0x00000004u)
 
@@ -9160,7 +9160,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_RES147_MASK ((uint32_t)0x00000008u)
-#define NVIC_IABR4_R_NVIC_RES147_BIT  (3)
+#define NVIC_IABR4_R_NVIC_RES147_BIT  (3u)
 #define NVIC_IABR4_R_NVIC_RES147_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_RES147_EN   ((uint32_t)0x00000008u)
 
@@ -9171,7 +9171,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_RES148_MASK ((uint32_t)0x00000010u)
-#define NVIC_IABR4_R_NVIC_RES148_BIT  (4)
+#define NVIC_IABR4_R_NVIC_RES148_BIT  (4u)
 #define NVIC_IABR4_R_NVIC_RES148_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_RES148_EN   ((uint32_t)0x00000010u)
 
@@ -9182,7 +9182,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_RES149_MASK ((uint32_t)0x00000020u)
-#define NVIC_IABR4_R_NVIC_RES149_BIT  (5)
+#define NVIC_IABR4_R_NVIC_RES149_BIT  (5u)
 #define NVIC_IABR4_R_NVIC_RES149_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_RES149_EN   ((uint32_t)0x00000020u)
 
@@ -9193,7 +9193,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_PWM1GEN0_MASK ((uint32_t)0x00000040u)
-#define NVIC_IABR4_R_NVIC_PWM1GEN0_BIT  (6)
+#define NVIC_IABR4_R_NVIC_PWM1GEN0_BIT  (6u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN0_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN0_EN   ((uint32_t)0x00000040u)
 
@@ -9204,7 +9204,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_PWM1GEN1_MASK ((uint32_t)0x00000080u)
-#define NVIC_IABR4_R_NVIC_PWM1GEN1_BIT  (7)
+#define NVIC_IABR4_R_NVIC_PWM1GEN1_BIT  (7u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN1_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN1_EN   ((uint32_t)0x00000080u)
 
@@ -9215,7 +9215,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_PWM1GEN2_MASK ((uint32_t)0x00000100u)
-#define NVIC_IABR4_R_NVIC_PWM1GEN2_BIT  (8)
+#define NVIC_IABR4_R_NVIC_PWM1GEN2_BIT  (8u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN2_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN2_EN   ((uint32_t)0x00000100u)
 
@@ -9226,7 +9226,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_PWM1GEN3_MASK ((uint32_t)0x00000200u)
-#define NVIC_IABR4_R_NVIC_PWM1GEN3_BIT  (9)
+#define NVIC_IABR4_R_NVIC_PWM1GEN3_BIT  (9u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN3_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_PWM1GEN3_EN   ((uint32_t)0x00000200u)
 
@@ -9237,7 +9237,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IABR4_R_NVIC_PWM1FAULT_MASK ((uint32_t)0x00000400u)
-#define NVIC_IABR4_R_NVIC_PWM1FAULT_BIT  (10)
+#define NVIC_IABR4_R_NVIC_PWM1FAULT_BIT  (10u)
 #define NVIC_IABR4_R_NVIC_PWM1FAULT_DIS  ((uint32_t)0x00000000u)
 #define NVIC_IABR4_R_NVIC_PWM1FAULT_EN   ((uint32_t)0x00000400u)
 
@@ -9265,7 +9265,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR0_R_NVIC_GPIOA_MASK     ((uint32_t)0x000000E0u)
-#define NVIC_IPR0_R_NVIC_GPIOA_BIT      (5)
+#define NVIC_IPR0_R_NVIC_GPIOA_BIT      (5u)
 #define NVIC_IPR0_R_NVIC_GPIOA_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR0_R_NVIC_GPIOA_IP1      ((uint32_t)0x00000020u)
 #define NVIC_IPR0_R_NVIC_GPIOA_IP2      ((uint32_t)0x00000040u)
@@ -9288,7 +9288,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR0_R_NVIC_GPIOB_MASK     ((uint32_t)0x0000E000u)
-#define NVIC_IPR0_R_NVIC_GPIOB_BIT      (13)
+#define NVIC_IPR0_R_NVIC_GPIOB_BIT      (13u)
 #define NVIC_IPR0_R_NVIC_GPIOB_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR0_R_NVIC_GPIOB_IP1      ((uint32_t)0x00002000u)
 #define NVIC_IPR0_R_NVIC_GPIOB_IP2      ((uint32_t)0x00004000u)
@@ -9311,7 +9311,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR0_R_NVIC_GPIOC_MASK    	((uint32_t)0x00E00000u)
-#define NVIC_IPR0_R_NVIC_GPIOC_BIT     	(21)
+#define NVIC_IPR0_R_NVIC_GPIOC_BIT     	(21u)
 #define NVIC_IPR0_R_NVIC_GPIOC_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR0_R_NVIC_GPIOC_IP1      ((uint32_t)0x00200000u)
 #define NVIC_IPR0_R_NVIC_GPIOC_IP2      ((uint32_t)0x00400000u)
@@ -9334,7 +9334,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR0_R_NVIC_GPIOD_MASK     ((uint32_t)0xF0000000u)
-#define NVIC_IPR0_R_NVIC_GPIOD_BIT      (29)
+#define NVIC_IPR0_R_NVIC_GPIOD_BIT      (29u)
 #define NVIC_IPR0_R_NVIC_GPIOD_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR0_R_NVIC_GPIOD_IP1      ((uint32_t)0x10000000u)
 #define NVIC_IPR0_R_NVIC_GPIOD_IP2      ((uint32_t)0x20000000u)
@@ -9364,7 +9364,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR1_R_NVIC_GPIOE_MASK     ((uint32_t)0x000000E0u)
-#define NVIC_IPR1_R_NVIC_GPIOE_BIT      (5)
+#define NVIC_IPR1_R_NVIC_GPIOE_BIT      (5u)
 #define NVIC_IPR1_R_NVIC_GPIOE_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR1_R_NVIC_GPIOE_IP1      ((uint32_t)0x00000020u)
 #define NVIC_IPR1_R_NVIC_GPIOE_IP2      ((uint32_t)0x00000040u)
@@ -9387,7 +9387,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR1_R_NVIC_UART0_MASK     ((uint32_t)0x0000E000u)
-#define NVIC_IPR1_R_NVIC_UART0_BIT      (13)
+#define NVIC_IPR1_R_NVIC_UART0_BIT      (13u)
 #define NVIC_IPR1_R_NVIC_UART0_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR1_R_NVIC_UART0_IP1      ((uint32_t)0x00002000u)
 #define NVIC_IPR1_R_NVIC_UART0_IP2      ((uint32_t)0x00004000u)
@@ -9410,7 +9410,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR1_R_NVIC_UART1_MASK     ((uint32_t)0x00E00000u)
-#define NVIC_IPR1_R_NVIC_UART1_BIT      (21)
+#define NVIC_IPR1_R_NVIC_UART1_BIT      (21u)
 #define NVIC_IPR1_R_NVIC_UART1_IP0      ((uint32_t)0x00000000u)
 #define NVIC_IPR1_R_NVIC_UART1_IP1      ((uint32_t)0x00200000u)
 #define NVIC_IPR1_R_NVIC_UART1_IP2      ((uint32_t)0x00400000u)
@@ -9433,7 +9433,7 @@ typedef volatile struct
 
 /*-------*/
 #define NVIC_IPR1_R_NVIC_SSI0_MASK      ((uint32_t)0xE0000000u)
-#define NVIC_IPR1_R_NVIC_SSI0_BIT       (29)
+#define NVIC_IPR1_R_NVIC_SSI0_BIT       (29u)
 #define NVIC_IPR1_R_NVIC_SSI0_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR1_R_NVIC_SSI0_IP1       ((uint32_t)0x20000000u)
 #define NVIC_IPR1_R_NVIC_SSI0_IP2       ((uint32_t)0x40000000u)
@@ -9465,7 +9465,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR2_R_NVIC_I2C0_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR2_R_NVIC_I2C0_BIT       (5)
+#define NVIC_IPR2_R_NVIC_I2C0_BIT       (5u)
 #define NVIC_IPR2_R_NVIC_I2C0_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR2_R_NVIC_I2C0_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR2_R_NVIC_I2C0_IP2       ((uint32_t)0x00000040u)
@@ -9488,7 +9488,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR2_R_NVIC_PWM0FAULT_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR2_R_NVIC_PWM0FAULT_BIT   (13)
+#define NVIC_IPR2_R_NVIC_PWM0FAULT_BIT   (13u)
 #define NVIC_IPR2_R_NVIC_PWM0FAULT_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR2_R_NVIC_PWM0FAULT_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR2_R_NVIC_PWM0FAULT_IP2   ((uint32_t)0x00004000u)
@@ -9511,7 +9511,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR2_R_NVIC_PWM0GEN0_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR2_R_NVIC_PWM0GEN0_BIT    (21)
+#define NVIC_IPR2_R_NVIC_PWM0GEN0_BIT    (21u)
 #define NVIC_IPR2_R_NVIC_PWM0GEN0_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR2_R_NVIC_PWM0GEN0_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR2_R_NVIC_PWM0GEN0_IP2    ((uint32_t)0x00400000u)
@@ -9534,7 +9534,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR2_R_NVIC_PWM0GEN1_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR2_R_NVIC_PWM0GEN1_BIT    (29)
+#define NVIC_IPR2_R_NVIC_PWM0GEN1_BIT    (29u)
 #define NVIC_IPR2_R_NVIC_PWM0GEN1_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR2_R_NVIC_PWM0GEN1_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR2_R_NVIC_PWM0GEN1_IP2    ((uint32_t)0x40000000u)
@@ -9565,7 +9565,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR3_R_NVIC_PWM0GEN2_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR3_R_NVIC_PWM0GEN2_BIT       (5)
+#define NVIC_IPR3_R_NVIC_PWM0GEN2_BIT       (5u)
 #define NVIC_IPR3_R_NVIC_PWM0GEN2_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR3_R_NVIC_PWM0GEN2_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR3_R_NVIC_PWM0GEN2_IP2       ((uint32_t)0x00000040u)
@@ -9588,7 +9588,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR3_R_NVIC_QEI0_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR3_R_NVIC_QEI0_BIT   (13)
+#define NVIC_IPR3_R_NVIC_QEI0_BIT   (13u)
 #define NVIC_IPR3_R_NVIC_QEI0_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR3_R_NVIC_QEI0_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR3_R_NVIC_QEI0_IP2   ((uint32_t)0x00004000u)
@@ -9611,7 +9611,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR3_R_NVIC_ADC0SEQ0_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR3_R_NVIC_ADC0SEQ0_BIT    (21)
+#define NVIC_IPR3_R_NVIC_ADC0SEQ0_BIT    (21u)
 #define NVIC_IPR3_R_NVIC_ADC0SEQ0_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR3_R_NVIC_ADC0SEQ0_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR3_R_NVIC_ADC0SEQ0_IP2    ((uint32_t)0x00400000u)
@@ -9634,7 +9634,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR3_R_NVIC_ADC0SEQ1_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR3_R_NVIC_ADC0SEQ1_BIT    (29)
+#define NVIC_IPR3_R_NVIC_ADC0SEQ1_BIT    (29u)
 #define NVIC_IPR3_R_NVIC_ADC0SEQ1_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR3_R_NVIC_ADC0SEQ1_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR3_R_NVIC_ADC0SEQ1_IP2    ((uint32_t)0x40000000u)
@@ -9666,7 +9666,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR4_R_NVIC_ADC0SEQ2_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR4_R_NVIC_ADC0SEQ2_BIT       (5)
+#define NVIC_IPR4_R_NVIC_ADC0SEQ2_BIT       (5u)
 #define NVIC_IPR4_R_NVIC_ADC0SEQ2_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR4_R_NVIC_ADC0SEQ2_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR4_R_NVIC_ADC0SEQ2_IP2       ((uint32_t)0x00000040u)
@@ -9689,7 +9689,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR4_R_NVIC_ADC0SEQ3_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR4_R_NVIC_ADC0SEQ3_BIT   (13)
+#define NVIC_IPR4_R_NVIC_ADC0SEQ3_BIT   (13u)
 #define NVIC_IPR4_R_NVIC_ADC0SEQ3_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR4_R_NVIC_ADC0SEQ3_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR4_R_NVIC_ADC0SEQ3_IP2   ((uint32_t)0x00004000u)
@@ -9712,7 +9712,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR4_R_NVIC_WDT01_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR4_R_NVIC_WDT01_BIT    (21)
+#define NVIC_IPR4_R_NVIC_WDT01_BIT    (21u)
 #define NVIC_IPR4_R_NVIC_WDT01_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR4_R_NVIC_WDT01_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR4_R_NVIC_WDT01_IP2    ((uint32_t)0x00400000u)
@@ -9735,7 +9735,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR4_R_NVIC_TIMER0A_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR4_R_NVIC_TIMER0A_BIT    (29)
+#define NVIC_IPR4_R_NVIC_TIMER0A_BIT    (29u)
 #define NVIC_IPR4_R_NVIC_TIMER0A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR4_R_NVIC_TIMER0A_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR4_R_NVIC_TIMER0A_IP2    ((uint32_t)0x40000000u)
@@ -9766,7 +9766,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR5_R_NVIC_TIMER0B_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR5_R_NVIC_TIMER0B_BIT       (5)
+#define NVIC_IPR5_R_NVIC_TIMER0B_BIT       (5u)
 #define NVIC_IPR5_R_NVIC_TIMER0B_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR5_R_NVIC_TIMER0B_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR5_R_NVIC_TIMER0B_IP2       ((uint32_t)0x00000040u)
@@ -9789,7 +9789,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR5_R_NVIC_TIMER1A_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR5_R_NVIC_TIMER1A_BIT   (13)
+#define NVIC_IPR5_R_NVIC_TIMER1A_BIT   (13u)
 #define NVIC_IPR5_R_NVIC_TIMER1A_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR5_R_NVIC_TIMER1A_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR5_R_NVIC_TIMER1A_IP2   ((uint32_t)0x00004000u)
@@ -9812,7 +9812,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR5_R_NVIC_TIMER1B_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR5_R_NVIC_TIMER1B_BIT    (21)
+#define NVIC_IPR5_R_NVIC_TIMER1B_BIT    (21u)
 #define NVIC_IPR5_R_NVIC_TIMER1B_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR5_R_NVIC_TIMER1B_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR5_R_NVIC_TIMER1B_IP2    ((uint32_t)0x00400000u)
@@ -9835,7 +9835,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR5_R_NVIC_TIMER2A_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR5_R_NVIC_TIMER2A_BIT    (29)
+#define NVIC_IPR5_R_NVIC_TIMER2A_BIT    (29u)
 #define NVIC_IPR5_R_NVIC_TIMER2A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR5_R_NVIC_TIMER2A_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR5_R_NVIC_TIMER2A_IP2    ((uint32_t)0x40000000u)
@@ -9866,7 +9866,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR6_R_NVIC_TIMER2B_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR6_R_NVIC_TIMER2B_BIT       (5)
+#define NVIC_IPR6_R_NVIC_TIMER2B_BIT       (5u)
 #define NVIC_IPR6_R_NVIC_TIMER2B_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR6_R_NVIC_TIMER2B_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR6_R_NVIC_TIMER2B_IP2       ((uint32_t)0x00000040u)
@@ -9889,7 +9889,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR6_R_NVIC_ACOMP0_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR6_R_NVIC_ACOMP0_BIT   (13)
+#define NVIC_IPR6_R_NVIC_ACOMP0_BIT   (13u)
 #define NVIC_IPR6_R_NVIC_ACOMP0_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR6_R_NVIC_ACOMP0_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR6_R_NVIC_ACOMP0_IP2   ((uint32_t)0x00004000u)
@@ -9912,7 +9912,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR6_R_NVIC_ACOMP1_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR6_R_NVIC_ACOMP1_BIT    (21)
+#define NVIC_IPR6_R_NVIC_ACOMP1_BIT    (21u)
 #define NVIC_IPR6_R_NVIC_ACOMP1_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR6_R_NVIC_ACOMP1_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR6_R_NVIC_ACOMP1_IP2    ((uint32_t)0x00400000u)
@@ -9935,7 +9935,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR6_R_NVIC_RES43_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR6_R_NVIC_RES43_BIT    (29)
+#define NVIC_IPR6_R_NVIC_RES43_BIT    (29u)
 #define NVIC_IPR6_R_NVIC_RES43_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR6_R_NVIC_RES43_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR6_R_NVIC_RES43_IP2    ((uint32_t)0x40000000u)
@@ -9965,7 +9965,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR7_R_NVIC_SYSCTL_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR7_R_NVIC_SYSCTL_BIT       (5)
+#define NVIC_IPR7_R_NVIC_SYSCTL_BIT       (5u)
 #define NVIC_IPR7_R_NVIC_SYSCTL_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR7_R_NVIC_SYSCTL_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR7_R_NVIC_SYSCTL_IP2       ((uint32_t)0x00000040u)
@@ -9988,7 +9988,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR7_R_NVIC_FLASH_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR7_R_NVIC_FLASH_BIT   (13)
+#define NVIC_IPR7_R_NVIC_FLASH_BIT   (13u)
 #define NVIC_IPR7_R_NVIC_FLASH_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR7_R_NVIC_FLASH_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR7_R_NVIC_FLASH_IP2   ((uint32_t)0x00004000u)
@@ -10011,7 +10011,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR7_R_NVIC_GPIOF_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR7_R_NVIC_GPIOF_BIT    (21)
+#define NVIC_IPR7_R_NVIC_GPIOF_BIT    (21u)
 #define NVIC_IPR7_R_NVIC_GPIOF_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR7_R_NVIC_GPIOF_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR7_R_NVIC_GPIOF_IP2    ((uint32_t)0x00400000u)
@@ -10034,7 +10034,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR7_R_NVIC_RES47_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR7_R_NVIC_RES47_BIT    (29)
+#define NVIC_IPR7_R_NVIC_RES47_BIT    (29u)
 #define NVIC_IPR7_R_NVIC_RES47_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR7_R_NVIC_RES47_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR7_R_NVIC_RES47_IP2    ((uint32_t)0x40000000u)
@@ -10064,7 +10064,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR8_R_NVIC_RES48_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR8_R_NVIC_RES48_BIT       (5)
+#define NVIC_IPR8_R_NVIC_RES48_BIT       (5u)
 #define NVIC_IPR8_R_NVIC_RES48_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR8_R_NVIC_RES48_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR8_R_NVIC_RES48_IP2       ((uint32_t)0x00000040u)
@@ -10087,7 +10087,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR8_R_NVIC_UART2_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR8_R_NVIC_UART2_BIT   (13)
+#define NVIC_IPR8_R_NVIC_UART2_BIT   (13u)
 #define NVIC_IPR8_R_NVIC_UART2_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR8_R_NVIC_UART2_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR8_R_NVIC_UART2_IP2   ((uint32_t)0x00004000u)
@@ -10110,7 +10110,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR8_R_NVIC_SSI1_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR8_R_NVIC_SSI1_BIT    (21)
+#define NVIC_IPR8_R_NVIC_SSI1_BIT    (21u)
 #define NVIC_IPR8_R_NVIC_SSI1_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR8_R_NVIC_SSI1_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR8_R_NVIC_SSI1_IP2    ((uint32_t)0x00400000u)
@@ -10133,7 +10133,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR8_R_NVIC_TIMER3A_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR8_R_NVIC_TIMER3A_BIT    (29)
+#define NVIC_IPR8_R_NVIC_TIMER3A_BIT    (29u)
 #define NVIC_IPR8_R_NVIC_TIMER3A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR8_R_NVIC_TIMER3A_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR8_R_NVIC_TIMER3A_IP2    ((uint32_t)0x40000000u)
@@ -10164,7 +10164,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR9_R_NVIC_TIMER3B_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR9_R_NVIC_TIMER3B_BIT       (5)
+#define NVIC_IPR9_R_NVIC_TIMER3B_BIT       (5u)
 #define NVIC_IPR9_R_NVIC_TIMER3B_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR9_R_NVIC_TIMER3B_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR9_R_NVIC_TIMER3B_IP2       ((uint32_t)0x00000040u)
@@ -10187,7 +10187,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR9_R_NVIC_I2C1_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR9_R_NVIC_I2C1_BIT   (13)
+#define NVIC_IPR9_R_NVIC_I2C1_BIT   (13u)
 #define NVIC_IPR9_R_NVIC_I2C1_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR9_R_NVIC_I2C1_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR9_R_NVIC_I2C1_IP2   ((uint32_t)0x00004000u)
@@ -10210,7 +10210,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR9_R_NVIC_QEI1_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR9_R_NVIC_QEI1_BIT    (21)
+#define NVIC_IPR9_R_NVIC_QEI1_BIT    (21u)
 #define NVIC_IPR9_R_NVIC_QEI1_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR9_R_NVIC_QEI1_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR9_R_NVIC_QEI1_IP2    ((uint32_t)0x00400000u)
@@ -10233,7 +10233,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR9_R_NVIC_CAN0_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR9_R_NVIC_CAN0_BIT    (29)
+#define NVIC_IPR9_R_NVIC_CAN0_BIT    (29u)
 #define NVIC_IPR9_R_NVIC_CAN0_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR9_R_NVIC_CAN0_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR9_R_NVIC_CAN0_IP2    ((uint32_t)0x40000000u)
@@ -10264,7 +10264,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR10_R_NVIC_CAN1_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR10_R_NVIC_CAN1_BIT       (5)
+#define NVIC_IPR10_R_NVIC_CAN1_BIT       (5u)
 #define NVIC_IPR10_R_NVIC_CAN1_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR10_R_NVIC_CAN1_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR10_R_NVIC_CAN1_IP2       ((uint32_t)0x00000040u)
@@ -10287,7 +10287,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR10_R_NVIC_RES57_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR10_R_NVIC_RES57_BIT   (13)
+#define NVIC_IPR10_R_NVIC_RES57_BIT   (13u)
 #define NVIC_IPR10_R_NVIC_RES57_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR10_R_NVIC_RES57_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR10_R_NVIC_RES57_IP2   ((uint32_t)0x00004000u)
@@ -10310,7 +10310,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR10_R_NVIC_RES58_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR10_R_NVIC_RES58_BIT    (21)
+#define NVIC_IPR10_R_NVIC_RES58_BIT    (21u)
 #define NVIC_IPR10_R_NVIC_RES58_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR10_R_NVIC_RES58_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR10_R_NVIC_RES58_IP2    ((uint32_t)0x00400000u)
@@ -10333,7 +10333,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR10_R_NVIC_HIB_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR10_R_NVIC_HIB_BIT    (29)
+#define NVIC_IPR10_R_NVIC_HIB_BIT    (29u)
 #define NVIC_IPR10_R_NVIC_HIB_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR10_R_NVIC_HIB_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR10_R_NVIC_HIB_IP2    ((uint32_t)0x40000000u)
@@ -10363,7 +10363,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR11_R_NVIC_USB_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR11_R_NVIC_USB_BIT       (5)
+#define NVIC_IPR11_R_NVIC_USB_BIT       (5u)
 #define NVIC_IPR11_R_NVIC_USB_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR11_R_NVIC_USB_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR11_R_NVIC_USB_IP2       ((uint32_t)0x00000040u)
@@ -10386,7 +10386,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR11_R_NVIC_PWM0GEN3_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR11_R_NVIC_PWM0GEN3_BIT   (13)
+#define NVIC_IPR11_R_NVIC_PWM0GEN3_BIT   (13u)
 #define NVIC_IPR11_R_NVIC_PWM0GEN3_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR11_R_NVIC_PWM0GEN3_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR11_R_NVIC_PWM0GEN3_IP2   ((uint32_t)0x00004000u)
@@ -10409,7 +10409,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR11_R_NVIC_UDMASOFT_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR11_R_NVIC_UDMASOFT_BIT    (21)
+#define NVIC_IPR11_R_NVIC_UDMASOFT_BIT    (21u)
 #define NVIC_IPR11_R_NVIC_UDMASOFT_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR11_R_NVIC_UDMASOFT_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR11_R_NVIC_UDMASOFT_IP2    ((uint32_t)0x00400000u)
@@ -10432,7 +10432,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR11_R_NVIC_UDMAERROR_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR11_R_NVIC_UDMAERROR_BIT    (29)
+#define NVIC_IPR11_R_NVIC_UDMAERROR_BIT    (29u)
 #define NVIC_IPR11_R_NVIC_UDMAERROR_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR11_R_NVIC_UDMAERROR_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR11_R_NVIC_UDMAERROR_IP2    ((uint32_t)0x40000000u)
@@ -10463,7 +10463,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR12_R_NVIC_ADC1SEQ0_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR12_R_NVIC_ADC1SEQ0_BIT       (5)
+#define NVIC_IPR12_R_NVIC_ADC1SEQ0_BIT       (5u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ0_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ0_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ0_IP2       ((uint32_t)0x00000040u)
@@ -10486,7 +10486,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR12_R_NVIC_ADC1SEQ1_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR12_R_NVIC_ADC1SEQ1_BIT   (13)
+#define NVIC_IPR12_R_NVIC_ADC1SEQ1_BIT   (13u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ1_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ1_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ1_IP2   ((uint32_t)0x00004000u)
@@ -10509,7 +10509,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR12_R_NVIC_ADC1SEQ2_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR12_R_NVIC_ADC1SEQ2_BIT    (21)
+#define NVIC_IPR12_R_NVIC_ADC1SEQ2_BIT    (21u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ2_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ2_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ2_IP2    ((uint32_t)0x00400000u)
@@ -10532,7 +10532,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR12_R_NVIC_ADC1SEQ3_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR12_R_NVIC_ADC1SEQ3_BIT    (29)
+#define NVIC_IPR12_R_NVIC_ADC1SEQ3_BIT    (29u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ3_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ3_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR12_R_NVIC_ADC1SEQ3_IP2    ((uint32_t)0x40000000u)
@@ -10563,7 +10563,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR13_R_NVIC_RES68_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR13_R_NVIC_RES68_BIT       (5)
+#define NVIC_IPR13_R_NVIC_RES68_BIT       (5u)
 #define NVIC_IPR13_R_NVIC_RES68_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR13_R_NVIC_RES68_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR13_R_NVIC_RES68_IP2       ((uint32_t)0x00000040u)
@@ -10586,7 +10586,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR13_R_NVIC_RES69_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR13_R_NVIC_RES69_BIT   (13)
+#define NVIC_IPR13_R_NVIC_RES69_BIT   (13u)
 #define NVIC_IPR13_R_NVIC_RES69_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR13_R_NVIC_RES69_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR13_R_NVIC_RES69_IP2   ((uint32_t)0x00004000u)
@@ -10609,7 +10609,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR13_R_NVIC_RES70_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR13_R_NVIC_RES70_BIT    (21)
+#define NVIC_IPR13_R_NVIC_RES70_BIT    (21u)
 #define NVIC_IPR13_R_NVIC_RES70_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR13_R_NVIC_RES70_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR13_R_NVIC_RES70_IP2    ((uint32_t)0x00400000u)
@@ -10632,7 +10632,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR13_R_NVIC_RES71_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR13_R_NVIC_RES71_BIT    (29)
+#define NVIC_IPR13_R_NVIC_RES71_BIT    (29u)
 #define NVIC_IPR13_R_NVIC_RES71_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR13_R_NVIC_RES71_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR13_R_NVIC_RES71_IP2    ((uint32_t)0x40000000u)
@@ -10663,7 +10663,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR14_R_NVIC_RES72_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR14_R_NVIC_RES72_BIT       (5)
+#define NVIC_IPR14_R_NVIC_RES72_BIT       (5u)
 #define NVIC_IPR14_R_NVIC_RES72_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR14_R_NVIC_RES72_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR14_R_NVIC_RES72_IP2       ((uint32_t)0x00000040u)
@@ -10686,7 +10686,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR14_R_NVIC_SSI2_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR14_R_NVIC_SSI2_BIT   (13)
+#define NVIC_IPR14_R_NVIC_SSI2_BIT   (13u)
 #define NVIC_IPR14_R_NVIC_SSI2_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR14_R_NVIC_SSI2_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR14_R_NVIC_SSI2_IP2   ((uint32_t)0x00004000u)
@@ -10709,7 +10709,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR14_R_NVIC_SSI3_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR14_R_NVIC_SSI3_BIT    (21)
+#define NVIC_IPR14_R_NVIC_SSI3_BIT    (21u)
 #define NVIC_IPR14_R_NVIC_SSI3_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR14_R_NVIC_SSI3_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR14_R_NVIC_SSI3_IP2    ((uint32_t)0x00400000u)
@@ -10732,7 +10732,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR14_R_NVIC_UART3_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR14_R_NVIC_UART3_BIT    (29)
+#define NVIC_IPR14_R_NVIC_UART3_BIT    (29u)
 #define NVIC_IPR14_R_NVIC_UART3_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR14_R_NVIC_UART3_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR14_R_NVIC_UART3_IP2    ((uint32_t)0x40000000u)
@@ -10763,7 +10763,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR15_R_NVIC_UART4_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR15_R_NVIC_UART4_BIT       (5)
+#define NVIC_IPR15_R_NVIC_UART4_BIT       (5u)
 #define NVIC_IPR15_R_NVIC_UART4_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR15_R_NVIC_UART4_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR15_R_NVIC_UART4_IP2       ((uint32_t)0x00000040u)
@@ -10786,7 +10786,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR15_R_NVIC_UART5_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR15_R_NVIC_UART5_BIT   (13)
+#define NVIC_IPR15_R_NVIC_UART5_BIT   (13u)
 #define NVIC_IPR15_R_NVIC_UART5_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR15_R_NVIC_UART5_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR15_R_NVIC_UART5_IP2   ((uint32_t)0x00004000u)
@@ -10809,7 +10809,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR15_R_NVIC_UART6_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR15_R_NVIC_UART6_BIT    (21)
+#define NVIC_IPR15_R_NVIC_UART6_BIT    (21u)
 #define NVIC_IPR15_R_NVIC_UART6_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR15_R_NVIC_UART6_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR15_R_NVIC_UART6_IP2    ((uint32_t)0x00400000u)
@@ -10832,7 +10832,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR15_R_NVIC_UART7_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR15_R_NVIC_UART7_BIT    (29)
+#define NVIC_IPR15_R_NVIC_UART7_BIT    (29u)
 #define NVIC_IPR15_R_NVIC_UART7_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR15_R_NVIC_UART7_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR15_R_NVIC_UART7_IP2    ((uint32_t)0x40000000u)
@@ -10863,7 +10863,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR16_R_NVIC_RES80_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR16_R_NVIC_RES80_BIT       (5)
+#define NVIC_IPR16_R_NVIC_RES80_BIT       (5u)
 #define NVIC_IPR16_R_NVIC_RES80_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR16_R_NVIC_RES80_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR16_R_NVIC_RES80_IP2       ((uint32_t)0x00000040u)
@@ -10886,7 +10886,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR16_R_NVIC_RES81_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR16_R_NVIC_RES81_BIT   (13)
+#define NVIC_IPR16_R_NVIC_RES81_BIT   (13u)
 #define NVIC_IPR16_R_NVIC_RES81_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR16_R_NVIC_RES81_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR16_R_NVIC_RES81_IP2   ((uint32_t)0x00004000u)
@@ -10909,7 +10909,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR16_R_NVIC_RES82_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR16_R_NVIC_RES82_BIT    (21)
+#define NVIC_IPR16_R_NVIC_RES82_BIT    (21u)
 #define NVIC_IPR16_R_NVIC_RES82_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR16_R_NVIC_RES82_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR16_R_NVIC_RES82_IP2    ((uint32_t)0x00400000u)
@@ -10932,7 +10932,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR16_R_NVIC_RES83_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR16_R_NVIC_RES83_BIT    (29)
+#define NVIC_IPR16_R_NVIC_RES83_BIT    (29u)
 #define NVIC_IPR16_R_NVIC_RES83_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR16_R_NVIC_RES83_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR16_R_NVIC_RES83_IP2    ((uint32_t)0x40000000u)
@@ -10963,7 +10963,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR17_R_NVIC_I2C2_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR17_R_NVIC_I2C2_BIT       (5)
+#define NVIC_IPR17_R_NVIC_I2C2_BIT       (5u)
 #define NVIC_IPR17_R_NVIC_I2C2_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR17_R_NVIC_I2C2_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR17_R_NVIC_I2C2_IP2       ((uint32_t)0x00000040u)
@@ -10986,7 +10986,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR17_R_NVIC_I2C3_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR17_R_NVIC_I2C3_BIT   (13)
+#define NVIC_IPR17_R_NVIC_I2C3_BIT   (13u)
 #define NVIC_IPR17_R_NVIC_I2C3_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR17_R_NVIC_I2C3_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR17_R_NVIC_I2C3_IP2   ((uint32_t)0x00004000u)
@@ -11009,7 +11009,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR17_R_NVIC_TIMER4A_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR17_R_NVIC_TIMER4A_BIT    (21)
+#define NVIC_IPR17_R_NVIC_TIMER4A_BIT    (21u)
 #define NVIC_IPR17_R_NVIC_TIMER4A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR17_R_NVIC_TIMER4A_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR17_R_NVIC_TIMER4A_IP2    ((uint32_t)0x00400000u)
@@ -11032,7 +11032,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR17_R_NVIC_TIMER4B_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR17_R_NVIC_TIMER4B_BIT    (29)
+#define NVIC_IPR17_R_NVIC_TIMER4B_BIT    (29u)
 #define NVIC_IPR17_R_NVIC_TIMER4B_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR17_R_NVIC_TIMER4B_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR17_R_NVIC_TIMER4B_IP2    ((uint32_t)0x40000000u)
@@ -11063,7 +11063,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR18_R_NVIC_RES88_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR18_R_NVIC_RES88_BIT       (5)
+#define NVIC_IPR18_R_NVIC_RES88_BIT       (5u)
 #define NVIC_IPR18_R_NVIC_RES88_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR18_R_NVIC_RES88_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR18_R_NVIC_RES88_IP2       ((uint32_t)0x00000040u)
@@ -11086,7 +11086,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR18_R_NVIC_RES89_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR18_R_NVIC_RES89_BIT   (13)
+#define NVIC_IPR18_R_NVIC_RES89_BIT   (13u)
 #define NVIC_IPR18_R_NVIC_RES89_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR18_R_NVIC_RES89_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR18_R_NVIC_RES89_IP2   ((uint32_t)0x00004000u)
@@ -11109,7 +11109,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR18_R_NVIC_RES90_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR18_R_NVIC_RES90_BIT    (21)
+#define NVIC_IPR18_R_NVIC_RES90_BIT    (21u)
 #define NVIC_IPR18_R_NVIC_RES90_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR18_R_NVIC_RES90_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR18_R_NVIC_RES90_IP2    ((uint32_t)0x00400000u)
@@ -11132,7 +11132,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR18_R_NVIC_RES91_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR18_R_NVIC_RES91_BIT    (29)
+#define NVIC_IPR18_R_NVIC_RES91_BIT    (29u)
 #define NVIC_IPR18_R_NVIC_RES91_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR18_R_NVIC_RES91_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR18_R_NVIC_RES91_IP2    ((uint32_t)0x40000000u)
@@ -11163,7 +11163,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR19_R_NVIC_RES92_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR19_R_NVIC_RES92_BIT       (5)
+#define NVIC_IPR19_R_NVIC_RES92_BIT       (5u)
 #define NVIC_IPR19_R_NVIC_RES92_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR19_R_NVIC_RES92_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR19_R_NVIC_RES92_IP2       ((uint32_t)0x00000040u)
@@ -11186,7 +11186,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR19_R_NVIC_RES93_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR19_R_NVIC_RES93_BIT   (13)
+#define NVIC_IPR19_R_NVIC_RES93_BIT   (13u)
 #define NVIC_IPR19_R_NVIC_RES93_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR19_R_NVIC_RES93_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR19_R_NVIC_RES93_IP2   ((uint32_t)0x00004000u)
@@ -11209,7 +11209,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR19_R_NVIC_RES94_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR19_R_NVIC_RES94_BIT    (21)
+#define NVIC_IPR19_R_NVIC_RES94_BIT    (21u)
 #define NVIC_IPR19_R_NVIC_RES94_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR19_R_NVIC_RES94_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR19_R_NVIC_RES94_IP2    ((uint32_t)0x00400000u)
@@ -11232,7 +11232,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR19_R_NVIC_RES95_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR19_R_NVIC_RES95_BIT    (29)
+#define NVIC_IPR19_R_NVIC_RES95_BIT    (29u)
 #define NVIC_IPR19_R_NVIC_RES95_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR19_R_NVIC_RES95_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR19_R_NVIC_RES95_IP2    ((uint32_t)0x40000000u)
@@ -11263,7 +11263,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR20_R_NVIC_RES96_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR20_R_NVIC_RES96_BIT       (5)
+#define NVIC_IPR20_R_NVIC_RES96_BIT       (5u)
 #define NVIC_IPR20_R_NVIC_RES96_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR20_R_NVIC_RES96_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR20_R_NVIC_RES96_IP2       ((uint32_t)0x00000040u)
@@ -11286,7 +11286,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR20_R_NVIC_RES97_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR20_R_NVIC_RES97_BIT   (13)
+#define NVIC_IPR20_R_NVIC_RES97_BIT   (13u)
 #define NVIC_IPR20_R_NVIC_RES97_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR20_R_NVIC_RES97_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR20_R_NVIC_RES97_IP2   ((uint32_t)0x00004000u)
@@ -11309,7 +11309,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR20_R_NVIC_RES98_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR20_R_NVIC_RES98_BIT    (21)
+#define NVIC_IPR20_R_NVIC_RES98_BIT    (21u)
 #define NVIC_IPR20_R_NVIC_RES98_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR20_R_NVIC_RES98_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR20_R_NVIC_RES98_IP2    ((uint32_t)0x00400000u)
@@ -11332,7 +11332,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR20_R_NVIC_RES99_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR20_R_NVIC_RES99_BIT    (29)
+#define NVIC_IPR20_R_NVIC_RES99_BIT    (29u)
 #define NVIC_IPR20_R_NVIC_RES99_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR20_R_NVIC_RES99_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR20_R_NVIC_RES99_IP2    ((uint32_t)0x40000000u)
@@ -11363,7 +11363,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR21_R_NVIC_RES100_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR21_R_NVIC_RES100_BIT       (5)
+#define NVIC_IPR21_R_NVIC_RES100_BIT       (5u)
 #define NVIC_IPR21_R_NVIC_RES100_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR21_R_NVIC_RES100_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR21_R_NVIC_RES100_IP2       ((uint32_t)0x00000040u)
@@ -11386,7 +11386,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR21_R_NVIC_RES101_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR21_R_NVIC_RES101_BIT   (13)
+#define NVIC_IPR21_R_NVIC_RES101_BIT   (13u)
 #define NVIC_IPR21_R_NVIC_RES101_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR21_R_NVIC_RES101_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR21_R_NVIC_RES101_IP2   ((uint32_t)0x00004000u)
@@ -11409,7 +11409,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR21_R_NVIC_RES102_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR21_R_NVIC_RES102_BIT    (21)
+#define NVIC_IPR21_R_NVIC_RES102_BIT    (21u)
 #define NVIC_IPR21_R_NVIC_RES102_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR21_R_NVIC_RES102_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR21_R_NVIC_RES102_IP2    ((uint32_t)0x00400000u)
@@ -11432,7 +11432,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR21_R_NVIC_RES103_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR21_R_NVIC_RES103_BIT    (29)
+#define NVIC_IPR21_R_NVIC_RES103_BIT    (29u)
 #define NVIC_IPR21_R_NVIC_RES103_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR21_R_NVIC_RES103_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR21_R_NVIC_RES103_IP2    ((uint32_t)0x40000000u)
@@ -11463,7 +11463,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR22_R_NVIC_RES104_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR22_R_NVIC_RES104_BIT       (5)
+#define NVIC_IPR22_R_NVIC_RES104_BIT       (5u)
 #define NVIC_IPR22_R_NVIC_RES104_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR22_R_NVIC_RES104_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR22_R_NVIC_RES104_IP2       ((uint32_t)0x00000040u)
@@ -11486,7 +11486,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR22_R_NVIC_RES105_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR22_R_NVIC_RES105_BIT   (13)
+#define NVIC_IPR22_R_NVIC_RES105_BIT   (13u)
 #define NVIC_IPR22_R_NVIC_RES105_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR22_R_NVIC_RES105_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR22_R_NVIC_RES105_IP2   ((uint32_t)0x00004000u)
@@ -11509,7 +11509,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR22_R_NVIC_RES106_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR22_R_NVIC_RES106_BIT    (21)
+#define NVIC_IPR22_R_NVIC_RES106_BIT    (21u)
 #define NVIC_IPR22_R_NVIC_RES106_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR22_R_NVIC_RES106_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR22_R_NVIC_RES106_IP2    ((uint32_t)0x00400000u)
@@ -11532,7 +11532,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR22_R_NVIC_RES107_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR22_R_NVIC_RES107_BIT    (29)
+#define NVIC_IPR22_R_NVIC_RES107_BIT    (29u)
 #define NVIC_IPR22_R_NVIC_RES107_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR22_R_NVIC_RES107_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR22_R_NVIC_RES107_IP2    ((uint32_t)0x40000000u)
@@ -11563,7 +11563,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR23_R_NVIC_TIMER5A_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR23_R_NVIC_TIMER5A_BIT       (5)
+#define NVIC_IPR23_R_NVIC_TIMER5A_BIT       (5u)
 #define NVIC_IPR23_R_NVIC_TIMER5A_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR23_R_NVIC_TIMER5A_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR23_R_NVIC_TIMER5A_IP2       ((uint32_t)0x00000040u)
@@ -11586,7 +11586,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR23_R_NVIC_TIMER5B_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR23_R_NVIC_TIMER5B_BIT   (13)
+#define NVIC_IPR23_R_NVIC_TIMER5B_BIT   (13u)
 #define NVIC_IPR23_R_NVIC_TIMER5B_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR23_R_NVIC_TIMER5B_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR23_R_NVIC_TIMER5B_IP2   ((uint32_t)0x00004000u)
@@ -11609,7 +11609,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR23_R_NVIC_WTIMER0A_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR23_R_NVIC_WTIMER0A_BIT    (21)
+#define NVIC_IPR23_R_NVIC_WTIMER0A_BIT    (21u)
 #define NVIC_IPR23_R_NVIC_WTIMER0A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR23_R_NVIC_WTIMER0A_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR23_R_NVIC_WTIMER0A_IP2    ((uint32_t)0x00400000u)
@@ -11632,7 +11632,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR23_R_NVIC_WTIMER0B_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR23_R_NVIC_WTIMER0B_BIT    (29)
+#define NVIC_IPR23_R_NVIC_WTIMER0B_BIT    (29u)
 #define NVIC_IPR23_R_NVIC_WTIMER0B_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR23_R_NVIC_WTIMER0B_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR23_R_NVIC_WTIMER0B_IP2    ((uint32_t)0x40000000u)
@@ -11663,7 +11663,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR24_R_NVIC_WTIMER1A_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR24_R_NVIC_WTIMER1A_BIT       (5)
+#define NVIC_IPR24_R_NVIC_WTIMER1A_BIT       (5u)
 #define NVIC_IPR24_R_NVIC_WTIMER1A_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR24_R_NVIC_WTIMER1A_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR24_R_NVIC_WTIMER1A_IP2       ((uint32_t)0x00000040u)
@@ -11686,7 +11686,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR24_R_NVIC_WTIMER1B_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR24_R_NVIC_WTIMER1B_BIT   (13)
+#define NVIC_IPR24_R_NVIC_WTIMER1B_BIT   (13u)
 #define NVIC_IPR24_R_NVIC_WTIMER1B_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR24_R_NVIC_WTIMER1B_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR24_R_NVIC_WTIMER1B_IP2   ((uint32_t)0x00004000u)
@@ -11709,7 +11709,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR24_R_NVIC_WTIMER2A_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR24_R_NVIC_WTIMER2A_BIT    (21)
+#define NVIC_IPR24_R_NVIC_WTIMER2A_BIT    (21u)
 #define NVIC_IPR24_R_NVIC_WTIMER2A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR24_R_NVIC_WTIMER2A_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR24_R_NVIC_WTIMER2A_IP2    ((uint32_t)0x00400000u)
@@ -11732,7 +11732,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR24_R_NVIC_WTIMER2B_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR24_R_NVIC_WTIMER2B_BIT    (29)
+#define NVIC_IPR24_R_NVIC_WTIMER2B_BIT    (29u)
 #define NVIC_IPR24_R_NVIC_WTIMER2B_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR24_R_NVIC_WTIMER2B_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR24_R_NVIC_WTIMER2B_IP2    ((uint32_t)0x40000000u)
@@ -11763,7 +11763,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR25_R_NVIC_WTIMER3A_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR25_R_NVIC_WTIMER3A_BIT       (5)
+#define NVIC_IPR25_R_NVIC_WTIMER3A_BIT       (5u)
 #define NVIC_IPR25_R_NVIC_WTIMER3A_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR25_R_NVIC_WTIMER3A_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR25_R_NVIC_WTIMER3A_IP2       ((uint32_t)0x00000040u)
@@ -11786,7 +11786,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR25_R_NVIC_WTIMER3B_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR25_R_NVIC_WTIMER3B_BIT   (13)
+#define NVIC_IPR25_R_NVIC_WTIMER3B_BIT   (13u)
 #define NVIC_IPR25_R_NVIC_WTIMER3B_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR25_R_NVIC_WTIMER3B_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR25_R_NVIC_WTIMER3B_IP2   ((uint32_t)0x00004000u)
@@ -11808,7 +11808,7 @@ typedef volatile struct
 
 
 #define NVIC_IPR25_R_NVIC_WTIMER4A_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR25_R_NVIC_WTIMER4A_BIT    (21)
+#define NVIC_IPR25_R_NVIC_WTIMER4A_BIT    (21u)
 #define NVIC_IPR25_R_NVIC_WTIMER4A_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR25_R_NVIC_WTIMER4A_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR25_R_NVIC_WTIMER4A_IP2    ((uint32_t)0x00400000u)
@@ -11831,7 +11831,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR25_R_NVIC_WTIMER4B_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR25_R_NVIC_WTIMER4B_BIT    (29)
+#define NVIC_IPR25_R_NVIC_WTIMER4B_BIT    (29u)
 #define NVIC_IPR25_R_NVIC_WTIMER4B_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR25_R_NVIC_WTIMER4B_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR25_R_NVIC_WTIMER4B_IP2    ((uint32_t)0x40000000u)
@@ -11861,7 +11861,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR26_R_NVIC_WTIMER5A_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR26_R_NVIC_WTIMER5A_BIT       (5)
+#define NVIC_IPR26_R_NVIC_WTIMER5A_BIT       (5u)
 #define NVIC_IPR26_R_NVIC_WTIMER5A_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR26_R_NVIC_WTIMER5A_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR26_R_NVIC_WTIMER5A_IP2       ((uint32_t)0x00000040u)
@@ -11884,7 +11884,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR26_R_NVIC_WTIMER5B_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR26_R_NVIC_WTIMER5B_BIT   (13)
+#define NVIC_IPR26_R_NVIC_WTIMER5B_BIT   (13u)
 #define NVIC_IPR26_R_NVIC_WTIMER5B_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR26_R_NVIC_WTIMER5B_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR26_R_NVIC_WTIMER5B_IP2   ((uint32_t)0x00004000u)
@@ -11907,7 +11907,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR26_R_NVIC_SYSEXC_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR26_R_NVIC_SYSEXC_BIT    (21)
+#define NVIC_IPR26_R_NVIC_SYSEXC_BIT    (21u)
 #define NVIC_IPR26_R_NVIC_SYSEXC_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR26_R_NVIC_SYSEXC_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR26_R_NVIC_SYSEXC_IP2    ((uint32_t)0x00400000u)
@@ -11930,7 +11930,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR26_R_NVIC_RES123_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR26_R_NVIC_RES123_BIT    (29)
+#define NVIC_IPR26_R_NVIC_RES123_BIT    (29u)
 #define NVIC_IPR26_R_NVIC_RES123_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR26_R_NVIC_RES123_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR26_R_NVIC_RES123_IP2    ((uint32_t)0x40000000u)
@@ -11960,7 +11960,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR27_R_NVIC_RES124_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR27_R_NVIC_RES124_BIT       (5)
+#define NVIC_IPR27_R_NVIC_RES124_BIT       (5u)
 #define NVIC_IPR27_R_NVIC_RES124_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR27_R_NVIC_RES124_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR27_R_NVIC_RES124_IP2       ((uint32_t)0x00000040u)
@@ -11983,7 +11983,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR27_R_NVIC_RES125_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR27_R_NVIC_RES125_BIT   (13)
+#define NVIC_IPR27_R_NVIC_RES125_BIT   (13u)
 #define NVIC_IPR27_R_NVIC_RES125_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR27_R_NVIC_RES125_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR27_R_NVIC_RES125_IP2   ((uint32_t)0x00004000u)
@@ -12006,7 +12006,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR27_R_NVIC_RES126_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR27_R_NVIC_RES126_BIT    (21)
+#define NVIC_IPR27_R_NVIC_RES126_BIT    (21u)
 #define NVIC_IPR27_R_NVIC_RES126_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR27_R_NVIC_RES126_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR27_R_NVIC_RES126_IP2    ((uint32_t)0x00400000u)
@@ -12029,7 +12029,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR27_R_NVIC_RES127_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR27_R_NVIC_RES127_BIT    (29)
+#define NVIC_IPR27_R_NVIC_RES127_BIT    (29u)
 #define NVIC_IPR27_R_NVIC_RES127_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR27_R_NVIC_RES127_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR27_R_NVIC_RES127_IP2    ((uint32_t)0x40000000u)
@@ -12060,7 +12060,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR28_R_NVIC_RES128_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR28_R_NVIC_RES128_BIT       (5)
+#define NVIC_IPR28_R_NVIC_RES128_BIT       (5u)
 #define NVIC_IPR28_R_NVIC_RES128_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR28_R_NVIC_RES128_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR28_R_NVIC_RES128_IP2       ((uint32_t)0x00000040u)
@@ -12083,7 +12083,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR28_R_NVIC_RES129_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR28_R_NVIC_RES129_BIT   (13)
+#define NVIC_IPR28_R_NVIC_RES129_BIT   (13u)
 #define NVIC_IPR28_R_NVIC_RES129_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR28_R_NVIC_RES129_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR28_R_NVIC_RES129_IP2   ((uint32_t)0x00004000u)
@@ -12106,7 +12106,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR28_R_NVIC_RES130_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR28_R_NVIC_RES130_BIT    (21)
+#define NVIC_IPR28_R_NVIC_RES130_BIT    (21u)
 #define NVIC_IPR28_R_NVIC_RES130_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR28_R_NVIC_RES130_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR28_R_NVIC_RES130_IP2    ((uint32_t)0x00400000u)
@@ -12129,7 +12129,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR28_R_NVIC_RES131_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR28_R_NVIC_RES131_BIT    (29)
+#define NVIC_IPR28_R_NVIC_RES131_BIT    (29u)
 #define NVIC_IPR28_R_NVIC_RES131_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR28_R_NVIC_RES131_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR28_R_NVIC_RES131_IP2    ((uint32_t)0x40000000u)
@@ -12159,7 +12159,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR29_R_NVIC_RES132_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR29_R_NVIC_RES132_BIT       (5)
+#define NVIC_IPR29_R_NVIC_RES132_BIT       (5u)
 #define NVIC_IPR29_R_NVIC_RES132_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR29_R_NVIC_RES132_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR29_R_NVIC_RES132_IP2       ((uint32_t)0x00000040u)
@@ -12182,7 +12182,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR29_R_NVIC_RES133_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR29_R_NVIC_RES133_BIT   (13)
+#define NVIC_IPR29_R_NVIC_RES133_BIT   (13u)
 #define NVIC_IPR29_R_NVIC_RES133_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR29_R_NVIC_RES133_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR29_R_NVIC_RES133_IP2   ((uint32_t)0x00004000u)
@@ -12205,7 +12205,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR29_R_NVIC_RES134_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR29_R_NVIC_RES134_BIT    (21)
+#define NVIC_IPR29_R_NVIC_RES134_BIT    (21u)
 #define NVIC_IPR29_R_NVIC_RES134_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR29_R_NVIC_RES134_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR29_R_NVIC_RES134_IP2    ((uint32_t)0x00400000u)
@@ -12228,7 +12228,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR29_R_NVIC_RES135_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR29_R_NVIC_RES135_BIT    (29)
+#define NVIC_IPR29_R_NVIC_RES135_BIT    (29u)
 #define NVIC_IPR29_R_NVIC_RES135_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR29_R_NVIC_RES135_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR29_R_NVIC_RES135_IP2    ((uint32_t)0x40000000u)
@@ -12258,7 +12258,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR30_R_NVIC_RES136_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR30_R_NVIC_RES136_BIT       (5)
+#define NVIC_IPR30_R_NVIC_RES136_BIT       (5u)
 #define NVIC_IPR30_R_NVIC_RES136_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR30_R_NVIC_RES136_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR30_R_NVIC_RES136_IP2       ((uint32_t)0x00000040u)
@@ -12281,7 +12281,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR30_R_NVIC_RES137_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR30_R_NVIC_RES137_BIT   (13)
+#define NVIC_IPR30_R_NVIC_RES137_BIT   (13u)
 #define NVIC_IPR30_R_NVIC_RES137_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR30_R_NVIC_RES137_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR30_R_NVIC_RES137_IP2   ((uint32_t)0x00004000u)
@@ -12304,7 +12304,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR30_R_NVIC_RES138_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR30_R_NVIC_RES138_BIT    (21)
+#define NVIC_IPR30_R_NVIC_RES138_BIT    (21u)
 #define NVIC_IPR30_R_NVIC_RES138_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR30_R_NVIC_RES138_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR30_R_NVIC_RES138_IP2    ((uint32_t)0x00400000u)
@@ -12327,7 +12327,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR30_R_NVIC_RES139_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR30_R_NVIC_RES139_BIT    (29)
+#define NVIC_IPR30_R_NVIC_RES139_BIT    (29u)
 #define NVIC_IPR30_R_NVIC_RES139_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR30_R_NVIC_RES139_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR30_R_NVIC_RES139_IP2    ((uint32_t)0x40000000u)
@@ -12358,7 +12358,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR31_R_NVIC_RES140_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR31_R_NVIC_RES140_BIT       (5)
+#define NVIC_IPR31_R_NVIC_RES140_BIT       (5u)
 #define NVIC_IPR31_R_NVIC_RES140_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR31_R_NVIC_RES140_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR31_R_NVIC_RES140_IP2       ((uint32_t)0x00000040u)
@@ -12381,7 +12381,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR31_R_NVIC_RES141_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR31_R_NVIC_RES141_BIT   (13)
+#define NVIC_IPR31_R_NVIC_RES141_BIT   (13u)
 #define NVIC_IPR31_R_NVIC_RES141_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR31_R_NVIC_RES141_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR31_R_NVIC_RES141_IP2   ((uint32_t)0x00004000u)
@@ -12404,7 +12404,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR31_R_NVIC_RES142_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR31_R_NVIC_RES142_BIT    (21)
+#define NVIC_IPR31_R_NVIC_RES142_BIT    (21u)
 #define NVIC_IPR31_R_NVIC_RES142_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR31_R_NVIC_RES142_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR31_R_NVIC_RES142_IP2    ((uint32_t)0x00400000u)
@@ -12427,7 +12427,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR31_R_NVIC_RES143_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR31_R_NVIC_RES143_BIT    (29)
+#define NVIC_IPR31_R_NVIC_RES143_BIT    (29u)
 #define NVIC_IPR31_R_NVIC_RES143_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR31_R_NVIC_RES143_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR31_R_NVIC_RES143_IP2    ((uint32_t)0x40000000u)
@@ -12457,7 +12457,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR32_R_NVIC_RES144_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR32_R_NVIC_RES144_BIT       (5)
+#define NVIC_IPR32_R_NVIC_RES144_BIT       (5u)
 #define NVIC_IPR32_R_NVIC_RES144_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR32_R_NVIC_RES144_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR32_R_NVIC_RES144_IP2       ((uint32_t)0x00000040u)
@@ -12480,7 +12480,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR32_R_NVIC_RES145_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR32_R_NVIC_RES145_BIT   (13)
+#define NVIC_IPR32_R_NVIC_RES145_BIT   (13u)
 #define NVIC_IPR32_R_NVIC_RES145_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR32_R_NVIC_RES145_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR32_R_NVIC_RES145_IP2   ((uint32_t)0x00004000u)
@@ -12503,7 +12503,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR32_R_NVIC_RES146_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR32_R_NVIC_RES146_BIT    (21)
+#define NVIC_IPR32_R_NVIC_RES146_BIT    (21u)
 #define NVIC_IPR32_R_NVIC_RES146_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR32_R_NVIC_RES146_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR32_R_NVIC_RES146_IP2    ((uint32_t)0x00400000u)
@@ -12526,7 +12526,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR32_R_NVIC_RES147_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR32_R_NVIC_RES147_BIT    (29)
+#define NVIC_IPR32_R_NVIC_RES147_BIT    (29u)
 #define NVIC_IPR32_R_NVIC_RES147_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR32_R_NVIC_RES147_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR32_R_NVIC_RES147_IP2    ((uint32_t)0x40000000u)
@@ -12556,7 +12556,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR33_R_NVIC_RES148_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR33_R_NVIC_RES148_BIT       (5)
+#define NVIC_IPR33_R_NVIC_RES148_BIT       (5u)
 #define NVIC_IPR33_R_NVIC_RES148_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR33_R_NVIC_RES148_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR33_R_NVIC_RES148_IP2       ((uint32_t)0x00000040u)
@@ -12579,7 +12579,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR33_R_NVIC_RES149_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR33_R_NVIC_RES149_BIT   (13)
+#define NVIC_IPR33_R_NVIC_RES149_BIT   (13u)
 #define NVIC_IPR33_R_NVIC_RES149_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR33_R_NVIC_RES149_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR33_R_NVIC_RES149_IP2   ((uint32_t)0x00004000u)
@@ -12602,7 +12602,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR33_R_NVIC_PWM1GEN0_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR33_R_NVIC_PWM1GEN0_BIT    (21)
+#define NVIC_IPR33_R_NVIC_PWM1GEN0_BIT    (21u)
 #define NVIC_IPR33_R_NVIC_PWM1GEN0_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR33_R_NVIC_PWM1GEN0_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR33_R_NVIC_PWM1GEN0_IP2    ((uint32_t)0x00400000u)
@@ -12625,7 +12625,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR33_R_NVIC_PWM1GEN1_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR33_R_NVIC_PWM1GEN1_BIT    (29)
+#define NVIC_IPR33_R_NVIC_PWM1GEN1_BIT    (29u)
 #define NVIC_IPR33_R_NVIC_PWM1GEN1_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR33_R_NVIC_PWM1GEN1_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR33_R_NVIC_PWM1GEN1_IP2    ((uint32_t)0x40000000u)
@@ -12655,7 +12655,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR34_R_NVIC_PWM1GEN2_MASK      ((uint32_t)0x000000E0u)
-#define NVIC_IPR34_R_NVIC_PWM1GEN2_BIT       (5)
+#define NVIC_IPR34_R_NVIC_PWM1GEN2_BIT       (5u)
 #define NVIC_IPR34_R_NVIC_PWM1GEN2_IP0       ((uint32_t)0x00000000u)
 #define NVIC_IPR34_R_NVIC_PWM1GEN2_IP1       ((uint32_t)0x00000020u)
 #define NVIC_IPR34_R_NVIC_PWM1GEN2_IP2       ((uint32_t)0x00000040u)
@@ -12678,7 +12678,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR34_R_NVIC_PWM1GEN3_MASK  ((uint32_t)0x0000E000u)
-#define NVIC_IPR34_R_NVIC_PWM1GEN3_BIT   (13)
+#define NVIC_IPR34_R_NVIC_PWM1GEN3_BIT   (13u)
 #define NVIC_IPR34_R_NVIC_PWM1GEN3_IP0   ((uint32_t)0x00000000u)
 #define NVIC_IPR34_R_NVIC_PWM1GEN3_IP1   ((uint32_t)0x00002000u)
 #define NVIC_IPR34_R_NVIC_PWM1GEN3_IP2   ((uint32_t)0x00004000u)
@@ -12701,7 +12701,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR34_R_NVIC_PWM1FAULT_MASK   ((uint32_t)0x00E00000u)
-#define NVIC_IPR34_R_NVIC_PWM1FAULT_BIT    (21)
+#define NVIC_IPR34_R_NVIC_PWM1FAULT_BIT    (21u)
 #define NVIC_IPR34_R_NVIC_PWM1FAULT_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR34_R_NVIC_PWM1FAULT_IP1    ((uint32_t)0x00200000u)
 #define NVIC_IPR34_R_NVIC_PWM1FAULT_IP2    ((uint32_t)0x00400000u)
@@ -12724,7 +12724,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_IPR34_R_NVIC_RES155_MASK   ((uint32_t)0xE0000000u)
-#define NVIC_IPR34_R_NVIC_RES155_BIT    (29)
+#define NVIC_IPR34_R_NVIC_RES155_BIT    (29u)
 #define NVIC_IPR34_R_NVIC_RES155_IP0    ((uint32_t)0x00000000u)
 #define NVIC_IPR34_R_NVIC_RES155_IP1    ((uint32_t)0x20000000u)
 #define NVIC_IPR34_R_NVIC_RES155_IP2    ((uint32_t)0x40000000u)
@@ -12756,7 +12756,7 @@ typedef volatile struct
 
 /*----------*/
 #define NVIC_STIR_R_INTID_MASK      ((uint32_t)0x000000FFu)
-#define NVIC_STIR_R_INTID_BIT       (0)
+#define NVIC_STIR_R_INTID_BIT       (0u)
 #define NVIC_STIR_R_INTID_GPIOA      ((uint32_t)0x00000000u)
 #define NVIC_STIR_R_INTID_GPIOB      ((uint32_t)0x00000001u)
 #define NVIC_STIR_R_INTID_GPIOC      ((uint32_t)0x00000002u)
