@@ -43,12 +43,12 @@ uint8_t CONV__u8FloatToString(double dNumber,uint8_t u8Positive,uint8_t u8Paddin
 
 
 
-int32_t CONV__s32String2Hex(char* pcString,int64_t* s64NumSigned );
-int32_t CONV__s32String2Oct(char* pcString,int64_t* s64NumSigned );
-int32_t CONV__s32String2Bin(char* pcString,int64_t* s64NumSigned );
-int32_t CONV__s32String2Int(char* pcString,int64_t* s64NumSigned );
-int32_t CONV__s32String2UInt (char* pcString,uint64_t* u64NumUnsigned );
-int32_t CONV__s32String2Float(char* pcString,int8_t s8Decimals, float* pfConversion);
+int32_t CONV__s32String2Hex(const char* pcString,int64_t* s64NumSigned );
+int32_t CONV__s32String2Oct(const char* pcString,int64_t* s64NumSigned );
+int32_t CONV__s32String2Bin(const char* pcString,int64_t* s64NumSigned );
+int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned );
+int32_t CONV__s32String2UInt (const char* pcString,uint64_t* u64NumUnsigned );
+int32_t CONV__s32String2Float(const char* pcString,int8_t s8Decimals, float* pfConversion);
 
 
 

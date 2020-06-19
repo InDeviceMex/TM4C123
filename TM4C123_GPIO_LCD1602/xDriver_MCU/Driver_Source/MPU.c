@@ -8,7 +8,7 @@
 #include <xDriver_MCU/Driver_Header/MPU.h>
 
 #define MPU_FLASH_CODE_ADDR (0x00000000u)
-#define MPU_FLASH_CODE_SIZE (18-1)
+#define MPU_FLASH_CODE_SIZE (18u-1u)
 
 #define MPU_vBlocking() {__asm(" DSB");__asm(" ISB");}
 
@@ -33,7 +33,7 @@ void MPU__vInit(void)
     u32RegRASR =MPU_RASR_R_XN_DIS|
             MPU_RASR_R_AP_RORO|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|MPU_RASR_R_B_DIS|
             MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|
-            (MPU_FLASH_CODE_SIZE<<1u);
+            ((uint32_t)MPU_FLASH_CODE_SIZE<<1u);
     MPU_RASR_R = u32RegRASR;
 
 
@@ -48,7 +48,7 @@ void MPU__vInit(void)
 	u32RegRASR =MPU_RASR_R_XN_EN|
 	        MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|MPU_RASR_R_B_DIS|
 	        MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|
-	        (uint32_t)((16-1)<<1u);
+	        ((uint32_t)(16u-1u)<<1u);
 	MPU_RASR_R = u32RegRASR;
     /*all mode read and write*/
     /*could be not executed*/
@@ -59,7 +59,7 @@ void MPU__vInit(void)
     MPU_RNR_R=2u;
     MPU_RBAR_R=0x20000000u|MPU_RBAR_R_VALID_MASK|2u;/*SRAM_VARIABLE (size 0x00007000u)*/
     u32RegRASR =MPU_RASR_R_XN_EN|MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
-            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|(uint32_t)((15-1)<<1u);
+            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((uint32_t)(15u-1u)<<1u);
     MPU_RASR_R = u32RegRASR;
 
 
@@ -74,7 +74,7 @@ void MPU__vInit(void)
     MPU_RBAR_R=0x20000000u|MPU_RBAR_R_VALID_MASK|3u;/*SRAM_CODE (size 0x00001400u)*/
     u32RegRASR =MPU_RASR_R_XN_DIS|MPU_RASR_R_AP_RORO|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
             MPU_RASR_R_SRD0_DIS|MPU_RASR_R_SRD6_DIS|MPU_RASR_R_SRD7_DIS|
-            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|(uint32_t)((13-1)<<1u);
+            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((uint32_t)(13u-1u)<<1u);
     MPU_RASR_R = u32RegRASR;
 
 

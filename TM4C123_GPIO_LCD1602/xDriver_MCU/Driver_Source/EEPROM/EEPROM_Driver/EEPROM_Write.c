@@ -87,7 +87,7 @@ EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address)
 }
 
 
-EEPROM_nSTATUS EEPROM__enWriteWorldBlock(uint32_t* pu32Data,uint32_t u32Address)
+EEPROM_nSTATUS EEPROM__enWriteWorldBlock(const uint32_t* pu32Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);

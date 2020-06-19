@@ -12,7 +12,7 @@
 #include <stdint.h>                             /* standard types definitions                      */
 
 void SysTick__vClearFreqBase(void);
-void SysTick__vSetFreqBase(uint32_t u32Tick);
+void SysTick__vSetFreqBase(uint32_t u32Base);
 uint32_t SysTick__u32GetFreqBase(void);
 
 

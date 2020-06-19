@@ -14941,43 +14941,43 @@ typedef enum
 
 typedef enum
 {
-    TIMER_enSYNC_T0A=1<<0,
-    TIMER_enSYNC_T0W=1<<0,
-    TIMER_enSYNC_T0B=2<<0,
-    TIMER_enSYNC_T1A=1<<2,
-    TIMER_enSYNC_T1W=1<<2,
-    TIMER_enSYNC_T1B=2<<2,
-    TIMER_enSYNC_T2A=1<<4,
-    TIMER_enSYNC_T2W=1<<4,
-    TIMER_enSYNC_T2B=2<<4,
-    TIMER_enSYNC_T3A=1<<6,
-    TIMER_enSYNC_T3W=1<<6,
-    TIMER_enSYNC_T3B=2<<6,
-    TIMER_enSYNC_T4A=1<<8,
-    TIMER_enSYNC_T4W=1<<8,
-    TIMER_enSYNC_T4B=2<<8,
-    TIMER_enSYNC_T5A=1<<10,
-    TIMER_enSYNC_T5W=1<<10,
-    TIMER_enSYNC_T5B=2<<10,
-    TIMER_enSYNC_WT0A=1<<12,
-    TIMER_enSYNC_WT0W=1<<12,
-    TIMER_enSYNC_WT0B=2<<12,
-    TIMER_enSYNC_WT1A=1<<14,
-    TIMER_enSYNC_WT1W=1<<12,
-    TIMER_enSYNC_WT1B=2<<14,
-    TIMER_enSYNC_WT2A=1<<16,
-    TIMER_enSYNC_WT2W=1<<16,
-    TIMER_enSYNC_WT2B=2<<16,
-    TIMER_enSYNC_WT3A=1<<18,
-    TIMER_enSYNC_WT3W=1<<18,
-    TIMER_enSYNC_WT3B=2<<18,
-    TIMER_enSYNC_WT4A=1<<20,
-    TIMER_enSYNC_WT4W=1<<20,
-    TIMER_enSYNC_WT4B=2<<20,
-    TIMER_enSYNC_WT5A=1<<22,
-    TIMER_enSYNC_WT5W=1<<22,
-    TIMER_enSYNC_WT5B=2<<22,
-    TIMER_enSYNC_ALL=0xFFFFFFFFFFFFu,
+    TIMER_enSYNC_T0A=(uint32_t)((uint32_t)1u<<0u),
+    TIMER_enSYNC_T0W=(uint32_t)((uint32_t)1u<<0u),
+    TIMER_enSYNC_T0B=(uint32_t)((uint32_t)2u<<0u),
+    TIMER_enSYNC_T1A=(uint32_t)((uint32_t)1u<<2u),
+    TIMER_enSYNC_T1W=(uint32_t)((uint32_t)1u<<2u),
+    TIMER_enSYNC_T1B=(uint32_t)((uint32_t)2u<<2u),
+    TIMER_enSYNC_T2A=(uint32_t)((uint32_t)1u<<4u),
+    TIMER_enSYNC_T2W=(uint32_t)((uint32_t)1u<<4u),
+    TIMER_enSYNC_T2B=(uint32_t)((uint32_t)2u<<4u),
+    TIMER_enSYNC_T3A=(uint32_t)((uint32_t)1u<<6u),
+    TIMER_enSYNC_T3W=(uint32_t)((uint32_t)1u<<6u),
+    TIMER_enSYNC_T3B=(uint32_t)((uint32_t)2u<<6u),
+    TIMER_enSYNC_T4A=(uint32_t)((uint32_t)1u<<8u),
+    TIMER_enSYNC_T4W=(uint32_t)((uint32_t)1u<<8u),
+    TIMER_enSYNC_T4B=(uint32_t)((uint32_t)2u<<8u),
+    TIMER_enSYNC_T5A=(uint32_t)((uint32_t)1u<<10u),
+    TIMER_enSYNC_T5W=(uint32_t)((uint32_t)1u<<10u),
+    TIMER_enSYNC_T5B=(uint32_t)((uint32_t)2u<<10u),
+    TIMER_enSYNC_WT0A=(uint32_t)((uint32_t)1u<<12u),
+    TIMER_enSYNC_WT0W=(uint32_t)((uint32_t)1u<<12u),
+    TIMER_enSYNC_WT0B=(uint32_t)((uint32_t)2u<<12u),
+    TIMER_enSYNC_WT1A=(uint32_t)((uint32_t)1u<<14u),
+    TIMER_enSYNC_WT1W=(uint32_t)((uint32_t)1u<<12u),
+    TIMER_enSYNC_WT1B=(uint32_t)((uint32_t)2u<<14u),
+    TIMER_enSYNC_WT2A=(uint32_t)((uint32_t)1u<<16u),
+    TIMER_enSYNC_WT2W=(uint32_t)((uint32_t)1u<<16u),
+    TIMER_enSYNC_WT2B=(uint32_t)((uint32_t)2u<<16u),
+    TIMER_enSYNC_WT3A=(uint32_t)((uint32_t)1u<<18u),
+    TIMER_enSYNC_WT3W=(uint32_t)((uint32_t)1u<<18u),
+    TIMER_enSYNC_WT3B=(uint32_t)((uint32_t)2u<<18u),
+    TIMER_enSYNC_WT4A=(uint32_t)((uint32_t)1u<<20u),
+    TIMER_enSYNC_WT4W=(uint32_t)((uint32_t)1u<<20u),
+    TIMER_enSYNC_WT4B=(uint32_t)((uint32_t)2u<<20u),
+    TIMER_enSYNC_WT5A=(uint32_t)((uint32_t)1u<<22u),
+    TIMER_enSYNC_WT5W=(uint32_t)((uint32_t)1u<<22u),
+    TIMER_enSYNC_WT5B=(uint32_t)((uint32_t)2u<<22u),
+    TIMER_enSYNC_ALL=(uint32_t)((uint32_t)0xFFFFFFFFu),
 }TIMER_nSYNC;
 
 typedef enum
@@ -15148,13 +15148,13 @@ TIMER_MODE_Typedef* TIMER__psCreateModeStruct(TIMER_nMODE enMode);
 void TIMER__vDeleteModeStruct(TIMER_MODE_Typedef* psMode);
 
 TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode);
-TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode);
+TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode);
 
 TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule);
 void TIMER__vGetMode(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode);
 TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule);
 
-TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
+TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EXTRAMODE_Typedef* psExtraMode);
 
 TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule);
 void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
@@ -15163,14 +15163,14 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
 void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match);
 
 TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
-TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
+TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload);
 
 
 TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode,uint64_t u64Match);
-TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode,uint64_t u64Match);
+TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode,uint64_t u64Match);
 
 TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
-TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
+TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
 
 /*ToDO Add implementation to read counter of the timer TnR and TnPS (current), TnV and TnPV (free-Running)
  * Create TIMER__vGetReload and TIMER__vGetMatch

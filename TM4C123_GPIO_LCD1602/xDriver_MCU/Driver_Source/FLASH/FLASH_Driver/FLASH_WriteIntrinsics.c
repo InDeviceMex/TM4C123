@@ -37,7 +37,7 @@ FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
     return (FLASH_nSTATUS) enReturn;
 }
 
-FLASH_nSTATUS FLASH__enWriteBuf(uint32_t* pu32Data,uint32_t u32Address, uint32_t u32Count)
+FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, uint32_t u32Count)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;
     uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;

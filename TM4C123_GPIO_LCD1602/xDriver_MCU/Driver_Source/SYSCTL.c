@@ -51,25 +51,39 @@ void SYSCTL__vClearResetCause(SYSCTL_nRESET enReset)
 {
 
     if(SYSCTL_enRESET_EXT == (enReset&SYSCTL_enRESET_EXT))
+    {
         SYSCTL_BITBANDING_RESC_EXT=0u;
+    }
 
     if(SYSCTL_enRESET_POR == (enReset&SYSCTL_enRESET_POR))
+    {
         SYSCTL_BITBANDING_RESC_POR=0u;
+    }
 
     if(SYSCTL_enRESET_BOR == (enReset&SYSCTL_enRESET_BOR))
+    {
         SYSCTL_BITBANDING_RESC_BOR=0u;
+    }
 
     if(SYSCTL_enRESET_WDT0 == (enReset&SYSCTL_enRESET_WDT0))
+    {
         SYSCTL_BITBANDING_RESC_WDT0=0u;
+    }
 
     if(SYSCTL_enRESET_SW == (enReset&SYSCTL_enRESET_SW))
+    {
         SYSCTL_BITBANDING_RESC_SW=0u;
+    }
 
     if(SYSCTL_enRESET_WDT1 == (enReset&SYSCTL_enRESET_WDT1))
+    {
         SYSCTL_BITBANDING_RESC_WDT1=0u;
+    }
 
     if(SYSCTL_enRESET_MOSCFAIL== (enReset&SYSCTL_enRESET_MOSCFAIL))
+    {
         SYSCTL_BITBANDING_RESC_MOSCFAIL=0u;
+    }
 }
 
 
@@ -424,7 +438,7 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
     u32Reg&=~SYSCTL_RCC2_R_USBPWRDN_MASK;/*Enable USBPLL*/
     u32Reg&=~SYSCTL_RCC2_R_SYSDIV2LSB_MASK;/*LSB div 0*/
     u32Reg&=~SYSCTL_RCC2_R_SYSDIV2_MASK;
-    u32Reg|=(2<<SYSCTL_RCC2_R_SYSDIV2_BIT);/*div 5*/
+    u32Reg|=((uint32_t)2u<<SYSCTL_RCC2_R_SYSDIV2_BIT);/*div 5*/
     u32Reg|=SYSCTL_RCC2_R_DIV400_MASK;/*400MHz*/
     u32Reg|=SYSCTL_RCC2_R_USERCC2_MASK;/*enable RCC2*/
     SYSCTL_RCC2_R=u32Reg;
@@ -433,8 +447,11 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
 
     while((SYSCTL_PLLSTAT_R&SYSCTL_PLLSTAT_R_LOCK_MASK)==SYSCTL_PLLSTAT_R_LOCK_NOLOCK)
     {
-        if(!(u16TimeOut--))
+        u16TimeOut--;
+        if(0u == u16TimeOut)
+        {
             enStatus=SYSCTL_enERROR;
+        }
 
     }
     if(SYSCTL_enOK ==enStatus)
@@ -507,7 +524,7 @@ void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0u==(uint32_t)(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)));
+        while(0u==(uint32_t)(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral))){}
     }
 }
 
@@ -540,7 +557,7 @@ void SYSCTL__vEnSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0u==(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)));
+        while(0u==(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral))){}
     }
 }
 
@@ -572,7 +589,7 @@ void SYSCTL__vEnDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0u==(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)));
+        while(0u==(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral))){}
     }
 }
 

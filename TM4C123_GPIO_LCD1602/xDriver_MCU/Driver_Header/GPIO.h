@@ -10370,7 +10370,7 @@ typedef enum
     GPIO_enDRIVE_2mA=0u,
     GPIO_enDRIVE_4mA=1u,
     GPIO_enDRIVE_8mA=2u,
-    GPIO_enDRIVE_8mA_SLR=(1<<8)|2,
+    GPIO_enDRIVE_8mA_SLR=(((uint32_t)1u<<8u)|2u),
     GPIO_enDRIVE_UNDEF=0xFFu,
 }GPIO_nDRIVE;
 
@@ -10829,7 +10829,7 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig);
 void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef* psConfig);
 
 GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig);
-GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_CONFIG_Typedef* psConfig);
+GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,const GPIO_CONFIG_Typedef* psConfig);
 
 GPIO_nCONFIG GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_CONFIG_Typedef* psConfig);
@@ -10837,7 +10837,7 @@ GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig);
-GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_CONFIG_Typedef* psConfig);
+GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,const GPIO_CONFIG_Typedef* psConfig);
 
 GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
 void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Typedef* psConfig);

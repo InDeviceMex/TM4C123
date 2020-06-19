@@ -122,14 +122,18 @@ int main(void)
         }
         u8Column=u8ColumnCurrent;
         u8Row=0u;
-        LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);
+        //LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);
         u8Column=u8ColumnCurrent;
         u8Row=1u;
-        LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);
+        //LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);
         if(u8ColumnCurrent>=15u)
+        {
             u8ColumnCurrent=0u;
+        }
         else
+        {
             u8ColumnCurrent++;
+        }
 
 
         fTimeSystickEnd = SysTick__fGetTimeUs();
@@ -143,8 +147,8 @@ int main(void)
 void MAIN_vInitGPIO(void)
 {
     GPIO__vInit();
-    GPIO__vRegisterISR(MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
-    GPIO__vRegisterISR(MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
+    GPIO__vRegisterISR(&MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
+    GPIO__vRegisterISR(&MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
     GPIO__vEnInterruptMODULE(GPIO_enPORTF,GPIO_enPRI7);
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);

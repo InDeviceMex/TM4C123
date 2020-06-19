@@ -46,7 +46,7 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         SysTick__vSetTickUs(fSysTickUs);
         SysTick__vSetTickCount(u32Tick);
 
-        SCB__vRegisterISR(SysTick__vISR,SCB_enVECISR_SYSTICK);
+        SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
         SCB_SHPR3->SYSTICK=(uint32_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
         SysTick_RVR_R=u32Tick-1u;
         SysTick_CVR_R=0u;
@@ -104,7 +104,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
             SysTick__vSetTickUs(fSysTickUs);
             SysTick__vSetTickCount(u32CountTick);
 
-            SCB__vRegisterISR(SysTick__vISR,SCB_enVECISR_SYSTICK);
+            SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
             SCB_SHPR3->SYSTICK=(uint32_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
             SysTick_RVR_R=u32CountTick-1u;
             SysTick_CVR_R=0u;
@@ -163,14 +163,14 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
             {
                 SysTick__vSetTimeUsBase(1000000.0f/(float)u32SysTickFrequency);
             }
-            if(fTimeUs!=0.0)
+            if(fTimeUs>=0.0)
             {
                 SysTick__vSetTickFreq(1000000.0f/fTimeUs);
             }
             SysTick__vSetTickUs(fTimeUs);
             SysTick__vSetTickCount(u32CountTick);
 
-            SCB__vRegisterISR(SysTick__vISR,SCB_enVECISR_SYSTICK);
+            SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
             SCB_SHPR3->SYSTICK=(uint32_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
             SysTick_RVR_R=u32CountTick-1u;
             SysTick_CVR_R=0u;

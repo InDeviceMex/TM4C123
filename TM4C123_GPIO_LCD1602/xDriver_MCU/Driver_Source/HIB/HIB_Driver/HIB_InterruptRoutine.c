@@ -27,7 +27,7 @@ void HIB__vISR(void)
             u32Reg = HIB_HIBRTCC_R;
         }while (HIB_HIBRTCC_R != u32Reg );
 
-        while(HIB_HIBCTL_R_WRC_BUSY==(HIB_HIBCTL_R&HIB_HIBCTL_R_WRC_MASK));
+        while(HIB_HIBCTL_R_WRC_BUSY==(HIB_HIBCTL_R&HIB_HIBCTL_R_WRC_MASK)){}
         HIB_HIBRTCM0_R=u32Reg+(uint32_t)10u;
         HIB_HIBIC_R=HIB_HIBIC_R_RTCALT0_CLEAR;
         HIB__enSetGlobalCountStatus(HIB_enREADY);

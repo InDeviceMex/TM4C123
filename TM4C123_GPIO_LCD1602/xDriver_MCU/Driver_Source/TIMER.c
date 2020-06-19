@@ -43,50 +43,50 @@ void WTIMER5B_vISR(void);
 
 void (*TIMER_vISR[2][2][6]) (void)={
                                     {
-                                     {TIMER0A_vISR,TIMER1A_vISR,TIMER2A_vISR,TIMER3A_vISR,TIMER4A_vISR,TIMER5A_vISR},
-                                     {TIMER0B_vISR,TIMER1B_vISR,TIMER2B_vISR,TIMER3B_vISR,TIMER4B_vISR,TIMER5B_vISR}
+                                     {&TIMER0A_vISR,&TIMER1A_vISR,&TIMER2A_vISR,&TIMER3A_vISR,&TIMER4A_vISR,&TIMER5A_vISR},
+                                     {&TIMER0B_vISR,&TIMER1B_vISR,&TIMER2B_vISR,&TIMER3B_vISR,&TIMER4B_vISR,&TIMER5B_vISR}
                                     },
                                     {
-                                     {WTIMER0A_vISR,WTIMER1A_vISR,WTIMER2A_vISR,WTIMER3A_vISR,WTIMER4A_vISR,WTIMER5A_vISR},
-                                     {WTIMER0B_vISR,WTIMER1B_vISR,WTIMER2B_vISR,WTIMER3B_vISR,WTIMER4B_vISR,WTIMER5B_vISR}
+                                     {&WTIMER0A_vISR,&WTIMER1A_vISR,&WTIMER2A_vISR,&WTIMER3A_vISR,&WTIMER4A_vISR,&WTIMER5A_vISR},
+                                     {&WTIMER0B_vISR,&WTIMER1B_vISR,&WTIMER2B_vISR,&WTIMER3B_vISR,&WTIMER4B_vISR,&WTIMER5B_vISR}
                                     }
                                   };
 
 void (*TIMER_vSOURCEISR[2][2][6][6]) (void)={
                                     {
                                         {
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY}
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY}
                                         },
                                         {
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY}
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY}
                                         }
                                     },
                                     {
                                         {
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY}
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY}
                                         },
                                         {
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY},
-                                            {TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY,TIMER_vDUMMY}
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY},
+                                            {&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY,&TIMER_vDUMMY}
                                         }
                                     },
                                  };
@@ -212,35 +212,35 @@ uint32_t pu32Interrupt[6]={GPTM_GPTMIMR_R_TATOIM_EN,
                            GPTM_GPTMIMR_R_WUEIM_EN};
 void TIMER_vDUMMY(void)
 {
-    while(1u);
+    while(1u){}
 }
 void TIMER__vInit(void)
 {
-    TIMER__vRegisterMODULEISR(TIMER0A_vISR,TIMER_enT0A);
-    TIMER__vRegisterMODULEISR(TIMER0B_vISR,TIMER_enT0B);
-    TIMER__vRegisterMODULEISR(TIMER1A_vISR,TIMER_enT1A);
-    TIMER__vRegisterMODULEISR(TIMER1B_vISR,TIMER_enT1B);
-    TIMER__vRegisterMODULEISR(TIMER2A_vISR,TIMER_enT2A);
-    TIMER__vRegisterMODULEISR(TIMER2B_vISR,TIMER_enT2B);
-    TIMER__vRegisterMODULEISR(TIMER3A_vISR,TIMER_enT3A);
-    TIMER__vRegisterMODULEISR(TIMER3B_vISR,TIMER_enT3B);
-    TIMER__vRegisterMODULEISR(TIMER4A_vISR,TIMER_enT4A);
-    TIMER__vRegisterMODULEISR(TIMER4B_vISR,TIMER_enT4B);
-    TIMER__vRegisterMODULEISR(TIMER5A_vISR,TIMER_enT5A);
-    TIMER__vRegisterMODULEISR(TIMER5B_vISR,TIMER_enT5B);
+    TIMER__vRegisterMODULEISR(&TIMER0A_vISR,TIMER_enT0A);
+    TIMER__vRegisterMODULEISR(&TIMER0B_vISR,TIMER_enT0B);
+    TIMER__vRegisterMODULEISR(&TIMER1A_vISR,TIMER_enT1A);
+    TIMER__vRegisterMODULEISR(&TIMER1B_vISR,TIMER_enT1B);
+    TIMER__vRegisterMODULEISR(&TIMER2A_vISR,TIMER_enT2A);
+    TIMER__vRegisterMODULEISR(&TIMER2B_vISR,TIMER_enT2B);
+    TIMER__vRegisterMODULEISR(&TIMER3A_vISR,TIMER_enT3A);
+    TIMER__vRegisterMODULEISR(&TIMER3B_vISR,TIMER_enT3B);
+    TIMER__vRegisterMODULEISR(&TIMER4A_vISR,TIMER_enT4A);
+    TIMER__vRegisterMODULEISR(&TIMER4B_vISR,TIMER_enT4B);
+    TIMER__vRegisterMODULEISR(&TIMER5A_vISR,TIMER_enT5A);
+    TIMER__vRegisterMODULEISR(&TIMER5B_vISR,TIMER_enT5B);
 
-    TIMER__vRegisterMODULEISR(WTIMER0A_vISR,TIMER_enWT0A);
-    TIMER__vRegisterMODULEISR(WTIMER0B_vISR,TIMER_enWT0B);
-    TIMER__vRegisterMODULEISR(WTIMER1A_vISR,TIMER_enWT1A);
-    TIMER__vRegisterMODULEISR(WTIMER1B_vISR,TIMER_enWT1B);
-    TIMER__vRegisterMODULEISR(WTIMER2A_vISR,TIMER_enWT2A);
-    TIMER__vRegisterMODULEISR(WTIMER2B_vISR,TIMER_enWT2B);
-    TIMER__vRegisterMODULEISR(WTIMER3A_vISR,TIMER_enWT3A);
-    TIMER__vRegisterMODULEISR(WTIMER3B_vISR,TIMER_enWT3B);
-    TIMER__vRegisterMODULEISR(WTIMER4A_vISR,TIMER_enWT4A);
-    TIMER__vRegisterMODULEISR(WTIMER4B_vISR,TIMER_enWT4B);
-    TIMER__vRegisterMODULEISR(WTIMER5A_vISR,TIMER_enWT5A);
-    TIMER__vRegisterMODULEISR(WTIMER5B_vISR,TIMER_enWT5B);
+    TIMER__vRegisterMODULEISR(&WTIMER0A_vISR,TIMER_enWT0A);
+    TIMER__vRegisterMODULEISR(&WTIMER0B_vISR,TIMER_enWT0B);
+    TIMER__vRegisterMODULEISR(&WTIMER1A_vISR,TIMER_enWT1A);
+    TIMER__vRegisterMODULEISR(&WTIMER1B_vISR,TIMER_enWT1B);
+    TIMER__vRegisterMODULEISR(&WTIMER2A_vISR,TIMER_enWT2A);
+    TIMER__vRegisterMODULEISR(&WTIMER2B_vISR,TIMER_enWT2B);
+    TIMER__vRegisterMODULEISR(&WTIMER3A_vISR,TIMER_enWT3A);
+    TIMER__vRegisterMODULEISR(&WTIMER3B_vISR,TIMER_enWT3B);
+    TIMER__vRegisterMODULEISR(&WTIMER4A_vISR,TIMER_enWT4A);
+    TIMER__vRegisterMODULEISR(&WTIMER4B_vISR,TIMER_enWT4B);
+    TIMER__vRegisterMODULEISR(&WTIMER5A_vISR,TIMER_enWT5A);
+    TIMER__vRegisterMODULEISR(&WTIMER5B_vISR,TIMER_enWT5B);
 }
 
 void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERRUPT enInterrupt)
@@ -994,7 +994,7 @@ TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
 
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode)
+TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode)
 {
     TIMER_nSTATUS enReturn=TIMER_enERROR;
     if(psMode!=0)
@@ -1101,7 +1101,7 @@ TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule)
 }
 
 
-TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode)
+TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EXTRAMODE_Typedef* psExtraMode)
 {
     TIMER_nSTATUS enReturn=TIMER_enERROR;
     if(psExtraMode!=0)
@@ -1337,7 +1337,7 @@ TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode
     return enReturn;
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload)
+TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload)
 {
     TIMER_nSTATUS enReturn= TIMER_enERROR;
     enReturn =TIMER__enSetModeStruct(enModule,psMode);
@@ -1359,7 +1359,7 @@ TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode,
     return enReturn;
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode,uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode,uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enERROR;
     enReturn =TIMER__enSetModeStruct(enModule,psMode);
@@ -1382,7 +1382,7 @@ TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE e
     return enReturn;
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enERROR;
     enReturn =TIMER__enSetModeStruct(enModule,psMode);

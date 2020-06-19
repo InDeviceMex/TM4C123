@@ -13,10 +13,10 @@
 HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
 {
     volatile HIB_nSTATUS enReturn = HIB_enERROR;
-    volatile uint32_t u32TimeOut= HIB_TIMEOUT_MAX;
-    volatile HIB_nREADY enReady= HIB_enBUSY;
+    uint32_t u32TimeOut= HIB_TIMEOUT_MAX;
+    HIB_nREADY enReady= HIB_enBUSY;
 
-    SCB__vRegisterISR(HIB__vISR,SCB_enVECISR_HIB);
+    SCB__vRegisterISR(&HIB__vISR,SCB_enVECISR_HIB);
     SYSCTL__vResetPeripheral(SYSCTL_enHIB);
     SYSCTL__vDisRunModePeripheral(SYSCTL_enHIB);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enHIB);
@@ -27,16 +27,16 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     HIB_HIBIM_R=HIB_HIBIM_R_WC_EN;
     HIB_HIBCTL_R|=HIB_HIBCTL_R_CLK32EN_EN;
 
-    do
+    while((HIB_enBUSY == enReady) && (0u != u32TimeOut))
     {
-        enReady=HIB__enGetGlobalStatus();
-        if(HIB_enBUSY != enReady)
-        {
-            enReturn = HIB_enOK;
-        }
+        enReady = HIB__enGetGlobalStatus();
         u32TimeOut--;
-    }while((HIB_enBUSY == enReady) && (0u != u32TimeOut));
+    }
 
+    if(HIB_enBUSY != enReady)
+    {
+        enReturn = HIB_enOK;
+    }
 
     HIB_HIBIM_R=HIB_HIBIM_R_WC_DIS;
     if(HIB_enOK == enReturn)

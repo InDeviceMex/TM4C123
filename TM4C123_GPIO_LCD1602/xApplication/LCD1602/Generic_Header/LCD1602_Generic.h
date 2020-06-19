@@ -107,18 +107,18 @@ LCD1602_nSTATUS LCD1602__enClearBufferDirect(void);
 LCD1602_nSTATUS LCD1602_enAdreesBufferLimitSection(uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 LCD1602_nSTATUS LCD1602_enAdreesBufferLimit(uint8_t* pu8Column, uint8_t* pu8Row);
 
-LCD1602_nSTATUS LCD1602__enWriteBuffer(uint8_t u8Data, uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
-LCD1602_nSTATUS LCD1602__enWriteBufferDirect(uint8_t u8Data, uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteBuffer(uint8_t u8Data, uint8_t* pu8Buffer,const uint8_t* pu8Column,const uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteBufferDirect(uint8_t u8Data,const uint8_t* pu8Column,const uint8_t* pu8Row);
 
-LCD1602_nSTATUS LCD1602__enReadBuffer(uint8_t* pu8Data, uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
-LCD1602_nSTATUS LCD1602__enReadBufferDirect(uint8_t* pu8Data, uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enReadBuffer(uint8_t* pu8Data, const uint8_t* pu8Buffer,const uint8_t* pu8Column,const uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enReadBufferDirect(uint8_t* pu8Data,const uint8_t* pu8Column,const uint8_t* pu8Row);
 
-LCD1602_nSTATUS LCD1602__enWriteStringBufferSection_Secure(char* pcBuffer, char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
-LCD1602_nSTATUS LCD1602__enWriteStringBufferSectionDirect_Secure(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
-LCD1602_nSTATUS LCD1602__enWriteStringBufferSection(char* pcBuffer, char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-LCD1602_nSTATUS LCD1602__enWriteStringBufferSectionDirect(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-LCD1602_nSTATUS LCD1602__enWriteStringBuffer(char* pcBuffer, char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
-LCD1602_nSTATUS LCD1602__enWriteStringBufferDirect(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
+LCD1602_nSTATUS LCD1602__enWriteStringBufferSection_Secure(char* pcBuffer, const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
+LCD1602_nSTATUS LCD1602__enWriteStringBufferSectionDirect_Secure(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
+LCD1602_nSTATUS LCD1602__enWriteStringBufferSection(char* pcBuffer, const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+LCD1602_nSTATUS LCD1602__enWriteStringBufferSectionDirect(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+LCD1602_nSTATUS LCD1602__enWriteStringBuffer(char* pcBuffer, const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
+LCD1602_nSTATUS LCD1602__enWriteStringBufferDirect(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
 
 
 
@@ -132,34 +132,34 @@ LCD1602_nSTATUS LCD1602__enReloadScreenDirect(void);
 
 LCD1602_nSTATUS LCD1602__enClearScreenSection(uint8_t* pu8Buffer,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 LCD1602_nSTATUS LCD1602__enClearScreenSectionDirect(uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-LCD1602_nSTATUS LCD1602__enClearScreen(uint8_t* pu8Buffer);
+LCD1602_nSTATUS LCD1602__enClearScreen(const uint8_t* pu8Buffer);
 LCD1602_nSTATUS LCD1602__enClearScreenDirect(void);
 
-LCD1602_nSTATUS LCD1602__enWriteScreen(uint8_t u8Data,uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
-LCD1602_nSTATUS LCD1602__enWriteScreenDirect(uint8_t u8Data,uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteScreen(uint8_t u8Data,const uint8_t* pu8Buffer,const  uint8_t* pu8Column,const uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enWriteScreenDirect(uint8_t u8Data,const uint8_t* pu8Column,const uint8_t* pu8Row);
 
-LCD1602_nSTATUS LCD1602__enReadScreen(uint8_t* pu8Data, uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
-LCD1602_nSTATUS LCD1602__enReadScreenDirect(uint8_t* pu8Data, uint8_t* pu8Column,uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enReadScreen(uint8_t* pu8Data, const uint8_t* pu8Buffer,const  uint8_t* pu8Column,const uint8_t* pu8Row);
+LCD1602_nSTATUS LCD1602__enReadScreenDirect(uint8_t* pu8Data,const  uint8_t* pu8Column,const uint8_t* pu8Row);
 
-LCD1602_nSTATUS LCD1602__enWriteStringScreenSection_Secure(char* pcBuffer, char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
-LCD1602_nSTATUS LCD1602__enWriteStringScreenSectionDirect_Secure(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
-LCD1602_nSTATUS LCD1602__enWriteStringScreenSection(char* pcBuffer, char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-LCD1602_nSTATUS LCD1602__enWriteStringScreenSectionDirect(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-LCD1602_nSTATUS LCD1602__enWriteStringScreen(char* pcBuffer, char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
-LCD1602_nSTATUS LCD1602__enWriteStringScreenDirect(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
+LCD1602_nSTATUS LCD1602__enWriteStringScreenSection_Secure(const char* pcBuffer, const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
+LCD1602_nSTATUS LCD1602__enWriteStringScreenSectionDirect_Secure(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,uint8_t u8MaxCount);
+LCD1602_nSTATUS LCD1602__enWriteStringScreenSection(const char* pcBuffer, const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+LCD1602_nSTATUS LCD1602__enWriteStringScreenSectionDirect(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
+LCD1602_nSTATUS LCD1602__enWriteStringScreen(const char* pcBuffer, const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
+LCD1602_nSTATUS LCD1602__enWriteStringScreenDirect(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count);
 
 
 LCD1602_nSTATUS LCD1602__enReadString(char* pcString, uint8_t u8Column,uint8_t u8Row,uint8_t u8Count);
 
 
 
-LCD1602_nSTATUS LCD1602__enPrint(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count, LCD1602_nFINISH *penFinish);
-LCD1602_nSTATUS LCD1602__enPrint_Secure(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count, uint8_t u8MaxCount, LCD1602_nFINISH *penFinish);
-LCD1602_nSTATUS LCD1602__enPrintSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax, LCD1602_nFINISH *penFinish);
-LCD1602_nSTATUS LCD1602__enPrintSection_Secure(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax, uint8_t u8MaxCount, LCD1602_nFINISH *penFinish);
+LCD1602_nSTATUS LCD1602__enPrint(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count, LCD1602_nFINISH *penFinish);
+LCD1602_nSTATUS LCD1602__enPrint_Secure(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count, uint8_t u8MaxCount, LCD1602_nFINISH *penFinish);
+LCD1602_nSTATUS LCD1602__enPrintSection(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax, LCD1602_nFINISH *penFinish);
+LCD1602_nSTATUS LCD1602__enPrintSection_Secure(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax, uint8_t u8MaxCount, LCD1602_nFINISH *penFinish);
 
-LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,...);
-LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,...);
+LCD1602_nSTATUS LCD1602__enPrintfSection(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax,...);
+LCD1602_nSTATUS LCD1602__enPrintf(const char* pcString,uint8_t* pu8Column, uint8_t* pu8Row, uint8_t* pu8Count,...);
 
 
 

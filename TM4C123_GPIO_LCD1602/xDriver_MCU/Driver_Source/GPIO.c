@@ -14,13 +14,13 @@ void GPIOD_vISR(void);
 void GPIOE_vISR(void);
 void GPIOF_vISR(void);
 
-void (*GPIO_ISR[6]) (void)={GPIOA_vISR,GPIOB_vISR,GPIOC_vISR,GPIOD_vISR,GPIOE_vISR,GPIOF_vISR};
-void (*GPIO[6][8]) (void)={{GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY},
-                           {GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY},
-                           {GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY},
-                           {GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY},
-                           {GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY},
-                           {GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY,GPIO_vDUMMY},};
+void (*GPIO_ISR[6]) (void)={&GPIOA_vISR,&GPIOB_vISR,&GPIOC_vISR,&GPIOD_vISR,&GPIOE_vISR,&GPIOF_vISR};
+void (*GPIO[6][8]) (void)={{&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
+                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
+                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
+                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
+                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
+                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},};
 
 GPIO_TypeDef* GPIO_APB_BLOCK[6]={GPIOA_APB,GPIOB_APB,GPIOC_APB,GPIOD_APB,GPIOE_APB,GPIOF_APB};
 GPIO_TypeDef* GPIO_AHB_BLOCK[6]={GPIOA_AHB,GPIOB_AHB,GPIOC_AHB,GPIOD_AHB,GPIOE_AHB,GPIOF_AHB};
@@ -42,17 +42,20 @@ NVIC_nSTIR NVIC_VECTOR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_
 
 void GPIO_vDUMMY(void)
 {
-    while(1u);
+    while(1u)
+    {
+
+    }
 }
 
 void GPIO__vInit(void)
 {
-    GPIO__vRegisterMODULEISR(GPIOA_vISR,GPIO_enPORTA);
-    GPIO__vRegisterMODULEISR(GPIOB_vISR,GPIO_enPORTB);
-    GPIO__vRegisterMODULEISR(GPIOC_vISR,GPIO_enPORTC);
-    GPIO__vRegisterMODULEISR(GPIOD_vISR,GPIO_enPORTD);
-    GPIO__vRegisterMODULEISR(GPIOE_vISR,GPIO_enPORTE);
-    GPIO__vRegisterMODULEISR(GPIOF_vISR,GPIO_enPORTF);
+    GPIO__vRegisterMODULEISR(&GPIOA_vISR,GPIO_enPORTA);
+    GPIO__vRegisterMODULEISR(&GPIOB_vISR,GPIO_enPORTB);
+    GPIO__vRegisterMODULEISR(&GPIOC_vISR,GPIO_enPORTC);
+    GPIO__vRegisterMODULEISR(&GPIOD_vISR,GPIO_enPORTD);
+    GPIO__vRegisterMODULEISR(&GPIOE_vISR,GPIO_enPORTE);
+    GPIO__vRegisterMODULEISR(&GPIOF_vISR,GPIO_enPORTF);
 }
 
 
@@ -60,6 +63,7 @@ void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin)
 {
     uint32_t u32Count=0;
     uint32_t u32Pin =(uint32_t) enPin;
+    uint32_t u32Isr=0;
     if((uint32_t)Isr !=0u)
     {
         if(enPort>GPIO_enMAX)
@@ -73,13 +77,15 @@ void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin)
             u32Count++;
             u32Pin>>=1;
         }
-        GPIO[(uint32_t)enPort][u32Count]=(void (*) (void))((uint32_t)Isr|(uint32_t)1u);
+        u32Isr=((uint32_t)Isr|(uint32_t)1u);
+        GPIO[(uint32_t)enPort][u32Count]=(void (*) (void))u32Isr;
     }
 }
 
 void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
 {
     SCB_nVECISR enVector=SCB_enVECISR_GPIOA;
+    uint32_t u32Isr=0;
     if(0u != (uint32_t)Isr)
     {
         if(enPort>GPIO_enMAX)
@@ -87,8 +93,8 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
             enPort=GPIO_enMAX;
         }
         enVector=SCB_VECTOR_GPIO[enPort];
-
-        GPIO_ISR[enPort]=(void (*) (void))((uint32_t)Isr|1u);
+        u32Isr=((uint32_t)Isr|(uint32_t)1u);
+        GPIO_ISR[enPort]=(void (*) (void))u32Isr;
         SCB__vRegisterISR(GPIO_ISR[enPort],enVector);
     }
 }
@@ -174,7 +180,7 @@ GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort)
     {
         enPort=GPIO_enMAX;
     }
-    SYSCTL_nGPIOBUS enGPIO =(SYSCTL_nGPIOBUS)(1<<enPort);
+    SYSCTL_nGPIOBUS enGPIO =(SYSCTL_nGPIOBUS)((uint32_t)1u<<(uint32_t)enPort);
     enReturn = (GPIO_nBUS)SYSCTL__vGetGPIOBus(enGPIO);
     return enReturn;
 }
@@ -1059,6 +1065,7 @@ GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
         {
             enRes=GPIO_enRESMODE_PULLDOWN;
         }
+        else{}
     }
     return enRes;
 }
@@ -1073,7 +1080,7 @@ void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
     u32Value<<=u32Bit;
-    u32Pin=(1<<u32Pin);
+    u32Pin=((uint32_t)1u<<u32Pin);
     if(u32Port>(uint32_t)GPIO_enMAX)
     {
         u32Port=(uint32_t)GPIO_enMAX;
@@ -1094,7 +1101,7 @@ void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
         GPIO__vDisAltFunction((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin);
     }
     u32Reg=gpio->GPIOPCTL;
-    u32Reg&=~(0xF<<u32Bit);
+    u32Reg&=~((uint32_t)0xFu<<u32Bit);
     u32Reg|=u32Value;
     gpio->GPIOPCTL=u32Reg;
 }
@@ -1153,7 +1160,7 @@ GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG e
 
 }
 
-GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_CONFIG_Typedef* psConfig)
+GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,const GPIO_CONFIG_Typedef* psConfig)
 {
 
     GPIO_nSTATUS enReturn=GPIO_enERROR;
@@ -1229,7 +1236,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
     uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
-    u32Pin=(1<<u32Pin);
+    u32Pin=((uint32_t)1u<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
     GPIO_CONFIG_Typedef* psConfig=GPIO__psCreateConfigStruct(enConfig);
@@ -1248,7 +1255,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
 
 }
 
-GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_CONFIG_Typedef* psConfig)
+GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,const GPIO_CONFIG_Typedef* psConfig)
 {
 
     GPIO_nSTATUS enReturn=GPIO_enERROR;
@@ -1256,7 +1263,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GP
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
     uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
-    u32Pin=(1<<u32Pin);
+    u32Pin=((uint32_t)1u<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
     if(psConfig!=0)
@@ -1278,7 +1285,7 @@ GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
     uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
-    u32Pin=(1<<u32Pin);
+    u32Pin=((uint32_t)1u<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
 
@@ -1310,7 +1317,7 @@ void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Type
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
     uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
-    u32Pin=(1<<u32Pin);
+    u32Pin=((uint32_t)1u<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
 
@@ -1328,7 +1335,7 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
     uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
-    u32Pin=(1<<u32Pin);
+    u32Pin=((uint32_t)1u<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
 

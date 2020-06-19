@@ -124,6 +124,7 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
         SCB_vBarrier();
         __asm(" cpsie i");
     }
+    else{}
 
 }
 
@@ -610,13 +611,13 @@ inline void SCB__vEnableTraps(void)
 inline void SCB__vInit(void)
 {
     SCB__vSetVectorOffset(0x20000000u);
-    SCB__vRegisterISR(NMI_vISR,SCB_enVECISR_NMI);
-    SCB__vRegisterISR(PendSV_vISR,SCB_enVECISR_PENDSV);
-    SCB__vRegisterISR(UsageFault_vISR,SCB_enVECISR_USAGEFAULT);
-    SCB__vRegisterISR(BusFault_vISR,SCB_enVECISR_BUSFAULT);
-    SCB__vRegisterISR(MemoryFault_vISR,SCB_enVECISR_MEMMANAGE);
-    SCB__vRegisterISR(HardFault_vISR,SCB_enVECISR_HARDFAULT);
-    SCB__vRegisterISR(SVCall_vISR,SCB_enVECISR_SVCALL);
+    SCB__vRegisterISR(&NMI_vISR,SCB_enVECISR_NMI);
+    SCB__vRegisterISR(&PendSV_vISR,SCB_enVECISR_PENDSV);
+    SCB__vRegisterISR(&UsageFault_vISR,SCB_enVECISR_USAGEFAULT);
+    SCB__vRegisterISR(&BusFault_vISR,SCB_enVECISR_BUSFAULT);
+    SCB__vRegisterISR(&MemoryFault_vISR,SCB_enVECISR_MEMMANAGE);
+    SCB__vRegisterISR(&HardFault_vISR,SCB_enVECISR_HARDFAULT);
+    SCB__vRegisterISR(&SVCall_vISR,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup(SCB_enPRIGROUP_XXX);
@@ -639,6 +640,7 @@ void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
         {
             *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)Isr|1u;
         }
+        else{}
     }
 }
 
@@ -680,13 +682,13 @@ typedef enum
 void NMI_vISR(void)
 {
     /*use for GPIO activation*/
-    while(1u);
+    while(1u){}
 }
 
 void PendSV_vISR(void)
 {
     /*context switch, lower priority*/
-    while(1u);
+    while(1u){}
 }
 
 uint32_t SCB_pu32Context[8];
@@ -721,20 +723,15 @@ void UsageFault_vISR(void)
     switch(SCB_u16UsageFault)
     {
         case (uint16_t)SCB_enUCFSR_UNDEFINSTR:
-            while(1u);
         case (uint16_t)SCB_enUCFSR_INVSTATE:
-            while(1u);
         case (uint16_t)SCB_enUCFSR_INVPC:
-            while(1u);
         case (uint16_t)SCB_enUCFSR_NOCP:
-            while(1u);
         case (uint16_t)SCB_enUCFSR_UNALIGNED:
-            while(1u);
         case (uint16_t)SCB_enUCFSR_DIVBYZERO:
-            while(1u);
         default:
-            while(1u);
+            break;
     }
+    while(1u){}
 }
 void BusFault_vISR(void)
 {
@@ -775,24 +772,18 @@ void BusFault_vISR(void)
     switch(SCB_u8BusFault)
     {
         case SCB_enBCFSR_LSPERR:
-            while(1u);
         case SCB_enBCFSR_STKERR:
-            while(1u);
         case SCB_enBCFSR_UNSTKERR:
-            while(1u);
         case SCB_enBCFSR_IMPRECISERR:
-            while(1u);
         case SCB_enBCFSR_PRECISERR:
-            while(1u);
         case SCB_enBCFSR_IBUSERR:
-            while(1u);
         default:
-            while(1u);
+            break;
     }
+    while(1u){}
 }
 void MemoryFault_vISR(void)
 {
-
     uint8_t SCB_u8MemFault=0;
     /*uint32_t SCB_u32MemoryMem=0;*/
     __asm(
@@ -829,18 +820,15 @@ void MemoryFault_vISR(void)
     switch(SCB_u8MemFault)
     {
         case SCB_enMCFSR_MLSPERR:
-            while(1u);
         case SCB_enMCFSR_MSTKERR:
-            while(1u);
         case SCB_enMCFSR_MUNSTKERR:
-            while(1u);
         case SCB_enMCFSR_DACCVIOL:
-            while(1u);
         case SCB_enMCFSR_IACCVIOL:
-            while(1u);
         default:
-            while(1u);
+            break;
+
     }
+    while(1u){}
 }
 void HardFault_vISR(void)
 {
@@ -868,12 +856,12 @@ void HardFault_vISR(void)
     " str R1, [R2, #0x18]\n"/*SCB_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_pu32Context[7] PSR*/
-    while(1u);
+    while(1u){}
 }
 
 void SVCall_vISR(void)
 {
-    while(1u);
+    while(1u){}
 }
 
 

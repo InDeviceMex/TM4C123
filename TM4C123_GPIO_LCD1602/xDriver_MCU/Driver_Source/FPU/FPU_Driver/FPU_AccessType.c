@@ -33,10 +33,13 @@ void FPU__vSetAccessType(FPU_nACCESS enAccessType)
 {
     uint32_t u32Access= (uint32_t)enAccessType &FPU_CPACR_CP10_MASK;
     uint32_t u32Reg= FPU_CPACR_R;
+    uint32_t u32Aux=0;
 
     u32Reg&=~(FPU_CPACR_R_CP10_MASK|FPU_CPACR_R_CP11_MASK);
-    u32Reg|=u32Access<<FPU_CPACR_R_CP10_BIT;
-    u32Reg|=u32Access<<FPU_CPACR_R_CP11_BIT;
+    u32Aux=u32Access<<FPU_CPACR_R_CP10_BIT;
+    u32Reg|=u32Aux;
+    u32Aux=u32Access<<FPU_CPACR_R_CP11_BIT;
+    u32Reg|=u32Aux;
     FPU_CPACR_R = u32Reg;
     FPU_vBlocking();
 }

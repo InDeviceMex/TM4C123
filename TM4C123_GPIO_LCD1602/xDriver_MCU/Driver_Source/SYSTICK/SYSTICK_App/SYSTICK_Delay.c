@@ -23,7 +23,7 @@
     volatile uint64_t u64Count= 0;
 
     fUsTick= SysTick__fGetTickUs();
-    if(fUsTick!=0.0)
+    if(fUsTick>=0.0)
     {
         fCount= fTimeUs/fUsTick;
     }

@@ -14,7 +14,7 @@ void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri)
 {
     uint32_t u32Reg= (uint32_t)enInt & (uint32_t)0x3F;
 
-    SCB__vRegisterISR(SYSEXC_vISR,SCB_enVECISR_SYSEXC);
+    SCB__vRegisterISR(&SYSEXC_vISR,SCB_enVECISR_SYSEXC);
     SYSEXC_SYSEXCIM_R&=~(SYSEXC_SYSEXCIM_R_FPIDCIM_MASK|
             SYSEXC_SYSEXCIM_R_FPDZCIM_MASK|
             SYSEXC_SYSEXCIM_R_FPIOCIM_MASK|
@@ -46,7 +46,9 @@ SYSEXC_nSTATUS SYSEXC__enStatusInterrupt(SYSEXC_nINTERRUPT enInt)
     SYSEXC_nSTATUS enStatus=SYSEXC_enNOOCCUR;
     uint32_t u32Reg= (uint32_t)enInt & (uint32_t)0x3F;
     if((uint32_t)0!=(SYSEXC_SYSEXCRIS_R&u32Reg))
+    {
         enStatus=SYSEXC_enOCCUR;
+    }
     return enStatus;
 }
 
@@ -83,31 +85,31 @@ void SYSEXC_vISR(void)
     if(SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK))
     {
         SYSEXC_SYSEXCIC_R=SYSEXC_SYSEXCIC_R_FPIDCIC_MASK;
-        while(1u);
+        while(1u){}
     }
     if(SYSEXC_SYSEXCMIS_R_FPDZCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPDZCMIS_MASK))
     {
         SYSEXC_SYSEXCIC_R=SYSEXC_SYSEXCIC_R_FPDZCIC_MASK;
-        while(1u);
+        while(1u){}
     }
     if(SYSEXC_SYSEXCMIS_R_FPIOCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIOCMIS_MASK))
     {
         SYSEXC_SYSEXCIC_R=SYSEXC_SYSEXCIC_R_FPIOCIC_MASK;
-        while(1u);
+        while(1u){}
     }
     if(SYSEXC_SYSEXCMIS_R_FPUFCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPUFCMIS_MASK))
     {
         SYSEXC_SYSEXCIC_R=SYSEXC_SYSEXCIC_R_FPUFCIC_MASK;
-        while(1u);
+        while(1u){}
     }
     if(SYSEXC_SYSEXCMIS_R_FPOFCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPOFCMIS_MASK))
     {
         SYSEXC_SYSEXCIC_R=SYSEXC_SYSEXCIC_R_FPOFCIC_MASK;
-        while(1u);
+        while(1u){}
     }
     if(SYSEXC_SYSEXCMIS_R_FPIXCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIXCMIS_MASK))
     {
         SYSEXC_SYSEXCIC_R=SYSEXC_SYSEXCIC_R_FPIXCIC_MASK;
-        while(1u);
+        while(1u){}
     }
 }
