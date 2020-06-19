@@ -18,7 +18,7 @@ FPU_nROUNDING FPU__enGetRounding(void)
     u32Reg>>=FPU_FPDSCR_R_RMODE_BIT;
     u32Reg&=FPU_FPDSCR_RMODE_MASK;
     enReturn= (FPU_nROUNDING)u32Reg;
-    return enReturn;
+    return (FPU_nROUNDING) enReturn;
 }
 
 void FPU__vSetRounding(FPU_nROUNDING enRounding)

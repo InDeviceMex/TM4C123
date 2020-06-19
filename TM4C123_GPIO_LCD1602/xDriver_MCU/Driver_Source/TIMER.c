@@ -984,9 +984,9 @@ TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
         enReturn = TIMER_enOK;
     }
     return enReturn;
-    //Configure Reload and Match
+    /*Configure Reload and Match*/
 
-    //TIMER__vSetEnable(enModule,TIMER_enENABLE_START);
+    /*TIMER__vSetEnable(enModule,TIMER_enENABLE_START);*/
 
 }
 
@@ -1007,9 +1007,9 @@ TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef*
         enReturn = TIMER_enOK;
     }
     return enReturn;
-    //Configure Reload and Match
+    /*Configure Reload and Match*/
 
-    //TIMER__vSetEnable(enModule,TIMER_enENABLE_START);
+    /*TIMER__vSetEnable(enModule,TIMER_enENABLE_START);*/
 
 
 }
@@ -1113,9 +1113,9 @@ TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, TIMER_EXTRAMOD
         enReturn = TIMER_enOK;
     }
     return enReturn;
-    //Configure Reload and Match
+    /*Configure Reload and Match*/
 
-    //TIMER__vSetEnable(enModule,TIMER_enENABLE_START);
+    /*TIMER__vSetEnable(enModule,TIMER_enENABLE_START);*/
 
 
 }
@@ -1167,7 +1167,18 @@ uint32_t pu32SizeShift[2]={16,32};
 
 void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_t u64Reload)
 {
-    TIMER_MODE_Typedef psMode;
+    TIMER_MODE_Typedef psMode=
+    {
+        .enConfig  = TIMER_enCONFIG_WIDE,
+        .enSubMode = TIMER_enSUB_MODE_RESERVED,
+        .enEdgeMode= TIMER_enEDGE_MODE_COUNT,
+        .enAltMode = TIMER_enALT_MODE_CC,
+        .enDirection= TIMER_enCOUNT_DIR_DOWN,
+        .enSnapShot = TIMER_enSNAPSHOT_DIS,
+        .enPWMOutInit = TIMER_enPWM_OUT_INIT_LOW,
+        .enPWMOut = TIMER_enPWM_OUTPUT_STRAIGHT,
+        .enEdgeEvent = TIMER_enEDGE_EVENT_POSITIVE
+    };
 
     /*Erase*/
     uint32_t u32Reg=0;
@@ -1192,8 +1203,8 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
         pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
         pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
 
-        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFF);
-        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFF);
+        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFu);
+        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFu);
         break;
     case TIMER_enCONFIG_RTC:
         pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
@@ -1201,14 +1212,14 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
         pu32TimerRTCPD=TIMER_RTCPD_BLOCK[u32Number];
 
         *pu32TimerRTCPD=u32PrescalerRTC&0xFFFF;
-        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFF);
-        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFF);
+        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFu);
+        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFu);
         break;
     case TIMER_enCONFIG_INDIVIDUAL:
 
         pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][u32Letter][u32Number];
         pu32TimerPR=TIMER_TnPR_BLOCK[u32Wide][u32Letter][u32Number];
-        //Prescaler
+        /*Prescaler*/
         if((TIMER_enALT_MODE_CC==psMode.enAltMode)&&(TIMER_enSUB_MODE_CAPTURE!=psMode.enSubMode) && (TIMER_enCOUNT_DIR_DOWN==psMode.enDirection))
         {
             u64Reload&=pu64TimerSize[u32Wide];
@@ -1218,7 +1229,7 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
             *pu32TimerPR=u32RegPrescaler;
             *pu32TimerILRLow=u32Reg;
         }
-        //Time Extension
+        /*Time Extension*/
         else
         {
             u64Reload&=pu64TimerSize[u32Wide];
@@ -1236,8 +1247,18 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
 
 void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
 {
-    TIMER_MODE_Typedef psMode;
-
+    TIMER_MODE_Typedef psMode=
+    {
+        .enConfig  = TIMER_enCONFIG_WIDE,
+        .enSubMode = TIMER_enSUB_MODE_RESERVED,
+        .enEdgeMode= TIMER_enEDGE_MODE_COUNT,
+        .enAltMode = TIMER_enALT_MODE_CC,
+        .enDirection= TIMER_enCOUNT_DIR_DOWN,
+        .enSnapShot = TIMER_enSNAPSHOT_DIS,
+        .enPWMOutInit = TIMER_enPWM_OUT_INIT_LOW,
+        .enPWMOut = TIMER_enPWM_OUTPUT_STRAIGHT,
+        .enEdgeEvent = TIMER_enEDGE_EVENT_POSITIVE
+    };
     /*Erase*/
     uint32_t u32Reg=0;
     uint32_t u32RegPrescaler=0;
@@ -1260,21 +1281,21 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
         pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
         pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
 
-        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFF);
-        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFF);
+        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFFu);
+        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFFu);
         break;
     case TIMER_enCONFIG_RTC:
         pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
         pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
 
-        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFF);
-        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFF);
+        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFFu);
+        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFFu);
         break;
     case TIMER_enCONFIG_INDIVIDUAL:
 
         pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][u32Letter][u32Number];
         pu32TimerPMR=TIMER_TnPMR_BLOCK[u32Wide][u32Letter][u32Number];
-        //Prescaler
+        /*Prescaler*/
         if((TIMER_enALT_MODE_CC==psMode.enAltMode)&&(TIMER_enSUB_MODE_CAPTURE!=psMode.enSubMode) && (TIMER_enCOUNT_DIR_DOWN==psMode.enDirection))
         {
             u64Match&=pu64TimerSize[u32Wide];
@@ -1284,7 +1305,7 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
             *pu32TimerPMR=u32RegPrescaler;
             *pu32TimerMATCHRLow=u32Reg;
         }
-        //Time Extension
+        /*Time Extension*/
         else
         {
             u64Match&=pu64TimerSize[u32Wide];

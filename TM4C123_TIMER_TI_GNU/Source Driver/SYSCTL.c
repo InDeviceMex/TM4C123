@@ -158,7 +158,7 @@ uint32_t SYSCTL__u32GetClock(void)
                     /*Noithing to do*/
                 }
             }
-            else //PLL
+            else /*PLL*/
             {
                 /*Verify if PLL is enable*/
                 if(SYSCTL_RCC2_R_PWRDN2_ON==(u32RegRCC2&SYSCTL_RCC2_R_PWRDN2_MASK))
@@ -396,33 +396,33 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
      */
     u32Reg=SYSCTL_RCC_R;
     u32Reg&=~SYSCTL_RCC_R_XTAL_MASK;
-    u32Reg|=SYSCTL_RCC_R_XTAL_16MHZ;        //XTAL 16MHz
+    u32Reg|=SYSCTL_RCC_R_XTAL_16MHZ;/*XTAL 16MHz*/
     u32Reg&=~SYSCTL_RCC_R_OSCSRC_MASK;
-    u32Reg|=SYSCTL_RCC_R_OSCSRC_PIOSC;      //PIOSC OscillatorSource
-    u32Reg|=SYSCTL_RCC_R_BYPASS_MASK;       //Bypass PIOSC
-    u32Reg&=~SYSCTL_RCC_R_USESYSDIV_MASK;   //PIOSC SYSCLK undivided
-    u32Reg&=~SYSCTL_RCC_R_USEPWMDIV_MASK;   //PIOSC PWMCLK undivided
-    u32Reg&=~SYSCTL_RCC_R_ACG_MASK;         //RCGCn used
-    u32Reg&=~SYSCTL_RCC_R_MOSCDIS_MASK;     //enable MOSC
-    u32Reg&=~SYSCTL_RCC_R_PWRDN_MASK;       //enable PLL
+    u32Reg|=SYSCTL_RCC_R_OSCSRC_PIOSC;/*PIOSC OscillatorSource*/
+    u32Reg|=SYSCTL_RCC_R_BYPASS_MASK;/*Bypass PIOSC*/
+    u32Reg&=~SYSCTL_RCC_R_USESYSDIV_MASK;/*PIOSC SYSCLK undivided*/
+    u32Reg&=~SYSCTL_RCC_R_USEPWMDIV_MASK;/*PIOSC PWMCLK undivided*/
+    u32Reg&=~SYSCTL_RCC_R_ACG_MASK;/*RCGCn used*/
+    u32Reg&=~SYSCTL_RCC_R_MOSCDIS_MASK;/*enable MOSC*/
+    u32Reg&=~SYSCTL_RCC_R_PWRDN_MASK;/*enable PLL*/
     SYSCTL_RCC_R=u32Reg;
 
-    SYSCTL_RCC_R&=~SYSCTL_RCC_R_OSCSRC_MASK; // MOSC OscillatorSource
+    SYSCTL_RCC_R&=~SYSCTL_RCC_R_OSCSRC_MASK;/* MOSC OscillatorSource*/
 
     /*
      * Select config div prior Enable PLLs
      * XTAL 16MHZ
      */
     u32Reg=SYSCTL_RCC2_R;
-    u32Reg&=~SYSCTL_RCC2_R_OSCSRC2_MASK; // MOSC OscillatorSource
-    u32Reg|=SYSCTL_RCC2_R_BYPASS2_MASK;  //Bypass MOSC
-    u32Reg&=~SYSCTL_RCC2_R_PWRDN2_MASK;  //Enable PLL
-    u32Reg&=~SYSCTL_RCC2_R_USBPWRDN_MASK;  //Enable USBPLL
-    u32Reg&=~SYSCTL_RCC2_R_SYSDIV2LSB_MASK;  //LSB div 0
+    u32Reg&=~SYSCTL_RCC2_R_OSCSRC2_MASK;/* MOSC OscillatorSource*/
+    u32Reg|=SYSCTL_RCC2_R_BYPASS2_MASK;/*Bypass MOSC*/
+    u32Reg&=~SYSCTL_RCC2_R_PWRDN2_MASK;/*Enable PLL*/
+    u32Reg&=~SYSCTL_RCC2_R_USBPWRDN_MASK;/*Enable USBPLL*/
+    u32Reg&=~SYSCTL_RCC2_R_SYSDIV2LSB_MASK;/*LSB div 0*/
     u32Reg&=~SYSCTL_RCC2_R_SYSDIV2_MASK;
-    u32Reg|=(2<<SYSCTL_RCC2_R_SYSDIV2_BIT);  //div 5
-    u32Reg|=SYSCTL_RCC2_R_DIV400_MASK;    //400MHz
-    u32Reg|=SYSCTL_RCC2_R_USERCC2_MASK;    //enable RCC2
+    u32Reg|=(2<<SYSCTL_RCC2_R_SYSDIV2_BIT);/*div 5*/
+    u32Reg|=SYSCTL_RCC2_R_DIV400_MASK;/*400MHz*/
+    u32Reg|=SYSCTL_RCC2_R_USERCC2_MASK;/*enable RCC2*/
     SYSCTL_RCC2_R=u32Reg;
 
 

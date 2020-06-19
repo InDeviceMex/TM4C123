@@ -17,7 +17,7 @@ FPU_nNAN FPU__enGetNAN(void)
     u32Reg>>=FPU_FPDSCR_R_DN_BIT;
     u32Reg&=FPU_FPDSCR_DN_MASK;
     enReturn= (FPU_nNAN)u32Reg;
-    return enReturn;
+    return (FPU_nNAN) enReturn;
 }
 
 void FPU__vSetNAN(FPU_nNAN enNAN)

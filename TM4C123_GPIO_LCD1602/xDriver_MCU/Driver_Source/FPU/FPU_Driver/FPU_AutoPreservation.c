@@ -15,7 +15,7 @@ FPU_nAUTO_PRESERVATION FPU__enGetAutoPreservation(void)
     u32Reg>>=FPU_FPCCR_R_ASPEN_BIT;
     u32Reg&=FPU_FPCCR_ASPEN_MASK;
     enReturn= (FPU_nAUTO_PRESERVATION)u32Reg;
-    return enReturn;
+    return (FPU_nAUTO_PRESERVATION) enReturn;
 }
 
 void FPU__vSetAutoPreservation(FPU_nAUTO_PRESERVATION enAuto)

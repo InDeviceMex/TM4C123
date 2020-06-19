@@ -293,7 +293,7 @@ void LCD1602_vPulseWriteEnable(void)
 {
     GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=LCD1602_E;
     LCD1602__vDelay(0.6);
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;//manda a 0 logico E, completando el pulso
+    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;/*manda a 0 logico E, completando el pulso*/
     LCD1602__vDelay(0.6);
 }
 
@@ -311,7 +311,7 @@ void LCD1602_vPrepareReadEnable(void)
 void LCD1602_vPulseReadEnable(void)
 {
     LCD1602__vDelay(0.3);
-    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;//manda a 0 logico E, completando el pulso
+    GPIO_AHB_BLOCK[LCD1602_PORT_E]->GPIODATA_MASK[LCD1602_E]=0;/*manda a 0 logico E, completando el pulso*/
     LCD1602__vDelay(0.6);
 }
 

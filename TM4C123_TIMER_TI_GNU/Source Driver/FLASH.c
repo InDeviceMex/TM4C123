@@ -181,7 +181,7 @@ FLASH_nSTATUS FLASH__enWriteBuf(uint32_t* pu32Data,uint32_t u32Address, uint32_t
     uint32_t u32CountActual=0;
     uint32_t u32CountMax=0;
 
-    u32CountActual=(u32Address&0x7F)>>2;
+    u32CountActual=(u32Address&0x7Fu)>>2;
     u32CountMax=(u32CountActual)+u32Count;
     u32Address&=~0x7F;
     if(u32Address<FLASH_ADDRESS_MAX)
@@ -279,7 +279,7 @@ FLASH_nSTATUS FLASH__enWriteWorld(uint32_t u32Data, uint32_t u32Address)
                     {
                         break;
                     }
-                    u32AddressPage+=0x80; //32World = 4Bytes*32 =0x80=128
+                    u32AddressPage+=0x80;/*32World = 4Bytes*32 =0x80=128*/
                     pu32PageData+=32;
                 }
                 free(pu32PageDataInitial);
@@ -350,7 +350,7 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld(uint16_t u16Data, uint32_t u32Address)
                     {
                         break;
                     }
-                    u32AddressPage+=0x80; //32World = 4Bytes*32 =0x80=128
+                    u32AddressPage+=0x80;/*32World = 4Bytes*32 =0x80=128*/
                     pu32PageData+=32;
                 }
                 free(pu32PageDataInitial);
@@ -421,7 +421,7 @@ FLASH_nSTATUS FLASH__enWriteByte(uint8_t u8Data, uint32_t u32Address)
                     {
                         break;
                     }
-                    u32AddressPage+=0x80; //32World = 4Bytes*32 =0x80=128
+                    u32AddressPage+=0x80;/*32World = 4Bytes*32 =0x80=128*/
                     pu32PageData+=32;
                 }
                 free(pu32PageDataInitial);
@@ -510,7 +510,7 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,u
                         {
                             break;
                         }
-                        u32AddressPage+=0x80; //32World = 4Bytes*32 =0x80=128
+                        u32AddressPage+=0x80;/*32World = 4Bytes*32 =0x80=128*/
                         pu32PageData+=32;
                     }
                     u32AddressCurrent=u32AddressPage;
@@ -605,7 +605,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(uint16_t* pu16Data, uint32_t u32Addre
                         {
                             break;
                         }
-                        u32AddressPage+=0x80; //32World = 4Bytes*32 =0x80=128
+                        u32AddressPage+=0x80;/*32World = 4Bytes*32 =0x80=128*/
                         pu32PageData+=32;
                     }
                     u32AddressCurrent=u32AddressPage;
@@ -701,7 +701,7 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(uint8_t* pu8Data, uint32_t u32Address,uint
                         {
                             break;
                         }
-                        u32AddressPage+=0x80; //32World = 4Bytes*32 =0x80=128
+                        u32AddressPage+=0x80;/*32World = 4Bytes*32 =0x80=128*/
                         pu32PageData+=32;
                     }
                     u32AddressCurrent=u32AddressPage;

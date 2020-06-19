@@ -7,49 +7,49 @@
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_WriteMulti.h>
 
 
-EEPROM_nSTATUS EEPROM__enWriteMultiWorld(uint32_t* pu32Data,uint32_t u32Address,uint16_t u16Count)
+EEPROM_nSTATUS EEPROM__enWriteMultiWorld (uint32_t *pu32Data, uint32_t u32Address, uint16_t u16Count)
 {
-    EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);
-    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
+    EEPROM_nSTATUS enReturn = EEPROM_enOK;
+    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
+    while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
-        enReturn=EEPROM__enWriteWorld(*pu32Data,u32Address);
+        enReturn = EEPROM__enWriteWorld(*pu32Data, u32Address);
         pu32Data++;
-        u32Address+=4;
+        u32Address += (uint32_t)4u;
         u16Count--;
     }
 
-    return enReturn;
+    return (EEPROM_nSTATUS) enReturn;
 }
 
 
-EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld(uint16_t* pu16Data,uint32_t u32Address,uint16_t u16Count)
+EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld (uint16_t *pu16Data, uint32_t u32Address, uint16_t u16Count)
 {
-    EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);
-    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
+    EEPROM_nSTATUS enReturn = EEPROM_enOK;
+    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
+    while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
-        enReturn=EEPROM__enWriteHalfWorld(*pu16Data,u32Address);
+        enReturn = EEPROM__enWriteHalfWorld(*pu16Data, u32Address);
         pu16Data++;
-        u32Address+=2;
+        u32Address += (uint32_t)2u;
         u16Count--;
     }
 
-    return enReturn;
+    return (EEPROM_nSTATUS) enReturn;
 }
 
 
-EEPROM_nSTATUS EEPROM__enWriteMultiByte(uint8_t* pu8Data,uint32_t u32Address,uint16_t u16Count)
+EEPROM_nSTATUS EEPROM__enWriteMultiByte (uint8_t *pu8Data, uint32_t u32Address, uint16_t u16Count)
 {
-    EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    uint32_t u32MaxAddress= (EEPROM__u32GetWorldCount()<<2);
-    while(((u32MaxAddress )> u32Address) && (u16Count>0) && (enReturn==EEPROM_enOK))
+    EEPROM_nSTATUS enReturn = EEPROM_enOK;
+    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
+    while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
-        enReturn=EEPROM__enWriteByte(*pu8Data,u32Address);
+        enReturn = EEPROM__enWriteByte(*pu8Data, u32Address);
         pu8Data++;
-        u32Address+=1;
+        u32Address += (uint32_t)1u;
         u16Count--;
     }
 
-    return enReturn;
+    return (EEPROM_nSTATUS) enReturn;
 }

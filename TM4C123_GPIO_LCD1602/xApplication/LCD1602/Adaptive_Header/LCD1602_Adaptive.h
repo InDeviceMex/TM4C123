@@ -38,14 +38,14 @@
 
 typedef enum
 {
-    LCD1602_enWRITE=0,
-    LCD1602_enREAD=1,
+    LCD1602_enWRITE=0u,
+    LCD1602_enREAD=1u,
 }LCD1602_nRW;
 
 typedef enum
 {
-    LCD1602_enCOMMAND=0,
-    LCD1602_enDATA=1,
+    LCD1602_enCOMMAND=0u,
+    LCD1602_enDATA=1u,
 }LCD1602_nRS;
 
 
@@ -57,6 +57,7 @@ void    LCD1602__vWritePin8Bit(uint8_t u8Data);
 void    LCD1602__vWrite(uint8_t u8Data,LCD1602_nRS enMode);
 uint8_t LCD1602__u8Read(LCD1602_nRS enMode);
 
+void LCD1602__vWrite8Bits(uint8_t u8Data,LCD1602_nRS enMode);
 
 
 #endif /* XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_ADAPTIVE_H_ */

@@ -38,17 +38,17 @@ LCD1602_nSTATUS LCD1602_enCheckLimits(uint8_t* pu8WidthMin,uint8_t* pu8WidthMax,
 
 
 LCD1602_nSTATUS LCD1602_enAdreesLimitSection(LCD1602_SET_ADDRESS_TypeDef penFunctionSetAddress, uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-const uint8_t LCD1602_pu8SpecialChar[8][8]= //ḞỲḂ?\ẀṀñ
+const uint8_t LCD1602_pu8SpecialChar[8][8]= /*ḞỲḂ?\ẀṀñ*/
 {
- {2,5,2,0,0,0,0,0}, // Ḟ
- {0,0,0,0,0xF,1,0,0}, // Ỳ
- {4,0,0,4,4,4,4,0},// Ḃ
- {4,0,4,8,0x10,0x11,0xE,0}, //ṡ
- {0,0x10,8,4,2,1,0,0},// diagonal invertida
- {0xA,0,0,0,0,0,0,0}, //Ẁ
- {0,2,4,8,0,0,0,0},//Ṁ
- {0xA,0x05,0,0x16,0x19,0x11,0x11,0}//ñ
-// {0xE,0x1B,0x11,0x11,0x13,0x17,0x1F,0x1F},//simbolo bateria
+ {2,5,2,0,0,0,0,0}, /* Ḟ*/
+ {0,0,0,0,0xF,1,0,0}, /* Ỳ*/
+ {4,0,0,4,4,4,4,0},/* Ḃ*/
+ {4,0,4,8,0x10,0x11,0xE,0}, /*ṡ*/
+ {0,0x10,8,4,2,1,0,0},/* diagonal invertida*/
+ {0xA,0,0,0,0,0,0,0}, /*Ẁ*/
+ {0,2,4,8,0,0,0,0},/*Ṁ*/
+ {0xA,0x05,0,0x16,0x19,0x11,0x11,0}/*ñ*/
+/* {0xE,0x1B,0x11,0x11,0x13,0x17,0x1F,0x1F},//simbolo bateria*/
 };
 
 uint8_t LCD1602_pu8Buffer[LCD1602_COLUMN_MAX*LCD1602_ROW_MAX+1]       ={" INDEVICE TIVAC   LCD1602 SW:   "};
@@ -63,23 +63,23 @@ LCD1602_nSTATUS LCD1602__enInit(void)
 
     LCD1602__vInitGPIO();
 
-    LCD1602__vDelay(15000);//15 ms
+    LCD1602__vDelay(15000);/*15 ms*/
 
-    //Wirte 0x3x to LCD
-    LCD1602__vWritePin8Bit(0x30);
-    LCD1602__vDelay(4100);//4.1 ms
+    /*Wirte 0x3x to LCD*/
+    LCD1602__vWritePin8Bit(0x30u);
+    LCD1602__vDelay(4100);/*4.1 ms*/
 
-    //Wirte 0x3x to LCD
-    LCD1602__vWritePin8Bit(0x30);
-    LCD1602__vDelay(100000);//100 ms
+    /*Wirte 0x3x to LCD*/
+    LCD1602__vWritePin8Bit(0x30u);
+    LCD1602__vDelay(100000);/*100 ms*/
 
-    //Wirte 0x3x to LCD
-    LCD1602__vWritePin8Bit(0x30);
-    LCD1602__vDelay(40);//40 us
+    /*Wirte 0x3x to LCD*/
+    LCD1602__vWritePin8Bit(0x30u);
+    LCD1602__vDelay(40);/*40 us*/
 
-    //Write 0x2x to LCD in order to configure as 4 bits
-    LCD1602__vWritePin8Bit(0x20);
-    LCD1602__vDelay(40);//40 us
+    /*Write 0x2x to LCD in order to configure as 4 bits*/
+    LCD1602__vWritePin8Bit(0x20u);
+    LCD1602__vDelay(40);/*40 us*/
 
 
     /*M8BIT o M4BIT,M2LINE o M1LINE, M5_8_Font o M5_11_Font */
@@ -116,7 +116,7 @@ LCD1602_nSTATUS LCD1602__enInit(void)
     }
 
 
-    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enHOME));//Manda cursor a home
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enHOME));/*Manda cursor a home*/
     LCD1602__vDelay(1640);
     if(LCD1602_enSTATUS_ERROR==enStatus)
     {
@@ -166,10 +166,10 @@ LCD1602_nSTATUS LCD1602_enWriteCommand(LCD1602_nCommands enCommand)
 LCD1602_nSTATUS LCD1602_enWriteChar(char cData)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    //°¬¡?\¨´ñ
+    /*°¬¡?\¨´ñ*/
     switch((uint16_t)cData)
     {
-    //Character specials
+    /*Character specials*/
     case 17:
         cData=0;
         break;
@@ -230,10 +230,10 @@ LCD1602_nSTATUS LCD1602_enReadChar(char* pcData,uint8_t u8Column, uint8_t u8Row)
         if(LCD1602_enSTATUS_OK == enStatus)
         {
             enStatus= LCD1602_enReadData((uint8_t*)pcData);
-            //°¬¡?\¨´ñ
+            /*°¬¡?\¨´ñ*/
             switch(*pcData)
             {
-            //Character specials
+            /*Character specials*/
     /*
             case 0:
                 *pcData=(char)'°';
@@ -382,10 +382,10 @@ void LCD1602_vBackspace(uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin, 
     {
         if(((*pu8Column)!=u8WidthMin) || ((*pu8Row)!=u8HeightMin))
         {
-            if(((*pu8Column)!=u8WidthMin)) //si la u8Column encuentra entre 1 y 15 puede disminuir uno
+            if(((*pu8Column)!=u8WidthMin)) /*si la u8Column encuentra entre 1 y 15 puede disminuir uno*/
                 (*pu8Column)--;
             else
-                if(((*pu8Row)!=u8HeightMin)) //si la u8Column es 0 entonces checa si existen u8Rows que disminuir
+                if(((*pu8Row)!=u8HeightMin)) /*si la u8Column es 0 entonces checa si existen u8Rows que disminuir*/
                 {
                     (*pu8Column)=u8HeightMax;
                     (*pu8Row)--;
@@ -429,15 +429,15 @@ LCD1602_nSTATUS LCD1602_enAdreesLimitSection(LCD1602_SET_ADDRESS_TypeDef penFunc
     {
         (*pu8Column)++;
         enStatus= LCD1602_enSTATUS_OK;
-        if((*pu8Column)>u8WidthMax) //si la columna es 0 indica que empieza una nueva fila
+        if((*pu8Column)>u8WidthMax) /*si la columna es 0 indica que empieza una nueva fila*/
         {
             (*pu8Column)=u8WidthMin;
-            (*pu8Row)++; //invierte el valor e fila para que se reinciie
+            (*pu8Row)++;/*invierte el valor e fila para que se reinciie*/
             if((*pu8Row)>(u8HeightMax))
                 (*pu8Row)=u8HeightMin;
             if(0!=penFunctionSetAddress)
             {
-                enStatus= penFunctionSetAddress(*pu8Column,*pu8Row); //pone el cursor en 0,x
+                enStatus= penFunctionSetAddress(*pu8Column,*pu8Row);/*pone el cursor en 0,x*/
             }
         }
     }
@@ -455,9 +455,9 @@ LCD1602_nSTATUS LCD1602__enWriteGCRam(const char* pcChar, uint8_t u8Address)
     uint8_t u8Iter=0;
     if((uint32_t)0 != (uint32_t)pcChar)
     {
-        if( u8Address<=7) //solo tiene espacio para guardar 8 caracteres
+        if( u8Address<=7) /*solo tiene espacio para guardar 8 caracteres*/
         {
-            enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)((uint8_t)LCD1602_enGCRAM+(u8Address<<3))); // 01xx xddd x=caracter d=posicion
+            enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)((uint8_t)LCD1602_enGCRAM+(u8Address<<3)));/* 01xx xddd x=caracter d=posicion*/
             if(LCD1602_enSTATUS_OK == enStatus)
             {
                 while(u8Iter<8)
@@ -622,8 +622,8 @@ LCD1602_nSTATUS LCD1602__enWriteStringBufferSection_Secure(char* pcBuffer, char*
                 while((0!=*pcString) && (u8MaxCount>(*pu8Count)))
                 {
                     pcBuffer[(LCD1602_COLUMN_MAX*(*pu8Row))+(*pu8Column)]=*pcString;
-                    pcString++; //el puntero apunta al siguiente caracter
-                    (*pu8Count)++; //suma 1 al count total de caracter enviados a la LCD
+                    pcString++;/*el puntero apunta al siguiente caracter*/
+                    (*pu8Count)++;/*suma 1 al count total de caracter enviados a la LCD*/
                     enStatus=LCD1602_enAdreesBufferLimitSection(pu8Column, pu8Row,u8WidthMin,u8WidthMax,u8HeightMin,u8HeightMax);
                     if(LCD1602_enSTATUS_ERROR == enStatus)
                     {
@@ -767,7 +767,7 @@ LCD1602_nSTATUS LCD1602__enClearScreen(uint8_t* pu8Buffer)
 {
     (void)pu8Buffer;
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR)); //limpia la pantalla
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR));/*limpia la pantalla*/
     LCD1602__vDelay(1640);
     return enStatus;
 }
@@ -775,7 +775,7 @@ LCD1602_nSTATUS LCD1602__enClearScreen(uint8_t* pu8Buffer)
 LCD1602_nSTATUS LCD1602__enClearScreenDirect(void)
 {
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
-    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR)); //limpia la pantalla
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enCLEAR));/*limpia la pantalla*/
     LCD1602__vDelay(1640);
     return enStatus;
 }
@@ -894,8 +894,8 @@ LCD1602_nSTATUS LCD1602__enWriteStringScreenSection_Secure(char* pcBuffer,char* 
                     while((0!=*pcString) && (u8MaxCount>(*pu8Count)))
                     {
                         enStatus=LCD1602_enWriteChar((uint8_t)*pcString);
-                        pcString++; //el puntero apunta al siguiente caracter
-                        (*pu8Count)++; //suma 1 al count total de caracter enviados a la LCD
+                        pcString++;/*el puntero apunta al siguiente caracter*/
+                        (*pu8Count)++;/*suma 1 al count total de caracter enviados a la LCD*/
                         if(LCD1602_enSTATUS_ERROR == enStatus)
                         {
                             break;
@@ -1105,7 +1105,7 @@ LCD1602_nSTATUS LCD1602__enPrintSection_Secure(char* pcString,uint8_t* pu8Column
                         }
                     }
                     break;
-                case '\e':
+                case 0x1B: /* 0x1b is a scape in ascci \e is violating MISRA 4.1*/
                     *penFinish=LCD1602_enFINISH;
                     break;
                 case '\f':
@@ -1135,8 +1135,8 @@ LCD1602_nSTATUS LCD1602__enPrintSection_Secure(char* pcString,uint8_t* pu8Column
                     }
                     break;
                 }
-                pcStringAux++; //el puntero apunta al siguiente caracter
-                (*pu8Count)++; //suma 1 al count total de caracter enviados a la LCD
+                pcStringAux++;/*el puntero apunta al siguiente caracter*/
+                (*pu8Count)++;/*suma 1 al count total de caracter enviados a la LCD*/
                 if(LCD1602_enFINISH == *penFinish)
                 {
                     break;
@@ -1182,9 +1182,11 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
     char cValueARGChar=0;
     double fValueARGFloat=0;
     void*   vValueARGPointer=0;
-    char cNumberConv[40];
+    char cNumberConv[40]={0};
     char* pcStringAux=0;
-    char* cNumberConversion=cNumberConv;
+    char* cNumberConversion=0;
+
+    cNumberConversion=cNumberConv;
     va_start(ap, u8HeightMax);
 
     if(((uint32_t)0!=(uint32_t)pu8Column) && ((uint32_t)0!=(uint32_t)pu8Row) && ((uint32_t)0!=(uint32_t)pcString) && ((uint32_t)0!=(uint32_t)pu8Count))
@@ -1296,7 +1298,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                             CONV__u8UIntToString((uint64_t)u64ValueARGInteger,cNumberConversion);
                         default:
                             cNumberConversion=cNumberConv;
-                            pcStringAux-=3; //1 for % other for 'l' other for 'l'
+                            pcStringAux-=3;/*1 for % other for 'l' other for 'l'*/
                             cNumberConversion[0]=*pcStringAux;
                             cNumberConversion[1]=0;
                             break;
@@ -1316,7 +1318,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
                         CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
                     default:
                         cNumberConversion=cNumberConv;
-                        pcStringAux-=2; //1 for % other for 'l'
+                        pcStringAux-=2;/*1 for % other for 'l'*/
                         cNumberConversion[0]=*pcStringAux;
                         cNumberConversion[1]=0;
                         break;
@@ -1341,7 +1343,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(char* pcString,uint8_t* pu8Column, uint
             if(LCD1602_enSTATUS_OK == enStatus)
             {
                 *pu8Count+=(u8CounterAux);
-                pcStringAux++; //el puntero apunta al siguiente caracter
+                pcStringAux++;/*el puntero apunta al siguiente caracter*/
             }
             if(LCD1602_enFINISH == enFinish)
             {
@@ -1366,8 +1368,10 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
     char cValueARGChar=0;
     double fValueARGFloat=0;
     void*   vValueARGPointer=0;
-    char cNumberConv[30];
-    char* cNumberConversion=cNumberConv;
+    char cNumberConv[30]= {0};
+    char* cNumberConversion=0;
+
+    cNumberConversion=cNumberConv;
     va_start(ap, pu8Count);
 
     if(((uint32_t)0!=(uint32_t)pu8Column) && ((uint32_t)0!=(uint32_t)pu8Row) && ((uint32_t)0!=(uint32_t)pcString) && ((uint32_t)0!=(uint32_t)pu8Count))
@@ -1447,7 +1451,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                         }
                     }
                     break;
-                case '\e':
+                case 0x1B:
                     enFinish=LCD1602_enFINISH;
                     break;
                 case '\f':
@@ -1540,7 +1544,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                                 CONV__u8UIntToString((uint64_t)u64ValueARGInteger,cNumberConversion);
                             default:
                                 cNumberConversion=cNumberConv;
-                                pcString-=3; //1 for % other for 'l' other for 'l'
+                                pcString-=3;/*1 for % other for 'l' other for 'l'*/
                                 cNumberConversion[0]=*pcString;
                                 cNumberConversion[1]=0;
                                 break;
@@ -1560,7 +1564,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                             CONV__u8UIntToString((uint32_t)u32ValueARGInteger,cNumberConversion);
                         default:
                             cNumberConversion=cNumberConv;
-                            pcString-=2; //1 for % other for 'l'
+                            pcString-=2;/*1 for % other for 'l'*/
                             cNumberConversion[0]=*pcString;
                             cNumberConversion[1]=0;
                             break;
@@ -1594,8 +1598,8 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
                     }
                     break;
                 }
-                pcString++; //el puntero apunta al siguiente caracter
-                (*pu8Count)++; //suma 1 al count total de caracter enviados a la LCD
+                pcString++;/*el puntero apunta al siguiente caracter*/
+                (*pu8Count)++;/*suma 1 al count total de caracter enviados a la LCD*/
                 if(LCD1602_enFINISH == enFinish)
                 {
                     break;
@@ -1607,4 +1611,4 @@ LCD1602_nSTATUS LCD1602__enPrintf(char* pcString,uint8_t* pu8Column, uint8_t* pu
     return enStatus;
 }
 
-//End Of File
+/*End Of File*/

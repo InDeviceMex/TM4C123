@@ -1,63 +1,85 @@
 /**
- * @file EEPROM_Intrinsics.c
- * @brief This files is part of EEPROM Peripheral Driver.
- * This File contains all the basics functions of EEPROM Fucntionality
- * @date 16 jun. 2020
- * @author Vyldram
- * @copyright InDeviceMex 2020
- * @remarks File required to obtain the Full functionality.
+ * Include Files
  */
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
 
-static uint32_t EEPROM_u32WorldCount=0;
-static uint32_t EEPROM_u32BlockCount=0; //block of 16World
 
-uint32_t EEPROM__u32GetWorldCount(void)
+
+
+
+/**
+ * Static Global variables
+ */
+
+/**
+ * Max Number of World (32bits) inside the EEPROM peripheral
+ */
+static uint32_t EEPROM_u32WorldCount = 0;
+
+/**
+ * Max Number of 16 World Blocks (16*32bits) inside the EEPROM peripheral
+ */
+static uint32_t EEPROM_u32BlockCount = 0;
+
+
+
+
+
+/**
+ *
+ * Local Definitions
+ */
+#define EEPROM_TIMEOUT_MAX (500000u)
+
+
+
+
+/**
+ *  Global Functions
+ */
+
+uint32_t EEPROM__u32GetWorldCount (void)
 {
-    return EEPROM_u32WorldCount;
+    return ((uint32_t) EEPROM_u32WorldCount);
 }
 
-
-void EEPROM__vInitWorldCount(void)
+void EEPROM__vInitWorldCount (void)
 {
     EEPROM_u32WorldCount = EEPROM_EESIZE_R & EEPROM_EESIZE_R_WORDCNT_MASK;
 }
 
-
-
-uint32_t EEPROM__u32GetBlockCount(void)
+uint32_t EEPROM__u32GetBlockCount (void)
 {
-    return EEPROM_u32BlockCount;
+    return (uint32_t) EEPROM_u32BlockCount;
 }
 
 void EEPROM__vInitBlockCount(void)
 {
-    EEPROM_u32BlockCount= (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK)>>EEPROM_EESIZE_R_BLKCNT_BIT;
+    EEPROM_u32BlockCount = (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK) >> EEPROM_EESIZE_R_BLKCNT_BIT;
 }
 
-
-EEPROM_nSTATUS EEPROM__enGetStatus(void)
+EEPROM_nSTATUS EEPROM__enGetStatus (void)
 {
-    EEPROM_nSTATUS enReturn =EEPROM_enOK;
-    if(EEPROM_EEDONE_R_WORKING_EN==(EEPROM_EEDONE_R & EEPROM_EEDONE_R_WORKING_MASK))
+    EEPROM_nSTATUS enReturn = EEPROM_enOK;
+    if(EEPROM_EEDONE_R_WORKING_EN == (EEPROM_EEDONE_R & EEPROM_EEDONE_R_WORKING_MASK))
     {
-        enReturn =EEPROM_enBUSY;
+        enReturn = EEPROM_enBUSY;
     }
 
-    return enReturn;
+    return (EEPROM_nSTATUS) enReturn;
 
 }
 
-
-EEPROM_nSTATUS EEPROM__enWait(void)
+EEPROM_nSTATUS EEPROM__enWait (void)
 {
-    uint32_t u32TimeOut = 500000;
-    EEPROM_nSTATUS enReturn =EEPROM_enERROR;
+    uint32_t u32TimeOut = EEPROM_TIMEOUT_MAX;
+    EEPROM_nSTATUS enReturn = EEPROM_enERROR;
 
     do
     {
-        enReturn=EEPROM__enGetStatus();
+        enReturn = EEPROM__enGetStatus();
         u32TimeOut--;
-    }while((EEPROM_enBUSY == enReturn) && (0!=u32TimeOut));
-    return enReturn;
+    }while((EEPROM_enBUSY == (EEPROM_nSTATUS) enReturn) && ((uint32_t)0 != u32TimeOut));
+    return (EEPROM_nSTATUS) enReturn;
 }
+/* End File*/

@@ -13,7 +13,7 @@ static uint32_t SysTick_u32TickCount=0;
 
 void SysTick__vClearTickCount(void)
 {
-    SysTick_u32TickCount=0;
+    SysTick_u32TickCount=(uint32_t)0;
 }
 
 void SysTick__vSetTickCount(uint32_t u32Tick)

@@ -19,7 +19,7 @@ FPU_nPRESERVATION_STATUS FPU__enGetLazyPreservationStatus(void)
     u32Reg>>=FPU_FPCCR_R_LSPACT_BIT;
     u32Reg&=FPU_FPCCR_LSPACT_MASK;
     enReturn= (FPU_nPRESERVATION_STATUS)u32Reg;
-    return enReturn;
+    return (FPU_nPRESERVATION_STATUS) enReturn;
 }
 
 
@@ -31,7 +31,7 @@ FPU_nLAZY_PRESERVATION FPU__enGetLazyPreservation(void)
     u32Reg>>=FPU_FPCCR_R_LSPEN_BIT;
     u32Reg&=FPU_FPCCR_LSPEN_MASK;
     enReturn= (FPU_nLAZY_PRESERVATION)u32Reg;
-    return enReturn;
+    return (FPU_nLAZY_PRESERVATION) enReturn;
 }
 void FPU__vSetLazyPreservation(FPU_nLAZY_PRESERVATION enAuto)
 {

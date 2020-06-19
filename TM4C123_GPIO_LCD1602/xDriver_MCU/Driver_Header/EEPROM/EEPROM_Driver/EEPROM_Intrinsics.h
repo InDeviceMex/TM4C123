@@ -1,8 +1,9 @@
 /**
- * @file EEPROM_Intrinsics.h
- * @ingroup EEPROM Driver
+ *
+ * @file EEPROM_Intrinsics.c
+ * @ingroup Peripheral Driver
  * @brief This files is part of EEPROM Peripheral Driver.
- * This File contains the Intrinsics Functionality.
+ * This File contains the Utilities Functions
  *
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
@@ -24,8 +25,8 @@
  * Date           Author     Version     Description
  * 2020.06.17     Vyldram    1.0         initial Version@endverbatim
  *
- * @remarks This files is used in all EEPROM Driver files.
- * @remarks Any further functionality generic of the Module needs to be implemented here
+ * @remarks File required to Initialize EEPROM peripheral Correctly.
+ * @remarks Any further functionality required to Initialize the Module needs to be implemented here
  */
 
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_INTRINSICS_H_

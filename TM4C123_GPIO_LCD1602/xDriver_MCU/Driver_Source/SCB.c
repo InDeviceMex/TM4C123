@@ -15,6 +15,8 @@ void MemoryFault_vISR(void);
 void HardFault_vISR(void);
 void SVCall_vISR(void);
 
+#define SCB_vBarrier() {__asm(" DSB");}
+
 
 inline void SCB_PENDSV__vSetPending(void)
 {
@@ -96,15 +98,15 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
     uint32_t u32Count=0;
 
     u32Offset&=~0x3FF;
-    if(u32Offset<0x00010000)
+    if(u32Offset<0x00010000u)
     {
-        FLASH__enWriteMultiWorld((uint32_t*)SCB_VTOR_R,u32Offset,0x100);
+        FLASH__enWriteMultiWorld((uint32_t*)SCB_VTOR_R,u32Offset,0x100u);
         __asm(" cpsid i");
         SCB_VTOR_R= u32Offset;
-        __asm(" DSB");
+        SCB_vBarrier();
         __asm(" cpsie i");
     }
-    else if((u32Offset>=0x20000000) && (u32Offset<=0x20000400))
+    else if((u32Offset>=0x20000000u) && (u32Offset<=0x20000400u))
     {
         pu32Flash=(const uint32_t*)SCB_VTOR_R;
         pu32Ram=(uint32_t*)u32Offset;
@@ -116,7 +118,7 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
         }
         __asm(" cpsid i");
         SCB_VTOR_R= u32Offset;
-        __asm(" DSB");
+        SCB_vBarrier();
         __asm(" cpsie i");
     }
 
@@ -130,9 +132,9 @@ inline void SCB__vReqSysReset(void)
     {
         u32Reg&=~SCB_AIRCR_R_VECTKEY_MASK;
         u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_VECTRESET_NOUSE;
-        __asm(" DSB");
+        SCB_vBarrier();
         SCB_AIRCR_R=u32Reg;
-        __asm(" DSB");
+        SCB_vBarrier();
 
         while(1)
         {
@@ -150,9 +152,9 @@ inline void SCB__vReqSysReset_Peripheral(void)
     {
         u32Reg&=~SCB_AIRCR_R_VECTKEY_MASK;
         u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_SYSRESETREQ_RESET;
-        __asm(" DSB");
+        SCB_vBarrier();
         SCB_AIRCR_R=u32Reg;
-        __asm(" DSB");
+        SCB_vBarrier();
 
         while(1)
         {
@@ -171,30 +173,30 @@ SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup)
     {
         case SCB_enPRIGROUP_XXX:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_XXX;
-            __asm(" DSB");
+            SCB_vBarrier();
             SCB_AIRCR_R=u32Reg;
-            __asm(" DSB");
+            SCB_vBarrier();
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_XXY:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_XXY;
-            __asm(" DSB");
+            SCB_vBarrier();
             SCB_AIRCR_R=u32Reg;
-            __asm(" DSB");
+            SCB_vBarrier();
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_XYY:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_XYY;
-            __asm(" DSB");
+            SCB_vBarrier();
             SCB_AIRCR_R=u32Reg;
-            __asm(" DSB");
+            SCB_vBarrier();
             enReturn=SCB_enOK;
             break;
         case SCB_enPRIGROUP_YYY:
             u32Reg|=SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_PRIGROUP_YYY;
-            __asm(" DSB");
+            SCB_vBarrier();
             SCB_AIRCR_R=u32Reg;
-            __asm(" DSB");
+            SCB_vBarrier();
             enReturn=SCB_enOK;
             break;
         default:
@@ -357,9 +359,9 @@ inline void SCB_UsageFault__vSetPriority(SCB_nSHPR enPriority)
     uint32_t u32Reg=SCB_SHPR1_R;
     u32Reg&=~SCB_SHPR1_R_USAGE_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR1_USAGE_MASK)<<SCB_SHPR1_R_USAGE_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR1_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
 SCB_nSHPR SCB_UsageFault__enGetPriority(void)
 {
@@ -375,9 +377,9 @@ inline void SCB_BusFault__vSetPriority(SCB_nSHPR enPriority)
     uint32_t u32Reg=SCB_SHPR1_R;
     u32Reg&=~SCB_SHPR1_R_BUS_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR1_BUS_MASK)<<SCB_SHPR1_R_BUS_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR1_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
 SCB_nSHPR SCB_BusFault__enGetPriority(void)
 {
@@ -393,9 +395,9 @@ inline void SCB_MemoryFault__vSetPriority(SCB_nSHPR enPriority)
     uint32_t u32Reg=SCB_SHPR1_R;
     u32Reg&=~SCB_SHPR1_R_MEM_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR1_MEM_MASK)<<SCB_SHPR1_R_MEM_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR1_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
 SCB_nSHPR SCB_MemoryFault__enGetPriority(void)
 {
@@ -411,9 +413,9 @@ inline void SCB_SVCall__vSetPriority(SCB_nSHPR enPriority)
     uint32_t u32Reg=SCB_SHPR2_R;
     u32Reg&=~SCB_SHPR2_R_SVCALL_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR2_SVCALL_MASK)<<SCB_SHPR2_R_SVCALL_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR2_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
 SCB_nSHPR SCB_SVCall__enGetPriority(void)
 {
@@ -429,9 +431,9 @@ inline void SCB_SysTick__vSetPriority(SCB_nSHPR enPriority)
     uint32_t u32Reg=SCB_SHPR3_R;
     u32Reg&=~SCB_SHPR3_R_SYSTICK_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR3_SYSTICK_MASK)<<SCB_SHPR3_R_SYSTICK_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR3_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
 SCB_nSHPR SCB_SysTick__enGetPriority(void)
 {
@@ -448,9 +450,9 @@ inline void SCB_PENDSV__vSetPriority(SCB_nSHPR enPriority)
     uint32_t u32Reg=SCB_SHPR3_R;
     u32Reg&=~SCB_SHPR3_R_PENDSV_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR3_PENDSV_MASK)<<SCB_SHPR3_R_PENDSV_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR3_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
 SCB_nSHPR SCB_PENDSV__enGetPriority(void)
 {
@@ -461,15 +463,17 @@ SCB_nSHPR SCB_PENDSV__enGetPriority(void)
     enReturn=(SCB_nSHPR)(u32Reg);
     return enReturn;
 }
-inline void SCB_DEBUG__vSetPriority(SCB_nSHPR enPriority)
+
+void SCB_DEBUG__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
     u32Reg&=~SCB_SHPR3_R_DEBUG_MASK;
     u32Reg|=((uint32_t)enPriority &SCB_SHPR3_DEBUG_MASK)<<SCB_SHPR3_R_DEBUG_BIT;
-    __asm(" DSB");
+    SCB_vBarrier();
     SCB_SHPR3_R=u32Reg;
-    __asm(" DSB");
+    SCB_vBarrier();
 }
+
 SCB_nSHPR SCB_DEBUG__enGetPriority(void)
 {
     SCB_nSHPR enReturn= SCB_enSHPR0;
@@ -602,7 +606,7 @@ inline void SCB__vEnableTraps(void)
 
 inline void SCB__vInit(void)
 {
-    SCB__vSetVectorOffset(0x20000000);
+    SCB__vSetVectorOffset(0x20000000u);
     SCB__vRegisterISR(NMI_vISR,SCB_enVECISR_NMI);
     SCB__vRegisterISR(PendSV_vISR,SCB_enVECISR_PENDSV);
     SCB__vRegisterISR(UsageFault_vISR,SCB_enVECISR_USAGEFAULT);
@@ -622,13 +626,13 @@ void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
 
     if((uint32_t)Isr !=0)
     {
-        if(u32BaseVector<=0x00010000)
+        if(u32BaseVector<=0x00010000u)
         {
             __asm(" cpsid i");
             FLASH__enWriteWorld((uint32_t)Isr|1,u32BaseVector+((uint32_t)enVector*4));
             __asm(" cpsie i");
         }
-        else if((u32BaseVector>=0x20000000) && (u32BaseVector<=0x20000400) )
+        else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
         {
             *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)Isr|1;
         }
@@ -640,13 +644,13 @@ void SCB__vUnRegisterISR(SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 
-    if(u32BaseVector<=0x00010000)
+    if(u32BaseVector<=0x00010000u)
     {
         __asm(" cpsid i");
         FLASH__enWrite((uint32_t)IntDefaultHandler|1,u32BaseVector+((uint32_t)enVector*4));
         __asm(" cpsie i");
     }
-    else if((u32BaseVector>=0x20000000) && (u32BaseVector<=0x20000400) )
+    else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
     {
         *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)IntDefaultHandler|1;
     }
@@ -659,7 +663,7 @@ void SCB__vUnRegisterISR(SCB_nVECISR enVector)
  */
 typedef enum
 {
-    ISR_enR0=0,
+    ISR_enR0=0u,
     ISR_enR1,
     ISR_enR2,
     ISR_enR3,
@@ -672,13 +676,13 @@ typedef enum
 
 void NMI_vISR(void)
 {
-    //use for GPIO activation
+    /*use for GPIO activation*/
     while(1);
 }
 
 void PendSV_vISR(void)
 {
-    //context switch, lower priority
+    /*context switch, lower priority*/
     while(1);
 }
 
@@ -695,21 +699,21 @@ void UsageFault_vISR(void)
     " ldr R2, =SCB_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
-    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " str R1, [R2, #0x0]\n"/*SCB_pu32Context[0] R0*/
     " ldr R1, [R0, #0x4]\n"
-    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " str R1, [R2, #0x4]\n"/*SCB_pu32Context[1] R1*/
     " ldr R1, [R0, #0x8]\n"
-    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " str R1, [R2, #0x8]\n"/*SCB_pu32Context[2] R2*/
     " ldr R1, [R0, #0xC]\n"
-    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " str R1, [R2, #0xC]\n"/*SCB_pu32Context[3] R3*/
     " ldr R1, [R0, #0x10]\n"
-    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " str R1, [R2, #0x10]\n"/*SCB_pu32Context[4] R12*/
     " ldr R1, [R0, #0x14]\n"
-    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " str R1, [R2, #0x14]\n"/*SCB_pu32Context[5] LR*/
     " ldr R1, [R0, #0x18]\n"
-    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " str R1, [R2, #0x18]\n"/*SCB_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
-    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    " str R1, [R2, #0x1C]\n");/*SCB_pu32Context[7] PSR*/
     SCB_u16UsageFault =SCB_UCFSR_R;
     switch(SCB_u16UsageFault)
     {
@@ -733,7 +737,7 @@ void BusFault_vISR(void)
 {
 
     uint8_t SCB_u8BusFault=0;
-    //uint32_t SCB_u32MemoryBus=0;
+    /*uint32_t SCB_u32MemoryBus=0;*/
     __asm(
     " MRS R0, MSP\n"
 #if defined ( __TI_ARM__ )
@@ -743,25 +747,25 @@ void BusFault_vISR(void)
     " ldr R2, =SCB_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
-    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " str R1, [R2, #0x0]\n"/*SCB_pu32Context[0] R0*/
     " ldr R1, [R0, #0x4]\n"
-    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " str R1, [R2, #0x4]\n"/*SCB_pu32Context[1] R1*/
     " ldr R1, [R0, #0x8]\n"
-    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " str R1, [R2, #0x8]\n"/*SCB_pu32Context[2] R2*/
     " ldr R1, [R0, #0xC]\n"
-    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " str R1, [R2, #0xC]\n"/*SCB_pu32Context[3] R3*/
     " ldr R1, [R0, #0x10]\n"
-    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " str R1, [R2, #0x10]\n"/*SCB_pu32Context[4] R12*/
     " ldr R1, [R0, #0x14]\n"
-    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " str R1, [R2, #0x14]\n"/*SCB_pu32Context[5] LR*/
     " ldr R1, [R0, #0x18]\n"
-    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " str R1, [R2, #0x18]\n"/*SCB_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
-    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    " str R1, [R2, #0x1C]\n");/*SCB_pu32Context[7] PSR*/
     SCB_u8BusFault =SCB_BCFSR_R;
     if((SCB_u8BusFault & (uint8_t)SCB_enBCFSR_BFARVALID) == (uint8_t)SCB_enBCFSR_BFARVALID)
     {
-        //SCB_u32MemoryBus=SCB_BFAR_R;
+        /*SCB_u32MemoryBus=SCB_BFAR_R;*/
         SCB_u8BusFault&=~SCB_enBCFSR_BFARVALID;
     }
 
@@ -787,7 +791,7 @@ void MemoryFault_vISR(void)
 {
 
     uint8_t SCB_u8MemFault=0;
-    //uint32_t SCB_u32MemoryMem=0;
+    /*uint32_t SCB_u32MemoryMem=0;*/
     __asm(
     " MRS R0, MSP\n"
 #if defined ( __TI_ARM__ )
@@ -797,25 +801,25 @@ void MemoryFault_vISR(void)
     " ldr R2, =SCB_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
-    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " str R1, [R2, #0x0]\n"/*SCB_pu32Context[0] R0*/
     " ldr R1, [R0, #0x4]\n"
-    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " str R1, [R2, #0x4]\n"/*SCB_pu32Context[1] R1*/
     " ldr R1, [R0, #0x8]\n"
-    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " str R1, [R2, #0x8]\n"/*SCB_pu32Context[2] R2*/
     " ldr R1, [R0, #0xC]\n"
-    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " str R1, [R2, #0xC]\n"/*SCB_pu32Context[3] R3*/
     " ldr R1, [R0, #0x10]\n"
-    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " str R1, [R2, #0x10]\n"/*SCB_pu32Context[4] R12*/
     " ldr R1, [R0, #0x14]\n"
-    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " str R1, [R2, #0x14]\n"/*SCB_pu32Context[5] LR*/
     " ldr R1, [R0, #0x18]\n"
-    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " str R1, [R2, #0x18]\n"/*SCB_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
-    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    " str R1, [R2, #0x1C]\n");/*SCB_pu32Context[7] PSR*/
     SCB_u8MemFault =SCB_MCFSR_R;
     if((SCB_u8MemFault & (uint8_t)SCB_enMCFSR_MMARVALID) == (uint8_t)SCB_enMCFSR_MMARVALID)
     {
-        //SCB_u32MemoryMem=SCB_MMFAR_R;
+        /*SCB_u32MemoryMem=SCB_MMFAR_R;*/
         SCB_u8MemFault&=~SCB_enMCFSR_MMARVALID;
     }
 
@@ -846,23 +850,24 @@ void HardFault_vISR(void)
     " ldr R2, =SCB_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
-    " str R1, [R2, #0x0]\n"//SCB_pu32Context[0] R0
+    " str R1, [R2, #0x0]\n"/*SCB_pu32Context[0] R0*/
     " ldr R1, [R0, #0x4]\n"
-    " str R1, [R2, #0x4]\n"//SCB_pu32Context[1] R1
+    " str R1, [R2, #0x4]\n"/*SCB_pu32Context[1] R1*/
     " ldr R1, [R0, #0x8]\n"
-    " str R1, [R2, #0x8]\n"//SCB_pu32Context[2] R2
+    " str R1, [R2, #0x8]\n"/*SCB_pu32Context[2] R2*/
     " ldr R1, [R0, #0xC]\n"
-    " str R1, [R2, #0xC]\n"//SCB_pu32Context[3] R3
+    " str R1, [R2, #0xC]\n"/*SCB_pu32Context[3] R3*/
     " ldr R1, [R0, #0x10]\n"
-    " str R1, [R2, #0x10]\n"//SCB_pu32Context[4] R12
+    " str R1, [R2, #0x10]\n"/*SCB_pu32Context[4] R12*/
     " ldr R1, [R0, #0x14]\n"
-    " str R1, [R2, #0x14]\n"//SCB_pu32Context[5] LR
+    " str R1, [R2, #0x14]\n"/*SCB_pu32Context[5] LR*/
     " ldr R1, [R0, #0x18]\n"
-    " str R1, [R2, #0x18]\n"//SCB_pu32Context[6] PC
+    " str R1, [R2, #0x18]\n"/*SCB_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
-    " str R1, [R2, #0x1C]\n");//SCB_pu32Context[7] PSR
+    " str R1, [R2, #0x1C]\n");/*SCB_pu32Context[7] PSR*/
     while(1);
 }
+
 void SVCall_vISR(void)
 {
     while(1);

@@ -16,7 +16,7 @@ FPU_nHALF_PRECISION FPU__enGetHalfPrecision(void)
     u32Reg>>=FPU_FPDSCR_R_AHP_BIT;
     u32Reg&=FPU_FPDSCR_AHP_MASK;
     enReturn= (FPU_nHALF_PRECISION)u32Reg;
-    return enReturn;
+    return (FPU_nHALF_PRECISION) enReturn;
 }
 
 /*ToDo use the correct register. FPSCR instead FPDSCR*/

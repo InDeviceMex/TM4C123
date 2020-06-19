@@ -16,7 +16,7 @@
 
 #define PRINF_DEFAULT_FLOAT_PRECISION (6U)
 #define PRINF_MAX_VALUE_FLOAT         (1e9)
-// internal conv flag definitions
+/* internal conv flag definitions*/
 typedef enum
 {
 

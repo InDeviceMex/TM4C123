@@ -8,7 +8,7 @@
 #include "EEPROM.h"
 
 uint32_t EEPROM_u32WorldCount=0;
-uint32_t EEPROM_u32BlockCount=0; //block of 16World
+uint32_t EEPROM_u32BlockCount=0;/*block of 16World*/
 
 
 EEPROM_nSTATUS EEPROM__enInit(void)
@@ -17,7 +17,7 @@ EEPROM_nSTATUS EEPROM__enInit(void)
     SYSCTL__vResetPeripheral(SYSCTL_enEEPROM);
     SYSCTL__vDisRunModePeripheral(SYSCTL_enEEPROM);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enEEPROM);
-    //NVIC__enSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);
+    /*NVIC__enSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);*/
 
     EEPROM_u32WorldCount = EEPROM_EESIZE_R & EEPROM_EESIZE_R_WORDCNT_MASK;
     EEPROM_u32BlockCount= (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK)>>EEPROM_EESIZE_R_BLKCNT_BIT;
@@ -69,8 +69,8 @@ EEPROM_nSTATUS EEPROM__enWriteWorld(uint32_t u32Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     if((u32MaxAddress )> u32Address )
     {
         EEPROM_EEBLOCK_R=u32Block;
@@ -87,8 +87,8 @@ EEPROM_nSTATUS EEPROM__enWriteHalfWorld(uint16_t u16Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     uint32_t u32Pos=(u32Address>>1)&1;
 
     volatile uint32_t u32DataAux=0;
@@ -117,8 +117,8 @@ EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     uint32_t u32Pos=(u32Address)&0x3;
 
     volatile uint32_t u32DataAux=0;
@@ -148,8 +148,8 @@ EEPROM_nSTATUS EEPROM__enReadWorld(uint32_t* pu32Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     if((u32MaxAddress )> u32Address )
     {
         EEPROM_EEBLOCK_R=u32Block;
@@ -166,8 +166,8 @@ EEPROM_nSTATUS EEPROM__enReadHalfWorld(uint16_t* pu16Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     uint32_t u32Pos=(u32Address>>1)&1;
 
     volatile uint32_t u32DataAux=0;
@@ -193,8 +193,8 @@ EEPROM_nSTATUS EEPROM__enReadByte(uint8_t* pu8Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     uint32_t u32Pos=(u32Address)&0x3;
 
     volatile uint32_t u32DataAux=0;
@@ -222,8 +222,8 @@ EEPROM_nSTATUS EEPROM__enWriteWorldBlock(uint32_t* pu32Data,uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn =EEPROM_enERROR;
     uint32_t u32MaxAddress= (EEPROM_u32WorldCount<<2);
-    uint32_t u32Block =(u32Address>>6); //u32Address/16
-    uint32_t u32Offset =(u32Address>>2)&0xF; //First 16 worlds
+    uint32_t u32Block =(u32Address>>6);/*u32Address/16*/
+    uint32_t u32Offset =(u32Address>>2)&0xF;/*First 16 worlds*/
     if((u32MaxAddress )> u32Address )
     {
         EEPROM_EEBLOCK_R=u32Block;

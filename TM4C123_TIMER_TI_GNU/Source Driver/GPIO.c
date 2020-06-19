@@ -66,7 +66,7 @@ void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin)
         }
 
         enPin&=GPIO_enALL;
-        while((u32Pin&0x1) ==0)
+        while((u32Pin&0x1u) ==0)
         {
             u32Count++;
             u32Pin>>=1;
@@ -1104,7 +1104,7 @@ void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,GPIO_CONFIG_Typedef*
         psConfig->enResistorMode=(GPIO_nRESMODE)(((uint32_t)enConfig>>0)&3);
         psConfig->enOutputMode=(GPIO_nOUTMODE)(((uint32_t)enConfig>>4)&1);
         psConfig->enDirection=(GPIO_nDIR)(((uint32_t)enConfig>>8)&1);
-        psConfig->enDrive=(GPIO_nDRIVE)(((uint32_t)enConfig>>16)&0x0103);
+        psConfig->enDrive=(GPIO_nDRIVE)(((uint32_t)enConfig>>16)&0x0103u);
     }
 }
 
@@ -1122,7 +1122,7 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
         psConfig->enResistorMode=(GPIO_nRESMODE)(((uint32_t)enConfig>>0)&3);
         psConfig->enOutputMode=(GPIO_nOUTMODE)(((uint32_t)enConfig>>4)&1);
         psConfig->enDirection=(GPIO_nDIR)(((uint32_t)enConfig>>8)&1);
-        psConfig->enDrive=(GPIO_nDRIVE)(((uint32_t)enConfig>>16)&0x0103);
+        psConfig->enDrive=(GPIO_nDRIVE)(((uint32_t)enConfig>>16)&0x0103u);
     }
     return psConfig;
 }

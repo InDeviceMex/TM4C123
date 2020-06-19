@@ -11,14 +11,14 @@
 
 typedef enum
 {
-    SysTick_enOK=0,
-    SysTick_enERROR=1,
+    SysTick_enOK=0u,
+    SysTick_enERROR=1u,
 }SysTick_nSTATUS;
 
 typedef enum
 {
-    SysTick_enPIOSC4=0,
-    SysTick_enSYSCLK=1,
+    SysTick_enPIOSC4=0u,
+    SysTick_enSYSCLK=1u,
 }SysTick_nCLKSOURCE;
 
 

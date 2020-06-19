@@ -17,4 +17,4 @@
 
 void FPU__vInit(void);
 
-#endif // HEADER_DRIVER_FPU_H_ //
+#endif /* HEADER_DRIVER_FPU_H_ */

@@ -15,6 +15,9 @@ uint32_t SYSCTL_u32FreqXtal[27]=
   20000000,24000000,25000000
 };
 
+#define SYSCTL_vNoOperation()   {__asm(" NOP");}
+
+
 
 SYSCTL_nRESET SYSCTL__enGetResetCause(void)
 {
@@ -158,7 +161,7 @@ uint32_t SYSCTL__u32GetClock(void)
                     /*Noithing to do*/
                 }
             }
-            else //PLL
+            else /*PLL*/
             {
                 /*Verify if PLL is enable*/
                 if(SYSCTL_RCC2_R_PWRDN2_ON==(u32RegRCC2&SYSCTL_RCC2_R_PWRDN2_MASK))
@@ -397,33 +400,33 @@ SYSCTL_nSTATUS SYSCTL__enInit(void)
      */
     u32Reg=SYSCTL_RCC_R;
     u32Reg&=~SYSCTL_RCC_R_XTAL_MASK;
-    u32Reg|=SYSCTL_RCC_R_XTAL_16MHZ;        //XTAL 16MHz
+    u32Reg|=SYSCTL_RCC_R_XTAL_16MHZ;/*XTAL 16MHz*/
     u32Reg&=~SYSCTL_RCC_R_OSCSRC_MASK;
-    u32Reg|=SYSCTL_RCC_R_OSCSRC_PIOSC;      //PIOSC OscillatorSource
-    u32Reg|=SYSCTL_RCC_R_BYPASS_MASK;       //Bypass PIOSC
-    u32Reg&=~SYSCTL_RCC_R_USESYSDIV_MASK;   //PIOSC SYSCLK undivided
-    u32Reg&=~SYSCTL_RCC_R_USEPWMDIV_MASK;   //PIOSC PWMCLK undivided
-    u32Reg&=~SYSCTL_RCC_R_ACG_MASK;         //RCGCn used
-    u32Reg&=~SYSCTL_RCC_R_MOSCDIS_MASK;     //enable MOSC
-    u32Reg&=~SYSCTL_RCC_R_PWRDN_MASK;       //enable PLL
+    u32Reg|=SYSCTL_RCC_R_OSCSRC_PIOSC;/*PIOSC OscillatorSource*/
+    u32Reg|=SYSCTL_RCC_R_BYPASS_MASK;/*Bypass PIOSC*/
+    u32Reg&=~SYSCTL_RCC_R_USESYSDIV_MASK;/*PIOSC SYSCLK undivided*/
+    u32Reg&=~SYSCTL_RCC_R_USEPWMDIV_MASK;/*PIOSC PWMCLK undivided*/
+    u32Reg&=~SYSCTL_RCC_R_ACG_MASK;/*RCGCn used*/
+    u32Reg&=~SYSCTL_RCC_R_MOSCDIS_MASK;/*enable MOSC*/
+    u32Reg&=~SYSCTL_RCC_R_PWRDN_MASK;/*enable PLL*/
     SYSCTL_RCC_R=u32Reg;
 
-    SYSCTL_RCC_R&=~SYSCTL_RCC_R_OSCSRC_MASK; // MOSC OscillatorSource
+    SYSCTL_RCC_R&=~SYSCTL_RCC_R_OSCSRC_MASK;/* MOSC OscillatorSource*/
 
     /*
      * Select config div prior Enable PLLs
      * XTAL 16MHZ
      */
     u32Reg=SYSCTL_RCC2_R;
-    u32Reg&=~SYSCTL_RCC2_R_OSCSRC2_MASK; // MOSC OscillatorSource
-    u32Reg|=SYSCTL_RCC2_R_BYPASS2_MASK;  //Bypass MOSC
-    u32Reg&=~SYSCTL_RCC2_R_PWRDN2_MASK;  //Enable PLL
-    u32Reg&=~SYSCTL_RCC2_R_USBPWRDN_MASK;  //Enable USBPLL
-    u32Reg&=~SYSCTL_RCC2_R_SYSDIV2LSB_MASK;  //LSB div 0
+    u32Reg&=~SYSCTL_RCC2_R_OSCSRC2_MASK;/* MOSC OscillatorSource*/
+    u32Reg|=SYSCTL_RCC2_R_BYPASS2_MASK;/*Bypass MOSC*/
+    u32Reg&=~SYSCTL_RCC2_R_PWRDN2_MASK;/*Enable PLL*/
+    u32Reg&=~SYSCTL_RCC2_R_USBPWRDN_MASK;/*Enable USBPLL*/
+    u32Reg&=~SYSCTL_RCC2_R_SYSDIV2LSB_MASK;/*LSB div 0*/
     u32Reg&=~SYSCTL_RCC2_R_SYSDIV2_MASK;
-    u32Reg|=(2<<SYSCTL_RCC2_R_SYSDIV2_BIT);  //div 5
-    u32Reg|=SYSCTL_RCC2_R_DIV400_MASK;    //400MHz
-    u32Reg|=SYSCTL_RCC2_R_USERCC2_MASK;    //enable RCC2
+    u32Reg|=(2<<SYSCTL_RCC2_R_SYSDIV2_BIT);/*div 5*/
+    u32Reg|=SYSCTL_RCC2_R_DIV400_MASK;/*400MHz*/
+    u32Reg|=SYSCTL_RCC2_R_USERCC2_MASK;/*enable RCC2*/
     SYSCTL_RCC2_R=u32Reg;
 
 
@@ -480,15 +483,15 @@ void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1F;
 
     SYSCTL->SR[u32NoRegister]|=(1<<u32NoPeripheral);
-    __asm(" NOP");
-    __asm(" NOP");
-    __asm(" NOP");
-    __asm(" NOP");
+    SYSCTL_vNoOperation();
+    SYSCTL_vNoOperation();
+    SYSCTL_vNoOperation();
+    SYSCTL_vNoOperation();
     SYSCTL->SR[u32NoRegister]&=~(1<<u32NoPeripheral);
-    __asm(" NOP");
-    __asm(" NOP");
-    __asm(" NOP");
-    __asm(" NOP");
+    SYSCTL_vNoOperation();
+    SYSCTL_vNoOperation();
+    SYSCTL_vNoOperation();
+    SYSCTL_vNoOperation();
 }
 
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
@@ -500,10 +503,10 @@ void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     if(0==(SYSCTL->RCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->RCGC[u32NoRegister]|=(1<<u32NoPeripheral);
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
         while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
     }
 }
@@ -517,10 +520,10 @@ void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     {
         SYSCTL__vResetPeripheral(enPeripheral);
         SYSCTL->RCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
     }
 }
 
@@ -533,10 +536,10 @@ void SYSCTL__vEnSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     if(0==(SYSCTL->SCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->SCGC[u32NoRegister]|=(1<<u32NoPeripheral);
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
         while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
     }
 }
@@ -549,10 +552,10 @@ void SYSCTL__vDisSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     if((1<<u32NoPeripheral)==(SYSCTL->SCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->SCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
     }
 }
 
@@ -565,10 +568,10 @@ void SYSCTL__vEnDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     if(0==(SYSCTL->DCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->DCGC[u32NoRegister]|=(1<<u32NoPeripheral);
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
         while(0==(SYSCTL->PR[u32NoRegister]&(1<<u32NoPeripheral)));
     }
 }
@@ -581,10 +584,10 @@ void SYSCTL__vDisDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     if((1<<u32NoPeripheral)==(SYSCTL->DCGC[u32NoRegister]&(1<<u32NoPeripheral)))
     {
         SYSCTL->DCGC[u32NoRegister]&=~(1<<u32NoPeripheral);
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
-        __asm(" NOP");
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
+        SYSCTL_vNoOperation();
     }
 }
 

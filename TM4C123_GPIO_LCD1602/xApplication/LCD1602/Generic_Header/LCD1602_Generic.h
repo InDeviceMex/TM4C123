@@ -17,53 +17,53 @@
 
 typedef enum
 {
-    LCD1602_enOK=0,
-    LCD1602_enBUSY=1,
+    LCD1602_enOK=0u,
+    LCD1602_enBUSY=1u,
 }LCD1602_nBUSY;
 
 typedef enum
 {
-    LCD1602_enCONITNUE=0,
-    LCD1602_enFINISH=1,
+    LCD1602_enCONITNUE=0u,
+    LCD1602_enFINISH=1u,
 }LCD1602_nFINISH;
 
 typedef enum
 {
-    LCD1602_enSTATUS_OK=0,
-    LCD1602_enSTATUS_ERROR=1,
+    LCD1602_enSTATUS_OK=0u,
+    LCD1602_enSTATUS_ERROR=1u,
 }LCD1602_nSTATUS;
 
 typedef enum
 {
-    LCD1602_enCLEAR     =0x01, //Clear Screen
-    LCD1602_enHOME      =0x02, //Cursor to Home 0,0
+    LCD1602_enCLEAR     =0x01u, /*Clear Screen*/
+    LCD1602_enHOME      =0x02u, /*Cursor to Home 0,0*/
     /*Next commands could be combined*/
-    LCD1602_ebDecAdd    =0x04, //Decrement Direction in each write
-    LCD1602_enNSDisp    =0x04, //Cursor does not move
-    LCD1602_enSDisp     =0x05, //move cursor 1 position
-    LCD1602_enIncAdd    =0x06, //Increment Direction in each write
+    LCD1602_ebDecAdd    =0x04u, /*Decrement Direction in each write*/
+    LCD1602_enNSDisp    =0x04u, /*Cursor does not move*/
+    LCD1602_enSDisp     =0x05u, /*move cursor 1 position*/
+    LCD1602_enIncAdd    =0x06u, /*Increment Direction in each write*/
     /*Next commands could be combined*/
-    LCD1602_enOFFDisp   =0x08, //Screen OFF
-    LCD1602_enOFFCursor =0x08, //Cursor OFF
-    LCD1602_enOFFBlink  =0x08, //Blinking OFF
-    LCD1602_enONBlink   =0x09, //Blinking ON
-    LCD1602_enONCursor  =0x0A, //Cursor ON
-    LCD1602_enONDisp    =0x0C, //Screen ON
+    LCD1602_enOFFDisp   =0x08u, /*Screen OFF*/
+    LCD1602_enOFFCursor =0x08u, /*Cursor OFF*/
+    LCD1602_enOFFBlink  =0x08u, /*Blinking OFF*/
+    LCD1602_enONBlink   =0x09u, /*Blinking ON*/
+    LCD1602_enONCursor  =0x0Au, /*Cursor ON*/
+    LCD1602_enONDisp    =0x0Cu, /*Screen ON*/
     /*Next commands could be combined*/
-    LCD1602_enCLDisp    =0x10, //Move the cursor to Left, Direction increase 1
-    LCD1602_enCRDisp    =0x14, //Move the cursor to Right, Direction decrease 1
-    LCD1602_enSLDisp    =0x18, //Move all Screen to the Left, Direction not change
-    LCD1602_enSRDisp    =0x1C, //Move all Screen to the Right, Direction not change
+    LCD1602_enCLDisp    =0x10u, /*Move the cursor to Left, Direction increase 1*/
+    LCD1602_enCRDisp    =0x14u, /*Move the cursor to Right, Direction decrease 1*/
+    LCD1602_enSLDisp    =0x18u, /*Move all Screen to the Left, Direction not change*/
+    LCD1602_enSRDisp    =0x1Cu, /*Move all Screen to the Right, Direction not change*/
     /*Next commands could be combined*/
-    LCD1602_enM1LINE    =0x20, //1 Line Mode
-    LCD1602_enM4BIT     =0x20, //4 bit Mode
-    LCD1602_enM5_8_Font =0x20, //5x8 Font
-    LCD1602_enM5_11_Font=0x24, //5x11 Font
-    LCD1602_enM2LINE    =0x28, //2 Line Mode
-    LCD1602_enM8BIT     =0x30, //8 bit Mode
+    LCD1602_enM1LINE    =0x20u, /*1 Line Mode*/
+    LCD1602_enM4BIT     =0x20u, /*4 bit Mode*/
+    LCD1602_enM5_8_Font =0x20u, /*5x8 Font*/
+    LCD1602_enM5_11_Font=0x24u, /*5x11 Font*/
+    LCD1602_enM2LINE    =0x28u, /*2 Line Mode*/
+    LCD1602_enM8BIT     =0x30u, /*8 bit Mode*/
 
 
-    LCD1602_enGCRAM     =0x40, //Write to GC Ram
+    LCD1602_enGCRAM     =0x40u, /*Write to GC Ram*/
 
 
 }LCD1602_nCommands;
@@ -88,7 +88,7 @@ typedef struct
 #define LCD1602_COLUMN_MAX (16)
 #define LCD1602_ROW_MIN (1)
 #define LCD1602_ROW_MAX (2)
-#define LCD1602_TAB_SIZE (0x2)
+#define LCD1602_TAB_SIZE (0x2u)
 
 #define LCD1602_MAX_COUNT (32)
 
@@ -134,9 +134,6 @@ LCD1602_nSTATUS LCD1602__enClearScreenSection(uint8_t* pu8Buffer,uint8_t u8Width
 LCD1602_nSTATUS LCD1602__enClearScreenSectionDirect(uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
 LCD1602_nSTATUS LCD1602__enClearScreen(uint8_t* pu8Buffer);
 LCD1602_nSTATUS LCD1602__enClearScreenDirect(void);
-
-LCD1602_nSTATUS LCD1602_enAdreesScreenLimitSection(uint8_t* pu8Column, uint8_t* pu8Row,uint8_t u8WidthMin,uint8_t u8WidthMax, uint8_t u8HeightMin,uint8_t u8HeightMax);
-LCD1602_nSTATUS LCD1602_enAdreesScreenLimit(uint8_t* pu8Column, uint8_t* pu8Row);
 
 LCD1602_nSTATUS LCD1602__enWriteScreen(uint8_t u8Data,uint8_t* pu8Buffer, uint8_t* pu8Column,uint8_t* pu8Row);
 LCD1602_nSTATUS LCD1602__enWriteScreenDirect(uint8_t u8Data,uint8_t* pu8Column,uint8_t* pu8Row);

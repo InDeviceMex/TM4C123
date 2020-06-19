@@ -22,6 +22,9 @@
 
 
 /*Local functions*/
+
+int main (void);
+
 void MAIN_vInitGPIO(void);
 void MAIN_vInitTIMER(void);
 void MAIN_vRGBLedValue(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue);
@@ -54,9 +57,13 @@ uint8_t LCD1602_pu8Buffer2[LCD1602_COLUMN_MAX+1]="  LCD1602 SW:   ";
 GPIO_nBUS enBus=GPIO_enAPB;
 
 volatile uint32_t vu32Refresh=0;
+
+
 int main(void)
 {
     volatile char character[32] ={0};
+    float fTimeSystickStart=0.0;
+    float fTimeSystickEnd=0.0;
     uint8_t u8Column=0;
     uint8_t u8Row=0;
     uint8_t u8ColumnCurrent=0;
@@ -66,7 +73,7 @@ int main(void)
     SCB__vInit();
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
             SYSEXC_enOVERFLOW|SYSEXC_enUNDERFLOW),SYSEXC_enPRI7);
-    SYSCTL__enInit(); // system clock 80MHz
+    SYSCTL__enInit();/* system clock 80MHz*/
     SysTick__enInitUs(10,SCB_enSHPR0);
     EEPROM__enInit();
     MAIN_vInitGPIO();
@@ -87,8 +94,8 @@ int main(void)
     u8Row=0;
     while(1)
     {
-        SysTick__vDelayUs(1000000.0);
 
+        fTimeSystickStart = SysTick__fGetTimeUs();
         if(vu32Refresh == (enSW1Pin|enSW2Pin))
         {
             u8Column=13;
@@ -124,6 +131,12 @@ int main(void)
         else
             u8ColumnCurrent++;
 
+
+        fTimeSystickEnd = SysTick__fGetTimeUs();
+        fTimeSystickEnd-= fTimeSystickStart;
+        fTimeSystickEnd=1000000.0-fTimeSystickEnd;
+        SysTick__vDelayUs(fTimeSystickEnd);
+
     }
 }
 
@@ -133,12 +146,12 @@ void MAIN_vInitGPIO(void)
     GPIO__vRegisterISR(MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
     GPIO__vRegisterISR(MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
     GPIO__vEnInterruptMODULE(GPIO_enPORTF,GPIO_enPRI7);
-    //GREEN, RED, BlUE LED
+    /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
 
-    //SW1 SW0
+    /*SW1 SW0*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
 

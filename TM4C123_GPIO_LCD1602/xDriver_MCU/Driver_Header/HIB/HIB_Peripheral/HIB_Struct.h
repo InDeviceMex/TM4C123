@@ -19,9 +19,7 @@ typedef volatile struct
     volatile const uint32_t RTCC          :32;
 }HIBRTCC_TypeDef;
 
-/**!
- *  \ref
- */
+
 typedef volatile struct
 {
     volatile uint32_t RTCM0          :32;

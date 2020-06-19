@@ -62,21 +62,21 @@ void SYSEXC_vISR(void)
             " ldr R2, =SYSEXC_pu32Context\n"
         #endif
             " ldr R1, [R0, #0X0]\n"
-            " str R1, [R2, #0x0]\n"//SYSEXC_pu32Context[0] R0
+            " str R1, [R2, #0x0]\n"/*SYSEXC_pu32Context[0] R0*/
             " ldr R1, [R0, #0x4]\n"
-            " str R1, [R2, #0x4]\n"//SYSEXC_pu32Context[1] R1
+            " str R1, [R2, #0x4]\n"/*SYSEXC_pu32Context[1] R1*/
             " ldr R1, [R0, #0x8]\n"
-            " str R1, [R2, #0x8]\n"//SYSEXC_pu32Context[2] R2
+            " str R1, [R2, #0x8]\n"/*SYSEXC_pu32Context[2] R2*/
             " ldr R1, [R0, #0xC]\n"
-            " str R1, [R2, #0xC]\n"//SYSEXC_pu32Context[3] R3
+            " str R1, [R2, #0xC]\n"/*SYSEXC_pu32Context[3] R3*/
             " ldr R1, [R0, #0x10]\n"
-            " str R1, [R2, #0x10]\n"//SYSEXC_pu32Context[4] R12
+            " str R1, [R2, #0x10]\n"/*SYSEXC_pu32Context[4] R12*/
             " ldr R1, [R0, #0x14]\n"
-            " str R1, [R2, #0x14]\n"//SYSEXC_pu32Context[5] LR
+            " str R1, [R2, #0x14]\n"/*SYSEXC_pu32Context[5] LR*/
             " ldr R1, [R0, #0x18]\n"
-            " str R1, [R2, #0x18]\n"//SYSEXC_pu32Context[6] PC
+            " str R1, [R2, #0x18]\n"/*SYSEXC_pu32Context[6] PC*/
             " ldr R1, [R0, #0x1C]\n"
-            " str R1, [R2, #0x1C]\n");//SYSEXC_pu32Context[7] PSR
+            " str R1, [R2, #0x1C]\n");/*SYSEXC_pu32Context[7] PSR*/
 
     uint32_t u32Reg=SYSEXC_SYSEXCMIS_R;
     if(SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK==(u32Reg & SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK))

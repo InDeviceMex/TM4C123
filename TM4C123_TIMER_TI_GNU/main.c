@@ -15,7 +15,7 @@
 #include "NVIC.h"
 #include "EEPROM.h"
 #include "FLASH.h"
-//#include "UDMA.h"
+/*#include "UDMA.h"*/
 #include "GPIO.h"
 #include "TIMER.h"
 
@@ -45,7 +45,7 @@ int main(void)
     SCB__vInit();
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
             SYSEXC_enOVERFLOW|SYSEXC_enUNDERFLOW),SYSEXC_enPRI7);
-    SYSCTL__enInit(); // system clock 80MHz
+    SYSCTL__enInit();/* system clock 80MHz*/
     SysTick__enInitUs(10,SCB_enSHPR0);
     EEPROM__enInit();
     MAIN_vInitGPIO();
@@ -53,33 +53,33 @@ int main(void)
 
     while(1)
     {
-        //SysTick__vDelayUs(100000);
+        /*SysTick__vDelayUs(100000);*/
         if(1==u32Update)
         {
             u32Update=0;
             if(u32Priority==0)
             {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>0)&0xFF);
+                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>0)&0xFFu);
             }
             if(u32Priority==1)
             {
-                MAIN_vRGBLedValue((u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF);
+                MAIN_vRGBLedValue((u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>0)&0xFFu);
             }
             if(u32Priority==1)
             {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF);
+                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>8)&0xFFu);
             }
             if(u32Priority==2)
             {
-                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>8)&0xFF);
+                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>8)&0xFFu);
             }
             if(u32Priority==3)
             {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>16)&0xFF);
+                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>16)&0xFFu);
             }
             if(u32Priority==4)
             {
-                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF);
+                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>16)&0xFFu);
             }
         }
     }
@@ -92,28 +92,28 @@ void MAIN_vRGBLedValue(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueV
     uint16_t u16RGBBlueFinal=0;
     if(u8RedValue==0)
         u16RGBRedFinal=0xFF;
-    else if(u8RedValue==0xFF)
+    else if(u8RedValue==0xFFu)
         u16RGBRedFinal=0x100;
     else
         u16RGBRedFinal=0xFF- u8RedValue;
 
     if(u8GreenValue==0)
         u16RGBGreenFinal=0xFF;
-    else if(u8GreenValue==0xFF)
+    else if(u8GreenValue==0xFFu)
         u16RGBGreenFinal=0x100;
     else
         u16RGBGreenFinal=0xFF- u8GreenValue;
 
     if(u8BlueValue==0)
         u16RGBBlueFinal=0xFF;
-    else if(u8BlueValue==0xFF)
+    else if(u8BlueValue==0xFFu)
         u16RGBBlueFinal=0x100;
     else
         u16RGBBlueFinal=0xFF- u8BlueValue;
 
-    GPTM_UNION->TB[0].GPTMTnMATCHR=u16RGBRedFinal; //RED
-    GPTM_UNION->TA[1].GPTMTnMATCHR=u16RGBGreenFinal; //GREEN
-    GPTM_UNION->TB[1].GPTMTnMATCHR=u16RGBBlueFinal; //BLUE
+    GPTM_UNION->TB[0].GPTMTnMATCHR=u16RGBRedFinal;/*RED*/
+    GPTM_UNION->TA[1].GPTMTnMATCHR=u16RGBGreenFinal;/*GREEN*/
+    GPTM_UNION->TB[1].GPTMTnMATCHR=u16RGBBlueFinal;/*BLUE*/
 }
 
 void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue)
@@ -143,28 +143,28 @@ void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t
 
     if(u32RGBRedPorcentaje==0)
         u32RGBRed=0xFF;
-    else if(u32RGBRedPorcentaje==0xFF)
+    else if(u32RGBRedPorcentaje==0xFFu)
         u32RGBRed=0x100;
     else
         u32RGBRed=0xFF- u32RGBRedPorcentaje;
 
     if(u32RGBGreenPorcentaje==0)
         u32RGBGreen=0xFF;
-    else if(u32RGBGreenPorcentaje==0xFF)
+    else if(u32RGBGreenPorcentaje==0xFFu)
         u32RGBGreen=0x100;
     else
         u32RGBGreen=0xFF- u32RGBGreenPorcentaje;
 
     if(u32RGBBluePorcentaje==0)
         u32RGBBlue=0xFF;
-    else if(u32RGBBluePorcentaje==0xFF)
+    else if(u32RGBBluePorcentaje==0xFFu)
         u32RGBBlue=0x100;
     else
         u32RGBBlue=0xFF- u32RGBBluePorcentaje;
 
-    GPTM_UNION->TB[0].GPTMTnMATCHR=u32RGBRed; //RED
-    GPTM_UNION->TA[1].GPTMTnMATCHR=u32RGBGreen; //GREEN
-    GPTM_UNION->TB[1].GPTMTnMATCHR=u32RGBBlue; //BLUE
+    GPTM_UNION->TB[0].GPTMTnMATCHR=u32RGBRed;/*RED*/
+    GPTM_UNION->TA[1].GPTMTnMATCHR=u32RGBGreen;/*GREEN*/
+    GPTM_UNION->TB[1].GPTMTnMATCHR=u32RGBBlue;/*BLUE*/
 }
 void TIMER2W__vISR(void)
 {
@@ -220,10 +220,10 @@ void MAIN_vInitTIMER(void)
     TIMER__enSetExtraModeStruct(TIMER_enT1B,&psExtraMode);
     TIMER__enSetExtraModeStruct(TIMER_enT3A,&psExtraMode);
 
-    TIMER__enSetMode_Reload(TIMER_enT2W,TIMER_enMODE_PERIODIC_WIDE_DOWN,0,0xFF);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT0B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFF);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1A,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFF);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFF);
+    TIMER__enSetMode_Reload(TIMER_enT2W,TIMER_enMODE_PERIODIC_WIDE_DOWN,0,0xFFu);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT0B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFFu);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT1A,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFFu);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFFu);
 
 
     TIMER__vSetEnable(TIMER_enT2W,TIMER_enENABLE_START);
@@ -240,7 +240,7 @@ void MAIN_vInitGPIO(void)
 {
     GPIO__vInit();
 
-    //GREEN, RED, BlUE LED
+    /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enT0CCP1_F1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enT1CCP0_F2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enT1CCP1_F3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);

@@ -8,66 +8,67 @@
 
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Wait.h>
 
+#define FLASH_TIMEOUT_MAX (9000000u)
 
-FLASH_nSTATUS FLASH__enWaitWrite(void)
+FLASH_nSTATUS FLASH__enWaitWrite (void)
 {
-    uint32_t u32TimeOut = 9000000;
-    FLASH_nSTATUS enReturn =FLASH_enOK;
+    uint32_t u32TimeOut = FLASH_TIMEOUT_MAX;
+    FLASH_nSTATUS enReturn = FLASH_enOK;
     while(FLASH_FMC_R_WRITE_NOCOMPLETE == (FLASH_FMC_R & FLASH_FMC_R_WRITE_MASK))
     {
         u32TimeOut--;
-        if(u32TimeOut==0)
+        if(0 == u32TimeOut)
         {
-            enReturn =FLASH_enERROR;
+            enReturn = FLASH_enERROR;
             break;
         }
     }
-    return enReturn;
+    return (FLASH_nSTATUS) enReturn;
 }
 
-FLASH_nSTATUS FLASH__enWaitBufWrite(void)
+FLASH_nSTATUS FLASH__enWaitBufWrite (void)
 {
-    uint32_t u32TimeOut = 9000000;
-    FLASH_nSTATUS enReturn =FLASH_enOK;
+    uint32_t u32TimeOut = FLASH_TIMEOUT_MAX;
+    FLASH_nSTATUS enReturn = FLASH_enOK;
     while(FLASH_FMC2_R_WRBUF_NOCOMPLETE == (FLASH_FMC2_R & FLASH_FMC2_R_WRBUF_MASK))
     {
         u32TimeOut--;
-        if(u32TimeOut==0)
+        if(0 == u32TimeOut)
         {
-            enReturn =FLASH_enERROR;
+            enReturn = FLASH_enERROR;
             break;
         }
     }
-    return enReturn;
+    return (FLASH_nSTATUS) enReturn;
 }
-FLASH_nSTATUS FLASH__enWaitPageErase(void)
+FLASH_nSTATUS FLASH__enWaitPageErase (void)
 {
-    uint32_t u32TimeOut = 9000000;
+    uint32_t u32TimeOut = FLASH_TIMEOUT_MAX;
     FLASH_nSTATUS enReturn =FLASH_enOK;
     while(FLASH_FMC_R_ERASE_NOCOMPLETE == (FLASH_FMC_R & FLASH_FMC_R_ERASE_MASK))
     {
         u32TimeOut--;
-        if(u32TimeOut==0)
+        if( 0 == u32TimeOut)
         {
-            enReturn =FLASH_enERROR;
+            enReturn = FLASH_enERROR;
             break;
         }
     }
-    return enReturn;
+    return (FLASH_nSTATUS) enReturn;
 }
 
 FLASH_nSTATUS FLASH__enWaitMassErase(void)
 {
-    uint32_t u32TimeOut = 9000000;
-    FLASH_nSTATUS enReturn =FLASH_enOK;
+    uint32_t u32TimeOut = FLASH_TIMEOUT_MAX;
+    FLASH_nSTATUS enReturn = FLASH_enOK;
     while(FLASH_FMC_R_MERASE_NOCOMPLETE == (FLASH_FMC_R & FLASH_FMC_R_MERASE_MASK))
     {
         u32TimeOut--;
-        if(u32TimeOut==0)
+        if( 0 == u32TimeOut)
         {
-            enReturn =FLASH_enERROR;
+            enReturn = FLASH_enERROR;
             break;
         }
     }
-    return enReturn;
+    return (FLASH_nSTATUS) enReturn;
 }

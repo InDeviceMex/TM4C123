@@ -14,7 +14,7 @@ static float SysTick_fTimeUsBase=0.0;
 
 void SysTick__vClearTimeUsBase(void)
 {
-    SysTick_fTimeUsBase=0.0;
+    SysTick_fTimeUsBase=0.0f;
 }
 
 void SysTick__vSetTimeUsBase(float fBase)
@@ -22,7 +22,7 @@ void SysTick__vSetTimeUsBase(float fBase)
     SysTick_fTimeUsBase=fBase;
 }
 
-float SysTick__vGetTimeUsBase(void)
+float SysTick__fGetTimeUsBase(void)
 {
     return (float)SysTick_fTimeUsBase;
 }

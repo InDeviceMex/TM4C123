@@ -11,23 +11,23 @@
 
 typedef enum
 {
-    HIB_enREADY = 0,
-    HIB_enBUSY =1,
+    HIB_enREADY = 0u,
+    HIB_enBUSY =1u,
 }HIB_nREADY;
 
 typedef enum
 {
-    HIB_enOK = 0,
-    HIB_enERROR =1,
+    HIB_enOK = 0u,
+    HIB_enERROR =1u,
 }HIB_nSTATUS;
 
 typedef enum
 {
-    HIB_enRTCALT =0x1,
-    HIB_enLOWBAT  =0x4,
-    HIB_enEXTW=0x8,
-    HIB_enWC =0x10,
-    HIB_enALL =0x1F,
+    HIB_enRTCALT =0x1u,
+    HIB_enLOWBAT  =0x4u,
+    HIB_enEXTW=0x8u,
+    HIB_enWC =0x10u,
+    HIB_enALL =0x1Fu,
 
 }HIB_nINTERRUPT;
 

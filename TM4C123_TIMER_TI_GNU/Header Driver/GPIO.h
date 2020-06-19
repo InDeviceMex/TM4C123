@@ -14,39 +14,39 @@
 #include "NVIC.h"
 #include "SYSCTL.h"
 
-#define GPIO_APB_BASE               (0x40004000)
-#define GPIOA_APB_BASE              (0x40004000)
-#define GPIOB_APB_BASE              (0x40005000)
-#define GPIOC_APB_BASE              (0x40006000)
-#define GPIOD_APB_BASE              (0x40007000)
-#define GPIOE_APB_BASE              (0x40024000)
-#define GPIOF_APB_BASE              (0x40025000)
+#define GPIO_APB_BASE               (0x40004000u)
+#define GPIOA_APB_BASE              (0x40004000u)
+#define GPIOB_APB_BASE              (0x40005000u)
+#define GPIOC_APB_BASE              (0x40006000u)
+#define GPIOD_APB_BASE              (0x40007000u)
+#define GPIOE_APB_BASE              (0x40024000u)
+#define GPIOF_APB_BASE              (0x40025000u)
 
-#define GPIO_APB_OFFSET             (0x00004000)
-#define GPIOA_APB_OFFSET            (0x00004000)
-#define GPIOB_APB_OFFSET            (0x00005000)
-#define GPIOC_APB_OFFSET            (0x00006000)
-#define GPIOD_APB_OFFSET            (0x00007000)
-#define GPIOE_APB_OFFSET            (0x00024000)
-#define GPIOF_APB_OFFSET            (0x00025000)
+#define GPIO_APB_OFFSET             (0x00004000u)
+#define GPIOA_APB_OFFSET            (0x00004000u)
+#define GPIOB_APB_OFFSET            (0x00005000u)
+#define GPIOC_APB_OFFSET            (0x00006000u)
+#define GPIOD_APB_OFFSET            (0x00007000u)
+#define GPIOE_APB_OFFSET            (0x00024000u)
+#define GPIOF_APB_OFFSET            (0x00025000u)
 
-#define GPIO_AHB_BASE               (0x40058000)
-#define GPIOA_AHB_BASE              (0x40058000)
-#define GPIOB_AHB_BASE              (0x40059000)
-#define GPIOC_AHB_BASE              (0x4005A000)
-#define GPIOD_AHB_BASE              (0x4005B000)
-#define GPIOE_AHB_BASE              (0x4005C000)
-#define GPIOF_AHB_BASE              (0x4005D000)
+#define GPIO_AHB_BASE               (0x40058000u)
+#define GPIOA_AHB_BASE              (0x40058000u)
+#define GPIOB_AHB_BASE              (0x40059000u)
+#define GPIOC_AHB_BASE              (0x4005A000u)
+#define GPIOD_AHB_BASE              (0x4005B000u)
+#define GPIOE_AHB_BASE              (0x4005C000u)
+#define GPIOF_AHB_BASE              (0x4005D000u)
 
-#define GPIO_AHB_OFFSET             (0x00058000)
-#define GPIOA_AHB_OFFSET            (0x00058000)
-#define GPIOB_AHB_OFFSET            (0x00059000)
-#define GPIOC_AHB_OFFSET            (0x0005A000)
-#define GPIOD_AHB_OFFSET            (0x0005B000)
-#define GPIOE_AHB_OFFSET            (0x0005C000)
-#define GPIOF_AHB_OFFSET            (0x0005D000)
+#define GPIO_AHB_OFFSET             (0x00058000u)
+#define GPIOA_AHB_OFFSET            (0x00058000u)
+#define GPIOB_AHB_OFFSET            (0x00059000u)
+#define GPIOC_AHB_OFFSET            (0x0005A000u)
+#define GPIOD_AHB_OFFSET            (0x0005B000u)
+#define GPIOE_AHB_OFFSET            (0x0005C000u)
+#define GPIOF_AHB_OFFSET            (0x0005D000u)
 
-#define GPIO_BITBANDING_BASE        (0x42000000)
+#define GPIO_BITBANDING_BASE        (0x42000000u)
 
 typedef volatile struct
 {
@@ -1915,118 +1915,118 @@ typedef volatile struct
 #define GPIOF_AHB_BITBANDING    (((GPIO_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOF_AHB_OFFSET*32))))
 
 
-#define GPIO_GPIODATA_MASK_OFFSET        (0x000)
-#define GPIO_GPIODATA0_MASK_OFFSET       (0x004)
-#define GPIO_GPIODATA1_MASK_OFFSET       (0x008)
-#define GPIO_GPIODATA2_MASK_OFFSET       (0x010)
-#define GPIO_GPIODATA3_MASK_OFFSET       (0x020)
-#define GPIO_GPIODATA4_MASK_OFFSET       (0x040)
-#define GPIO_GPIODATA5_MASK_OFFSET       (0x080)
-#define GPIO_GPIODATA6_MASK_OFFSET       (0x100)
-#define GPIO_GPIODATA7_MASK_OFFSET       (0x200)
-#define GPIO_GPIODATA_OFFSET             (0x3FC)
-#define GPIO_GPIODIR_OFFSET              (0x400)
-#define GPIO_GPIOIS_OFFSET               (0x404)
-#define GPIO_GPIOIBE_OFFSET              (0x408)
-#define GPIO_GPIOIEV_OFFSET              (0x40C)
-#define GPIO_GPIOIM_OFFSET               (0x410)
-#define GPIO_GPIORIS_OFFSET              (0x414)
-#define GPIO_GPIOMIS_OFFSET              (0x418)
-#define GPIO_GPIOICR_OFFSET              (0x41C)
-#define GPIO_GPIOAFSEL_OFFSET            (0x420)
-#define GPIO_GPIODR2R_OFFSET             (0x500)
-#define GPIO_GPIODR4R_OFFSET             (0x504)
-#define GPIO_GPIODR8R_OFFSET             (0x508)
-#define GPIO_GPIOODR_OFFSET              (0x50C)
-#define GPIO_GPIOPUR_OFFSET              (0x510)
-#define GPIO_GPIOPDR_OFFSET              (0x514)
-#define GPIO_GPIOSLR_OFFSET              (0x518)
-#define GPIO_GPIODEN_OFFSET              (0x51C)
-#define GPIO_GPIOLOCK_OFFSET             (0x520)
-#define GPIO_GPIOCR_OFFSET               (0x524)
-#define GPIO_GPIOAMSEL_OFFSET            (0x528)
-#define GPIO_GPIOPCTL_OFFSET             (0x52C)
-#define GPIO_GPIOADCCTL_OFFSET           (0x530)
-#define GPIO_GPIODMACTL_OFFSET           (0x534)
-#define GPIO_GPIOPeriphID4_OFFSET        (0xFD0)
-#define GPIO_GPIOPeriphID5_OFFSET        (0xFD4)
-#define GPIO_GPIOPeriphID6_OFFSET        (0xFD8)
-#define GPIO_GPIOPeriphID7_OFFSET        (0xFDC)
-#define GPIO_GPIOPeriphID0_OFFSET        (0xFE0)
-#define GPIO_GPIOPeriphID1_OFFSET        (0xFE4)
-#define GPIO_GPIOPeriphID2_OFFSET        (0xFE8)
-#define GPIO_GPIOPeriphID3_OFFSET        (0xFEC)
-#define GPIO_GPIOPCellID0_OFFSET         (0xFF0)
-#define GPIO_GPIOPCellID1_OFFSET         (0xFF4)
-#define GPIO_GPIOPCellID2_OFFSET         (0xFF8)
-#define GPIO_GPIOPCellID3_OFFSET         (0xFFC)
+#define GPIO_GPIODATA_MASK_OFFSET        (0x000u)
+#define GPIO_GPIODATA0_MASK_OFFSET       (0x004u)
+#define GPIO_GPIODATA1_MASK_OFFSET       (0x008u)
+#define GPIO_GPIODATA2_MASK_OFFSET       (0x010u)
+#define GPIO_GPIODATA3_MASK_OFFSET       (0x020u)
+#define GPIO_GPIODATA4_MASK_OFFSET       (0x040u)
+#define GPIO_GPIODATA5_MASK_OFFSET       (0x080u)
+#define GPIO_GPIODATA6_MASK_OFFSET       (0x100u)
+#define GPIO_GPIODATA7_MASK_OFFSET       (0x200u)
+#define GPIO_GPIODATA_OFFSET             (0x3FCu)
+#define GPIO_GPIODIR_OFFSET              (0x400u)
+#define GPIO_GPIOIS_OFFSET               (0x404u)
+#define GPIO_GPIOIBE_OFFSET              (0x408u)
+#define GPIO_GPIOIEV_OFFSET              (0x40Cu)
+#define GPIO_GPIOIM_OFFSET               (0x410u)
+#define GPIO_GPIORIS_OFFSET              (0x414u)
+#define GPIO_GPIOMIS_OFFSET              (0x418u)
+#define GPIO_GPIOICR_OFFSET              (0x41Cu)
+#define GPIO_GPIOAFSEL_OFFSET            (0x420u)
+#define GPIO_GPIODR2R_OFFSET             (0x500u)
+#define GPIO_GPIODR4R_OFFSET             (0x504u)
+#define GPIO_GPIODR8R_OFFSET             (0x508u)
+#define GPIO_GPIOODR_OFFSET              (0x50Cu)
+#define GPIO_GPIOPUR_OFFSET              (0x510u)
+#define GPIO_GPIOPDR_OFFSET              (0x514u)
+#define GPIO_GPIOSLR_OFFSET              (0x518u)
+#define GPIO_GPIODEN_OFFSET              (0x51Cu)
+#define GPIO_GPIOLOCK_OFFSET             (0x520u)
+#define GPIO_GPIOCR_OFFSET               (0x524u)
+#define GPIO_GPIOAMSEL_OFFSET            (0x528u)
+#define GPIO_GPIOPCTL_OFFSET             (0x52Cu)
+#define GPIO_GPIOADCCTL_OFFSET           (0x530u)
+#define GPIO_GPIODMACTL_OFFSET           (0x534u)
+#define GPIO_GPIOPeriphID4_OFFSET        (0xFD0u)
+#define GPIO_GPIOPeriphID5_OFFSET        (0xFD4u)
+#define GPIO_GPIOPeriphID6_OFFSET        (0xFD8u)
+#define GPIO_GPIOPeriphID7_OFFSET        (0xFDCu)
+#define GPIO_GPIOPeriphID0_OFFSET        (0xFE0u)
+#define GPIO_GPIOPeriphID1_OFFSET        (0xFE4u)
+#define GPIO_GPIOPeriphID2_OFFSET        (0xFE8u)
+#define GPIO_GPIOPeriphID3_OFFSET        (0xFECu)
+#define GPIO_GPIOPCellID0_OFFSET         (0xFF0u)
+#define GPIO_GPIOPCellID1_OFFSET         (0xFF4u)
+#define GPIO_GPIOPCellID2_OFFSET         (0xFF8u)
+#define GPIO_GPIOPCellID3_OFFSET         (0xFFCu)
 
-#define PIN0   (0x000000001)
-#define PIN1   (0x000000002)
-#define PIN2   (0x000000004)
-#define PIN3   (0x000000008)
-#define PIN4   (0x000000010)
-#define PIN5   (0x000000020)
-#define PIN6   (0x000000040)
-#define PIN7   (0x000000080)
-#define PIN8   (0x000000100)
-#define PIN9   (0x000000200)
-#define PIN10  (0x000000400)
-#define PIN11  (0x000000800)
-#define PIN12  (0x000001000)
-#define PIN13  (0x000002000)
-#define PIN14  (0x000004000)
-#define PIN15  (0x000008000)
-#define PIN16  (0x000100000)
-#define PIN17  (0x000200000)
-#define PIN18  (0x000400000)
-#define PIN19  (0x000800000)
-#define PIN20  (0x001000000)
-#define PIN21  (0x002000000)
-#define PIN22  (0x004000000)
-#define PIN23  (0x008000000)
-#define PIN24  (0x010000000)
-#define PIN25  (0x020000000)
-#define PIN26  (0x040000000)
-#define PIN27  (0x080000000)
-#define PIN28  (0x100000000)
-#define PIN29  (0x200000000)
-#define PIN30  (0x400000000)
-#define PIN31  (0x800000000)
+#define PIN0   (0x000000001u)
+#define PIN1   (0x000000002u)
+#define PIN2   (0x000000004u)
+#define PIN3   (0x000000008u)
+#define PIN4   (0x000000010u)
+#define PIN5   (0x000000020u)
+#define PIN6   (0x000000040u)
+#define PIN7   (0x000000080u)
+#define PIN8   (0x000000100u)
+#define PIN9   (0x000000200u)
+#define PIN10  (0x000000400u)
+#define PIN11  (0x000000800u)
+#define PIN12  (0x000001000u)
+#define PIN13  (0x000002000u)
+#define PIN14  (0x000004000u)
+#define PIN15  (0x000008000u)
+#define PIN16  (0x000100000u)
+#define PIN17  (0x000200000u)
+#define PIN18  (0x000400000u)
+#define PIN19  (0x000800000u)
+#define PIN20  (0x001000000u)
+#define PIN21  (0x002000000u)
+#define PIN22  (0x004000000u)
+#define PIN23  (0x008000000u)
+#define PIN24  (0x010000000u)
+#define PIN25  (0x020000000u)
+#define PIN26  (0x040000000u)
+#define PIN27  (0x080000000u)
+#define PIN28  (0x100000000u)
+#define PIN29  (0x200000000u)
+#define PIN30  (0x400000000u)
+#define PIN31  (0x800000000u)
 
 
-#define BIT0   (0x000000001)
-#define BIT1   (0x000000002)
-#define BIT2   (0x000000004)
-#define BIT3   (0x000000008)
-#define BIT4   (0x000000010)
-#define BIT5   (0x000000020)
-#define BIT6   (0x000000040)
-#define BIT7   (0x000000080)
-#define BIT8   (0x000000100)
-#define BIT9   (0x000000200)
-#define BIT10  (0x000000400)
-#define BIT11  (0x000000800)
-#define BIT12  (0x000001000)
-#define BIT13  (0x000002000)
-#define BIT14  (0x000004000)
-#define BIT15  (0x000008000)
-#define BIT16  (0x000100000)
-#define BIT17  (0x000200000)
-#define BIT18  (0x000400000)
-#define BIT19  (0x000800000)
-#define BIT20  (0x001000000)
-#define BIT21  (0x002000000)
-#define BIT22  (0x004000000)
-#define BIT23  (0x008000000)
-#define BIT24  (0x010000000)
-#define BIT25  (0x020000000)
-#define BIT26  (0x040000000)
-#define BIT27  (0x080000000)
-#define BIT28  (0x100000000)
-#define BIT29  (0x200000000)
-#define BIT30  (0x400000000)
-#define BIT31  (0x800000000)
+#define BIT0   (0x000000001u)
+#define BIT1   (0x000000002u)
+#define BIT2   (0x000000004u)
+#define BIT3   (0x000000008u)
+#define BIT4   (0x000000010u)
+#define BIT5   (0x000000020u)
+#define BIT6   (0x000000040u)
+#define BIT7   (0x000000080u)
+#define BIT8   (0x000000100u)
+#define BIT9   (0x000000200u)
+#define BIT10  (0x000000400u)
+#define BIT11  (0x000000800u)
+#define BIT12  (0x000001000u)
+#define BIT13  (0x000002000u)
+#define BIT14  (0x000004000u)
+#define BIT15  (0x000008000u)
+#define BIT16  (0x000100000u)
+#define BIT17  (0x000200000u)
+#define BIT18  (0x000400000u)
+#define BIT19  (0x000800000u)
+#define BIT20  (0x001000000u)
+#define BIT21  (0x002000000u)
+#define BIT22  (0x004000000u)
+#define BIT23  (0x008000000u)
+#define BIT24  (0x010000000u)
+#define BIT25  (0x020000000u)
+#define BIT26  (0x040000000u)
+#define BIT27  (0x080000000u)
+#define BIT28  (0x100000000u)
+#define BIT29  (0x200000000u)
+#define BIT30  (0x400000000u)
+#define BIT31  (0x800000000u)
 
 /******************************************************************************************
 ************************************ 1 GPIODATA *********************************************
@@ -2225,104 +2225,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIODATA_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIODATA_OFFSET)))
 
 
-//--------
-#define GPIO_GPIODATA_R_DATA_MASK      (0x000000FF)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA_MASK      (0x000000FFu)
 #define GPIO_GPIODATA_R_DATA_BIT       (0)
-#define GPIO_GPIODATA_R_DATA_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA_HIGH      (0x000000FF)
+#define GPIO_GPIODATA_R_DATA_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA_HIGH      (0x000000FFu)
 
-#define GPIO_GPIODATA_DATA_MASK        (0x000000FF)
-#define GPIO_GPIODATA_DATA_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA_HIGH        (0x000000FF)
-//--------
+#define GPIO_GPIODATA_DATA_MASK        (0x000000FFu)
+#define GPIO_GPIODATA_DATA_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA_HIGH        (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA0_MASK      (0x00000001)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA0_MASK      (0x00000001u)
 #define GPIO_GPIODATA_R_DATA0_BIT       (0)
-#define GPIO_GPIODATA_R_DATA0_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA0_HIGH      (0x00000001)
+#define GPIO_GPIODATA_R_DATA0_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA0_HIGH      (0x00000001u)
 
-#define GPIO_GPIODATA_DATA0_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA0_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA0_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA0_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA0_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA0_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA1_MASK      (0x00000002)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA1_MASK      (0x00000002u)
 #define GPIO_GPIODATA_R_DATA1_BIT       (1)
-#define GPIO_GPIODATA_R_DATA1_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA1_HIGH      (0x00000002)
+#define GPIO_GPIODATA_R_DATA1_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA1_HIGH      (0x00000002u)
 
-#define GPIO_GPIODATA_DATA1_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA1_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA1_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA1_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA1_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA1_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA2_MASK      (0x00000004)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA2_MASK      (0x00000004u)
 #define GPIO_GPIODATA_R_DATA2_BIT       (2)
-#define GPIO_GPIODATA_R_DATA2_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA2_HIGH      (0x00000004)
+#define GPIO_GPIODATA_R_DATA2_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA2_HIGH      (0x00000004u)
 
-#define GPIO_GPIODATA_DATA2_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA2_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA2_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA2_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA2_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA2_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA3_MASK      (0x00000008)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA3_MASK      (0x00000008u)
 #define GPIO_GPIODATA_R_DATA3_BIT       (3)
-#define GPIO_GPIODATA_R_DATA3_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA3_HIGH      (0x00000008)
+#define GPIO_GPIODATA_R_DATA3_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA3_HIGH      (0x00000008u)
 
-#define GPIO_GPIODATA_DATA3_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA3_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA3_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA3_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA3_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA3_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA4_MASK      (0x00000010)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA4_MASK      (0x00000010u)
 #define GPIO_GPIODATA_R_DATA4_BIT       (4)
-#define GPIO_GPIODATA_R_DATA4_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA4_HIGH      (0x00000010)
+#define GPIO_GPIODATA_R_DATA4_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA4_HIGH      (0x00000010u)
 
-#define GPIO_GPIODATA_DATA4_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA4_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA4_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA4_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA4_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA4_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA5_MASK      (0x00000020)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA5_MASK      (0x00000020u)
 #define GPIO_GPIODATA_R_DATA5_BIT       (5)
-#define GPIO_GPIODATA_R_DATA5_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA5_HIGH      (0x00000020)
+#define GPIO_GPIODATA_R_DATA5_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA5_HIGH      (0x00000020u)
 
-#define GPIO_GPIODATA_DATA5_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA5_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA5_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA5_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA5_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA5_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA6_MASK      (0x00000040)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA6_MASK      (0x00000040u)
 #define GPIO_GPIODATA_R_DATA6_BIT       (6)
-#define GPIO_GPIODATA_R_DATA6_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA6_HIGH      (0x00000040)
+#define GPIO_GPIODATA_R_DATA6_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA6_HIGH      (0x00000040u)
 
-#define GPIO_GPIODATA_DATA6_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA6_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA6_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA6_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA6_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA6_HIGH        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODATA_R_DATA7_MASK      (0x00000080)
+/*----------*/
+#define GPIO_GPIODATA_R_DATA7_MASK      (0x00000080u)
 #define GPIO_GPIODATA_R_DATA7_BIT       (7)
-#define GPIO_GPIODATA_R_DATA7_LOW       (0x00000000)
-#define GPIO_GPIODATA_R_DATA7_HIGH      (0x00000080)
+#define GPIO_GPIODATA_R_DATA7_LOW       (0x00000000u)
+#define GPIO_GPIODATA_R_DATA7_HIGH      (0x00000080u)
 
-#define GPIO_GPIODATA_DATA7_MASK        (0x00000001)
-#define GPIO_GPIODATA_DATA7_LOW         (0x00000000)
-#define GPIO_GPIODATA_DATA7_HIGH        (0x00000001)
-//--------
+#define GPIO_GPIODATA_DATA7_MASK        (0x00000001u)
+#define GPIO_GPIODATA_DATA7_LOW         (0x00000000u)
+#define GPIO_GPIODATA_DATA7_HIGH        (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB DATA BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIODATA0_MASK_DATA0   (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIODATA0_MASK_OFFSET)*32)+(GPIO_GPIODATA_R_DATA0_BIT*4))))
@@ -2618,104 +2618,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIODIR_R_DIR_MASK         (0x000000FF)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR_MASK         (0x000000FFu)
 #define GPIO_GPIODIR_R_DIR_BIT          (0)
-#define GPIO_GPIODIR_R_DIR_INPUT        (0x00000000)
-#define GPIO_GPIODIR_R_DIR_OUTPUT       (0x000000FF)
+#define GPIO_GPIODIR_R_DIR_INPUT        (0x00000000u)
+#define GPIO_GPIODIR_R_DIR_OUTPUT       (0x000000FFu)
 
-#define GPIO_GPIODIR_DIR_MASK           (0x000000FF)
-#define GPIO_GPIODIR_DIR_INPUT          (0x00000000)
-#define GPIO_GPIODIR_DIR_OUTPUT         (0x000000FF)
-//--------
+#define GPIO_GPIODIR_DIR_MASK           (0x000000FFu)
+#define GPIO_GPIODIR_DIR_INPUT          (0x00000000u)
+#define GPIO_GPIODIR_DIR_OUTPUT         (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR0_MASK        (0x00000001)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR0_MASK        (0x00000001u)
 #define GPIO_GPIODIR_R_DIR0_BIT         (0)
-#define GPIO_GPIODIR_R_DIR0_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR0_OUTPUT      (0x00000001)
+#define GPIO_GPIODIR_R_DIR0_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR0_OUTPUT      (0x00000001u)
 
-#define GPIO_GPIODIR_DIR0_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR0_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR0_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR0_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR0_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR0_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR1_MASK        (0x00000002)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR1_MASK        (0x00000002u)
 #define GPIO_GPIODIR_R_DIR1_BIT         (1)
-#define GPIO_GPIODIR_R_DIR1_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR1_OUTPUT      (0x00000002)
+#define GPIO_GPIODIR_R_DIR1_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR1_OUTPUT      (0x00000002u)
 
-#define GPIO_GPIODIR_DIR1_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR1_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR1_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR1_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR1_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR1_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR2_MASK        (0x00000004)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR2_MASK        (0x00000004u)
 #define GPIO_GPIODIR_R_DIR2_BIT         (2)
-#define GPIO_GPIODIR_R_DIR2_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR2_OUTPUT      (0x00000004)
+#define GPIO_GPIODIR_R_DIR2_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR2_OUTPUT      (0x00000004u)
 
-#define GPIO_GPIODIR_DIR2_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR2_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR2_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR2_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR2_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR2_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR3_MASK        (0x00000008)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR3_MASK        (0x00000008u)
 #define GPIO_GPIODIR_R_DIR3_BIT         (3)
-#define GPIO_GPIODIR_R_DIR3_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR3_OUTPUT      (0x00000008)
+#define GPIO_GPIODIR_R_DIR3_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR3_OUTPUT      (0x00000008u)
 
-#define GPIO_GPIODIR_DIR3_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR3_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR3_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR3_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR3_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR3_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------DATA
-#define GPIO_GPIODIR_R_DIR4_MASK        (0x00000010)
+/*----------*/DATA
+#define GPIO_GPIODIR_R_DIR4_MASK        (0x00000010u)
 #define GPIO_GPIODIR_R_DIR4_BIT         (4)
-#define GPIO_GPIODIR_R_DIR4_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR4_OUTPUT      (0x00000010)
+#define GPIO_GPIODIR_R_DIR4_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR4_OUTPUT      (0x00000010u)
 
-#define GPIO_GPIODIR_DIR4_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR4_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR4_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR4_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR4_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR4_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR5_MASK        (0x00000020)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR5_MASK        (0x00000020u)
 #define GPIO_GPIODIR_R_DIR5_BIT         (5)
-#define GPIO_GPIODIR_R_DIR5_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR5_OUTPUT      (0x00000020)
+#define GPIO_GPIODIR_R_DIR5_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR5_OUTPUT      (0x00000020u)
 
-#define GPIO_GPIODIR_DIR5_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR5_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR5_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR5_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR5_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR5_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR6_MASK        (0x00000040)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR6_MASK        (0x00000040u)
 #define GPIO_GPIODIR_R_DIR6_BIT         (6)
-#define GPIO_GPIODIR_R_DIR6_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR6_OUTPUT      (0x00000040)
+#define GPIO_GPIODIR_R_DIR6_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR6_OUTPUT      (0x00000040u)
 
-#define GPIO_GPIODIR_DIR6_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR6_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR6_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR6_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR6_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR6_OUTPUT        (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODIR_R_DIR7_MASK        (0x00000080)
+/*----------*/
+#define GPIO_GPIODIR_R_DIR7_MASK        (0x00000080u)
 #define GPIO_GPIODIR_R_DIR7_BIT         (7)
-#define GPIO_GPIODIR_R_DIR7_INPUT       (0x00000000)
-#define GPIO_GPIODIR_R_DIR7_OUTPUT      (0x00000080)
+#define GPIO_GPIODIR_R_DIR7_INPUT       (0x00000000u)
+#define GPIO_GPIODIR_R_DIR7_OUTPUT      (0x00000080u)
 
-#define GPIO_GPIODIR_DIR7_MASK          (0x00000001)
-#define GPIO_GPIODIR_DIR7_INPUT         (0x00000000)
-#define GPIO_GPIODIR_DIR7_OUTPUT        (0x00000001)
-//--------
+#define GPIO_GPIODIR_DIR7_MASK          (0x00000001u)
+#define GPIO_GPIODIR_DIR7_INPUT         (0x00000000u)
+#define GPIO_GPIODIR_DIR7_OUTPUT        (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB DIR BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIODIR_DIR0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIODIR_OFFSET)*32)+(GPIO_GPIODIR_R_DIR0_BIT*4))))
@@ -2903,104 +2903,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIOIS_R_IS_MASK           (0x000000FF)
+/*----------*/
+#define GPIO_GPIOIS_R_IS_MASK           (0x000000FFu)
 #define GPIO_GPIOIS_R_IS_BIT            (0)
-#define GPIO_GPIOIS_R_IS_EDGE           (0x00000000)
-#define GPIO_GPIOIS_R_IS_LEVEL          (0x000000FF)
+#define GPIO_GPIOIS_R_IS_EDGE           (0x00000000u)
+#define GPIO_GPIOIS_R_IS_LEVEL          (0x000000FFu)
 
-#define GPIO_GPIOIS_IS_MASK             (0x000000FF)
-#define GPIO_GPIOIS_IS_EDGE             (0x00000000)
-#define GPIO_GPIOIS_IS_LEVEL            (0x000000FF)
-//--------
+#define GPIO_GPIOIS_IS_MASK             (0x000000FFu)
+#define GPIO_GPIOIS_IS_EDGE             (0x00000000u)
+#define GPIO_GPIOIS_IS_LEVEL            (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS0_MASK          (0x00000001)
+/*----------*/
+#define GPIO_GPIOIS_R_IS0_MASK          (0x00000001u)
 #define GPIO_GPIOIS_R_IS0_BIT           (0)
-#define GPIO_GPIOIS_R_IS0_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS0_LEVEL         (0x00000001)
+#define GPIO_GPIOIS_R_IS0_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS0_LEVEL         (0x00000001u)
 
-#define GPIO_GPIOIS_IS0_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS0_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS0_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS0_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS0_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS0_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS1_MASK          (0x00000002)
+/*----------*/
+#define GPIO_GPIOIS_R_IS1_MASK          (0x00000002u)
 #define GPIO_GPIOIS_R_IS1_BIT           (1)
-#define GPIO_GPIOIS_R_IS1_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS1_LEVEL         (0x00000002)
+#define GPIO_GPIOIS_R_IS1_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS1_LEVEL         (0x00000002u)
 
-#define GPIO_GPIOIS_IS1_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS1_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS1_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS1_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS1_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS1_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS2_MASK          (0x00000004)
+/*----------*/
+#define GPIO_GPIOIS_R_IS2_MASK          (0x00000004u)
 #define GPIO_GPIOIS_R_IS2_BIT           (2)
-#define GPIO_GPIOIS_R_IS2_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS2_LEVEL         (0x00000004)
+#define GPIO_GPIOIS_R_IS2_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS2_LEVEL         (0x00000004u)
 
-#define GPIO_GPIOIS_IS2_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS2_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS2_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS2_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS2_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS2_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS3_MASK          (0x00000008)
+/*----------*/
+#define GPIO_GPIOIS_R_IS3_MASK          (0x00000008u)
 #define GPIO_GPIOIS_R_IS3_BIT           (3)
-#define GPIO_GPIOIS_R_IS3_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS3_LEVEL         (0x00000008)
+#define GPIO_GPIOIS_R_IS3_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS3_LEVEL         (0x00000008u)
 
-#define GPIO_GPIOIS_IS3_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS3_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS3_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS3_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS3_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS3_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS4_MASK          (0x00000010)
+/*----------*/
+#define GPIO_GPIOIS_R_IS4_MASK          (0x00000010u)
 #define GPIO_GPIOIS_R_IS4_BIT           (4)
-#define GPIO_GPIOIS_R_IS4_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS4_LEVEL         (0x00000010)
+#define GPIO_GPIOIS_R_IS4_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS4_LEVEL         (0x00000010u)
 
-#define GPIO_GPIOIS_IS4_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS4_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS4_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS4_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS4_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS4_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS5_MASK          (0x00000020)
+/*----------*/
+#define GPIO_GPIOIS_R_IS5_MASK          (0x00000020u)
 #define GPIO_GPIOIS_R_IS5_BIT           (5)
-#define GPIO_GPIOIS_R_IS5_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS5_LEVEL         (0x00000020)
+#define GPIO_GPIOIS_R_IS5_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS5_LEVEL         (0x00000020u)
 
-#define GPIO_GPIOIS_IS5_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS5_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS5_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS5_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS5_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS5_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS6_MASK          (0x00000040)
+/*----------*/
+#define GPIO_GPIOIS_R_IS6_MASK          (0x00000040u)
 #define GPIO_GPIOIS_R_IS6_BIT           (6)
-#define GPIO_GPIOIS_R_IS6_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS6_LEVEL         (0x00000040)
+#define GPIO_GPIOIS_R_IS6_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS6_LEVEL         (0x00000040u)
 
-#define GPIO_GPIOIS_IS6_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS6_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS6_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS6_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS6_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS6_LEVEL           (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIS_R_IS7_MASK          (0x00000080)
+/*----------*/
+#define GPIO_GPIOIS_R_IS7_MASK          (0x00000080u)
 #define GPIO_GPIOIS_R_IS7_BIT           (7)
-#define GPIO_GPIOIS_R_IS7_EDGE          (0x00000000)
-#define GPIO_GPIOIS_R_IS7_LEVEL         (0x00000080)
+#define GPIO_GPIOIS_R_IS7_EDGE          (0x00000000u)
+#define GPIO_GPIOIS_R_IS7_LEVEL         (0x00000080u)
 
-#define GPIO_GPIOIS_IS7_MASK            (0x00000001)
-#define GPIO_GPIOIS_IS7_EDGE            (0x00000000)
-#define GPIO_GPIOIS_IS7_LEVEL           (0x00000001)
-//--------
+#define GPIO_GPIOIS_IS7_MASK            (0x00000001u)
+#define GPIO_GPIOIS_IS7_EDGE            (0x00000000u)
+#define GPIO_GPIOIS_IS7_LEVEL           (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB IS BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOIS_IS0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOIS_OFFSET)*32)+(GPIO_GPIOIS_R_IS0_BIT*4))))
@@ -3187,104 +3187,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIOIBE_R_IBE_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE_MASK             (0x000000FFu)
 #define GPIO_GPIOIBE_R_IBE_BIT              (0)
-#define GPIO_GPIOIBE_R_IBE_SINGLE           (0x00000000)
-#define GPIO_GPIOIBE_R_IBE_BOTH             (0x000000FF)
+#define GPIO_GPIOIBE_R_IBE_SINGLE           (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE_BOTH             (0x000000FFu)
 
-#define GPIO_GPIOIBE_IBE_MASK               (0x000000FF)
-#define GPIO_GPIOIBE_IBE_SINGLE             (0x00000000)
-#define GPIO_GPIOIBE_IBE_BOTH               (0x000000FF)
-//--------
+#define GPIO_GPIOIBE_IBE_MASK               (0x000000FFu)
+#define GPIO_GPIOIBE_IBE_SINGLE             (0x00000000u)
+#define GPIO_GPIOIBE_IBE_BOTH               (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE0_MASK            (0x00000001u)
 #define GPIO_GPIOIBE_R_IBE0_BIT             (0)
-#define GPIO_GPIOIBE_R_IBE0_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE0_BOTH            (0x00000001)
+#define GPIO_GPIOIBE_R_IBE0_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE0_BOTH            (0x00000001u)
 
-#define GPIO_GPIOIBE_IBE0_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE0_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE0_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE0_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE0_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE0_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE1_MASK            (0x00000002u)
 #define GPIO_GPIOIBE_R_IBE1_BIT             (1)
-#define GPIO_GPIOIBE_R_IBE1_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE1_BOTH            (0x00000002)
+#define GPIO_GPIOIBE_R_IBE1_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE1_BOTH            (0x00000002u)
 
-#define GPIO_GPIOIBE_IBE1_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE1_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE1_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE1_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE1_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE1_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE2_MASK            (0x00000004u)
 #define GPIO_GPIOIBE_R_IBE2_BIT             (2)
-#define GPIO_GPIOIBE_R_IBE2_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE2_BOTH            (0x00000004)
+#define GPIO_GPIOIBE_R_IBE2_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE2_BOTH            (0x00000004u)
 
-#define GPIO_GPIOIBE_IBE2_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE2_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE2_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE2_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE2_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE2_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE3_MASK            (0x00000008u)
 #define GPIO_GPIOIBE_R_IBE3_BIT             (3)
-#define GPIO_GPIOIBE_R_IBE3_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE3_BOTH            (0x00000008)
+#define GPIO_GPIOIBE_R_IBE3_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE3_BOTH            (0x00000008u)
 
-#define GPIO_GPIOIBE_IBE3_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE3_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE3_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE3_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE3_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE3_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE4_MASK            (0x00000010u)
 #define GPIO_GPIOIBE_R_IBE4_BIT             (4)
-#define GPIO_GPIOIBE_R_IBE4_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE4_BOTH            (0x00000010)
+#define GPIO_GPIOIBE_R_IBE4_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE4_BOTH            (0x00000010u)
 
-#define GPIO_GPIOIBE_IBE4_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE4_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE4_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE4_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE4_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE4_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE5_MASK            (0x00000020u)
 #define GPIO_GPIOIBE_R_IBE5_BIT             (5)
-#define GPIO_GPIOIBE_R_IBE5_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE5_BOTH            (0x00000020)
+#define GPIO_GPIOIBE_R_IBE5_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE5_BOTH            (0x00000020u)
 
-#define GPIO_GPIOIBE_IBE5_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE5_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE5_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE5_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE5_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE5_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE6_MASK            (0x00000040u)
 #define GPIO_GPIOIBE_R_IBE6_BIT             (6)
-#define GPIO_GPIOIBE_R_IBE6_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE6_BOTH            (0x00000040)
+#define GPIO_GPIOIBE_R_IBE6_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE6_BOTH            (0x00000040u)
 
-#define GPIO_GPIOIBE_IBE6_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE6_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE6_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE6_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE6_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE6_BOTH              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIBE_R_IBE7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOIBE_R_IBE7_MASK            (0x00000080u)
 #define GPIO_GPIOIBE_R_IBE7_BIT             (7)
-#define GPIO_GPIOIBE_R_IBE7_SINGLE          (0x00000000)
-#define GPIO_GPIOIBE_R_IBE7_BOTH            (0x00000080)
+#define GPIO_GPIOIBE_R_IBE7_SINGLE          (0x00000000u)
+#define GPIO_GPIOIBE_R_IBE7_BOTH            (0x00000080u)
 
-#define GPIO_GPIOIBE_IBE7_MASK              (0x00000001)
-#define GPIO_GPIOIBE_IBE7_SINGLE            (0x00000000)
-#define GPIO_GPIOIBE_IBE7_BOTH              (0x00000001)
-//--------
+#define GPIO_GPIOIBE_IBE7_MASK              (0x00000001u)
+#define GPIO_GPIOIBE_IBE7_SINGLE            (0x00000000u)
+#define GPIO_GPIOIBE_IBE7_BOTH              (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB IBE BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOIBE_IBE0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOIBE_OFFSET)*32)+(GPIO_GPIOIBE_R_IBE0_BIT*4))))
@@ -3473,104 +3473,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIOIEV_R_IEV_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV_MASK             (0x000000FFu)
 #define GPIO_GPIOIEV_R_IEV_BIT              (0)
-#define GPIO_GPIOIEV_R_IEV_FALLING          (0x00000000)
-#define GPIO_GPIOIEV_R_IEV_RISING           (0x000000FF)
+#define GPIO_GPIOIEV_R_IEV_FALLING          (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV_RISING           (0x000000FFu)
 
-#define GPIO_GPIOIEV_IEV_MASK               (0x000000FF)
-#define GPIO_GPIOIEV_IEV_FALLING            (0x00000000)
-#define GPIO_GPIOIEV_IEV_RISING             (0x000000FF)
-//--------
+#define GPIO_GPIOIEV_IEV_MASK               (0x000000FFu)
+#define GPIO_GPIOIEV_IEV_FALLING            (0x00000000u)
+#define GPIO_GPIOIEV_IEV_RISING             (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV0_MASK            (0x00000001u)
 #define GPIO_GPIOIEV_R_IEV0_BIT             (0)
-#define GPIO_GPIOIEV_R_IEV0_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV0_RISING          (0x00000001)
+#define GPIO_GPIOIEV_R_IEV0_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV0_RISING          (0x00000001u)
 
-#define GPIO_GPIOIEV_IEV0_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV0_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV0_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV0_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV0_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV0_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV1_MASK            (0x00000002u)
 #define GPIO_GPIOIEV_R_IEV1_BIT             (1)
-#define GPIO_GPIOIEV_R_IEV1_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV1_RISING          (0x00000002)
+#define GPIO_GPIOIEV_R_IEV1_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV1_RISING          (0x00000002u)
 
-#define GPIO_GPIOIEV_IEV1_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV1_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV1_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV1_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV1_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV1_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV2_MASK            (0x00000004u)
 #define GPIO_GPIOIEV_R_IEV2_BIT             (2)
-#define GPIO_GPIOIEV_R_IEV2_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV2_RISING          (0x00000004)
+#define GPIO_GPIOIEV_R_IEV2_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV2_RISING          (0x00000004u)
 
-#define GPIO_GPIOIEV_IEV2_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV2_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV2_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV2_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV2_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV2_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV3_MASK            (0x00000008u)
 #define GPIO_GPIOIEV_R_IEV3_BIT             (3)
-#define GPIO_GPIOIEV_R_IEV3_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV3_RISING          (0x00000008)
+#define GPIO_GPIOIEV_R_IEV3_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV3_RISING          (0x00000008u)
 
-#define GPIO_GPIOIEV_IEV3_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV3_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV3_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV3_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV3_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV3_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV4_MASK            (0x00000010u)
 #define GPIO_GPIOIEV_R_IEV4_BIT             (4)
-#define GPIO_GPIOIEV_R_IEV4_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV4_RISING          (0x00000010)
+#define GPIO_GPIOIEV_R_IEV4_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV4_RISING          (0x00000010u)
 
-#define GPIO_GPIOIEV_IEV4_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV4_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV4_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV4_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV4_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV4_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV5_MASK            (0x00000020u)
 #define GPIO_GPIOIEV_R_IEV5_BIT             (5)
-#define GPIO_GPIOIEV_R_IEV5_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV5_RISING          (0x00000020)
+#define GPIO_GPIOIEV_R_IEV5_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV5_RISING          (0x00000020u)
 
-#define GPIO_GPIOIEV_IEV5_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV5_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV5_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV5_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV5_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV5_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV6_MASK            (0x00000040u)
 #define GPIO_GPIOIEV_R_IEV6_BIT             (6)
-#define GPIO_GPIOIEV_R_IEV6_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV6_RISING          (0x00000040)
+#define GPIO_GPIOIEV_R_IEV6_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV6_RISING          (0x00000040u)
 
-#define GPIO_GPIOIEV_IEV6_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV6_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV6_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV6_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV6_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV6_RISING            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIEV_R_IEV7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOIEV_R_IEV7_MASK            (0x00000080u)
 #define GPIO_GPIOIEV_R_IEV7_BIT             (7)
-#define GPIO_GPIOIEV_R_IEV7_FALLING         (0x00000000)
-#define GPIO_GPIOIEV_R_IEV7_RISING          (0x00000080)
+#define GPIO_GPIOIEV_R_IEV7_FALLING         (0x00000000u)
+#define GPIO_GPIOIEV_R_IEV7_RISING          (0x00000080u)
 
-#define GPIO_GPIOIEV_IEV7_MASK              (0x00000001)
-#define GPIO_GPIOIEV_IEV7_FALLING           (0x00000000)
-#define GPIO_GPIOIEV_IEV7_RISING            (0x00000001)
-//--------
+#define GPIO_GPIOIEV_IEV7_MASK              (0x00000001u)
+#define GPIO_GPIOIEV_IEV7_FALLING           (0x00000000u)
+#define GPIO_GPIOIEV_IEV7_RISING            (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB IEV BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOIEV_IEV0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOIEV_OFFSET)*32)+(GPIO_GPIOIEV_R_IEV0_BIT*4))))
@@ -3758,104 +3758,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIOIM_R_IME_MASK          (0x000000FF)
+/*----------*/
+#define GPIO_GPIOIM_R_IME_MASK          (0x000000FFu)
 #define GPIO_GPIOIM_R_IME_BIT           (0)
-#define GPIO_GPIOIM_R_IME_DIS           (0x00000000)
-#define GPIO_GPIOIM_R_IME_EN            (0x000000FF)
+#define GPIO_GPIOIM_R_IME_DIS           (0x00000000u)
+#define GPIO_GPIOIM_R_IME_EN            (0x000000FFu)
 
-#define GPIO_GPIOIM_IME_MASK            (0x000000FF)
-#define GPIO_GPIOIM_IME_DIS             (0x00000000)
-#define GPIO_GPIOIM_IME_EN              (0x000000FF)
-//--------
+#define GPIO_GPIOIM_IME_MASK            (0x000000FFu)
+#define GPIO_GPIOIM_IME_DIS             (0x00000000u)
+#define GPIO_GPIOIM_IME_EN              (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME0_MASK         (0x00000001)
+/*----------*/
+#define GPIO_GPIOIM_R_IME0_MASK         (0x00000001u)
 #define GPIO_GPIOIM_R_IME0_BIT          (0)
-#define GPIO_GPIOIM_R_IME0_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME0_EN           (0x00000001)
+#define GPIO_GPIOIM_R_IME0_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME0_EN           (0x00000001u)
 
-#define GPIO_GPIOIM_IME0_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME0_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME0_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME0_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME0_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME0_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME1_MASK         (0x00000002)
+/*----------*/
+#define GPIO_GPIOIM_R_IME1_MASK         (0x00000002u)
 #define GPIO_GPIOIM_R_IME1_BIT          (1)
-#define GPIO_GPIOIM_R_IME1_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME1_EN           (0x00000002)
+#define GPIO_GPIOIM_R_IME1_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME1_EN           (0x00000002u)
 
-#define GPIO_GPIOIM_IME1_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME1_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME1_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME1_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME1_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME1_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME2_MASK         (0x00000004)
+/*----------*/
+#define GPIO_GPIOIM_R_IME2_MASK         (0x00000004u)
 #define GPIO_GPIOIM_R_IME2_BIT          (2)
-#define GPIO_GPIOIM_R_IME2_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME2_EN           (0x00000004)
+#define GPIO_GPIOIM_R_IME2_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME2_EN           (0x00000004u)
 
-#define GPIO_GPIOIM_IME2_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME2_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME2_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME2_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME2_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME2_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME3_MASK         (0x00000008)
+/*----------*/
+#define GPIO_GPIOIM_R_IME3_MASK         (0x00000008u)
 #define GPIO_GPIOIM_R_IME3_BIT          (3)
-#define GPIO_GPIOIM_R_IME3_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME3_EN           (0x00000008)
+#define GPIO_GPIOIM_R_IME3_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME3_EN           (0x00000008u)
 
-#define GPIO_GPIOIM_IME3_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME3_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME3_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME3_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME3_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME3_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME4_MASK         (0x00000010)
+/*----------*/
+#define GPIO_GPIOIM_R_IME4_MASK         (0x00000010u)
 #define GPIO_GPIOIM_R_IME4_BIT          (4)
-#define GPIO_GPIOIM_R_IME4_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME4_EN           (0x00000010)
+#define GPIO_GPIOIM_R_IME4_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME4_EN           (0x00000010u)
 
-#define GPIO_GPIOIM_IME4_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME4_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME4_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME4_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME4_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME4_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME5_MASK         (0x00000020)
+/*----------*/
+#define GPIO_GPIOIM_R_IME5_MASK         (0x00000020u)
 #define GPIO_GPIOIM_R_IME5_BIT          (5)
-#define GPIO_GPIOIM_R_IME5_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME5_EN           (0x00000020)
+#define GPIO_GPIOIM_R_IME5_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME5_EN           (0x00000020u)
 
-#define GPIO_GPIOIM_IME5_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME5_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME5_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME5_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME5_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME5_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME6_MASK         (0x00000040)
+/*----------*/
+#define GPIO_GPIOIM_R_IME6_MASK         (0x00000040u)
 #define GPIO_GPIOIM_R_IME6_BIT          (6)
-#define GPIO_GPIOIM_R_IME6_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME6_EN           (0x00000040)
+#define GPIO_GPIOIM_R_IME6_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME6_EN           (0x00000040u)
 
-#define GPIO_GPIOIM_IME6_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME6_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME6_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME6_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME6_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME6_EN             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOIM_R_IME7_MASK         (0x00000080)
+/*----------*/
+#define GPIO_GPIOIM_R_IME7_MASK         (0x00000080u)
 #define GPIO_GPIOIM_R_IME7_BIT          (7)
-#define GPIO_GPIOIM_R_IME7_DIS          (0x00000000)
-#define GPIO_GPIOIM_R_IME7_EN           (0x00000080)
+#define GPIO_GPIOIM_R_IME7_DIS          (0x00000000u)
+#define GPIO_GPIOIM_R_IME7_EN           (0x00000080u)
 
-#define GPIO_GPIOIM_IME7_MASK           (0x00000001)
-#define GPIO_GPIOIM_IME7_DIS            (0x00000000)
-#define GPIO_GPIOIM_IME7_EN             (0x00000001)
-//--------
+#define GPIO_GPIOIM_IME7_MASK           (0x00000001u)
+#define GPIO_GPIOIM_IME7_DIS            (0x00000000u)
+#define GPIO_GPIOIM_IME7_EN             (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB IME BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOIM_IME0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOIM_OFFSET)*32)+(GPIO_GPIOIM_R_IME0_BIT*4))))
@@ -4043,104 +4043,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIORIS_R_RIS_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS_MASK             (0x000000FFu)
 #define GPIO_GPIORIS_R_RIS_BIT              (0)
-#define GPIO_GPIORIS_R_RIS_NOACTIVE         (0x00000000)
-#define GPIO_GPIORIS_R_RIS_ACTIVE           (0x000000FF)
+#define GPIO_GPIORIS_R_RIS_NOACTIVE         (0x00000000u)
+#define GPIO_GPIORIS_R_RIS_ACTIVE           (0x000000FFu)
 
-#define GPIO_GPIORIS_RIS_MASK               (0x000000FF)
-#define GPIO_GPIORIS_RIS_NOACTIVE           (0x00000000)
-#define GPIO_GPIORIS_RIS_ACTIVE             (0x000000FF)
-//--------
+#define GPIO_GPIORIS_RIS_MASK               (0x000000FFu)
+#define GPIO_GPIORIS_RIS_NOACTIVE           (0x00000000u)
+#define GPIO_GPIORIS_RIS_ACTIVE             (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS0_MASK            (0x00000001u)
 #define GPIO_GPIORIS_R_RIS0_BIT             (0)
-#define GPIO_GPIORIS_R_RIS0_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS0_ACTIVE          (0x00000001)
+#define GPIO_GPIORIS_R_RIS0_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS0_ACTIVE          (0x00000001u)
 
-#define GPIO_GPIORIS_RIS0_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS0_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS0_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS0_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS0_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS0_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS1_MASK            (0x00000002u)
 #define GPIO_GPIORIS_R_RIS1_BIT             (1)
-#define GPIO_GPIORIS_R_RIS1_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS1_ACTIVE          (0x00000002)
+#define GPIO_GPIORIS_R_RIS1_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS1_ACTIVE          (0x00000002u)
 
-#define GPIO_GPIORIS_RIS1_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS1_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS1_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS1_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS1_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS1_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS2_MASK            (0x00000004u)
 #define GPIO_GPIORIS_R_RIS2_BIT             (2)
-#define GPIO_GPIORIS_R_RIS2_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS2_ACTIVE          (0x00000004)
+#define GPIO_GPIORIS_R_RIS2_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS2_ACTIVE          (0x00000004u)
 
-#define GPIO_GPIORIS_RIS2_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS2_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS2_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS2_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS2_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS2_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS3_MASK            (0x00000008u)
 #define GPIO_GPIORIS_R_RIS3_BIT             (3)
-#define GPIO_GPIORIS_R_RIS3_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS3_ACTIVE          (0x00000008)
+#define GPIO_GPIORIS_R_RIS3_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS3_ACTIVE          (0x00000008u)
 
-#define GPIO_GPIORIS_RIS3_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS3_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS3_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS3_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS3_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS3_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS4_MASK            (0x00000010u)
 #define GPIO_GPIORIS_R_RIS4_BIT             (4)
-#define GPIO_GPIORIS_R_RIS4_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS4_ACTIVE          (0x00000010)
+#define GPIO_GPIORIS_R_RIS4_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS4_ACTIVE          (0x00000010u)
 
-#define GPIO_GPIORIS_RIS4_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS4_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS4_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS4_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS4_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS4_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS5_MASK            (0x00000020u)
 #define GPIO_GPIORIS_R_RIS5_BIT             (5)
-#define GPIO_GPIORIS_R_RIS5_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS5_ACTIVE          (0x00000020)
+#define GPIO_GPIORIS_R_RIS5_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS5_ACTIVE          (0x00000020u)
 
-#define GPIO_GPIORIS_RIS5_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS5_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS5_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS5_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS5_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS5_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS6_MASK            (0x00000040u)
 #define GPIO_GPIORIS_R_RIS6_BIT             (6)
-#define GPIO_GPIORIS_R_RIS6_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS6_ACTIVE          (0x00000040)
+#define GPIO_GPIORIS_R_RIS6_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS6_ACTIVE          (0x00000040u)
 
-#define GPIO_GPIORIS_RIS6_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS6_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS6_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS6_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS6_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS6_ACTIVE            (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIORIS_R_RIS7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIORIS_R_RIS7_MASK            (0x00000080u)
 #define GPIO_GPIORIS_R_RIS7_BIT             (7)
-#define GPIO_GPIORIS_R_RIS7_NOACTIVE        (0x00000000)
-#define GPIO_GPIORIS_R_RIS7_ACTIVE          (0x00000080)
+#define GPIO_GPIORIS_R_RIS7_NOACTIVE        (0x00000000u)
+#define GPIO_GPIORIS_R_RIS7_ACTIVE          (0x00000080u)
 
-#define GPIO_GPIORIS_RIS7_MASK              (0x00000001)
-#define GPIO_GPIORIS_RIS7_NOACTIVE          (0x00000000)
-#define GPIO_GPIORIS_RIS7_ACTIVE            (0x00000001)
-//--------
+#define GPIO_GPIORIS_RIS7_MASK              (0x00000001u)
+#define GPIO_GPIORIS_RIS7_NOACTIVE          (0x00000000u)
+#define GPIO_GPIORIS_RIS7_ACTIVE            (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB RIS BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIORIS_RIS0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIORIS_OFFSET)*32)+(GPIO_GPIORIS_R_RIS0_BIT*4))))
@@ -4328,104 +4328,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIOMIS_R_MIS_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS_MASK             (0x000000FFu)
 #define GPIO_GPIOMIS_R_MIS_BIT              (0)
-#define GPIO_GPIOMIS_R_MIS_NOOCCUR          (0x00000000)
-#define GPIO_GPIOMIS_R_MIS_OCCUR            (0x000000FF)
+#define GPIO_GPIOMIS_R_MIS_NOOCCUR          (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS_OCCUR            (0x000000FFu)
 
-#define GPIO_GPIOMIS_MIS_MASK               (0x000000FF)
-#define GPIO_GPIOMIS_MIS_NOOCCUR            (0x00000000)
-#define GPIO_GPIOMIS_MIS_OCCUR              (0x000000FF)
-//--------
+#define GPIO_GPIOMIS_MIS_MASK               (0x000000FFu)
+#define GPIO_GPIOMIS_MIS_NOOCCUR            (0x00000000u)
+#define GPIO_GPIOMIS_MIS_OCCUR              (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS0_MASK            (0x00000001u)
 #define GPIO_GPIOMIS_R_MIS0_BIT             (0)
-#define GPIO_GPIOMIS_R_MIS0_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS0_OCCUR           (0x00000001)
+#define GPIO_GPIOMIS_R_MIS0_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS0_OCCUR           (0x00000001u)
 
-#define GPIO_GPIOMIS_MIS0_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS0_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS0_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS0_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS0_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS0_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS1_MASK            (0x00000002u)
 #define GPIO_GPIOMIS_R_MIS1_BIT             (1)
-#define GPIO_GPIOMIS_R_MIS1_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS1_OCCUR           (0x00000002)
+#define GPIO_GPIOMIS_R_MIS1_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS1_OCCUR           (0x00000002u)
 
-#define GPIO_GPIOMIS_MIS1_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS1_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS1_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS1_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS1_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS1_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS2_MASK            (0x00000004u)
 #define GPIO_GPIOMIS_R_MIS2_BIT             (2)
-#define GPIO_GPIOMIS_R_MIS2_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS2_OCCUR           (0x00000004)
+#define GPIO_GPIOMIS_R_MIS2_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS2_OCCUR           (0x00000004u)
 
-#define GPIO_GPIOMIS_MIS2_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS2_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS2_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS2_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS2_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS2_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS3_MASK            (0x00000008u)
 #define GPIO_GPIOMIS_R_MIS3_BIT             (3)
-#define GPIO_GPIOMIS_R_MIS3_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS3_OCCUR           (0x00000008)
+#define GPIO_GPIOMIS_R_MIS3_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS3_OCCUR           (0x00000008u)
 
-#define GPIO_GPIOMIS_MIS3_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS3_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS3_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS3_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS3_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS3_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS4_MASK            (0x00000010u)
 #define GPIO_GPIOMIS_R_MIS4_BIT             (4)
-#define GPIO_GPIOMIS_R_MIS4_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS4_OCCUR           (0x00000010)
+#define GPIO_GPIOMIS_R_MIS4_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS4_OCCUR           (0x00000010u)
 
-#define GPIO_GPIOMIS_MIS4_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS4_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS4_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS4_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS4_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS4_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS5_MASK            (0x00000020u)
 #define GPIO_GPIOMIS_R_MIS5_BIT             (5)
-#define GPIO_GPIOMIS_R_MIS5_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS5_OCCUR           (0x00000020)
+#define GPIO_GPIOMIS_R_MIS5_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS5_OCCUR           (0x00000020u)
 
-#define GPIO_GPIOMIS_MIS5_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS5_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS5_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS5_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS5_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS5_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS6_MASK            (0x00000040u)
 #define GPIO_GPIOMIS_R_MIS6_BIT             (6)
-#define GPIO_GPIOMIS_R_MIS6_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS6_OCCUR           (0x00000040)
+#define GPIO_GPIOMIS_R_MIS6_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS6_OCCUR           (0x00000040u)
 
-#define GPIO_GPIOMIS_MIS6_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS6_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS6_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS6_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS6_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS6_OCCUR             (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOMIS_R_MIS7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOMIS_R_MIS7_MASK            (0x00000080u)
 #define GPIO_GPIOMIS_R_MIS7_BIT             (7)
-#define GPIO_GPIOMIS_R_MIS7_NOOCCUR         (0x00000000)
-#define GPIO_GPIOMIS_R_MIS7_OCCUR           (0x00000080)
+#define GPIO_GPIOMIS_R_MIS7_NOOCCUR         (0x00000000u)
+#define GPIO_GPIOMIS_R_MIS7_OCCUR           (0x00000080u)
 
-#define GPIO_GPIOMIS_MIS7_MASK              (0x00000001)
-#define GPIO_GPIOMIS_MIS7_NOOCCUR           (0x00000000)
-#define GPIO_GPIOMIS_MIS7_OCCUR             (0x00000001)
-//--------
+#define GPIO_GPIOMIS_MIS7_MASK              (0x00000001u)
+#define GPIO_GPIOMIS_MIS7_NOOCCUR           (0x00000000u)
+#define GPIO_GPIOMIS_MIS7_OCCUR             (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB MIS BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOMIS_MIS0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOMIS_OFFSET)*32)+(GPIO_GPIOMIS_R_MIS0_BIT*4))))
@@ -4613,104 +4613,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIOICR_R_IC_MASK              (0x000000FF)
+/*----------*/
+#define GPIO_GPIOICR_R_IC_MASK              (0x000000FFu)
 #define GPIO_GPIOICR_R_IC_BIT               (0)
-#define GPIO_GPIOICR_R_IC_NOEFFECT          (0x00000000)
-#define GPIO_GPIOICR_R_IC_CLEAR             (0x000000FF)
+#define GPIO_GPIOICR_R_IC_NOEFFECT          (0x00000000u)
+#define GPIO_GPIOICR_R_IC_CLEAR             (0x000000FFu)
 
-#define GPIO_GPIOICR_IC_MASK                (0x000000FF)
-#define GPIO_GPIOICR_IC_NOEFFECT            (0x00000000)
-#define GPIO_GPIOICR_IC_CLEAR               (0x000000FF)
-//--------
+#define GPIO_GPIOICR_IC_MASK                (0x000000FFu)
+#define GPIO_GPIOICR_IC_NOEFFECT            (0x00000000u)
+#define GPIO_GPIOICR_IC_CLEAR               (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC0_MASK             (0x00000001)
+/*----------*/
+#define GPIO_GPIOICR_R_IC0_MASK             (0x00000001u)
 #define GPIO_GPIOICR_R_IC0_BIT              (0)
-#define GPIO_GPIOICR_R_IC0_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC0_CLEAR            (0x00000001)
+#define GPIO_GPIOICR_R_IC0_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC0_CLEAR            (0x00000001u)
 
-#define GPIO_GPIOICR_IC0_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC0_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC0_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC0_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC0_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC0_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC1_MASK             (0x00000002)
+/*----------*/
+#define GPIO_GPIOICR_R_IC1_MASK             (0x00000002u)
 #define GPIO_GPIOICR_R_IC1_BIT              (1)
-#define GPIO_GPIOICR_R_IC1_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC1_CLEAR            (0x00000002)
+#define GPIO_GPIOICR_R_IC1_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC1_CLEAR            (0x00000002u)
 
-#define GPIO_GPIOICR_IC1_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC1_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC1_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC1_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC1_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC1_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC2_MASK             (0x00000004)
+/*----------*/
+#define GPIO_GPIOICR_R_IC2_MASK             (0x00000004u)
 #define GPIO_GPIOICR_R_IC2_BIT              (2)
-#define GPIO_GPIOICR_R_IC2_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC2_CLEAR            (0x00000004)
+#define GPIO_GPIOICR_R_IC2_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC2_CLEAR            (0x00000004u)
 
-#define GPIO_GPIOICR_IC2_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC2_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC2_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC2_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC2_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC2_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC3_MASK             0x00000008)
+/*----------*/
+#define GPIO_GPIOICR_R_IC3_MASK             0x00000008u)
 #define GPIO_GPIOICR_R_IC3_BIT              (3)
-#define GPIO_GPIOICR_R_IC3_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC3_CLEAR            (0x00000008)
+#define GPIO_GPIOICR_R_IC3_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC3_CLEAR            (0x00000008u)
 
-#define GPIO_GPIOICR_IC3_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC3_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC3_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC3_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC3_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC3_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC4_MASK             (0x00000010)
+/*----------*/
+#define GPIO_GPIOICR_R_IC4_MASK             (0x00000010u)
 #define GPIO_GPIOICR_R_IC4_BIT              (4)
-#define GPIO_GPIOICR_R_IC4_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC4_CLEAR            (0x00000010)
+#define GPIO_GPIOICR_R_IC4_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC4_CLEAR            (0x00000010u)
 
-#define GPIO_GPIOICR_IC4_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC4_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC4_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC4_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC4_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC4_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC5_MASK             (0x00000020)
+/*----------*/
+#define GPIO_GPIOICR_R_IC5_MASK             (0x00000020u)
 #define GPIO_GPIOICR_R_IC5_BIT              (5)
-#define GPIO_GPIOICR_R_IC5_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC5_CLEAR            (0x00000020)
+#define GPIO_GPIOICR_R_IC5_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC5_CLEAR            (0x00000020u)
 
-#define GPIO_GPIOICR_IC5_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC5_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC5_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC5_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC5_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC5_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC6_MASK             (0x00000040)
+/*----------*/
+#define GPIO_GPIOICR_R_IC6_MASK             (0x00000040u)
 #define GPIO_GPIOICR_R_IC6_BIT              (6)
-#define GPIO_GPIOICR_R_IC6_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC6_CLEAR            (0x00000040)
+#define GPIO_GPIOICR_R_IC6_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC6_CLEAR            (0x00000040u)
 
-#define GPIO_GPIOICR_IC6_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC6_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC6_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC6_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC6_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC6_CLEAR              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOICR_R_IC7_MASK             (0x00000080)
+/*----------*/
+#define GPIO_GPIOICR_R_IC7_MASK             (0x00000080u)
 #define GPIO_GPIOICR_R_IC7_BIT              (7)
-#define GPIO_GPIOICR_R_IC7_NOEFFECT         (0x00000000)
-#define GPIO_GPIOICR_R_IC7_CLEAR            (0x00000080)
+#define GPIO_GPIOICR_R_IC7_NOEFFECT         (0x00000000u)
+#define GPIO_GPIOICR_R_IC7_CLEAR            (0x00000080u)
 
-#define GPIO_GPIOICR_IC7_MASK               (0x00000001)
-#define GPIO_GPIOICR_IC7_NOEFFECT           (0x00000000)
-#define GPIO_GPIOICR_IC7_CLEAR              (0x00000001)
-//--------
+#define GPIO_GPIOICR_IC7_MASK               (0x00000001u)
+#define GPIO_GPIOICR_IC7_NOEFFECT           (0x00000000u)
+#define GPIO_GPIOICR_IC7_CLEAR              (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB IC BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOICR_IC0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOICR_OFFSET)*32)+(GPIO_GPIOICR_R_IC0_BIT*4))))
@@ -4897,105 +4897,105 @@ typedef volatile struct
 #define GPIOF_APB_GPIOAFSEL_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOAFSEL_OFFSET)))
 
 
-//--------
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL_MASK        (0x000000FF)
+/*----------*/
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL_MASK        (0x000000FFu)
 #define GPIOF_APB_GPIOAFSEL_R_AFSEL_BIT         (0)
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_GPIO       (0x00000000)
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_ALT        (0x000000FF)
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_GPIO       (0x00000000u)
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_ALT        (0x000000FFu)
 
 
-#define GPIO_GPIOAFSEL_AFSEL_MASK               (0x000000FF)
-#define GPIO_GPIOAFSEL_AFSEL_GPIO               (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL_ALT                (0x000000FF)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL_MASK               (0x000000FFu)
+#define GPIO_GPIOAFSEL_AFSEL_GPIO               (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL_ALT                (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL0_MASK            (0x00000001u)
 #define GPIO_GPIOAFSEL_R_AFSEL0_BIT             (0)
-#define GPIO_GPIOAFSEL_R_AFSEL0_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL0_ALT             (0x00000001)
+#define GPIO_GPIOAFSEL_R_AFSEL0_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL0_ALT             (0x00000001u)
 
-#define GPIO_GPIOAFSEL_AFSEL0_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL0_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL0_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL0_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL0_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL0_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL1_MASK            (0x00000002u)
 #define GPIO_GPIOAFSEL_R_AFSEL1_BIT             (1)
-#define GPIO_GPIOAFSEL_R_AFSEL1_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL1_ALT             (0x00000002)
+#define GPIO_GPIOAFSEL_R_AFSEL1_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL1_ALT             (0x00000002u)
 
-#define GPIO_GPIOAFSEL_AFSEL1_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL1_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL1_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL1_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL1_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL1_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL2_MASK            (0x00000004u)
 #define GPIO_GPIOAFSEL_R_AFSEL2_BIT             (2)
-#define GPIO_GPIOAFSEL_R_AFSEL2_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL2_ALT             (0x00000004)
+#define GPIO_GPIOAFSEL_R_AFSEL2_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL2_ALT             (0x00000004u)
 
-#define GPIO_GPIOAFSEL_AFSEL2_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL2_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL2_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL2_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL2_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL2_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL3_MASK            (0x00000008u)
 #define GPIO_GPIOAFSEL_R_AFSEL3_BIT             (3)
-#define GPIO_GPIOAFSEL_R_AFSEL3_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL3_ALT             (0x00000008)
+#define GPIO_GPIOAFSEL_R_AFSEL3_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL3_ALT             (0x00000008u)
 
-#define GPIO_GPIOAFSEL_AFSEL3_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL3_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL3_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL3_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL3_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL3_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL4_MASK            (0x00000010u)
 #define GPIO_GPIOAFSEL_R_AFSEL4_BIT             (4)
-#define GPIO_GPIOAFSEL_R_AFSEL4_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL4_ALT             (0x00000010)
+#define GPIO_GPIOAFSEL_R_AFSEL4_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL4_ALT             (0x00000010u)
 
-#define GPIO_GPIOAFSEL_AFSEL4_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL4_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL4_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL4_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL4_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL4_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL5_MASK            (0x00000020u)
 #define GPIO_GPIOAFSEL_R_AFSEL5_BIT             (5)
-#define GPIO_GPIOAFSEL_R_AFSEL5_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL5_ALT             (0x00000020)
+#define GPIO_GPIOAFSEL_R_AFSEL5_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL5_ALT             (0x00000020u)
 
-#define GPIO_GPIOAFSEL_AFSEL5_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL5_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL5_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL5_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL5_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL5_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL6_MASK            (0x00000040u)
 #define GPIO_GPIOAFSEL_R_AFSEL6_BIT             (6)
-#define GPIO_GPIOAFSEL_R_AFSEL6_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL6_ALT             (0x00000040)
+#define GPIO_GPIOAFSEL_R_AFSEL6_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL6_ALT             (0x00000040u)
 
-#define GPIO_GPIOAFSEL_AFSEL6_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL6_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL6_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL6_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL6_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL6_ALT               (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAFSEL_R_AFSEL7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOAFSEL_R_AFSEL7_MASK            (0x00000080u)
 #define GPIO_GPIOAFSEL_R_AFSEL7_BIT             (7)
-#define GPIO_GPIOAFSEL_R_AFSEL7_GPIO            (0x00000000)
-#define GPIO_GPIOAFSEL_R_AFSEL7_ALT             (0x00000080)
+#define GPIO_GPIOAFSEL_R_AFSEL7_GPIO            (0x00000000u)
+#define GPIO_GPIOAFSEL_R_AFSEL7_ALT             (0x00000080u)
 
-#define GPIO_GPIOAFSEL_AFSEL7_MASK              (0x00000001)
-#define GPIO_GPIOAFSEL_AFSEL7_GPIO              (0x00000000)
-#define GPIO_GPIOAFSEL_AFSEL7_ALT               (0x00000001)
-//--------
+#define GPIO_GPIOAFSEL_AFSEL7_MASK              (0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL7_GPIO              (0x00000000u)
+#define GPIO_GPIOAFSEL_AFSEL7_ALT               (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB AFSEL BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIOAFSEL_AFSEL0         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIOAFSEL_OFFSET)*32)+(GPIO_GPIOAFSEL_R_AFSEL0_BIT*4))))
@@ -5234,104 +5234,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIODR2R_R_DRV2_MASK           (0x000000FF)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV2_MASK           (0x000000FFu)
 #define GPIO_GPIODR2R_R_DRV2_BIT            (0)
-#define GPIO_GPIODR2R_R_DRV2_DIS            (0x00000000)
-#define GPIO_GPIODR2R_R_DRV2_EN             (0x000000FF)
+#define GPIO_GPIODR2R_R_DRV2_DIS            (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV2_EN             (0x000000FFu)
 
-#define GPIO_GPIODR2R_DRV2_MASK             (0x000000FF)
-#define GPIO_GPIODR2R_DRV2_DIS              (0x00000000)
-#define GPIO_GPIODR2R_DRV2_EN               (0x000000FF)
-//--------
+#define GPIO_GPIODR2R_DRV2_MASK             (0x000000FFu)
+#define GPIO_GPIODR2R_DRV2_DIS              (0x00000000u)
+#define GPIO_GPIODR2R_DRV2_EN               (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV20_MASK          (0x00000001)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV20_MASK          (0x00000001u)
 #define GPIO_GPIODR2R_R_DRV20_BIT           (0)
-#define GPIO_GPIODR2R_R_DRV20_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV20_EN            (0x00000001)
+#define GPIO_GPIODR2R_R_DRV20_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV20_EN            (0x00000001u)
 
-#define GPIO_GPIODR2R_DRV20_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV20_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV20_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV20_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV20_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV20_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV21_MASK          (0x00000002)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV21_MASK          (0x00000002u)
 #define GPIO_GPIODR2R_R_DRV21_BIT           (1)
-#define GPIO_GPIODR2R_R_DRV21_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV21_EN            (0x00000002)
+#define GPIO_GPIODR2R_R_DRV21_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV21_EN            (0x00000002u)
 
-#define GPIO_GPIODR2R_DRV21_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV21_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV21_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV21_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV21_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV21_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV22_MASK          (0x00000004)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV22_MASK          (0x00000004u)
 #define GPIO_GPIODR2R_R_DRV22_BIT           (2)
-#define GPIO_GPIODR2R_R_DRV22_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV22_EN            (0x00000004)
+#define GPIO_GPIODR2R_R_DRV22_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV22_EN            (0x00000004u)
 
-#define GPIO_GPIODR2R_DRV22_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV22_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV22_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV22_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV22_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV22_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV23_MASK          (0x00000008)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV23_MASK          (0x00000008u)
 #define GPIO_GPIODR2R_R_DRV23_BIT           (3)
-#define GPIO_GPIODR2R_R_DRV23_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV23_EN            (0x00000008)
+#define GPIO_GPIODR2R_R_DRV23_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV23_EN            (0x00000008u)
 
-#define GPIO_GPIODR2R_DRV23_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV23_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV23_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV23_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV23_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV23_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV24_MASK          (0x00000010)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV24_MASK          (0x00000010u)
 #define GPIO_GPIODR2R_R_DRV24_BIT           (4)
-#define GPIO_GPIODR2R_R_DRV24_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV24_EN            (0x00000010)
+#define GPIO_GPIODR2R_R_DRV24_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV24_EN            (0x00000010u)
 
-#define GPIO_GPIODR2R_DRV24_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV24_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV24_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV24_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV24_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV24_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV25_MASK          (0x00000020)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV25_MASK          (0x00000020u)
 #define GPIO_GPIODR2R_R_DRV25_BIT           (5)
-#define GPIO_GPIODR2R_R_DRV25_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV25_EN            (0x00000020)
+#define GPIO_GPIODR2R_R_DRV25_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV25_EN            (0x00000020u)
 
-#define GPIO_GPIODR2R_DRV25_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV25_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV25_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV25_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV25_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV25_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV26_MASK          (0x00000040)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV26_MASK          (0x00000040u)
 #define GPIO_GPIODR2R_R_DRV26_BIT           (6)
-#define GPIO_GPIODR2R_R_DRV26_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV26_EN            (0x00000040)
+#define GPIO_GPIODR2R_R_DRV26_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV26_EN            (0x00000040u)
 
-#define GPIO_GPIODR2R_DRV26_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV26_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV26_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV26_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV26_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV26_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR2R_R_DRV27_MASK          (0x00000080)
+/*----------*/
+#define GPIO_GPIODR2R_R_DRV27_MASK          (0x00000080u)
 #define GPIO_GPIODR2R_R_DRV27_BIT           (7)
-#define GPIO_GPIODR2R_R_DRV27_DIS           (0x00000000)
-#define GPIO_GPIODR2R_R_DRV27_EN            (0x00000080)
+#define GPIO_GPIODR2R_R_DRV27_DIS           (0x00000000u)
+#define GPIO_GPIODR2R_R_DRV27_EN            (0x00000080u)
 
-#define GPIO_GPIODR2R_DRV27_MASK            (0x00000001)
-#define GPIO_GPIODR2R_DRV27_DIS             (0x00000000)
-#define GPIO_GPIODR2R_DRV27_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR2R_DRV27_MASK            (0x00000001u)
+#define GPIO_GPIODR2R_DRV27_DIS             (0x00000000u)
+#define GPIO_GPIODR2R_DRV27_EN              (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB DRV2 BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIODR2R_DRV20         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIODR2R_OFFSET)*32)+(GPIO_GPIODR2R_R_DRV20_BIT*4))))
@@ -5520,104 +5520,104 @@ typedef volatile struct
 
 
 
-//--------
-#define GPIO_GPIODR4R_R_DRV4_MASK           (0x000000FF)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV4_MASK           (0x000000FFu)
 #define GPIO_GPIODR4R_R_DRV4_BIT            (0)
-#define GPIO_GPIODR4R_R_DRV4_DIS            (0x00000000)
-#define GPIO_GPIODR4R_R_DRV4_EN             (0x000000FF)
+#define GPIO_GPIODR4R_R_DRV4_DIS            (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV4_EN             (0x000000FFu)
 
-#define GPIO_GPIODR4R_DRV4_MASK             (0x000000FF)
-#define GPIO_GPIODR4R_DRV4_DIS              (0x00000000)
-#define GPIO_GPIODR4R_DRV4_EN               (0x000000FF)
-//--------
+#define GPIO_GPIODR4R_DRV4_MASK             (0x000000FFu)
+#define GPIO_GPIODR4R_DRV4_DIS              (0x00000000u)
+#define GPIO_GPIODR4R_DRV4_EN               (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV40_MASK          (0x00000001)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV40_MASK          (0x00000001u)
 #define GPIO_GPIODR4R_R_DRV40_BIT           (0)
-#define GPIO_GPIODR4R_R_DRV40_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV40_EN            (0x00000001)
+#define GPIO_GPIODR4R_R_DRV40_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV40_EN            (0x00000001u)
 
-#define GPIO_GPIODR4R_DRV40_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV40_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV40_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV40_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV40_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV40_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV41_MASK          (0x00000002)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV41_MASK          (0x00000002u)
 #define GPIO_GPIODR4R_R_DRV41_BIT           (1)
-#define GPIO_GPIODR4R_R_DRV41_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV41_EN            (0x00000002)
+#define GPIO_GPIODR4R_R_DRV41_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV41_EN            (0x00000002u)
 
-#define GPIO_GPIODR4R_DRV41_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV41_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV41_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV41_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV41_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV41_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV42_MASK          (0x00000004)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV42_MASK          (0x00000004u)
 #define GPIO_GPIODR4R_R_DRV42_BIT           (2)
-#define GPIO_GPIODR4R_R_DRV42_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV42_EN            (0x00000004)
+#define GPIO_GPIODR4R_R_DRV42_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV42_EN            (0x00000004u)
 
-#define GPIO_GPIODR4R_DRV42_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV42_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV42_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV42_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV42_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV42_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV43_MASK          (0x00000008)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV43_MASK          (0x00000008u)
 #define GPIO_GPIODR4R_R_DRV43_BIT           (3)
-#define GPIO_GPIODR4R_R_DRV43_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV43_EN            (0x00000008)
+#define GPIO_GPIODR4R_R_DRV43_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV43_EN            (0x00000008u)
 
-#define GPIO_GPIODR4R_DRV43_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV43_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV43_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV43_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV43_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV43_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV44_MASK          (0x00000010)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV44_MASK          (0x00000010u)
 #define GPIO_GPIODR4R_R_DRV44_BIT           (4)
-#define GPIO_GPIODR4R_R_DRV44_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV44_EN            (0x00000010)
+#define GPIO_GPIODR4R_R_DRV44_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV44_EN            (0x00000010u)
 
-#define GPIO_GPIODR4R_DRV44_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV44_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV44_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV44_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV44_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV44_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV45_MASK          (0x00000020)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV45_MASK          (0x00000020u)
 #define GPIO_GPIODR4R_R_DRV45_BIT           (5)
-#define GPIO_GPIODR4R_R_DRV45_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV45_EN            (0x00000020)
+#define GPIO_GPIODR4R_R_DRV45_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV45_EN            (0x00000020u)
 
-#define GPIO_GPIODR4R_DRV45_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV45_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV45_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV45_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV45_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV45_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV46_MASK          (0x00000040)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV46_MASK          (0x00000040u)
 #define GPIO_GPIODR4R_R_DRV46_BIT           (6)
-#define GPIO_GPIODR4R_R_DRV46_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV46_EN            (0x00000040)
+#define GPIO_GPIODR4R_R_DRV46_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV46_EN            (0x00000040u)
 
-#define GPIO_GPIODR4R_DRV46_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV46_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV46_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV46_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV46_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV46_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR4R_R_DRV47_MASK          (0x00000080)
+/*----------*/
+#define GPIO_GPIODR4R_R_DRV47_MASK          (0x00000080u)
 #define GPIO_GPIODR4R_R_DRV47_BIT           (7)
-#define GPIO_GPIODR4R_R_DRV47_DIS           (0x00000000)
-#define GPIO_GPIODR4R_R_DRV47_EN            (0x00000080)
+#define GPIO_GPIODR4R_R_DRV47_DIS           (0x00000000u)
+#define GPIO_GPIODR4R_R_DRV47_EN            (0x00000080u)
 
-#define GPIO_GPIODR4R_DRV47_MASK            (0x00000001)
-#define GPIO_GPIODR4R_DRV47_DIS             (0x00000000)
-#define GPIO_GPIODR4R_DRV47_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR4R_DRV47_MASK            (0x00000001u)
+#define GPIO_GPIODR4R_DRV47_DIS             (0x00000000u)
+#define GPIO_GPIODR4R_DRV47_EN              (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB DRV4 BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIODR4R_DRV40         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIODR4R_OFFSET)*32)+(GPIO_GPIODR4R_R_DRV40_BIT*4))))
@@ -5805,104 +5805,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIODR8R_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIODR8R_OFFSET)))
 
 
-//--------
-#define GPIO_GPIODR8R_R_DRV8_MASK           (0x000000FF)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV8_MASK           (0x000000FFu)
 #define GPIO_GPIODR8R_R_DRV8_BIT            (0)
-#define GPIO_GPIODR8R_R_DRV8_DIS            (0x00000000)
-#define GPIO_GPIODR8R_R_DRV8_EN             (0x000000FF)
+#define GPIO_GPIODR8R_R_DRV8_DIS            (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV8_EN             (0x000000FFu)
 
-#define GPIO_GPIODR8R_DRV8_MASK             (0x000000FF)
-#define GPIO_GPIODR8R_DRV8_DIS              (0x00000000)
-#define GPIO_GPIODR8R_DRV8_EN               (0x000000FF)
-//--------
+#define GPIO_GPIODR8R_DRV8_MASK             (0x000000FFu)
+#define GPIO_GPIODR8R_DRV8_DIS              (0x00000000u)
+#define GPIO_GPIODR8R_DRV8_EN               (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV80_MASK          (0x00000001)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV80_MASK          (0x00000001u)
 #define GPIO_GPIODR8R_R_DRV80_BIT           (0)
-#define GPIO_GPIODR8R_R_DRV80_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV80_EN            (0x00000001)
+#define GPIO_GPIODR8R_R_DRV80_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV80_EN            (0x00000001u)
 
-#define GPIO_GPIODR8R_DRV80_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV80_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV80_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV80_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV80_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV80_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV81_MASK          (0x00000002)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV81_MASK          (0x00000002u)
 #define GPIO_GPIODR8R_R_DRV81_BIT           (1)
-#define GPIO_GPIODR8R_R_DRV81_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV81_EN            (0x00000002)
+#define GPIO_GPIODR8R_R_DRV81_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV81_EN            (0x00000002u)
 
-#define GPIO_GPIODR8R_DRV81_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV81_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV81_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV81_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV81_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV81_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV82_MASK          (0x00000004)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV82_MASK          (0x00000004u)
 #define GPIO_GPIODR8R_R_DRV82_BIT           (2)
-#define GPIO_GPIODR8R_R_DRV82_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV82_EN            (0x00000004)
+#define GPIO_GPIODR8R_R_DRV82_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV82_EN            (0x00000004u)
 
-#define GPIO_GPIODR8R_DRV82_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV82_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV82_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV82_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV82_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV82_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV83_MASK          (0x00000008)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV83_MASK          (0x00000008u)
 #define GPIO_GPIODR8R_R_DRV83_BIT           (3)
-#define GPIO_GPIODR8R_R_DRV83_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV83_EN            (0x00000008)
+#define GPIO_GPIODR8R_R_DRV83_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV83_EN            (0x00000008u)
 
-#define GPIO_GPIODR8R_DRV83_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV83_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV83_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV83_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV83_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV83_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV84_MASK          (0x00000010)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV84_MASK          (0x00000010u)
 #define GPIO_GPIODR8R_R_DRV84_BIT           (4)
-#define GPIO_GPIODR8R_R_DRV84_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV84_EN            (0x00000010)
+#define GPIO_GPIODR8R_R_DRV84_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV84_EN            (0x00000010u)
 
-#define GPIO_GPIODR8R_DRV84_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV84_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV84_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV84_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV84_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV84_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV85_MASK          (0x00000020)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV85_MASK          (0x00000020u)
 #define GPIO_GPIODR8R_R_DRV85_BIT           (5)
-#define GPIO_GPIODR8R_R_DRV85_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV85_EN            (0x00000020)
+#define GPIO_GPIODR8R_R_DRV85_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV85_EN            (0x00000020u)
 
-#define GPIO_GPIODR8R_DRV85_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV85_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV85_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV85_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV85_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV85_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV86_MASK          (0x00000040)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV86_MASK          (0x00000040u)
 #define GPIO_GPIODR8R_R_DRV86_BIT           (6)
-#define GPIO_GPIODR8R_R_DRV86_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV86_EN            (0x00000040)
+#define GPIO_GPIODR8R_R_DRV86_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV86_EN            (0x00000040u)
 
-#define GPIO_GPIODR8R_DRV86_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV86_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV86_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV86_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV86_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV86_EN              (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODR8R_R_DRV87_MASK          (0x00000080)
+/*----------*/
+#define GPIO_GPIODR8R_R_DRV87_MASK          (0x00000080u)
 #define GPIO_GPIODR8R_R_DRV87_BIT           (7)
-#define GPIO_GPIODR8R_R_DRV87_DIS           (0x00000000)
-#define GPIO_GPIODR8R_R_DRV87_EN            (0x00000080)
+#define GPIO_GPIODR8R_R_DRV87_DIS           (0x00000000u)
+#define GPIO_GPIODR8R_R_DRV87_EN            (0x00000080u)
 
-#define GPIO_GPIODR8R_DRV87_MASK            (0x00000001)
-#define GPIO_GPIODR8R_DRV87_DIS             (0x00000000)
-#define GPIO_GPIODR8R_DRV87_EN              (0x00000001)
-//--------
+#define GPIO_GPIODR8R_DRV87_MASK            (0x00000001u)
+#define GPIO_GPIODR8R_DRV87_DIS             (0x00000000u)
+#define GPIO_GPIODR8R_DRV87_EN              (0x00000001u)
+/*----------*/
 
 /* GPIOA AHB DRV8 BITBANDING*/
 #define GPIOA_AHB_BITBANDING_GPIODR8R_DRV80         (*((volatile uint32_t *)(GPIO_BITBANDING_BASE+((GPIOA_AHB_OFFSET+GPIO_GPIODR8R_OFFSET)*32)+(GPIO_GPIODR8R_R_DRV80_BIT*4))))
@@ -6089,104 +6089,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIOODR_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOODR_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOODR_R_ODE_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE_MASK             (0x000000FFu)
 #define GPIO_GPIOODR_R_ODE_BIT              (0)
-#define GPIO_GPIOODR_R_ODE_PP               (0x00000000)
-#define GPIO_GPIOODR_R_ODE_OD               (0x000000FF)
+#define GPIO_GPIOODR_R_ODE_PP               (0x00000000u)
+#define GPIO_GPIOODR_R_ODE_OD               (0x000000FFu)
 
-#define GPIO_GPIOODR_ODE_MASK               (0x000000FF)
-#define GPIO_GPIOODR_ODE_PP                 (0x00000000)
-#define GPIO_GPIOODR_ODE_OD                 (0x000000FF)
-//--------
+#define GPIO_GPIOODR_ODE_MASK               (0x000000FFu)
+#define GPIO_GPIOODR_ODE_PP                 (0x00000000u)
+#define GPIO_GPIOODR_ODE_OD                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE0_MASK            (0x00000001u)
 #define GPIO_GPIOODR_R_ODE0_BIT             (0)
-#define GPIO_GPIOODR_R_ODE0_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE0_OD              (0x00000001)
+#define GPIO_GPIOODR_R_ODE0_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE0_OD              (0x00000001u)
 
-#define GPIO_GPIOODR_ODE0_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE0_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE0_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE0_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE0_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE0_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE1_MASK            (0x00000002u)
 #define GPIO_GPIOODR_R_ODE1_BIT             (1)
-#define GPIO_GPIOODR_R_ODE1_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE1_OD              (0x00000002)
+#define GPIO_GPIOODR_R_ODE1_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE1_OD              (0x00000002u)
 
-#define GPIO_GPIOODR_ODE1_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE1_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE1_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE1_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE1_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE1_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE2_MASK            (0x00000004u)
 #define GPIO_GPIOODR_R_ODE2_BIT             (2)
-#define GPIO_GPIOODR_R_ODE2_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE2_OD              (0x00000004)
+#define GPIO_GPIOODR_R_ODE2_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE2_OD              (0x00000004u)
 
-#define GPIO_GPIOODR_ODE2_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE2_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE2_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE2_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE2_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE2_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE3_MASK            (0x00000008u)
 #define GPIO_GPIOODR_R_ODE3_BIT             (3)
-#define GPIO_GPIOODR_R_ODE3_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE3_OD              (0x00000008)
+#define GPIO_GPIOODR_R_ODE3_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE3_OD              (0x00000008u)
 
-#define GPIO_GPIOODR_ODE3_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE3_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE3_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE3_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE3_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE3_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE4_MASK            (0x00000010u)
 #define GPIO_GPIOODR_R_ODE4_BIT             (4)
-#define GPIO_GPIOODR_R_ODE4_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE4_OD              (0x00000010)
+#define GPIO_GPIOODR_R_ODE4_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE4_OD              (0x00000010u)
 
-#define GPIO_GPIOODR_ODE4_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE4_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE4_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE4_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE4_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE4_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE5_MASK            (0x00000020u)
 #define GPIO_GPIOODR_R_ODE5_BIT             (5)
-#define GPIO_GPIOODR_R_ODE5_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE5_OD              (0x00000020)
+#define GPIO_GPIOODR_R_ODE5_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE5_OD              (0x00000020u)
 
-#define GPIO_GPIOODR_ODE5_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE5_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE5_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE5_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE5_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE5_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE6_MASK            (0x00000040u)
 #define GPIO_GPIOODR_R_ODE6_BIT             (6)
-#define GPIO_GPIOODR_R_ODE6_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE6_OD              (0x00000040)
+#define GPIO_GPIOODR_R_ODE6_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE6_OD              (0x00000040u)
 
-#define GPIO_GPIOODR_ODE6_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE6_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE6_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE6_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE6_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE6_OD                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOODR_R_ODE7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOODR_R_ODE7_MASK            (0x00000080u)
 #define GPIO_GPIOODR_R_ODE7_BIT             (7)
-#define GPIO_GPIOODR_R_ODE7_PP              (0x00000000)
-#define GPIO_GPIOODR_R_ODE7_OD              (0x00000080)
+#define GPIO_GPIOODR_R_ODE7_PP              (0x00000000u)
+#define GPIO_GPIOODR_R_ODE7_OD              (0x00000080u)
 
-#define GPIO_GPIOODR_ODE7_MASK              (0x00000001)
-#define GPIO_GPIOODR_ODE7_PP                (0x00000000)
-#define GPIO_GPIOODR_ODE7_OD                (0x00000001)
-//--------
+#define GPIO_GPIOODR_ODE7_MASK              (0x00000001u)
+#define GPIO_GPIOODR_ODE7_PP                (0x00000000u)
+#define GPIO_GPIOODR_ODE7_OD                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB ODE BITBANDING*/
@@ -6375,104 +6375,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPUR_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPUR_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPUR_R_PUE_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE_MASK             (0x000000FFu)
 #define GPIO_GPIOPUR_R_PUE_BIT              (0)
-#define GPIO_GPIOPUR_R_PUE_DIS              (0x00000000)
-#define GPIO_GPIOPUR_R_PUE_EN               (0x000000FF)
+#define GPIO_GPIOPUR_R_PUE_DIS              (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE_EN               (0x000000FFu)
 
-#define GPIO_GPIOPUR_PUE_MASK               (0x000000FF)
-#define GPIO_GPIOPUR_PUE_DIS                (0x00000000)
-#define GPIO_GPIOPUR_PUE_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIOPUR_PUE_MASK               (0x000000FFu)
+#define GPIO_GPIOPUR_PUE_DIS                (0x00000000u)
+#define GPIO_GPIOPUR_PUE_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE0_MASK            (0x00000001u)
 #define GPIO_GPIOPUR_R_PUE0_BIT             (0)
-#define GPIO_GPIOPUR_R_PUE0_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE0_EN              (0x00000001)
+#define GPIO_GPIOPUR_R_PUE0_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE0_EN              (0x00000001u)
 
-#define GPIO_GPIOPUR_PUE0_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE0_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE0_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE0_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE0_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE1_MASK            (0x00000002u)
 #define GPIO_GPIOPUR_R_PUE1_BIT             (1)
-#define GPIO_GPIOPUR_R_PUE1_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE1_EN              (0x00000002)
+#define GPIO_GPIOPUR_R_PUE1_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE1_EN              (0x00000002u)
 
-#define GPIO_GPIOPUR_PUE1_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE1_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE1_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE1_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE1_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE2_MASK            (0x00000004u)
 #define GPIO_GPIOPUR_R_PUE2_BIT             (2)
-#define GPIO_GPIOPUR_R_PUE2_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE2_EN              (0x00000004)
+#define GPIO_GPIOPUR_R_PUE2_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE2_EN              (0x00000004u)
 
-#define GPIO_GPIOPUR_PUE2_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE2_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE2_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE2_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE2_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE3_MASK            (0x00000008u)
 #define GPIO_GPIOPUR_R_PUE3_BIT             (3)
-#define GPIO_GPIOPUR_R_PUE3_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE3_EN              (0x00000008)
+#define GPIO_GPIOPUR_R_PUE3_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE3_EN              (0x00000008u)
 
-#define GPIO_GPIOPUR_PUE3_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE3_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE3_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE3_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE3_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE4_MASK            (0x00000010u)
 #define GPIO_GPIOPUR_R_PUE4_BIT             (4)
-#define GPIO_GPIOPUR_R_PUE4_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE4_EN              (0x00000010)
+#define GPIO_GPIOPUR_R_PUE4_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE4_EN              (0x00000010u)
 
-#define GPIO_GPIOPUR_PUE4_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE4_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE4_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE4_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE4_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE5_MASK            (0x00000020u)
 #define GPIO_GPIOPUR_R_PUE5_BIT             (5)
-#define GPIO_GPIOPUR_R_PUE5_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE5_EN              (0x00000020)
+#define GPIO_GPIOPUR_R_PUE5_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE5_EN              (0x00000020u)
 
-#define GPIO_GPIOPUR_PUE5_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE5_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE5_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE5_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE5_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE6_MASK            (0x00000040u)
 #define GPIO_GPIOPUR_R_PUE6_BIT             (6)
-#define GPIO_GPIOPUR_R_PUE6_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE6_EN              (0x00000040)
+#define GPIO_GPIOPUR_R_PUE6_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE6_EN              (0x00000040u)
 
-#define GPIO_GPIOPUR_PUE6_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE6_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE6_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE6_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE6_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE6_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPUR_R_PUE7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOPUR_R_PUE7_MASK            (0x00000080u)
 #define GPIO_GPIOPUR_R_PUE7_BIT             (7)
-#define GPIO_GPIOPUR_R_PUE7_DIS             (0x00000000)
-#define GPIO_GPIOPUR_R_PUE7_EN              (0x00000080)
+#define GPIO_GPIOPUR_R_PUE7_DIS             (0x00000000u)
+#define GPIO_GPIOPUR_R_PUE7_EN              (0x00000080u)
 
-#define GPIO_GPIOPUR_PUE7_MASK              (0x00000001)
-#define GPIO_GPIOPUR_PUE7_DIS               (0x00000000)
-#define GPIO_GPIOPUR_PUE7_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPUR_PUE7_MASK              (0x00000001u)
+#define GPIO_GPIOPUR_PUE7_DIS               (0x00000000u)
+#define GPIO_GPIOPUR_PUE7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB PUE BITBANDING*/
@@ -6662,105 +6662,105 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPDR_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPDR_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPDR_R_PDE_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE_MASK             (0x000000FFu)
 #define GPIO_GPIOPDR_R_PDE_BIT              (0)
-#define GPIO_GPIOPDR_R_PDE_DIS              (0x00000000)
-#define GPIO_GPIOPDR_R_PDE_EN               (0x000000FF)
+#define GPIO_GPIOPDR_R_PDE_DIS              (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE_EN               (0x000000FFu)
 
-#define GPIO_GPIOPDR_PDE_MASK               (0x000000FF)
-#define GPIO_GPIOPDR_PDE_DIS                (0x00000000)
-#define GPIO_GPIOPDR_PDE_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIOPDR_PDE_MASK               (0x000000FFu)
+#define GPIO_GPIOPDR_PDE_DIS                (0x00000000u)
+#define GPIO_GPIOPDR_PDE_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE0_MASK            (0x00000001u)
 #define GPIO_GPIOPDR_R_PDE0_BIT             (0)
-#define GPIO_GPIOPDR_R_PDE0_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE0_EN              (0x00000001)
+#define GPIO_GPIOPDR_R_PDE0_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE0_EN              (0x00000001u)
 
-#define GPIO_GPIOPDR_PDE0_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE0_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE0_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE0_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE0_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE1_MASK            (0x00000002u)
 #define GPIO_GPIOPDR_R_PDE1_BIT             (1)
-#define GPIO_GPIOPDR_R_PDE1_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE1_EN              (0x00000002)
+#define GPIO_GPIOPDR_R_PDE1_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE1_EN              (0x00000002u)
 
-#define GPIO_GPIOPDR_PDE1_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE1_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE1_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE1_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE1_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE2_MASK            (0x00000004u)
 #define GPIO_GPIOPDR_R_PDE2_BIT             (2)
-#define GPIO_GPIOPDR_R_PDE2_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE2_EN              (0x00000004)
+#define GPIO_GPIOPDR_R_PDE2_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE2_EN              (0x00000004u)
 
-#define GPIO_GPIOPDR_PDE2_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE2_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE2_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE2_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE2_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE3_MASK            (0x00000008u)
 #define GPIO_GPIOPDR_R_PDE3_BIT             (3)
-#define GPIO_GPIOPDR_R_PDE3_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE3_EN              (0x00000008)
+#define GPIO_GPIOPDR_R_PDE3_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE3_EN              (0x00000008u)
 
-#define GPIO_GPIOPDR_PDE3_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE3_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE3_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE3_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE3_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE4_MASK            (0x00000010u)
 #define GPIO_GPIOPDR_R_PDE4_BIT             (4)
-#define GPIO_GPIOPDR_R_PDE4_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE4_EN              (0x00000010)
+#define GPIO_GPIOPDR_R_PDE4_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE4_EN              (0x00000010u)
 
-#define GPIO_GPIOPDR_PDE4_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE4_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE4_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE4_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE4_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE5_MASK            (0x00000020u)
 #define GPIO_GPIOPDR_R_PDE5_BIT             (5)
-#define GPIO_GPIOPDR_R_PDE5_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE5_EN              (0x00000020)
+#define GPIO_GPIOPDR_R_PDE5_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE5_EN              (0x00000020u)
 
-#define GPIO_GPIOPDR_PDE5_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE5_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE5_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE5_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE5_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOPDR_R_PDE6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOPDR_R_PDE6_MASK            (0x00000040u)
 #define GPIO_GPIOPDR_R_PDE6_BIT             (6)
-#define GPIO_GPIOPDR_R_PDE6_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE6_EN              (0x00000040)
+#define GPIO_GPIOPDR_R_PDE6_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE6_EN              (0x00000040u)
 
-#define GPIO_GPIOPDR_PDE6_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE6_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE6_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE6_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE6_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE6_EN                (0x00000001u)
+/*----------*/
 
-//--------
+/*----------*/
 
-#define GPIO_GPIOPDR_R_PDE7_MASK            (0x00000080)
+#define GPIO_GPIOPDR_R_PDE7_MASK            (0x00000080u)
 #define GPIO_GPIOPDR_R_PDE7_BIT             (7)
-#define GPIO_GPIOPDR_R_PDE7_DIS             (0x00000000)
-#define GPIO_GPIOPDR_R_PDE7_EN              (0x00000080)
+#define GPIO_GPIOPDR_R_PDE7_DIS             (0x00000000u)
+#define GPIO_GPIOPDR_R_PDE7_EN              (0x00000080u)
 
-#define GPIO_GPIOPDR_PDE7_MASK              (0x00000001)
-#define GPIO_GPIOPDR_PDE7_DIS               (0x00000000)
-#define GPIO_GPIOPDR_PDE7_EN                (0x00000001)
-//--------
+#define GPIO_GPIOPDR_PDE7_MASK              (0x00000001u)
+#define GPIO_GPIOPDR_PDE7_DIS               (0x00000000u)
+#define GPIO_GPIOPDR_PDE7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB PDE BITBANDING*/
@@ -6948,104 +6948,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIOSLR_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOSLR_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOSLR_R_SLR_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR_MASK             (0x000000FFu)
 #define GPIO_GPIOSLR_R_SLR_BIT              (0)
-#define GPIO_GPIOSLR_R_SLR_DIS              (0x00000000)
-#define GPIO_GPIOSLR_R_SLR_EN               (0x000000FF)
+#define GPIO_GPIOSLR_R_SLR_DIS              (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR_EN               (0x000000FFu)
 
-#define GPIO_GPIOSLR_SLR_MASK               (0x000000FF)
-#define GPIO_GPIOSLR_SLR_DIS                (0x00000000)
-#define GPIO_GPIOSLR_SLR_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIOSLR_SLR_MASK               (0x000000FFu)
+#define GPIO_GPIOSLR_SLR_DIS                (0x00000000u)
+#define GPIO_GPIOSLR_SLR_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR0_MASK            (0x00000001u)
 #define GPIO_GPIOSLR_R_SLR0_BIT             (0)
-#define GPIO_GPIOSLR_R_SLR0_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR0_EN              (0x00000001)
+#define GPIO_GPIOSLR_R_SLR0_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR0_EN              (0x00000001u)
 
-#define GPIO_GPIOSLR_SLR0_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR0_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR0_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR0_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR0_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR1_MASK            (0x00000002u)
 #define GPIO_GPIOSLR_R_SLR1_BIT             (1)
-#define GPIO_GPIOSLR_R_SLR1_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR1_EN              (0x00000002)
+#define GPIO_GPIOSLR_R_SLR1_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR1_EN              (0x00000002u)
 
-#define GPIO_GPIOSLR_SLR1_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR1_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR1_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR1_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR1_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR2_MASK            (0x00000004u)
 #define GPIO_GPIOSLR_R_SLR2_BIT             (2)
-#define GPIO_GPIOSLR_R_SLR2_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR2_EN              (0x00000004)
+#define GPIO_GPIOSLR_R_SLR2_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR2_EN              (0x00000004u)
 
-#define GPIO_GPIOSLR_SLR2_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR2_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR2_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR2_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR2_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR3_MASK            (0x00000008u)
 #define GPIO_GPIOSLR_R_SLR3_BIT             (3)
-#define GPIO_GPIOSLR_R_SLR3_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR3_EN              (0x00000008)
+#define GPIO_GPIOSLR_R_SLR3_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR3_EN              (0x00000008u)
 
-#define GPIO_GPIOSLR_SLR3_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR3_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR3_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR3_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR3_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR4_MASK            (0x00000010u)
 #define GPIO_GPIOSLR_R_SLR4_BIT             (4)
-#define GPIO_GPIOSLR_R_SLR4_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR4_EN              (0x00000010)
+#define GPIO_GPIOSLR_R_SLR4_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR4_EN              (0x00000010u)
 
-#define GPIO_GPIOSLR_SLR4_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR4_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR4_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR4_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR4_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR5_MASK            (0x00000020u)
 #define GPIO_GPIOSLR_R_SLR5_BIT             (5)
-#define GPIO_GPIOSLR_R_SLR5_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR5_EN              (0x00000020)
+#define GPIO_GPIOSLR_R_SLR5_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR5_EN              (0x00000020u)
 
-#define GPIO_GPIOSLR_SLR5_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR5_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR5_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR5_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR5_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR6_MASK            (0x00000040u)
 #define GPIO_GPIOSLR_R_SLR6_BIT             (6)
-#define GPIO_GPIOSLR_R_SLR6_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR6_EN              (0x00000040)
+#define GPIO_GPIOSLR_R_SLR6_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR6_EN              (0x00000040u)
 
-#define GPIO_GPIOSLR_SLR6_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR6_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR6_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR6_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR6_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR6_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOSLR_R_SLR7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOSLR_R_SLR7_MASK            (0x00000080u)
 #define GPIO_GPIOSLR_R_SLR7_BIT             (7)
-#define GPIO_GPIOSLR_R_SLR7_DIS             (0x00000000)
-#define GPIO_GPIOSLR_R_SLR7_EN              (0x00000080)
+#define GPIO_GPIOSLR_R_SLR7_DIS             (0x00000000u)
+#define GPIO_GPIOSLR_R_SLR7_EN              (0x00000080u)
 
-#define GPIO_GPIOSLR_SLR7_MASK              (0x00000001)
-#define GPIO_GPIOSLR_SLR7_DIS               (0x00000000)
-#define GPIO_GPIOSLR_SLR7_EN                (0x00000001)
-//--------
+#define GPIO_GPIOSLR_SLR7_MASK              (0x00000001u)
+#define GPIO_GPIOSLR_SLR7_DIS               (0x00000000u)
+#define GPIO_GPIOSLR_SLR7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB SLR BITBANDING*/
@@ -7235,104 +7235,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIODEN_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIODEN_OFFSET)))
 
 
-//--------
-#define GPIO_GPIODEN_R_DEN_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN_MASK             (0x000000FFu)
 #define GPIO_GPIODEN_R_DEN_BIT              (0)
-#define GPIO_GPIODEN_R_DEN_DIS              (0x00000000)
-#define GPIO_GPIODEN_R_DEN_EN               (0x000000FF)
+#define GPIO_GPIODEN_R_DEN_DIS              (0x00000000u)
+#define GPIO_GPIODEN_R_DEN_EN               (0x000000FFu)
 
-#define GPIO_GPIODEN_DEN_MASK               (0x000000FF)
-#define GPIO_GPIODEN_DEN_DIS                (0x00000000)
-#define GPIO_GPIODEN_DEN_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIODEN_DEN_MASK               (0x000000FFu)
+#define GPIO_GPIODEN_DEN_DIS                (0x00000000u)
+#define GPIO_GPIODEN_DEN_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN0_MASK            (0x00000001u)
 #define GPIO_GPIODEN_R_DEN0_BIT             (0)
-#define GPIO_GPIODEN_R_DEN0_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN0_EN              (0x00000001)
+#define GPIO_GPIODEN_R_DEN0_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN0_EN              (0x00000001u)
 
-#define GPIO_GPIODEN_DEN0_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN0_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN0_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN0_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN0_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN1_MASK            (0x00000002u)
 #define GPIO_GPIODEN_R_DEN1_BIT             (1)
-#define GPIO_GPIODEN_R_DEN1_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN1_EN              (0x00000002)
+#define GPIO_GPIODEN_R_DEN1_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN1_EN              (0x00000002u)
 
-#define GPIO_GPIODEN_DEN1_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN1_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN1_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN1_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN1_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN2_MASK            (0x00000004u)
 #define GPIO_GPIODEN_R_DEN2_BIT             (2)
-#define GPIO_GPIODEN_R_DEN2_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN2_EN              (0x00000004)
+#define GPIO_GPIODEN_R_DEN2_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN2_EN              (0x00000004u)
 
-#define GPIO_GPIODEN_DEN2_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN2_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN2_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN2_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN2_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN3_MASK            (0x00000008u)
 #define GPIO_GPIODEN_R_DEN3_BIT             (3)
-#define GPIO_GPIODEN_R_DEN3_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN3_EN              (0x00000008)
+#define GPIO_GPIODEN_R_DEN3_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN3_EN              (0x00000008u)
 
-#define GPIO_GPIODEN_DEN3_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN3_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN3_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN3_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN3_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN4_MASK            (0x00000010u)
 #define GPIO_GPIODEN_R_DEN4_BIT             (4)
-#define GPIO_GPIODEN_R_DEN4_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN4_EN              (0x00000010)
+#define GPIO_GPIODEN_R_DEN4_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN4_EN              (0x00000010u)
 
-#define GPIO_GPIODEN_DEN4_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN4_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN4_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN4_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN4_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN5_MASK            (0x00000020u)
 #define GPIO_GPIODEN_R_DEN5_BIT             (5)
-#define GPIO_GPIODEN_R_DEN5_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN5_EN              (0x00000020)
+#define GPIO_GPIODEN_R_DEN5_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN5_EN              (0x00000020u)
 
-#define GPIO_GPIODEN_DEN5_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN5_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN5_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN5_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN5_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN6_MASK            (0x00000040u)
 #define GPIO_GPIODEN_R_DEN6_BIT             (6)
-#define GPIO_GPIODEN_R_DEN6_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN6_EN              (0x00000040)
+#define GPIO_GPIODEN_R_DEN6_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN6_EN              (0x00000040u)
 
-#define GPIO_GPIODEN_DEN6_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN6_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN6_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN6_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN6_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN6_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODEN_R_DEN7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIODEN_R_DEN7_MASK            (0x00000080u)
 #define GPIO_GPIODEN_R_DEN7_BIT             (7)
-#define GPIO_GPIODEN_R_DEN7_DIS             (0x00000000)
-#define GPIO_GPIODEN_R_DEN7_EN              (0x00000080)
+#define GPIO_GPIODEN_R_DEN7_DIS             (0x00000000u)
+#define GPIO_GPIODEN_R_DEN7_EN              (0x00000080u)
 
-#define GPIO_GPIODEN_DEN7_MASK              (0x00000001)
-#define GPIO_GPIODEN_DEN7_DIS               (0x00000000)
-#define GPIO_GPIODEN_DEN7_EN                (0x00000001)
-//--------
+#define GPIO_GPIODEN_DEN7_MASK              (0x00000001u)
+#define GPIO_GPIODEN_DEN7_DIS               (0x00000000u)
+#define GPIO_GPIODEN_DEN7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB DEN BITBANDING*/
@@ -7520,18 +7520,18 @@ typedef volatile struct
 #define GPIOF_APB_GPIOLOCK_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOLOCK_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOLOCK_R_LOCK_MASK     (0xFFFFFFFF)
+/*----------*/
+#define GPIO_GPIOLOCK_R_LOCK_MASK     (0xFFFFFFFFu)
 #define GPIO_GPIOLOCK_R_LOCK_BIT      (0)
-#define GPIO_GPIOLOCK_R_LOCK_KEY      (0x4C4F434B)
-#define GPIO_GPIOLOCK_R_LOCK_UNLOCK   (0x00000000)
-#define GPIO_GPIOLOCK_R_LOCK_LOCK     (0x00000001)
+#define GPIO_GPIOLOCK_R_LOCK_KEY      (0x4C4F434Bu)
+#define GPIO_GPIOLOCK_R_LOCK_UNLOCK   (0x00000000u)
+#define GPIO_GPIOLOCK_R_LOCK_LOCK     (0x00000001u)
 
-#define GPIO_GPIOLOCK_LOCK_MASK       (0xFFFFFFFF)
-#define GPIO_GPIOLOCK_LOCK_KEY        (0x4C4F434B)
-#define GPIO_GPIOLOCK_LOCK_UNLOCK     (0x00000000)
-#define GPIO_GPIOLOCK_LOCK_LOCK       (0x00000001)
-//--------
+#define GPIO_GPIOLOCK_LOCK_MASK       (0xFFFFFFFFu)
+#define GPIO_GPIOLOCK_LOCK_KEY        (0x4C4F434Bu)
+#define GPIO_GPIOLOCK_LOCK_UNLOCK     (0x00000000u)
+#define GPIO_GPIOLOCK_LOCK_LOCK       (0x00000001u)
+/*----------*/
 
 
 /******************************************************************************************
@@ -7598,104 +7598,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIOCR_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOCR_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOCR_R_CR_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOCR_R_CR_MASK             (0x000000FFu)
 #define GPIO_GPIOCR_R_CR_BIT              (0)
-#define GPIO_GPIOCR_R_CR_DIS              (0x00000000)
-#define GPIO_GPIOCR_R_CR_EN               (0x000000FF)
+#define GPIO_GPIOCR_R_CR_DIS              (0x00000000u)
+#define GPIO_GPIOCR_R_CR_EN               (0x000000FFu)
 
-#define GPIO_GPIOCR_CR_MASK               (0x000000FF)
-#define GPIO_GPIOCR_CR_DIS                (0x00000000)
-#define GPIO_GPIOCR_CR_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIOCR_CR_MASK               (0x000000FFu)
+#define GPIO_GPIOCR_CR_DIS                (0x00000000u)
+#define GPIO_GPIOCR_CR_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOCR_R_CR0_MASK            (0x00000001u)
 #define GPIO_GPIOCR_R_CR0_BIT             (0)
-#define GPIO_GPIOCR_R_CR0_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR0_EN              (0x00000001)
+#define GPIO_GPIOCR_R_CR0_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR0_EN              (0x00000001u)
 
-#define GPIO_GPIOCR_CR0_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR0_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR0_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR0_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR0_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOCR_R_CR1_MASK            (0x00000002u)
 #define GPIO_GPIOCR_R_CR1_BIT             (1)
-#define GPIO_GPIOCR_R_CR1_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR1_EN              (0x00000002)
+#define GPIO_GPIOCR_R_CR1_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR1_EN              (0x00000002u)
 
-#define GPIO_GPIOCR_CR1_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR1_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR1_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR1_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR1_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOCR_R_CR2_MASK            (0x00000004u)
 #define GPIO_GPIOCR_R_CR2_BIT             (2)
-#define GPIO_GPIOCR_R_CR2_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR2_EN              (0x00000004)
+#define GPIO_GPIOCR_R_CR2_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR2_EN              (0x00000004u)
 
-#define GPIO_GPIOCR_CR2_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR2_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR2_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR2_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR2_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOCR_R_CR3_MASK            (0x00000008u)
 #define GPIO_GPIOCR_R_CR3_BIT             (3)
-#define GPIO_GPIOCR_R_CR3_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR3_EN              (0x00000008)
+#define GPIO_GPIOCR_R_CR3_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR3_EN              (0x00000008u)
 
-#define GPIO_GPIOCR_CR3_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR3_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR3_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR3_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR3_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOCR_R_CR4_MASK            (0x00000010u)
 #define GPIO_GPIOCR_R_CR4_BIT             (4)
-#define GPIO_GPIOCR_R_CR4_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR4_EN              (0x00000010)
+#define GPIO_GPIOCR_R_CR4_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR4_EN              (0x00000010u)
 
-#define GPIO_GPIOCR_CR4_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR4_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR4_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR4_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR4_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOCR_R_CR5_MASK            (0x00000020u)
 #define GPIO_GPIOCR_R_CR5_BIT             (5)
-#define GPIO_GPIOCR_R_CR5_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR5_EN              (0x00000020)
+#define GPIO_GPIOCR_R_CR5_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR5_EN              (0x00000020u)
 
-#define GPIO_GPIOCR_CR5_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR5_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR5_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR5_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR5_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOCR_R_CR6_MASK            (0x00000040u)
 #define GPIO_GPIOCR_R_CR6_BIT             (6)
-#define GPIO_GPIOCR_R_CR6_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR6_EN              (0x00000040)
+#define GPIO_GPIOCR_R_CR6_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR6_EN              (0x00000040u)
 
-#define GPIO_GPIOCR_CR6_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR6_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR6_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR6_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR6_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR6_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOCR_R_CR7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOCR_R_CR7_MASK            (0x00000080u)
 #define GPIO_GPIOCR_R_CR7_BIT             (7)
-#define GPIO_GPIOCR_R_CR7_DIS             (0x00000000)
-#define GPIO_GPIOCR_R_CR7_EN              (0x00000080)
+#define GPIO_GPIOCR_R_CR7_DIS             (0x00000000u)
+#define GPIO_GPIOCR_R_CR7_EN              (0x00000080u)
 
-#define GPIO_GPIOCR_CR7_MASK              (0x00000001)
-#define GPIO_GPIOCR_CR7_DIS               (0x00000000)
-#define GPIO_GPIOCR_CR7_EN                (0x00000001)
-//--------
+#define GPIO_GPIOCR_CR7_MASK              (0x00000001u)
+#define GPIO_GPIOCR_CR7_DIS               (0x00000000u)
+#define GPIO_GPIOCR_CR7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB CR BITBANDING*/
@@ -7884,104 +7884,104 @@ typedef volatile struct
 #define GPIOF_APB_GPIOAMSEL_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOAMSEL_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL_MASK             (0x000000FFu)
 #define GPIO_GPIOAMSEL_R_AMSEL_BIT              (0)
-#define GPIO_GPIOAMSEL_R_AMSEL_DIS              (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL_EN               (0x000000FF)
+#define GPIO_GPIOAMSEL_R_AMSEL_DIS              (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL_EN               (0x000000FFu)
 
-#define GPIO_GPIOAMSEL_AMSEL_MASK               (0x000000FF)
-#define GPIO_GPIOAMSEL_AMSEL_DIS                (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL_MASK               (0x000000FFu)
+#define GPIO_GPIOAMSEL_AMSEL_DIS                (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL0_MASK            (0x00000001u)
 #define GPIO_GPIOAMSEL_R_AMSEL0_BIT             (0)
-#define GPIO_GPIOAMSEL_R_AMSEL0_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL0_EN              (0x00000001)
+#define GPIO_GPIOAMSEL_R_AMSEL0_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL0_EN              (0x00000001u)
 
-#define GPIO_GPIOAMSEL_AMSEL0_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL0_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL0_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL0_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL0_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL1_MASK            (0x00000002u)
 #define GPIO_GPIOAMSEL_R_AMSEL1_BIT             (1)
-#define GPIO_GPIOAMSEL_R_AMSEL1_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL1_EN              (0x00000002)
+#define GPIO_GPIOAMSEL_R_AMSEL1_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL1_EN              (0x00000002u)
 
-#define GPIO_GPIOAMSEL_AMSEL1_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL1_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL1_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL1_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL1_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL2_MASK            (0x00000004u)
 #define GPIO_GPIOAMSEL_R_AMSEL2_BIT             (2)
-#define GPIO_GPIOAMSEL_R_AMSEL2_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL2_EN              (0x00000004)
+#define GPIO_GPIOAMSEL_R_AMSEL2_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL2_EN              (0x00000004u)
 
-#define GPIO_GPIOAMSEL_AMSEL2_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL2_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL2_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL2_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL2_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL3_MASK            (0x00000008u)
 #define GPIO_GPIOAMSEL_R_AMSEL3_BIT             (3)
-#define GPIO_GPIOAMSEL_R_AMSEL3_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL3_EN              (0x00000008)
+#define GPIO_GPIOAMSEL_R_AMSEL3_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL3_EN              (0x00000008u)
 
-#define GPIO_GPIOAMSEL_AMSEL3_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL3_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL3_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL3_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL3_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL4_MASK            (0x00000010u)
 #define GPIO_GPIOAMSEL_R_AMSEL4_BIT             (4)
-#define GPIO_GPIOAMSEL_R_AMSEL4_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL4_EN              (0x00000010)
+#define GPIO_GPIOAMSEL_R_AMSEL4_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL4_EN              (0x00000010u)
 
-#define GPIO_GPIOAMSEL_AMSEL4_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL4_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL4_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL4_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL4_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL5_MASK            (0x00000020u)
 #define GPIO_GPIOAMSEL_R_AMSEL5_BIT             (5)
-#define GPIO_GPIOAMSEL_R_AMSEL5_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL5_EN              (0x00000020)
+#define GPIO_GPIOAMSEL_R_AMSEL5_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL5_EN              (0x00000020u)
 
-#define GPIO_GPIOAMSEL_AMSEL5_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL5_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL5_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL5_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL5_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL6_MASK            (0x00000040u)
 #define GPIO_GPIOAMSEL_R_AMSEL6_BIT             (6)
-#define GPIO_GPIOAMSEL_R_AMSEL6_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL6_EN              (0x00000040)
+#define GPIO_GPIOAMSEL_R_AMSEL6_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL6_EN              (0x00000040u)
 
-#define GPIO_GPIOAMSEL_AMSEL6_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL6_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL6_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL6_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL6_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL6_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOAMSEL_R_AMSEL7_MASK            (0x00000080)
+/*----------*/
+#define GPIO_GPIOAMSEL_R_AMSEL7_MASK            (0x00000080u)
 #define GPIO_GPIOAMSEL_R_AMSEL7_BIT             (7)
-#define GPIO_GPIOAMSEL_R_AMSEL7_DIS             (0x00000000)
-#define GPIO_GPIOAMSEL_R_AMSEL7_EN              (0x00000080)
+#define GPIO_GPIOAMSEL_R_AMSEL7_DIS             (0x00000000u)
+#define GPIO_GPIOAMSEL_R_AMSEL7_EN              (0x00000080u)
 
-#define GPIO_GPIOAMSEL_AMSEL7_MASK              (0x00000001)
-#define GPIO_GPIOAMSEL_AMSEL7_DIS               (0x00000000)
-#define GPIO_GPIOAMSEL_AMSEL7_EN                (0x00000001)
-//--------
+#define GPIO_GPIOAMSEL_AMSEL7_MASK              (0x00000001u)
+#define GPIO_GPIOAMSEL_AMSEL7_DIS               (0x00000000u)
+#define GPIO_GPIOAMSEL_AMSEL7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB AMSEL BITBANDING*/
@@ -8168,665 +8168,665 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPCTL                  (((GPIOPCTL_TypeDef*)     (GPIOF_APB_BASE+GPIO_GPIOPCTL_OFFSET)))
 #define GPIOF_APB_GPIOPCTL_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPCTL_OFFSET)))
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM0_MASK   (0x0000000F)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM0_MASK   (0x0000000Fu)
 #define GPIOA_GPIOPCTL_R_PCM0_BIT    (0)
-#define GPIOA_GPIOPCTL_R_PCM0_GPIO   (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM0_U0Rx   (0x00000001)
-#define GPIOA_GPIOPCTL_R_PCM0_CAN1Rx (0x00000008)
+#define GPIOA_GPIOPCTL_R_PCM0_GPIO   (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM0_U0Rx   (0x00000001u)
+#define GPIOA_GPIOPCTL_R_PCM0_CAN1Rx (0x00000008u)
 
-#define GPIOA_GPIOPCTL_PCM0_MASK     (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM0_GPIO     (0x00000000)
-#define GPIOA_GPIOPCTL_PCM0_U0Rx     (0x00000001)
-#define GPIOA_GPIOPCTL_PCM0_CAN1Rx   (0x00000008)
-//--------
+#define GPIOA_GPIOPCTL_PCM0_MASK     (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM0_GPIO     (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM0_U0Rx     (0x00000001u)
+#define GPIOA_GPIOPCTL_PCM0_CAN1Rx   (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM1_MASK   (0x000000F0)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM1_MASK   (0x000000F0u)
 #define GPIOA_GPIOPCTL_R_PCM1_BIT    (4)
-#define GPIOA_GPIOPCTL_R_PCM1_GPIO   (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM1_U0Tx   (0x00000010)
-#define GPIOA_GPIOPCTL_R_PCM1_CAN1Tx (0x00000080)
+#define GPIOA_GPIOPCTL_R_PCM1_GPIO   (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM1_U0Tx   (0x00000010u)
+#define GPIOA_GPIOPCTL_R_PCM1_CAN1Tx (0x00000080u)
 
-#define GPIOA_GPIOPCTL_PCM1_MASK     (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM1_GPIO     (0x00000000)
-#define GPIOA_GPIOPCTL_PCM1_U0Tx     (0x00000001)
-#define GPIOA_GPIOPCTL_PCM1_CAN1Tx   (0x00000008)
-//--------
+#define GPIOA_GPIOPCTL_PCM1_MASK     (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM1_GPIO     (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM1_U0Tx     (0x00000001u)
+#define GPIOA_GPIOPCTL_PCM1_CAN1Tx   (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM2_MASK    (0x00000F00)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM2_MASK    (0x00000F00u)
 #define GPIOA_GPIOPCTL_R_PCM2_BIT     (8)
-#define GPIOA_GPIOPCTL_R_PCM2_GPIO    (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM2_SSI0Clk (0x00000200)
+#define GPIOA_GPIOPCTL_R_PCM2_GPIO    (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM2_SSI0Clk (0x00000200u)
 
-#define GPIOA_GPIOPCTL_PCM2_MASK      (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM2_GPIO      (0x00000000)
-#define GPIOA_GPIOPCTL_PCM2_SSI0Clk   (0x00000002)
-//--------
+#define GPIOA_GPIOPCTL_PCM2_MASK      (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM2_GPIO      (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM2_SSI0Clk   (0x00000002u)
+/*----------*/
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM3_MASK    (0x0000F000)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM3_MASK    (0x0000F000u)
 #define GPIOA_GPIOPCTL_R_PCM3_BIT     (12)
-#define GPIOA_GPIOPCTL_R_PCM3_GPIO    (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM3_SSI0Fss (0x00002000)
+#define GPIOA_GPIOPCTL_R_PCM3_GPIO    (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM3_SSI0Fss (0x00002000u)
 
-#define GPIOA_GPIOPCTL_PCM3_MASK      (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM3_GPIO      (0x00000000)
-#define GPIOA_GPIOPCTL_PCM3_SSI0Fss   (0x00000002)
-//--------
+#define GPIOA_GPIOPCTL_PCM3_MASK      (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM3_GPIO      (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM3_SSI0Fss   (0x00000002u)
+/*----------*/
 
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM4_MASK    (0x000F0000)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM4_MASK    (0x000F0000u)
 #define GPIOA_GPIOPCTL_R_PCM4_BIT     (16)
-#define GPIOA_GPIOPCTL_R_PCM4_GPIO    (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM4_SSI0Rx  (0x00020000)
+#define GPIOA_GPIOPCTL_R_PCM4_GPIO    (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM4_SSI0Rx  (0x00020000u)
 
-#define GPIOA_GPIOPCTL_PCM4_MASK      (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM4_GPIO      (0x00000000)
-#define GPIOA_GPIOPCTL_PCM4_SSI0Rx    (0x00000002)
-//--------
+#define GPIOA_GPIOPCTL_PCM4_MASK      (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM4_GPIO      (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM4_SSI0Rx    (0x00000002u)
+/*----------*/
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM5_MASK    (0x00F00000)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM5_MASK    (0x00F00000u)
 #define GPIOA_GPIOPCTL_R_PCM5_BIT     (20)
-#define GPIOA_GPIOPCTL_R_PCM5_GPIO    (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM5_SSI0Tx  (0x00200000)
+#define GPIOA_GPIOPCTL_R_PCM5_GPIO    (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM5_SSI0Tx  (0x00200000u)
 
-#define GPIOA_GPIOPCTL_PCM5_MASK      (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM5_GPIO      (0x00000000)
-#define GPIOA_GPIOPCTL_PCM5_SSI0Tx    (0x00000002)
-//--------
+#define GPIOA_GPIOPCTL_PCM5_MASK      (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM5_GPIO      (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM5_SSI0Tx    (0x00000002u)
+/*----------*/
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM6_MASK    (0x0F000000)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM6_MASK    (0x0F000000u)
 #define GPIOA_GPIOPCTL_R_PCM6_BIT     (24)
-#define GPIOA_GPIOPCTL_R_PCM6_GPIO    (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM6_I2C1SCL (0x03000000)
-#define GPIOA_GPIOPCTL_R_PCM6_M1PWM2  (0x05000000)
+#define GPIOA_GPIOPCTL_R_PCM6_GPIO    (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM6_I2C1SCL (0x03000000u)
+#define GPIOA_GPIOPCTL_R_PCM6_M1PWM2  (0x05000000u)
 
-#define GPIOA_GPIOPCTL_PCM6_MASK      (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM6_GPIO      (0x00000000)
-#define GPIOA_GPIOPCTL_PCM6_I2C1SCL   (0x00000003)
-#define GPIOA_GPIOPCTL_PCM6_M1PWM2    (0x00000005)
-//--------
+#define GPIOA_GPIOPCTL_PCM6_MASK      (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM6_GPIO      (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM6_I2C1SCL   (0x00000003u)
+#define GPIOA_GPIOPCTL_PCM6_M1PWM2    (0x00000005u)
+/*----------*/
 
-//--------
-#define GPIOA_GPIOPCTL_R_PCM7_MASK    (0xF0000000)
+/*----------*/
+#define GPIOA_GPIOPCTL_R_PCM7_MASK    (0xF0000000u)
 #define GPIOA_GPIOPCTL_R_PCM7_BIT     (28)
-#define GPIOA_GPIOPCTL_R_PCM7_GPIO    (0x00000000)
-#define GPIOA_GPIOPCTL_R_PCM7_I2C1SDA (0x30000000)
-#define GPIOA_GPIOPCTL_R_PCM7_M1PWM3  (0x50000000)
+#define GPIOA_GPIOPCTL_R_PCM7_GPIO    (0x00000000u)
+#define GPIOA_GPIOPCTL_R_PCM7_I2C1SDA (0x30000000u)
+#define GPIOA_GPIOPCTL_R_PCM7_M1PWM3  (0x50000000u)
 
-#define GPIOA_GPIOPCTL_PCM7_MASK      (0x0000000F)
-#define GPIOA_GPIOPCTL_PCM7_GPIO      (0x00000000)
-#define GPIOA_GPIOPCTL_PCM7_I2C1SDA   (0x00000003)
-#define GPIOA_GPIOPCTL_PCM7_M1PWM3    (0x00000005)
-//--------
+#define GPIOA_GPIOPCTL_PCM7_MASK      (0x0000000Fu)
+#define GPIOA_GPIOPCTL_PCM7_GPIO      (0x00000000u)
+#define GPIOA_GPIOPCTL_PCM7_I2C1SDA   (0x00000003u)
+#define GPIOA_GPIOPCTL_PCM7_M1PWM3    (0x00000005u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM0_MASK   (0x0000000F)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM0_MASK   (0x0000000Fu)
 #define GPIOB_GPIOPCTL_R_PCM0_BIT    (0)
-#define GPIOB_GPIOPCTL_R_PCM0_GPIO   (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM0_U1Rx   (0x00000001)
-#define GPIOB_GPIOPCTL_R_PCM0_T2CCP0 (0x00000007)
+#define GPIOB_GPIOPCTL_R_PCM0_GPIO   (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM0_U1Rx   (0x00000001u)
+#define GPIOB_GPIOPCTL_R_PCM0_T2CCP0 (0x00000007u)
 
-#define GPIOB_GPIOPCTL_PCM0_MASK     (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM0_GPIO     (0x00000000)
-#define GPIOB_GPIOPCTL_PCM0_U1Rx     (0x00000001)
-#define GPIOB_GPIOPCTL_PCM0_T2CCP0   (0x00000007)
-//--------
+#define GPIOB_GPIOPCTL_PCM0_MASK     (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM0_GPIO     (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM0_U1Rx     (0x00000001u)
+#define GPIOB_GPIOPCTL_PCM0_T2CCP0   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM1_MASK   (0x000000F0)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM1_MASK   (0x000000F0u)
 #define GPIOB_GPIOPCTL_R_PCM1_BIT    (4)
-#define GPIOB_GPIOPCTL_R_PCM1_GPIO   (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM1_U1Tx   (0x00000010)
-#define GPIOB_GPIOPCTL_R_PCM1_T2CCP1 (0x00000070)
+#define GPIOB_GPIOPCTL_R_PCM1_GPIO   (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM1_U1Tx   (0x00000010u)
+#define GPIOB_GPIOPCTL_R_PCM1_T2CCP1 (0x00000070u)
 
-#define GPIOB_GPIOPCTL_PCM1_MASK     (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM1_GPIO     (0x00000000)
-#define GPIOB_GPIOPCTL_PCM1_U1Tx     (0x00000001)
-#define GPIOB_GPIOPCTL_PCM1_T2CCP1   (0x00000007)
-//--------
+#define GPIOB_GPIOPCTL_PCM1_MASK     (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM1_GPIO     (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM1_U1Tx     (0x00000001u)
+#define GPIOB_GPIOPCTL_PCM1_T2CCP1   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM2_MASK    (0x00000F00)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM2_MASK    (0x00000F00u)
 #define GPIOB_GPIOPCTL_R_PCM2_BIT     (8)
-#define GPIOB_GPIOPCTL_R_PCM2_GPIO    (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM2_I2C0SCL (0x00000300)
-#define GPIOB_GPIOPCTL_R_PCM2_T3CCP0  (0x00000700)
+#define GPIOB_GPIOPCTL_R_PCM2_GPIO    (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM2_I2C0SCL (0x00000300u)
+#define GPIOB_GPIOPCTL_R_PCM2_T3CCP0  (0x00000700u)
 
-#define GPIOB_GPIOPCTL_PCM2_MASK      (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM2_GPIO      (0x00000000)
-#define GPIOB_GPIOPCTL_PCM2_I2C0SCL   (0x00000003)
-#define GPIOB_GPIOPCTL_PCM2_T3CCP0    (0x00000007)
-//--------
+#define GPIOB_GPIOPCTL_PCM2_MASK      (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM2_GPIO      (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM2_I2C0SCL   (0x00000003u)
+#define GPIOB_GPIOPCTL_PCM2_T3CCP0    (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM3_MASK    (0x0000F000)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM3_MASK    (0x0000F000u)
 #define GPIOB_GPIOPCTL_R_PCM3_BIT     (12)
-#define GPIOB_GPIOPCTL_R_PCM3_GPIO    (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM3_I2C0SDA (0x00003000)
-#define GPIOB_GPIOPCTL_R_PCM3_T3CCP1  (0x00007000)
+#define GPIOB_GPIOPCTL_R_PCM3_GPIO    (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM3_I2C0SDA (0x00003000u)
+#define GPIOB_GPIOPCTL_R_PCM3_T3CCP1  (0x00007000u)
 
-#define GPIOB_GPIOPCTL_PCM3_MASK      (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM3_GPIO      (0x00000000)
-#define GPIOB_GPIOPCTL_PCM3_I2C0SDA   (0x00000003)
-#define GPIOB_GPIOPCTL_PCM3_T3CCP1    (0x00000007)
-//--------
+#define GPIOB_GPIOPCTL_PCM3_MASK      (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM3_GPIO      (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM3_I2C0SDA   (0x00000003u)
+#define GPIOB_GPIOPCTL_PCM3_T3CCP1    (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM4_MASK    (0x000F0000)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM4_MASK    (0x000F0000u)
 #define GPIOB_GPIOPCTL_R_PCM4_BIT     (16)
-#define GPIOB_GPIOPCTL_R_PCM4_GPIO    (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM4_SSI2Clk (0x00020000)
-#define GPIOB_GPIOPCTL_R_PCM4_M0PWM2  (0x00040000)
-#define GPIOB_GPIOPCTL_R_PCM4_T1CCP0  (0x00070000)
-#define GPIOB_GPIOPCTL_R_PCM4_CAN0Rx  (0x00080000)
+#define GPIOB_GPIOPCTL_R_PCM4_GPIO    (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM4_SSI2Clk (0x00020000u)
+#define GPIOB_GPIOPCTL_R_PCM4_M0PWM2  (0x00040000u)
+#define GPIOB_GPIOPCTL_R_PCM4_T1CCP0  (0x00070000u)
+#define GPIOB_GPIOPCTL_R_PCM4_CAN0Rx  (0x00080000u)
 
-#define GPIOB_GPIOPCTL_PCM4_MASK      (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM4_GPIO      (0x00000000)
-#define GPIOB_GPIOPCTL_PCM4_SSSI2Clk  (0x00000002)
-#define GPIOB_GPIOPCTL_PCM4_M0PWM2    (0x00000004)
-#define GPIOB_GPIOPCTL_PCM4_T1CCP0    (0x00000007)
-#define GPIOB_GPIOPCTL_PCM4_CAN0Rx    (0x00000008)
-//--------
+#define GPIOB_GPIOPCTL_PCM4_MASK      (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM4_GPIO      (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM4_SSSI2Clk  (0x00000002u)
+#define GPIOB_GPIOPCTL_PCM4_M0PWM2    (0x00000004u)
+#define GPIOB_GPIOPCTL_PCM4_T1CCP0    (0x00000007u)
+#define GPIOB_GPIOPCTL_PCM4_CAN0Rx    (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM5_MASK    (0x00F00000)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM5_MASK    (0x00F00000u)
 #define GPIOB_GPIOPCTL_R_PCM5_BIT     (20)
-#define GPIOB_GPIOPCTL_R_PCM5_GPIO    (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM5_SSI2Fss (0x00200000)
-#define GPIOB_GPIOPCTL_R_PCM5_M0PWM3  (0x00400000)
-#define GPIOB_GPIOPCTL_R_PCM5_T1CCP1  (0x00700000)
-#define GPIOB_GPIOPCTL_R_PCM5_CAN0Tx  (0x00800000)
+#define GPIOB_GPIOPCTL_R_PCM5_GPIO    (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM5_SSI2Fss (0x00200000u)
+#define GPIOB_GPIOPCTL_R_PCM5_M0PWM3  (0x00400000u)
+#define GPIOB_GPIOPCTL_R_PCM5_T1CCP1  (0x00700000u)
+#define GPIOB_GPIOPCTL_R_PCM5_CAN0Tx  (0x00800000u)
 
-#define GPIOB_GPIOPCTL_PCM5_MASK      (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM5_GPIO      (0x00000000)
-#define GPIOB_GPIOPCTL_PCM5_SSI2Fss   (0x00000002)
-#define GPIOB_GPIOPCTL_PCM5_M0PWM3    (0x00000004)
-#define GPIOB_GPIOPCTL_PCM5_T1CCP1    (0x00000007)
-#define GPIOB_GPIOPCTL_PCM5_CAN0Tx    (0x00000008)
-//--------
+#define GPIOB_GPIOPCTL_PCM5_MASK      (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM5_GPIO      (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM5_SSI2Fss   (0x00000002u)
+#define GPIOB_GPIOPCTL_PCM5_M0PWM3    (0x00000004u)
+#define GPIOB_GPIOPCTL_PCM5_T1CCP1    (0x00000007u)
+#define GPIOB_GPIOPCTL_PCM5_CAN0Tx    (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM6_MASK    (0x0F000000)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM6_MASK    (0x0F000000u)
 #define GPIOB_GPIOPCTL_R_PCM6_BIT     (24)
-#define GPIOB_GPIOPCTL_R_PCM6_GPIO    (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM6_SSI2Rx  (0x02000000)
-#define GPIOB_GPIOPCTL_R_PCM6_M0PWM0  (0x04000000)
-#define GPIOB_GPIOPCTL_R_PCM6_T0CCP0  (0x07000000)
+#define GPIOB_GPIOPCTL_R_PCM6_GPIO    (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM6_SSI2Rx  (0x02000000u)
+#define GPIOB_GPIOPCTL_R_PCM6_M0PWM0  (0x04000000u)
+#define GPIOB_GPIOPCTL_R_PCM6_T0CCP0  (0x07000000u)
 
-#define GPIOB_GPIOPCTL_PCM6_MASK      (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM6_GPIO      (0x00000000)
-#define GPIOB_GPIOPCTL_PCM6_SSI2Rx    (0x00000002)
-#define GPIOB_GPIOPCTL_PCM6_M0PWM0    (0x00000004)
-#define GPIOB_GPIOPCTL_PCM6_T0CCP0    (0x00000007)
-//--------
+#define GPIOB_GPIOPCTL_PCM6_MASK      (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM6_GPIO      (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM6_SSI2Rx    (0x00000002u)
+#define GPIOB_GPIOPCTL_PCM6_M0PWM0    (0x00000004u)
+#define GPIOB_GPIOPCTL_PCM6_T0CCP0    (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOB_GPIOPCTL_R_PCM7_MASK    (0xF0000000)
+/*----------*/
+#define GPIOB_GPIOPCTL_R_PCM7_MASK    (0xF0000000u)
 #define GPIOB_GPIOPCTL_R_PCM7_BIT     (28)
-#define GPIOB_GPIOPCTL_R_PCM7_GPIO    (0x00000000)
-#define GPIOB_GPIOPCTL_R_PCM7_SSI2Tx  (0x20000000)
-#define GPIOB_GPIOPCTL_R_PCM7_M0PWM1  (0x40000000)
-#define GPIOB_GPIOPCTL_R_PCM7_T0CCP1  (0x70000000)
+#define GPIOB_GPIOPCTL_R_PCM7_GPIO    (0x00000000u)
+#define GPIOB_GPIOPCTL_R_PCM7_SSI2Tx  (0x20000000u)
+#define GPIOB_GPIOPCTL_R_PCM7_M0PWM1  (0x40000000u)
+#define GPIOB_GPIOPCTL_R_PCM7_T0CCP1  (0x70000000u)
 
-#define GPIOB_GPIOPCTL_PCM7_MASK      (0x0000000F)
-#define GPIOB_GPIOPCTL_PCM7_GPIO      (0x00000000)
-#define GPIOB_GPIOPCTL_PCM7_SSI2Tx    (0x00000002)
-#define GPIOB_GPIOPCTL_PCM7_M0PWM1    (0x00000004)
-#define GPIOB_GPIOPCTL_PCM7_T0CCP1    (0x00000007)
-//--------
+#define GPIOB_GPIOPCTL_PCM7_MASK      (0x0000000Fu)
+#define GPIOB_GPIOPCTL_PCM7_GPIO      (0x00000000u)
+#define GPIOB_GPIOPCTL_PCM7_SSI2Tx    (0x00000002u)
+#define GPIOB_GPIOPCTL_PCM7_M0PWM1    (0x00000004u)
+#define GPIOB_GPIOPCTL_PCM7_T0CCP1    (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM0_MASK   (0x0000000F)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM0_MASK   (0x0000000Fu)
 #define GPIOC_GPIOPCTL_R_PCM0_BIT    (0)
-#define GPIOC_GPIOPCTL_R_PCM0_GPIO   (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM0_TCK    (0x00000001)
-#define GPIOC_GPIOPCTL_R_PCM0_T4CCP0 (0x00000007)
+#define GPIOC_GPIOPCTL_R_PCM0_GPIO   (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM0_TCK    (0x00000001u)
+#define GPIOC_GPIOPCTL_R_PCM0_T4CCP0 (0x00000007u)
 
-#define GPIOC_GPIOPCTL_PCM0_MASK     (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM0_GPIO     (0x00000000)
-#define GPIOC_GPIOPCTL_PCM0_TCK      (0x00000001)
-#define GPIOC_GPIOPCTL_PCM0_T4CCP0   (0x00000007)
-//--------
+#define GPIOC_GPIOPCTL_PCM0_MASK     (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM0_GPIO     (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM0_TCK      (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM0_T4CCP0   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM1_MASK   (0x000000F0)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM1_MASK   (0x000000F0u)
 #define GPIOC_GPIOPCTL_R_PCM1_BIT    (4)
-#define GPIOC_GPIOPCTL_R_PCM1_GPIO   (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM1_TMS    (0x00000010)
-#define GPIOC_GPIOPCTL_R_PCM1_T4CCP1 (0x00000070)
+#define GPIOC_GPIOPCTL_R_PCM1_GPIO   (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM1_TMS    (0x00000010u)
+#define GPIOC_GPIOPCTL_R_PCM1_T4CCP1 (0x00000070u)
 
-#define GPIOC_GPIOPCTL_PCM1_MASK     (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM1_GPIO     (0x00000000)
-#define GPIOC_GPIOPCTL_PCM1_TMS      (0x00000001)
-#define GPIOC_GPIOPCTL_PCM1_T4CCP1   (0x00000007)
-//--------
+#define GPIOC_GPIOPCTL_PCM1_MASK     (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM1_GPIO     (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM1_TMS      (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM1_T4CCP1   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM2_MASK    (0x00000F00)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM2_MASK    (0x00000F00u)
 #define GPIOC_GPIOPCTL_R_PCM2_BIT     (8)
-#define GPIOC_GPIOPCTL_R_PCM2_GPIO    (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM2_TDI     (0x00000100)
-#define GPIOC_GPIOPCTL_R_PCM2_T5CCP0  (0x00000700)
+#define GPIOC_GPIOPCTL_R_PCM2_GPIO    (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM2_TDI     (0x00000100u)
+#define GPIOC_GPIOPCTL_R_PCM2_T5CCP0  (0x00000700u)
 
-#define GPIOC_GPIOPCTL_PCM2_MASK      (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM2_GPIO      (0x00000000)
-#define GPIOC_GPIOPCTL_PCM2_TDI       (0x00000001)
-#define GPIOC_GPIOPCTL_PCM2_T5CCP0    (0x00000007)
-//--------
+#define GPIOC_GPIOPCTL_PCM2_MASK      (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM2_GPIO      (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM2_TDI       (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM2_T5CCP0    (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM3_MASK    (0x0000F000)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM3_MASK    (0x0000F000u)
 #define GPIOC_GPIOPCTL_R_PCM3_BIT     (12)
-#define GPIOC_GPIOPCTL_R_PCM3_GPIO    (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM3_TDO     (0x00001000)
-#define GPIOC_GPIOPCTL_R_PCM3_T5CCP1  (0x00007000)
+#define GPIOC_GPIOPCTL_R_PCM3_GPIO    (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM3_TDO     (0x00001000u)
+#define GPIOC_GPIOPCTL_R_PCM3_T5CCP1  (0x00007000u)
 
-#define GPIOC_GPIOPCTL_PCM3_MASK      (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM3_GPIO      (0x00000000)
-#define GPIOC_GPIOPCTL_PCM3_TDO       (0x00000001)
-#define GPIOC_GPIOPCTL_PCM3_T5CCP1    (0x00000007)
-//--------
+#define GPIOC_GPIOPCTL_PCM3_MASK      (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM3_GPIO      (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM3_TDO       (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM3_T5CCP1    (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM4_MASK    (0x000F0000)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM4_MASK    (0x000F0000u)
 #define GPIOC_GPIOPCTL_R_PCM4_BIT     (16)
-#define GPIOC_GPIOPCTL_R_PCM4_GPIO    (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM4_U4Rx    (0x00010000)
-#define GPIOC_GPIOPCTL_R_PCM4_U1Rx    (0x00020000)
-#define GPIOC_GPIOPCTL_R_PCM4_M0PWM6  (0x00040000)
-#define GPIOC_GPIOPCTL_R_PCM4_IDX1    (0x00060000)
-#define GPIOC_GPIOPCTL_R_PCM4_WT0CCP0 (0x00070000)
-#define GPIOC_GPIOPCTL_R_PCM4_U1RTS   (0x00080000)
+#define GPIOC_GPIOPCTL_R_PCM4_GPIO    (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM4_U4Rx    (0x00010000u)
+#define GPIOC_GPIOPCTL_R_PCM4_U1Rx    (0x00020000u)
+#define GPIOC_GPIOPCTL_R_PCM4_M0PWM6  (0x00040000u)
+#define GPIOC_GPIOPCTL_R_PCM4_IDX1    (0x00060000u)
+#define GPIOC_GPIOPCTL_R_PCM4_WT0CCP0 (0x00070000u)
+#define GPIOC_GPIOPCTL_R_PCM4_U1RTS   (0x00080000u)
 
-#define GPIOC_GPIOPCTL_PCM4_MASK      (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM4_GPIO      (0x00000000)
-#define GPIOC_GPIOPCTL_PCM4_U4Rx      (0x00000001)
-#define GPIOC_GPIOPCTL_PCM4_U1Rx      (0x00000002)
-#define GPIOC_GPIOPCTL_PCM4_M0PWM6    (0x00000004)
-#define GPIOC_GPIOPCTL_PCM4_IDX1      (0x00000006)
-#define GPIOC_GPIOPCTL_PCM4_WT0CCP0   (0x00000007)
-#define GPIOC_GPIOPCTL_PCM4_U1RTS     (0x00000008)
-//--------
+#define GPIOC_GPIOPCTL_PCM4_MASK      (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM4_GPIO      (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM4_U4Rx      (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM4_U1Rx      (0x00000002u)
+#define GPIOC_GPIOPCTL_PCM4_M0PWM6    (0x00000004u)
+#define GPIOC_GPIOPCTL_PCM4_IDX1      (0x00000006u)
+#define GPIOC_GPIOPCTL_PCM4_WT0CCP0   (0x00000007u)
+#define GPIOC_GPIOPCTL_PCM4_U1RTS     (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM5_MASK    (0x00F00000)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM5_MASK    (0x00F00000u)
 #define GPIOC_GPIOPCTL_R_PCM5_BIT     (20)
-#define GPIOC_GPIOPCTL_R_PCM5_GPIO    (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM5_U4Tx    (0x00100000)
-#define GPIOC_GPIOPCTL_R_PCM5_U1Tx    (0x00200000)
-#define GPIOC_GPIOPCTL_R_PCM5_M0PWM7  (0x00400000)
-#define GPIOC_GPIOPCTL_R_PCM5_PhA1    (0x00600000)
-#define GPIOC_GPIOPCTL_R_PCM5_WT0CCP1 (0x00700000)
-#define GPIOC_GPIOPCTL_R_PCM5_U1CTS   (0x00800000)
+#define GPIOC_GPIOPCTL_R_PCM5_GPIO    (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM5_U4Tx    (0x00100000u)
+#define GPIOC_GPIOPCTL_R_PCM5_U1Tx    (0x00200000u)
+#define GPIOC_GPIOPCTL_R_PCM5_M0PWM7  (0x00400000u)
+#define GPIOC_GPIOPCTL_R_PCM5_PhA1    (0x00600000u)
+#define GPIOC_GPIOPCTL_R_PCM5_WT0CCP1 (0x00700000u)
+#define GPIOC_GPIOPCTL_R_PCM5_U1CTS   (0x00800000u)
 
-#define GPIOC_GPIOPCTL_PCM5_MASK      (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM5_GPIO      (0x00000000)
-#define GPIOC_GPIOPCTL_PCM5_U4Tx      (0x00000001)
-#define GPIOC_GPIOPCTL_PCM5_U1Tx      (0x00000002)
-#define GPIOC_GPIOPCTL_PCM5_M0PWM7    (0x00000004)
-#define GPIOC_GPIOPCTL_PCM5_PhA1      (0x00000006)
-#define GPIOC_GPIOPCTL_PCM5_WT0CCP1   (0x00000007)
-#define GPIOC_GPIOPCTL_PCM5_U1CTS     (0x00000008)
-//--------
+#define GPIOC_GPIOPCTL_PCM5_MASK      (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM5_GPIO      (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM5_U4Tx      (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM5_U1Tx      (0x00000002u)
+#define GPIOC_GPIOPCTL_PCM5_M0PWM7    (0x00000004u)
+#define GPIOC_GPIOPCTL_PCM5_PhA1      (0x00000006u)
+#define GPIOC_GPIOPCTL_PCM5_WT0CCP1   (0x00000007u)
+#define GPIOC_GPIOPCTL_PCM5_U1CTS     (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM6_MASK     (0x0F000000)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM6_MASK     (0x0F000000u)
 #define GPIOC_GPIOPCTL_R_PCM6_BIT      (24)
-#define GPIOC_GPIOPCTL_R_PCM6_GPIO     (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM6_U3Rx     (0x01000000)
-#define GPIOC_GPIOPCTL_R_PCM6_PhB1     (0x06000000)
-#define GPIOC_GPIOPCTL_R_PCM6_WT1CCP0  (0x07000000)
-#define GPIOC_GPIOPCTL_R_PCM6_USB0EPEN (0x08000000)
+#define GPIOC_GPIOPCTL_R_PCM6_GPIO     (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM6_U3Rx     (0x01000000u)
+#define GPIOC_GPIOPCTL_R_PCM6_PhB1     (0x06000000u)
+#define GPIOC_GPIOPCTL_R_PCM6_WT1CCP0  (0x07000000u)
+#define GPIOC_GPIOPCTL_R_PCM6_USB0EPEN (0x08000000u)
 
-#define GPIOC_GPIOPCTL_PCM6_MASK      (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM6_GPIO      (0x00000000)
-#define GPIOC_GPIOPCTL_PCM6_U3Rx      (0x00000001)
-#define GPIOC_GPIOPCTL_PCM6_PhB1      (0x00000006)
-#define GPIOC_GPIOPCTL_PCM6_WT1CCP0   (0x00000007)
-#define GPIOC_GPIOPCTL_PCM6_USB0EPEN  (0x00000008)
-//--------
+#define GPIOC_GPIOPCTL_PCM6_MASK      (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM6_GPIO      (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM6_U3Rx      (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM6_PhB1      (0x00000006u)
+#define GPIOC_GPIOPCTL_PCM6_WT1CCP0   (0x00000007u)
+#define GPIOC_GPIOPCTL_PCM6_USB0EPEN  (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOC_GPIOPCTL_R_PCM7_MASK     (0xF000000)
+/*----------*/
+#define GPIOC_GPIOPCTL_R_PCM7_MASK     (0xF000000u)
 #define GPIOC_GPIOPCTL_R_PCM7_BIT      (28)
-#define GPIOC_GPIOPCTL_R_PCM7_GPIO     (0x00000000)
-#define GPIOC_GPIOPCTL_R_PCM7_U3Tx     (0x10000000)
-#define GPIOC_GPIOPCTL_R_PCM7_WT1CCP1  (0x70000000)
-#define GPIOC_GPIOPCTL_R_PCM7_USB0PFLT (0x80000000)
+#define GPIOC_GPIOPCTL_R_PCM7_GPIO     (0x00000000u)
+#define GPIOC_GPIOPCTL_R_PCM7_U3Tx     (0x10000000u)
+#define GPIOC_GPIOPCTL_R_PCM7_WT1CCP1  (0x70000000u)
+#define GPIOC_GPIOPCTL_R_PCM7_USB0PFLT (0x80000000u)
 
-#define GPIOC_GPIOPCTL_PCM7_MASK      (0x0000000F)
-#define GPIOC_GPIOPCTL_PCM7_GPIO      (0x00000000)
-#define GPIOC_GPIOPCTL_PCM7_U3Tx      (0x00000001)
-#define GPIOC_GPIOPCTL_PCM7_WT1CCP1   (0x00000007)
-#define GPIOC_GPIOPCTL_PCM7_USB0PFLT  (0x00000008)
-//--------
+#define GPIOC_GPIOPCTL_PCM7_MASK      (0x0000000Fu)
+#define GPIOC_GPIOPCTL_PCM7_GPIO      (0x00000000u)
+#define GPIOC_GPIOPCTL_PCM7_U3Tx      (0x00000001u)
+#define GPIOC_GPIOPCTL_PCM7_WT1CCP1   (0x00000007u)
+#define GPIOC_GPIOPCTL_PCM7_USB0PFLT  (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM0_MASK    (0x0000000F)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM0_MASK    (0x0000000Fu)
 #define GPIOD_GPIOPCTL_R_PCM0_BIT     (0)
-#define GPIOD_GPIOPCTL_R_PCM0_GPIO    (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM0_SSI3Clk (0x00000001)
-#define GPIOD_GPIOPCTL_R_PCM0_SSI1Clk (0x00000002)
-#define GPIOD_GPIOPCTL_R_PCM0_I2C3SCL (0x00000003)
-#define GPIOD_GPIOPCTL_R_PCM0_M0PWM6  (0x00000004)
-#define GPIOD_GPIOPCTL_R_PCM0_M1PWM0  (0x00000005)
-#define GPIOD_GPIOPCTL_R_PCM0_WT2CCP0 (0x00000007)
+#define GPIOD_GPIOPCTL_R_PCM0_GPIO    (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM0_SSI3Clk (0x00000001u)
+#define GPIOD_GPIOPCTL_R_PCM0_SSI1Clk (0x00000002u)
+#define GPIOD_GPIOPCTL_R_PCM0_I2C3SCL (0x00000003u)
+#define GPIOD_GPIOPCTL_R_PCM0_M0PWM6  (0x00000004u)
+#define GPIOD_GPIOPCTL_R_PCM0_M1PWM0  (0x00000005u)
+#define GPIOD_GPIOPCTL_R_PCM0_WT2CCP0 (0x00000007u)
 
-#define GPIOD_GPIOPCTL_PCM0_MASK     (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM0_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_PCM0_SSI3Clk  (0x00000001)
-#define GPIOD_GPIOPCTL_PCM0_SSI1Clk  (0x00000002)
-#define GPIOD_GPIOPCTL_PCM0_I2C3SCL  (0x00000003)
-#define GPIOD_GPIOPCTL_PCM0_M0PWM6   (0x00000004)
-#define GPIOD_GPIOPCTL_PCM0_M1PWM0   (0x00000005)
-#define GPIOD_GPIOPCTL_PCM0_WT2CCP0  (0x00000007)
-//--------
+#define GPIOD_GPIOPCTL_PCM0_MASK     (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM0_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM0_SSI3Clk  (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM0_SSI1Clk  (0x00000002u)
+#define GPIOD_GPIOPCTL_PCM0_I2C3SCL  (0x00000003u)
+#define GPIOD_GPIOPCTL_PCM0_M0PWM6   (0x00000004u)
+#define GPIOD_GPIOPCTL_PCM0_M1PWM0   (0x00000005u)
+#define GPIOD_GPIOPCTL_PCM0_WT2CCP0  (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM1_MASK    (0x000000F0)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM1_MASK    (0x000000F0u)
 #define GPIOD_GPIOPCTL_R_PCM1_BIT     (4)
-#define GPIOD_GPIOPCTL_R_PCM1_GPIO    (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM1_SSI3Fss (0x00000010)
-#define GPIOD_GPIOPCTL_R_PCM1_SSI1Fss (0x00000020)
-#define GPIOD_GPIOPCTL_R_PCM1_I2C3SDA (0x00000030)
-#define GPIOD_GPIOPCTL_R_PCM1_M0PWM7  (0x00000040)
-#define GPIOD_GPIOPCTL_R_PCM1_M1PWM1  (0x00000050)
-#define GPIOD_GPIOPCTL_R_PCM1_WT2CCP1 (0x00000070)
+#define GPIOD_GPIOPCTL_R_PCM1_GPIO    (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM1_SSI3Fss (0x00000010u)
+#define GPIOD_GPIOPCTL_R_PCM1_SSI1Fss (0x00000020u)
+#define GPIOD_GPIOPCTL_R_PCM1_I2C3SDA (0x00000030u)
+#define GPIOD_GPIOPCTL_R_PCM1_M0PWM7  (0x00000040u)
+#define GPIOD_GPIOPCTL_R_PCM1_M1PWM1  (0x00000050u)
+#define GPIOD_GPIOPCTL_R_PCM1_WT2CCP1 (0x00000070u)
 
-#define GPIOD_GPIOPCTL_PCM1_MASK     (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM1_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_PCM1_SSI3Fss  (0x00000001)
-#define GPIOD_GPIOPCTL_PCM1_SSI1Fss  (0x00000002)
-#define GPIOD_GPIOPCTL_PCM1_I2C3SDA  (0x00000003)
-#define GPIOD_GPIOPCTL_PCM1_M0PWM7   (0x00000004)
-#define GPIOD_GPIOPCTL_PCM1_M1PWM1   (0x00000005)
-#define GPIOD_GPIOPCTL_PCM1_WT2CCP1  (0x00000007)
-//--------
+#define GPIOD_GPIOPCTL_PCM1_MASK     (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM1_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM1_SSI3Fss  (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM1_SSI1Fss  (0x00000002u)
+#define GPIOD_GPIOPCTL_PCM1_I2C3SDA  (0x00000003u)
+#define GPIOD_GPIOPCTL_PCM1_M0PWM7   (0x00000004u)
+#define GPIOD_GPIOPCTL_PCM1_M1PWM1   (0x00000005u)
+#define GPIOD_GPIOPCTL_PCM1_WT2CCP1  (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM2_MASK     (0x00000F00)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM2_MASK     (0x00000F00u)
 #define GPIOD_GPIOPCTL_R_PCM2_BIT      (8)
-#define GPIOD_GPIOPCTL_R_PCM2_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM2_SSI3Rx   (0x00000100)
-#define GPIOD_GPIOPCTL_R_PCM2_SSI1Rx   (0x00000200)
-#define GPIOD_GPIOPCTL_R_PCM2_M0FAULT0 (0x00000400)
-#define GPIOD_GPIOPCTL_R_PCM2_WT3CCP0  (0x00000700)
-#define GPIOD_GPIOPCTL_R_PCM2_USB0EPEN (0x00000800)
+#define GPIOD_GPIOPCTL_R_PCM2_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM2_SSI3Rx   (0x00000100u)
+#define GPIOD_GPIOPCTL_R_PCM2_SSI1Rx   (0x00000200u)
+#define GPIOD_GPIOPCTL_R_PCM2_M0FAULT0 (0x00000400u)
+#define GPIOD_GPIOPCTL_R_PCM2_WT3CCP0  (0x00000700u)
+#define GPIOD_GPIOPCTL_R_PCM2_USB0EPEN (0x00000800u)
 
-#define GPIOD_GPIOPCTL_PCM2_MASK     (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM2_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_PCM2_SSI3Rx   (0x00000001)
-#define GPIOD_GPIOPCTL_PCM2_SSI1Rx   (0x00000002)
-#define GPIOD_GPIOPCTL_PCM2_M0FAULT0 (0x00000004)
-#define GPIOD_GPIOPCTL_PCM2_WT3CCP0  (0x00000007)
-#define GPIOD_GPIOPCTL_PCM2_USB0EPEN (0x00000008)
-//--------
+#define GPIOD_GPIOPCTL_PCM2_MASK     (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM2_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM2_SSI3Rx   (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM2_SSI1Rx   (0x00000002u)
+#define GPIOD_GPIOPCTL_PCM2_M0FAULT0 (0x00000004u)
+#define GPIOD_GPIOPCTL_PCM2_WT3CCP0  (0x00000007u)
+#define GPIOD_GPIOPCTL_PCM2_USB0EPEN (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM3_MASK     (0x0000F000)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM3_MASK     (0x0000F000u)
 #define GPIOD_GPIOPCTL_R_PCM3_BIT      (12)
-#define GPIOD_GPIOPCTL_R_PCM3_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM3_SSI3Tx   (0x00001000)
-#define GPIOD_GPIOPCTL_R_PCM3_SSI1Tx   (0x00002000)
-#define GPIOD_GPIOPCTL_R_PCM3_IDX0     (0x00006000)
-#define GPIOD_GPIOPCTL_R_PCM3_WT3CCP1  (0x00007000)
-#define GPIOD_GPIOPCTL_R_PCM3_USB0PFLT (0x00008000)
+#define GPIOD_GPIOPCTL_R_PCM3_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM3_SSI3Tx   (0x00001000u)
+#define GPIOD_GPIOPCTL_R_PCM3_SSI1Tx   (0x00002000u)
+#define GPIOD_GPIOPCTL_R_PCM3_IDX0     (0x00006000u)
+#define GPIOD_GPIOPCTL_R_PCM3_WT3CCP1  (0x00007000u)
+#define GPIOD_GPIOPCTL_R_PCM3_USB0PFLT (0x00008000u)
 
-#define GPIOD_GPIOPCTL_PCM3_MASK     (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM3_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_PCM3_SSI3Tx   (0x00000001)
-#define GPIOD_GPIOPCTL_PCM3_SSI1Tx   (0x00000002)
-#define GPIOD_GPIOPCTL_PCM3_IDX0     (0x00000006)
-#define GPIOD_GPIOPCTL_PCM3_WT3CCP1  (0x00000007)
-#define GPIOD_GPIOPCTL_PCM3_USB0PFLT (0x00000008)
-//--------
+#define GPIOD_GPIOPCTL_PCM3_MASK     (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM3_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM3_SSI3Tx   (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM3_SSI1Tx   (0x00000002u)
+#define GPIOD_GPIOPCTL_PCM3_IDX0     (0x00000006u)
+#define GPIOD_GPIOPCTL_PCM3_WT3CCP1  (0x00000007u)
+#define GPIOD_GPIOPCTL_PCM3_USB0PFLT (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM4_MASK    (0x000F0000)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM4_MASK    (0x000F0000u)
 #define GPIOD_GPIOPCTL_R_PCM4_BIT     (16)
-#define GPIOD_GPIOPCTL_R_PCM4_GPIO    (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM4_U6Rx    (0x00010000)
-#define GPIOD_GPIOPCTL_R_PCM4_WT4CCP0 (0x00070000)
+#define GPIOD_GPIOPCTL_R_PCM4_GPIO    (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM4_U6Rx    (0x00010000u)
+#define GPIOD_GPIOPCTL_R_PCM4_WT4CCP0 (0x00070000u)
 
-#define GPIOD_GPIOPCTL_PCM4_MASK      (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM4_GPIO      (0x00000000)
-#define GPIOD_GPIOPCTL_PCM4_U6Rx      (0x00000001)
-#define GPIOD_GPIOPCTL_PCM4_WT4CCP0   (0x00000007)
-//--------
+#define GPIOD_GPIOPCTL_PCM4_MASK      (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM4_GPIO      (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM4_U6Rx      (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM4_WT4CCP0   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM5_MASK    (0x00F00000)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM5_MASK    (0x00F00000u)
 #define GPIOD_GPIOPCTL_R_PCM5_BIT     (20)
-#define GPIOD_GPIOPCTL_R_PCM5_GPIO    (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM5_U6Tx    (0x00100000)
-#define GPIOD_GPIOPCTL_R_PCM5_WT4CCP1 (0x00700000)
+#define GPIOD_GPIOPCTL_R_PCM5_GPIO    (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM5_U6Tx    (0x00100000u)
+#define GPIOD_GPIOPCTL_R_PCM5_WT4CCP1 (0x00700000u)
 
-#define GPIOD_GPIOPCTL_PCM5_MASK      (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM5_GPIO      (0x00000000)
-#define GPIOD_GPIOPCTL_PCM5_U6Tx      (0x00000001)
-#define GPIOD_GPIOPCTL_PCM5_WT4CCP1   (0x00000007)
-//--------
+#define GPIOD_GPIOPCTL_PCM5_MASK      (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM5_GPIO      (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM5_U6Tx      (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM5_WT4CCP1   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM6_MASK     (0x0F000000)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM6_MASK     (0x0F000000u)
 #define GPIOD_GPIOPCTL_R_PCM6_BIT      (24)
-#define GPIOD_GPIOPCTL_R_PCM6_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM6_U2Rx     (0x01000000)
-#define GPIOD_GPIOPCTL_R_PCM6_M0FAULT0 (0x04000000)
-#define GPIOD_GPIOPCTL_R_PCM6_PhA0     (0x06000000)
-#define GPIOD_GPIOPCTL_R_PCM6_WT5CCP0  (0x07000000)
+#define GPIOD_GPIOPCTL_R_PCM6_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM6_U2Rx     (0x01000000u)
+#define GPIOD_GPIOPCTL_R_PCM6_M0FAULT0 (0x04000000u)
+#define GPIOD_GPIOPCTL_R_PCM6_PhA0     (0x06000000u)
+#define GPIOD_GPIOPCTL_R_PCM6_WT5CCP0  (0x07000000u)
 
-#define GPIOD_GPIOPCTL_PCM6_MASK      (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM6_GPIO      (0x00000000)
-#define GPIOD_GPIOPCTL_PCM6_U2Rx      (0x00000001)
-#define GPIOD_GPIOPCTL_PCM6_M0FAULT0  (0x00000004)
-#define GPIOD_GPIOPCTL_PCM6_PhA0      (0x00000006)
-#define GPIOD_GPIOPCTL_PCM6_WT5CCP0   (0x00000007)
-//--------
+#define GPIOD_GPIOPCTL_PCM6_MASK      (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM6_GPIO      (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM6_U2Rx      (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM6_M0FAULT0  (0x00000004u)
+#define GPIOD_GPIOPCTL_PCM6_PhA0      (0x00000006u)
+#define GPIOD_GPIOPCTL_PCM6_WT5CCP0   (0x00000007u)
+/*----------*/
 
-//--------
-#define GPIOD_GPIOPCTL_R_PCM7_MASK     (0xF000000)
+/*----------*/
+#define GPIOD_GPIOPCTL_R_PCM7_MASK     (0xF000000u)
 #define GPIOD_GPIOPCTL_R_PCM7_BIT      (28)
-#define GPIOD_GPIOPCTL_R_PCM7_GPIO     (0x00000000)
-#define GPIOD_GPIOPCTL_R_PCM7_U2Tx     (0x10000000)
-#define GPIOD_GPIOPCTL_R_PCM7_PhB0     (0x60000000)
-#define GPIOD_GPIOPCTL_R_PCM7_WT5CCP1  (0x70000000)
-#define GPIOD_GPIOPCTL_R_PCM7_NMI      (0x80000000)
+#define GPIOD_GPIOPCTL_R_PCM7_GPIO     (0x00000000u)
+#define GPIOD_GPIOPCTL_R_PCM7_U2Tx     (0x10000000u)
+#define GPIOD_GPIOPCTL_R_PCM7_PhB0     (0x60000000u)
+#define GPIOD_GPIOPCTL_R_PCM7_WT5CCP1  (0x70000000u)
+#define GPIOD_GPIOPCTL_R_PCM7_NMI      (0x80000000u)
 
-#define GPIOD_GPIOPCTL_PCM7_MASK      (0x0000000F)
-#define GPIOD_GPIOPCTL_PCM7_GPIO      (0x00000000)
-#define GPIOD_GPIOPCTL_PCM7_U2Tx      (0x00000001)
-#define GPIOD_GPIOPCTL_PCM7_PhB0      (0x00000006)
-#define GPIOD_GPIOPCTL_PCM7_WT5CCP1   (0x00000007)
-#define GPIOD_GPIOPCTL_PCM7_NMI       (0x00000008)
-//--------
+#define GPIOD_GPIOPCTL_PCM7_MASK      (0x0000000Fu)
+#define GPIOD_GPIOPCTL_PCM7_GPIO      (0x00000000u)
+#define GPIOD_GPIOPCTL_PCM7_U2Tx      (0x00000001u)
+#define GPIOD_GPIOPCTL_PCM7_PhB0      (0x00000006u)
+#define GPIOD_GPIOPCTL_PCM7_WT5CCP1   (0x00000007u)
+#define GPIOD_GPIOPCTL_PCM7_NMI       (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOE_GPIOPCTL_R_PCM0_MASK    (0x0000000F)
+/*----------*/
+#define GPIOE_GPIOPCTL_R_PCM0_MASK    (0x0000000Fu)
 #define GPIOE_GPIOPCTL_R_PCM0_BIT     (0)
-#define GPIOE_GPIOPCTL_R_PCM0_GPIO    (0x00000000)
-#define GPIOE_GPIOPCTL_R_PCM0_U7Rx    (0x00000001)
+#define GPIOE_GPIOPCTL_R_PCM0_GPIO    (0x00000000u)
+#define GPIOE_GPIOPCTL_R_PCM0_U7Rx    (0x00000001u)
 
-#define GPIOE_GPIOPCTL_PCM0_MASK     (0x0000000F)
-#define GPIOE_GPIOPCTL_PCM0_GPIO     (0x00000000)
-#define GPIOE_GPIOPCTL_PCM0_U7Rx     (0x00000001)
-//--------
+#define GPIOE_GPIOPCTL_PCM0_MASK     (0x0000000Fu)
+#define GPIOE_GPIOPCTL_PCM0_GPIO     (0x00000000u)
+#define GPIOE_GPIOPCTL_PCM0_U7Rx     (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIOE_GPIOPCTL_R_PCM1_MASK    (0x000000F0)
+/*----------*/
+#define GPIOE_GPIOPCTL_R_PCM1_MASK    (0x000000F0u)
 #define GPIOE_GPIOPCTL_R_PCM1_BIT     (4)
-#define GPIOE_GPIOPCTL_R_PCM1_GPIO    (0x00000000)
-#define GPIOE_GPIOPCTL_R_PCM1_U7Tx    (0x00000010)
+#define GPIOE_GPIOPCTL_R_PCM1_GPIO    (0x00000000u)
+#define GPIOE_GPIOPCTL_R_PCM1_U7Tx    (0x00000010u)
 
-#define GPIOE_GPIOPCTL_PCM1_MASK     (0x0000000F)
-#define GPIOE_GPIOPCTL_PCM1_GPIO     (0x00000000)
-#define GPIOE_GPIOPCTL_PCM1_U7Tx     (0x00000001)
-//--------
+#define GPIOE_GPIOPCTL_PCM1_MASK     (0x0000000Fu)
+#define GPIOE_GPIOPCTL_PCM1_GPIO     (0x00000000u)
+#define GPIOE_GPIOPCTL_PCM1_U7Tx     (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIOE_GPIOPCTL_R_PCM2_MASK     (0x00000F00)
+/*----------*/
+#define GPIOE_GPIOPCTL_R_PCM2_MASK     (0x00000F00u)
 #define GPIOE_GPIOPCTL_R_PCM2_BIT      (8)
-#define GPIOE_GPIOPCTL_R_PCM2_GPIO     (0x00000000)
+#define GPIOE_GPIOPCTL_R_PCM2_GPIO     (0x00000000u)
 
-#define GPIOE_GPIOPCTL_PCM2_MASK     (0x0000000F)
-#define GPIOE_GPIOPCTL_PCM2_GPIO     (0x00000000)
-//--------
+#define GPIOE_GPIOPCTL_PCM2_MASK     (0x0000000Fu)
+#define GPIOE_GPIOPCTL_PCM2_GPIO     (0x00000000u)
+/*----------*/
 
-//--------
-#define GPIOE_GPIOPCTL_R_PCM3_MASK     (0x0000F000)
+/*----------*/
+#define GPIOE_GPIOPCTL_R_PCM3_MASK     (0x0000F000u)
 #define GPIOE_GPIOPCTL_R_PCM3_BIT      (12)
-#define GPIOE_GPIOPCTL_R_PCM3_GPIO     (0x00000000)
+#define GPIOE_GPIOPCTL_R_PCM3_GPIO     (0x00000000u)
 
-#define GPIOE_GPIOPCTL_PCM3_MASK     (0x0000000F)
-#define GPIOE_GPIOPCTL_PCM3_GPIO     (0x00000000)
-//--------
+#define GPIOE_GPIOPCTL_PCM3_MASK     (0x0000000Fu)
+#define GPIOE_GPIOPCTL_PCM3_GPIO     (0x00000000u)
+/*----------*/
 
-//--------
-#define GPIOE_GPIOPCTL_R_PCM4_MASK    (0x000F0000)
+/*----------*/
+#define GPIOE_GPIOPCTL_R_PCM4_MASK    (0x000F0000u)
 #define GPIOE_GPIOPCTL_R_PCM4_BIT     (16)
-#define GPIOE_GPIOPCTL_R_PCM4_GPIO    (0x00000000)
-#define GPIOE_GPIOPCTL_R_PCM4_U5Rx    (0x00010000)
-#define GPIOE_GPIOPCTL_R_PCM4_I2C2SCL (0x00030000)
-#define GPIOE_GPIOPCTL_R_PCM4_M0PWM4  (0x00040000)
-#define GPIOE_GPIOPCTL_R_PCM4_M1PWM2  (0x00050000)
-#define GPIOE_GPIOPCTL_R_PCM4_CAN0Rx  (0x00080000)
+#define GPIOE_GPIOPCTL_R_PCM4_GPIO    (0x00000000u)
+#define GPIOE_GPIOPCTL_R_PCM4_U5Rx    (0x00010000u)
+#define GPIOE_GPIOPCTL_R_PCM4_I2C2SCL (0x00030000u)
+#define GPIOE_GPIOPCTL_R_PCM4_M0PWM4  (0x00040000u)
+#define GPIOE_GPIOPCTL_R_PCM4_M1PWM2  (0x00050000u)
+#define GPIOE_GPIOPCTL_R_PCM4_CAN0Rx  (0x00080000u)
 
-#define GPIOE_GPIOPCTL_PCM4_MASK      (0x0000000F)
-#define GPIOE_GPIOPCTL_PCM4_GPIO      (0x00000000)
-#define GPIOE_GPIOPCTL_PCM4_U5Rx      (0x00000001)
-#define GPIOE_GPIOPCTL_PCM4_I2C2SCL   (0x00000003)
-#define GPIOE_GPIOPCTL_PCM4_M0PWM4    (0x00000004)
-#define GPIOE_GPIOPCTL_PCM4_M1PWM2    (0x00000005)
-#define GPIOE_GPIOPCTL_PCM4_CAN0Rx    (0x00000008)
-//--------
+#define GPIOE_GPIOPCTL_PCM4_MASK      (0x0000000Fu)
+#define GPIOE_GPIOPCTL_PCM4_GPIO      (0x00000000u)
+#define GPIOE_GPIOPCTL_PCM4_U5Rx      (0x00000001u)
+#define GPIOE_GPIOPCTL_PCM4_I2C2SCL   (0x00000003u)
+#define GPIOE_GPIOPCTL_PCM4_M0PWM4    (0x00000004u)
+#define GPIOE_GPIOPCTL_PCM4_M1PWM2    (0x00000005u)
+#define GPIOE_GPIOPCTL_PCM4_CAN0Rx    (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOE_GPIOPCTL_R_PCM5_MASK    (0x00F00000)
+/*----------*/
+#define GPIOE_GPIOPCTL_R_PCM5_MASK    (0x00F00000u)
 #define GPIOE_GPIOPCTL_R_PCM5_BIT     (20)
-#define GPIOE_GPIOPCTL_R_PCM5_GPIO    (0x00000000)
-#define GPIOE_GPIOPCTL_R_PCM5_U5Tx    (0x00100000)
-#define GPIOE_GPIOPCTL_R_PCM5_I2C2SDA (0x00300000)
-#define GPIOE_GPIOPCTL_R_PCM5_M0PWM5  (0x00400000)
-#define GPIOE_GPIOPCTL_R_PCM5_M1PWM3  (0x00500000)
-#define GPIOE_GPIOPCTL_R_PCM5_CAN0Tx  (0x00800000)
+#define GPIOE_GPIOPCTL_R_PCM5_GPIO    (0x00000000u)
+#define GPIOE_GPIOPCTL_R_PCM5_U5Tx    (0x00100000u)
+#define GPIOE_GPIOPCTL_R_PCM5_I2C2SDA (0x00300000u)
+#define GPIOE_GPIOPCTL_R_PCM5_M0PWM5  (0x00400000u)
+#define GPIOE_GPIOPCTL_R_PCM5_M1PWM3  (0x00500000u)
+#define GPIOE_GPIOPCTL_R_PCM5_CAN0Tx  (0x00800000u)
 
-#define GPIOE_GPIOPCTL_PCM5_MASK      (0x0000000F)
-#define GPIOE_GPIOPCTL_PCM5_GPIO      (0x00000000)
-#define GPIOE_GPIOPCTL_PCM5_U5Tx      (0x00000001)
-#define GPIOE_GPIOPCTL_PCM5_I2C2SDA   (0x00000003)
-#define GPIOE_GPIOPCTL_PCM5_M0PWM5    (0x00000004)
-#define GPIOE_GPIOPCTL_PCM5_M1PWM3    (0x00000005)
-#define GPIOE_GPIOPCTL_PCM5_CAN0Tx    (0x00000008)
-//--------
+#define GPIOE_GPIOPCTL_PCM5_MASK      (0x0000000Fu)
+#define GPIOE_GPIOPCTL_PCM5_GPIO      (0x00000000u)
+#define GPIOE_GPIOPCTL_PCM5_U5Tx      (0x00000001u)
+#define GPIOE_GPIOPCTL_PCM5_I2C2SDA   (0x00000003u)
+#define GPIOE_GPIOPCTL_PCM5_M0PWM5    (0x00000004u)
+#define GPIOE_GPIOPCTL_PCM5_M1PWM3    (0x00000005u)
+#define GPIOE_GPIOPCTL_PCM5_CAN0Tx    (0x00000008u)
+/*----------*/
 
-//--------
-#define GPIOF_GPIOPCTL_R_PCM0_MASK    (0x0000000F)
+/*----------*/
+#define GPIOF_GPIOPCTL_R_PCM0_MASK    (0x0000000Fu)
 #define GPIOF_GPIOPCTL_R_PCM0_BIT     (0)
-#define GPIOF_GPIOPCTL_R_PCM0_GPIO    (0x00000000)
-#define GPIOF_GPIOPCTL_R_PCM0_U1RTS   (0x00000001)
-#define GPIOF_GPIOPCTL_R_PCM0_SSI1Rx  (0x00000002)
-#define GPIOF_GPIOPCTL_R_PCM0_CAN0Rx  (0x00000003)
-#define GPIOF_GPIOPCTL_R_PCM0_M1PWM4  (0x00000005)
-#define GPIOF_GPIOPCTL_R_PCM0_PhA0    (0x00000006)
-#define GPIOF_GPIOPCTL_R_PCM0_T0CCP0  (0x00000007)
-#define GPIOF_GPIOPCTL_R_PCM0_NMI     (0x00000008)
-#define GPIOF_GPIOPCTL_R_PCM0_C0o     (0x00000009)
+#define GPIOF_GPIOPCTL_R_PCM0_GPIO    (0x00000000u)
+#define GPIOF_GPIOPCTL_R_PCM0_U1RTS   (0x00000001u)
+#define GPIOF_GPIOPCTL_R_PCM0_SSI1Rx  (0x00000002u)
+#define GPIOF_GPIOPCTL_R_PCM0_CAN0Rx  (0x00000003u)
+#define GPIOF_GPIOPCTL_R_PCM0_M1PWM4  (0x00000005u)
+#define GPIOF_GPIOPCTL_R_PCM0_PhA0    (0x00000006u)
+#define GPIOF_GPIOPCTL_R_PCM0_T0CCP0  (0x00000007u)
+#define GPIOF_GPIOPCTL_R_PCM0_NMI     (0x00000008u)
+#define GPIOF_GPIOPCTL_R_PCM0_C0o     (0x00000009u)
 
-#define GPIOF_GPIOPCTL_PCM0_MASK     (0x0000000F)
-#define GPIOF_GPIOPCTL_PCM0_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_PCM0_U1RTS    (0x00000001)
-#define GPIOF_GPIOPCTL_PCM0_SSI1Rx   (0x00000002)
-#define GPIOF_GPIOPCTL_PCM0_CAN0Rx   (0x00000003)
-#define GPIOF_GPIOPCTL_PCM0_M1PWM4   (0x00000005)
-#define GPIOF_GPIOPCTL_PCM0_PhA0     (0x00000006)
-#define GPIOF_GPIOPCTL_PCM0_T0CCP0   (0x00000007)
-#define GPIOF_GPIOPCTL_PCM0_NMI      (0x00000008)
-#define GPIOF_GPIOPCTL_PCM0_C0o      (0x00000009)
-//--------
+#define GPIOF_GPIOPCTL_PCM0_MASK     (0x0000000Fu)
+#define GPIOF_GPIOPCTL_PCM0_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_PCM0_U1RTS    (0x00000001u)
+#define GPIOF_GPIOPCTL_PCM0_SSI1Rx   (0x00000002u)
+#define GPIOF_GPIOPCTL_PCM0_CAN0Rx   (0x00000003u)
+#define GPIOF_GPIOPCTL_PCM0_M1PWM4   (0x00000005u)
+#define GPIOF_GPIOPCTL_PCM0_PhA0     (0x00000006u)
+#define GPIOF_GPIOPCTL_PCM0_T0CCP0   (0x00000007u)
+#define GPIOF_GPIOPCTL_PCM0_NMI      (0x00000008u)
+#define GPIOF_GPIOPCTL_PCM0_C0o      (0x00000009u)
+/*----------*/
 
-//--------
-#define GPIOF_GPIOPCTL_R_PCM1_MASK    (0x000000F0)
+/*----------*/
+#define GPIOF_GPIOPCTL_R_PCM1_MASK    (0x000000F0u)
 #define GPIOF_GPIOPCTL_R_PCM1_BIT     (4)
-#define GPIOF_GPIOPCTL_R_PCM1_GPIO    (0x00000000)
-#define GPIOF_GPIOPCTL_R_PCM1_U1CTS   (0x00000010)
-#define GPIOF_GPIOPCTL_R_PCM1_SSI1Tx  (0x00000020)
-#define GPIOF_GPIOPCTL_R_PCM1_M1PWM5  (0x00000050)
-#define GPIOF_GPIOPCTL_R_PCM1_PhB0    (0x00000060)
-#define GPIOF_GPIOPCTL_R_PCM1_T0CCP1  (0x00000070)
-#define GPIOF_GPIOPCTL_R_PCM1_C1o     (0x00000090)
-#define GPIOF_GPIOPCTL_R_PCM1_TRD1    (0x000000E0)
+#define GPIOF_GPIOPCTL_R_PCM1_GPIO    (0x00000000u)
+#define GPIOF_GPIOPCTL_R_PCM1_U1CTS   (0x00000010u)
+#define GPIOF_GPIOPCTL_R_PCM1_SSI1Tx  (0x00000020u)
+#define GPIOF_GPIOPCTL_R_PCM1_M1PWM5  (0x00000050u)
+#define GPIOF_GPIOPCTL_R_PCM1_PhB0    (0x00000060u)
+#define GPIOF_GPIOPCTL_R_PCM1_T0CCP1  (0x00000070u)
+#define GPIOF_GPIOPCTL_R_PCM1_C1o     (0x00000090u)
+#define GPIOF_GPIOPCTL_R_PCM1_TRD1    (0x000000E0u)
 
-#define GPIOF_GPIOPCTL_PCM1_MASK     (0x0000000F)
-#define GPIOF_GPIOPCTL_PCM1_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_PCM1_U1CTS    (0x00000001)
-#define GPIOF_GPIOPCTL_PCM1_SSI1Tx   (0x00000002)
-#define GPIOF_GPIOPCTL_PCM1_M1PWM5   (0x00000005)
-#define GPIOF_GPIOPCTL_PCM1_PhB0     (0x00000006)
-#define GPIOF_GPIOPCTL_PCM1_T0CCP1   (0x00000007)
-#define GPIOF_GPIOPCTL_PCM1_C1o      (0x00000009)
-#define GPIOF_GPIOPCTL_PCM1_TRD1     (0x0000000E)
-//--------
+#define GPIOF_GPIOPCTL_PCM1_MASK     (0x0000000Fu)
+#define GPIOF_GPIOPCTL_PCM1_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_PCM1_U1CTS    (0x00000001u)
+#define GPIOF_GPIOPCTL_PCM1_SSI1Tx   (0x00000002u)
+#define GPIOF_GPIOPCTL_PCM1_M1PWM5   (0x00000005u)
+#define GPIOF_GPIOPCTL_PCM1_PhB0     (0x00000006u)
+#define GPIOF_GPIOPCTL_PCM1_T0CCP1   (0x00000007u)
+#define GPIOF_GPIOPCTL_PCM1_C1o      (0x00000009u)
+#define GPIOF_GPIOPCTL_PCM1_TRD1     (0x0000000Eu)
+/*----------*/
 
-//--------
-#define GPIOF_GPIOPCTL_R_PCM2_MASK     (0x00000F00)
+/*----------*/
+#define GPIOF_GPIOPCTL_R_PCM2_MASK     (0x00000F00u)
 #define GPIOF_GPIOPCTL_R_PCM2_BIT      (8)
-#define GPIOF_GPIOPCTL_R_PCM2_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_R_PCM2_SSI1Clk  (0x00000200)
-#define GPIOF_GPIOPCTL_R_PCM2_M0FAULT0 (0x00000400)
-#define GPIOF_GPIOPCTL_R_PCM2_M1PWM6   (0x00000500)
-#define GPIOF_GPIOPCTL_R_PCM2_T1CCP0   (0x00000700)
-#define GPIOF_GPIOPCTL_R_PCM2_TRD0     (0x00000E00)
+#define GPIOF_GPIOPCTL_R_PCM2_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_R_PCM2_SSI1Clk  (0x00000200u)
+#define GPIOF_GPIOPCTL_R_PCM2_M0FAULT0 (0x00000400u)
+#define GPIOF_GPIOPCTL_R_PCM2_M1PWM6   (0x00000500u)
+#define GPIOF_GPIOPCTL_R_PCM2_T1CCP0   (0x00000700u)
+#define GPIOF_GPIOPCTL_R_PCM2_TRD0     (0x00000E00u)
 
-#define GPIOF_GPIOPCTL_PCM2_MASK     (0x0000000F)
-#define GPIOF_GPIOPCTL_PCM2_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_PCM2_SSI1Clk  (0x00000002)
-#define GPIOF_GPIOPCTL_PCM2_M0FAULT0 (0x00000004)
-#define GPIOF_GPIOPCTL_PCM2_M1PWM6   (0x00000005)
-#define GPIOF_GPIOPCTL_PCM2_T1CCP0   (0x00000007)
-#define GPIOF_GPIOPCTL_PCM2_TRD0     (0x0000000E)
-//--------
+#define GPIOF_GPIOPCTL_PCM2_MASK     (0x0000000Fu)
+#define GPIOF_GPIOPCTL_PCM2_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_PCM2_SSI1Clk  (0x00000002u)
+#define GPIOF_GPIOPCTL_PCM2_M0FAULT0 (0x00000004u)
+#define GPIOF_GPIOPCTL_PCM2_M1PWM6   (0x00000005u)
+#define GPIOF_GPIOPCTL_PCM2_T1CCP0   (0x00000007u)
+#define GPIOF_GPIOPCTL_PCM2_TRD0     (0x0000000Eu)
+/*----------*/
 
-//--------
-#define GPIOF_GPIOPCTL_R_PCM3_MASK     (0x0000F000)
+/*----------*/
+#define GPIOF_GPIOPCTL_R_PCM3_MASK     (0x0000F000u)
 #define GPIOF_GPIOPCTL_R_PCM3_BIT      (12)
-#define GPIOF_GPIOPCTL_R_PCM3_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_R_PCM3_SSI1Fss  (0x00002000)
-#define GPIOF_GPIOPCTL_R_PCM3_CAN0Tx   (0x00003000)
-#define GPIOF_GPIOPCTL_R_PCM3_M1PWM7   (0x00005000)
-#define GPIOF_GPIOPCTL_R_PCM3_T1CCP1   (0x00007000)
-#define GPIOF_GPIOPCTL_R_PCM3_TRCLK    (0x0000E000)
+#define GPIOF_GPIOPCTL_R_PCM3_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_R_PCM3_SSI1Fss  (0x00002000u)
+#define GPIOF_GPIOPCTL_R_PCM3_CAN0Tx   (0x00003000u)
+#define GPIOF_GPIOPCTL_R_PCM3_M1PWM7   (0x00005000u)
+#define GPIOF_GPIOPCTL_R_PCM3_T1CCP1   (0x00007000u)
+#define GPIOF_GPIOPCTL_R_PCM3_TRCLK    (0x0000E000u)
 
-#define GPIOF_GPIOPCTL_PCM3_MASK     (0x0000000F)
-#define GPIOF_GPIOPCTL_PCM3_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_PCM3_SSI1Fss  (0x00000002)
-#define GPIOF_GPIOPCTL_PCM3_CAN0Tx   (0x00000003)
-#define GPIOF_GPIOPCTL_PCM3_M1PWM7   (0x00000005)
-#define GPIOF_GPIOPCTL_PCM3_T1CCP1   (0x00000007)
-#define GPIOF_GPIOPCTL_PCM3_TRCLK    (0x0000000E)
-//--------
+#define GPIOF_GPIOPCTL_PCM3_MASK     (0x0000000Fu)
+#define GPIOF_GPIOPCTL_PCM3_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_PCM3_SSI1Fss  (0x00000002u)
+#define GPIOF_GPIOPCTL_PCM3_CAN0Tx   (0x00000003u)
+#define GPIOF_GPIOPCTL_PCM3_M1PWM7   (0x00000005u)
+#define GPIOF_GPIOPCTL_PCM3_T1CCP1   (0x00000007u)
+#define GPIOF_GPIOPCTL_PCM3_TRCLK    (0x0000000Eu)
+/*----------*/
 
-//--------
-#define GPIOF_GPIOPCTL_R_PCM4_MASK     (0x000F0000)
+/*----------*/
+#define GPIOF_GPIOPCTL_R_PCM4_MASK     (0x000F0000u)
 #define GPIOF_GPIOPCTL_R_PCM4_BIT      (16)
-#define GPIOF_GPIOPCTL_R_PCM4_GPIO     (0x00000000)
-#define GPIOF_GPIOPCTL_R_PCM4_M1FAULT0 (0x00050000)
-#define GPIOF_GPIOPCTL_R_PCM4_IDX0     (0x00060000)
-#define GPIOF_GPIOPCTL_R_PCM4_T2CCP0   (0x00070000)
-#define GPIOF_GPIOPCTL_R_PCM4_USB0EPEN (0x00080000)
+#define GPIOF_GPIOPCTL_R_PCM4_GPIO     (0x00000000u)
+#define GPIOF_GPIOPCTL_R_PCM4_M1FAULT0 (0x00050000u)
+#define GPIOF_GPIOPCTL_R_PCM4_IDX0     (0x00060000u)
+#define GPIOF_GPIOPCTL_R_PCM4_T2CCP0   (0x00070000u)
+#define GPIOF_GPIOPCTL_R_PCM4_USB0EPEN (0x00080000u)
 
-#define GPIOF_GPIOPCTL_PCM4_MASK      (0x0000000F)
-#define GPIOF_GPIOPCTL_PCM4_GPIO      (0x00000000)
-#define GPIOF_GPIOPCTL_PCM4_M1FAULT0  (0x00000005)
-#define GPIOF_GPIOPCTL_PCM4_IDX0      (0x00000006)
-#define GPIOF_GPIOPCTL_PCM4_T2CCP0    (0x00000007)
-#define GPIOF_GPIOPCTL_PCM4_USB0EPEN  (0x00000008)
-//--------
+#define GPIOF_GPIOPCTL_PCM4_MASK      (0x0000000Fu)
+#define GPIOF_GPIOPCTL_PCM4_GPIO      (0x00000000u)
+#define GPIOF_GPIOPCTL_PCM4_M1FAULT0  (0x00000005u)
+#define GPIOF_GPIOPCTL_PCM4_IDX0      (0x00000006u)
+#define GPIOF_GPIOPCTL_PCM4_T2CCP0    (0x00000007u)
+#define GPIOF_GPIOPCTL_PCM4_USB0EPEN  (0x00000008u)
+/*----------*/
 
 
 
@@ -8894,105 +8894,105 @@ typedef volatile struct
 #define GPIOF_APB_GPIOADCCTL_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOADCCTL_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN_MASK             (0x000000FFu)
 #define GPIO_GPIOADCCTL_R_ADCEN_BIT              (0)
-#define GPIO_GPIOADCCTL_R_ADCEN_DIS              (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN_EN               (0x000000FF)
+#define GPIO_GPIOADCCTL_R_ADCEN_DIS              (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN_EN               (0x000000FFu)
 
-#define GPIO_GPIOADCCTL_ADCEN_MASK               (0x000000FF)
-#define GPIO_GPIOADCCTL_ADCEN_DIS                (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN_MASK               (0x000000FFu)
+#define GPIO_GPIOADCCTL_ADCEN_DIS                (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN0_MASK            (0x00000001u)
 #define GPIO_GPIOADCCTL_R_ADCEN0_BIT             (0)
-#define GPIO_GPIOADCCTL_R_ADCEN0_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN0_EN              (0x00000001)
+#define GPIO_GPIOADCCTL_R_ADCEN0_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN0_EN              (0x00000001u)
 
-#define GPIO_GPIOADCCTL_ADCEN0_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN0_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN0_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN0_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN0_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN1_MASK            (0x00000002u)
 #define GPIO_GPIOADCCTL_R_ADCEN1_BIT             (1)
-#define GPIO_GPIOADCCTL_R_ADCEN1_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN1_EN              (0x00000002)
+#define GPIO_GPIOADCCTL_R_ADCEN1_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN1_EN              (0x00000002u)
 
-#define GPIO_GPIOADCCTL_ADCEN1_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN1_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN1_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN1_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN1_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN2_MASK            (0x00000004u)
 #define GPIO_GPIOADCCTL_R_ADCEN2_BIT             (2)
-#define GPIO_GPIOADCCTL_R_ADCEN2_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN2_EN              (0x00000004)
+#define GPIO_GPIOADCCTL_R_ADCEN2_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN2_EN              (0x00000004u)
 
-#define GPIO_GPIOADCCTL_ADCEN2_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN2_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN2_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN2_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN2_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN3_MASK            (0x00000008u)
 #define GPIO_GPIOADCCTL_R_ADCEN3_BIT             (3)
-#define GPIO_GPIOADCCTL_R_ADCEN3_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN3_EN              (0x00000008)
+#define GPIO_GPIOADCCTL_R_ADCEN3_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN3_EN              (0x00000008u)
 
-#define GPIO_GPIOADCCTL_ADCEN3_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN3_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN3_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN3_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN3_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN4_MASK            (0x00000010u)
 #define GPIO_GPIOADCCTL_R_ADCEN4_BIT             (4)
-#define GPIO_GPIOADCCTL_R_ADCEN4_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN4_EN              (0x00000010)
+#define GPIO_GPIOADCCTL_R_ADCEN4_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN4_EN              (0x00000010u)
 
-#define GPIO_GPIOADCCTL_ADCEN4_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN4_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN4_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN4_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN4_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN5_MASK            (0x00000020u)
 #define GPIO_GPIOADCCTL_R_ADCEN5_BIT             (5)
-#define GPIO_GPIOADCCTL_R_ADCEN5_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN5_EN              (0x00000020)
+#define GPIO_GPIOADCCTL_R_ADCEN5_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN5_EN              (0x00000020u)
 
-#define GPIO_GPIOADCCTL_ADCEN5_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN5_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN5_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN5_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN5_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIOADCCTL_R_ADCEN6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIOADCCTL_R_ADCEN6_MASK            (0x00000040u)
 #define GPIO_GPIOADCCTL_R_ADCEN6_BIT             (6)
-#define GPIO_GPIOADCCTL_R_ADCEN6_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN6_EN              (0x00000040)
+#define GPIO_GPIOADCCTL_R_ADCEN6_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN6_EN              (0x00000040u)
 
-#define GPIO_GPIOADCCTL_ADCEN6_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN6_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN6_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN6_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN6_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN6_EN                (0x00000001u)
+/*----------*/
 
-//--------
+/*----------*/
 
-#define GPIO_GPIOADCCTL_R_ADCEN7_MASK            (0x00000080)
+#define GPIO_GPIOADCCTL_R_ADCEN7_MASK            (0x00000080u)
 #define GPIO_GPIOADCCTL_R_ADCEN7_BIT             (7)
-#define GPIO_GPIOADCCTL_R_ADCEN7_DIS             (0x00000000)
-#define GPIO_GPIOADCCTL_R_ADCEN7_EN              (0x00000080)
+#define GPIO_GPIOADCCTL_R_ADCEN7_DIS             (0x00000000u)
+#define GPIO_GPIOADCCTL_R_ADCEN7_EN              (0x00000080u)
 
-#define GPIO_GPIOADCCTL_ADCEN7_MASK              (0x00000001)
-#define GPIO_GPIOADCCTL_ADCEN7_DIS               (0x00000000)
-#define GPIO_GPIOADCCTL_ADCEN7_EN                (0x00000001)
-//--------
+#define GPIO_GPIOADCCTL_ADCEN7_MASK              (0x00000001u)
+#define GPIO_GPIOADCCTL_ADCEN7_DIS               (0x00000000u)
+#define GPIO_GPIOADCCTL_ADCEN7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB ADCEN BITBANDING*/
@@ -9181,105 +9181,105 @@ typedef volatile struct
 #define GPIOF_APB_GPIODMACTL_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIODMACTL_OFFSET)))
 
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN_MASK             (0x000000FF)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN_MASK             (0x000000FFu)
 #define GPIO_GPIODMACTL_R_DMAEN_BIT              (0)
-#define GPIO_GPIODMACTL_R_DMAEN_DIS              (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN_EN               (0x000000FF)
+#define GPIO_GPIODMACTL_R_DMAEN_DIS              (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN_EN               (0x000000FFu)
 
-#define GPIO_GPIODMACTL_DMAEN_MASK               (0x000000FF)
-#define GPIO_GPIODMACTL_DMAEN_DIS                (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN_EN                 (0x000000FF)
-//--------
+#define GPIO_GPIODMACTL_DMAEN_MASK               (0x000000FFu)
+#define GPIO_GPIODMACTL_DMAEN_DIS                (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN_EN                 (0x000000FFu)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN0_MASK            (0x00000001)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN0_MASK            (0x00000001u)
 #define GPIO_GPIODMACTL_R_DMAEN0_BIT             (0)
-#define GPIO_GPIODMACTL_R_DMAEN0_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN0_EN              (0x00000001)
+#define GPIO_GPIODMACTL_R_DMAEN0_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN0_EN              (0x00000001u)
 
-#define GPIO_GPIODMACTL_DMAEN0_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN0_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN0_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN0_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN0_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN0_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN1_MASK            (0x00000002)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN1_MASK            (0x00000002u)
 #define GPIO_GPIODMACTL_R_DMAEN1_BIT             (1)
-#define GPIO_GPIODMACTL_R_DMAEN1_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN1_EN              (0x00000002)
+#define GPIO_GPIODMACTL_R_DMAEN1_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN1_EN              (0x00000002u)
 
-#define GPIO_GPIODMACTL_DMAEN1_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN1_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN1_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN1_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN1_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN1_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN2_MASK            (0x00000004)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN2_MASK            (0x00000004u)
 #define GPIO_GPIODMACTL_R_DMAEN2_BIT             (2)
-#define GPIO_GPIODMACTL_R_DMAEN2_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN2_EN              (0x00000004)
+#define GPIO_GPIODMACTL_R_DMAEN2_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN2_EN              (0x00000004u)
 
-#define GPIO_GPIODMACTL_DMAEN2_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN2_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN2_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN2_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN2_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN2_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN3_MASK            (0x00000008)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN3_MASK            (0x00000008u)
 #define GPIO_GPIODMACTL_R_DMAEN3_BIT             (3)
-#define GPIO_GPIODMACTL_R_DMAEN3_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN3_EN              (0x00000008)
+#define GPIO_GPIODMACTL_R_DMAEN3_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN3_EN              (0x00000008u)
 
-#define GPIO_GPIODMACTL_DMAEN3_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN3_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN3_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN3_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN3_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN3_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN4_MASK            (0x00000010)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN4_MASK            (0x00000010u)
 #define GPIO_GPIODMACTL_R_DMAEN4_BIT             (4)
-#define GPIO_GPIODMACTL_R_DMAEN4_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN4_EN              (0x00000010)
+#define GPIO_GPIODMACTL_R_DMAEN4_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN4_EN              (0x00000010u)
 
-#define GPIO_GPIODMACTL_DMAEN4_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN4_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN4_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN4_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN4_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN4_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN5_MASK            (0x00000020)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN5_MASK            (0x00000020u)
 #define GPIO_GPIODMACTL_R_DMAEN5_BIT             (5)
-#define GPIO_GPIODMACTL_R_DMAEN5_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN5_EN              (0x00000020)
+#define GPIO_GPIODMACTL_R_DMAEN5_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN5_EN              (0x00000020u)
 
-#define GPIO_GPIODMACTL_DMAEN5_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN5_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN5_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN5_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN5_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN5_EN                (0x00000001u)
+/*----------*/
 
-//--------
-#define GPIO_GPIODMACTL_R_DMAEN6_MASK            (0x00000040)
+/*----------*/
+#define GPIO_GPIODMACTL_R_DMAEN6_MASK            (0x00000040u)
 #define GPIO_GPIODMACTL_R_DMAEN6_BIT             (6)
-#define GPIO_GPIODMACTL_R_DMAEN6_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN6_EN              (0x00000040)
+#define GPIO_GPIODMACTL_R_DMAEN6_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN6_EN              (0x00000040u)
 
-#define GPIO_GPIODMACTL_DMAEN6_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN6_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN6_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN6_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN6_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN6_EN                (0x00000001u)
+/*----------*/
 
-//--------
+/*----------*/
 
-#define GPIO_GPIODMACTL_R_DMAEN7_MASK            (0x00000080)
+#define GPIO_GPIODMACTL_R_DMAEN7_MASK            (0x00000080u)
 #define GPIO_GPIODMACTL_R_DMAEN7_BIT             (7)
-#define GPIO_GPIODMACTL_R_DMAEN7_DIS             (0x00000000)
-#define GPIO_GPIODMACTL_R_DMAEN7_EN              (0x00000080)
+#define GPIO_GPIODMACTL_R_DMAEN7_DIS             (0x00000000u)
+#define GPIO_GPIODMACTL_R_DMAEN7_EN              (0x00000080u)
 
-#define GPIO_GPIODMACTL_DMAEN7_MASK              (0x00000001)
-#define GPIO_GPIODMACTL_DMAEN7_DIS               (0x00000000)
-#define GPIO_GPIODMACTL_DMAEN7_EN                (0x00000001)
-//--------
+#define GPIO_GPIODMACTL_DMAEN7_MASK              (0x00000001u)
+#define GPIO_GPIODMACTL_DMAEN7_DIS               (0x00000000u)
+#define GPIO_GPIODMACTL_DMAEN7_EN                (0x00000001u)
+/*----------*/
 
 
 /* GPIOA AHB DMAEN BITBANDING*/
@@ -9468,14 +9468,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID4_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID4_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID4_R_PID4_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID4_R_PID4_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID4_R_PID4_BIT      (0)
-#define GPIO_GPIOPeriphID4_R_PID4_DEFAULT  (0x00000000)
+#define GPIO_GPIOPeriphID4_R_PID4_DEFAULT  (0x00000000u)
 
-#define GPIO_GPIOPeriphID4_PID4_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID4_PID4_DEFAULT    (0x00000000)
-//--------
+#define GPIO_GPIOPeriphID4_PID4_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID4_PID4_DEFAULT    (0x00000000u)
+/*----------*/
 
 
 
@@ -9543,14 +9543,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID5_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID5_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID5_R_PID5_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID5_R_PID5_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID5_R_PID5_BIT      (0)
-#define GPIO_GPIOPeriphID5_R_PID5_DEFAULT  (0x00000000)
+#define GPIO_GPIOPeriphID5_R_PID5_DEFAULT  (0x00000000u)
 
-#define GPIO_GPIOPeriphID5_PID5_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID5_PID5_DEFAULT    (0x00000000)
-//--------
+#define GPIO_GPIOPeriphID5_PID5_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID5_PID5_DEFAULT    (0x00000000u)
+/*----------*/
 
 
 /******************************************************************************************
@@ -9617,14 +9617,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID6_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID6_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID6_R_PID6_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID6_R_PID6_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID6_R_PID6_BIT      (0)
-#define GPIO_GPIOPeriphID6_R_PID6_DEFAULT  (0x00000000)
+#define GPIO_GPIOPeriphID6_R_PID6_DEFAULT  (0x00000000u)
 
-#define GPIO_GPIOPeriphID6_PID6_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID6_PID6_DEFAULT    (0x00000000)
-//--------
+#define GPIO_GPIOPeriphID6_PID6_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID6_PID6_DEFAULT    (0x00000000u)
+/*----------*/
 
 
 
@@ -9692,14 +9692,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID7_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID7_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID7_R_PID7_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID7_R_PID7_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID7_R_PID7_BIT      (0)
-#define GPIO_GPIOPeriphID7_R_PID7_DEFAULT  (0x00000000)
+#define GPIO_GPIOPeriphID7_R_PID7_DEFAULT  (0x00000000u)
 
-#define GPIO_GPIOPeriphID7_PID7_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID7_PID7_DEFAULT    (0x00000000)
-//--------
+#define GPIO_GPIOPeriphID7_PID7_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID7_PID7_DEFAULT    (0x00000000u)
+/*----------*/
 
 /******************************************************************************************
 ************************************ 29 GPIOPeriphID0 *********************************************
@@ -9765,14 +9765,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID0_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID0_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID0_R_PID0_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID0_R_PID0_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID0_R_PID0_BIT      (0)
-#define GPIO_GPIOPeriphID0_R_PID0_DEFAULT  (0x00000061)
+#define GPIO_GPIOPeriphID0_R_PID0_DEFAULT  (0x00000061u)
 
-#define GPIO_GPIOPeriphID0_PID0_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID0_PID0_DEFAULT    (0x00000061)
-//--------
+#define GPIO_GPIOPeriphID0_PID0_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID0_PID0_DEFAULT    (0x00000061u)
+/*----------*/
 
 
 /******************************************************************************************
@@ -9839,14 +9839,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID1_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID1_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID1_R_PID1_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID1_R_PID1_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID1_R_PID1_BIT      (0)
-#define GPIO_GPIOPeriphID1_R_PID1_DEFAULT  (0x00000000)
+#define GPIO_GPIOPeriphID1_R_PID1_DEFAULT  (0x00000000u)
 
-#define GPIO_GPIOPeriphID1_PID1_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID1_PID1_DEFAULT    (0x00000000)
-//--------
+#define GPIO_GPIOPeriphID1_PID1_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID1_PID1_DEFAULT    (0x00000000u)
+/*----------*/
 
 
 /******************************************************************************************
@@ -9913,14 +9913,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID2_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID2_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID2_R_PID2_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID2_R_PID2_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID2_R_PID2_BIT      (0)
-#define GPIO_GPIOPeriphID2_R_PID2_DEFAULT  (0x00000018)
+#define GPIO_GPIOPeriphID2_R_PID2_DEFAULT  (0x00000018u)
 
-#define GPIO_GPIOPeriphID2_PID2_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID2_PID2_DEFAULT    (0x00000018)
-//--------
+#define GPIO_GPIOPeriphID2_PID2_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID2_PID2_DEFAULT    (0x00000018u)
+/*----------*/
 
 
 
@@ -9988,14 +9988,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOPeriphID3_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOPeriphID3_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPeriphID3_R_PID3_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPeriphID3_R_PID3_MASK     (0x000000FFu)
 #define GPIO_GPIOPeriphID3_R_PID3_BIT      (0)
-#define GPIO_GPIOPeriphID3_R_PID3_DEFAULT  (0x00000001)
+#define GPIO_GPIOPeriphID3_R_PID3_DEFAULT  (0x00000001u)
 
-#define GPIO_GPIOPeriphID3_PID3_MASK       (0x000000FF)
-#define GPIO_GPIOPeriphID3_PID3_DEFAULT    (0x00000001)
-//--------
+#define GPIO_GPIOPeriphID3_PID3_MASK       (0x000000FFu)
+#define GPIO_GPIOPeriphID3_PID3_DEFAULT    (0x00000001u)
+/*----------*/
 
 
 /******************************************************************************************
@@ -10062,14 +10062,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOCellID0_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOCellID0_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPCellID0_R_CID0_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPCellID0_R_CID0_MASK     (0x000000FFu)
 #define GPIO_GPIOPCellID0_R_CID0_BIT      (0)
-#define GPIO_GPIOPCellID0_R_CID0_DEFAULT  (0x0000000D)
+#define GPIO_GPIOPCellID0_R_CID0_DEFAULT  (0x0000000Du)
 
-#define GPIO_GPIOPCellID0_CID0_MASK       (0x000000FF)
-#define GPIO_GPIOPCellID0_CID0_DEFAULT    (0x0000000D)
-//--------
+#define GPIO_GPIOPCellID0_CID0_MASK       (0x000000FFu)
+#define GPIO_GPIOPCellID0_CID0_DEFAULT    (0x0000000Du)
+/*----------*/
 
 
 /******************************************************************************************
@@ -10136,14 +10136,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOCellID1_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOCellID1_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPCellID1_R_CID1_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPCellID1_R_CID1_MASK     (0x000000FFu)
 #define GPIO_GPIOPCellID1_R_CID1_BIT      (0)
-#define GPIO_GPIOPCellID1_R_CID1_DEFAULT  (0x000000F0)
+#define GPIO_GPIOPCellID1_R_CID1_DEFAULT  (0x000000F0u)
 
-#define GPIO_GPIOPCellID1_CID1_MASK       (0x000000FF)
-#define GPIO_GPIOPCellID1_CID1_DEFAULT    (0x000000F0)
-//--------
+#define GPIO_GPIOPCellID1_CID1_MASK       (0x000000FFu)
+#define GPIO_GPIOPCellID1_CID1_DEFAULT    (0x000000F0u)
+/*----------*/
 
 
 
@@ -10211,14 +10211,14 @@ typedef volatile struct
 #define GPIOF_APB_GPIOCellID2_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOCellID2_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPCellID2_R_CID2_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPCellID2_R_CID2_MASK     (0x000000FFu)
 #define GPIO_GPIOPCellID2_R_CID2_BIT      (0)
-#define GPIO_GPIOPCellID2_R_CID2_DEFAULT  (0x00000005)
+#define GPIO_GPIOPCellID2_R_CID2_DEFAULT  (0x00000005u)
 
-#define GPIO_GPIOPCellID2_CID2_MASK       (0x000000FF)
-#define GPIO_GPIOPCellID2_CID2_DEFAULT    (0x00000005)
-//--------
+#define GPIO_GPIOPCellID2_CID2_MASK       (0x000000FFu)
+#define GPIO_GPIOPCellID2_CID2_DEFAULT    (0x00000005u)
+/*----------*/
 
 
 
@@ -10286,120 +10286,120 @@ typedef volatile struct
 #define GPIOF_APB_GPIOCellID3_R                (*((volatile uint32_t *)  (GPIOF_APB_BASE+GPIO_GPIOCellID3_OFFSET)))
 
 
-//--------
-#define GPIO_GPIOPCellID3_R_CID3_MASK     (0x000000FF)
+/*----------*/
+#define GPIO_GPIOPCellID3_R_CID3_MASK     (0x000000FFu)
 #define GPIO_GPIOPCellID3_R_CID3_BIT      (0)
-#define GPIO_GPIOPCellID3_R_CID3_DEFAULT  (0x000000B1)
+#define GPIO_GPIOPCellID3_R_CID3_DEFAULT  (0x000000B1u)
 
-#define GPIO_GPIOPCellID3_CID3_MASK       (0x000000FF)
-#define GPIO_GPIOPCellID3_CID3_DEFAULT    (0x000000B1)
-//--------
+#define GPIO_GPIOPCellID3_CID3_MASK       (0x000000FFu)
+#define GPIO_GPIOPCellID3_CID3_DEFAULT    (0x000000B1u)
+/*----------*/
 
 typedef enum
 {
-    GPIO_enOK=0,
-    GPIO_enERROR=1,
-    GPIO_enSTATUS_UNDEF=0xFF,
+    GPIO_enOK=0u,
+    GPIO_enERROR=1u,
+    GPIO_enSTATUS_UNDEF=0xFFu,
 }GPIO_nSTATUS;
 
 typedef enum
 {
-    GPIO_enINT_NOOCCUR=0,
-    GPIO_enINT_OCCUR=1,
-    GPIO_enINT_STATUS_UNDEF=0xFF,
+    GPIO_enINT_NOOCCUR=0u,
+    GPIO_enINT_OCCUR=1u,
+    GPIO_enINT_STATUS_UNDEF=0xFFu,
 }GPIO_nINT_STATUS;
 
 typedef enum
 {
-    GPIO_enNOREADY=0,
-    GPIO_enREADY=1,
+    GPIO_enNOREADY=0u,
+    GPIO_enREADY=1u,
 }GPIO_nREADY;
 
 typedef enum
 {
-    GPIO_enAPB=0,
-    GPIO_enAHB=1,
+    GPIO_enAPB=0u,
+    GPIO_enAHB=1u,
 }GPIO_nBUS;
 typedef enum
 {
-    GPIO_enPORTA=0,
-    GPIO_enPORTB=1,
-    GPIO_enPORTC=2,
-    GPIO_enPORTD=3,
-    GPIO_enPORTE=4,
-    GPIO_enPORTF=5,
-    GPIO_enMAX=5,
+    GPIO_enPORTA=0u,
+    GPIO_enPORTB=1u,
+    GPIO_enPORTC=2u,
+    GPIO_enPORTD=3u,
+    GPIO_enPORTE=4u,
+    GPIO_enPORTF=5u,
+    GPIO_enMAX=5u,
 }GPIO_nPORT;
 typedef enum
 {
-    GPIO_enPIN0=0x1,
-    GPIO_enPIN1=0x2,
-    GPIO_enPIN2=0x4,
-    GPIO_enPIN3=0x8,
-    GPIO_enPIN4=0x10,
-    GPIO_enPIN5=0x20,
-    GPIO_enPIN6=0x40,
-    GPIO_enPIN7=0x80,
-    GPIO_enALL=0xFF,
+    GPIO_enPIN0=0x1u,
+    GPIO_enPIN1=0x2u,
+    GPIO_enPIN2=0x4u,
+    GPIO_enPIN3=0x8u,
+    GPIO_enPIN4=0x10u,
+    GPIO_enPIN5=0x20u,
+    GPIO_enPIN6=0x40u,
+    GPIO_enPIN7=0x80u,
+    GPIO_enALL=0xFFu,
 }GPIO_nPIN;
 
 typedef enum
 {
-    GPIO_enDIR_INPUT=0,
-    GPIO_enDIR_OUTPUT=1,
-    GPIO_enDIR_UNDEF=0xFF,
+    GPIO_enDIR_INPUT=0u,
+    GPIO_enDIR_OUTPUT=1u,
+    GPIO_enDIR_UNDEF=0xFFu,
 }GPIO_nDIR;
 
 typedef enum
 {
-    GPIO_enSENSE_EDGE=0,
-    GPIO_enSENSE_LEVEL=1,
-    GPIO_enSENSE_UNDEF=0xFF,
+    GPIO_enSENSE_EDGE=0u,
+    GPIO_enSENSE_LEVEL=1u,
+    GPIO_enSENSE_UNDEF=0xFFu,
 }GPIO_nSENSE;
 
 typedef enum
 {
-    GPIO_enEDGE_FALLING=0,
-    GPIO_enEDGE_RISING=1,
-    GPIO_enEDGE_BOTH=2,
-    GPIO_enEDGE_UNDEF=0xFF,
+    GPIO_enEDGE_FALLING=0u,
+    GPIO_enEDGE_RISING=1u,
+    GPIO_enEDGE_BOTH=2u,
+    GPIO_enEDGE_UNDEF=0xFFu,
 }GPIO_nEDGE;
 
 typedef enum
 {
-    GPIO_enDRIVE_2mA=0,
-    GPIO_enDRIVE_4mA=1,
-    GPIO_enDRIVE_8mA=2,
+    GPIO_enDRIVE_2mA=0u,
+    GPIO_enDRIVE_4mA=1u,
+    GPIO_enDRIVE_8mA=2u,
     GPIO_enDRIVE_8mA_SLR=(1<<8)|2,
-    GPIO_enDRIVE_UNDEF=0xFF,
+    GPIO_enDRIVE_UNDEF=0xFFu,
 }GPIO_nDRIVE;
 
 typedef enum
 {
-    GPIO_enLEVEL_LOW=0,
-    GPIO_enLEVEL_HIGH=1,
-    GPIO_enLEVEL_UNDEF=0xFF,
+    GPIO_enLEVEL_LOW=0u,
+    GPIO_enLEVEL_HIGH=1u,
+    GPIO_enLEVEL_UNDEF=0xFFu,
 }GPIO_nLEVEL;
 
 typedef enum
 {
-    GPIO_enOUTMODE_PP=0,
-    GPIO_enOUTMODE_OD=1,
-    GPIO_enOUTMODE_UNDEF=0xFF,
+    GPIO_enOUTMODE_PP=0u,
+    GPIO_enOUTMODE_OD=1u,
+    GPIO_enOUTMODE_UNDEF=0xFFu,
 }GPIO_nOUTMODE;
 typedef enum
 {
-    GPIO_enRESMODE_INACTIVE=0,
-    GPIO_enRESMODE_PULLUP=1,
-    GPIO_enRESMODE_PULLDOWN=2,
-    GPIO_enRESMODE_UNDEF=0xFF,
+    GPIO_enRESMODE_INACTIVE=0u,
+    GPIO_enRESMODE_PULLUP=1u,
+    GPIO_enRESMODE_PULLDOWN=2u,
+    GPIO_enRESMODE_UNDEF=0xFFu,
 }GPIO_nRESMODE;
 
 
-//PORT PIN VALUE
+/*PORT PIN VALUE*/
 typedef enum
 {
-    //GPIOA
+    /*GPIOA*/
     GPIO_enGPIOA0   =(0<<16)|((0*4)<<8)|(0),
     GPIO_enU0Rx     =(0<<16)|((0*4)<<8)|(1),
     GPIO_enCAN1Rx   =(0<<16)|((0*4)<<8)|(8),
@@ -10428,7 +10428,7 @@ typedef enum
     GPIO_enI2C1SDA  =(0<<16)|((7*4)<<8)|(3),
     GPIO_enM1PWM3   =(0<<16)|((7*4)<<8)|(5),
 
-    //GPIOB
+    /*GPIOB*/
     GPIO_enGPIOB0   =(1<<16)|((0*4)<<8)|(0),
     GPIO_enU1Rx     =(1<<16)|((0*4)<<8)|(1),
     GPIO_enT2CCP0   =(1<<16)|((0*4)<<8)|(7),
@@ -10467,7 +10467,7 @@ typedef enum
     GPIO_enM0PWM1   =(1<<16)|((7*4)<<8)|(4),
     GPIO_enT0CCP1   =(1<<16)|((7*4)<<8)|(7),
 
-    //GPIOC
+    /*GPIOC*/
     GPIO_enGPIOC0    =(2<<16)|((0*4)<<8)|(0),
     GPIO_enTCK       =(2<<16)|((0*4)<<8)|(1),
     GPIO_enT4CCP0    =(2<<16)|((0*4)<<8)|(7),
@@ -10511,7 +10511,7 @@ typedef enum
     GPIO_enWT1CCP1   =(2<<16)|((7*4)<<8)|(7),
     GPIO_enUSB0PFLT  =(2<<16)|((7*4)<<8)|(8),
 
-    //GPIOD
+    /*GPIOD*/
     GPIO_enGPIOD0    =(3<<16)|((0*4)<<8)|(0),
     GPIO_enSSI3Clk   =(3<<16)|((0*4)<<8)|(1),
     GPIO_enSSI1Clk   =(3<<16)|((0*4)<<8)|(2),
@@ -10562,7 +10562,7 @@ typedef enum
     GPIO_enWT5CCP1   =(3<<16)|((7*4)<<8)|(7),
     GPIO_enNMI       =(3<<16)|((7*4)<<8)|(8),
 
-    //GPIOE
+    /*GPIOE*/
     GPIO_enGPIOE0    =(4<<16)|((0*4)<<8)|(0),
     GPIO_enU7Rx      =(4<<16)|((0*4)<<8)|(1),
 
@@ -10589,7 +10589,7 @@ typedef enum
     GPIO_enGPIOE6    =(4<<16)|((6*4)<<8)|(0),
     GPIO_enGPIOE7    =(4<<16)|((7*4)<<8)|(0),
 
-    //GPIOF
+    /*GPIOF*/
     GPIO_enGPIOF0    =(5<<16)|((0*4)<<8)|(0),
     GPIO_enU1RTS_F0  =(5<<16)|((0*4)<<8)|(1),
     GPIO_enSSI1Rx_F0 =(5<<16)|((0*4)<<8)|(2),
@@ -10634,7 +10634,7 @@ typedef enum
     GPIO_enGPIOF7    =(5<<16)|((7*4)<<8)|(0),
 }GPIO_nDIGITAL_FUNCTION;
 
-//PORT PIN
+/*PORT PIN*/
 typedef enum
 {
     GPIO_enUSB0ID=(1<<8)|(0),
@@ -10664,15 +10664,15 @@ typedef enum
 
 typedef enum
 {
-    GPIO_enPRI0=0,
-    GPIO_enPRI1=1,
-    GPIO_enPRI2=2,
-    GPIO_enPRI3=3,
-    GPIO_enPRI4=4,
-    GPIO_enPRI5=5,
-    GPIO_enPRI6=6,
-    GPIO_enPRI7=7,
-    GPIO_enDEFAULT=0xFF,
+    GPIO_enPRI0=0u,
+    GPIO_enPRI1=1u,
+    GPIO_enPRI2=2u,
+    GPIO_enPRI3=3u,
+    GPIO_enPRI4=4u,
+    GPIO_enPRI5=5u,
+    GPIO_enPRI6=6u,
+    GPIO_enPRI7=7u,
+    GPIO_enDEFAULT=0xFFu,
 }GPIO_nPRIORITY;
 
 
@@ -10726,7 +10726,7 @@ typedef enum
     GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN          = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_INACTIVE<<0),
     GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN_PULLUP   = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLUP<<0),
     GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN_PULLDOWN = ((uint32_t)GPIO_enDRIVE_8mA_SLR<<16)  |((uint32_t)GPIO_enDIR_OUTPUT<<8) |((uint32_t)GPIO_enOUTMODE_OD<<4)|((uint32_t)GPIO_enRESMODE_PULLDOWN<<0),
-    GPIO_enCONFIG_UNDEF = 0xFFFFFFFF,
+    GPIO_enCONFIG_UNDEF = 0xFFFFFFFFu,
 }GPIO_nCONFIG;
 
 typedef enum
@@ -10736,7 +10736,7 @@ typedef enum
     GPIO_enINT_CONFIG_EDGE_BOTH=    ((uint32_t)GPIO_enSENSE_EDGE<<8)  |((uint32_t)GPIO_enEDGE_BOTH<<0),
     GPIO_enINT_CONFIG_LEVEL_LOW=    ((uint32_t)GPIO_enSENSE_LEVEL<<8)  |((uint32_t)GPIO_enLEVEL_LOW<<0),
     GPIO_enINT_CONFIG_LEVEL_HIGH=   ((uint32_t)GPIO_enSENSE_LEVEL<<8)  |((uint32_t)GPIO_enLEVEL_HIGH<<0),
-    GPIO_enINT_CONFIG_UNDEF=0xFFFF,
+    GPIO_enINT_CONFIG_UNDEF=0xFFFFu,
 }GPIO_nINT_CONFIG;
 
 

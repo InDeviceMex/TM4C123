@@ -9,6 +9,8 @@
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_AccessType.h>
 
 
+#define FPU_vBlocking() {__asm(" DSB");__asm(" ISB");}
+
 FPU_nACCESS FPU__enGetAccessType(void)
 {
     FPU_nACCESS enReturn= FPU_enDENIED;
@@ -24,7 +26,7 @@ FPU_nACCESS FPU__enGetAccessType(void)
     {
         enReturn= (FPU_nACCESS)u32RegCP11;
     }
-    return enReturn;
+    return (FPU_nACCESS) enReturn;
 }
 
 void FPU__vSetAccessType(FPU_nACCESS enAccessType)
@@ -35,8 +37,7 @@ void FPU__vSetAccessType(FPU_nACCESS enAccessType)
     u32Reg&=~(FPU_CPACR_R_CP10_MASK|FPU_CPACR_R_CP11_MASK);
     u32Reg|=u32Access<<FPU_CPACR_R_CP10_BIT;
     u32Reg|=u32Access<<FPU_CPACR_R_CP11_BIT;
-    FPU_CPACR_R =u32Reg;
-    __asm(" DSB");
-    __asm(" ISB");
+    FPU_CPACR_R = u32Reg;
+    FPU_vBlocking();
 }
 

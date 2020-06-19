@@ -39,9 +39,9 @@
  */
 typedef enum
 {
-    EEPROM_enOK = 0,  //!<  Result is OK
-    EEPROM_enBUSY,    //!<  Operation Ongoing
-    EEPROM_enERROR,   //!<  Result has an error
+    EEPROM_enOK = 0u,  /*!<  Result is OK*/
+    EEPROM_enBUSY,    /*!<  Operation Ongoing*/
+    EEPROM_enERROR,   /*!<  Result has an error*/
 }EEPROM_nSTATUS;
 
 

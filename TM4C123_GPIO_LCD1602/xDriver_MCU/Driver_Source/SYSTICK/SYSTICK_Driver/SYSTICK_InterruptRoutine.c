@@ -15,7 +15,7 @@ void SysTick__vISR(void)
     uint32_t u32Count= SysTick__u32GetFreeCount();
     u32Count++;
     SysTick__vSetFreeCount(u32Count);
-    if(u32Count==0)
+    if(u32Count==0u)
     {
         uint32_t u32CountOv = SysTick__u32GetFreeCountOv();
         u32CountOv++;

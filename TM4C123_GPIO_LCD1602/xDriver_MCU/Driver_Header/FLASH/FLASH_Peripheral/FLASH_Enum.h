@@ -10,8 +10,8 @@
 
 typedef enum
 {
-    FLASH_enOK =0,
-    FLASH_enERROR=1,
+    FLASH_enOK =0u,
+    FLASH_enERROR=1u,
 }FLASH_nSTATUS;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_ENUM_H_ */
