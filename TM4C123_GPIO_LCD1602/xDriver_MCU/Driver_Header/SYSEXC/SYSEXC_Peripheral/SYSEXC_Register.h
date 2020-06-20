@@ -1,0 +1,358 @@
+/**
+ *
+ * @file SYSEXC_Register.h
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 19 jun. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ */
+#ifndef XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_REGISTER_H_
+#define XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_REGISTER_H_
+
+
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Peripheral/SYSEXC_Struct.h>
+
+
+#define SYSEXC_BASE            ((uint32_t)0x400F9000u)
+#define SYSEXC_BITBANDING_BASE ((uint32_t)0x42000000u)
+#define SYSEXC_OFFSET          ((uint32_t)0x000F9000u)
+
+
+#define SYSEXC                 (((SYSEXC_TypeDef*)(SYSEXC_BASE)))
+#define SYSEXC_BITBANDING      (((SYSEXC_BITBANDING_TypeDef*)(SYSEXC_BITBANDING_BASE+(SYSEXC_OFFSET*32u))))
+
+
+#define SYSEXC_SYSEXCRIS_OFFSET    ((uint32_t)0x0000u)
+#define SYSEXC_SYSEXCIM_OFFSET     ((uint32_t)0x0004u)
+#define SYSEXC_SYSEXCMIS_OFFSET    ((uint32_t)0x0008u)
+#define SYSEXC_SYSEXCIC_OFFSET     ((uint32_t)0x000Cu)
+
+/******************************************************************************************
+************************************ 1 SYSEXCRIS *********************************************
+******************************************************************************************/
+#define SYSEXC_SYSEXCRIS           (((SYSEXCRIS_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCRIS_OFFSET )))
+#define SYSEXC_SYSEXCRIS_R          (*((volatile const uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCRIS_OFFSET)))
+#define SYSEXC_BITBANDING_SYSEXCRIS      (((BITBANDING_SYSEXCRIS_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u))))
+
+/*----------*/
+#define SYSEXC_SYSEXCRIS_R_FPIDCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_R_FPIDCRIS_BIT         (0u)
+#define SYSEXC_SYSEXCRIS_R_FPIDCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_R_FPIDCRIS_ACTIVE      ((uint32_t)0x00000001u)
+
+#define SYSEXC_SYSEXCRIS_FPIDCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_FPIDCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_FPIDCRIS_ACTIVE      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCRIS_R_FPDZCRIS_MASK        ((uint32_t)0x00000002u)
+#define SYSEXC_SYSEXCRIS_R_FPDZCRIS_BIT         (1u)
+#define SYSEXC_SYSEXCRIS_R_FPDZCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_R_FPDZCRIS_ACTIVE      ((uint32_t)0x00000002u)
+
+#define SYSEXC_SYSEXCRIS_FPDZCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_FPDZCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_FPDZCRIS_ACTIVE      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCRIS_R_FPIOCRIS_MASK        ((uint32_t)0x00000004u)
+#define SYSEXC_SYSEXCRIS_R_FPIOCRIS_BIT         (2u)
+#define SYSEXC_SYSEXCRIS_R_FPIOCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_R_FPIOCRIS_ACTIVE      ((uint32_t)0x00000004u)
+
+#define SYSEXC_SYSEXCRIS_FPIOCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_FPIOCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_FPIOCRIS_ACTIVE      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCRIS_R_FPUFCRIS_MASK        ((uint32_t)0x00000008u)
+#define SYSEXC_SYSEXCRIS_R_FPUFCRIS_BIT         (3u)
+#define SYSEXC_SYSEXCRIS_R_FPUFCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_R_FPUFCRIS_ACTIVE      ((uint32_t)0x00000008u)
+
+#define SYSEXC_SYSEXCRIS_FPUFCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_FPUFCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_FPUFCRIS_ACTIVE      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCRIS_R_FPOFCRIS_MASK        ((uint32_t)0x00000010u)
+#define SYSEXC_SYSEXCRIS_R_FPOFCRIS_BIT         (4u)
+#define SYSEXC_SYSEXCRIS_R_FPOFCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_R_FPOFCRIS_ACTIVE      ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCRIS_FPOFCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_FPOFCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_FPOFCRIS_ACTIVE      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCRIS_R_FPIXCRIS_MASK        ((uint32_t)0x00000020u)
+#define SYSEXC_SYSEXCRIS_R_FPIXCRIS_BIT         (5u)
+#define SYSEXC_SYSEXCRIS_R_FPIXCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_R_FPIXCRIS_ACTIVE      ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCRIS_FPIXCRIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCRIS_FPIXCRIS_NOACTIVE    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCRIS_FPIXCRIS_ACTIVE      ((uint32_t)0x00000001u)
+/*----------*/
+
+#define SYSEXC_BITBANDING_SYSEXCRIS_FPIDCRIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u)+(SYSEXC_SYSEXCRIS_R_FPIDCRIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCRIS_FPDZCRIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u)+(SYSEXC_SYSEXCRIS_R_FPDZCRIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCRIS_FPIOCRIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u)+(SYSEXC_SYSEXCRIS_R_FPIOCRIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCRIS_FPUFCRIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u)+(SYSEXC_SYSEXCRIS_R_FPUFCRIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCRIS_FPOFCRIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u)+(SYSEXC_SYSEXCRIS_R_FPOFCRIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCRIS_FPIXCRIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCRIS_OFFSET)*32u)+(SYSEXC_SYSEXCRIS_R_FPIXCRIS_BIT*4u))))
+
+/******************************************************************************************
+************************************ 2 SYSEXCIM *********************************************
+******************************************************************************************/
+#define SYSEXC_SYSEXCIM           (((SYSEXCIM_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCIM_OFFSET )))
+#define SYSEXC_SYSEXCIM_R          (*((volatile uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCIM_OFFSET)))
+#define SYSEXC_BITBANDING_SYSEXCIM      (((BITBANDING_SYSEXCIM_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u))))
+
+
+
+/*----------*/
+#define SYSEXC_SYSEXCIM_R_FPIDCIM_MASK        ((uint32_t) 0x00000001u)
+#define SYSEXC_SYSEXCIM_R_FPIDCIM_BIT         ((uint32_t)0)
+#define SYSEXC_SYSEXCIM_R_FPIDCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_R_FPIDCIM_EN          ((uint32_t)0x00000001u)
+
+#define SYSEXC_SYSEXCIM_FPIDCIM_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIM_FPIDCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_FPIDCIM_EN          ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIM_R_FPDZCIM_MASK        ((uint32_t)0x00000002u)
+#define SYSEXC_SYSEXCIM_R_FPDZCIM_BIT         ((uint32_t)1)
+#define SYSEXC_SYSEXCIM_R_FPDZCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_R_FPDZCIM_EN          ((uint32_t)0x00000002u)
+
+#define SYSEXC_SYSEXCIM_FPDZCIM_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIM_FPDZCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_FPDZCIM_EN          ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIM_R_FPIOCIM_MASK        ((uint32_t)0x00000004u)
+#define SYSEXC_SYSEXCIM_R_FPIOCIM_BIT         (2u)
+#define SYSEXC_SYSEXCIM_R_FPIOCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_R_FPIOCIM_EN          ((uint32_t)0x00000004u)
+
+#define SYSEXC_SYSEXCIM_FPIOCIM_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIM_FPIOCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_FPIOCIM_EN          ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIM_R_FPUFCIM_MASK        ((uint32_t)0x00000008u)
+#define SYSEXC_SYSEXCIM_R_FPUFCIM_BIT         (3u)
+#define SYSEXC_SYSEXCIM_R_FPUFCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_R_FPUFCIM_EN          ((uint32_t)0x00000008u)
+
+#define SYSEXC_SYSEXCIM_FPUFCIM_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIM_FPUFCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_FPUFCIM_EN          ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIM_R_FPOFCIM_MASK        ((uint32_t)0x00000010u)
+#define SYSEXC_SYSEXCIM_R_FPOFCIM_BIT         (4u)
+#define SYSEXC_SYSEXCIM_R_FPOFCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_R_FPOFCIM_EN          ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCIM_FPOFCIM_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIM_FPOFCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_FPOFCIM_EN          ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIM_R_FPIXCIM_MASK        ((uint32_t)0x00000020u)
+#define SYSEXC_SYSEXCIM_R_FPIXCIM_BIT         (5u)
+#define SYSEXC_SYSEXCIM_R_FPIXCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_R_FPIXCIM_EN          ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCIM_FPIXCIM_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIM_FPIXCIM_DIS         ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCIM_FPIXCIM_EN          ((uint32_t)0x00000001u)
+/*----------*/
+
+#define SYSEXC_BITBANDING_SYSEXCIM_FPIDCIM (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u)+(SYSEXC_SYSEXCIM_R_FPIDCIM_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIM_FPDZCIM (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u)+(SYSEXC_SYSEXCIM_R_FPDZCIM_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIM_FPIOCIM (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u)+(SYSEXC_SYSEXCIM_R_FPIOCIM_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIM_FPUFCIM (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u)+(SYSEXC_SYSEXCIM_R_FPUFCIM_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIM_FPOFCIM (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u)+(SYSEXC_SYSEXCIM_R_FPOFCIM_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIM_FPIXCIM (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIM_OFFSET)*32u)+(SYSEXC_SYSEXCIM_R_FPIXCIM_BIT*4u))))
+
+/******************************************************************************************
+************************************ 3 SYSEXCMIS *********************************************
+******************************************************************************************/
+#define SYSEXC_SYSEXCMIS           (((SYSEXCMIS_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCMIS_OFFSET )))
+#define SYSEXC_SYSEXCMIS_R          (*((volatile const uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCMIS_OFFSET)))
+#define SYSEXC_BITBANDING_SYSEXCMIS      (((BITBANDING_SYSEXCMIS_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u))))
+
+/*----------*/
+#define SYSEXC_SYSEXCMIS_R_FPIDCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_R_FPIDCMIS_BIT         (0u)
+#define SYSEXC_SYSEXCMIS_R_FPIDCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_R_FPIDCMIS_OCCUR      ((uint32_t)0x00000001u)
+
+#define SYSEXC_SYSEXCMIS_FPIDCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_FPIDCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_FPIDCMIS_OCCUR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCMIS_R_FPDZCMIS_MASK        ((uint32_t)0x00000002u)
+#define SYSEXC_SYSEXCMIS_R_FPDZCMIS_BIT         (1u)
+#define SYSEXC_SYSEXCMIS_R_FPDZCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_R_FPDZCMIS_OCCUR      ((uint32_t)0x00000002u)
+
+#define SYSEXC_SYSEXCMIS_FPDZCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_FPDZCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_FPDZCMIS_OCCUR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCMIS_R_FPIOCMIS_MASK        ((uint32_t)0x00000004u)
+#define SYSEXC_SYSEXCMIS_R_FPIOCMIS_BIT         (2u)
+#define SYSEXC_SYSEXCMIS_R_FPIOCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_R_FPIOCMIS_OCCUR      ((uint32_t)0x00000004u)
+
+#define SYSEXC_SYSEXCMIS_FPIOCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_FPIOCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_FPIOCMIS_OCCUR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCMIS_R_FPUFCMIS_MASK        ((uint32_t)0x00000008u)
+#define SYSEXC_SYSEXCMIS_R_FPUFCMIS_BIT         (3u)
+#define SYSEXC_SYSEXCMIS_R_FPUFCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_R_FPUFCMIS_OCCUR      ((uint32_t)0x00000008u)
+
+#define SYSEXC_SYSEXCMIS_FPUFCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_FPUFCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_FPUFCMIS_OCCUR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCMIS_R_FPOFCMIS_MASK        ((uint32_t)0x00000010u)
+#define SYSEXC_SYSEXCMIS_R_FPOFCMIS_BIT         (4u)
+#define SYSEXC_SYSEXCMIS_R_FPOFCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_R_FPOFCMIS_OCCUR      ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCMIS_FPOFCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_FPOFCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_FPOFCMIS_OCCUR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCMIS_R_FPIXCMIS_MASK        ((uint32_t)0x00000020u)
+#define SYSEXC_SYSEXCMIS_R_FPIXCMIS_BIT         (5u)
+#define SYSEXC_SYSEXCMIS_R_FPIXCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_R_FPIXCMIS_OCCUR      ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCMIS_FPIXCMIS_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCMIS_FPIXCMIS_NOOCCUR    ((uint32_t)0x00000000u)
+#define SYSEXC_SYSEXCMIS_FPIXCMIS_OCCUR      ((uint32_t)0x00000001u)
+/*----------*/
+
+#define SYSEXC_BITBANDING_SYSEXCMIS_FPIDCMIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u)+(SYSEXC_SYSEXCMIS_R_FPIDCMIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCMIS_FPDZCMIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u)+(SYSEXC_SYSEXCMIS_R_FPDZCMIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCMIS_FPIOCMIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u)+(SYSEXC_SYSEXCMIS_R_FPIOCMIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCMIS_FPUFCMIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u)+(SYSEXC_SYSEXCMIS_R_FPUFCMIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCMIS_FPOFCMIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u)+(SYSEXC_SYSEXCMIS_R_FPOFCMIS_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCMIS_FPIXCMIS (*((volatile const uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCMIS_OFFSET)*32u)+(SYSEXC_SYSEXCMIS_R_FPIXCMIS_BIT*4u))))
+
+/******************************************************************************************
+************************************ 4 SYSEXCIC *********************************************
+******************************************************************************************/
+#define SYSEXC_SYSEXCIC           (((SYSEXCIC_TypeDef*)(SYSEXC_BASE+SYSEXC_SYSEXCIC_OFFSET )))
+#define SYSEXC_SYSEXCIC_R          (*((volatile uint32_t *)(SYSEXC_BASE+SYSEXC_SYSEXCIC_OFFSET)))
+#define SYSEXC_BITBANDING_SYSEXCIC      (((BITBANDING_SYSEXCIC_TypeDef*)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u))))
+
+
+/*----------*/
+#define SYSEXC_SYSEXCIC_R_FPIDCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_R_FPIDCIC_BIT         (0u)
+#define SYSEXC_SYSEXCIC_R_FPIDCIC_CLEAR      ((uint32_t)0x00000001u)
+
+#define SYSEXC_SYSEXCIC_FPIDCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_FPIDCIC_CLEAR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIC_R_FPDZCIC_MASK        ((uint32_t)0x00000002u)
+#define SYSEXC_SYSEXCIC_R_FPDZCIC_BIT         (1u)
+#define SYSEXC_SYSEXCIC_R_FPDZCIC_CLEAR      ((uint32_t)0x00000002u)
+
+#define SYSEXC_SYSEXCIC_FPDZCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_FPDZCIC_CLEAR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIC_R_FPIOCIC_MASK        ((uint32_t)0x00000004u)
+#define SYSEXC_SYSEXCIC_R_FPIOCIC_BIT         (2u)
+#define SYSEXC_SYSEXCIC_R_FPIOCIC_CLEAR      ((uint32_t)0x00000004u)
+
+#define SYSEXC_SYSEXCIC_FPIOCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_FPIOCIC_CLEAR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIC_R_FPUFCIC_MASK        ((uint32_t)0x00000008u)
+#define SYSEXC_SYSEXCIC_R_FPUFCIC_BIT         (3u)
+#define SYSEXC_SYSEXCIC_R_FPUFCIC_CLEAR      ((uint32_t)0x00000008u)
+
+#define SYSEXC_SYSEXCIC_FPUFCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_FPUFCIC_CLEAR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIC_R_FPOFCIC_MASK        ((uint32_t)0x00000010u)
+#define SYSEXC_SYSEXCIC_R_FPOFCIC_BIT         (4u)
+#define SYSEXC_SYSEXCIC_R_FPOFCIC_CLEAR      ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCIC_FPOFCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_FPOFCIC_CLEAR      ((uint32_t)0x00000001u)
+/*----------*/
+
+/*----------*/
+#define SYSEXC_SYSEXCIC_R_FPIXCIC_MASK        ((uint32_t)0x00000020u)
+#define SYSEXC_SYSEXCIC_R_FPIXCIC_BIT         (5u)
+#define SYSEXC_SYSEXCIC_R_FPIXCIC_CLEAR      ((uint32_t)0x00000010u)
+
+#define SYSEXC_SYSEXCIC_FPIXCIC_MASK        ((uint32_t)0x00000001u)
+#define SYSEXC_SYSEXCIC_FPIXCIC_CLEAR      ((uint32_t)0x00000001u)
+/*----------*/
+
+
+#define SYSEXC_BITBANDING_SYSEXCIC_FPIDCIC (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u)+(SYSEXC_SYSEXCIC_R_FPIDCIC_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIC_FPDZCIC (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u)+(SYSEXC_SYSEXCIC_R_FPDZCIC_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIC_FPIOCIC (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u)+(SYSEXC_SYSEXCIC_R_FPIOCIC_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIC_FPUFCIC (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u)+(SYSEXC_SYSEXCIC_R_FPUFCIC_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIC_FPOFCIC (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u)+(SYSEXC_SYSEXCIC_R_FPOFCIC_BIT*4u))))
+#define SYSEXC_BITBANDING_SYSEXCIC_FPIXCIC (*((volatile uint32_t *)(SYSEXC_BITBANDING_BASE+((SYSEXC_OFFSET+SYSEXC_SYSEXCIC_OFFSET)*32u)+(SYSEXC_SYSEXCIC_R_FPIXCIC_BIT*4u))))
+
+
+#endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_REGISTER_H_ */
