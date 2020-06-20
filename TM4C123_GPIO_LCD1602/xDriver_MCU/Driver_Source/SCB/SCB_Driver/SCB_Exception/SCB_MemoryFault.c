@@ -23,7 +23,7 @@
  */
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_MemoryFault.h>
-
+#define SCB_vBarrier() {__asm(" DSB");}
 inline void SCB_MemoryFault__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;

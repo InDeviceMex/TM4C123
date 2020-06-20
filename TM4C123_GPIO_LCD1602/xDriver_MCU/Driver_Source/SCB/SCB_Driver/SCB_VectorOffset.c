@@ -23,7 +23,7 @@
  */
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_VectorOffset.h>
-
+#define SCB_vBarrier() {__asm(" DSB");}
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {
     uint32_t* pu32Ram=0;

@@ -22,8 +22,10 @@
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_PENDSV.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_PendSV.h>
 
+
+#define SCB_vBarrier() {__asm(" DSB");}
 
 inline void SCB_PendSV__vSetPending(void)
 {

@@ -25,7 +25,7 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_SysReset.h>
 
-
+#define SCB_vBarrier() {__asm(" DSB");}
 inline void SCB__vReqSysReset(void)
 {
     uint32_t u32Reg=SCB_AIRCR_R;

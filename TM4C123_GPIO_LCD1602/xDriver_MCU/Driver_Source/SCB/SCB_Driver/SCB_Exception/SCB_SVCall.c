@@ -24,6 +24,7 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_SVCall.h>
 
+#define SCB_vBarrier() {__asm(" DSB");}
 
 inline void SCB_SVCall__vSetPriority(SCB_nSHPR enPriority)
 {

@@ -25,7 +25,7 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_InterruptRoutine/SCB_InterruptNMI.h>
 
-void NMI_vISR(void)
+void NMI__vISR(void)
 {
     /*use for GPIO activation*/
     while(1u){}
