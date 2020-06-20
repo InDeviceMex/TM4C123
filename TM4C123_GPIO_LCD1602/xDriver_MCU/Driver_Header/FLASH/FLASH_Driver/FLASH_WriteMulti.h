@@ -27,9 +27,9 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
 
 
 
-FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address,uint32_t u32Count) __attribute__((section(".ramcode")));
-FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(uint16_t* pu16Data, uint32_t u32Address,uint32_t u32Count) __attribute__((section(".ramcode")));
-FLASH_nSTATUS FLASH__enWriteMultiByte(uint8_t* pu8Data, uint32_t u32Address,uint32_t u32Count) __attribute__((section(".ramcode")));
+FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Address,uint32_t u32Count) __attribute__((section(".ramcode")));
+FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u32Address,uint32_t u32Count) __attribute__((section(".ramcode")));
+FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Address,uint32_t u32Count) __attribute__((section(".ramcode")));
 #endif
 
 

@@ -48,7 +48,7 @@ inline NVIC_nENABLE NVIC__enGetEnableIRQ(NVIC_nSTIR enIRQ)
     {
         u32IsrBit=(uint32_t)enIRQ%32u;
         u32IsrIndex=(uint32_t)enIRQ/32u;
-        if((NVICw->ISER[u32IsrIndex]&(1<<u32IsrBit)) == (1<<u32IsrBit))
+        if((NVICw->ISER[u32IsrIndex]&((uint32_t)1u<<u32IsrBit)) == ((uint32_t)1u<<u32IsrBit))
         {
             enStatus= NVIC_enENABLE;
         }
@@ -70,7 +70,7 @@ inline NVIC_nSTATUS NVIC__enSetEnableIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPrio
         enStatus = NVIC__enSetPriorityIRQ(enIRQ,enPriority);
         if(enStatus == NVIC_enOK)
         {
-            NVICw->ISER[u32IsrIndex]|=(1<<u32IsrBit);
+            NVICw->ISER[u32IsrIndex]|=((uint32_t)1u<<u32IsrBit);
         }
     }
     return enStatus;
@@ -82,12 +82,14 @@ inline NVIC_nSTATUS NVIC__enClearEnableIRQ(NVIC_nSTIR enIRQ)
     NVIC_nSTATUS enStatus= NVIC_enERROR;
     uint32_t u32IsrIndex=0;
     uint32_t u32IsrBit=0;
+    uint32_t u32IsrBitAux=0;
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
         u32IsrBit=(uint32_t)enIRQ%32u;
         u32IsrIndex=(uint32_t)enIRQ/32u;
-        NVICw->ICER[u32IsrIndex]|=(1<<u32IsrBit);
+        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
+        NVICw->ICER[u32IsrIndex]|=u32IsrBitAux;
         enStatus = NVIC_enOK;
     }
     return enStatus;
@@ -99,12 +101,14 @@ inline NVIC_nPENDING NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ)
     NVIC_nPENDING enStatus= NVIC_enNOPENDING;
     uint32_t u32IsrIndex=0;
     uint32_t u32IsrBit=0;
+    uint32_t u32IsrBitAux=0;
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
         u32IsrBit=(uint32_t)enIRQ%32u;
         u32IsrIndex=(uint32_t)enIRQ/32u;
-        if((NVICw->ISPR[u32IsrIndex]&(1<<u32IsrBit)) == (1<<u32IsrBit))
+        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
+        if((NVICw->ISPR[u32IsrIndex]&u32IsrBitAux) == (u32IsrBitAux))
         {
             enStatus= NVIC_enPENDING;
         }
@@ -119,12 +123,14 @@ inline NVIC_nSTATUS NVIC__enSetPendingIRQ(NVIC_nSTIR enIRQ)
     NVIC_nSTATUS enStatus= NVIC_enERROR;
     uint32_t u32IsrIndex=0;
     uint32_t u32IsrBit=0;
+    uint32_t u32IsrBitAux=0;
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
         u32IsrBit=(uint32_t)enIRQ%32u;
         u32IsrIndex=(uint32_t)enIRQ/32u;
-        NVICw->ISPR[u32IsrIndex]|=(1<<u32IsrBit);
+        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
+        NVICw->ISPR[u32IsrIndex]|=u32IsrBitAux;
         enStatus= NVIC_enOK;
     }
     return enStatus;
@@ -137,12 +143,14 @@ inline NVIC_nSTATUS NVIC__enClearPendingIRQ(NVIC_nSTIR enIRQ)
     NVIC_nSTATUS enStatus= NVIC_enERROR;
     uint32_t u32IsrIndex=0;
     uint32_t u32IsrBit=0;
+    uint32_t u32IsrBitAux=0;
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
         u32IsrBit=(uint32_t)enIRQ%32u;
         u32IsrIndex=(uint32_t)enIRQ/32u;
-        NVICw->ICPR[u32IsrIndex]|=(1<<u32IsrBit);
+        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
+        NVICw->ICPR[u32IsrIndex]|=u32IsrBitAux;
         enStatus= NVIC_enOK;
     }
     return enStatus;
@@ -155,12 +163,14 @@ inline NVIC_nACTIVE NVIC__enGetActiveIRQ(NVIC_nSTIR enIRQ)
     NVIC_nACTIVE enStatus= NVIC_enNOACTIVE;
     uint32_t u32IsrIndex=0;
     uint32_t u32IsrBit=0;
+    uint32_t u32IsrBitAux=0;
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
         u32IsrBit=(uint32_t)enIRQ%32u;
         u32IsrIndex=(uint32_t)enIRQ/32u;
-        if((NVICw->IABR[u32IsrIndex]&(1<<u32IsrBit)) == (1<<u32IsrBit))
+        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
+        if((NVICw->IABR[u32IsrIndex]&u32IsrBitAux) ==u32IsrBitAux)
         {
             enStatus= NVIC_enACTIVE;
         }

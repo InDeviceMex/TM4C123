@@ -361,8 +361,12 @@ inline void SCB__vDisUnprivilegedSWTRIGGER(void)
 inline void SCB_UsageFault__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR1_R_USAGE_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR1_USAGE_MASK)<<SCB_SHPR1_R_USAGE_BIT;
+    u32RegAux = ((uint32_t)enPriority &SCB_SHPR1_USAGE_MASK);
+    u32RegAux<<=SCB_SHPR1_R_USAGE_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR1_R=u32Reg;
     SCB_vBarrier();
@@ -379,8 +383,12 @@ SCB_nSHPR SCB_UsageFault__enGetPriority(void)
 inline void SCB_BusFault__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR1_R_BUS_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR1_BUS_MASK)<<SCB_SHPR1_R_BUS_BIT;
+    u32RegAux = ((uint32_t)enPriority &SCB_SHPR1_BUS_MASK);
+    u32RegAux<<=SCB_SHPR1_R_BUS_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR1_R=u32Reg;
     SCB_vBarrier();
@@ -397,8 +405,12 @@ SCB_nSHPR SCB_BusFault__enGetPriority(void)
 inline void SCB_MemoryFault__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR1_R_MEM_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR1_MEM_MASK)<<SCB_SHPR1_R_MEM_BIT;
+    u32RegAux = ((uint32_t)enPriority &SCB_SHPR1_MEM_MASK);
+    u32RegAux <<=SCB_SHPR1_R_MEM_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR1_R=u32Reg;
     SCB_vBarrier();
@@ -415,8 +427,12 @@ SCB_nSHPR SCB_MemoryFault__enGetPriority(void)
 inline void SCB_SVCall__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR2_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR2_R_SVCALL_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR2_SVCALL_MASK)<<SCB_SHPR2_R_SVCALL_BIT;
+    u32RegAux = ((uint32_t)enPriority &SCB_SHPR2_SVCALL_MASK);
+    u32RegAux<<=SCB_SHPR2_R_SVCALL_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR2_R=u32Reg;
     SCB_vBarrier();
@@ -433,8 +449,12 @@ SCB_nSHPR SCB_SVCall__enGetPriority(void)
 inline void SCB_SysTick__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR3_R_SYSTICK_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR3_SYSTICK_MASK)<<SCB_SHPR3_R_SYSTICK_BIT;
+    u32RegAux = ((uint32_t)enPriority &SCB_SHPR3_SYSTICK_MASK);
+    u32RegAux<<= SCB_SHPR3_R_SYSTICK_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR3_R=u32Reg;
     SCB_vBarrier();
@@ -452,8 +472,12 @@ SCB_nSHPR SCB_SysTick__enGetPriority(void)
 inline void SCB_PENDSV__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR3_R_PENDSV_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR3_PENDSV_MASK)<<SCB_SHPR3_R_PENDSV_BIT;
+    u32RegAux = ((uint32_t)enPriority &SCB_SHPR3_PENDSV_MASK);
+    u32RegAux <<= SCB_SHPR3_R_PENDSV_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR3_R=u32Reg;
     SCB_vBarrier();
@@ -471,8 +495,12 @@ SCB_nSHPR SCB_PENDSV__enGetPriority(void)
 void SCB_DEBUG__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
+    uint32_t u32RegAux=0;
+
     u32Reg&=~SCB_SHPR3_R_DEBUG_MASK;
-    u32Reg|=((uint32_t)enPriority &SCB_SHPR3_DEBUG_MASK)<<SCB_SHPR3_R_DEBUG_BIT;
+    u32RegAux =((uint32_t)enPriority &SCB_SHPR3_DEBUG_MASK);
+    u32RegAux<<= SCB_SHPR3_R_DEBUG_BIT;
+    u32Reg|=u32RegAux;
     SCB_vBarrier();
     SCB_SHPR3_R=u32Reg;
     SCB_vBarrier();

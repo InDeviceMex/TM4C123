@@ -24,8 +24,10 @@ void FPU__vSetHalfPrecision(FPU_nHALF_PRECISION enHalfPrecision)
 {
     uint32_t u32HalfPrecision= (uint32_t)enHalfPrecision &FPU_FPDSCR_AHP_MASK;
     uint32_t u32Reg= FPU_FPDSCR_R;
+    uint32_t u32RegAux=0;
 
     u32Reg&=~FPU_FPDSCR_R_AHP_MASK;
-    u32Reg|=u32HalfPrecision<<FPU_FPDSCR_R_AHP_BIT;
+    u32RegAux=u32HalfPrecision<<FPU_FPDSCR_R_AHP_BIT;
+    u32Reg|=u32RegAux;
     FPU_FPDSCR_R =u32Reg;
 }

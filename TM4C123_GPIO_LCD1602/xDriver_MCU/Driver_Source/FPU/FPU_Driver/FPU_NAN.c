@@ -24,8 +24,10 @@ void FPU__vSetNAN(FPU_nNAN enNAN)
 {
     uint32_t u32NAN= (uint32_t)enNAN &FPU_FPDSCR_DN_MASK;
     uint32_t u32Reg= FPU_FPDSCR_R;
+    uint32_t u32RegAux=0;
 
     u32Reg&=~FPU_FPDSCR_R_DN_MASK;
-    u32Reg|=u32NAN<<FPU_FPDSCR_R_DN_BIT;
+    u32RegAux= u32NAN<<FPU_FPDSCR_R_DN_BIT;
+    u32Reg|=u32RegAux;
     FPU_FPDSCR_R =u32Reg;
 }

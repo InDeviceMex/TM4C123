@@ -10,9 +10,9 @@
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB.h>
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
+#include <xDriver_MCU/Driver_Header/MPU/MPU.h>
 
 #include <xDriver_MCU/Driver_Header/GPIO.h>
-#include <xDriver_MCU/Driver_Header/MPU.h>
 #include <xDriver_MCU/Driver_Header/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL.h>
@@ -52,8 +52,8 @@ volatile uint32_t u32Update=0;
 volatile uint32_t u32Counter=0;
 volatile uint32_t u32Priority=0;
 
-uint8_t LCD1602_pu8Buffer1[LCD1602_COLUMN_MAX+1u]=" INDEVICE TIVAC ";
-uint8_t LCD1602_pu8Buffer2[LCD1602_COLUMN_MAX+1u]="  LCD1602 SW:   ";
+char LCD1602_pu8Buffer1[LCD1602_COLUMN_MAX+1u]=" INDEVICE TIVAC ";
+char LCD1602_pu8Buffer2[LCD1602_COLUMN_MAX+1u]="  LCD1602 SW:   ";
 GPIO_nBUS enBus=GPIO_enAPB;
 
 volatile uint32_t vu32Refresh=0;
@@ -100,32 +100,32 @@ int main(void)
         {
             u8Column=13u;
             u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
         }
         else if(vu32Refresh == (enSW1Pin))
         {
             u8Column=13u;
             u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,"1 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"1 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
         }
         else if(vu32Refresh == (enSW2Pin))
         {
             u8Column=13u;
             u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,"2 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"2 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
         }
         else
         {
             u8Column=13u;
             u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,"NN",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"NN",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
         }
         u8Column=u8ColumnCurrent;
         u8Row=0u;
-        //LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);
+        /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);*/
         u8Column=u8ColumnCurrent;
         u8Row=1u;
-        //LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);
+        /*  LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);*/
         if(u8ColumnCurrent>=15u)
         {
             u8ColumnCurrent=0u;

@@ -22,9 +22,11 @@ void FPU__vSetAutoPreservation(FPU_nAUTO_PRESERVATION enAuto)
 {
     uint32_t u32Auto= (uint32_t)enAuto &FPU_FPCCR_ASPEN_MASK;
     uint32_t u32Reg= FPU_FPCCR_R;
+    uint32_t u32RegAux=0;
 
     u32Reg&=~FPU_FPCCR_R_ASPEN_MASK;
-    u32Reg|=u32Auto<<FPU_FPCCR_R_ASPEN_BIT;
+    u32RegAux=u32Auto<<FPU_FPCCR_R_ASPEN_BIT;
+    u32Reg|=u32RegAux;
     FPU_FPCCR_R =u32Reg;
 }
 

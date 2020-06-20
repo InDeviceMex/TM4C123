@@ -14694,47 +14694,47 @@ typedef enum
 
 typedef enum
 {
-    TIMER_enT0A=((0<<16)|(0<<8)|0),
-    TIMER_enT1A=((0<<16)|(0<<8)|1),
-    TIMER_enT2A=((0<<16)|(0<<8)|2),
-    TIMER_enT3A=((0<<16)|(0<<8)|3),
-    TIMER_enT4A=((0<<16)|(0<<8)|4),
-    TIMER_enT5A=((0<<16)|(0<<8)|5),
+    TIMER_enT0A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|0u),
+    TIMER_enT1A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|1u),
+    TIMER_enT2A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|2u),
+    TIMER_enT3A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|3u),
+    TIMER_enT4A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|4u),
+    TIMER_enT5A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|5u),
 
-    TIMER_enT0B=((0<<16)|(1<<8)|0),
-    TIMER_enT1B=((0<<16)|(1<<8)|1),
-    TIMER_enT2B=((0<<16)|(1<<8)|2),
-    TIMER_enT3B=((0<<16)|(1<<8)|3),
-    TIMER_enT4B=((0<<16)|(1<<8)|4),
-    TIMER_enT5B=((0<<16)|(1<<8)|5),
+    TIMER_enT0B=(((uint32_t)0u<<16u)|((uint32_t)1u<<8u)|0u),
+    TIMER_enT1B=(((uint32_t)0u<<16u)|((uint32_t)1u<<8u)|1u),
+    TIMER_enT2B=(((uint32_t)0u<<16u)|((uint32_t)1u<<8u)|2u),
+    TIMER_enT3B=(((uint32_t)0u<<16u)|((uint32_t)1u<<8u)|3u),
+    TIMER_enT4B=(((uint32_t)0u<<16u)|((uint32_t)1u<<8u)|4u),
+    TIMER_enT5B=(((uint32_t)0u<<16u)|((uint32_t)1u<<8u)|5u),
 
-    TIMER_enT0W=((0<<16)|(2<<8)|0),
-    TIMER_enT1W=((0<<16)|(2<<8)|1),
-    TIMER_enT2W=((0<<16)|(2<<8)|2),
-    TIMER_enT3W=((0<<16)|(2<<8)|3),
-    TIMER_enT4W=((0<<16)|(2<<8)|4),
-    TIMER_enT5W=((0<<16)|(2<<8)|5),
+    TIMER_enT0W=(((uint32_t)0u<<16u)|((uint32_t)2u<<8u)|0u),
+    TIMER_enT1W=(((uint32_t)0u<<16u)|((uint32_t)2u<<8u)|1u),
+    TIMER_enT2W=(((uint32_t)0u<<16u)|((uint32_t)2u<<8u)|2u),
+    TIMER_enT3W=(((uint32_t)0u<<16u)|((uint32_t)2u<<8u)|3u),
+    TIMER_enT4W=(((uint32_t)0u<<16u)|((uint32_t)2u<<8u)|4u),
+    TIMER_enT5W=(((uint32_t)0u<<16u)|((uint32_t)2u<<8u)|5u),
 
-    TIMER_enWT0A=((1<<16)|(0<<8)|0),
-    TIMER_enWT1A=((1<<16)|(0<<8)|1),
-    TIMER_enWT2A=((1<<16)|(0<<8)|2),
-    TIMER_enWT3A=((1<<16)|(0<<8)|3),
-    TIMER_enWT4A=((1<<16)|(0<<8)|4),
-    TIMER_enWT5A=((1<<16)|(0<<8)|5),
+    TIMER_enWT0A=(((uint32_t)1u<<16u)|((uint32_t)0u<<8u)|0u),
+    TIMER_enWT1A=(((uint32_t)1u<<16u)|((uint32_t)0u<<8u)|1u),
+    TIMER_enWT2A=(((uint32_t)1u<<16u)|((uint32_t)0u<<8u)|2u),
+    TIMER_enWT3A=(((uint32_t)1u<<16u)|((uint32_t)0u<<8u)|3u),
+    TIMER_enWT4A=(((uint32_t)1u<<16u)|((uint32_t)0u<<8u)|4u),
+    TIMER_enWT5A=(((uint32_t)1u<<16u)|((uint32_t)0u<<8u)|5u),
 
-    TIMER_enWT0B=((1<<16)|(1<<8)|0),
-    TIMER_enWT1B=((1<<16)|(1<<8)|1),
-    TIMER_enWT2B=((1<<16)|(1<<8)|2),
-    TIMER_enWT3B=((1<<16)|(1<<8)|3),
-    TIMER_enWT4B=((1<<16)|(1<<8)|4),
-    TIMER_enWT5B=((1<<16)|(1<<8)|5),
+    TIMER_enWT0B=(((uint32_t)1u<<16u)|((uint32_t)1u<<8u)|0u),
+    TIMER_enWT1B=(((uint32_t)1u<<16u)|((uint32_t)1u<<8u)|1u),
+    TIMER_enWT2B=(((uint32_t)1u<<16u)|((uint32_t)1u<<8u)|2u),
+    TIMER_enWT3B=(((uint32_t)1u<<16u)|((uint32_t)1u<<8u)|3u),
+    TIMER_enWT4B=(((uint32_t)1u<<16u)|((uint32_t)1u<<8u)|4u),
+    TIMER_enWT5B=(((uint32_t)1u<<16u)|((uint32_t)1u<<8u)|5u),
 
-    TIMER_enWT0W=((1<<16)|(2<<8)|0),
-    TIMER_enWT1W=((1<<16)|(2<<8)|1),
-    TIMER_enWT2W=((1<<16)|(2<<8)|2),
-    TIMER_enWT3W=((1<<16)|(2<<8)|3),
-    TIMER_enWT4W=((1<<16)|(2<<8)|4),
-    TIMER_enWT5W=((1<<16)|(2<<8)|5),
+    TIMER_enWT0W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|0u),
+    TIMER_enWT1W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|1u),
+    TIMER_enWT2W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|2u),
+    TIMER_enWT3W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|3u),
+    TIMER_enWT4W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|4u),
+    TIMER_enWT5W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|5u),
 }TIMER_nMODULE;
 
 
@@ -14787,13 +14787,13 @@ typedef enum
 
 typedef enum
 {
-    TIMER_enINT_TB_TIMEOUT=0x1<<8,
-    TIMER_enINT_TB_CAPTURE_MATCH=0x2<<8,
+    TIMER_enINT_TB_TIMEOUT=(uint32_t)0x1u<<8u,
+    TIMER_enINT_TB_CAPTURE_MATCH=(uint32_t)0x2u<<8u,
     /*TBPWMIE needs to be enabled with PWM mode*/
-    TIMER_enINT_TB_CAPTURE_EVENT=0x4<<8,
+    TIMER_enINT_TB_CAPTURE_EVENT=(uint32_t)0x4u<<8u,
     /*TBMIE needs to enabled with MATCH_TB*/
-    TIMER_enINT_TB_MATCH=0x8<<8,
-    TIMER_enINT_TB_ALL=0x0F00u,
+    TIMER_enINT_TB_MATCH=(uint32_t)0x8u<<8u,
+    TIMER_enINT_TB_ALL=(uint32_t)0x0F00u,
 }TIMER_nINT_TB;
 
 typedef enum

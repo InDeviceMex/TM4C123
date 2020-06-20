@@ -1,0 +1,14 @@
+/*
+ * MPU.h
+ *
+ *  Created on: 25 jul. 2018
+ *      Author: InDev
+ */
+
+#ifndef MPU_H_
+#define MPU_H_
+
+
+#include <xDriver_MCU/Driver_Header/MPU/MPU_Driver/MPU_Init.h>
+
+#endif /* MPU_H_ */

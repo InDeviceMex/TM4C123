@@ -44,7 +44,7 @@ EEPROM_nSTATUS EEPROM__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
 
         if(EEPROM_enOK == enReturn)
         {
-            pu16DataAux = (uint16_t*) &u32DataAux + u32Pos;
+            pu16DataAux = (volatile uint16_t*) &u32DataAux + u32Pos;
             *pu16DataAux = u16Data;
 
             EEPROM_EERDWR_R = u32DataAux;
@@ -75,7 +75,7 @@ EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address)
 
         if(EEPROM_enOK ==enReturn)
         {
-            pu8DataAux=(uint8_t*)&u32DataAux+u32Pos;
+            pu8DataAux=(volatile uint8_t*)&u32DataAux+u32Pos;
             *pu8DataAux=u8Data;
 
             EEPROM_EERDWR_R=u32DataAux;

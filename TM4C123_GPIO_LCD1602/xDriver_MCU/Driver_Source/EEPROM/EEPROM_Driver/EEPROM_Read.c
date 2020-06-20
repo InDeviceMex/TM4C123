@@ -43,7 +43,7 @@ EEPROM_nSTATUS EEPROM__enReadHalfWorld (uint16_t *pu16Data, uint32_t u32Address)
 
         if(EEPROM_enOK == enReturn)
         {
-            pu16DataAux = (uint16_t*) &u32DataAux+u32Pos;
+            pu16DataAux = (volatile uint16_t*) &u32DataAux+u32Pos;
             *pu16Data = *pu16DataAux;
         }
     }
@@ -71,7 +71,7 @@ EEPROM_nSTATUS EEPROM__enReadByte (uint8_t *pu8Data, uint32_t u32Address)
 
         if(EEPROM_enOK == enReturn)
         {
-            pu8DataAux = (uint8_t*) &u32DataAux+u32Pos;
+            pu8DataAux = (volatile uint8_t*) &u32DataAux+u32Pos;
             *pu8Data = *pu8DataAux;
         }
     }

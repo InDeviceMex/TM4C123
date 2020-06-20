@@ -34,7 +34,7 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
 #elif defined ( __GNUC__ )
             pu32PageDataInitial = (uint32_t*) malloc((size_t)sizeof(uint8_t)*FLASH_PAGE_SIZE);
 #endif
-            if( (uint32_t)0 != pu32PageDataInitial)
+            if( (uint32_t)0u != (uint32_t)pu32PageDataInitial)
             {
                 do
                 {
@@ -129,7 +129,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
 #elif defined ( __GNUC__ )
             pu32PageDataInitial = (uint32_t*) malloc((size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
 #endif
-            if( (uint32_t)0 != pu32PageDataInitial)
+            if( (uint32_t)0u != (uint32_t)pu32PageDataInitial)
             {
                 do
                 {
@@ -225,7 +225,7 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
 #elif defined ( __GNUC__ )
             pu32PageDataInitial = (uint32_t*) malloc((size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
 #endif
-            if( (uint32_t)0 != pu32PageDataInitial)
+            if( (uint32_t)0u != (uint32_t)pu32PageDataInitial)
             {
                 do
                 {

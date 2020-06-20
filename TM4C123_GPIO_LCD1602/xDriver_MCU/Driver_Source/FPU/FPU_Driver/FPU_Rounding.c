@@ -25,8 +25,10 @@ void FPU__vSetRounding(FPU_nROUNDING enRounding)
 {
     uint32_t u32Rounding= (uint32_t)enRounding &FPU_FPDSCR_RMODE_MASK;
     uint32_t u32Reg= FPU_FPDSCR_R;
+    uint32_t u32RegAux=0;
 
     u32Reg&=~FPU_FPDSCR_R_RMODE_MASK;
-    u32Reg|=u32Rounding<<FPU_FPDSCR_R_RMODE_BIT;
+    u32RegAux =u32Rounding<<FPU_FPDSCR_R_RMODE_BIT;
+    u32Reg|=u32RegAux;
     FPU_FPDSCR_R =u32Reg;
 }
