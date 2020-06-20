@@ -9,7 +9,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_INIT_H_
 
 
-#include <xDriver_MCU/Driver_Header/NVIC.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL.h>
 

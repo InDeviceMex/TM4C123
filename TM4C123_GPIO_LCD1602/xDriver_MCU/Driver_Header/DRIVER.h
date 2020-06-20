@@ -33,6 +33,7 @@
 #include <xDriver_MCU/Driver_Header/MPU/MPU.h>
 #include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 
 
 

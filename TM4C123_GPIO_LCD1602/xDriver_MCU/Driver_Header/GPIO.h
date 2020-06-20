@@ -10,7 +10,7 @@
 
 
 #include <stdint.h>
-#include <xDriver_MCU/Driver_Header/NVIC.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL.h>
 
