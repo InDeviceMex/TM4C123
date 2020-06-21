@@ -10,14 +10,6 @@
 
 
 
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Intrinsics.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Counter.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_WakeUp.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_RTCWakeUp.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_LowBatWakeUp.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_ReqHib.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Module.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Interrupt.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Init.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Driver.h>
 
 #endif /* HEADER_DRIVER_HIB_H_ */

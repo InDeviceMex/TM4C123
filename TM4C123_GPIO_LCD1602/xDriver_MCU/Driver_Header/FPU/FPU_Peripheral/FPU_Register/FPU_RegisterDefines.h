@@ -1,38 +1,32 @@
-/*
- * FPU_Register.h
+/**
  *
- *  Created on: 17 jun. 2020
- *      Author: vyldram
+ * @file FPU_RegisterDefines.h
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 21 jun. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 21 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_H_
-#define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_H_
-
-
-
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Struct.h>
-
-#define FPU_BASE            ((uint32_t)0xE000E000u)
-#define FPU_OFFSET          ((uint32_t)0x00000D88u)
-
-
-
-#define FPU                 (((FPU_TypeDef*)(FPU_BASE+ FPU_OFFSET)))
-
-#define FPU_CPACR_OFFSET     ((uint32_t)0x0D88u)
-#define FPU_FPCCR_OFFSET     ((uint32_t)0x0F34u)
-#define FPU_FPCAR_OFFSET     ((uint32_t)0x0F38u)
-#define FPU_FPDSCR_OFFSET    ((uint32_t)0x0F3Cu)
-#define FPU_MVFR0_OFFSET     ((uint32_t)0x0F40u)
-#define FPU_MVFR1_OFFSET     ((uint32_t)0x0F44u)
-#define FPU_MVFR2_OFFSET     ((uint32_t)0x0F48u)
+#ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_FPU_REGISTERDEFINES_H_
+#define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_FPU_REGISTERDEFINES_H_
 
 /*********************************************************************************************/
 /************************************* 1 CPACR ***********************************************/
 /*********************************************************************************************/
-
-#define FPU_CPACR            (((CPACR_TypeDef*)(FPU_BASE+FPU_CPACR_OFFSET )))
-#define FPU_CPACR_R          (*((volatile uint32_t *)(FPU_BASE+FPU_CPACR_OFFSET)))
 
 /*----------*/
 #define FPU_CPACR_R_CP10_MASK      ((uint32_t)0x00300000u)
@@ -63,8 +57,6 @@
 /*********************************************************************************************/
 /************************************* 2 FPCCR ***********************************************/
 /*********************************************************************************************/
-#define FPU_FPCCR            (((FPCCR_TypeDef*)(FPU_BASE+FPU_FPCCR_OFFSET )))
-#define FPU_FPCCR_R          (*((volatile uint32_t *)(FPU_BASE+FPU_FPCCR_OFFSET)))
 
 /*----------*/
 #define FPU_FPCCR_R_LSPACT_MASK      ((uint32_t)0x00000001u)
@@ -168,9 +160,6 @@
 /*********************************************************************************************/
 /************************************* 3 FPCAR ***********************************************/
 /*********************************************************************************************/
-#define FPU_FPCAR            (((FPCAR_TypeDef*)(FPU_BASE+FPU_FPCAR_OFFSET )))
-#define FPU_FPCAR_R          (*((volatile uint32_t *)(FPU_BASE+FPU_FPCAR_OFFSET)))
-
 
 /*----------*/
 #define FPU_FPCAR_R_ADDRESS_MASK      ((uint32_t)0xFFFFFFF8u)
@@ -182,8 +171,6 @@
 /*********************************************************************************************/
 /************************************* 4 FPDSCR ***********************************************/
 /*********************************************************************************************/
-#define FPU_FPDSCR            (((FPDSCR_TypeDef*)(FPU_BASE+FPU_FPDSCR_OFFSET )))
-#define FPU_FPDSCR_R          (*((volatile uint32_t *)(FPU_BASE+FPU_FPDSCR_OFFSET)))
 
 /*----------*/
 #define FPU_FPDSCR_R_RMODE_MASK      ((uint32_t)0x00C00000u)
@@ -236,8 +223,6 @@
 /*********************************************************************************************/
 /************************************* 6 MVFR0 ***********************************************/
 /*********************************************************************************************/
-#define FPU_MVFR0            (((MVFR0_TypeDef*)(FPU_BASE+FPU_MVFR0_OFFSET )))
-#define FPU_MVFR0_R          (*((const uint32_t *)(FPU_BASE+FPU_MVFR0_OFFSET)))
 
 /*----------*/
 #define FPU_MVFR0_R_A_SIMD_registers_MASK      ((uint32_t)0x0000000Fu)
@@ -306,8 +291,6 @@
 /*********************************************************************************************/
 /************************************* 7 MVFR1 ***********************************************/
 /*********************************************************************************************/
-#define FPU_MVFR1            (((MVFR1_TypeDef*)(FPU_BASE+FPU_MVFR1_OFFSET )))
-#define FPU_MVFR1_R          (*((const uint32_t *)(FPU_BASE+FPU_MVFR1_OFFSET)))
 
 /*----------*/
 #define FPU_MVFR1_R_FtZ_mode_MASK      ((uint32_t)0x0000000Fu)
@@ -337,6 +320,4 @@
 #define FPU_MVFR1_FP_fused_MAC_MASK        ((uint32_t)0x0000000Fu)
 /*----------*/
 
-
-
-#endif /* XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_FPU_REGISTERDEFINES_H_ */

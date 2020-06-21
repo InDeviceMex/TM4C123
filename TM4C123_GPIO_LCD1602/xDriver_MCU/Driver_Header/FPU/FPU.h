@@ -8,6 +8,6 @@
 #ifndef HEADER_DRIVER_FPU_H_
 #define HEADER_DRIVER_FPU_H_
 
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_Init.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_Driver.h>
 
 #endif /* HEADER_DRIVER_FPU_H_ */

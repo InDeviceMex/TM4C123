@@ -26,7 +26,6 @@
 
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Struct/FLASH_StructPeripheral.h>
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Register/FLASH_RegisterAddress.h>
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Register/FLASH_RegisterDefines.h>
 
 #define FLASH                 (((FLASH_TypeDef*)(FLASH_BASE)))
 

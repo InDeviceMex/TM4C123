@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Struct/EEPROM_StructPeripheral.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Register/EEPROM_RegisterAddress.h>
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Register/EEPROM_RegisterDefines.h>
+
 
 #define EEPROM                 (((EEPROM_TypeDef*)(EEPPROM_BASE)))
 

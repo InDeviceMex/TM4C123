@@ -10,7 +10,7 @@
 
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Dependencies.h>
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Register.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Register/FPU_Register.h>
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Enum.h>
 
 

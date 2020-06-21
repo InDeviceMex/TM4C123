@@ -10,7 +10,7 @@
 
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Dependencies.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Register.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Register/HIB_Register.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Enum.h>
 
 
