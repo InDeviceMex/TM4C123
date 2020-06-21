@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
 
 #define GPTM_BASE               ((uint32_t)0x40030000u)
 #define GPTM0_BASE              ((uint32_t)0x40030000u)

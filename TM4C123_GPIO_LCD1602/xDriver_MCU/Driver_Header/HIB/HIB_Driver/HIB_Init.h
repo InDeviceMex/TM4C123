@@ -11,7 +11,7 @@
 
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Interrupt.h>

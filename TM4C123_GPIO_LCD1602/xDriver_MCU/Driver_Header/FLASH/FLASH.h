@@ -8,9 +8,6 @@
 #ifndef FLASH_H_
 #define FLASH_H_
 
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Erase.h>
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Wait.h>
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Write.h>
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteMulti.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Driver.h>
 
 #endif /* FLASH_H_ */

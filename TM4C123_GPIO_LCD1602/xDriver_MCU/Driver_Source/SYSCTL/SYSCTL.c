@@ -5,7 +5,7 @@
  *      Author: InDev
  */
 
-#include <xDriver_MCU/Driver_Header/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
 
 uint32_t SYSCTL_u32FreqXtal[27]=
 { 0       ,0       ,0       ,0       ,0       ,0       ,

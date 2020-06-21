@@ -10,7 +10,7 @@
 
 
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Dependencies.h>
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Register.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Register/EEPROM_Register.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Enum.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_PERIPHERAL_EEPROM_PERIPHERAL_H_ */
