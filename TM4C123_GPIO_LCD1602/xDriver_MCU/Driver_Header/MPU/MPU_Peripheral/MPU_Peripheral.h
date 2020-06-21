@@ -27,7 +27,7 @@
 
 
 #include <xDriver_MCU/Driver_Header/MPU/MPU_Peripheral/MPU_Dependencies.h>
-#include <xDriver_MCU/Driver_Header/MPU/MPU_Peripheral/MPU_Register.h>
+#include <xDriver_MCU/Driver_Header/MPU/MPU_Peripheral/MPU_Register/MPU_Register.h>
 #include <xDriver_MCU/Driver_Header/MPU/MPU_Peripheral/MPU_Enum.h>
 
 

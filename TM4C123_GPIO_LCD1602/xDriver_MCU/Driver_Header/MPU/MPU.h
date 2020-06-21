@@ -9,6 +9,6 @@
 #define MPU_H_
 
 
-#include <xDriver_MCU/Driver_Header/MPU/MPU_Driver/MPU_Init.h>
+#include <xDriver_MCU/Driver_Header/MPU/MPU_Driver/MPU_Driver.h>
 
 #endif /* MPU_H_ */

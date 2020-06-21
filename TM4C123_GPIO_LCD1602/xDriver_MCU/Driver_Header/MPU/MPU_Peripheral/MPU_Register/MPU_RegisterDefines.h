@@ -1,6 +1,6 @@
 /**
  *
- * @file MPU_Register.h
+ * @file MPU_RegisterDefines.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 19 jun. 2020 @endverbatim
+ * @verbatim 21 jun. 2020 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,40 +19,14 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * 21 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_H_
-#define XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_H_
-
-#include <xDriver_MCU/Driver_Header/MPU/MPU_Peripheral/MPU_Struct.h>
-
-#define MPU_BASE            ((uint32_t)0xE000E000u)
-#define MPU_OFFSET          ((uint32_t)0x00000D90u)
-
-#define MPU_REGION_NUMBER (8u)
-
-#define MPU                  (((MPU_TypeDef*)(MPU_BASE+ MPU_OFFSET)))
-#define MPU_R(offset)        (*((volatile uint32_t *)(MPU_BASE+offset)))
-
-
-#define MPU_TYPER_OFFSET     ((uint32_t)0x0D90u)
-#define MPU_CTRL_OFFSET     ((uint32_t)0x0D94u)
-#define MPU_RNR_OFFSET      ((uint32_t)0x0D98u)
-#define MPU_RBAR_OFFSET     ((uint32_t)0x0D9Cu)
-#define MPU_RASR_OFFSET     ((uint32_t)0x0DA0u)
-#define MPU_RBAR1_OFFSET    ((uint32_t)0x0DA4u)
-#define MPU_RASR1_OFFSET    ((uint32_t)0x0DA8u)
-#define MPU_RBAR2_OFFSET    ((uint32_t)0x0DACu)
-#define MPU_RASR2_OFFSET    ((uint32_t)0x0DB0u)
-#define MPU_RBAR3_OFFSET    ((uint32_t)0x0DB4u)
-#define MPU_RASR3_OFFSET    ((uint32_t)0x0DB8u)
+#ifndef XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_MPU_REGISTERDEFINES_H_
+#define XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_MPU_REGISTERDEFINES_H_
 
 /**********************************************************************************************
 ************************************** 1 TYPER ***********************************************
 **********************************************************************************************/
-#define MPU_TYPER                   (((MPU_TYPER_TypeDef*)(MPU_BASE+MPU_TYPER_OFFSET )))
-#define MPU_TYPER_R                 (*((volatile uint32_t *)(MPU_BASE+MPU_TYPER_OFFSET)))
-
 
 /*--------*/
 #define MPU_TYPER_R_SEPARATE_MASK       ((uint32_t)0x00000001u)
@@ -76,7 +50,6 @@
 #define MPU_TYPER_DREGION_D16           ((uint32_t)0x0000000Fu)
 /*--------*/
 
-
 /*--------*/
 #define MPU_TYPER_R_IREGION_MASK      ((uint32_t)0x00FF0000u)
 #define MPU_TYPER_R_IREGION_BIT       (16u)
@@ -89,9 +62,6 @@
 /**********************************************************************************************
 ************************************** 2 CTRL ***********************************************
 **********************************************************************************************/
-#define MPU_CTRL                        (((MPU_CTRL_TypeDef*)(MPU_BASE+MPU_CTRL_OFFSET )))
-#define MPU_CTRL_R                      (*((volatile uint32_t *)(MPU_BASE+MPU_CTRL_OFFSET)))
-
 
 /*--------*/
 #define MPU_CTRL_R_ENABLE_MASK          ((uint32_t)0x00000001u)
@@ -103,7 +73,6 @@
 #define MPU_CTRL_ENABLE_DIS             ((uint32_t)0x00000000u)
 #define MPU_CTRL_ENABLE_EN              ((uint32_t)0x00000001u)
 /*--------*/
-
 
 /*--------*/
 #define MPU_CTRL_R_HFNMIENA_MASK        ((uint32_t)0x00000002u)
@@ -130,9 +99,6 @@
 /**********************************************************************************************
 **************************************3 RNR ***********************************************
 **********************************************************************************************/
-#define MPU_RNR            (((MPU_RNR_TypeDef*)(MPU_BASE+MPU_RNR_OFFSET )))
-#define MPU_RNR_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RNR_OFFSET)))
-
 
 /*--------*/
 #define MPU_RNR_R_REGION_MASK      ((uint32_t)0x0000000Fu)
@@ -176,9 +142,6 @@
 /**********************************************************************************************
 **************************************4 RBAR ***********************************************
 **********************************************************************************************/
-#define MPU_RBAR            (((MPU_RBAR_TypeDef*)(MPU_BASE+MPU_RBAR_OFFSET )))
-#define MPU_RBAR_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RBAR_OFFSET)))
-
 
 /*--------*/
 #define MPU_RBAR_R_REGION_MASK      ((uint32_t)0x0000000Fu)
@@ -219,7 +182,6 @@
 #define MPU_RBAR_REGION_REG15       ((uint32_t)0x0000000Fu)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR_R_VALID_MASK      ((uint32_t)0x00000010u)
 #define MPU_RBAR_R_VALID_BIT       (4u)
@@ -231,7 +193,6 @@
 #define MPU_RBAR_VALID_EN          ((uint32_t)0x00000001u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
 #define MPU_RBAR_R_ADDR_BIT       (5u)
@@ -242,10 +203,6 @@
 /**********************************************************************************************
 **************************************5 RASR ***********************************************
 **********************************************************************************************/
-#define MPU_RASR            (((MPU_RASR_TypeDef*)(MPU_BASE+MPU_RASR_OFFSET )))
-#define MPU_RASR_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RASR_OFFSET)))
-
-
 
 /*--------*/
 #define MPU_RASR_R_ENABLE_MASK      ((uint32_t)0x00000001u)
@@ -431,7 +388,6 @@
 #define MPU_RASR_AP_RORO      ((uint32_t)0x00000006u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RASR_R_XN_MASK      ((uint32_t)0x10000000u)
 #define MPU_RASR_R_XN_BIT       (28u)
@@ -446,9 +402,6 @@
 /**********************************************************************************************
 **************************************6 RBAR1 ***********************************************
 **********************************************************************************************/
-#define MPU_RBAR1            (((MPU_RBAR_TypeDef*)(MPU_BASE+MPU_RBAR1_OFFSET )))
-#define MPU_RBAR1_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RBAR1_OFFSET)))
-
 
 /*--------*/
 #define MPU_RBAR1_R_REGION_MASK      ((uint32_t)0x0000000Fu)
@@ -489,7 +442,6 @@
 #define MPU_RBAR1_REGION_REG15       ((uint32_t)0x0000000Fu)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR1_R_VALID_MASK      ((uint32_t)0x00000010u)
 #define MPU_RBAR1_R_VALID_BIT       (4u)
@@ -501,7 +453,6 @@
 #define MPU_RBAR1_VALID_EN          ((uint32_t)0x00000001u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR1_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
 #define MPU_RBAR1_R_ADDR_BIT       (5u)
@@ -509,15 +460,9 @@
 #define MPU_RBAR1_ADDR_MASK        ((uint32_t)0x01FFFFFFu)
 /*--------*/
 
-
 /**********************************************************************************************
 **************************************7 RASR1 ***********************************************
 **********************************************************************************************/
-
-#define MPU_RASR1            (((MPU_RASR_TypeDef*)(MPU_BASE+MPU_RASR1_OFFSET )))
-#define MPU_RASR1_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RASR1_OFFSET)))
-
-
 
 /*--------*/
 #define MPU_RASR1_R_ENABLE_MASK      ((uint32_t)0x00000001u)
@@ -529,7 +474,6 @@
 #define MPU_RASR1_ENABLE_DIS         ((uint32_t)0x00000000u)
 #define MPU_RASR1_ENABLE_EN          ((uint32_t)0x00000001u)
 /*--------*/
-
 
 /*--------*/
 #define MPU_RASR1_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
@@ -703,7 +647,6 @@
 #define MPU_RASR1_AP_RORO      ((uint32_t)0x00000006u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RASR1_R_XN_MASK      ((uint32_t)0x10000000u)
 #define MPU_RASR1_R_XN_BIT       (28u)
@@ -718,9 +661,6 @@
 /**********************************************************************************************
 **************************************8 RBAR2 ***********************************************
 **********************************************************************************************/
-#define MPU_RBAR2            (((MPU_RBAR_TypeDef*)(MPU_BASE+MPU_RBAR2_OFFSET )))
-#define MPU_RBAR2_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RBAR2_OFFSET)))
-
 
 /*--------*/
 #define MPU_RBAR2_R_REGION_MASK      ((uint32_t)0x0000000Fu)
@@ -761,7 +701,6 @@
 #define MPU_RBAR2_REGION_REG15       ((uint32_t)0x0000000Fu)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR2_R_VALID_MASK      ((uint32_t)0x00000010u)
 #define MPU_RBAR2_R_VALID_BIT       (4u)
@@ -773,7 +712,6 @@
 #define MPU_RBAR2_VALID_EN          ((uint32_t)0x00000001u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR2_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
 #define MPU_RBAR2_R_ADDR_BIT       (5u)
@@ -784,10 +722,6 @@
 /**********************************************************************************************
 **************************************9 RASR2 ***********************************************
 **********************************************************************************************/
-#define MPU_RASR2            (((MPU_RASR_TypeDef*)(MPU_BASE+MPU_RASR2_OFFSET )))
-#define MPU_RASR2_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RASR2_OFFSET)))
-
-
 
 /*--------*/
 #define MPU_RASR2_R_ENABLE_MASK      ((uint32_t)0x00000001u)
@@ -799,7 +733,6 @@
 #define MPU_RASR2_ENABLE_DIS         ((uint32_t)0x00000000u)
 #define MPU_RASR2_ENABLE_EN          ((uint32_t)0x00000001u)
 /*--------*/
-
 
 /*--------*/
 #define MPU_RASR2_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
@@ -973,7 +906,6 @@
 #define MPU_RASR2_AP_RORO      ((uint32_t)0x00000006u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RASR2_R_XN_MASK      ((uint32_t)0x10000000u)
 #define MPU_RASR2_R_XN_BIT       (28u)
@@ -988,9 +920,6 @@
 /**********************************************************************************************
 **************************************10 RBAR3 ***********************************************
 **********************************************************************************************/
-#define MPU_RBAR3            (((MPU_RBAR_TypeDef*)(MPU_BASE+MPU_RBAR3_OFFSET )))
-#define MPU_RBAR3_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RBAR3_OFFSET)))
-
 
 /*--------*/
 #define MPU_RBAR3_R_REGION_MASK      ((uint32_t)0x0000000Fu)
@@ -1031,7 +960,6 @@
 #define MPU_RBAR3_REGION_REG15       ((uint32_t)0x0000000Fu)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR3_R_VALID_MASK      ((uint32_t)0x00000010u)
 #define MPU_RBAR3_R_VALID_BIT       (4u)
@@ -1043,7 +971,6 @@
 #define MPU_RBAR3_VALID_EN          ((uint32_t)0x00000001u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RBAR3_R_ADDR_MASK      ((uint32_t)0xFFFFFFE0u)
 #define MPU_RBAR3_R_ADDR_BIT       (5u)
@@ -1054,10 +981,6 @@
 /**********************************************************************************************
 **************************************11 RASR3 ***********************************************
 **********************************************************************************************/
-#define MPU_RASR3            (((MPU_RASR_TypeDef*)(MPU_BASE+MPU_RASR3_OFFSET )))
-#define MPU_RASR3_R          (*((volatile uint32_t *)(MPU_BASE+MPU_RASR3_OFFSET)))
-
-
 
 /*--------*/
 #define MPU_RASR3_R_ENABLE_MASK      ((uint32_t)0x00000001u)
@@ -1069,7 +992,6 @@
 #define MPU_RASR3_ENABLE_DIS         ((uint32_t)0x00000000u)
 #define MPU_RASR3_ENABLE_EN          ((uint32_t)0x00000001u)
 /*--------*/
-
 
 /*--------*/
 #define MPU_RASR3_R_SIZE_MASK      ((uint32_t)0x0000003Eu)
@@ -1243,7 +1165,6 @@
 #define MPU_RASR3_AP_RORO      ((uint32_t)0x00000006u)
 /*--------*/
 
-
 /*--------*/
 #define MPU_RASR3_R_XN_MASK      ((uint32_t)0x10000000u)
 #define MPU_RASR3_R_XN_BIT       (28u)
@@ -1255,5 +1176,4 @@
 #define MPU_RASR3_XN_EN         ((uint32_t)0x00000001u)
 /*--------*/
 
-
-#endif /* XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_MPU_REGISTERDEFINES_H_ */
