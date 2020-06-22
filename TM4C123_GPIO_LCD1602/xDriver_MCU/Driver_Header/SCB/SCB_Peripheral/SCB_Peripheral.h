@@ -26,7 +26,7 @@
 
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Dependencies.h>
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Register.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Register/SCB_Register.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Enum.h>
 
 

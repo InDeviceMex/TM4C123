@@ -59,4 +59,11 @@
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Register/NVIC_RegisterDefines/NVIC_RegisterDefines_IPR/NVIC_RegisterDefines_IPR32.h>
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Register/NVIC_RegisterDefines/NVIC_RegisterDefines_IPR/NVIC_RegisterDefines_IPR33.h>
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Register/NVIC_RegisterDefines/NVIC_RegisterDefines_IPR/NVIC_RegisterDefines_IPR34.h>
+
+/********************************************************************************************/
+/************************************* IPR ***********************************************/
+/******************************************************************************************/
+
+
+
 #endif /* XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_REGISTER_NVIC_REGISTERDEFINES_NVIC_REGISTERDEFINES_IPR_NVIC_REGISTERDEFINES_IPR_H_ */
