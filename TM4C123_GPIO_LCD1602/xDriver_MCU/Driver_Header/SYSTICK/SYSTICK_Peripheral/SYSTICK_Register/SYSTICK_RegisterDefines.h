@@ -1,36 +1,32 @@
-/*
- * SYSTICK_Register.h
+/**
  *
- *  Created on: 18 jun. 2020
- *      Author: vyldram
+ * @file SYSTICK_RegisterDefines.h
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 22 jun. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 22 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#ifndef XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_H_
-#define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_H_
-
-#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Peripheral/SYSTICK_Struct.h>
-
-#define SysTick_BASE            ((uint32_t)0xE000E000u)
-#define SysTick_VALUEMAX        ((uint32_t)0xFFFFFFu)
-#define SysTick_PIOSC4          ((uint32_t)4000000u)
-#define SysTick_PIOSC           ((uint32_t)16000000u)
-
-#define SysTick                 (((SysTick_TypeDef*)(SysTick_BASE)))
-
-
-
-#define SysTick_CSR_OFFSET      ((uint32_t)0x010u)
-#define SysTick_RVR_OFFSET      ((uint32_t)0x014u)
-#define SysTick_CVR_OFFSET      ((uint32_t)0x018u)
-#define SysTick_CR_OFFSET       ((uint32_t)0x01Cu)
+#ifndef XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_SYSTICK_REGISTERDEFINES_H_
+#define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_SYSTICK_REGISTERDEFINES_H_
 
 /*********************************************************************************************
 ************************************** 1 CSR **********************************************
 *********************************************************************************************/
-
-#define SysTick_CSR                     (((SysTick_CSR_TypeDef*)(SysTick_BASE+SysTick_CSR_OFFSET)))
-#define SysTick_CSR_R                   (*((volatile uint32_t *)(SysTick_BASE+SysTick_CSR_OFFSET)))
-
 /*--------*/
 #define SysTick_CSR_R_COUNTFLAG_MASK        ((uint32_t)0x00010000u)
 #define SysTick_CSR_R_COUNTFLAG_BIT         (16u)
@@ -78,10 +74,6 @@
 /*********************************************************************************************
 ************************************** 2 LOAD **********************************************
 *********************************************************************************************/
-
-#define SysTick_RVR                     (((SysTick_RVR_TypeDef*)(SysTick_BASE+SysTick_RVR_OFFSET)))
-#define SysTick_RVR_R                   (*((volatile uint32_t *)(SysTick_BASE+SysTick_RVR_OFFSET)))
-
 /*--------*/
 #define SysTick_RVR_R_RELOAD_MASK       ((uint32_t)0x00FFFFFFu)
 #define SysTick_RVR_R_RELOAD_BIT        (0u)
@@ -92,10 +84,6 @@
 /*********************************************************************************************
 **************************************** 3 VAL **********************************************
 ***********************************************************************************************/
-
-#define SysTick_CVR                     (((SysTick_CVR_TypeDef*)(SysTick_BASE+SysTick_CVR_OFFSET)))
-#define SysTick_CVR_R                   (*((volatile uint32_t *)(SysTick_BASE+SysTick_CVR_OFFSET)))
-
 /*--------*/
 #define SysTick_CVR_R_CURRENT_MASK    ((uint32_t)0x00FFFFFFu)
 #define SysTick_CVR_R_CURRENT_BIT     (0u)
@@ -103,14 +91,9 @@
 #define SysTick_CVR_CURRENT_MASK      ((uint32_t)0x00FFFFFFu)
 /*--------*/
 
-
 /*********************************************************************************************
 **************************************** 3 CR **********************************************
 ***********************************************************************************************/
-
-#define SysTick_CR                   (((SysTick_CR_TypeDef*)(SysTick_BASE+SysTick_CR_OFFSET)))
-#define SysTick_CR_R                 (*((volatile uint32_t *)(SysTick_BASE+SysTick_CR_OFFSET)))
-
 /*--------*/
 #define SysTick_CR_R_TENMS_MASK      ((uint32_t)0x00FFFFFFu)
 #define SysTick_CR_R_TENMS_BIT       (0u)
@@ -140,11 +123,4 @@
 #define SysTick_CR_NOREF_OTHER       ((uint32_t)0x00000000u)
 /*--------*/
 
-
-/*********************************************************************************************
-************************************** PROTOTYPES **********************************************
-*********************************************************************************************/
-
-
-
-#endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_SYSTICK_REGISTERDEFINES_H_ */

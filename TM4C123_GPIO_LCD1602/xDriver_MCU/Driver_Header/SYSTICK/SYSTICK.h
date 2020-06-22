@@ -9,10 +9,9 @@
 #define HEADER_DRIVER_SYSTICK_H_
 
 
-#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Init.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Driver.h>
 
-#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_App/SYSTICK_Delay.h>
-#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_TimeUs.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_App/SYSTICK_App.h>
 
 
 

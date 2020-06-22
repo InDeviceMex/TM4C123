@@ -8,10 +8,6 @@
 #ifndef SYSEXC_H_
 #define SYSEXC_H_
 
-
-#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_Init.h>
-#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_Interrupt.h>
-
-
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_Driver.h>
 
 #endif /* SYSEXC_H_ */
