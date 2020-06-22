@@ -1,6 +1,6 @@
 /**
  *
- * @file FLASH_StructPëripheral_Bitbanding.h
+ * @file FLASH_StructRegister_Bitbanding.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

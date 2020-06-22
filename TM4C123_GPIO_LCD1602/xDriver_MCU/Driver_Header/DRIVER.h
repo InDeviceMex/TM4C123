@@ -1,6 +1,6 @@
 /**
  *
- * @file Driver.h
+ * @file DRIVER.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -24,8 +24,6 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_
 
-
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
 #include <xDriver_MCU/Driver_Header/HIB/HIB.h>
@@ -35,6 +33,5 @@
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

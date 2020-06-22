@@ -1,6 +1,6 @@
 /**
  *
- * @file SCB_PENDSV.h
+ * @file SCB_PendSV.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

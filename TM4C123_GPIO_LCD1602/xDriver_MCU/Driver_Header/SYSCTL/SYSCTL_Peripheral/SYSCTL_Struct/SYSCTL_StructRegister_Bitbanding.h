@@ -1,6 +1,6 @@
 /**
  *
- * @file SYSCTL_StructBitbanding.h
+ * @file SYSCTL_StructRegister_Bitbanding.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
