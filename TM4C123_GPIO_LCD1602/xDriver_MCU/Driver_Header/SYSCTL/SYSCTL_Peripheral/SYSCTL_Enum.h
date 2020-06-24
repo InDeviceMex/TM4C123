@@ -35,6 +35,12 @@ typedef enum
 
 typedef enum
 {
+    SYSCTL_enPLL=0u,
+    SYSCTL_enOSC,
+}SYSCTL_nBYPASS;
+
+typedef enum
+{
     SYSCTL_enNOPRESENT=0u,
     SYSCTL_enPRESENT=1u,
 }SYSCTL_nPERIPHERAL_PRESENT;
