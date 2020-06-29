@@ -7,7 +7,6 @@
 #include <DRIVER.h>
 #include <LCD1602/Generic_Header/LCD1602_Generic.h>
 
-#include <xDriver_MCU/Driver_Header/GPIO.h>
 #include <xDriver_MCU/Driver_Header/TIMER.h>
 #include "stdlib.h"
 

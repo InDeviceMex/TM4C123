@@ -9,7 +9,7 @@
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_ADAPTIVE_H_
 
 #include <stdint.h>
-#include <xDriver_MCU/Driver_Header/GPIO.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
 
 #define LCD1602_PORT_E  (GPIO_enPORTB)

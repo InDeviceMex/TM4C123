@@ -35,5 +35,6 @@
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
 #include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

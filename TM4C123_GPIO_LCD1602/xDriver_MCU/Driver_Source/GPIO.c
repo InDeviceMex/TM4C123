@@ -5,7 +5,7 @@
  *      Author: vyldram
  */
 
-#include <xDriver_MCU/Driver_Header/GPIO.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
 void GPIO_vDUMMY(void);
 void GPIOA_vISR(void);
 void GPIOB_vISR(void);
