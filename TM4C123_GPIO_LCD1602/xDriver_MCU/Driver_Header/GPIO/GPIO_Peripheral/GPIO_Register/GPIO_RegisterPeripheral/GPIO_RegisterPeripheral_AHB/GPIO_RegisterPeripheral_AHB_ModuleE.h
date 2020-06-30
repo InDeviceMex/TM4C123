@@ -71,7 +71,7 @@
 /******************************************************************************************
 ************************************ 5 GPIOIEV *********************************************
 ******************************************************************************************/
-//* GPIOC AHB IEV*/
+/* GPIOC AHB IEV*/
 #define GPIOE_AHB_GPIOIEV                  (((GPIOIEV_TypeDef*)     (GPIOE_AHB_BASE+GPIO_GPIOIEV_OFFSET)))
 #define GPIOE_AHB_GPIOIEV_R                (*((volatile uint32_t *)  (GPIOE_AHB_BASE+GPIO_GPIOIEV_OFFSET)))
 

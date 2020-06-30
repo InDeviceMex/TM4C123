@@ -1,6 +1,6 @@
 /**
  *
- * @file SYSTICK_RegisterAdress.h
+ * @file SYSTICK_RegisterAddress.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

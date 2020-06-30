@@ -8,9 +8,9 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-
-#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
@@ -84,9 +84,6 @@
 #define BIT31  ((uint32_t)0x800000000u)
 
 
-extern GPIO_TypeDef* GPIO_APB_BLOCK[6];
-extern GPIO_TypeDef* GPIO_AHB_BLOCK[6];
-
 
 void GPIO__vInit(void);
 void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
@@ -96,13 +93,8 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
 void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
 void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
 
-void GPIO__vSetReady(GPIO_nPORT enPort);
-void GPIO__vClearReady(GPIO_nPORT enPort);
-GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort);
-GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort);
 
-void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enDir);
-GPIO_nDIR GPIO__enGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin);
+
 
 void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
 uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
@@ -119,14 +111,7 @@ uint32_t GPIO_APB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO_APB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
 uint32_t GPIO_APB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense);
-GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vSetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nEDGE enEdge);
-GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel);
-GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
@@ -136,26 +121,12 @@ void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive);
-GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nOUTMODE enMode);
-GPIO_nOUTMODE GPIO__enGetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enMode);
-GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction);
 
@@ -181,11 +152,6 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction);
 
-void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 

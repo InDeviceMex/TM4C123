@@ -27,7 +27,8 @@
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Register/GPIO_RegisterPeripheral_Bitbanding/GPIO_RegisterPeripheral_AHB_Bitbanding/GPIO_RegisterPeripheral_AHB_Bitbanding.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Register/GPIO_RegisterPeripheral_Bitbanding/GPIO_RegisterPeripheral_APB_Bitbanding/GPIO_RegisterPeripheral_APB_Bitbanding.h>
 
-
+extern GPIO_BITBANDING_TypeDef* GPIO_BITBANDING_BLOCK[2][6];
+extern GPIO_AUX_BITBANDING_TypeDef* GPIO_AUX_BITBANDING_BLOCK[2][6];
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERPERIPHERAL_BITBANDING_GPIO_REGISTERPERIPHERAL_BITBANDING_H_ */
