@@ -1,0 +1,37 @@
+/**
+ *
+ * @file GPIO_ConfigStruct.h
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 3 jul. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ */
+#ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_CONFIG_GPIO_CONFIGSTRUCT_H_
+#define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_CONFIG_GPIO_CONFIGSTRUCT_H_
+
+#include <stdlib.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+
+
+void                 GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,GPIO_CONFIG_Typedef* psConfig);
+GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig);
+
+void                 GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef* psConfig);
+
+
+#endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_CONFIG_GPIO_CONFIGSTRUCT_H_ */

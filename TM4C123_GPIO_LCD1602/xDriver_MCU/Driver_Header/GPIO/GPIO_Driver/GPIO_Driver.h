@@ -26,10 +26,14 @@
 
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Intrinsics.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Alternative.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Drive.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Digital.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Resistor.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_OutputMode.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Data.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Data_AHB.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Data_APB.h>
 
 
 

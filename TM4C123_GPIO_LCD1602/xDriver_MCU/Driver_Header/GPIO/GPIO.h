@@ -9,11 +9,7 @@
 #define GPIO_H_
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
-
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
-#include <xDriver_MCU/Driver_Header/SCB/SCB.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_App.h>
 
 
 #define PIN0   ((uint32_t)0x000000001u)
@@ -85,41 +81,6 @@
 
 
 
-void GPIO__vInit(void);
-void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
-void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
-
-
-void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
-void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
-
-
-
-
-void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO_AHB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-void GPIO_AHB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO_AHB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO_APB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-void GPIO_APB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO_APB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-
-
-
-
-void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFIG enIntConfig);
-
-void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 
@@ -128,29 +89,13 @@ GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
 
-void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction);
-
-void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,GPIO_CONFIG_Typedef* psConfig);
-GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig);
-
-void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef* psConfig);
-
-GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig);
-GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,const GPIO_CONFIG_Typedef* psConfig);
-
-GPIO_nCONFIG GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_CONFIG_Typedef* psConfig);
-GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
-GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig);
-GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,const GPIO_CONFIG_Typedef* psConfig);
 
-GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
-void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Typedef* psConfig);
-GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
 
-void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction);
+
+
+
 
 
 
