@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_PERIPHERAL_SCB_REGISTER_SCB_REGISTERDEFINES_SCB_REGISTERDEFINES_INTCTLR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_PERIPHERAL_SCB_REGISTER_SCB_REGISTERDEFINES_SCB_REGISTERDEFINES_INTCTLR_H_
 
+#include <stdint.h>
+
 /********************************************************************************************/
 /************************************* 4 INTCTLR ***********************************************/
 /********************************************************************************************/

@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_REGISTER_NVIC_REGISTERDEFINES_NVIC_REGISTERDEFINES_SET4_NVIC_REGISTERDEFINES_SET4_IABR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_REGISTER_NVIC_REGISTERDEFINES_NVIC_REGISTERDEFINES_SET4_NVIC_REGISTERDEFINES_SET4_IABR_H_
 
+#include <stdint.h>
+
 /********************************************************************************************/
 /************************************* IABR4 ***********************************************/
 /********************************************************************************************/

@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_DRR_GPIO_REGISTERDEFINES_SLR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_DRR_GPIO_REGISTERDEFINES_SLR_H_
 
+#include <stdint.h>
+
 /******************************************************************************************
 ************************************ 17 GPIOSLR *********************************************
 ******************************************************************************************/

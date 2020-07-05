@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_MPU_REGISTERDEFINES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_MPU_MPU_PERIPHERAL_MPU_REGISTER_MPU_REGISTERDEFINES_H_
 
+#include <stdint.h>
+
 /**********************************************************************************************
 ************************************** 1 TYPER ***********************************************
 **********************************************************************************************/

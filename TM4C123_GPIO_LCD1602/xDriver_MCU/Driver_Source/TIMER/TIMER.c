@@ -6,7 +6,7 @@
  */
 
 
-#include <xDriver_MCU/Driver_Header/TIMER.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER.h>
 
 uint32_t TIMER_u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint32_t u32Bit);
 void TIMER_vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric, uint32_t u32Mask, uint32_t u32Bit);
