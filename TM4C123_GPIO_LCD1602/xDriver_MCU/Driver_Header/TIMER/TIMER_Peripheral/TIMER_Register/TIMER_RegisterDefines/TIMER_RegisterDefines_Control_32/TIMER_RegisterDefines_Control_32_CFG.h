@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_RegisterDefines_Control_32_GPTMCFG.h
+ * @file TIMER_RegisterDefines_Control_32_CFG.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

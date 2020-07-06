@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_StructPeripheral_Standard_32.h
+ * @file TIMER_StructPeripheral_Standard.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

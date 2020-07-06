@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_RegisterDefines_Standard_64_GPTMCFG.h
+ * @file TIMER_RegisterDefines_Standard_64_CFG.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
