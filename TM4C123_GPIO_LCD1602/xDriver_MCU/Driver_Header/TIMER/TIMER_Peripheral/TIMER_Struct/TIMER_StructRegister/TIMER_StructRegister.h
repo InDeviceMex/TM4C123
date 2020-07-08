@@ -24,12 +24,12 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTREGISTER_TIMER_STRUCTREGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTREGISTER_TIMER_STRUCTREGISTER_H_
 
+#include <TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleW_32.h>
+#include <TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleW_64.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_Standard.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_Control.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleA_16.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleA_32.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleAB_32.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleAB_64.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleB_16.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Struct/TIMER_StructRegister/TIMER_StructRegister_ModuleB_32.h>
 
