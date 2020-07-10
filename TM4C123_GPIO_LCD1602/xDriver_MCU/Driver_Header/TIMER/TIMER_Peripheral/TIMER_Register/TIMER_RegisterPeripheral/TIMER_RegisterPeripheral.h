@@ -37,5 +37,11 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_Standard_64/TIMER_RegisterPeripheral_Standard_64.h>
 
 
+#define GPTM                     (((GPTMS_TypeDef*)(GPTM_BASE)))
+#define GPTM_UNION               (((GPTM_UNION_TypeDef*)(GPTM_BASE)))
+
+#define GPWTM                     (((GPWTMS_TypeDef*)(GPWTM_BASE)))
+#define GPWTM_UNION               (((GPWTM_UNION_TypeDef*)(GPWTM_BASE)))
+
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_ */

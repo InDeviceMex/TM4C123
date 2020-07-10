@@ -1,6 +1,5 @@
 /**
- *
- * @file TIMER_StructPeripheral_Bitbanding_ModuleAB_32.h
+ * @file TIMER_StructPeripheral_Bitbanding_ModuleW_32.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
