@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_RegisterPeripheral_Bitbanding_Bitbanding.h
+ * @file TIMER_RegisterPeripheral_Bitbanding.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

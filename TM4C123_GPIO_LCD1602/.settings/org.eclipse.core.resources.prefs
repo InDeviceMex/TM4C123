@@ -355,6 +355,8 @@ encoding//Debug__TI/xDriver_MCU/Driver_Source/SYSTICK/SYSTICK_Driver/SYSTICK_Int
 encoding//Debug__TI/xDriver_MCU/Driver_Source/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/SYSTICK/SYSTICK_Driver/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/SYSTICK/SYSTICK_Driver/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/TIMER_Driver/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/TIMER_Driver/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/subdir_rules.mk=UTF-8

@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_RegisterDefines_ModuleAB_64.h
+ * @file TIMER_RegisterDefines_ModuleW_64.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

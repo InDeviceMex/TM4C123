@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_RegisterDefines_ModuleA_16_TAMR.h
+ * @file TIMER_RegisterDefines_ModuleA_16_MR.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

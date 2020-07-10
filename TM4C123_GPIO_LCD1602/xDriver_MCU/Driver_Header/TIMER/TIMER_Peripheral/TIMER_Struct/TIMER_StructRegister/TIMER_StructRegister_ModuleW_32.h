@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_StructRegister_ModuleAB_32.h
+ * @file TIMER_StructRegister_ModuleW_32.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

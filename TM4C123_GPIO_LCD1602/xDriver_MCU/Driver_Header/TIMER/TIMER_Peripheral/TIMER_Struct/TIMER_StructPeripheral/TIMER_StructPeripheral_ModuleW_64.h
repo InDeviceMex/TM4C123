@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_StructPeripheral_ModuleAB_64.h
+ * @file TIMER_StructPeripheral_ModuleW_64.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

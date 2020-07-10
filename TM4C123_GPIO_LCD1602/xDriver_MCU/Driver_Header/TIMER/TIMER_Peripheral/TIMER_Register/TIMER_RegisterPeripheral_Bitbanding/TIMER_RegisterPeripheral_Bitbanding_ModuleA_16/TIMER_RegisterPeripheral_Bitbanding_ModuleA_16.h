@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_RegisterPeripheral_Bitbanding_Bitbanding_ModuleA_16.h
+ * @file TIMER_RegisterPeripheral_Bitbanding_ModuleA_16.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
