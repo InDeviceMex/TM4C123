@@ -23,6 +23,7 @@
 /*******************************************************************************/
 
 #include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU.h>
 
 /*******************************************************************************/
 /**/
@@ -240,6 +241,8 @@ ResetISR(void)
     /* Jump to the CCS C initialization routine.  This will enable the*/
     /* floating-point unit as well, so that does not need to be done here.*/
     /**/
+
+    FPU__vInit();
     {__asm("    .global _c_int00\n"
           "    b.w     _c_int00");};
 }
