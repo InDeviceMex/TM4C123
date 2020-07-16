@@ -132,7 +132,6 @@ void TIMER__vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     psTimerIMR->GPTMIMR=u32Reg;
 }
 
-
 void TIMER__vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
     uint32_t u32Reg=0;

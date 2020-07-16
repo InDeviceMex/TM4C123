@@ -27,8 +27,8 @@
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
 
-void TIMER__vEnInterruptMODULE(TIMER_nMODULE enPort,TIMER_nPRIORITY enPriority);
-void TIMER__vDisInterruptMODULE(TIMER_nMODULE enPort);
+void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority);
+void TIMER__vDisInterruptMODULE(TIMER_nMODULE enModule);
 
 
 

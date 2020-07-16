@@ -26,6 +26,10 @@
 
 #include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Primitives/TIMER_Primitives.h>
 
+void TIMER__vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
+void TIMER__vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
+void TIMER__vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
+TIMER_nINT_STATUS TIMER__enStatusInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt);
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_INTRINSICS_TIMER_INTERRUPT_TIMER_INTERRUPTSOURCE_H_ */
