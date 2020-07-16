@@ -32,6 +32,7 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral_Bitbanding/TIMER_RegisterPeripheral_Bitbanding_ModuleA_32/TIMER_RegisterPeripheral_Bitbanding_ModuleA_32_Module5.h>
 
 
+extern GPWTM_BITBANDING_TA_TypeDef* GPWTM_BITBANDING_TA_BLOCK[6];
 
 
 

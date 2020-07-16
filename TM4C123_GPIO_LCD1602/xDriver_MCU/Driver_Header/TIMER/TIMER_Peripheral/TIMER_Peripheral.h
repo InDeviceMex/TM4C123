@@ -28,4 +28,13 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Enum.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Register/TIMER_Register.h>
 
+
+#define TIMER_MAX (5u)
+#define TIMER_INT (5u)
+#define TIMER_32  (0u)
+#define TIMER_64  (1u)
+#define TIMER_A  (0u)
+#define TIMER_B  (1u)
+#define TIMER_W  (2u)
+
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_PERIPHERAL_H_ */

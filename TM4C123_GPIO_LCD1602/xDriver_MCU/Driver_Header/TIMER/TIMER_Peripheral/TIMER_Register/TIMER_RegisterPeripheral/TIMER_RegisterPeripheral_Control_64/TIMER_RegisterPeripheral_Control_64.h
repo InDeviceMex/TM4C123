@@ -31,4 +31,6 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_Control_64/TIMER_RegisterPeripheral_Control_64_Module4.h>
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_Control_64/TIMER_RegisterPeripheral_Control_64_Module5.h>
 
+extern GPWTM_CTL_TypeDef* GPWTM_CTL_BLOCK[6];
+
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_CONTROL_64_TIMER_REGISTERPERIPHERAL_CONTROL_64_H_ */

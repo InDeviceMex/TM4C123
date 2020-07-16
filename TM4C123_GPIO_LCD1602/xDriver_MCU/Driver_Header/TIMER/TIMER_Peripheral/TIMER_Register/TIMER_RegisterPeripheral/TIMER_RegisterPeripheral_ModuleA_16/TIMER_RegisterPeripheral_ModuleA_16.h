@@ -32,7 +32,7 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_ModuleA_16/TIMER_RegisterPeripheral_ModuleA_16_Module4.h>
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_ModuleA_16/TIMER_RegisterPeripheral_ModuleA_16_Module5.h>
 
-
+extern GPTM_TA_TypeDef* GPTM_TA_BLOCK[6];
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_MODULEA_16_TIMER_REGISTERPERIPHERAL_MODULEA_16_H_ */

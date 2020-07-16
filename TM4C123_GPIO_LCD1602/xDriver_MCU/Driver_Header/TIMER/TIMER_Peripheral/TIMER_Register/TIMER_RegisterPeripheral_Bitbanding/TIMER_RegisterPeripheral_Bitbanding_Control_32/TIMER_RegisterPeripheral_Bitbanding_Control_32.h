@@ -32,7 +32,7 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral_Bitbanding/TIMER_RegisterPeripheral_Bitbanding_Control_32/TIMER_RegisterPeripheral_Bitbanding_Control_32_Module4.h>
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral_Bitbanding/TIMER_RegisterPeripheral_Bitbanding_Control_32/TIMER_RegisterPeripheral_Bitbanding_Control_32_Module5.h>
 
-
+extern GPTM_BITBANDING_CTL_TypeDef* GPTM_BITBANDING_CTL_BLOCK[6];
 
 
 

@@ -31,7 +31,7 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_ModuleW_64/TIMER_RegisterPeripheral_ModuleW_64_Module4.h>
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_ModuleW_64/TIMER_RegisterPeripheral_ModuleW_64_Module5.h>
 
-
+extern GPWTM_TW_TypeDef* GPWTM_TW_BLOCK[6];
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_MODULEW_64_TIMER_REGISTERPERIPHERAL_MODULEW_64_H_ */

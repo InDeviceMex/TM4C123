@@ -43,5 +43,13 @@
 #define GPWTM                     (((GPWTMS_TypeDef*)(GPWTM_BASE)))
 #define GPWTM_UNION               (((GPWTM_UNION_TypeDef*)(GPWTM_BASE)))
 
+extern GPTM_TypeDef *TIMER_BLOCK[2][6];
+
+extern volatile uint32_t * TIMER_TnMR_BLOCK[2][2][6];
+extern volatile uint32_t * TIMER_TnILR_BLOCK[2][2][6];
+extern volatile uint32_t * TIMER_TnPR_BLOCK[2][2][6];
+extern volatile uint32_t * TIMER_TnMATCHR_BLOCK[2][2][6];
+extern volatile uint32_t * TIMER_TnPMR_BLOCK[2][2][6];
+extern volatile uint32_t * TIMER_RTCPD_BLOCK[6];
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_ */

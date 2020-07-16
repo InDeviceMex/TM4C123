@@ -23,5 +23,5 @@
  */
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRoutine/GPIO_InterruptRoutine.h>
 
-void (*GPIO_ISR[6]) (void)={&GPIOA__vISR,&GPIOB__vISR,&GPIOC__vISR,&GPIOD__vISR,&GPIOE__vISR,&GPIOF__vISR};
+void (*GPIO__ISR[6]) (void)={&GPIOA__vISR,&GPIOB__vISR,&GPIOC__vISR,&GPIOD__vISR,&GPIOE__vISR,&GPIOF__vISR};
 

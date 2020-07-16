@@ -31,7 +31,7 @@
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_ModuleA_32/TIMER_RegisterPeripheral_ModuleA_32_Module4.h>
 #include <TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral/TIMER_RegisterPeripheral_ModuleA_32/TIMER_RegisterPeripheral_ModuleA_32_Module5.h>
 
-
+extern GPWTM_TA_TypeDef* GPWTM_TA_BLOCK[6];
 
 
 

@@ -39,8 +39,8 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
         }
         enVector=SCB_VECTOR_GPIO[enPort];
         u32Isr=((uint32_t)Isr|(uint32_t)1u);
-        GPIO_ISR[enPort]=(void (*) (void))u32Isr;
-        SCB__vRegisterISR(GPIO_ISR[enPort],enVector);
+        GPIO__ISR[enPort]=(void (*) (void))u32Isr;
+        SCB__vRegisterISR(GPIO__ISR[enPort],enVector);
     }
 }
 

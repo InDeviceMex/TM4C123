@@ -25,6 +25,11 @@
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_DRIVER_H_
 
 
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Intrinsics.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Configuration.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Syncronize.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Control/TIMER_Control.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_Mode.h>
 
 
 
