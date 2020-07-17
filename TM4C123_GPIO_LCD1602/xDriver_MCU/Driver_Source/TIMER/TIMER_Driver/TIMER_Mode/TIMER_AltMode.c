@@ -23,6 +23,10 @@
  */
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_AltMode.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_ModeGeneric.h>
+
 void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltMode)
 {
     TIMER__vSetModeGeneric(enModule, (uint32_t) enAltMode, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);

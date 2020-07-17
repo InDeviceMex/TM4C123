@@ -24,9 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODERELOADMATCH_TIMER_MODERELOADMATCH_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODERELOADMATCH_TIMER_MODERELOADMATCH_H_
 
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeReloadMatch/TIMER_ModeReloadMatchStruct.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_Mode.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Driver.h>
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Enum.h>
 
 TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);
 TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match);

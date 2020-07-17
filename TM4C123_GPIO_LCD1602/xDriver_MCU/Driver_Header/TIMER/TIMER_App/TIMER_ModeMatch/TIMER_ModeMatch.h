@@ -24,10 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODEMATCH_TIMER_MODEMATCH_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODEMATCH_TIMER_MODEMATCH_H_
 
-
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeMatch/TIMER_ModeMatchStruct.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_Mode.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Driver.h>
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Enum.h>
 
 
 TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode,uint64_t u64Match);

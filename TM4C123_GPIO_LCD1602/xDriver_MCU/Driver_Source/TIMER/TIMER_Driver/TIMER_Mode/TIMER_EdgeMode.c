@@ -23,6 +23,10 @@
  */
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_EdgeMode.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_ModeGeneric.h>
+
 void TIMER__vSetEdgeMode(TIMER_nMODULE enModule, TIMER_nEDGE_MODE enEdgeMode)
 {
 

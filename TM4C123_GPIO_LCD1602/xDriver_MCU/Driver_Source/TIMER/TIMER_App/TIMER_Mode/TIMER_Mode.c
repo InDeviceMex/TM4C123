@@ -25,7 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_Mode.h>
 
-
+#include <stdlib.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_ModeStruct.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Driver.h>
 
 
 TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)

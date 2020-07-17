@@ -24,6 +24,9 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_ModeStruct.h>
 
+#include <stdlib.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+
 void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode,TIMER_MODE_Typedef* psMode)
 {
 

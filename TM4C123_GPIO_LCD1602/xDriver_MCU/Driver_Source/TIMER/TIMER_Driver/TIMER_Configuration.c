@@ -23,6 +23,10 @@
  */
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Configuration.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Primitives/TIMER_Primitives.h>
+
 void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf)
 {
     uint32_t u32En=0;

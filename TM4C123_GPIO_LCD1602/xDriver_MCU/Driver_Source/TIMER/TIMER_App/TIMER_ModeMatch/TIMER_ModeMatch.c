@@ -24,6 +24,10 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeMatch/TIMER_ModeMatch.h>
 
 
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeMatch/TIMER_ModeMatchStruct.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_Mode.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Match.h>
+
 
 TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode,uint64_t u64Match)
 {

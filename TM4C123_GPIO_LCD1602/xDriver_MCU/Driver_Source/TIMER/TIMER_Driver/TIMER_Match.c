@@ -25,6 +25,14 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Match.h>
 
 
+
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Primitives/TIMER_Primitives.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Configuration.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_AltMode.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_CountDir.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_SubMode.h>
+
 void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
 {
 

@@ -24,6 +24,9 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeReload/TIMER_ModeReload.h>
 
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeReload/TIMER_ModeReloadStruct.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_Mode.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Reload.h>
 
 TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload)
 {

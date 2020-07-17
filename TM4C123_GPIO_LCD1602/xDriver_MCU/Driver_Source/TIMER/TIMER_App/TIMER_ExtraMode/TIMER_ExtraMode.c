@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ExtraMode/TIMER_ExtraMode.h>
 
+#include <stdlib.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_ModeStruct.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Driver.h>
 
 TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EXTRAMODE_Typedef* psExtraMode)
 {

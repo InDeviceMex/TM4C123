@@ -24,6 +24,10 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Mode/TIMER_PWMOutputInit.h>
 
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_ModeGeneric.h>
+
 void TIMER__vSetPWMOutputInit(TIMER_nMODULE enModule, TIMER_nPWM_OUT_INIT enPWMOutputInit)
 {
     TIMER__vSetModeGeneric(enModule, (uint32_t) enPWMOutputInit, GPTM_TA_GPTMTnMR_TnPLO_MASK, GPTM_TA_GPTMTnMR_R_TnPLO_BIT);

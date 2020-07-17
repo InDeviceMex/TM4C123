@@ -24,6 +24,10 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Control/TIMER_Enable.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_ControlGeneric.h>
+
 void TIMER__vSetEnable(TIMER_nMODULE enModule, TIMER_nENABLE enEnable)
 {
     TIMER__vSetControlGeneric(enModule, (uint32_t) enEnable, GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);

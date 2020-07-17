@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_INTRINSICS_TIMER_PRIMITIVES_TIMER_READY_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_INTRINSICS_TIMER_PRIMITIVES_TIMER_READY_H_
 
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Enum.h>
 
 void TIMER__vSetReady(TIMER_nMODULE enModule);
 void TIMER__vClearReady(TIMER_nMODULE enModule);

@@ -24,6 +24,9 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Init.h>
 
 
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Interrupt/TIMER_InterruptRegister/TIMER_InterruptRegisterMODULE.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Interrupt/TIMER_InterruptRoutine/TIMER_InterruptRoutine.h>
+
 void TIMER__vInit(void)
 {
     TIMER__vRegisterMODULEISR(&TIMER0A__vISR,TIMER_enT0A);

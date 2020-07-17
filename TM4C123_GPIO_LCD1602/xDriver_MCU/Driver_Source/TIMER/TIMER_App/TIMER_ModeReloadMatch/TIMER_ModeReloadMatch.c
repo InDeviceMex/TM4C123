@@ -24,6 +24,11 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeReloadMatch/TIMER_ModeReloadMatch.h>
 
 
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_ModeReloadMatch/TIMER_ModeReloadMatchStruct.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_App/TIMER_Mode/TIMER_Mode.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Reload.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Match.h>
+
 TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enERROR;

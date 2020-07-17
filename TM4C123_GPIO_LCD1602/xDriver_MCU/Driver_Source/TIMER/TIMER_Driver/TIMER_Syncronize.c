@@ -24,6 +24,8 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Syncronize.h>
 
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+
 void TIMER__vSetSyncronize(TIMER_nSYNC enSync)
 {
     GPTM0_GPTMSYNC_R=(uint32_t)enSync&(uint32_t)TIMER_enSYNC_ALL;

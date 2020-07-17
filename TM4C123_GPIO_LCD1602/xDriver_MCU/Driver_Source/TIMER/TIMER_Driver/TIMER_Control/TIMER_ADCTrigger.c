@@ -23,6 +23,10 @@
  */
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Control/TIMER_ADCTrigger.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_ControlGeneric.h>
+
 void TIMER__vSetADCTrigger(TIMER_nMODULE enModule, TIMER_nADC_TRIGGER enADCTrigger)
 {
     TIMER__vSetControlGeneric(enModule, (uint32_t) enADCTrigger,GPTM_TA_GPTMTnCTL_TnOTE_MASK, GPTM_TA_GPTMTnCTL_R_TnOTE_BIT);

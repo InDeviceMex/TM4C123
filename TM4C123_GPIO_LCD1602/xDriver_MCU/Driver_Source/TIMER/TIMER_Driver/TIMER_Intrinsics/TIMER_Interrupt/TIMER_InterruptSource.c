@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Interrupt/TIMER_InterruptSource.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
+#include <TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Primitives/TIMER_Primitives.h>
 
 static uint32_t u32IntMask[3]={(uint32_t)TIMER_enINT_TA_ALL,(uint32_t)TIMER_enINT_TB_ALL,(uint32_t)TIMER_enINT_TW_ALL};
 
