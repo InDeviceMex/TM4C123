@@ -9,8 +9,10 @@
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Interrupt.h>
 
-#define HIB_TIMEOUT_MAX (100000u)
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
 
+#define HIB_TIMEOUT_MAX (100000u)
 
 HIB_nSTATUS HIB__enEnInterrupt(HIB_nINTERRUPT enInterrupt)
 {

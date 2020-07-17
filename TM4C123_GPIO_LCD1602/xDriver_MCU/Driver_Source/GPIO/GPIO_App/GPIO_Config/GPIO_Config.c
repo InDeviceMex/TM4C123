@@ -21,12 +21,12 @@
  * Date           Author     Version     Description
  * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
-
-
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Config/GPIO_Config.h>
 
+#include <stdlib.h>
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Config/GPIO_ConfigStruct.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
 
 
 GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig)

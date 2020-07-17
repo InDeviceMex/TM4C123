@@ -6,6 +6,9 @@
  */
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Write.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
 
 EEPROM_nSTATUS EEPROM__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
 {

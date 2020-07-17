@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock_RCC.h>
 
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock_Utils.h>
+
 static uint32_t SYSCTL_enGetPLLFreq_RCC(void);
 static SYSCTL_nBYPASS SYSCTL_enGetOSCSourceFreq_RCC(uint32_t *pu32Frequency);
 

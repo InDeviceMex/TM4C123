@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Init.h>
 
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
+
+
 void GPIO__vInit(void)
 {
     GPIO__vRegisterAllMODULEDefault();

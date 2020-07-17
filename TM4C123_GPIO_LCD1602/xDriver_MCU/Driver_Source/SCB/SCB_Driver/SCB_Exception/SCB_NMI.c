@@ -27,6 +27,8 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_NMI.h>
 
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+
 inline void SCB_NMI__vSetPending(void)
 {
     SCB_ICSR_R|=SCB_ICSR_R_NMIPENDSET_SET;

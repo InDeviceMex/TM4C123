@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_WAKEUP_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_WAKEUP_H_
 
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Enum.h>
 
 SCB_nSTATUS SCB__enSetWakeUpSource(SCB_nWAKEUPSOURCE enSource);
 SCB_nWAKEUPSOURCE SCB__enGetWakeUpSource(void);

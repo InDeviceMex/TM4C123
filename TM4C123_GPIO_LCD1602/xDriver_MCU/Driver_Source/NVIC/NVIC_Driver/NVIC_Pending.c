@@ -21,11 +21,10 @@
  * Date           Author     Version     Description
  * 20 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Pending.h>
 
-
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Peripheral.h>
 
 inline NVIC_nPENDING NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ)
 {

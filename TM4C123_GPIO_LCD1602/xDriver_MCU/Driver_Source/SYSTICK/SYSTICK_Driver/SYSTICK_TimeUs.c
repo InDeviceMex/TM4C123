@@ -10,6 +10,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_TimeUs.h>
 
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_FreeCount.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_TickUs.h>
+
 
 float SysTick__fGetTimeUs(void)
 {

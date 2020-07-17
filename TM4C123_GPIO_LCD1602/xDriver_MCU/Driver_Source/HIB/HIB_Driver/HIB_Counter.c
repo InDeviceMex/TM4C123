@@ -7,6 +7,9 @@
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Counter.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
+
 #define HIB_TIMEOUT_MAX (100000u)
 
 HIB_nSTATUS HIB__enReadCounter(uint32_t* pu32Counter, uint32_t *pu32SubCounter)

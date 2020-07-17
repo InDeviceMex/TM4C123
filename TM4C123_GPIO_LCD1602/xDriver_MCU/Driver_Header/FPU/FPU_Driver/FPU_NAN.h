@@ -8,9 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_NAN_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_NAN_H_
 
-
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
-
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Enum.h>
 
 FPU_nNAN    FPU__enGetNAN(void);
 void        FPU__vSetNAN(FPU_nNAN enNAN);

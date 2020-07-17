@@ -24,6 +24,10 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_PeripheralRunMode.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_PeripheralReset.h>
+
 #define SYSCTL_vNoOperation()   {__asm(" NOP");}
 
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)

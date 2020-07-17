@@ -24,8 +24,6 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_TRAPS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_TRAPS_H_
 
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
-
 void SCB__vEnableTraps(void);
 
 void SCB__vEnDIV0Trap(void);
@@ -36,9 +34,6 @@ void SCB__vDisUnAlignTrap(void);
 
 void SCB__vEnUnprivilegedSWTRIGGER(void);
 void SCB__vDisUnprivilegedSWTRIGGER(void);
-
-
-
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_TRAPS_H_ */

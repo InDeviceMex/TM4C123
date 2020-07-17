@@ -24,6 +24,11 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_AnalogFunction.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Primitives/GPIO_Primitives.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Config/GPIO_Config.h>
+
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
 {
     uint32_t u32Port =(enFunction>>8u)&0xFFu;

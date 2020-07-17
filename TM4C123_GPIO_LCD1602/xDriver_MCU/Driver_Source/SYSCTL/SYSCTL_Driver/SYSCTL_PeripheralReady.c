@@ -24,6 +24,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_PeripheralReady.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+
 SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeripheral)
 {
     uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;

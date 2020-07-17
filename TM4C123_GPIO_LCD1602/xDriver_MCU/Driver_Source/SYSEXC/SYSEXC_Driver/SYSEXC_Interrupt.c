@@ -25,7 +25,8 @@
 
 #include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_Interrupt.h>
 
-
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Peripheral/SYSEXC_Peripheral.h>
 
 void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt)
 {

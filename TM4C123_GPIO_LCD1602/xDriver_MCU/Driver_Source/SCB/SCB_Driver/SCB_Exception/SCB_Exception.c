@@ -22,7 +22,7 @@
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_Exception.h>
 
 inline void SCB__vEnableExceptions(void)
 {

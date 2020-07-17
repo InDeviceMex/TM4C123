@@ -10,6 +10,8 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_LazyPreservation.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
 
 FPU_nPRESERVATION_STATUS FPU__enGetLazyPreservationStatus(void)
 {

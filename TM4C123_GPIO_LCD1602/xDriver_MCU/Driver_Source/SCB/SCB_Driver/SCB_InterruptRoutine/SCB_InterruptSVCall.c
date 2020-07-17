@@ -24,7 +24,6 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_InterruptRoutine/SCB_InterruptSVCall.h>
 
-
 void SVCall__vISR(void)
 {
     while(1u){}

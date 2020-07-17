@@ -7,6 +7,8 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_AutoPreservation.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
 FPU_nAUTO_PRESERVATION FPU__enGetAutoPreservation(void)
 {
     FPU_nAUTO_PRESERVATION enReturn= FPU_enAUTO_PRESERVATION_DIS;

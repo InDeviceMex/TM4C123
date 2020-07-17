@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_ISR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_ISR_H_
 
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Enum.h>
 
 SCB_nPENDSTATE SCB_ISR__enGetPendingState(void);
 SCB_nVECISR SCB_ISR__enGetVectorPending(void);

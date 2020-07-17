@@ -24,6 +24,9 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_ADCTrigger.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Primitives/GPIO_Primitives.h>
 
 void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {

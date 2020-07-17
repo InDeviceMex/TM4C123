@@ -24,6 +24,8 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Primitives/GPIO_Ready.h>
 
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+
 void GPIO__vSetReady(GPIO_nPORT enPort)
 {
     SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;

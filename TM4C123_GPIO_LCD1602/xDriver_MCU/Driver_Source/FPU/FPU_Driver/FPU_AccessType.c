@@ -8,6 +8,8 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_AccessType.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
 
 #define FPU_vBlocking() {__asm(" DSB");__asm(" ISB");}
 

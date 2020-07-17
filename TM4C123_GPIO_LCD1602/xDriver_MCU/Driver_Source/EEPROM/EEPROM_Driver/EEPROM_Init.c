@@ -1,7 +1,12 @@
 /**
  * @section Include Files
  */
+
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Init.h>
+
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
 
 
 

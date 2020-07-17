@@ -25,6 +25,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_APP_H_
 
 
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Config/GPIO_Config.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_DigitalConfig.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_AnalogFunction.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Init.h>

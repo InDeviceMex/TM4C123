@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_CLOCK_SYSCTL_CLOCK_UTILS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_CLOCK_SYSCTL_CLOCK_UTILS_H_
 
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <stdint.h>
 
 uint32_t SYSCTL__u32GetOSCSourceFreq_Div(uint32_t u32Frequency);
 uint32_t SYSCTL__u32GetFreqXtal(uint32_t u32Index);

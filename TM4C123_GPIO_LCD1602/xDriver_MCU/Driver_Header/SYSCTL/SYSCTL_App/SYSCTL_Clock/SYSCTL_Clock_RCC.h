@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_CLOCK_SYSCTL_CLOCK_RCC_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_CLOCK_SYSCTL_CLOCK_RCC_H_
 
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock_Utils.h>
+#include <stdint.h>
 
 uint32_t SYSCTL__u32GetClock_RCC(void);
 

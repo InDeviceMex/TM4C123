@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_SysReset.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+
 #define SCB_vBarrier() {__asm(" DSB");}
 inline void SCB__vReqSysReset(void)
 {

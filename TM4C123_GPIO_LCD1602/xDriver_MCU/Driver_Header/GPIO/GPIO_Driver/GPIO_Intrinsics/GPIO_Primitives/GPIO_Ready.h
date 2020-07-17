@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_READY_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_READY_H_
 
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Enum.h>
 
 void GPIO__vSetReady(GPIO_nPORT enPort);
 void GPIO__vClearReady(GPIO_nPORT enPort);

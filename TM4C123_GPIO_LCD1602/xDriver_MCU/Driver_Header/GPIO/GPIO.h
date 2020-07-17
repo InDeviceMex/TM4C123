@@ -8,9 +8,9 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_App.h>
-
 
 #define PIN0   ((uint32_t)0x000000001u)
 #define PIN1   ((uint32_t)0x000000002u)
@@ -78,26 +78,5 @@
 #define BIT29  ((uint32_t)0x200000000u)
 #define BIT30  ((uint32_t)0x400000000u)
 #define BIT31  ((uint32_t)0x800000000u)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif /* GPIO_H_ */

@@ -11,6 +11,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Frequency.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_FreeCount.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_TickFreq.h>
 
 float SysTick__fGetFrequency(void)
 {

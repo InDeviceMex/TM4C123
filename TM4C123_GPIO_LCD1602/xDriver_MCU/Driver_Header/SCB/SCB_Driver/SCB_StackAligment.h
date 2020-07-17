@@ -24,17 +24,10 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_STACKALIGMENT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_STACKALIGMENT_H_
 
-
-
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
-
-
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Enum.h>
 
 SCB_nSTATUS SCB__enSetStackAligment(SCB_nAlignment enAlign);
 SCB_nAlignment SCB__enGetStackAligment(void);
-
-
-
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_STACKALIGMENT_H_ */

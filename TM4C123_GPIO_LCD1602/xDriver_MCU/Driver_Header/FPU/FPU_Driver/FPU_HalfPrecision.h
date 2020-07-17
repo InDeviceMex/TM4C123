@@ -8,7 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_HALFPRECISION_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_HALFPRECISION_H_
 
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Enum.h>
 
 FPU_nHALF_PRECISION FPU__enGetHalfPrecision(void);
 void       FPU__vSetHalfPrecision(FPU_nHALF_PRECISION enHalfPrecision);

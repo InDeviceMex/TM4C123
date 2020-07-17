@@ -8,6 +8,14 @@
 
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Init.h>
 
+
+#include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Peripheral/SYSTICK_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_InterruptRoutine.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_Intrinsics.h>
+
 static void SysTick_vClarAllCounter(void);
 
 SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysTick_nCLKSOURCE enClockSource)
@@ -47,7 +55,7 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         SysTick__vSetTickCount(u32Tick);
 
         SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
-        SCB_SHPR3->SYSTICK=(uint32_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
+        SCB_SysTick__vSetPriority(enPriority);
         SysTick_RVR_R=u32Tick-1u;
         SysTick_CVR_R=0u;
         SysTick_CSR_R|=SysTick_CSR_R_TICKINT_EN|SysTick_CSR_R_ENABLE_EN;
@@ -105,7 +113,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
             SysTick__vSetTickCount(u32CountTick);
 
             SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
-            SCB_SHPR3->SYSTICK=(uint32_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
+            SCB_SysTick__vSetPriority(enPriority);
             SysTick_RVR_R=u32CountTick-1u;
             SysTick_CVR_R=0u;
             SysTick_CSR_R|=SysTick_CSR_R_TICKINT_EN|SysTick_CSR_R_ENABLE_EN;
@@ -171,7 +179,7 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
             SysTick__vSetTickCount(u32CountTick);
 
             SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
-            SCB_SHPR3->SYSTICK=(uint32_t)enPriority&SCB_SHPR3_SYSTICK_MASK;
+            SCB_SysTick__vSetPriority(enPriority);
             SysTick_RVR_R=u32CountTick-1u;
             SysTick_CVR_R=0u;
             SysTick_CSR_R|=SysTick_CSR_R_TICKINT_EN|SysTick_CSR_R_ENABLE_EN;

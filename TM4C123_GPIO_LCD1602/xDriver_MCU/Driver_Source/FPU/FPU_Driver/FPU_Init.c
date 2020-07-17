@@ -7,6 +7,13 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU.h>
 
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_AccessType.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_AutoPreservation.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_LazyPreservation.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_HalfPrecision.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_NAN.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_Rounding.h>
+
 void FPU__vInit(void)
 {
 

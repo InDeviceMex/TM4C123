@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_ALTERNATIVE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_ALTERNATIVE_H_
 
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Intrinsics.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Enum.h>
 
 void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);

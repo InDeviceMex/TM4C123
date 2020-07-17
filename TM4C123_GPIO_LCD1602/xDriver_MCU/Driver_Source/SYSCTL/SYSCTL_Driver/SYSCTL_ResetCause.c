@@ -24,6 +24,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_ResetCause.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+
 SYSCTL_nRESET SYSCTL__enGetResetCause(void)
 {
     uint32_t u32Reg=0;

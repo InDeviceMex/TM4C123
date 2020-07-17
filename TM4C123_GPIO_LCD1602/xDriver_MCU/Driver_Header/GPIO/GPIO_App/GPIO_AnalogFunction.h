@@ -24,9 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_ANALOGFUNCTION_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_ANALOGFUNCTION_H_
 
-
-
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_Config/GPIO_Config.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Enum.h>
 
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction);
 

@@ -21,8 +21,8 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_H_
-#define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_H_
+#ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_SCB_EXCEPTION_H_
+#define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_SCB_EXCEPTION_H_
 
 #include <SCB/SCB_Driver/SCB_Exception/SCB_PendSV.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Exception/SCB_BusFault.h>
@@ -37,4 +37,4 @@
 
 void SCB__vEnableExceptions(void);
 
-#endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_SCB_EXCEPTION_H_ */

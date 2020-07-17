@@ -25,8 +25,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INTERRUPT_H_
 
 
-
-#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Peripheral/SYSEXC_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Peripheral/SYSEXC_Enum.h>
 
 /* ToDo make a better handle of interupt as GPIO*/
 void SYSEXC__vEnInterrupt(SYSEXC_nINTERRUPT enInt);

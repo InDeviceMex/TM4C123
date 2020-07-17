@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DMATRIGGER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DMATRIGGER_H_
 
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Primitives/GPIO_Primitives.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Enum.h>
 
 void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);

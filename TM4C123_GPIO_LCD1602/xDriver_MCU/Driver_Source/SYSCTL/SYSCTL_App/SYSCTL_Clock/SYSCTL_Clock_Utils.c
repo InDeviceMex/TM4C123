@@ -24,6 +24,7 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock_Utils.h>
 
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
 
 #define  SYSCTL_FREQXTAL_INDEXMAX ((uint32_t)27u)
 

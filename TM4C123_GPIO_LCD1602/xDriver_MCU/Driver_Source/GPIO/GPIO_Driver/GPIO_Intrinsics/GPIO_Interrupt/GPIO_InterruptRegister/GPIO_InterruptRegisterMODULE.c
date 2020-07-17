@@ -24,6 +24,10 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRegister/GPIO_InterruptRegisterMODULE.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRoutine/GPIO_InterruptRoutine.h>
 
 void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
 {

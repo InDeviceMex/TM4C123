@@ -6,6 +6,10 @@
  */
 #include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Read.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
+
 EEPROM_nSTATUS EEPROM__enReadWorld (uint32_t *pu32Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;

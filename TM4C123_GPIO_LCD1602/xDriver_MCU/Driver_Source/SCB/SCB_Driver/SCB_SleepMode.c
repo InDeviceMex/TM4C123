@@ -21,9 +21,10 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_SleepMode.h>
+
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
 
 SCB_nSTATUS SCB__enSetSleepMode(SCB_nSleepDeep enSleepMode)
 {

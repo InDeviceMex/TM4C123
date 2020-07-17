@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_InterruptRoutine.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Peripheral/SYSEXC_Peripheral.h>
+
 uint32_t SYSEXC_pu32Context[8];
 
 void SYSEXC__vISR(void)

@@ -9,8 +9,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_ROUNDING_H_
 
 
-
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Enum.h>
 
 FPU_nROUNDING       FPU__enGetRounding(void);
 void        FPU__vSetRounding(FPU_nROUNDING enRounding);

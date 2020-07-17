@@ -23,6 +23,10 @@
  */
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_VectorOffset.h>
+
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteMulti.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+
 #define SCB_vBarrier() {__asm(" DSB");}
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {

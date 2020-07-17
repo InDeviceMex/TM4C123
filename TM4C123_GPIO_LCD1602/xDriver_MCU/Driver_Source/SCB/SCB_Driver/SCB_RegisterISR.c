@@ -25,6 +25,10 @@
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_RegisterISR.h>
 
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Write.h>
+
 void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;

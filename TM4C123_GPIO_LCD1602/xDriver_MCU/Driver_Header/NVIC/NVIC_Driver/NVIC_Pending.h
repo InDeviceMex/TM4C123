@@ -24,10 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_PENDING_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_PENDING_H_
 
-
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Peripheral.h>
-
-
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Enum.h>
 
 NVIC_nPENDING   NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ);
 NVIC_nSTATUS    NVIC__enSetPendingIRQ(NVIC_nSTIR enIRQ);

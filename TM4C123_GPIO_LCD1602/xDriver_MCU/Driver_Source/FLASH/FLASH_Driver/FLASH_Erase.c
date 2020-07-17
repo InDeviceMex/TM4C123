@@ -7,6 +7,10 @@
 
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Erase.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Wait.h>
 
 
 static FLASH_nSTATUS FLASH_enInitPageErase (uint32_t u32Key);

@@ -24,10 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_DIGITALCONFIG_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_DIGITALCONFIG_H_
 
-
-
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_DigitalFunction.h>
-
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Enum.h>
 
 GPIO_nSTATUS        GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig);
 GPIO_nSTATUS        GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,const GPIO_CONFIG_Typedef* psConfig);

@@ -9,6 +9,8 @@
 
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_InterruptRoutine.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_FreeCount.h>
 
 void SysTick__vISR(void)
 {

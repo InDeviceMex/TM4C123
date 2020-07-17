@@ -9,7 +9,9 @@
 
 #include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_App/SYSTICK_Delay.h>
 
-
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_TickUs.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_Intrinsics/SYSTICK_TickCount.h>
+#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK_Driver/SYSTICK_TickAccumulated.h>
 
 
  void SysTick__vDelayUs(float fTimeUs)

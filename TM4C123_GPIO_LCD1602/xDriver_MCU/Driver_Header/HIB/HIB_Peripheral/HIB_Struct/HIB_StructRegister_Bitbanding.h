@@ -25,7 +25,6 @@
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_STRUCT_HIB_STRUCTREGISTER_BITBANDING_H_
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Struct/HIB_StructRegister_Bitbanding.h>
-
 #include <stdint.h>
 
 typedef volatile struct

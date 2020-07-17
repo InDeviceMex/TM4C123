@@ -26,6 +26,12 @@
 #include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_Init.h>
 
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Peripheral/SYSEXC_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC_Driver/SYSEXC_InterruptRoutine.h>
+
 void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri)
 {
     uint32_t u32Reg= (uint32_t)enInt & (uint32_t)0x3F;

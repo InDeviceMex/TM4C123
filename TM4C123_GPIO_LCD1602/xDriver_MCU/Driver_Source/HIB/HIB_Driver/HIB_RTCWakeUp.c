@@ -8,6 +8,9 @@
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_RTCWakeUp.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
+
 #define HIB_TIMEOUT_MAX (100000u)
 
 

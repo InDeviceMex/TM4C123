@@ -9,6 +9,10 @@
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_InterruptRoutine.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_Intrinsics.h>
 
 void HIB__vISR(void)
 {

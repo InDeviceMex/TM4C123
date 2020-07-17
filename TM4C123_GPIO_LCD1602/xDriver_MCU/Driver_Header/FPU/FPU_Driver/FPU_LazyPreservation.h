@@ -8,8 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_LAZYPRESERVATION_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_LAZYPRESERVATION_H_
 
-
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Enum.h>
 
 FPU_nPRESERVATION_STATUS FPU__enGetLazyPreservationStatus(void);
 FPU_nLAZY_PRESERVATION FPU__enGetLazyPreservation(void);

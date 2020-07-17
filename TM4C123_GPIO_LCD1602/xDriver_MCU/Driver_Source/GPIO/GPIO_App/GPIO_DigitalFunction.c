@@ -24,6 +24,12 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_DigitalFunction.h>
 
+#include <stdint.h>
+#include <stdlib.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Primitives/GPIO_Primitives.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
+
 void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
 {
     GPIO_nBUS enBus=GPIO_enAPB;

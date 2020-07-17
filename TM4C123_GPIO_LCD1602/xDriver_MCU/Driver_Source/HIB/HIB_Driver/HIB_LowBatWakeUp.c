@@ -8,6 +8,8 @@
 
 #include <xDriver_MCU/Driver_Header/HIB/HIB_Driver/HIB_LowBatWakeUp.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/HIB/HIB_Peripheral/HIB_Peripheral.h>
 #define HIB_TIMEOUT_MAX (100000u)
 
 HIB_nSTATUS HIB__enEnLOWBATWakeUp(void)

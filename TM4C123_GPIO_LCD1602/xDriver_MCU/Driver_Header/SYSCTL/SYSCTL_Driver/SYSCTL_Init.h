@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_DRIVER_SYSCTL_INIT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_DRIVER_SYSCTL_INIT_H_
 
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_GPIOBus.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Enum.h>
 
 SYSCTL_nSTATUS SYSCTL__enInit(void);
 

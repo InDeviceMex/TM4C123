@@ -26,7 +26,6 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_InterruptRoutine/SCB_InterruptPendSV.h>
 
-
 void PendSV__vISR(void)
 {
     /*context switch, lower priority*/

@@ -21,8 +21,10 @@
  * Date           Author     Version     Description
  * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_PeripheralDeepSleepMode.h>
+
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
 
 #define SYSCTL_vNoOperation()   {__asm(" NOP");}
 

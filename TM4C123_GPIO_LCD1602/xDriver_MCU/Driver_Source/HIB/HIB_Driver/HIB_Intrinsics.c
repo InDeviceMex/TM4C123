@@ -11,8 +11,6 @@
 static HIB_nREADY HIB_enStatus =HIB_enBUSY;
 static HIB_nREADY HIB_enCount=HIB_enBUSY;
 
-
-
 void HIB__enSetGlobalStatus(HIB_nREADY enStatus)
 {
     HIB_enStatus=enStatus;

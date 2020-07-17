@@ -24,6 +24,9 @@
 
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Priority.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Peripheral.h>
+
 inline NVIC_nSTATUS NVIC__enSetPriorityIRQ(NVIC_nSTIR enIRQ,NVIC_nPRIORITY enPriority)
 {
     NVIC_nSTATUS enStatus= NVIC_enERROR;

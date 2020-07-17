@@ -24,12 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_TRIGGER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_TRIGGER_H_
 
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Peripheral.h>
-
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Enum.h>
 
 NVIC_nSTATUS    NVIC__enTriggerIRQ(NVIC_nSTIR enIRQ);
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_TRIGGER_H_ */

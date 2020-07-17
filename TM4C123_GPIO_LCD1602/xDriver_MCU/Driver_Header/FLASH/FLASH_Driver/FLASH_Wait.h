@@ -9,8 +9,9 @@
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WAIT_H_
 
 
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Peripheral.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Enum.h>
 
 #if defined ( __TI_ARM__ )
 

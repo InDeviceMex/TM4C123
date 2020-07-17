@@ -24,6 +24,8 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_StackAligment.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
 
 SCB_nSTATUS SCB__enSetStackAligment(SCB_nAlignment enAlign)
 {

@@ -9,8 +9,6 @@
 #define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_DRIVER_SYSTICK_TICKFREQ_H_
 
 
-#include <stdint.h>                             /* standard types definitions                      */
-
 void SysTick__vClearTickFreq(void);
 void SysTick__vSetTickFreq(float fTick);
 float SysTick__fGetTickFreq(void);

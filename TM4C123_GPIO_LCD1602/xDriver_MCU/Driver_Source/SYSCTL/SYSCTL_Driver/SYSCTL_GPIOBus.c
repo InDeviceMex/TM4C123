@@ -24,6 +24,10 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_GPIOBus.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+
+
 void SYSCTL__vSetGPIOBus_AHB(SYSCTL_nGPIOBUS enGPIO)
 {
     SYSCTL_GPIOHBCTL_R|=enGPIO;

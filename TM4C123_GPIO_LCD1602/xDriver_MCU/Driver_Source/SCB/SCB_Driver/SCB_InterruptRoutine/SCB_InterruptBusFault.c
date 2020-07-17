@@ -25,6 +25,9 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_InterruptRoutine/SCB_InterruptBusFault.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+
 uint32_t SCB_BusFault_pu32Context[8];
 
 void BusFault__vISR(void)

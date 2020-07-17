@@ -9,6 +9,8 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_NAN.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
 FPU_nNAN FPU__enGetNAN(void)
 {
     FPU_nNAN enReturn= FPU_enNAN_PROPAGATE;

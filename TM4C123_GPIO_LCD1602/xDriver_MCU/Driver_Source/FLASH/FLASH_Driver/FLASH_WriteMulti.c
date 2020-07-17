@@ -8,6 +8,12 @@
 
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteMulti.h>
 
+#include <stdint.h>
+#include <stdlib.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Erase.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteIntrinsics.h>
+
 FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Address,uint32_t u32Count)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;

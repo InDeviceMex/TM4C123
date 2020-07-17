@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_BUSFAULT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_BUSFAULT_H_
 
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
-
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Enum.h>
 
 void SCB_BusFault__vSetPriority(SCB_nSHPR enPriority);
 SCB_nSHPR SCB_BusFault__enGetPriority(void);

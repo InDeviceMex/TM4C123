@@ -8,6 +8,9 @@
 
 #include <xDriver_MCU/Driver_Header/FPU/FPU_Driver/FPU_HalfPrecision.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
+
 FPU_nHALF_PRECISION FPU__enGetHalfPrecision(void)
 {
     FPU_nHALF_PRECISION enReturn= FPU_enHALF_PRECISION_IEEE;

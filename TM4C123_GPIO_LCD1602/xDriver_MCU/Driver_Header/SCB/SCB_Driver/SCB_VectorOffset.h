@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteMulti.h>
-#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+#include <stdint.h>
 
 void SCB__vSetVectorOffset(uint32_t u32Offset);
 

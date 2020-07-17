@@ -32,10 +32,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_INIT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_INIT_H_
 
-
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Driver/EEPROM_Intrinsics.h>
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM_Peripheral/EEPROM_Enum.h>
 
 /**
  * @brief EEPROM Initialization Function

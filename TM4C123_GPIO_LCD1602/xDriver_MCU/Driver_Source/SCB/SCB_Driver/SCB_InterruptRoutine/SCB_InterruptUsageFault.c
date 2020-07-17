@@ -24,6 +24,8 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_InterruptRoutine/SCB_InterruptUsageFault.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
 uint32_t SCB_UsageFault_pu32Context[8];
 
 void UsageFault__vISR(void)

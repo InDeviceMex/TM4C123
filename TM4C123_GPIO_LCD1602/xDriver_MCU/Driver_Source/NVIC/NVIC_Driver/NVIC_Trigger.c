@@ -24,7 +24,8 @@
 
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Trigger.h>
 
-
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Peripheral.h>
 
 NVIC_nSTATUS    NVIC__enTriggerIRQ(NVIC_nSTIR enIRQ)
 {
@@ -37,6 +38,3 @@ NVIC_nSTATUS    NVIC__enTriggerIRQ(NVIC_nSTIR enIRQ)
     }
     return enStatus;
 }
-
-
-

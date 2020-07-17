@@ -25,6 +25,9 @@
 
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_PriorityGroup.h>
+
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
 #define SCB_vBarrier() {__asm(" DSB");}
 
 SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup)

@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_DRIVER_SYSCTL_PERIPHERALRUNMODE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_DRIVER_SYSCTL_PERIPHERALRUNMODE_H_
 
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_PeripheralReset.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Enum.h>
 
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral);
 void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral);

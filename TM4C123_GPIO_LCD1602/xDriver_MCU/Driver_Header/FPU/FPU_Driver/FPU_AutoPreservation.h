@@ -8,8 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_AUTOPRESERVATION_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_DRIVER_FPU_AUTOPRESERVATION_H_
 
-#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Peripheral.h>
-
+#include <xDriver_MCU/Driver_Header/FPU/FPU_Peripheral/FPU_Enum.h>
 
 FPU_nAUTO_PRESERVATION FPU__enGetAutoPreservation(void);
 void        FPU__vSetAutoPreservation(FPU_nAUTO_PRESERVATION enAuto);

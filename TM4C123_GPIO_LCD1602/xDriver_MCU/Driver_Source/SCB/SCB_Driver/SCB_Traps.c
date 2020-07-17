@@ -26,12 +26,9 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_Traps.h>
 
-inline void SCB__vEnableTraps(void)
-{
-    SCB__vEnDIV0Trap();
-    SCB__vEnUnAlignTrap();
-    SCB__vEnUnprivilegedSWTRIGGER();
-}
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SCB/SCB_Peripheral/SCB_Peripheral.h>
+
 
 inline void SCB__vEnDIV0Trap(void)
 {
@@ -59,3 +56,9 @@ inline void SCB__vDisUnprivilegedSWTRIGGER(void)
 }
 
 
+inline void SCB__vEnableTraps(void)
+{
+    SCB__vEnDIV0Trap();
+    SCB__vEnUnAlignTrap();
+    SCB__vEnUnprivilegedSWTRIGGER();
+}

@@ -24,6 +24,10 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_Init.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Driver/SYSCTL_GPIOBus.h>
+
 SYSCTL_nSTATUS SYSCTL__enInit(void)
 {
     SYSCTL_nSTATUS enStatus=SYSCTL_enOK;

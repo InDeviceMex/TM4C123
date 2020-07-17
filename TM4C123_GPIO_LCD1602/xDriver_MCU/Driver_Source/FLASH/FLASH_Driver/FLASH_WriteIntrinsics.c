@@ -6,6 +6,12 @@
  */
 #include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_WriteIntrinsics.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Peripheral/FLASH_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Wait.h>
+#include <xDriver_MCU/Driver_Header/FLASH/FLASH_Driver/FLASH_Erase.h>
+
 FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn =FLASH_enERROR;

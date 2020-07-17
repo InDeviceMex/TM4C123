@@ -25,6 +25,12 @@
 
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Enable.h>
 
+#include <stdint.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Priority.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Peripheral/NVIC_Peripheral.h>
+
+
+
 
 inline NVIC_nENABLE NVIC__enGetEnableIRQ(NVIC_nSTIR enIRQ)
 {
