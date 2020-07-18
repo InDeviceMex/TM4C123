@@ -18,7 +18,7 @@ static uint32_t SysTick_u32GetCurrentRegisterTick(void);
 
 static uint32_t SysTick_u32GetCurrentRegisterTick(void)
 {
-    uint32_t u32Tick=SysTick_CVR_R;
+    volatile uint32_t u32Tick=SysTick_CVR_R;
     return (uint32_t) u32Tick;
 }
 

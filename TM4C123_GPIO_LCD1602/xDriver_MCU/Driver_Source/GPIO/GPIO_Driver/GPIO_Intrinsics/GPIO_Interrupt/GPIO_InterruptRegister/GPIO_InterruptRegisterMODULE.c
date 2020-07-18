@@ -29,10 +29,10 @@
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRoutine/GPIO_InterruptRoutine.h>
 
+const SCB_nVECISR SCB_VECTOR_GPIO[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
+                               SCB_enVECISR_GPIOE,SCB_enVECISR_GPIOF};
 void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
 {
-    SCB_nVECISR SCB_VECTOR_GPIO[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
-                               SCB_enVECISR_GPIOE,SCB_enVECISR_GPIOF};
     SCB_nVECISR enVector=SCB_enVECISR_GPIOA;
     uint32_t u32Isr=0;
     if(0u != (uint32_t)Isr)

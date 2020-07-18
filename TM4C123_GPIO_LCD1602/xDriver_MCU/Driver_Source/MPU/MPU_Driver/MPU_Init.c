@@ -64,13 +64,15 @@ void MPU__vInit(void)
     /*normal memory*/
     /*256KB size*/
     /*enable region*/
+    /*FLASH_CONSTANT (size 0x00010000u)*/
     MPU_RNR_R=1u;
-    MPU_RBAR_R=0x00030000u|MPU_RBAR_R_VALID_MASK|1u;/*FLASH_CONSTANT (size 0x00010000u)*/
+    MPU_RBAR_R=0x00030000u|MPU_RBAR_R_VALID_MASK|1u;
     u32RegRASR =MPU_RASR_R_XN_EN|
             MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|MPU_RASR_R_B_DIS|
             MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|
             ((uint32_t)(16u-1u)<<1u);
     MPU_RASR_R = u32RegRASR;
+
     /*all mode read and write*/
     /*could be not executed*/
     /*no shareable, no cacheable, no bufeable*/

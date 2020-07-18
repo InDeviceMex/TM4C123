@@ -16,13 +16,13 @@
 
  void SysTick__vDelayUs(float fTimeUs)
 {
-    volatile uint64_t u64CountInitial = SysTick__u64GetTickAccumulated();
-    volatile float fCount=0.0;
-    volatile float fUsTick=0.0;
-    volatile uint64_t u64CountDelta = 0;
-    volatile uint64_t u64CountCurrent = 0;
-    volatile uint64_t u64CountMax=0;
-    volatile uint64_t u64Count= 0;
+    uint64_t u64CountInitial = SysTick__u64GetTickAccumulated();
+    float fCount=0.0;
+    float fUsTick=0.0;
+    uint64_t u64CountDelta = 0;
+    uint64_t u64CountCurrent = 0;
+    uint64_t u64CountMax=0;
+    uint64_t u64Count= 0;
 
     fUsTick= SysTick__fGetTickUs();
     if(fUsTick>=0.0)

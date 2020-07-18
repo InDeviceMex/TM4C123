@@ -70,7 +70,6 @@ int main(void)
     EEPROM__enInit();
     MAIN_vInitGPIO();
     LCD1602__enInit();
-
     enBus=GPIO__enGetBus(GPIO_enPORTF);
     if(GPIO_enAPB==enBus)
     {
@@ -90,9 +89,12 @@ int main(void)
         fTimeSystickStart = SysTick__fGetTimeUs();
         if(vu32Refresh == (uint32_t)((uint32_t)enSW1Pin|(uint32_t)enSW2Pin))
         {
-            u8Column=13u;
+            u8Column=0u;
             u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+
+            CONV__u8Bin2String(0xAA55u, (char*)LCD1602_pu8Buffer2);
+            //LCD1602__enWriteStringScreenDirect((const char*)LCD1602_pu8Buffer2,&u8Column, &u8Row,&u8Counter);
+            //LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
         }
         else if(vu32Refresh == (enSW1Pin))
         {
@@ -114,6 +116,7 @@ int main(void)
         }
         u8Column=u8ColumnCurrent;
         u8Row=0u;
+        LCD1602__enReloadScreen(LCD1602_pu8Buffer2);
         /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);*/
         u8Column=u8ColumnCurrent;
         u8Row=1u;

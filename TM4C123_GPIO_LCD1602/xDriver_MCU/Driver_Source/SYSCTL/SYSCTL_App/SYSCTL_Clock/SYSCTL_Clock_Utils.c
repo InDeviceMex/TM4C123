@@ -28,18 +28,18 @@
 
 #define  SYSCTL_FREQXTAL_INDEXMAX ((uint32_t)27u)
 
-
-
-uint32_t SYSCTL__u32GetFreqXtal(uint32_t u32Index)
-{
-
-    uint32_t SYSCTL_u32FreqXtal[SYSCTL_FREQXTAL_INDEXMAX]=
+const uint32_t SYSCTL_u32FreqXtal[SYSCTL_FREQXTAL_INDEXMAX]=
     { 0       ,0       ,0       ,0       ,0       ,0       ,
       4000000 ,4096000 ,4915200 ,5000000 ,5120000 ,6000000 ,
       6144000 ,7372800 ,8000000 ,8192000 ,10000000,12000000,
       12288000,13560000,14318180,16000000,16384000,18000000,
       20000000,24000000,25000000
     };
+
+uint32_t SYSCTL__u32GetFreqXtal(uint32_t u32Index)
+{
+
+
     uint32_t u32Return=0;
     if (u32Index<SYSCTL_FREQXTAL_INDEXMAX)
     {
