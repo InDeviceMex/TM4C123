@@ -8,56 +8,9 @@
 #ifndef XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_ADAPTIVE_H_
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_ADAPTIVE_H_
 
-#include <stdint.h>
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
-#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
-
-#define LCD1602_PORT_E  (GPIO_enPORTB)
-#define LCD1602_PORT_RS (GPIO_enPORTB)
-#define LCD1602_PORT_RW (GPIO_enPORTB)
-#define LCD1602_PORT_D4 (GPIO_enPORTB)
-#define LCD1602_PORT_D5 (GPIO_enPORTB)
-#define LCD1602_PORT_D6 (GPIO_enPORTB)
-#define LCD1602_PORT_D7 (GPIO_enPORTB)
-
-#define LCD1602_D4 (GPIO_enPIN0)
-#define LCD1602_D5 (GPIO_enPIN1)
-#define LCD1602_D6 (GPIO_enPIN2)
-#define LCD1602_D7 (GPIO_enPIN3)
-#define LCD1602_E  (GPIO_enPIN4)
-#define LCD1602_RS (GPIO_enPIN5)
-#define LCD1602_RW (GPIO_enPIN6)
-
-#define LCD1602_D4_POS (0u)
-#define LCD1602_D5_POS (1u)
-#define LCD1602_D6_POS (2u)
-#define LCD1602_D7_POS (3u)
-#define LCD1602_E_POS  (4u)
-#define LCD1602_RS_POS (5u)
-#define LCD1602_RW_POS (6u)
-
-typedef enum
-{
-    LCD1602_enWRITE=0u,
-    LCD1602_enREAD=1u,
-}LCD1602_nRW;
-
-typedef enum
-{
-    LCD1602_enCOMMAND=0u,
-    LCD1602_enDATA=1u,
-}LCD1602_nRS;
-
-
-void    LCD1602__vDelay(float fDelay);
-void    LCD1602__vInitGPIO(void);
-
-void    LCD1602__vWritePin8Bit(uint8_t u8Data);
-
-void    LCD1602__vWrite(uint8_t u8Data,LCD1602_nRS enMode);
-uint8_t LCD1602__u8Read(LCD1602_nRS enMode);
-
-void LCD1602__vWrite8Bits(uint8_t u8Data,LCD1602_nRS enMode);
-
+#include <xApplication/LCD1602/Adaptive_Header/LCD1602_Defines.h>
+#include <xApplication/LCD1602/Adaptive_Header/LCD1602_Enum.h>
+#include <xApplication/LCD1602/Adaptive_Header/LCD1602_Functions/LCD1602_Functions.h>
+#include <xApplication/LCD1602/Adaptive_Header/LCD1602_Intrinsics/LCD1602_Delay.h>
 
 #endif /* XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_ADAPTIVE_H_ */

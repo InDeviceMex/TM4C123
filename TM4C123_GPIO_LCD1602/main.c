@@ -7,6 +7,9 @@
 #include <DRIVER.h>
 #include <LCD1602/Generic_Header/LCD1602_Generic.h>
 
+/*Include not allowed, this use directly the Peripheral*/
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
+
 #include "stdlib.h"
 
 

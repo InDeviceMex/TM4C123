@@ -66,19 +66,19 @@ LCD1602_nSTATUS LCD1602__enInit(void)
     LCD1602__vDelay(15000.0f);/*15 ms*/
 
     /*Wirte 0x3x to LCD*/
-    LCD1602__vWritePin8Bit(0x30u);
+    LCD1602__vWritePin8Bit(0x30u,LCD1602_enCOMMAND);
     LCD1602__vDelay(4100.0f);/*4.1 ms*/
 
     /*Wirte 0x3x to LCD*/
-    LCD1602__vWritePin8Bit(0x30u);
+    LCD1602__vWritePin8Bit(0x30u,LCD1602_enCOMMAND);
     LCD1602__vDelay(100000.0f);/*100 ms*/
 
     /*Wirte 0x3x to LCD*/
-    LCD1602__vWritePin8Bit(0x30u);
+    LCD1602__vWritePin8Bit(0x30u,LCD1602_enCOMMAND);
     LCD1602__vDelay(40.0f);/*40 us*/
 
     /*Write 0x2x to LCD in order to configure as 4 bits*/
-    LCD1602__vWritePin8Bit(0x20u);
+    LCD1602__vWritePin8Bit(0x20u,LCD1602_enCOMMAND);
     LCD1602__vDelay(40.0f);/*40 us*/
 
 

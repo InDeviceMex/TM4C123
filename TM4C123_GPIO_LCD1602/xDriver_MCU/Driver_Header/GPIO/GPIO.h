@@ -8,7 +8,6 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Driver.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_App/GPIO_App.h>
 
