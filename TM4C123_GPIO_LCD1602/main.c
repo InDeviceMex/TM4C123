@@ -54,8 +54,10 @@ volatile uint32_t vu32Refresh=0;
 int main(void)
 {
     volatile char character[32] ={0};
-    float fTimeSystickStart=0.0;
-    float fTimeSystickEnd=0.0;
+    float fTimeSystickStart_Task1=0.0;
+    float fTimeSystickEnd_Task1=0.0;
+    float fTimeSystickStart_Task2=0.0;
+    float fTimeSystickEnd_Task2=0.0;
     uint8_t u8Column=0;
     uint8_t u8Row=0;
     uint8_t u8ColumnCurrent=0;
@@ -83,59 +85,65 @@ int main(void)
     u8ColumnCurrent=0u;
     u8Column=0u;
     u8Row=0u;
+
+    fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
+    fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
     while(1u)
     {
-
-        fTimeSystickStart = SysTick__fGetTimeUs();
-        if(vu32Refresh == (uint32_t)((uint32_t)enSW1Pin|(uint32_t)enSW2Pin))
+        fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
+        fTimeSystickEnd_Task1-= fTimeSystickStart_Task1;
+        fTimeSystickEnd_Task1=200000.0f-fTimeSystickEnd_Task1;
+        if(fTimeSystickEnd_Task1<=0.0f)
         {
-            u8Column=0u;
+            fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
+            if(vu32Refresh == (uint32_t)((uint32_t)enSW1Pin|(uint32_t)enSW2Pin))
+            {
+                u8Column=13u;
+                u8Row=0u;
+                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            }
+            else if(vu32Refresh == (enSW1Pin))
+            {
+                u8Column=13u;
+                u8Row=0u;
+                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"1 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            }
+            else if(vu32Refresh == (enSW2Pin))
+            {
+                u8Column=13u;
+                u8Row=0u;
+                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"2 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            }
+            else
+            {
+                u8Column=13u;
+                u8Row=0u;
+                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"NN",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+            }
+            u8Column=u8ColumnCurrent;
             u8Row=0u;
-
-            CONV__u8Bin2String(0xAA55u, (char*)LCD1602_pu8Buffer2);
-            //LCD1602__enWriteStringScreenDirect((const char*)LCD1602_pu8Buffer2,&u8Column, &u8Row,&u8Counter);
-            //LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-        }
-        else if(vu32Refresh == (enSW1Pin))
-        {
-            u8Column=13u;
-            u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"1 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-        }
-        else if(vu32Refresh == (enSW2Pin))
-        {
-            u8Column=13u;
-            u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"2 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-        }
-        else
-        {
-            u8Column=13u;
-            u8Row=0u;
-            LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"NN",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-        }
-        u8Column=u8ColumnCurrent;
-        u8Row=0u;
-        LCD1602__enReloadScreen(LCD1602_pu8Buffer2);
-        /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);*/
-        u8Column=u8ColumnCurrent;
-        u8Row=1u;
-        /*  LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);*/
-        if(u8ColumnCurrent>=15u)
-        {
-            u8ColumnCurrent=0u;
-        }
-        else
-        {
-            u8ColumnCurrent++;
+            /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);*/
+            u8Column=u8ColumnCurrent;
+            u8Row=1u;
+            /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);*/
         }
 
+        fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
+        fTimeSystickEnd_Task2-= fTimeSystickStart_Task2;
+        fTimeSystickEnd_Task2=1000000.0f-fTimeSystickEnd_Task2;
+        if(fTimeSystickEnd_Task2<=0.0f)
+        {
+            fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+            if(u8ColumnCurrent>=15u)
+            {
+                u8ColumnCurrent=0u;
+            }
+            else
+            {
+                u8ColumnCurrent++;
+            }
 
-        fTimeSystickEnd = SysTick__fGetTimeUs();
-        fTimeSystickEnd-= fTimeSystickStart;
-        fTimeSystickEnd=1000000.0f-fTimeSystickEnd;
-        SysTick__vDelayUs(fTimeSystickEnd);
-
+        }
     }
 }
 
