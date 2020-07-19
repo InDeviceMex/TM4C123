@@ -26,12 +26,12 @@
 
 CONV_nSTATUS CONV__enConversion(char* pcPointer, uint64_t u64Number,uint8_t* u8Length, uint8_t u8Base ,const char* pcLookUpTable)
 {
-    CONV_nSTATUS enStatus= CONV_enERROR;
+    CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     uint8_t  u8Num=0u;
     uint64_t u64NumberReg = 0u;
     if(((uint32_t)0 != (uint32_t)pcPointer) && ((uint32_t)0 != (uint32_t)pcLookUpTable)&& ((uint32_t)0 != (uint32_t)u8Length))
     {
-        enStatus = CONV_enOK;
+        enStatus = CONV_enSTATUS_OK;
         *u8Length=0u;
         *pcPointer = 0u;/*guarda el fin de cadena en la ultima posicion*/
 

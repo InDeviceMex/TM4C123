@@ -250,69 +250,6 @@ int32_t CONV__s32String2Bin(const char* pcString,int64_t* s64NumSigned )
     return s32Length;
 }
 
-int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
-{
-    int32_t s32Sign=0;
-    int32_t s32Length=0;
-    int64_t s64NumSignedReg=0;
-    char cStringBack[30]={0};
-    char* pcStringBack=0;
-    char  cValueAux=0;
-
-    pcStringBack=cStringBack;
-
-
-
-    while(((char) 0 != *pcString)&&(*pcString!='\n')&&(*pcString!='\r')&&(*pcString!= (char) 0x1Bu))
-    {
-        if((*pcString=='-') && (s32Length==0))
-        {
-            s32Sign=1;
-            s32Length++;
-            *pcStringBack=*pcString;
-            pcStringBack++;
-        }
-        else if((*pcString>='0') && (*pcString<='9'))
-        {
-            s64NumSignedReg*=10;
-            cValueAux= *pcString-'0';
-            s64NumSignedReg+=(int64_t)cValueAux;
-            s32Length++;
-            *pcStringBack=*pcString;
-            pcStringBack++;
-        }
-        else if((*pcString=='\b') && (0 != s32Length))
-        {
-            pcStringBack--;
-            if((*(pcStringBack)>='0') && (*(pcStringBack)<='9'))
-            {
-                s64NumSignedReg/=10;
-            }
-            if(*(pcStringBack)=='-')
-            {
-                s32Sign=0;
-            }
-            s32Length--;
-        }
-        else if (*pcString!='\b')
-        {
-            s32Length =(int32_t)CONV_enNAN;
-            break;
-        }
-        else{}
-        pcString++;
-    }
-
-
-    if(s32Sign)
-    {
-        s64NumSignedReg*=-1;
-        s32Length++;
-    }
-    *s64NumSigned=s64NumSignedReg;
-    return s32Length;
-}
-
 int32_t CONV__s32String2UInt(const char* pcString,uint64_t* u64NumUnsigned )
 {
    int64_t u64NumSigned=0;

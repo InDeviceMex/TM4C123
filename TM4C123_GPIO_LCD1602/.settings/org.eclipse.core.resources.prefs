@@ -537,6 +537,8 @@ encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_Number2String
 encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_Number2String/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_String/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_String/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_String2Number/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_String2Number/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/Conversion/Conversion_Source/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/Conversion/Conversion_Source/subdir_vars.mk=UTF-8
 encoding//Release/makefile=UTF-8

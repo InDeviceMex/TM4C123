@@ -1,6 +1,6 @@
 /**
  *
- * @file Conversion_IsDigit.c
+ * @file Conversion_IsNewLine.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 17 jul. 2020 @endverbatim
+ * @verbatim 18 jul. 2020 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,19 +19,21 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 17 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * 18 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Conversion/Conversion_Header/Conversion_Number/Conversion_IsDigit.h>
+#include <xUtils/Conversion/Conversion_Header/Conversion_Number/Conversion_IsNewLine.h>
 
 #include <xUtils/Conversion/Conversion_Header/Conversion_Enum.h>
 
-CONV_nDIGIT CONV_enIsDigit(char cCharacter)
+CONV_nNEWLINE CONV_enIsNewLine(char cCharacter)
 {
-    CONV_nDIGIT enStatus= CONV_enDIGIT_NO;
-    if((cCharacter >= '0') && (cCharacter <= '9'))
+    CONV_nSTATUS enStatus= CONV_enNEWLINE_NO;
+    if(cCharacter == '\n')
     {
-        enStatus=CONV_enDIGIT_OK;
+        enStatus=CONV_enNEWLINE_OK;
     }
-
     return enStatus;
 }
+
+
+

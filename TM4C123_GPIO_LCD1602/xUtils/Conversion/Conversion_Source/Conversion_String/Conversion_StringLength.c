@@ -27,17 +27,17 @@
 
 uint32_t CONV_u32StringLength(const char* pcString, uint32_t u32MaxSize)
 {
-  const char* psStringReg;
+  const char* pcStringReg;
   uint32_t u32Count=0;
   if(0!=pcString)
   {
-      psStringReg = pcString;
-      while(((char)0!=(char) *psStringReg) && ((uint32_t)0!=(uint32_t)u32MaxSize))
+      pcStringReg = pcString;
+      while(((char)0!=(char) *pcStringReg) && ((uint32_t)0!=(uint32_t)u32MaxSize))
       {
-          psStringReg++;
+          pcStringReg++;
           u32MaxSize--;
       }
-      u32Count=(uint32_t)psStringReg;
+      u32Count=(uint32_t)pcStringReg;
       u32Count-=(uint32_t)pcString;
   }
   return (uint32_t)u32Count;
