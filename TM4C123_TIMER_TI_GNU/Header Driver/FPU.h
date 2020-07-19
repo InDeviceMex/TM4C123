@@ -8,7 +8,7 @@
 #ifndef HEADER_DRIVER_FPU_H_
 #define HEADER_DRIVER_FPU_H_
 
-#include <stdint.h>                             /* standard types definitions                      //*/
+#include <stdint.h>                             /* standard types definitions                      */
 
 
 #define FPU_BASE            ((uint32_t)0xE000E000u)
@@ -544,4 +544,4 @@ void        FPU__vSetRounding(FPU_nROUNDING enRounding);
 
 void FPU__vInit(void);
 
-#endif /* HEADER_DRIVER_FPU_H_ //*/
+#endif /* HEADER_DRIVER_FPU_H_ */

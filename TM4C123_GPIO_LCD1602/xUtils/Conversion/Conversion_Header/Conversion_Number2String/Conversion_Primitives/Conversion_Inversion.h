@@ -27,6 +27,6 @@
 #include <stdint.h>
 #include <xUtils/Conversion/Conversion_Header/Conversion_Enum.h>
 
-CONV_nSTATUS CONV__enInversion(char* const pcPointerIn,char* const pcPointerOut,uint8_t u8Length);
+CONV_nSTATUS CONV__enInversion(const char* const pcPointerIn,char* const pcPointerOut,uint8_t u8Length);
 
 #endif /* XUTILS_CONVERSION_CONVERSION_HEADER_CONVERSION_NUMBER2STRING_CONVERSION_PRIMITIVES_CONVERSION_INVERSION_H_ */

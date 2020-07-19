@@ -19,6 +19,12 @@
 #include "GPIO.h"
 #include "TIMER.h"
 
+/*Include not allowed, this use directly the Peripheral*/
+
+#include "stdlib.h"
+
+
+int main(void);
 /*Local functions*/
 void MAIN_vInitGPIO(void);
 void MAIN_vInitTIMER(void);
@@ -38,7 +44,9 @@ volatile uint32_t u32Priority=0;
 
 int main(void)
 {
-
+    uint32_t u32BlueValue=0u;
+    uint32_t u32GreenValue=0u;
+    uint32_t u32RedValue=0u;
     __asm(" cpsie i");
     FPU__vInit();
     MPU__vInit();
@@ -46,7 +54,7 @@ int main(void)
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
             SYSEXC_enOVERFLOW|SYSEXC_enUNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
-    SysTick__enInitUs(10,SCB_enSHPR0);
+    SysTick__enInitUs(10.0f,SCB_enSHPR0);
     EEPROM__enInit();
     MAIN_vInitGPIO();
     MAIN_vInitTIMER();
@@ -54,32 +62,68 @@ int main(void)
     while(1u)
     {
         /*SysTick__vDelayUs(100000u);*/
-        if(1==u32Update)
+        if(1u==u32Update)
         {
-            u32Update=0;
-            if(u32Priority==0)
+            u32Update=0u;
+            if(u32Priority==0u)
             {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>0)&0xFFu);
+                u32RedValue=(u32Counter>>16u);
+                u32RedValue&=0xFFu;
+                u32GreenValue=(u32Counter>>8u);
+                u32GreenValue&=0xFFu;
+                u32BlueValue=(u32Counter>>0u);
+                u32BlueValue&=0xFFu;
+                MAIN_vRGBLedValue((uint8_t)u32RedValue,(uint8_t)u32GreenValue,(uint8_t)u32BlueValue);
             }
-            if(u32Priority==1)
+            if(u32Priority==1u)
             {
-                MAIN_vRGBLedValue((u32Counter>>8)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>0)&0xFFu);
+                u32RedValue=(u32Counter>>8u);
+                u32RedValue&=0xFFu;
+                u32GreenValue=(u32Counter>>16u);
+                u32GreenValue&=0xFFu;
+                u32BlueValue=(u32Counter>>0u);
+                u32BlueValue&=0xFFu;
+                MAIN_vRGBLedValue((uint8_t)u32RedValue,(uint8_t)u32GreenValue,(uint8_t)u32BlueValue);
             }
-            if(u32Priority==1)
+            if(u32Priority==1u)
             {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>8)&0xFFu);
+                u32RedValue=(u32Counter>>16u);
+                u32RedValue&=0xFFu;
+                u32GreenValue=(u32Counter>>0u);
+                u32GreenValue&=0xFFu;
+                u32BlueValue=(u32Counter>>8u);
+                u32BlueValue&=0xFFu;
+                MAIN_vRGBLedValue((uint8_t)u32RedValue,(uint8_t)u32GreenValue,(uint8_t)u32BlueValue);
             }
-            if(u32Priority==2)
+            if(u32Priority==2u)
             {
-                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>16)&0xFF,(u32Counter>>8)&0xFFu);
+                u32RedValue=(u32Counter>>0u);
+                u32RedValue&=0xFFu;
+                u32GreenValue=(u32Counter>>16u);
+                u32GreenValue&=0xFFu;
+                u32BlueValue=(u32Counter>>8u);
+                u32BlueValue&=0xFFu;
+                MAIN_vRGBLedValue((uint8_t)u32RedValue,(uint8_t)u32GreenValue,(uint8_t)u32BlueValue);
             }
-            if(u32Priority==3)
+            if(u32Priority==3u)
             {
-                MAIN_vRGBLedValue((u32Counter>>16)&0xFF,(u32Counter>>0)&0xFF,(u32Counter>>16)&0xFFu);
+                u32RedValue=(u32Counter>>16u);
+                u32RedValue&=0xFFu;
+                u32GreenValue=(u32Counter>>0u);
+                u32GreenValue&=0xFFu;
+                u32BlueValue=(u32Counter>>16u);
+                u32BlueValue&=0xFFu;
+                MAIN_vRGBLedValue((uint8_t)u32RedValue,(uint8_t)u32GreenValue,(uint8_t)u32BlueValue);
             }
-            if(u32Priority==4)
+            if(u32Priority==4u)
             {
-                MAIN_vRGBLedValue((u32Counter>>0)&0xFF,(u32Counter>>8)&0xFF,(u32Counter>>16)&0xFFu);
+                u32RedValue=(u32Counter>>0u);
+                u32RedValue&=0xFFu;
+                u32GreenValue=(u32Counter>>8u);
+                u32GreenValue&=0xFFu;
+                u32BlueValue=(u32Counter>>16u);
+                u32BlueValue&=0xFFu;
+                MAIN_vRGBLedValue((uint8_t)u32RedValue,(uint8_t)u32GreenValue,(uint8_t)u32BlueValue);
             }
         }
     }
@@ -90,30 +134,48 @@ void MAIN_vRGBLedValue(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueV
     uint16_t u16RGBRedFinal=0;
     uint16_t u16RGBGreenFinal=0;
     uint16_t u16RGBBlueFinal=0;
-    if(u8RedValue==0)
-        u16RGBRedFinal=0xFF;
+    if(u8RedValue==0u)
+    {
+        u16RGBRedFinal=0xFFu;
+    }
     else if(u8RedValue==0xFFu)
-        u16RGBRedFinal=0x100;
+    {
+        u16RGBRedFinal=0x100u;
+    }
     else
-        u16RGBRedFinal=0xFF- u8RedValue;
+    {
+        u16RGBRedFinal=0xFFu- (uint16_t)u8RedValue;
+    }
 
-    if(u8GreenValue==0)
-        u16RGBGreenFinal=0xFF;
+    if(u8GreenValue==0u)
+    {
+        u16RGBGreenFinal=0xFFu;
+    }
     else if(u8GreenValue==0xFFu)
-        u16RGBGreenFinal=0x100;
+    {
+        u16RGBGreenFinal=0x100u;
+    }
     else
-        u16RGBGreenFinal=0xFF- u8GreenValue;
+    {
+        u16RGBGreenFinal=0xFFu- (uint16_t)u8GreenValue;
+    }
 
-    if(u8BlueValue==0)
-        u16RGBBlueFinal=0xFF;
+    if(u8BlueValue==0u)
+    {
+        u16RGBBlueFinal=0xFFu;
+    }
     else if(u8BlueValue==0xFFu)
-        u16RGBBlueFinal=0x100;
+    {
+        u16RGBBlueFinal=0x100u;
+    }
     else
-        u16RGBBlueFinal=0xFF- u8BlueValue;
+    {
+        u16RGBBlueFinal=0xFFu-(uint16_t) u8BlueValue;
+    }
 
-    GPTM_UNION->TB[0].GPTMTnMATCHR=u16RGBRedFinal;/*RED*/
-    GPTM_UNION->TA[1].GPTMTnMATCHR=u16RGBGreenFinal;/*GREEN*/
-    GPTM_UNION->TB[1].GPTMTnMATCHR=u16RGBBlueFinal;/*BLUE*/
+    TIMER__vSetMatch(TIMER_enT0B,(uint64_t) u16RGBRedFinal);
+    TIMER__vSetMatch(TIMER_enT1A,(uint64_t) u16RGBGreenFinal);
+    TIMER__vSetMatch(TIMER_enT1B,(uint64_t) u16RGBBlueFinal);
 }
 
 void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue)
@@ -125,68 +187,100 @@ void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t
     uint32_t u32RGBGreen=0;
     uint32_t u32RGBBlue=0;
 
-    if(u8RedValue>100)
-        u8RedValue=100;
-    if(u8GreenValue>100)
-        u8GreenValue=100;
-    if(u8BlueValue>100)
-        u8BlueValue=100;
+    if(u8RedValue>100u)
+    {
+        u8RedValue=100u;
+    }
+    else{}
+    if(u8GreenValue>100u)
+    {
+        u8GreenValue=100u;
+    }
+    else{}
+    if(u8BlueValue>100u)
+    {
+        u8BlueValue=100u;
+    }
+    else{}
 
-    u32RGBRedPorcentaje=u8RedValue*0xFF;
-    u32RGBRedPorcentaje/=100;
+    u32RGBRedPorcentaje=(uint32_t)u8RedValue*0xFFu;
+    u32RGBRedPorcentaje/=100u;
 
-    u32RGBGreenPorcentaje=u8GreenValue*0xFF;
-    u32RGBGreenPorcentaje/=100;
+    u32RGBGreenPorcentaje=(uint32_t)u8GreenValue*0xFFu;
+    u32RGBGreenPorcentaje/=100u;
 
-    u32RGBBluePorcentaje=u8BlueValue*0xFF;
-    u32RGBBluePorcentaje/=100;
+    u32RGBBluePorcentaje=(uint32_t)u8BlueValue*0xFFu;
+    u32RGBBluePorcentaje/=100u;
 
-    if(u32RGBRedPorcentaje==0)
-        u32RGBRed=0xFF;
+    if(u32RGBRedPorcentaje==0u)
+    {
+        u32RGBRed=0xFFu;
+    }
     else if(u32RGBRedPorcentaje==0xFFu)
-        u32RGBRed=0x100;
+    {
+        u32RGBRed=0x100u;
+    }
     else
-        u32RGBRed=0xFF- u32RGBRedPorcentaje;
+    {
+        u32RGBRed=0xFFu- u32RGBRedPorcentaje;
+    }
 
-    if(u32RGBGreenPorcentaje==0)
-        u32RGBGreen=0xFF;
+    if(u32RGBGreenPorcentaje==0u)
+    {
+        u32RGBGreen=0xFFu;
+    }
     else if(u32RGBGreenPorcentaje==0xFFu)
-        u32RGBGreen=0x100;
+    {
+        u32RGBGreen=0x100u;
+    }
     else
-        u32RGBGreen=0xFF- u32RGBGreenPorcentaje;
+    {
+        u32RGBGreen=0xFFu- u32RGBGreenPorcentaje;
+    }
 
-    if(u32RGBBluePorcentaje==0)
-        u32RGBBlue=0xFF;
+    if(u32RGBBluePorcentaje==0u)
+    {
+        u32RGBBlue=0xFFu;
+    }
     else if(u32RGBBluePorcentaje==0xFFu)
-        u32RGBBlue=0x100;
+    {
+        u32RGBBlue=0x100u;
+    }
     else
-        u32RGBBlue=0xFF- u32RGBBluePorcentaje;
+    {
+        u32RGBBlue=0xFFu- u32RGBBluePorcentaje;
+    }
 
-    GPTM_UNION->TB[0].GPTMTnMATCHR=u32RGBRed;/*RED*/
-    GPTM_UNION->TA[1].GPTMTnMATCHR=u32RGBGreen;/*GREEN*/
-    GPTM_UNION->TB[1].GPTMTnMATCHR=u32RGBBlue;/*BLUE*/
+    TIMER__vSetMatch(TIMER_enT0B,(uint64_t) u32RGBRed);
+    TIMER__vSetMatch(TIMER_enT1A,(uint64_t) u32RGBGreen);
+    TIMER__vSetMatch(TIMER_enT1B,(uint64_t) u32RGBBlue);
 }
 void TIMER2W__vISR(void)
 {
     static uint8_t u8Dir=0;
-    u32Update=1;
-    if(u8Dir==0){
+    u32Update=1u;
+    if(u8Dir==0u){
 
-        if(u32Counter==(0xFFFFFF-1))
+        if(u32Counter==(0xFFFFFFu-1u))
         {
-            u8Dir=1;
+            u8Dir=1u;
         }
+        else{}
         u32Counter++;
     }
     else
     {
         if(u32Counter==(1u))
         {
-            u8Dir=0;
-            if(u32Priority==4)
-                u32Priority=0;
+            u8Dir=0u;
+            if(u32Priority==4u)
+            {
+                u32Priority=0u;
+            }
             else
+            {
                 u32Priority++;
+            }
         }
         u32Counter--;
     }
@@ -202,7 +296,7 @@ void MAIN_vInitTIMER(void)
     TIMER__vInit();
 
     TIMER__vEnInterruptMODULE(TIMER_enT2W,TIMER_enPRI7);
-    TIMER__vRegisterISR(TIMER2W__vISR,TIMER_enT2W,TIMER_enINTERRUPT_TIMEOUT);
+    TIMER__vRegisterISR(&TIMER2W__vISR,TIMER_enT2W,TIMER_enINTERRUPT_TIMEOUT);
 
 
     psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
@@ -220,10 +314,10 @@ void MAIN_vInitTIMER(void)
     TIMER__enSetExtraModeStruct(TIMER_enT1B,&psExtraMode);
     TIMER__enSetExtraModeStruct(TIMER_enT3A,&psExtraMode);
 
-    TIMER__enSetMode_Reload(TIMER_enT2W,TIMER_enMODE_PERIODIC_WIDE_DOWN,0,0xFFu);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT0B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFFu);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1A,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFFu);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0,0xFF,0xFFu);
+    TIMER__enSetMode_Reload(TIMER_enT2W,TIMER_enMODE_PERIODIC_WIDE_DOWN,0u,0xFFu);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT0B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,0xFFu,0xFFu);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT1A,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,0xFFu,0xFFu);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,0xFFu,0xFFu);
 
 
     TIMER__vSetEnable(TIMER_enT2W,TIMER_enENABLE_START);
@@ -246,4 +340,3 @@ void MAIN_vInitGPIO(void)
     GPIO__enSetDigitalConfig(GPIO_enT1CCP1_F3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
 
 }
-

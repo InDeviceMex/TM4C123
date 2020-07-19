@@ -2673,7 +2673,7 @@ typedef volatile struct
 #define GPIO_GPIODIR_DIR3_OUTPUT        (0x00000001u)
 /*----------*/
 
-/*----------*/DATA
+/*----------*/
 #define GPIO_GPIODIR_R_DIR4_MASK        (0x00000010u)
 #define GPIO_GPIODIR_R_DIR4_BIT         (4u)
 #define GPIO_GPIODIR_R_DIR4_INPUT       (0x00000000u)

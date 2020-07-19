@@ -23,12 +23,12 @@
  */
 #include <xUtils/Conversion/Conversion_Header/Conversion_Number2String/Conversion_Primitives/Conversion_Inversion.h>
 
-CONV_nSTATUS CONV__enInversion(char* const pcPointerIn,char* const pcPointerOut,uint8_t u8Length, uint8_t u8MaxLength)
+CONV_nSTATUS CONV__enInversion(const char* const pcPointerIn,char* const pcPointerOut,uint8_t u8Length)
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     uint8_t u8I=0;
 
-    if(((uint32_t)0!=(uint32_t)pcPointerIn) && ((uint32_t)0!=(uint32_t)pcPointerOut) && (u8Length<u8MaxLength))
+    if(((uint32_t)0!=(uint32_t)pcPointerIn) && ((uint32_t)0!=(uint32_t)pcPointerOut))
     {
         enStatus= CONV_enSTATUS_OK;
         for (u8I = 0u; u8I<=u8Length; u8I++) /*hace un ciclo burbuja optimizado*/

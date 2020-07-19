@@ -27,7 +27,7 @@
 
 CONV_nNEWLINE CONV_enIsNewLine(char cCharacter)
 {
-    CONV_nSTATUS enStatus= CONV_enNEWLINE_NO;
+    CONV_nNEWLINE enStatus= CONV_enNEWLINE_NO;
     if(cCharacter == '\n')
     {
         enStatus=CONV_enNEWLINE_OK;

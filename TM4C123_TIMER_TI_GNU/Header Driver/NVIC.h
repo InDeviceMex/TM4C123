@@ -13036,7 +13036,7 @@ typedef volatile struct
 #define NVIC_STIR_INTID_PWM1GEN2   ((uint32_t)0x00000088u)
 #define NVIC_STIR_INTID_PWM1GEN3   ((uint32_t)0x00000089u)
 #define NVIC_STIR_INTID_PWM1FAULT  ((uint32_t)0x0000008Au)
-/*----------*/-------
+/*----------*/
 typedef enum
 {
     NVIC_enOK =0u,

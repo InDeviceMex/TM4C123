@@ -37,7 +37,7 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     CONV_nDIGIT enDigit= CONV_enDIGIT_NO;
     CONV_nBACKSPACE enBackSpace= CONV_enBACKSPACE_NO;
-    CONV_nSIGNED enSigned=CONV_enSIGNED_POSITIVE;
+    CONV_nSIGNED enSign=CONV_enSIGNED_POSITIVE;
 
     char cStringBack[30]={0};
     char* pcStringBack=cStringBack;
