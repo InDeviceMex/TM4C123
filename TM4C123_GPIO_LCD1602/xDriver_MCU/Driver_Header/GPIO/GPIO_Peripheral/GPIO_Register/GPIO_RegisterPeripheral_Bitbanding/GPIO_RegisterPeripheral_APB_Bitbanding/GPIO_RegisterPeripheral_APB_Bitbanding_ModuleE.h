@@ -26,6 +26,7 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Struct/GPIO_StructPeripheral_Bitbanding.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Register/GPIO_RegisterAddress.h>
+#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Register/GPIO_RegisterDefines/GPIO_RegisterDefines.h>
 
 #define GPIOE_APB_BITBANDING        (((GPIO_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOE_APB_OFFSET*32u))))
 #define GPIOE_APB_AUX_BITBANDING    (((GPIO_AUX_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOE_APB_OFFSET*32u))))

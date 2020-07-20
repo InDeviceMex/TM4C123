@@ -524,9 +524,4 @@ typedef volatile struct
     volatile uint32_t P31 ;
 }BITBANDING_PINES32_TypeDef;
 
-
-
-
-
-
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTREGISTER_BITBANDING_H_ */

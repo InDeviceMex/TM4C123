@@ -527,6 +527,8 @@ encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/TIMER_Peripheral/TIMER_Regis
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral_Bitbanding/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/Conversion/Conversion_Source/Conversion_Number/subdir_rules.mk=UTF-8
