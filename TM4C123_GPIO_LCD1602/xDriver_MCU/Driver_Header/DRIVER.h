@@ -37,5 +37,6 @@
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */
