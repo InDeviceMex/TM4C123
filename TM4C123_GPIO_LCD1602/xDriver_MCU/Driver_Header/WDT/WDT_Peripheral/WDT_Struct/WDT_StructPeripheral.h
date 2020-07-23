@@ -137,7 +137,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-     WDT_TypeDef WDT[2];
+     WDT_TypeDef W[2];
 }WDTS_TypeDef;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCTPERIPHERAL_H_ */

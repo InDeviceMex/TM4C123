@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_REGISTER_WDT_REGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_REGISTER_WDT_REGISTER_H_
 
-#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Register/WDT_RegisterDefines/WDT_RegisterDefines.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Register/WDT_RegisterDefines.h>
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Register/WDT_RegisterPeripheral/WDT_RegisterPeripheral.h>
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Register/WDT_RegisterPeripheral_Bitbanding/WDT_RegisterPeripheral_Bitbanding.h>
 

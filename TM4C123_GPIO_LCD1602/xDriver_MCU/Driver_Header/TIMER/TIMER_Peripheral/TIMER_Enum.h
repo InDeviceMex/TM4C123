@@ -60,6 +60,17 @@ typedef enum
 
 typedef enum
 {
+ TIMER_enMISC_MAX = (5u),
+ TIMER_enMISC_INT =(5u),
+ TIMER_enMISC_32  =(0u),
+ TIMER_enMISC_64  =(1u),
+ TIMER_enMISC_A   =(0u),
+ TIMER_enMISC_B  =(1u),
+ TIMER_enMISC_W  =(2u),
+}TIMER_nMISC;
+
+typedef enum
+{
     TIMER_enT0A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|0u),
     TIMER_enT1A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|1u),
     TIMER_enT2A=(((uint32_t)0u<<16u)|((uint32_t)0u<<8u)|2u),

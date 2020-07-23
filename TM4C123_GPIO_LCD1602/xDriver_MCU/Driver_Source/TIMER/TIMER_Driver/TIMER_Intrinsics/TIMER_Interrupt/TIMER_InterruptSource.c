@@ -40,9 +40,9 @@ void TIMER__vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
     GPTM_TypeDef* psTimerIMR=0;
 
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 #if 0
@@ -93,9 +93,9 @@ void TIMER__vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
     GPTM_TypeDef* psTimerIMR=0;
 
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 #if 0
@@ -143,9 +143,9 @@ void TIMER__vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
     GPTM_TypeDef* psTimerICR=0;
 
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 
@@ -176,9 +176,9 @@ TIMER_nINT_STATUS TIMER__enStatusInterrupt(TIMER_nMODULE enModule, TIMER_nINT en
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
     GPTM_TypeDef* psTimerRIS=0;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     enReady=TIMER__enIsReady(enModule);
 

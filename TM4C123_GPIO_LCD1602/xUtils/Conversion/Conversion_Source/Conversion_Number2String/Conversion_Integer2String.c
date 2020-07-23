@@ -150,6 +150,7 @@ uint8_t CONV__u8Int2String(int64_t s64Number, char* pcConv)
     uint8_t u8Num=0;
     int8_t  s8I=0;
     int64_t s64NumberReg = s64Number;/*paso el s32Numero a un registro para aumentar rendimiento*/
+    int64_t s64NumberRegAlt = 0;
     int8_t  s8FlagSign=0;
     uint32_t u32ResultAux=0;
 
@@ -162,7 +163,9 @@ uint8_t CONV__u8Int2String(int64_t s64Number, char* pcConv)
 
     do {
         pcPointerActual--;/*se decrementa la posicion donse guardara el valor*/
-        u8Num=(uint8_t)(s64NumberReg % (int64_t)10);/*obtiene el digito de menor peso*/
+        s64NumberRegAlt = s64NumberReg;
+        s64NumberRegAlt%=(int64_t)10;
+        u8Num=(uint8_t)s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual =(char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s64NumberReg /= 10;
     }   while((s64NumberReg!=0)&&(pcPointerActual>(pcConvTemp+s8FlagSign)));/*mientras exista un digito sigue el ciclo*/
@@ -196,6 +199,7 @@ uint8_t CONV__u8Int2StringZeros(int64_t s64Number,int8_t s8CerosLeft, char* pcCo
     uint8_t u8Num=0;
     int8_t  s8I=0;
     int64_t s64NumberReg = s64Number;/*paso el s32Numero a un registro para aumentar rendimiento*/
+    int64_t s64NumberRegAlt = 0;
     int8_t  s8FlagSign=0;
     uint32_t u32ResultAux=0;
 
@@ -213,7 +217,10 @@ uint8_t CONV__u8Int2StringZeros(int64_t s64Number,int8_t s8CerosLeft, char* pcCo
 
     do {
         pcPointerActual--;/*se decrementa la posicion donse guardara el valor*/
-        u8Num=(uint8_t)(s64NumberReg % 10);/*obtiene el digito de menor peso*/
+
+        s64NumberRegAlt = s64NumberReg;
+        s64NumberRegAlt%=(int64_t)10;
+        u8Num=(uint8_t)s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s8CerosLeft--;
         s64NumberReg /= 10;

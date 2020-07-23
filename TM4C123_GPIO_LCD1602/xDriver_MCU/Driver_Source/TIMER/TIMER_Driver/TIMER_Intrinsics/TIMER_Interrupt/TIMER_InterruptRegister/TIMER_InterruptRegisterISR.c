@@ -40,13 +40,13 @@ void TIMER__vRegisterISR(void (*Isr) (void),TIMER_nMODULE enModule,TIMER_nINTERR
 
     if((uint32_t)Isr !=0u)
     {
-        if(TIMER_MAX<u32Number)
+        if(TIMER_enMISC_MAX<u32Number)
         {
-            u32Number=TIMER_MAX;
+            u32Number=TIMER_enMISC_MAX;
         }
-        if(TIMER_INT<u32Interrupt)
+        if(TIMER_enMISC_INT<u32Interrupt)
         {
-            u32Interrupt=TIMER_INT;
+            u32Interrupt=TIMER_enMISC_INT;
         }
 
         u32Isr=((uint32_t)Isr|1u);

@@ -55,9 +55,9 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     volatile uint32_t* pu32TimerMATCHRLow=0;
     volatile uint32_t* pu32TimerMATCHRHigh=0;
     volatile uint32_t* pu32TimerPMR=0;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 

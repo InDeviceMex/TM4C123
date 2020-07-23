@@ -37,9 +37,9 @@ void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneri
     uint32_t u32Shift=8u*u32Letter;
     uint32_t u32RegAux=0;
     GPTM_TypeDef* psTimerCTL=0;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 
@@ -65,9 +65,9 @@ uint32_t TIMER__u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, ui
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
     uint32_t u32Shift=8u*u32Letter;
     GPTM_TypeDef* psTimerCTL=0;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     enReady=TIMER__enIsReady(enModule);
 

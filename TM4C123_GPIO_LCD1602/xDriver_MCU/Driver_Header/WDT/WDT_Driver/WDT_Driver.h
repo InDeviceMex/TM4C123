@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT.h
+ * @file WDT_Driver.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,11 +21,10 @@
  * Date           Author     Version     Description
  * 19 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_H_
-#define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_H_
+#ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_DRIVER_H_
+#define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_DRIVER_H_
 
-#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Driver.h>
-#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Intrinsics.h>
 
 
-#endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_DRIVER_H_ */

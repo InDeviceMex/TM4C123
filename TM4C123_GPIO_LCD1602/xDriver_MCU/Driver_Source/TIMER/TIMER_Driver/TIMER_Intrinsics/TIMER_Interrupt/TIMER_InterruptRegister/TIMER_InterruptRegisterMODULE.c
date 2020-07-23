@@ -26,7 +26,6 @@
 
 #include <stdint.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Interrupt/TIMER_InterruptRoutine/TIMER_InterruptRoutine.h>
 const SCB_nVECISR SCB_VECTOR_TIMER[2][2][6]={
                                     {
@@ -48,9 +47,9 @@ void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule)
     uint32_t u32Isr=0;
     if(0u != (uint32_t)Isr)
     {
-        if(TIMER_MAX<u32Number)
+        if(TIMER_enMISC_MAX<u32Number)
         {
-            u32Number=TIMER_MAX;
+            u32Number=TIMER_enMISC_MAX;
         }
         enVector=SCB_VECTOR_TIMER[u32Wide][u32Letter][u32Number];
         u32Isr=((uint32_t)Isr|1u);

@@ -32,6 +32,19 @@ typedef enum
 
 typedef enum
 {
+    WDT_enNOREADY=0u,
+    WDT_enREADY=1u,
+}WDT_nREADY;
+
+typedef enum
+{
+    WDT_enMODULE_0=0u,
+    WDT_enMODULE_1=1u,
+    WDT_enMODULE_MAX=1u,
+}WDT_nMODULE;
+
+typedef enum
+{
     WDT_enWRITE_STATUS_BUSY=0u,
     WDT_enWRITE_STATUS_READY=1u,
     WDT_enWRITE_STATUS_UNDEF=0xFFu,
@@ -85,5 +98,20 @@ typedef enum
     WDT_enKEY_UNLOCK=0x1ACCE551u,
     WDT_enKEY_UNDEF=0xFFFFFFFFu,
 }WDT_nKEY;
+
+
+
+typedef enum
+{
+    WDT_enPRI0=0u,
+    WDT_enPRI1=1u,
+    WDT_enPRI2=2u,
+    WDT_enPRI3=3u,
+    WDT_enPRI4=4u,
+    WDT_enPRI5=5u,
+    WDT_enPRI6=6u,
+    WDT_enPRI7=7u,
+    WDT_enDEFAULT=0xFFu,
+}WDT_nPRIORITY;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_ENUM_H_ */

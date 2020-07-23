@@ -54,9 +54,9 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
     volatile uint32_t* pu32TimerILRHigh=0;
     volatile uint32_t* pu32TimerPR=0;
     volatile uint32_t* pu32TimerRTCPD=0;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 

@@ -132,7 +132,7 @@ typedef volatile struct
 {
     volatile const uint32_t CID0    : 8;
     const    uint32_t       reserved: 24;
-}BITBANDING_;
+}WDTPCellID0_TypeDef;
 
 typedef volatile struct
 {

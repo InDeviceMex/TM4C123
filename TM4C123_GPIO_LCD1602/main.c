@@ -91,7 +91,14 @@ int main(void)
     while(1u)
     {
         fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
-        fTimeSystickEnd_Task1-= fTimeSystickStart_Task1;
+        if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
+        {
+            fTimeSystickEnd_Task1=( fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
+        }
+        else
+        {
+            fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
+        }
         fTimeSystickEnd_Task1=200000.0f-fTimeSystickEnd_Task1;
         if(fTimeSystickEnd_Task1<=0.0f)
         {
@@ -129,7 +136,14 @@ int main(void)
         }
 
         fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
-        fTimeSystickEnd_Task2-= fTimeSystickStart_Task2;
+        if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
+        {
+            fTimeSystickEnd_Task2=( fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
+        }
+        else
+        {
+            fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
+        }
         fTimeSystickEnd_Task2=1000000.0f-fTimeSystickEnd_Task2;
         if(fTimeSystickEnd_Task2<=0.0f)
         {

@@ -45,9 +45,9 @@ void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     enVector=NVIC_VECTOR_TIMER[u32Wide][u32Letter][u32Number];
     enPriority&=0x7u;
@@ -60,9 +60,9 @@ void TIMER__vDisInterruptMODULE(TIMER_nMODULE enModule)
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
-    if(TIMER_MAX<u32Number)
+    if(TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_MAX;
+        u32Number=TIMER_enMISC_MAX;
     }
     enVector=NVIC_VECTOR_TIMER[u32Wide][u32Letter][u32Number];
     NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
