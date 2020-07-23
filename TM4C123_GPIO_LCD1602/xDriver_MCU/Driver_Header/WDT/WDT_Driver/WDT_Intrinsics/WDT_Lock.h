@@ -26,6 +26,8 @@
 
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Enum.h>
 
+WDT_nLOCK WDT__enGetLock(WDT_nMODULE enModule);
+
 void WDT__vLock(WDT_nMODULE enModule);
 void WDT__vUnlock(WDT_nMODULE enModule);
 

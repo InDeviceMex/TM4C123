@@ -25,6 +25,9 @@
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_DRIVER_H_
 
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Intrinsics.h>
-
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Load.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Value.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Stall.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Reset.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_DRIVER_H_ */
