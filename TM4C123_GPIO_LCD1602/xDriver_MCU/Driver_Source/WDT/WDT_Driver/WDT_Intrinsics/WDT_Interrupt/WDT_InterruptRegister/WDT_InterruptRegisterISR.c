@@ -30,7 +30,7 @@
 
 void WDT__vRegisterISR(void (*Isr) (void),WDT_nMODULE enModule)
 {
-    uint32_t u32Isr=0;
+    uint32_t u32Isr=0u;
     if((uint32_t)Isr !=0u)
     {
         if(enModule>WDT_enMODULE_MAX)

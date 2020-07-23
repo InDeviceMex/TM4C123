@@ -32,9 +32,9 @@ void WDT__vSetReady(WDT_nMODULE enModule)
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enWDT0;
     if(enModule>WDT_enMODULE_MAX)
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
-    enPeripheral|=enModule;
+    enPeripheral|= enModule;
     enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
     if(SYSCTL_enNOREADY == enReady)
     {

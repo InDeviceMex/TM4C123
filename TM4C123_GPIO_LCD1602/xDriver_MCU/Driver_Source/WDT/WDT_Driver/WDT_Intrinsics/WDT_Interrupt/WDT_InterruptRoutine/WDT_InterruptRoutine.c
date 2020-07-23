@@ -30,9 +30,9 @@ void (*WDT__ISR) (void)=&WDT__vISR;
 
 void WDT__vISR(void)
 {
-    volatile uint32_t u32Reg0=0;
-    volatile uint32_t u32Reg1=0;
-    volatile uint32_t u32RegWrite1=0;
+    volatile uint32_t u32Reg0=0u;
+    volatile uint32_t u32Reg1=0u;
+    volatile uint32_t u32RegWrite1=0u;
 
     u32Reg0=WDT0_WDTMIS_R;
     u32Reg0&= WDT_WDTMIS_R_WDTMIS_MASK;

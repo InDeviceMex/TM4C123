@@ -30,7 +30,7 @@
 
 void WDT__vRegisterMODULEISR(void (*Isr) (void))
 {
-    uint32_t u32Isr=0;
+    uint32_t u32Isr=0u;
     if(0u != (uint32_t)Isr)
     {
         u32Isr=((uint32_t)Isr|(uint32_t)1u);

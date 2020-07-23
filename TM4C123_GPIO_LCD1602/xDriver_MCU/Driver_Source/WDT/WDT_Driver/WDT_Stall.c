@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_Interrupt.c
+ * @file WDT_Stall.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,8 +21,7 @@
  * Date           Author     Version     Description
  * 23 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_Interrupt.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Stall.h>
 
 #include <stdint.h>
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Peripheral.h>
@@ -30,50 +29,43 @@
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Lock.h>
 
 
-void WDT__vEnInterrupt(WDT_nMODULE enModule)
+void WDT__vEnStall(WDT_nMODULE enModule)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32RegStall=0;
     if(enModule>WDT_enMODULE_MAX)
     {
-        enModule = WDT_enMODULE_MAX;
+        enModule=WDT_enMODULE_MAX;
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    u32Reg  = WDT->W[enModule].WDTCTL;
-    u32Reg |= WDT_enINTERRUPT_ENABLE;
-    WDT->W[enModule].WDTCTL = u32Reg;
+    u32RegStall=WDT->W[enModule].WDTTEST;
+    u32RegStall|= WDT_WDTTEST_R_STALL_MASK;
+    WDT->W[enModule].WDTTEST|=u32RegStall;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
 
-void WDT__vDisInterrupt(WDT_nMODULE enModule)
+void WDT__vDisStall(WDT_nMODULE enModule)
 {
+    uint32_t u32RegStall=0;
     if(enModule>WDT_enMODULE_MAX)
     {
-        enModule = WDT_enMODULE_MAX;
-    }
-    WDT__vReset(enModule);
-}
-
-
-void WDT__vClearInterrupt(WDT_nMODULE enModule)
-{
-    if(enModule>WDT_enMODULE_MAX)
-    {
-        enModule = WDT_enMODULE_MAX;
+        enModule=WDT_enMODULE_MAX;
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    WDT->W[enModule].WDTICR = 0u;
+    u32RegStall=WDT->W[enModule].WDTTEST;
+    u32RegStall&= ~WDT_WDTTEST_R_STALL_MASK;
+    WDT->W[enModule].WDTTEST|=u32RegStall;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
 
-WDT_nINT_STATUS WDT__enStatusInterrupt(WDT_nMODULE enModule)
+WDT_nSTALL WDT__enGetStall(WDT_nMODULE enModule)
 {
-    WDT_nINT_STATUS enStatus= WDT_enINT_STATUS_UNDEF;
+    WDT_nSTALL enStall= WDT_enSTALL_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;
@@ -81,10 +73,11 @@ WDT_nINT_STATUS WDT__enStatusInterrupt(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if((WDT_enREADY == enReady) )
     {
-        u32Reg =  WDT->W[enModule].WDTRIS;
-        u32Reg &= WDT_enINT_STATUS_OCCUR;
-        enStatus = (WDT_nINT_STATUS)u32Reg;
+        u32Reg=WDT->W[enModule].WDTTEST;
+        u32Reg>>=WDT_WDTTEST_R_STALL_BIT;
+        u32Reg&=WDT_WDTTEST_STALL_MASK;
+        enStall= (WDT_nSTALL)u32Reg;
     }
-    return enStatus;
+    return enStall;
 }
 
