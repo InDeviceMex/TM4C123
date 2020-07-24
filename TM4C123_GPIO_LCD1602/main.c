@@ -7,7 +7,7 @@
 #include <DRIVER.h>
 #include <LCD1602/Generic_Header/LCD1602_Generic.h>
 
-/*Include not allowed, this use directly the Peripheral*/
+/*Include not allowed, this use directly the PeripheralRegisters*/
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
 
 #include "stdlib.h"
@@ -140,6 +140,7 @@ int main(void)
         fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
         if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
         {
+
             fTimeSystickEnd_Task2=( fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
         }
         else

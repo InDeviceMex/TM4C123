@@ -29,5 +29,6 @@
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Pending.h>
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Priority.h>
 #include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_Trigger.h>
+#include <xDriver_MCU/Driver_Header/NVIC/NVIC_Driver/NVIC_DeInitInterrupts.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_DRIVER_H_ */

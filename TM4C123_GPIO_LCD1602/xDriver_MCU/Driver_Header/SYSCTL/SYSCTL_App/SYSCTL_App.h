@@ -25,6 +25,8 @@
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_APP_H_
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_DeInitClockGates.h>
+
 
 
 

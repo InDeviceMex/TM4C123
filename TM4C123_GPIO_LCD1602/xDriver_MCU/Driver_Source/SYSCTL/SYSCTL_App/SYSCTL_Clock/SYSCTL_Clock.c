@@ -24,6 +24,10 @@
 
 #include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock.h>
 
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock_RCC.h>
+#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_App/SYSCTL_Clock/SYSCTL_Clock_RCC2.h>
+
 
 uint32_t SYSCTL__u32GetClock(void)
 {
