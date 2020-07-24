@@ -47,7 +47,7 @@ void WDT__vSetLoad(WDT_nMODULE enModule, uint32_t u32LoadValue)
 uint32_t WDT__u32GetLoad(WDT_nMODULE enModule)
 {
     WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0;
+    uint32_t u32Reg=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;

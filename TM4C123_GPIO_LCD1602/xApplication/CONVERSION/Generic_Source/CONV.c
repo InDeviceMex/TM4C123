@@ -20,7 +20,7 @@ int32_t CONV__s32String2Hex(const char* pcString,int64_t* s64NumSigned )
 {
     int32_t s32Length=0;
     int64_t s64NumSignedReg=0;
-    uint64_t u64NumShiftReg=0;
+    uint64_t u64NumShiftReg=0u;
     int64_t s64InitSuf=0;
     char cStringBack[66]={0};
     char* pcStringBack=0;
@@ -140,7 +140,7 @@ int32_t CONV__s32String2Oct(const char* pcString,int64_t* s64NumSigned )
 {
     int32_t s32Length=0;
     int64_t s64NumSignedReg=0;
-    uint64_t u64NumShiftReg=0;
+    uint64_t u64NumShiftReg=0u;
     char cStringBack[66]={0};
     char* pcStringBack=0;
     char  cValueAux=0;
@@ -199,7 +199,7 @@ int32_t CONV__s32String2Bin(const char* pcString,int64_t* s64NumSigned )
 {
     int32_t s32Length=0;
     int64_t s64NumSignedReg=0;
-    uint64_t u64NumShiftReg=0;
+    uint64_t u64NumShiftReg=0u;
     char cStringBack[66]={0};
     char* pcStringBack=0;
     char  cValueAux=0;

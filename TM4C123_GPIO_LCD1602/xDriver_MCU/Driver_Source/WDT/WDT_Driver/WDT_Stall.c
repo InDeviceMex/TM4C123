@@ -31,7 +31,7 @@
 
 void WDT__vEnStall(WDT_nMODULE enModule)
 {
-    uint32_t u32RegStall=0;
+    uint32_t u32RegStall=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;
@@ -47,7 +47,7 @@ void WDT__vEnStall(WDT_nMODULE enModule)
 
 void WDT__vDisStall(WDT_nMODULE enModule)
 {
-    uint32_t u32RegStall=0;
+    uint32_t u32RegStall=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;
@@ -65,7 +65,7 @@ WDT_nSTALL WDT__enGetStall(WDT_nMODULE enModule)
 {
     WDT_nSTALL enStall= WDT_enSTALL_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0;
+    uint32_t u32Reg=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;

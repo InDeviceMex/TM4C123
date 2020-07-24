@@ -27,7 +27,9 @@
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_InterruptRoutine/WDT_InterruptRoutine_Modules.h>
 
 void WDT__vISR(void);
+void WDT_NMI__vISR_Dummy(void);
+void WDT_NMI__vISR(void);
 
-extern void (*WDT__ISR) (void);
+extern void (*WDT__ISR[2]) (void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTROUTINE_WDT_INTERRUPTROUTINE_H_ */

@@ -30,7 +30,7 @@
 
 uint8_t LCD1602__u8Read(LCD1602_nRS enMode)
 {
-    uint8_t  u8DatoRead=0;
+    uint8_t  u8DatoRead=0u;
     LCD1602__vSetDataInputConfig();
 
     LCD1602__vSetReadMode();

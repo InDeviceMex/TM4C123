@@ -25,8 +25,10 @@
 
 #include <xDriver_MCU/Driver_Header/SCB/SCB_Driver/SCB_InterruptRoutine/SCB_InterruptNMI.h>
 
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_InterruptRoutine/WDT_InterruptRoutine.h>
 void NMI__vISR(void)
 {
+    WDT__ISR[2]();
     /*use for GPIO activation*/
     while(1u){}
 }

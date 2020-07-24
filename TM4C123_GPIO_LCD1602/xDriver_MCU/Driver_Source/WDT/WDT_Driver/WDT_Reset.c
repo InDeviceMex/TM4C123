@@ -31,7 +31,7 @@
 
 void WDT__vEnResetOutput(WDT_nMODULE enModule)
 {
-    uint32_t u32RegReset=0;
+    uint32_t u32RegReset=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;
@@ -47,7 +47,7 @@ void WDT__vEnResetOutput(WDT_nMODULE enModule)
 
 void WDT__vDisReset(WDT_nMODULE enModule)
 {
-    uint32_t u32RegReset=0;
+    uint32_t u32RegReset=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;
@@ -65,7 +65,7 @@ WDT_nRESET WDT__enGetResetOutput(WDT_nMODULE enModule)
 {
     WDT_nRESET enReset= WDT_enRESET_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0;
+    uint32_t u32Reg=0u;
     if(enModule>WDT_enMODULE_MAX)
     {
         enModule=WDT_enMODULE_MAX;

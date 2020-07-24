@@ -26,16 +26,22 @@
 
 #include <stdint.h>
 #include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Enum.h>
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_InterruptRoutine/WDT_InterruptRoutine.h>
 
-void WDT__vRegisterMODULEISR(void (*Isr) (void))
+void WDT__vRegisterMODULEISR(void (*Isr) (void),WDT_nINT_TYPE enIntType)
 {
+    uint32_t u32IntType= (uint32_t)enIntType;
     uint32_t u32Isr=0u;
     if(0u != (uint32_t)Isr)
     {
+        u32IntType&=(uint32_t)WDT_enINT_TYPE_NMI;
         u32Isr=((uint32_t)Isr|(uint32_t)1u);
-        WDT__ISR=(void (*) (void))u32Isr;
-        SCB__vRegisterISR(WDT__ISR,SCB_enVECISR_WDT01);
+        WDT__ISR[u32IntType]=(void (*) (void))u32Isr;
+        if((uint32_t)WDT_enINT_TYPE_STANDARD == u32IntType)
+        {
+            SCB__vRegisterISR(WDT__ISR[u32IntType],SCB_enVECISR_WDT01);
+        }
     }
 }
 
