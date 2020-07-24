@@ -29,6 +29,26 @@
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Primitives/WDT_Primitives.h>
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Driver/WDT_Intrinsics/WDT_Lock.h>
 
+WDT_nINTERRUPT WDT__enGetInterrupt(WDT_nMODULE enModule)
+{
+    WDT_nINTERRUPT enStatus= WDT_enINTERRUPT_UNDEF;
+    WDT_nREADY enReady= WDT_enNOREADY;
+    uint32_t u32Reg=0u;
+    if(enModule>WDT_enMODULE_MAX)
+    {
+        enModule=WDT_enMODULE_MAX;
+    }
+    enReady = WDT__enIsReady(enModule);
+    if((WDT_enREADY == enReady) )
+    {
+        u32Reg =  WDT->W[enModule].WDTCTL;
+        u32Reg &= WDT_WDTCTL_R_INTEN_MASK;
+        u32Reg >>= WDT_WDTCTL_R_INTEN_BIT;
+        enStatus = (WDT_nINTERRUPT)u32Reg;
+    }
+    return enStatus;
+}
+
 
 void WDT__vEnInterrupt(WDT_nMODULE enModule)
 {

@@ -28,7 +28,7 @@
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Enum.h>
 
 void WDT__vEnResetOutput(WDT_nMODULE enModule);
-void WDT__vDisReset(WDT_nMODULE enModule);
+void WDT__vDisResetOutput(WDT_nMODULE enModule);
 WDT_nRESET WDT__enGetResetOutput(WDT_nMODULE enModule);
 
 

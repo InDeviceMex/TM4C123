@@ -68,6 +68,7 @@ int main(void)
     SYSEXC__vInit((SYSEXC_nINTERRUPT)(SYSEXC_enINVALID|SYSEXC_enDIV0|
             SYSEXC_enOVERFLOW|SYSEXC_enUNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
+    WDT__vInit(0xFFFFFFFFu);
     SysTick__enInitUs(10.0f,SCB_enSHPR0);
     EEPROM__enInit();
     MAIN_vInitGPIO();
@@ -99,9 +100,10 @@ int main(void)
         {
             fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
         }
-        fTimeSystickEnd_Task1=200000.0f-fTimeSystickEnd_Task1;
+        fTimeSystickEnd_Task1=50000.0f-fTimeSystickEnd_Task1;
         if(fTimeSystickEnd_Task1<=0.0f)
         {
+            WDT__vSetLoad(WDT_enMODULE_0, 4002000u);
             fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
             if(vu32Refresh == (uint32_t)((uint32_t)enSW1Pin|(uint32_t)enSW2Pin))
             {

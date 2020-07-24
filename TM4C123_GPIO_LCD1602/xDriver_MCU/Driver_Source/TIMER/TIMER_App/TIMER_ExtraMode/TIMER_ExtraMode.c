@@ -70,9 +70,9 @@ TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule)
 {
     TIMER_EXTRAMODE_Typedef* psExtraMode=0;
     #if defined ( __TI_ARM__ )
-    psExtraMode = (TIMER_EXTRAMODE_Typedef*) memalign((size_t)4,(size_t)sizeof(TIMER_EXTRAMODE_Typedef));
+    psExtraMode = (TIMER_EXTRAMODE_Typedef*) memalign((size_t)4,(size_t)sizeof(TIMER_EXTRAMODE_Typedef)*sizeof(uint32_t));
     #elif defined ( __GNUC__ )
-    psExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc((size_t)sizeof(TIMER_EXTRAMODE_Typedef));
+    psExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc((size_t)sizeof(TIMER_EXTRAMODE_Typedef)*sizeof(uint32_t));
     #endif
 
     if(0!=psExtraMode)

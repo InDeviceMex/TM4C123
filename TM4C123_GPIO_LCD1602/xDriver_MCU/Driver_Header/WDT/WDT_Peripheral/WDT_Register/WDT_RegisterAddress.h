@@ -28,11 +28,11 @@
 
 #define WDT_BASE            ((uint32_t)0x40000000u)
 #define WDT0_BASE           ((uint32_t)0x40000000u)
-#define WDT1_BASE           ((uint32_t)0x40001000u)
+#define WDT1_BASE           ((uint32_t)0x40010000u)
 
 #define WDT_OFFSET          ((uint32_t)0x00000000u)
 #define WDT0_OFFSET         ((uint32_t)0x00000000u)
-#define WDT1_OFFSET         ((uint32_t)0x00001000u)
+#define WDT1_OFFSET         ((uint32_t)0x00010000u)
 
 #define WDT_BITBANDING_BASE        ((uint32_t)0x42000000u)
 

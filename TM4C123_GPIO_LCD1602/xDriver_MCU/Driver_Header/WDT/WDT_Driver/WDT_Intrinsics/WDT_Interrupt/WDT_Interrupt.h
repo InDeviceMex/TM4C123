@@ -31,6 +31,7 @@
 
 #include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Enum.h>
 
+WDT_nINTERRUPT WDT__enGetInterrupt(WDT_nMODULE enModule);
 void WDT__vEnInterrupt(WDT_nMODULE enModule);
 void WDT__vDisInterrupt(WDT_nMODULE enModule);
 void WDT__vClearInterrupt(WDT_nMODULE enModule);

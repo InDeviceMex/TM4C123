@@ -110,9 +110,9 @@ typedef volatile struct
     volatile    uint32_t EXT      :1;
     volatile    uint32_t POR      :1;
     volatile    uint32_t BOR      :1;
-    volatile    uint32_t WDT0     :1;
+    volatile    uint32_t WDT0_     :1;
     volatile    uint32_t SW       :1;
-    volatile    uint32_t WDT1     :1;
+    volatile    uint32_t WDT1_     :1;
     const       uint32_t reserved :10;
     volatile    uint32_t MOSCFAIL :1;
     const       uint32_t reserved1:15;

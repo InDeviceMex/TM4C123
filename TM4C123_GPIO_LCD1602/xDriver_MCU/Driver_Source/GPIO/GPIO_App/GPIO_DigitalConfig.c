@@ -151,9 +151,9 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
 
     #if defined ( __TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign((size_t)4,(size_t)(sizeof(GPIO_CONFIG_Typedef)));
+    psConfig = (GPIO_CONFIG_Typedef*) memalign((size_t)4,(size_t)(sizeof(GPIO_CONFIG_Typedef)*sizeof(uint32_t)));
     #elif defined ( __GNUC__ )
-    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef));
+    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef)*sizeof(uint32_t));
     #endif
 
     psConfig->enResistorMode=GPIO__enGetResistorMode(enPort, enPin);

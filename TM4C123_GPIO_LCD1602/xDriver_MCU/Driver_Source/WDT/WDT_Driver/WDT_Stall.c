@@ -40,7 +40,7 @@ void WDT__vEnStall(WDT_nMODULE enModule)
     WDT__vUnlock(enModule);
     u32RegStall=WDT->W[enModule].WDTTEST;
     u32RegStall|= WDT_WDTTEST_R_STALL_MASK;
-    WDT->W[enModule].WDTTEST|=u32RegStall;
+    WDT->W[enModule].WDTTEST=u32RegStall;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
@@ -56,7 +56,7 @@ void WDT__vDisStall(WDT_nMODULE enModule)
     WDT__vUnlock(enModule);
     u32RegStall=WDT->W[enModule].WDTTEST;
     u32RegStall&= ~WDT_WDTTEST_R_STALL_MASK;
-    WDT->W[enModule].WDTTEST|=u32RegStall;
+    WDT->W[enModule].WDTTEST=u32RegStall;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }

@@ -527,6 +527,12 @@ encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/TIMER_Peripheral/TIMER_Regis
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/TIMER_Peripheral/TIMER_Register/TIMER_RegisterPeripheral_Bitbanding/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/TIMER/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_App/WDT_Mode/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_App/WDT_Mode/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_App/WDT_ModeLoad/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_App/WDT_ModeLoad/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_App/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_App/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_InterruptRegister/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_InterruptRegister/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Driver_Source/WDT/WDT_Driver/WDT_Intrinsics/WDT_Interrupt/WDT_InterruptRoutine/subdir_rules.mk=UTF-8

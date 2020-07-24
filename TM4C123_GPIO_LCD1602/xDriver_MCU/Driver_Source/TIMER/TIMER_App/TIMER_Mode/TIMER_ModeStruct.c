@@ -48,9 +48,9 @@ TIMER_MODE_Typedef* TIMER__psCreateModeStruct(TIMER_nMODE enMode)
 {
     TIMER_MODE_Typedef* psMode=0;
     #if defined ( __TI_ARM__ )
-    psMode = (TIMER_MODE_Typedef*) memalign((size_t)4,(size_t)sizeof(TIMER_MODE_Typedef));
+    psMode = (TIMER_MODE_Typedef*) memalign((size_t)4,(size_t)sizeof(TIMER_MODE_Typedef)*sizeof(uint32_t));
     #elif defined ( __GNUC__ )
-    psMode = (TIMER_MODE_Typedef*) malloc((size_t)sizeof(TIMER_MODE_Typedef));
+    psMode = (TIMER_MODE_Typedef*) malloc((size_t)sizeof(TIMER_MODE_Typedef)*sizeof(uint32_t));
     #endif
     if(psMode!=0)
     {
