@@ -61,6 +61,25 @@ void WDT__vDisStall(WDT_nMODULE enModule)
     WDT__vLock(enModule);
 }
 
+void WDT__vSetStall(WDT_nMODULE enModule, WDT_nSTALL enStallValue)
+{
+    uint32_t u32Reg=0;
+    uint32_t u32Stall=((uint32_t)enStallValue)&1u;
+    if(enModule>WDT_enMODULE_MAX)
+    {
+        enModule=WDT_enMODULE_MAX;
+    }
+    WDT__vSetReady(enModule);
+    WDT__vUnlock(enModule);
+    u32Reg = WDT->W[enModule].WDTTEST;
+    u32Stall<<=WDT_WDTTEST_R_STALL_BIT;
+    u32Reg&=~ WDT_WDTTEST_R_STALL_MASK;
+    u32Reg|=u32Stall;
+    WDT->W[enModule].WDTTEST = u32Reg;
+    WDT__vWaitWrite(enModule);
+    WDT__vLock(enModule);
+}
+
 WDT_nSTALL WDT__enGetStall(WDT_nMODULE enModule)
 {
     WDT_nSTALL enStall= WDT_enSTALL_UNDEF;

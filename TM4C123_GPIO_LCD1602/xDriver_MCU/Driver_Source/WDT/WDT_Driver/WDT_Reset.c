@@ -61,6 +61,27 @@ void WDT__vDisResetOutput(WDT_nMODULE enModule)
     WDT__vLock(enModule);
 }
 
+
+void WDT__vSetResetOutput(WDT_nMODULE enModule, WDT_nRESET enResetOutputValue)
+{
+    uint32_t u32Reg=0;
+    uint32_t u32ResetOutput=((uint32_t)enResetOutputValue)&1u;
+    if(enModule>WDT_enMODULE_MAX)
+    {
+        enModule=WDT_enMODULE_MAX;
+    }
+    WDT__vSetReady(enModule);
+    WDT__vUnlock(enModule);
+    u32Reg = WDT->W[enModule].WDTCTL;
+    u32ResetOutput<<=WDT_WDTCTL_R_RESEN_BIT;
+    u32Reg&=~ WDT_WDTCTL_R_RESEN_MASK;
+    u32Reg|=u32ResetOutput;
+    WDT->W[enModule].WDTCTL = u32Reg;
+    WDT__vWaitWrite(enModule);
+    WDT__vLock(enModule);
+}
+
+
 WDT_nRESET WDT__enGetResetOutput(WDT_nMODULE enModule)
 {
     WDT_nRESET enReset= WDT_enRESET_UNDEF;

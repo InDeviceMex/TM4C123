@@ -39,25 +39,8 @@ WDT_nSTATUS WDT__enSetMode(WDT_nMODULE enModule, WDT_nMODE enMode)
         {
             WDT__vDisInterrupt(enModule);
         }
-
-        if(WDT_enSTALL_CONTINUE == psMode->enStall)
-        {
-            WDT__vDisStall(enModule);
-        }
-        else
-        {
-            WDT__vEnStall(enModule);
-        }
-
-        if(WDT_enRESET_DISABLE == psMode->enResetOutput)
-        {
-            WDT__vEnResetOutput(enModule);
-        }
-        else
-        {
-            WDT__vDisResetOutput(enModule);
-        }
-
+        WDT__vSetStall(enModule,psMode->enStall);
+        WDT__vSetResetOutput(enModule,psMode->enResetOutput);
         WDT__vSetInterruptType(enModule,psMode->enIntType);
 
         if(WDT_enINTERRUPT_ENABLE == psMode->enInterrupt)
@@ -81,25 +64,8 @@ WDT_nSTATUS WDT__enSetModeStruct(WDT_nMODULE enModule, const WDT_MODE_Typedef* p
         {
             WDT__vDisInterrupt(enModule);
         }
-
-        if(WDT_enSTALL_CONTINUE == psMode->enStall)
-        {
-            WDT__vDisStall(enModule);
-        }
-        else
-        {
-            WDT__vEnStall(enModule);
-        }
-
-        if(WDT_enRESET_DISABLE == psMode->enResetOutput)
-        {
-            WDT__vEnResetOutput(enModule);
-        }
-        else
-        {
-            WDT__vDisResetOutput(enModule);
-        }
-
+        WDT__vSetStall(enModule,psMode->enStall);
+        WDT__vSetResetOutput(enModule,psMode->enResetOutput);
         WDT__vSetInterruptType(enModule,psMode->enIntType);
 
         if(WDT_enINTERRUPT_ENABLE == psMode->enInterrupt)
