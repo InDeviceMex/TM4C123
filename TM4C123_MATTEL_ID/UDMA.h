@@ -8,9 +8,6 @@
 #ifndef UDMA_H_
 #define UDMA_H_
 
-#include <stdint.h>
-#define DMA_BASE            (0x400FF000)
-#define DMA_OFFSET          (0x000FF000)
 
 
 typedef volatile struct

@@ -1,0 +1,388 @@
+/**
+ *
+ * @file DMA_RegisterDefines_WAITSTAT.h
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 28 jul. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ */
+#ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_WAITSTAT_H_
+#define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_WAITSTAT_H_
+
+#include <stdint.h>
+
+/**************************************************************************************
+************************************* 8 DMAWAITSTAT *************************************
+****************************************************************************************/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ0_MASK     ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_R_WAITREQ0_BIT      ((uint32_t)0u)
+#define DMA_DMAWAITSTAT_R_WAITREQ0_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ0_WAIT     ((uint32_t)0x00000001u)
+
+#define DMA_DMAWAITSTAT_WAITREQ0_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ0_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ0_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ1_MASK     ((uint32_t)0x00000002u)
+#define DMA_DMAWAITSTAT_R_WAITREQ1_BIT      ((uint32_t)1u)
+#define DMA_DMAWAITSTAT_R_WAITREQ1_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ1_WAIT     ((uint32_t)0x00000002u)
+
+#define DMA_DMAWAITSTAT_WAITREQ1_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ1_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ1_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ2_MASK     ((uint32_t)0x00000004u)
+#define DMA_DMAWAITSTAT_R_WAITREQ2_BIT      ((uint32_t)2u)
+#define DMA_DMAWAITSTAT_R_WAITREQ2_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ2_WAIT     ((uint32_t)0x00000004u)
+
+#define DMA_DMAWAITSTAT_WAITREQ2_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ2_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ2_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ3_MASK     ((uint32_t)0x00000008u)
+#define DMA_DMAWAITSTAT_R_WAITREQ3_BIT      ((uint32_t)3u)
+#define DMA_DMAWAITSTAT_R_WAITREQ3_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ3_WAIT     ((uint32_t)0x00000008u)
+
+#define DMA_DMAWAITSTAT_WAITREQ3_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ3_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ3_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ4_MASK     ((uint32_t)0x00000010u)
+#define DMA_DMAWAITSTAT_R_WAITREQ4_BIT      ((uint32_t)4u)
+#define DMA_DMAWAITSTAT_R_WAITREQ4_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ4_WAIT     ((uint32_t)0x00000010u)
+
+#define DMA_DMAWAITSTAT_WAITREQ4_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ4_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ4_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ5_MASK     ((uint32_t)0x00000020u)
+#define DMA_DMAWAITSTAT_R_WAITREQ5_BIT      ((uint32_t)5u)
+#define DMA_DMAWAITSTAT_R_WAITREQ5_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ5_WAIT     ((uint32_t)0x00000020u)
+
+#define DMA_DMAWAITSTAT_WAITREQ5_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ5_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ5_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ6_MASK     ((uint32_t)0x00000040u)
+#define DMA_DMAWAITSTAT_R_WAITREQ6_BIT      ((uint32_t)6u)
+#define DMA_DMAWAITSTAT_R_WAITREQ6_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ6_WAIT     ((uint32_t)0x00000040u)
+
+#define DMA_DMAWAITSTAT_WAITREQ6_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ6_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ6_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ7_MASK     ((uint32_t)0x00000080u)
+#define DMA_DMAWAITSTAT_R_WAITREQ7_BIT      ((uint32_t)7u)
+#define DMA_DMAWAITSTAT_R_WAITREQ7_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ7_WAIT     ((uint32_t)0x00000080u)
+
+#define DMA_DMAWAITSTAT_WAITREQ7_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ7_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ7_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ8_MASK     ((uint32_t)0x00000100u)
+#define DMA_DMAWAITSTAT_R_WAITREQ8_BIT      ((uint32_t)8u)
+#define DMA_DMAWAITSTAT_R_WAITREQ8_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ8_WAIT     ((uint32_t)0x00000100u)
+
+#define DMA_DMAWAITSTAT_WAITREQ8_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ8_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ8_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ9_MASK     ((uint32_t)0x00000200u)
+#define DMA_DMAWAITSTAT_R_WAITREQ9_BIT      ((uint32_t)9u)
+#define DMA_DMAWAITSTAT_R_WAITREQ9_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ9_WAIT     ((uint32_t)0x00000200u)
+
+#define DMA_DMAWAITSTAT_WAITREQ9_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ9_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ9_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ10_MASK     ((uint32_t)0x00000400u)
+#define DMA_DMAWAITSTAT_R_WAITREQ10_BIT      ((uint32_t)10u)
+#define DMA_DMAWAITSTAT_R_WAITREQ10_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ10_WAIT     ((uint32_t)0x00000400u)
+
+#define DMA_DMAWAITSTAT_WAITREQ10_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ10_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ10_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ11_MASK     ((uint32_t)0x00000800u)
+#define DMA_DMAWAITSTAT_R_WAITREQ11_BIT      ((uint32_t)11u)
+#define DMA_DMAWAITSTAT_R_WAITREQ11_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ11_WAIT     ((uint32_t)0x00000800u)
+
+#define DMA_DMAWAITSTAT_WAITREQ11_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ11_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ11_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ12_MASK     ((uint32_t)0x00001000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ12_BIT      ((uint32_t)12u)
+#define DMA_DMAWAITSTAT_R_WAITREQ12_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ12_WAIT     ((uint32_t)0x00001000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ12_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ12_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ12_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ13_MASK     ((uint32_t)0x00002000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ13_BIT      ((uint32_t)13u)
+#define DMA_DMAWAITSTAT_R_WAITREQ13_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ13_WAIT     ((uint32_t)0x00002000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ13_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ13_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ13_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ14_MASK     ((uint32_t)0x00004000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ14_BIT      ((uint32_t)14u)
+#define DMA_DMAWAITSTAT_R_WAITREQ14_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ14_WAIT     ((uint32_t)0x00004000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ14_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ14_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ14_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ15_MASK     ((uint32_t)0x00008000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ15_BIT      ((uint32_t)15u)
+#define DMA_DMAWAITSTAT_R_WAITREQ15_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ15_WAIT     ((uint32_t)0x00008000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ15_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ15_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ15_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ16_MASK     ((uint32_t)0x00010000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ16_BIT      ((uint32_t)16u)
+#define DMA_DMAWAITSTAT_R_WAITREQ16_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ16_WAIT     ((uint32_t)0x00010000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ16_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ16_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ16_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ17_MASK     ((uint32_t)0x00020000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ17_BIT      ((uint32_t)17u)
+#define DMA_DMAWAITSTAT_R_WAITREQ17_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ17_WAIT     ((uint32_t)0x00020000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ17_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ17_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ17_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ18_MASK     ((uint32_t)0x00040000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ18_BIT      ((uint32_t)18u)
+#define DMA_DMAWAITSTAT_R_WAITREQ18_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ18_WAIT     ((uint32_t)0x00040000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ18_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ18_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ18_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ19_MASK     ((uint32_t)0x00080000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ19_BIT      ((uint32_t)19u)
+#define DMA_DMAWAITSTAT_R_WAITREQ19_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ19_WAIT     ((uint32_t)0x00080000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ19_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ19_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ19_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ20_MASK     ((uint32_t)0x00100000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ20_BIT      ((uint32_t)20u)
+#define DMA_DMAWAITSTAT_R_WAITREQ20_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ20_WAIT     ((uint32_t)0x00100000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ20_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ20_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ20_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ21_MASK     ((uint32_t)0x00200000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ21_BIT      ((uint32_t)21u)
+#define DMA_DMAWAITSTAT_R_WAITREQ21_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ21_WAIT     ((uint32_t)0x00200000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ21_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ21_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ21_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ22_MASK     ((uint32_t)0x00400000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ22_BIT      ((uint32_t)22u)
+#define DMA_DMAWAITSTAT_R_WAITREQ22_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ22_WAIT     ((uint32_t)0x00400000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ22_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ22_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ22_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ23_MASK     ((uint32_t)0x00800000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ23_BIT      ((uint32_t)23u)
+#define DMA_DMAWAITSTAT_R_WAITREQ23_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ23_WAIT     ((uint32_t)0x00800000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ23_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ23_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ23_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ24_MASK     ((uint32_t)0x01000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ24_BIT      ((uint32_t)24u)
+#define DMA_DMAWAITSTAT_R_WAITREQ24_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ24_WAIT     ((uint32_t)0x01000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ24_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ24_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ24_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ25_MASK     ((uint32_t)0x02000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ25_BIT      ((uint32_t)25u)
+#define DMA_DMAWAITSTAT_R_WAITREQ25_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ25_WAIT     ((uint32_t)0x02000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ25_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ25_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ25_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ26_MASK     ((uint32_t)0x04000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ26_BIT      ((uint32_t)26u)
+#define DMA_DMAWAITSTAT_R_WAITREQ26_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ26_WAIT     ((uint32_t)0x04000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ26_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ26_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ26_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ27_MASK     ((uint32_t)0x08000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ27_BIT      ((uint32_t)27u)
+#define DMA_DMAWAITSTAT_R_WAITREQ27_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ27_WAIT     ((uint32_t)0x08000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ27_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ27_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ27_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ28_MASK     ((uint32_t)0x10000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ28_BIT      ((uint32_t)28u)
+#define DMA_DMAWAITSTAT_R_WAITREQ28_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ28_WAIT     ((uint32_t)0x10000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ28_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ28_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ28_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ29_MASK     ((uint32_t)0x20000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ29_BIT      ((uint32_t)29u)
+#define DMA_DMAWAITSTAT_R_WAITREQ29_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ29_WAIT     ((uint32_t)0x20000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ29_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ29_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ29_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ30_MASK     ((uint32_t)0x40000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ30_BIT      ((uint32_t)30u)
+#define DMA_DMAWAITSTAT_R_WAITREQ30_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ30_WAIT     ((uint32_t)0x40000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ30_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ30_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ30_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+/*--------*/
+#define DMA_DMAWAITSTAT_R_WAITREQ31_MASK     ((uint32_t)0x80000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ31_BIT      ((uint32_t)31u)
+#define DMA_DMAWAITSTAT_R_WAITREQ31_NOWAIT   ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_R_WAITREQ31_WAIT     ((uint32_t)0x80000000u)
+
+#define DMA_DMAWAITSTAT_WAITREQ31_MASK       ((uint32_t)0x00000001u)
+#define DMA_DMAWAITSTAT_WAITREQ31_NOWAIT     ((uint32_t)0x00000000u)
+#define DMA_DMAWAITSTAT_WAITREQ31_WAIT       ((uint32_t)0x00000001u)
+/*--------*/
+
+
+
+
+#endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_WAITSTAT_H_ */
