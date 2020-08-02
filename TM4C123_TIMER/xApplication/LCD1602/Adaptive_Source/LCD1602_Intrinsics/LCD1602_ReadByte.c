@@ -25,7 +25,7 @@
 
 #include <stdint.h>
 #include <xApplication/LCD1602/Adaptive_Header/LCD1602_Defines.h>
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
+#include <xDriver_MCU/GPIO/Header/GPIO.h>
 
 uint8_t LCD1602__u8ReadLowByte(void)
 {

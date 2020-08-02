@@ -26,7 +26,7 @@
 
 #include <xApplication/LCD1602/Adaptive_Header/LCD1602_Intrinsics/LCD1602_Delay.h>
 #include <xApplication/LCD1602/Adaptive_Header/LCD1602_Defines.h>
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
+#include <xDriver_MCU/GPIO/Header/GPIO.h>
 
 void LCD1602__vPrepareWriteEnable(void)
 {

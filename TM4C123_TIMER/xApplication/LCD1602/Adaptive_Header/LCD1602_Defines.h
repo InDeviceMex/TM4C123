@@ -24,7 +24,7 @@
 #ifndef XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_DEFINES_H_
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_DEFINES_H_
 
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Enum.h>
+#include <xDriver_MCU/GPIO/Header/Peripheral/GPIO_Enum.h>
 
 #define LCD1602_PORT_E  (GPIO_enPORTB)
 #define LCD1602_PORT_RS (GPIO_enPORTB)

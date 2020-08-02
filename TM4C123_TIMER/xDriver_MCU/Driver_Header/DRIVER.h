@@ -26,15 +26,14 @@
 
 #include <xDriver_MCU/Core/Core.h>
 
-#include <xDriver_MCU/SYSEXC/Header/SYSEXC.h>
+#include <xDriver_MCU/DMA/Header/DMA.h>
 #include <xDriver_MCU/EEPROM/Header/EEPROM.h>
 #include <xDriver_MCU/FLASH/Header/FLASH.h>
+#include <xDriver_MCU/GPIO/Header/GPIO.h>
 #include <xDriver_MCU/HIB/Header/HIB.h>
 #include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/SYSEXC/Header/SYSEXC.h>
+#include <xDriver_MCU/TIMER/Header/TIMER.h>
 #include <xDriver_MCU/WDT/Header/WDT.h>
-
-#include <xDriver_MCU/Driver_Header/DMA/DMA.h>
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
-#include <xDriver_MCU/Driver_Header/TIMER/TIMER.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */
