@@ -4,11 +4,10 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <xDriver_MCU/EEPROM/Header/Driver/EEPROM_Write.h>
-
+#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
+#include <EEPROM/Driver/xHeader/EEPROM_Write.h>
 #include <stdint.h>
-#include <xDriver_MCU/EEPROM/Header/Peripheral/EEPROM_Peripheral.h>
-#include <xDriver_MCU/EEPROM/Header/Driver/EEPROM_Intrinsics.h>
+#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 EEPROM_nSTATUS EEPROM__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
 {

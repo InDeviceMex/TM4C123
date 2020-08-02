@@ -32,8 +32,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_INTRINSICS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_INTRINSICS_H_
 
+#include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
 #include <stdint.h>
-#include <xDriver_MCU/EEPROM/Header/Peripheral/EEPROM_Enum.h>
 
 /** @section Intrinsics
 

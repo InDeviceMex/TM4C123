@@ -1,10 +1,9 @@
 /**
  * Include Files
  */
-#include <xDriver_MCU/EEPROM/Header/Driver/EEPROM_Intrinsics.h>
-
+#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
 #include <stdint.h>
-#include <xDriver_MCU/EEPROM/Header/Peripheral/EEPROM_Peripheral.h>
+#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 
 

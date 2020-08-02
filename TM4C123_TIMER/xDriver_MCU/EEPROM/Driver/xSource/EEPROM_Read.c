@@ -4,11 +4,10 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <xDriver_MCU/EEPROM/Header/Driver/EEPROM_Read.h>
-
+#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
+#include <EEPROM/Driver/xHeader/EEPROM_Read.h>
 #include <stdint.h>
-#include <xDriver_MCU/EEPROM/Header/Peripheral/EEPROM_Peripheral.h>
-#include <xDriver_MCU/EEPROM/Header/Driver/EEPROM_Intrinsics.h>
+#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 EEPROM_nSTATUS EEPROM__enReadWorld (uint32_t *pu32Data, uint32_t u32Address)
 {
