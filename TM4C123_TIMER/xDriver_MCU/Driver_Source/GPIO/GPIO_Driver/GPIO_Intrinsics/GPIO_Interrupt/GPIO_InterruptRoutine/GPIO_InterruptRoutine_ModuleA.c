@@ -26,11 +26,11 @@
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRoutine/GPIO_InterruptRoutine_ModuleA.h>
 
 #include <stdint.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL_Peripheral/SYSCTL_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRoutine/GPIO_InterruptRoutine_Pines.h>
+#include <xDriver_MCU/SYSCTL/Header/Peripheral/SYSCTL_Peripheral.h>
 
-void GPIOA__vISR(void)
+void GPIOA__vISRHandler(void)
 {
     volatile uint32_t u32Reg=0;
     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<0u);

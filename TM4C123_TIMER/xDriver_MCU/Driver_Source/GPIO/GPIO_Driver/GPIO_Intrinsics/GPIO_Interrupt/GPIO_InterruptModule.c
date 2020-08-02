@@ -24,7 +24,7 @@
 
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptModule.h>
 
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
+#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
 
 
 static NVIC_nSTIR NVIC_VECTOR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,

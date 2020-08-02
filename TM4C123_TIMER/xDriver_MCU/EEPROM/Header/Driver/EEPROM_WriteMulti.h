@@ -1,0 +1,19 @@
+/*
+ * EEPROM_WriteMulti.h
+ *
+ *  Created on: 17 jun. 2020
+ *      Author: vyldram
+ */
+
+#ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_WRITEMULTI_H_
+#define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_WRITEMULTI_H_
+
+#include <stdint.h>
+#include <xDriver_MCU/EEPROM/Header/Peripheral/EEPROM_Enum.h>
+
+EEPROM_nSTATUS EEPROM__enWriteMultiWorld(const uint32_t* pu32Data,uint32_t u32Address,uint16_t u16Count);
+EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld(const uint16_t* pu16Data,uint32_t u32Address,uint16_t u16Count);
+EEPROM_nSTATUS EEPROM__enWriteMultiByte(const uint8_t* pu8Data,uint32_t u32Address,uint16_t u16Count);
+
+
+#endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_WRITEMULTI_H_ */

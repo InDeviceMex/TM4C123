@@ -24,7 +24,7 @@
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Driver/TIMER_Intrinsics/TIMER_Primitives/TIMER_Ready.h>
 
 #include <stdint.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
 
 static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_TIMER[2][6]={

@@ -24,20 +24,17 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_
 
-#include <xDriver_MCU/Driver_Header/EEPROM/EEPROM.h>
-#include <xDriver_MCU/Driver_Header/FLASH/FLASH.h>
-#include <xDriver_MCU/Driver_Header/FPU/FPU.h>
-#include <xDriver_MCU/Driver_Header/HIB/HIB.h>
-#include <xDriver_MCU/Driver_Header/MPU/MPU.h>
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
-#include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Core/Core.h>
 
-#include <xDriver_MCU/Driver_Header/SYSTICK/SYSTICK.h>
-#include <xDriver_MCU/Driver_Header/SYSEXC/SYSEXC.h>
-#include <xDriver_MCU/Driver_Header/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/SYSEXC/Header/SYSEXC.h>
+#include <xDriver_MCU/EEPROM/Header/EEPROM.h>
+#include <xDriver_MCU/FLASH/Header/FLASH.h>
+#include <xDriver_MCU/HIB/Header/HIB.h>
+#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/WDT/Header/WDT.h>
+
 #include <xDriver_MCU/Driver_Header/DMA/DMA.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER.h>
-#include <xDriver_MCU/Driver_Header/WDT/WDT.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

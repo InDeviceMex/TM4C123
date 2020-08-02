@@ -41,7 +41,7 @@ typedef enum
 typedef enum
 {
     DMA_enMODULE_0      =0u,
-    DMA_enMODULE_MAX    =1u,
+    DMA_enMODULE_MAX    =0u,
 }DMA_nMODULE;
 
 typedef enum

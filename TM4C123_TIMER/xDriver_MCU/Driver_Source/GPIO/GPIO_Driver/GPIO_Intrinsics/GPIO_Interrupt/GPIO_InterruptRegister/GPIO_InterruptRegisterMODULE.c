@@ -22,15 +22,14 @@
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRegister/GPIO_InterruptRegisterMODULE.h>
-
+#include <GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRegister/GPIO_InterruptRegisterISRVector.h>
 #include <stdint.h>
-#include <xDriver_MCU/Driver_Header/SCB/SCB.h>
+#include <xDriver_MCU/Core/SCB/Header/SCB.h>
 #include <xDriver_MCU/Driver_Header/GPIO/GPIO_Driver/GPIO_Intrinsics/GPIO_Interrupt/GPIO_InterruptRoutine/GPIO_InterruptRoutine.h>
 
 const SCB_nVECISR SCB_VECTOR_GPIO[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
                                SCB_enVECISR_GPIOE,SCB_enVECISR_GPIOF};
-void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
+void GPIO__vRegisterISRVector(void (*Isr) (void),GPIO_nPORT enPort)
 {
     SCB_nVECISR enVector=SCB_enVECISR_GPIOA;
     uint32_t u32Isr=0;
@@ -42,19 +41,19 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
         }
         enVector=SCB_VECTOR_GPIO[enPort];
         u32Isr=((uint32_t)Isr|(uint32_t)1u);
-        GPIO__ISR[enPort]=(void (*) (void))u32Isr;
-        SCB__vRegisterISR(GPIO__ISR[enPort],enVector);
+        GPIO__pvISRHandler[enPort]=(void (*) (void))u32Isr;
+        SCB__vRegisterISR(GPIO__pvISRHandler[enPort],enVector);
     }
 }
 
 
-void GPIO__vRegisterAllMODULEDefault(void)
+void GPIO__vRegisterAll_ISRVector(void)
 {
-    GPIO__vRegisterMODULEISR(&GPIOA__vISR,GPIO_enPORTA);
-    GPIO__vRegisterMODULEISR(&GPIOB__vISR,GPIO_enPORTB);
-    GPIO__vRegisterMODULEISR(&GPIOC__vISR,GPIO_enPORTC);
-    GPIO__vRegisterMODULEISR(&GPIOD__vISR,GPIO_enPORTD);
-    GPIO__vRegisterMODULEISR(&GPIOE__vISR,GPIO_enPORTE);
-    GPIO__vRegisterMODULEISR(&GPIOF__vISR,GPIO_enPORTF);
+    GPIO__vRegisterISRVector(&GPIOA__vISRHandler,GPIO_enPORTA);
+    GPIO__vRegisterISRVector(&GPIOB__vISRHandler,GPIO_enPORTB);
+    GPIO__vRegisterISRVector(&GPIOC__vISRHandler,GPIO_enPORTC);
+    GPIO__vRegisterISRVector(&GPIOD__vISRHandler,GPIO_enPORTD);
+    GPIO__vRegisterISRVector(&GPIOE__vISRHandler,GPIO_enPORTE);
+    GPIO__vRegisterISRVector(&GPIOF__vISRHandler,GPIO_enPORTF);
 }
 

@@ -25,7 +25,7 @@
 
 #include <stdint.h>
 #include <xDriver_MCU/Driver_Header/TIMER/TIMER_Peripheral/TIMER_Peripheral.h>
-#include <xDriver_MCU/Driver_Header/NVIC/NVIC.h>
+#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
 
 static NVIC_nSTIR NVIC_VECTOR_TIMER[2][2][6]={
                                 {
