@@ -23,7 +23,7 @@
  */
 
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Primitives/GPIO_Ready.h>
-#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
 void GPIO__vSetReady(GPIO_nPORT enPort)
 {

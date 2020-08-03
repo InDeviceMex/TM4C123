@@ -24,7 +24,7 @@
 
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_VectorOffset.h>
 
-#include <xDriver_MCU/FLASH/Header/Driver/FLASH_WriteMulti.h>
+#include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteMulti.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
 #define SCB_vBarrier() {__asm(" DSB");}

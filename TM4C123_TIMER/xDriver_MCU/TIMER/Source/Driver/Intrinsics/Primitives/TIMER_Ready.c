@@ -22,7 +22,7 @@
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <stdint.h>
-#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/TIMER/Header/Driver/Intrinsics/Primitives/TIMER_Ready.h>
 #include <xDriver_MCU/TIMER/Header/Peripheral/TIMER_Peripheral.h>
 

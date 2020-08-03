@@ -24,7 +24,7 @@
 
 #include <stdint.h>
 #include <xDriver_MCU/Core/FPU/FPU.h>
-#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
 /*******************************************************************************/
 /**/

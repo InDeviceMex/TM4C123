@@ -24,8 +24,8 @@
 
 
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptNMI.h>
-#include <xDriver_MCU/WDT/Header/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
-#include <xDriver_MCU/WDT/Header/Peripheral/WDT_Peripheral.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
+#include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 void NMI__vISR(void)
 {
     WDT__ISR[1]();

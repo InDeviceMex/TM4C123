@@ -25,15 +25,15 @@
 #define XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_
 
 #include <xDriver_MCU/EEPROM/EEPROM.h>
+#include <xDriver_MCU/FLASH/FLASH.h>
+#include <xDriver_MCU/HIB/HIB.h>
+#include <xDriver_MCU/SYSEXC/SYSEXC.h>
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/WDT/WDT.h>
 
 #include <xDriver_MCU/Core/Core.h>
 #include <xDriver_MCU/DMA/Header/DMA.h>
-#include <xDriver_MCU/FLASH/Header/FLASH.h>
 #include <xDriver_MCU/GPIO/Header/GPIO.h>
-#include <xDriver_MCU/HIB/Header/HIB.h>
-#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
-#include <xDriver_MCU/SYSEXC/Header/SYSEXC.h>
 #include <xDriver_MCU/TIMER/Header/TIMER.h>
-#include <xDriver_MCU/WDT/Header/WDT.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

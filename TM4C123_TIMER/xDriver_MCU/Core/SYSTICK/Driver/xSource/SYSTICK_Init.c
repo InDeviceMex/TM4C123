@@ -10,7 +10,7 @@
 
 
 #include <xDriver_MCU/Core/SCB/SCB.h>
-#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
 #include <xDriver_MCU/Core/SYSTICK/Peripheral/SYSTICK_Peripheral.h>
 #include <xDriver_MCU/Core/SYSTICK/Driver/xHeader/SYSTICK_InterruptRoutine.h>

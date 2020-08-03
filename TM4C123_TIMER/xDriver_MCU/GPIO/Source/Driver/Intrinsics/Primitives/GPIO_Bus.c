@@ -24,7 +24,7 @@
 
 
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Primitives/GPIO_Bus.h>
-#include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
 GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort)
 {

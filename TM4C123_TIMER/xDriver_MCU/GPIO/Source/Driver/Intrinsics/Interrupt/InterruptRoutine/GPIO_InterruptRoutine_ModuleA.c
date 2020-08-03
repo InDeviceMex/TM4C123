@@ -27,7 +27,7 @@
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine_ModuleA.h>
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine_Pines.h>
 #include <xDriver_MCU/GPIO/Header/Peripheral/GPIO_Peripheral.h>
-#include <xDriver_MCU/SYSCTL/Header/Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 void GPIOA__vISRHandler(void)
 {
