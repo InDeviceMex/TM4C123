@@ -23,7 +23,7 @@
  */
 
 #include <stdint.h>
-#include <xDriver_MCU/Core/SCB/Header/SCB.h>
+#include <xDriver_MCU/Core/SCB/SCB.h>
 #include <xDriver_MCU/TIMER/Header/Driver/Intrinsics/Interrupt/InterruptRegister/TIMER_InterruptRegisterMODULE.h>
 #include <xDriver_MCU/TIMER/Header/Driver/Intrinsics/Interrupt/InterruptRoutine/TIMER_InterruptRoutine.h>
 const SCB_nVECISR SCB_VECTOR_TIMER[2][2][6]={

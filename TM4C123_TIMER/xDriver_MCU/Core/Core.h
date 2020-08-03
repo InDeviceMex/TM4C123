@@ -24,10 +24,10 @@
 #ifndef XDRIVER_MCU_CORE_CORE_H_
 #define XDRIVER_MCU_CORE_CORE_H_
 
-#include <xDriver_MCU/Core/FPU/Header/FPU.h>
-#include <xDriver_MCU/Core/MPU/Header/MPU.h>
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
-#include <xDriver_MCU/Core/SCB/Header/SCB.h>
-#include <xDriver_MCU/Core/SYSTICK/Header/SYSTICK.h>
+#include <xDriver_MCU/Core/FPU/FPU.h>
+#include <xDriver_MCU/Core/MPU/MPU.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
 
 #endif /* XDRIVER_MCU_CORE_CORE_H_ */

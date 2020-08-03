@@ -23,7 +23,7 @@
  */
 #include <xApplication/LCD1602/Adaptive_Header/LCD1602_Intrinsics/LCD1602_Delay.h>
 
-#include <xDriver_MCU/Core/SYSTICK/Header/SYSTICK.h>
+#include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
 
 void LCD1602__vDelay(float fDelay)
 {

@@ -4,7 +4,7 @@
 
 #include <EEPROM/Driver/xHeader/EEPROM_Init.h>
 #include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
 
 

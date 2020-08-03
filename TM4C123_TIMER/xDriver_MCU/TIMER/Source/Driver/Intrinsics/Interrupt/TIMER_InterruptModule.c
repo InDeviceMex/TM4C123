@@ -22,7 +22,7 @@
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <stdint.h>
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/TIMER/Header/Driver/Intrinsics/Interrupt/TIMER_InterruptModule.h>
 #include <xDriver_MCU/TIMER/Header/Peripheral/TIMER_Peripheral.h>
 

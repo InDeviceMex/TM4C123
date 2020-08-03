@@ -23,9 +23,9 @@
 /*******************************************************************************/
 
 #include <stdint.h>
-#include <xDriver_MCU/Core/FPU/Header/FPU.h>
+#include <xDriver_MCU/Core/FPU/FPU.h>
 #include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
 /*******************************************************************************/
 /**/
 /* Forward declaration of the default fault handlers.*/

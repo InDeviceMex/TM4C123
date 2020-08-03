@@ -9,8 +9,8 @@
 #include <xDriver_MCU/HIB/Header/Driver/HIB_Init.h>
 
 #include <stdint.h>
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
-#include <xDriver_MCU/Core/SCB/Header/SCB.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/Core/SCB/SCB.h>
 #include <xDriver_MCU/SYSCTL/Header/SYSCTL.h>
 
 #include <xDriver_MCU/HIB/Header/Peripheral/HIB_Peripheral.h>

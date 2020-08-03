@@ -22,7 +22,7 @@
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Interrupt/GPIO_InterruptModule.h>
 
 

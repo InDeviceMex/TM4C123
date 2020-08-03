@@ -23,7 +23,7 @@
  */
 
 #include <stdint.h>
-#include <xDriver_MCU/Core/SCB/Header/SCB.h>
+#include <xDriver_MCU/Core/SCB/SCB.h>
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Interrupt/InterruptRegister/GPIO_InterruptRegisterISRVector.h>
 #include <xDriver_MCU/GPIO/Header/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine.h>
 

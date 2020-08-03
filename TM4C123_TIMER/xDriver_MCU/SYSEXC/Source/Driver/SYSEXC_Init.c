@@ -27,8 +27,8 @@
 
 
 #include <stdint.h>
-#include <xDriver_MCU/Core/NVIC/Header/NVIC.h>
-#include <xDriver_MCU/Core/SCB/Header/SCB.h>
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/Core/SCB/SCB.h>
 #include <xDriver_MCU/SYSEXC/Header/Peripheral/SYSEXC_Peripheral.h>
 #include <xDriver_MCU/SYSEXC/Header/Driver/SYSEXC_InterruptRoutine.h>
 
