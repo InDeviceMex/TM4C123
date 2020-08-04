@@ -10,7 +10,7 @@
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_InterruptRoutine.h>
 
 #include <stdint.h>
-#include <xDriver_MCU/GPIO/Header/Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Intrinsics.h>
 

@@ -4,12 +4,12 @@
  * main.c
  */
 
-#include <LCD1602/Generic_Header/LCD1602_Generic.h>
+#include <LCD1602/Generic/LCD1602_Generic.h>
 
 /*Include not allowed, this use directly the PeripheralRegisters*/
 #include <float.h>
 #include <stdint.h>
-#include <xDriver_MCU/GPIO/Header/Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU.h>
 #include "stdlib.h"
 

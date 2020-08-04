@@ -11,10 +11,10 @@
 
 
 #include <stdint.h>
-#include <xUtils/Conversion/Conversion_Header/Conversion_Number/Conversion_Number.h>
-#include <xUtils/Conversion/Conversion_Header/Conversion_Number2String/Conversion_Number2String.h>
-#include <xUtils/Conversion/Conversion_Header/Conversion_String2Number/Conversion_String2Number.h>
-#include <xUtils/Conversion/Conversion_Header/Conversion_String/Conversion_String.h>
+#include <xUtils/Conversion/Conversion_Number/Conversion_Number.h>
+#include <xUtils/Conversion/Conversion_Number2String/Conversion_Number2String.h>
+#include <xUtils/Conversion/Conversion_String/Conversion_String.h>
+#include <xUtils/Conversion/Conversion_String2Number/Conversion_String2Number.h>
 
 int32_t CONV__s32String2Hex(const char* pcString,int64_t* s64NumSigned );
 int32_t CONV__s32String2Oct(const char* pcString,int64_t* s64NumSigned );
