@@ -11,7 +11,7 @@
 
 #include <stdarg.h>
 #include <stdint.h>
-#include <xApplication/CONVERSION/Generic_Header/CONV.h>
+#include <xApplication/CONVERSION/Generic/xHeader/CONV.h>
 #include <xApplication/LCD1602/Adaptive/LCD1602_Adaptive.h>
 /*Definciones de Comando*/
 

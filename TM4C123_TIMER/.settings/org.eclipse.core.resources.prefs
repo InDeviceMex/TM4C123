@@ -391,6 +391,8 @@ encoding//Debug__TI/optimizerAssistant/opt_level__off/xDriver_MCU/Driver_Source/
 encoding//Debug__TI/sources.mk=UTF-8
 encoding//Debug__TI/subdir_rules.mk=UTF-8
 encoding//Debug__TI/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xApplication/CONVERSION/Generic/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xApplication/CONVERSION/Generic/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xApplication/CONVERSION/Generic_Source/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xApplication/CONVERSION/Generic_Source/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xApplication/LCD1602/Adaptive/Functions/xSource/subdir_rules.mk=UTF-8
@@ -407,6 +409,8 @@ encoding//Debug__TI/xApplication/LCD1602/Generic/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xApplication/LCD1602/Generic/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xApplication/LCD1602/Generic_Source/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xApplication/LCD1602/Generic_Source/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xApplication/PRINTF/Generic/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xApplication/PRINTF/Generic/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xApplication/PRINTF/Generic_Source/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xApplication/PRINTF/Generic_Source/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8

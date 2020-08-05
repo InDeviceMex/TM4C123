@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <stdarg.h>
 #include <stddef.h>
-#include <xApplication/CONVERSION/Generic_Header/CONV.h>
+#include <xApplication/CONVERSION/Generic/xHeader/CONV.h>
 
 #define PRINF_DEFAULT_FLOAT_PRECISION (6U)
 #define PRINF_MAX_VALUE_FLOAT         (1e9)

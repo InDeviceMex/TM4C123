@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTRINSICS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTRINSICS_H_
 
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/xHeader/DMA_Interrupt.h>
+#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/DMA_Interrupt.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTRINSICS_H_ */

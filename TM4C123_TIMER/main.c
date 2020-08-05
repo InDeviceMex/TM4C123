@@ -19,11 +19,9 @@
 int main (void);
 
 void MAIN_vInitGPIO(void);
-void MAIN_vInitTIMER(void);
-void MAIN_vRGBLedValue(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue);
-void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t u8BlueValue);
+void MAIN_vPWMServoInit(void);
+void MAIN_vPWMPos(int8_t s8Angle);
 /*ISR Functions*/
-void TIMER2W__vISR(void);
 void MAIN_vIsrSW1(void);
 void MAIN_vIsrSW2(void);
 
@@ -62,6 +60,8 @@ int main(void)
     uint8_t u8Row=0;
     uint8_t u8ColumnCurrent=0;
     uint8_t u8Counter=0;
+    uint8_t u8Dir=0;
+    int16_t s16AngleAbosulte=0;
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -74,6 +74,9 @@ int main(void)
     MAIN_vInitGPIO();
     LCD1602__enInit();
     enBus=GPIO__enGetBus(GPIO_enPORTF);
+
+    DMA__vSetReady(DMA_enMODULE_0);
+
     if(GPIO_enAPB==enBus)
     {
         psLedRed=GPIOF_APB_GPIODATA_MASK;
@@ -83,11 +86,13 @@ int main(void)
         psSW2=GPIOF_APB_GPIODATA_MASK;
     }
     LCD1602__enReloadScreenDirect();
+    MAIN_vPWMServoInit();
     u8ColumnCurrent=0u;
     u8Column=0u;
     u8Row=0u;
     fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
     fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+    MAIN_vPWMPos((int8_t)(s16AngleAbosulte-90));
     while(1u)
     {
         fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
@@ -153,9 +158,32 @@ int main(void)
         {
             fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
         }
-        if(fTimeSystickEnd_Task2>1000000.0f)
+        if(fTimeSystickEnd_Task2>2000000.0f)
         {
             fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+            if( u8Dir == 0u)
+            {
+                if(s16AngleAbosulte<=170)
+                {
+                    s16AngleAbosulte+=10;
+                }
+                else
+                {
+                    u8Dir=1u;
+                }
+            }
+            else
+            {
+                if(s16AngleAbosulte>=10)
+                {
+                    s16AngleAbosulte-=10;
+                }
+                else
+                {
+                    u8Dir=0u;
+                }
+            }
+            MAIN_vPWMPos((int8_t)(s16AngleAbosulte-90));
             if(u8ColumnCurrent>=15u)
             {
                 u8ColumnCurrent=0u;
@@ -178,18 +206,54 @@ void MAIN_vInitGPIO(void)
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetDigitalConfig(GPIO_enGPIOF3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
+    GPIO__enSetDigitalConfig(GPIO_enT1CCP1_F3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
 
     /*SW1 SW0*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
 
-    GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1|GPIO_enPIN2|GPIO_enPIN3), 0u);
+    GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1|GPIO_enPIN2), 0u);
 
     GPIO__vClearInterrupt(GPIO_enPORTF,  (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
     GPIO__vEnInterruptConfig(GPIO_enPORTF, (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4), GPIO_enINT_CONFIG_EDGE_BOTH);
 
 
+}
+
+#define SERVO_DEGREEVALUE (444u)
+void MAIN_vPWMPos(int8_t s8Angle)
+{
+    uint32_t u32Count=1600000u-80000u; /*1 ms min value*/
+    int32_t s32AngleAbsolute=90; /*Center*/
+    if((s8Angle>=-90) && (s8Angle <=90))
+    {
+        s32AngleAbsolute+=(int32_t)s8Angle;
+        s32AngleAbsolute*=444;
+        u32Count-=(uint32_t)s32AngleAbsolute;
+        TIMER__vSetMatch(TIMER_enT1B,(uint64_t)u32Count);
+    }
+}
+
+void MAIN_vPWMServoInit(void)
+{
+    TIMER_EXTRAMODE_Typedef psExtraMode;
+    volatile TIMER_MODE_Typedef psMode;
+    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
+
+    TIMER__vInit();
+
+    psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
+    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;
+    psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
+    psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
+    psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
+    psExtraMode.enStall=TIMER_enSTALL_FREEZE;
+    psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
+    psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
+
+    TIMER__enSetExtraModeStruct(TIMER_enT1B,&psExtraMode);
+    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,1600000u,1600000u-80000u-(800u*0u));
+    TIMER__vSetEnable(TIMER_enT1B,TIMER_enENABLE_START);
 }
 
 void MAIN_vIsrSW1(void)
