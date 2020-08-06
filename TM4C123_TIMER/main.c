@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU.h>
+#include <xApplication/ServoMotor_SG90/ServoMotor_SG90.h>
 #include "stdlib.h"
 
 
@@ -21,6 +22,7 @@ int main (void);
 void MAIN_vInitGPIO(void);
 void MAIN_vPWMServoInit(void);
 void MAIN_vPWMPos(int8_t s8Angle);
+void MAIN_vPWMPosFloat(float fAngle);
 /*ISR Functions*/
 void MAIN_vIsrSW1(void);
 void MAIN_vIsrSW2(void);
@@ -49,6 +51,9 @@ GPIO_nBUS enBus=GPIO_enAPB;
 
 volatile uint32_t vu32Refresh=0;
 
+ServoMoto_SG90_Typedef sServoMotor1={0};
+ServoMoto_SG90_Typedef sServoMotor2={0};
+ServoMoto_SG90_nENABLE enServoEnable=ServoMoto_SG90_enDISABLE;
 
 int main(void)
 {
@@ -56,6 +61,7 @@ int main(void)
     float fTimeSystickEnd_Task1=0.0;
     float fTimeSystickStart_Task2=0.0;
     float fTimeSystickEnd_Task2=0.0;
+    float fAngleAbosulte=0.0f;
     uint8_t u8Column=0;
     uint8_t u8Row=0;
     uint8_t u8ColumnCurrent=0;
@@ -86,13 +92,16 @@ int main(void)
         psSW2=GPIOF_APB_GPIODATA_MASK;
     }
     LCD1602__enReloadScreenDirect();
-    MAIN_vPWMServoInit();
+    ServoMotor_SG90__enInit(&sServoMotor1,TIMER_enT1B,GPIO_enT1CCP1_F3);
+    ServoMotor_SG90__enInit(&sServoMotor2,TIMER_enT0B,GPIO_enT0CCP1);
     u8ColumnCurrent=0u;
     u8Column=0u;
     u8Row=0u;
     fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
     fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
-    MAIN_vPWMPos((int8_t)(s16AngleAbosulte-90));
+    ServoMotor_SG90__enSetAngleFloat(&sServoMotor1,(fAngleAbosulte-90.0f));
+    ServoMotor_SG90__enSetAngleFloat(&sServoMotor2,(fAngleAbosulte-90.0f));
+
     while(1u)
     {
         fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
@@ -158,32 +167,37 @@ int main(void)
         {
             fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
         }
-        if(fTimeSystickEnd_Task2>2000000.0f)
+        if(fTimeSystickEnd_Task2>120000.0f)
         {
             fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
-            if( u8Dir == 0u)
+
+            if(ServoMoto_SG90_enENABLE == enServoEnable)
             {
-                if(s16AngleAbosulte<=170)
+                if( u8Dir == 0u)
                 {
-                    s16AngleAbosulte+=10;
+                    if(fAngleAbosulte<=176.0f)
+                    {
+                        fAngleAbosulte+=4.0f;
+                    }
+                    else
+                    {
+                        u8Dir=1u;
+                    }
                 }
                 else
                 {
-                    u8Dir=1u;
+                    if(fAngleAbosulte>=4.0f)
+                    {
+                        fAngleAbosulte-=4.0f;
+                    }
+                    else
+                    {
+                        u8Dir=0u;
+                    }
                 }
+                ServoMotor_SG90__enSetAngleFloat(&sServoMotor2,(fAngleAbosulte-90.0f));
+                ServoMotor_SG90__enSetAngleFloat(&sServoMotor1,(fAngleAbosulte-90.0f));
             }
-            else
-            {
-                if(s16AngleAbosulte>=10)
-                {
-                    s16AngleAbosulte-=10;
-                }
-                else
-                {
-                    u8Dir=0u;
-                }
-            }
-            MAIN_vPWMPos((int8_t)(s16AngleAbosulte-90));
             if(u8ColumnCurrent>=15u)
             {
                 u8ColumnCurrent=0u;
@@ -206,7 +220,6 @@ void MAIN_vInitGPIO(void)
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetDigitalConfig(GPIO_enT1CCP1_F3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
 
     /*SW1 SW0*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
@@ -220,44 +233,11 @@ void MAIN_vInitGPIO(void)
 
 }
 
-#define SERVO_DEGREEVALUE (444u)
-void MAIN_vPWMPos(int8_t s8Angle)
-{
-    uint32_t u32Count=1600000u-80000u; /*1 ms min value*/
-    int32_t s32AngleAbsolute=90; /*Center*/
-    if((s8Angle>=-90) && (s8Angle <=90))
-    {
-        s32AngleAbsolute+=(int32_t)s8Angle;
-        s32AngleAbsolute*=444;
-        u32Count-=(uint32_t)s32AngleAbsolute;
-        TIMER__vSetMatch(TIMER_enT1B,(uint64_t)u32Count);
-    }
-}
-
-void MAIN_vPWMServoInit(void)
-{
-    TIMER_EXTRAMODE_Typedef psExtraMode;
-    volatile TIMER_MODE_Typedef psMode;
-    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
-
-    TIMER__vInit();
-
-    psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
-    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;
-    psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
-    psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
-    psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
-    psExtraMode.enStall=TIMER_enSTALL_FREEZE;
-    psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
-    psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
-
-    TIMER__enSetExtraModeStruct(TIMER_enT1B,&psExtraMode);
-    TIMER__enSetMode_ReloadMatch(TIMER_enT1B,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,1600000u,1600000u-80000u-(800u*0u));
-    TIMER__vSetEnable(TIMER_enT1B,TIMER_enENABLE_START);
-}
-
 void MAIN_vIsrSW1(void)
 {
+    ServoMotor_SG90__enEnable(&sServoMotor1);
+    ServoMotor_SG90__enEnable(&sServoMotor2);
+    enServoEnable= ServoMoto_SG90_enENABLE;
     if(psSW1->DATA_MASK[enSW1Pin]==0u)
     {
         GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1), GPIO_enPIN1);
@@ -274,7 +254,9 @@ void MAIN_vIsrSW1(void)
 
 void MAIN_vIsrSW2(void)
 {
-
+    ServoMotor_SG90__enDisable(&sServoMotor1);
+    ServoMotor_SG90__enDisable(&sServoMotor2);
+    enServoEnable= ServoMoto_SG90_enDISABLE;
     if(psSW2->DATA_MASK[(uint32_t)enSW2Pin]==0u)
     {
         GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN2), GPIO_enPIN2);

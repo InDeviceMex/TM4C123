@@ -112,6 +112,7 @@ typedef enum
     TIMER_enWT3W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|3u),
     TIMER_enWT4W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|4u),
     TIMER_enWT5W=(((uint32_t)1u<<16u)|((uint32_t)2u<<8u)|5u),
+    TIMER_enMODULE_UNDEF = 0xFFFFFFFF,
 }TIMER_nMODULE;
 
 
