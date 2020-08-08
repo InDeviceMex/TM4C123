@@ -27,37 +27,24 @@
 
 void GPIO__vSetReady(GPIO_nPORT enPort)
 {
-    SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enGPIOA;
     if(enPort>GPIO_enMAX)
     {
         enPort=GPIO_enMAX;
     }
     enPeripheral|=enPort;
-    enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
-    if(SYSCTL_enNOREADY == enReady)
-    {
-        SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-        SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-        SYSCTL__vEnRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-    }
+    SYSCTL__vSetReady(enPeripheral);
 }
 
 void GPIO__vClearReady(GPIO_nPORT enPort)
 {
-    SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enGPIOA;
     if(enPort>GPIO_enMAX)
     {
         enPort=GPIO_enMAX;
     }
     enPeripheral|=enPort;
-    enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
-    if(SYSCTL_enREADY == enReady)
-    {
-        SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-        SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-    }
+    SYSCTL__vClearReady(enPeripheral);
 }
 GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 {
@@ -68,7 +55,7 @@ GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
         enPort=GPIO_enMAX;
     }
     enPeripheral|=enPort;
-    enReady=(GPIO_nREADY)SYSCTL__enIsPeripheralReady(enPeripheral);
+    enReady=(GPIO_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
 

@@ -26,51 +26,33 @@
 
 void DMA__vSetReady(DMA_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enUDMA;
     if(enModule>DMA_enMODULE_MAX)
     {
         enModule = DMA_enMODULE_MAX;
     }
     enPeripheral|= enModule;
-    enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
-    if(SYSCTL_enNOREADY == enReady)
-    {
-        SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-        SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-        SYSCTL__vEnRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-    }
+    SYSCTL__vSetReady(enPeripheral);
 }
 void DMA__vReset(DMA_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enUDMA;
     if(enModule>DMA_enMODULE_MAX)
     {
         enModule=DMA_enMODULE_MAX;
     }
     enPeripheral|=enModule;
-    enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
-    if(SYSCTL_enREADY == enReady)
-    {
-        SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-    }
+    SYSCTL__vReset(enPeripheral);
 }
 void DMA__vClearReady(DMA_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enUDMA;
     if(enModule>DMA_enMODULE_MAX)
     {
         enModule=DMA_enMODULE_MAX;
     }
     enPeripheral|=enModule;
-    enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
-    if(SYSCTL_enREADY == enReady)
-    {
-        SYSCTL__vResetPeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-        SYSCTL__vDisRunModePeripheral((SYSCTL_nPERIPHERAL)enPeripheral);
-    }
+    SYSCTL__vClearReady(enPeripheral);
 }
 DMA_nREADY DMA__enIsReady(DMA_nMODULE enModule)
 {
@@ -81,7 +63,7 @@ DMA_nREADY DMA__enIsReady(DMA_nMODULE enModule)
         enModule=DMA_enMODULE_MAX;
     }
     enPeripheral|=enModule;
-    enReady=(DMA_nREADY)SYSCTL__enIsPeripheralReady(enPeripheral);
+    enReady=(DMA_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
 

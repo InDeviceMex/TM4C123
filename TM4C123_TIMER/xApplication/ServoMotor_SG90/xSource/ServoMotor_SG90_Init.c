@@ -70,7 +70,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
             enTIMERStatus = TIMER__enSetExtraModeStruct(enTimerModule,&psExtraMode);
             if(TIMER_enOK == enTIMERStatus)
             {
-                enTIMERStatus = TIMER__enSetMode_ReloadMatch(enTimerModule,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,(uint64_t)u32ServoFreq,(uint64_t)(u32ServoFreq-u32ServoMaxPulse));
+                enTIMERStatus = TIMER__enSetMode_ReloadMatch(enTimerModule,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,(uint64_t)u32ServoFreq,(uint64_t)u32ServoMinCount);
                 if(TIMER_enOK == enTIMERStatus)
                 {
                     enServoStatus=ServoMoto_SG90_enOK;
