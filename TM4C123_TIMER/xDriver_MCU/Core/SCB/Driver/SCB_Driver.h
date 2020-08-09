@@ -30,7 +30,7 @@
 
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_Init.h>
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_PriorityGroup.h>
-#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterISR.h>
+#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterIRQVector.h>
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_SleepMode.h>
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_StackAligment.h>
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_SysReset.h>

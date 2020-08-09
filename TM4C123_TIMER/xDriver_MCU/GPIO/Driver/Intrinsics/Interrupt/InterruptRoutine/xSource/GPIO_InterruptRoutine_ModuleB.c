@@ -29,7 +29,7 @@
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 
-void GPIOB__vISRHandler(void)
+void GPIOB__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg=0;
     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<1u);
@@ -39,42 +39,42 @@ void GPIOB__vISRHandler(void)
         if(u32Reg & GPIO_enPIN0)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN0;
-            GPIO[1][0]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER0]();
         }
         if(u32Reg & GPIO_enPIN1)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN1;
-            GPIO[1][1]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER1]();
         }
         if(u32Reg & GPIO_enPIN2)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN2;
-            GPIO[1][2]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER2]();
         }
         if(u32Reg & GPIO_enPIN3)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN3;
-            GPIO[1][3]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER3]();
         }
         if(u32Reg & GPIO_enPIN4)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN4;
-            GPIO[1][4]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER4]();
         }
         if(u32Reg & GPIO_enPIN5)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN5;
-            GPIO[1][5]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER5]();
         }
         if(u32Reg & GPIO_enPIN6)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN6;
-            GPIO[1][6]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER6]();
         }
         if(u32Reg & GPIO_enPIN7)
         {
             GPIOB_APB_GPIOICR_R=GPIO_enPIN7;
-            GPIO[1][7]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER7]();
         }
     }
     else
@@ -83,42 +83,42 @@ void GPIOB__vISRHandler(void)
         if(u32Reg & GPIO_enPIN0)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN0;
-            GPIO[1][0]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER0]();
         }
         if(u32Reg & GPIO_enPIN1)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN1;
-            GPIO[1][1]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER1]();
         }
         if(u32Reg & GPIO_enPIN2)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN2;
-            GPIO[1][2]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER2]();
         }
         if(u32Reg & GPIO_enPIN3)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN3;
-            GPIO[1][3]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER3]();
         }
         if(u32Reg & GPIO_enPIN4)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN4;
-            GPIO[1][4]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER4]();
         }
         if(u32Reg & GPIO_enPIN5)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN5;
-            GPIO[1][5]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER5]();
         }
         if(u32Reg & GPIO_enPIN6)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN6;
-            GPIO[1][6]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER6]();
         }
         if(u32Reg & GPIO_enPIN7)
         {
             GPIOB_AHB_GPIOICR_R=GPIO_enPIN7;
-            GPIO[1][7]();
+            GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTB][(uint32_t)GPIO_enPIN_NUMBER7]();
         }
     }
 }

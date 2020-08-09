@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_FreeCount.h>
 
-void SysTick__vISR(void)
+void SysTick__vIRQVectorHandler(void)
 {
     uint32_t u32Count= SysTick__u32GetFreeCount();
     u32Count++;

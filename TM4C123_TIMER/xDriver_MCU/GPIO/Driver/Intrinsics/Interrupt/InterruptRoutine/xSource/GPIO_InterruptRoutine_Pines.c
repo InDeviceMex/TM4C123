@@ -24,16 +24,16 @@
 
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Pines.h>
 
-static void GPIO_vDUMMY(void);
+static void GPIO_vIRQSourceHandler_Dummy(void);
 
-void (*GPIO[6][8]) (void)={{&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
-                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
-                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
-                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
-                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},
-                           {&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY,&GPIO_vDUMMY},};
+void (*GPIO__vIRQSourceHandler[(uint32_t)GPIO_enMAX+1u][(uint32_t)GPIO_enPIN_NUMBER_MAX+1u]) (void)={{&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
+                           {&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
+                           {&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
+                           {&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
+                           {&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
+                           {&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},};
 
-static void GPIO_vDUMMY(void)
+static void GPIO_vIRQSourceHandler_Dummy(void)
 {
     while(1u)
     {

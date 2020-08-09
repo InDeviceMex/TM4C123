@@ -29,7 +29,7 @@
 
 uint32_t SCB_BusFault_pu32Context[8];
 
-void BusFault__vISR(void)
+void BusFault__vIRQVectorHandler(void)
 {
 
     uint8_t SCB_u8BusFault=0;

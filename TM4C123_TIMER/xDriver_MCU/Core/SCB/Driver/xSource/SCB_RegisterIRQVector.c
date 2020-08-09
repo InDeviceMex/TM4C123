@@ -1,6 +1,6 @@
 /**
  *
- * @file SCB_RegisterISR.c
+ * @file SCB_RegisterIRQVector.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -22,35 +22,35 @@
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterISR.h>
+#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterIRQVector.h>
 
 
 #include <stdint.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Write.h>
 
-void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
+void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 
-    if((uint32_t)Isr !=0u)
+    if((uint32_t)pfIrqVectorHandler !=0u)
     {
         if(u32BaseVector<=0x00010000u)
         {
             __asm(" cpsid i");
-            FLASH__enWriteWorld((uint32_t)Isr|1u,u32BaseVector+((uint32_t)enVector*4u));
+            FLASH__enWriteWorld((uint32_t)pfIrqVectorHandler|1u,u32BaseVector+((uint32_t)enVector*4u));
             __asm(" cpsie i");
         }
         else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
         {
-            *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)Isr|1u;
+            *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)pfIrqVectorHandler|1u;
         }
         else{}
     }
 }
 
 /*
-void SCB__vUnRegisterISR(SCB_nVECISR enVector)
+void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 

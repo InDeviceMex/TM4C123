@@ -18,7 +18,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     volatile uint32_t u32TimeOut= 12000000;
 
 
-    SCB__vRegisterISR(HIB_vISR,SCB_enVECISR_HIB);
+    SCB__vRegisterIRQVectorHandler(HIB_vISR,SCB_enVECISR_HIB);
     SYSCTL__vResetPeripheral(SYSCTL_enHIB);
     SYSCTL__vDisRunModePeripheral(SYSCTL_enHIB);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enHIB);

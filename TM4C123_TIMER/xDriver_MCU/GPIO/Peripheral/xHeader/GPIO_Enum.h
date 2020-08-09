@@ -77,6 +77,19 @@ typedef enum
 
 typedef enum
 {
+    GPIO_enPIN_NUMBER0=0x0u,
+    GPIO_enPIN_NUMBER1=0x1u,
+    GPIO_enPIN_NUMBER2=0x2u,
+    GPIO_enPIN_NUMBER3=0x3u,
+    GPIO_enPIN_NUMBER4=0x4u,
+    GPIO_enPIN_NUMBER5=0x5u,
+    GPIO_enPIN_NUMBER6=0x6u,
+    GPIO_enPIN_NUMBER7=0x7u,
+    GPIO_enPIN_NUMBER_MAX=0x7u,
+}GPIO_nPIN_NUMBER;
+
+typedef enum
+{
     GPIO_enDIR_INPUT=0u,
     GPIO_enDIR_OUTPUT=1u,
     GPIO_enDIR_UNDEF=0xFFu,

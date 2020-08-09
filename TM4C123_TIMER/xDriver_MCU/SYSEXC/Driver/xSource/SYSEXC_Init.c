@@ -36,7 +36,7 @@ void SYSEXC__vInit(SYSEXC_nINTERRUPT enInt,SYSEXC_nPRIORITY enPri)
 {
     uint32_t u32Reg= (uint32_t)enInt & (uint32_t)0x3F;
 
-    SCB__vRegisterISR(&SYSEXC__vISR,SCB_enVECISR_SYSEXC);
+    SCB__vRegisterIRQVectorHandler(&SYSEXC__vIRQVectorHandler,SCB_enVECISR_SYSEXC);
     SYSEXC_SYSEXCIM_R&=~(SYSEXC_SYSEXCIM_R_FPIDCIM_MASK|
             SYSEXC_SYSEXCIM_R_FPDZCIM_MASK|
             SYSEXC_SYSEXCIM_R_FPIOCIM_MASK|

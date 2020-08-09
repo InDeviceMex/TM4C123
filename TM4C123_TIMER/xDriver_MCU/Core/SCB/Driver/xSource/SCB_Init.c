@@ -35,20 +35,20 @@
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_Traps.h>
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_PriorityGroup.h>
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_StackAligment.h>
-#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterISR.h>
+#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterIRQVector.h>
 
 
 
 inline void SCB__vInit(void)
 {
     SCB__vSetVectorOffset(0x20000000u);
-    SCB__vRegisterISR(&NMI__vISR,SCB_enVECISR_NMI);
-    SCB__vRegisterISR(&PendSV__vISR,SCB_enVECISR_PENDSV);
-    SCB__vRegisterISR(&UsageFault__vISR,SCB_enVECISR_USAGEFAULT);
-    SCB__vRegisterISR(&BusFault__vISR,SCB_enVECISR_BUSFAULT);
-    SCB__vRegisterISR(&MemoryFault__vISR,SCB_enVECISR_MEMMANAGE);
-    SCB__vRegisterISR(&HardFault__vISR,SCB_enVECISR_HARDFAULT);
-    SCB__vRegisterISR(&SVCall__vISR,SCB_enVECISR_SVCALL);
+    SCB__vRegisterIRQVectorHandler(&NMI__vIRQVectorHandler,SCB_enVECISR_NMI);
+    SCB__vRegisterIRQVectorHandler(&PendSV__vIRQVectorHandler,SCB_enVECISR_PENDSV);
+    SCB__vRegisterIRQVectorHandler(&UsageFault__vIRQVectorHandler,SCB_enVECISR_USAGEFAULT);
+    SCB__vRegisterIRQVectorHandler(&BusFault__vIRQVectorHandler,SCB_enVECISR_BUSFAULT);
+    SCB__vRegisterIRQVectorHandler(&MemoryFault__vIRQVectorHandler,SCB_enVECISR_MEMMANAGE);
+    SCB__vRegisterIRQVectorHandler(&HardFault__vIRQVectorHandler,SCB_enVECISR_HARDFAULT);
+    SCB__vRegisterIRQVectorHandler(&SVCall__vIRQVectorHandler,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup(SCB_enPRIGROUP_XXX);

@@ -36,10 +36,10 @@ void WDT__vRegisterMODULEISR(void (*Isr) (void),WDT_nINT_TYPE enIntType)
     {
         u32IntType&=(uint32_t)WDT_enINT_TYPE_NMI;
         u32Isr=((uint32_t)Isr|(uint32_t)1u);
-        WDT__ISR[u32IntType]=(void (*) (void))u32Isr;
+        WDT__vIRQSourceHandler[u32IntType]=(void (*) (void))u32Isr;
         if((uint32_t)WDT_enINT_TYPE_STANDARD == u32IntType)
         {
-            SCB__vRegisterISR(WDT__ISR[u32IntType],SCB_enVECISR_WDT01);
+            SCB__vRegisterIRQVectorHandler(WDT__vIRQSourceHandler[u32IntType],SCB_enVECISR_WDT01);
         }
     }
 }

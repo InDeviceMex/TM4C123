@@ -25,9 +25,7 @@ EEPROM_nSTATUS EEPROM__enInit (void)
     /*
      * To Reinitialize Peripheral Clock
      */
-    SYSCTL__vResetPeripheral(SYSCTL_enEEPROM);
-    SYSCTL__vDisRunModePeripheral(SYSCTL_enEEPROM);
-    SYSCTL__vEnRunModePeripheral(SYSCTL_enEEPROM);
+    SYSCTL__vSetReady(SYSCTL_enEEPROM);
     /*NVIC__enSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);*/
 
     /*

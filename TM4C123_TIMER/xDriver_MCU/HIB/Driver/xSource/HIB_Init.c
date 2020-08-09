@@ -27,7 +27,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     uint32_t u32TimeOut= HIB_TIMEOUT_MAX;
     HIB_nREADY enReady= HIB_enBUSY;
 
-    SCB__vRegisterISR(&HIB__vISR,SCB_enVECISR_HIB);
+    SCB__vRegisterIRQVectorHandler(&HIB__vIRQVectorHandler,SCB_enVECISR_HIB);
     SYSCTL__vResetPeripheral(SYSCTL_enHIB);
     SYSCTL__vDisRunModePeripheral(SYSCTL_enHIB);
     SYSCTL__vEnRunModePeripheral(SYSCTL_enHIB);

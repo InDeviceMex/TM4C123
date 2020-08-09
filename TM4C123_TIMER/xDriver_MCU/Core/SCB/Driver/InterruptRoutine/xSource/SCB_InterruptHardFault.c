@@ -29,7 +29,7 @@
 
 uint32_t SCB_HardFault_pu32Context[8];
 
-void HardFault__vISR(void)
+void HardFault__vIRQVectorHandler(void)
 {
     __asm(
     " MRS R0, MSP\n"

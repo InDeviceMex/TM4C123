@@ -26,7 +26,7 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-void (*WDT__ISR[(uint32_t)WDT_enINT_TYPE_NMI+1u]) (void)={&WDT__vISR,&WDT_NMI__vISR_Dummy};
+void (*WDT__vIRQSourceHandler[(uint32_t)WDT_enINT_TYPE_NMI+1u]) (void)={&WDT__vISR,&WDT_NMI__vIRQVectorHandler_Dummy};
 
 void WDT__vISR(void)
 {
@@ -64,12 +64,12 @@ void WDT__vISR(void)
 
 
 
-void WDT_NMI__vISR_Dummy(void)
+void WDT_NMI__vIRQVectorHandler_Dummy(void)
 {
 
 }
 
-void WDT_NMI__vISR(void)
+void WDT_NMI__vIRQVectorHandler(void)
 {
     volatile uint32_t u32RegType=0;
     volatile uint32_t u32Reg0=0u;

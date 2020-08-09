@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptPendSV.h>
 
-void PendSV__vISR(void)
+void PendSV__vIRQVectorHandler(void)
 {
     /*context switch, lower priority*/
     while(1u){}

@@ -30,7 +30,7 @@
 
 uint32_t SYSEXC_pu32Context[8];
 
-void SYSEXC__vISR(void)
+void SYSEXC__vIRQVectorHandler(void)
 {
     {
     __asm(

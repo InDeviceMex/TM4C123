@@ -27,7 +27,7 @@
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptUsageFault.h>
 uint32_t SCB_UsageFault_pu32Context[8];
 
-void UsageFault__vISR(void)
+void UsageFault__vIRQVectorHandler(void)
 {
     uint16_t SCB_u16UsageFault=0;
     __asm(

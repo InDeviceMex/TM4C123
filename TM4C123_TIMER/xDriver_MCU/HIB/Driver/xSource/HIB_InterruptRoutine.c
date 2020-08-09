@@ -14,7 +14,7 @@
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Intrinsics.h>
 
-void HIB__vISR(void)
+void HIB__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg= HIB_HIBMIS_R;
 
@@ -35,7 +35,5 @@ void HIB__vISR(void)
         HIB_HIBRTCM0_R=u32Reg+(uint32_t)10u;
         HIB_HIBIC_R=HIB_HIBIC_R_RTCALT0_CLEAR;
         HIB__enSetGlobalCountStatus(HIB_enREADY);
-        GPIOF_AHB->GPIODATA^=GPIO_GPIODATA_R_DATA1_MASK;
-
     }
 }

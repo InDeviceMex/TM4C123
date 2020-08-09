@@ -30,5 +30,5 @@
 
 void GPIO__vInit(void)
 {
-    GPIO__vRegisterAll_ISRVector();
+    GPIO__vRegisterAll_IRQVectorHandler();
 }

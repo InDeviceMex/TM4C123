@@ -28,7 +28,7 @@
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
-void GPIOC__vISRHandler(void)
+void GPIOC__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg=0;
      uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(uint32_t)((uint32_t)1u<<2u);
@@ -38,42 +38,42 @@ void GPIOC__vISRHandler(void)
          if(u32Reg & GPIO_enPIN0)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN0;
-             GPIO[2][0]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER0]();
          }
          if(u32Reg & GPIO_enPIN1)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN1;
-             GPIO[2][1]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER1]();
          }
          if(u32Reg & GPIO_enPIN2)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN2;
-             GPIO[2][2]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER2]();
          }
          if(u32Reg & GPIO_enPIN3)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN3;
-             GPIO[2][3]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER3]();
          }
          if(u32Reg & GPIO_enPIN4)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN4;
-             GPIO[2][4]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER4]();
          }
          if(u32Reg & GPIO_enPIN5)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN5;
-             GPIO[2][5]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER5]();
          }
          if(u32Reg & GPIO_enPIN6)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN6;
-             GPIO[2][6]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER6]();
          }
          if(u32Reg & GPIO_enPIN7)
          {
              GPIOC_APB_GPIOICR_R=GPIO_enPIN7;
-             GPIO[2][7]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER7]();
          }
      }
      else
@@ -82,42 +82,42 @@ void GPIOC__vISRHandler(void)
          if(u32Reg & GPIO_enPIN0)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN0;
-             GPIO[2][0]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER0]();
          }
          if(u32Reg & GPIO_enPIN1)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN1;
-             GPIO[2][1]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER1]();
          }
          if(u32Reg & GPIO_enPIN2)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN2;
-             GPIO[2][2]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER2]();
          }
          if(u32Reg & GPIO_enPIN3)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN3;
-             GPIO[2][3]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER3]();
          }
          if(u32Reg & GPIO_enPIN4)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN4;
-             GPIO[2][4]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER4]();
          }
          if(u32Reg & GPIO_enPIN5)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN5;
-             GPIO[2][5]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER5]();
          }
          if(u32Reg & GPIO_enPIN6)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN6;
-             GPIO[2][6]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER6]();
          }
          if(u32Reg & GPIO_enPIN7)
          {
              GPIOC_AHB_GPIOICR_R=GPIO_enPIN7;
-             GPIO[2][7]();
+             GPIO__vIRQSourceHandler[(uint32_t)GPIO_enPORTC][(uint32_t)GPIO_enPIN_NUMBER7]();
          }
      }
 }

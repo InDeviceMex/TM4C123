@@ -595,20 +595,20 @@ inline void SCB__vEnableTraps(void)
 inline void SCB__vInit(void)
 {
     SCB__vSetVectorOffset(0x20000000u);
-    SCB__vRegisterISR(NMI_vISR,SCB_enVECISR_NMI);
-    SCB__vRegisterISR(PendSV_vISR,SCB_enVECISR_PENDSV);
-    SCB__vRegisterISR(UsageFault_vISR,SCB_enVECISR_USAGEFAULT);
-    SCB__vRegisterISR(BusFault_vISR,SCB_enVECISR_BUSFAULT);
-    SCB__vRegisterISR(MemoryFault_vISR,SCB_enVECISR_MEMMANAGE);
-    SCB__vRegisterISR(HardFault_vISR,SCB_enVECISR_HARDFAULT);
-    SCB__vRegisterISR(SVCall_vISR,SCB_enVECISR_SVCALL);
+    SCB__vRegisterIRQVectorHandler(NMI_vISR,SCB_enVECISR_NMI);
+    SCB__vRegisterIRQVectorHandler(PendSV_vISR,SCB_enVECISR_PENDSV);
+    SCB__vRegisterIRQVectorHandler(UsageFault_vISR,SCB_enVECISR_USAGEFAULT);
+    SCB__vRegisterIRQVectorHandler(BusFault_vISR,SCB_enVECISR_BUSFAULT);
+    SCB__vRegisterIRQVectorHandler(MemoryFault_vISR,SCB_enVECISR_MEMMANAGE);
+    SCB__vRegisterIRQVectorHandler(HardFault_vISR,SCB_enVECISR_HARDFAULT);
+    SCB__vRegisterIRQVectorHandler(SVCall_vISR,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup(SCB_enPRIGROUP_XXX);
     SCB__enSetStackAligment(SCB_enALIGN_4BYTE);
 }
 
-void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
+void SCB__vRegisterIRQVectorHandler(void (*Isr) (void),SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 
@@ -628,7 +628,7 @@ void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector)
 }
 
 /*
-void SCB__vUnRegisterISR(SCB_nVECISR enVector)
+void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 

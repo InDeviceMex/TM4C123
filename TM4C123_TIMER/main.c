@@ -67,7 +67,6 @@ int main(void)
     uint8_t u8ColumnCurrent=0;
     uint8_t u8Counter=0;
     uint8_t u8Dir=0;
-    int16_t s16AngleAbosulte=0;
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -214,8 +213,8 @@ int main(void)
 void MAIN_vInitGPIO(void)
 {
     GPIO__vInit();
-    GPIO__vRegisterISR(&MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
-    GPIO__vRegisterISR(&MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
     GPIO__vEnInterruptMODULE(GPIO_enPORTF,GPIO_enPRI7);
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);

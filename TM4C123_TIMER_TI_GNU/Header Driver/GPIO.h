@@ -10750,7 +10750,7 @@ typedef struct
 
 
 void GPIO__vInit(void);
-void GPIO__vRegisterISR(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
+void GPIO__vRegisterIRQVectorHandler(void (*Isr) (void),GPIO_nPORT enPort,GPIO_nPIN enPin);
 void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
 
 

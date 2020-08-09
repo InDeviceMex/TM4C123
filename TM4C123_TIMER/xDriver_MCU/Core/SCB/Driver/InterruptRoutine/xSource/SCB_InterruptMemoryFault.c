@@ -28,7 +28,7 @@
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptMemoryFault.h>
 uint32_t SCB_MemoryFault_pu32Context[8];
 
-void MemoryFault__vISR(void)
+void MemoryFault__vIRQVectorHandler(void)
 {
     uint8_t SCB_u8MemFault=0;
     /*uint32_t SCB_u32MemoryMem=0;*/

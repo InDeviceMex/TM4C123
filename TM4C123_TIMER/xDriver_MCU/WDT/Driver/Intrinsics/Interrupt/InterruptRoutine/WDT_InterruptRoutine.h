@@ -28,9 +28,9 @@
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
 void WDT__vISR(void);
-void WDT_NMI__vISR_Dummy(void);
-void WDT_NMI__vISR(void);
+void WDT_NMI__vIRQVectorHandler_Dummy(void);
+void WDT_NMI__vIRQVectorHandler(void);
 
-extern void (*WDT__ISR[(uint32_t)WDT_enINT_TYPE_NMI+1u]) (void);
+extern void (*WDT__vIRQSourceHandler[(uint32_t)WDT_enINT_TYPE_NMI+1u]) (void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTROUTINE_WDT_INTERRUPTROUTINE_H_ */

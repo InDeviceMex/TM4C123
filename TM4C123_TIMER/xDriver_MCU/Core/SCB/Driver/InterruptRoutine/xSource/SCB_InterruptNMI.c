@@ -26,9 +26,10 @@
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptNMI.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
-void NMI__vISR(void)
+
+void NMI__vIRQVectorHandler(void)
 {
-    WDT__ISR[1]();
+    WDT__vIRQSourceHandler[(uint32_t)WDT_enINT_TYPE_NMI]();
     /*use for GPIO activation*/
     while(1u){}
 }

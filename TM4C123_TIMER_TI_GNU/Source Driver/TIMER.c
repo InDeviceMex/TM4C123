@@ -281,7 +281,7 @@ void TIMER__vRegisterMODULEISR(void (*Isr) (void),TIMER_nMODULE enModule)
         }
         enVector=SCB_VECTOR_TIMER[u32Wide][u32Letter][u32Number];
         TIMER_vISR[u32Wide][u32Letter][u32Number]=(void (*) (void))((uint32_t)Isr|1);
-        SCB__vRegisterISR(TIMER_vISR[u32Wide][u32Letter][u32Number],enVector);
+        SCB__vRegisterIRQVectorHandler(TIMER_vISR[u32Wide][u32Letter][u32Number],enVector);
     }
 }
 

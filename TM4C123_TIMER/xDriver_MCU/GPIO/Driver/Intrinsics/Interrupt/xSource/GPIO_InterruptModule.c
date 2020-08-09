@@ -26,7 +26,7 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptModule.h>
 
 
-static NVIC_nSTIR NVIC_VECTOR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
+static NVIC_nSTIR NVIC_VECTOR_GPIO__vIRQSourceHandler[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
                            NVIC_enSTIR_GPIOE,NVIC_enSTIR_GPIOF};
 
 
@@ -38,7 +38,7 @@ void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR_GPIO[enPort];
+    enVector=NVIC_VECTOR_GPIO__vIRQSourceHandler[enPort];
 
     enPriority&=0x7u;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
@@ -52,6 +52,6 @@ void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR_GPIO[enPort];
+    enVector=NVIC_VECTOR_GPIO__vIRQSourceHandler[enPort];
     NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
 }

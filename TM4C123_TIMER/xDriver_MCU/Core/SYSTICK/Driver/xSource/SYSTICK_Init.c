@@ -54,7 +54,7 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         SysTick__vSetTickUs(fSysTickUs);
         SysTick__vSetTickCount(u32Tick);
 
-        SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
+        SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler,SCB_enVECISR_SYSTICK);
         SCB_SysTick__vSetPriority(enPriority);
         SysTick_RVR_R=u32Tick-1u;
         SysTick_CVR_R=0u;
@@ -112,7 +112,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority)
             SysTick__vSetTickUs(fSysTickUs);
             SysTick__vSetTickCount(u32CountTick);
 
-            SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
+            SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler,SCB_enVECISR_SYSTICK);
             SCB_SysTick__vSetPriority(enPriority);
             SysTick_RVR_R=u32CountTick-1u;
             SysTick_CVR_R=0u;
@@ -178,7 +178,7 @@ SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority)
             SysTick__vSetTickUs(fTimeUs);
             SysTick__vSetTickCount(u32CountTick);
 
-            SCB__vRegisterISR(&SysTick__vISR,SCB_enVECISR_SYSTICK);
+            SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler,SCB_enVECISR_SYSTICK);
             SCB_SysTick__vSetPriority(enPriority);
             SysTick_RVR_R=u32CountTick-1u;
             SysTick_CVR_R=0u;

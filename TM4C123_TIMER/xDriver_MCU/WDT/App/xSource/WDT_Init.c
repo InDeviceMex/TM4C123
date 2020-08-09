@@ -29,7 +29,7 @@
 
 void WDT__vInit(uint32_t u32ReloadValue)
 {
-    WDT__vRegisterMODULEISR(&WDT_NMI__vISR,WDT_enINT_TYPE_NMI);
+    WDT__vRegisterMODULEISR(&WDT_NMI__vIRQVectorHandler,WDT_enINT_TYPE_NMI);
     WDT__vEnInterruptMODULE(WDT_enPRI4);
     WDT__vEnInterrupt(WDT_enMODULE_0);
     WDT__enSetMode_Load(WDT_enMODULE_0,WDT_enMODE_NORESET_NMI_FREEZE_EN,u32ReloadValue);

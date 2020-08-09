@@ -1,6 +1,6 @@
 /**
  *
- * @file SCB_RegisterISR.h
+ * @file SCB_RegisterIRQVector.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,13 +21,13 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_REGISTERISR_H_
-#define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_REGISTERISR_H_
+#ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_
+#define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_
 
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 
-void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector);
-void SCB__vUnRegisterISR(SCB_nVECISR enVector);
+void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECISR enVector);
+void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector);
 
 
-#endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_REGISTERISR_H_ */
+#endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_ */
