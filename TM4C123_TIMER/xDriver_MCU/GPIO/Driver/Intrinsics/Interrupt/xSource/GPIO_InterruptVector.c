@@ -1,6 +1,6 @@
 /**
  *
- * @file GPIO_InterruptModule.c
+ * @file GPIO_InterruptVector.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -23,14 +23,14 @@
  */
 
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptModule.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptVector.h>
 
 
-static NVIC_nSTIR NVIC_VECTOR_GPIO__vIRQSourceHandler[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
+static NVIC_nSTIR NVIC_enSTIR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
                            NVIC_enSTIR_GPIOE,NVIC_enSTIR_GPIOF};
 
 
-void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
+void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
     if(enPort>GPIO_enMAX)
@@ -38,13 +38,13 @@ void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR_GPIO__vIRQSourceHandler[enPort];
+    enVector=NVIC_enSTIR_GPIO[enPort];
 
     enPriority&=0x7u;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
 }
 
-void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort)
+void GPIO__vDisInterruptVector(GPIO_nPORT enPort)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
     if(enPort>GPIO_enMAX)
@@ -52,6 +52,6 @@ void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR_GPIO__vIRQSourceHandler[enPort];
+    enVector=NVIC_enSTIR_GPIO[enPort];
     NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
 }

@@ -25,7 +25,6 @@
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTROUTINE_GPIO_INTERRUPTROUTINE_H_
 
 #include <stdint.h>
-#include <stdint.h>
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_ModuleA.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_ModuleB.h>

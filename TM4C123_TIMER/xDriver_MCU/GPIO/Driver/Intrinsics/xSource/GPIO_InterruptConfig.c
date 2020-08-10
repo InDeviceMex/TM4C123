@@ -42,7 +42,7 @@ void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFI
     {
         GPIO__vSetIntLevel(enPort,enPin,(GPIO_nLEVEL)u32Event);
     }
-    GPIO__vEnInterrupt(enPort,enPin);
+    GPIO__vEnInterruptSource(enPort,enPin);
 }
 
 

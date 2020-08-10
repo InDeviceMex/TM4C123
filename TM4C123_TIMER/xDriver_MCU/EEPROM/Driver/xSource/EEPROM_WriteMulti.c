@@ -4,7 +4,7 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
+#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <EEPROM/Driver/xHeader/EEPROM_Write.h>
 #include <EEPROM/Driver/xHeader/EEPROM_WriteMulti.h>
 #include <stdint.h>
@@ -17,6 +17,8 @@ EEPROM_nSTATUS EEPROM__enWriteMultiWorld (const uint32_t *pu32Data, uint32_t u32
     uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
     while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
+
+        EEPROM__vSetReady();
         enReturn = EEPROM__enWriteWorld(*pu32Data, u32Address);
         pu32Data++;
         u32Address += (uint32_t)4u;

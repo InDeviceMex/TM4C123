@@ -4,7 +4,7 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
+#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <EEPROM/Driver/xHeader/EEPROM_Read.h>
 #include <EEPROM/Driver/xHeader/EEPROM_ReadMulti.h>
 #include <stdint.h>
@@ -14,13 +14,18 @@
 EEPROM_nSTATUS EEPROM__enReadMultiWorld (uint32_t *pu32Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enOK;
+    EEPROM_nREADY enReady= EEPROM_enNOREADY;
     uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
-    while(((u32MaxAddress) > u32Address) && (u16Count >(uint16_t) 0) && (EEPROM_enOK == enReturn) && ((uint32_t)0!= (uint32_t) pu32Data))
+    enReady = EEPROM__enIsReady();
+    if(EEPROM_enREADY == enReady)
     {
-        enReturn = EEPROM__enReadWorld(pu32Data,u32Address);
-        pu32Data++;
-        u32Address += (uint32_t)4u;
-        u16Count--;
+        while(((u32MaxAddress) > u32Address) && (u16Count >(uint16_t) 0) && (EEPROM_enOK == enReturn) && ((uint32_t)0!= (uint32_t) pu32Data))
+        {
+            enReturn = EEPROM__enReadWorld(pu32Data,u32Address);
+            pu32Data++;
+            u32Address += (uint32_t)4u;
+            u16Count--;
+        }
     }
 
     return (EEPROM_nSTATUS) enReturn;

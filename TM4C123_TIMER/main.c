@@ -215,7 +215,7 @@ void MAIN_vInitGPIO(void)
     GPIO__vInit();
     GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
     GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
-    GPIO__vEnInterruptMODULE(GPIO_enPORTF,GPIO_enPRI7);
+    GPIO__vEnInterruptVector(GPIO_enPORTF,GPIO_enPRI7);
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
@@ -226,7 +226,7 @@ void MAIN_vInitGPIO(void)
 
     GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1|GPIO_enPIN2), 0u);
 
-    GPIO__vClearInterrupt(GPIO_enPORTF,  (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
+    GPIO__vClearInterruptSource(GPIO_enPORTF,  (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
     GPIO__vEnInterruptConfig(GPIO_enPORTF, (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4), GPIO_enINT_CONFIG_EDGE_BOTH);
 
 

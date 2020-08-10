@@ -44,7 +44,22 @@ typedef enum
     EEPROM_enERROR,   /*!<  Result has an error*/
 }EEPROM_nSTATUS;
 
+/**
+ *  @brief EEPROM ready
+ *  @details Generally used to know if the Peripheral is ready to use
+ */
+typedef enum
+{
+    EEPROM_enNOREADY=0u,
+    EEPROM_enREADY=1u,
+}EEPROM_nREADY;
 
 
+typedef enum
+{
+    EEPROM_enINT_NOOCCUR=0u,
+    EEPROM_enINT_OCCUR=1u,
+    EEPROM_enINT_STATUS_UNDEF=0xFFu,
+}EEPROM_nINT_STATUS;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_ENUM_H_ */

@@ -1,6 +1,6 @@
 /**
  *
- * @file GPIO_InterruptModule.h
+ * @file GPIO_InterruptVector.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,13 +21,13 @@
  * Date           Author     Version     Description
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTMODULE_H_
-#define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTMODULE_H_
+#ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTVECTOR_H_
+#define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTVECTOR_H_
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
-void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
-void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
+void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
+void GPIO__vDisInterruptVector(GPIO_nPORT enPort);
 
 
 

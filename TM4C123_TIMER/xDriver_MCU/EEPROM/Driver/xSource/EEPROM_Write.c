@@ -4,7 +4,7 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
+#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <EEPROM/Driver/xHeader/EEPROM_Write.h>
 #include <stdint.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
@@ -15,8 +15,10 @@ EEPROM_nSTATUS EEPROM__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
     uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << 2);
     uint32_t u32Block = (u32Address >> 6);/*u32Address/16*/
     uint32_t u32Offset = (u32Address >> (uint32_t)2u) & (uint32_t)0xFu;/*First 16 worlds*/
+
     if((u32MaxAddress) > u32Address)
     {
+        EEPROM__vSetReady();
         EEPROM_EEBLOCK_R = u32Block;
         EEPROM_EEOFFSET_R = u32Offset;
         EEPROM_EERDWR_R = u32Data;

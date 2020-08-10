@@ -2,8 +2,8 @@
  * @section Include Files
  */
 
-#include <EEPROM/Driver/xHeader/EEPROM_Init.h>
-#include <EEPROM/Driver/xHeader/EEPROM_Intrinsics.h>
+#include <EEPROM/App/xHeader/EEPROM_Init.h>
+#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
@@ -25,7 +25,7 @@ EEPROM_nSTATUS EEPROM__enInit (void)
     /*
      * To Reinitialize Peripheral Clock
      */
-    SYSCTL__vSetReady(SYSCTL_enEEPROM);
+    EEPROM__vSetReady();
     /*NVIC__enSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);*/
 
     /*

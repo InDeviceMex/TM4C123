@@ -35,7 +35,7 @@ GPIO_AUX_TypeDef* GPIO_BLOCK_AUX[2][6]={{GPIOA_APB_AUX,GPIOB_APB_AUX,GPIOC_APB_A
 SCB_nVECISR SCB_enVECISR_GPIO__vIRQSourceHandler[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
                            SCB_enVECISR_GPIOE,SCB_enVECISR_GPIOF};
 
-NVIC_nSTIR NVIC_VECTOR_GPIO__vIRQSourceHandler[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
+NVIC_nSTIR NVIC_enSTIR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
                            NVIC_enSTIR_GPIOE,NVIC_enSTIR_GPIOF};
 
 void GPIO_vIRQSourceHandler_Dummy(void)
@@ -91,7 +91,7 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
     }
 }
 
-void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
+void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
     if(enPort>GPIO_enMAX)
@@ -99,13 +99,13 @@ void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR_GPIO__vIRQSourceHandler[enPort];
+    enVector=NVIC_enSTIR_GPIO[enPort];
 
     enPriority&=0x7;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
 }
 
-void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort)
+void GPIO__vDisInterruptVector(GPIO_nPORT enPort)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
     if(enPort>GPIO_enMAX)
@@ -113,7 +113,7 @@ void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort)
         enPort=GPIO_enMAX;
     }
 
-    enVector=NVIC_VECTOR_GPIO__vIRQSourceHandler[enPort];
+    enVector=NVIC_enSTIR_GPIO[enPort];
     NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
 }
 
@@ -580,7 +580,7 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 
 
-void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     uint32_t u32Reg=0;
@@ -612,9 +612,9 @@ void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFI
     {
         GPIO__vSetIntLevel(enPort,enPin,(GPIO_nLEVEL)u32Event);
     }
-    GPIO__vEnInterrupt(enPort,enPin);
+    GPIO__vEnInterruptSource(enPort,enPin);
 }
-void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     uint32_t u32Reg=0;
@@ -633,7 +633,7 @@ void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 }
 
 
-void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     GPIO_TypeDef* gpio=0;
@@ -650,7 +650,7 @@ void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 }
 
 
-GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     GPIO_nINT_STATUS enStatus= GPIO_enINT_STATUS_UNDEF;

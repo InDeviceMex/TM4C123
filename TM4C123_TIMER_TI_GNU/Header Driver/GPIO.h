@@ -10754,8 +10754,8 @@ void GPIO__vRegisterIRQVectorHandler(void (*Isr) (void),GPIO_nPORT enPort,GPIO_n
 void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort);
 
 
-void GPIO__vEnInterruptMODULE(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
-void GPIO__vDisInterruptMODULE(GPIO_nPORT enPort);
+void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
+void GPIO__vDisInterruptVector(GPIO_nPORT enPort);
 
 void GPIO__vSetReady(GPIO_nPORT enPort);
 void GPIO__vClearReady(GPIO_nPORT enPort);
@@ -10790,12 +10790,12 @@ void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel)
 GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 
-void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFIG enIntConfig);
 
-void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
-GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
+GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin);

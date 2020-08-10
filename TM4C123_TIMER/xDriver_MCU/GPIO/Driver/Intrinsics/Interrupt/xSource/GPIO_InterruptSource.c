@@ -1,6 +1,6 @@
 /**
  *
- * @file GPIO_InterruptPin.c
+ * @file GPIO_InterruptSource.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -25,11 +25,11 @@
 
 
 #include <stdint.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptPin.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptSource.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
-void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     uint32_t u32Reg=0;
@@ -48,7 +48,7 @@ void GPIO__vEnInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 }
 
-void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     uint32_t u32Reg=0;
@@ -67,7 +67,7 @@ void GPIO__vDisInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 }
 
 
-void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     GPIO_TypeDef* gpio=0;
@@ -83,7 +83,7 @@ void GPIO__vClearInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 }
 
-GPIO_nINT_STATUS GPIO__enStatusInterrupt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nBUS enBus=GPIO_enAPB;
     GPIO_nINT_STATUS enStatus= GPIO_enINT_STATUS_UNDEF;
