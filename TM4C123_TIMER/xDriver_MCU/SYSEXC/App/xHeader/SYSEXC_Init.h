@@ -1,6 +1,6 @@
 /**
  *
- * @file SYSEXC_InterruptRoutine.h
+ * @file SYSEXC_Init.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,9 +21,11 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INTERRUPTROUTINE_H_
-#define XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INTERRUPTROUTINE_H_
+#ifndef XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INIT_H_
+#define XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INIT_H_
 
-void SYSEXC__vIRQVectorHandler(void);
+#include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Enum.h>
 
-#endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INTERRUPTROUTINE_H_ */
+void SYSEXC__vInit(SYSEXC_nINT enInterrupt,SYSEXC_nPRIORITY enPriority);
+
+#endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INIT_H_ */
