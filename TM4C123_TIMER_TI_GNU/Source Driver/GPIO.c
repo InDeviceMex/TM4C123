@@ -32,7 +32,7 @@ GPIO_AUX_TypeDef* GPIO_BLOCK_AUX[2][6]={{GPIOA_APB_AUX,GPIOB_APB_AUX,GPIOC_APB_A
                                 {GPIOA_AHB_AUX,GPIOB_AHB_AUX,GPIOC_AHB_AUX,GPIOD_AHB_AUX,GPIOE_AHB_AUX,GPIOF_AHB_AUX}};
 
 
-SCB_nVECISR SCB_enVECISR_GPIO__vIRQSourceHandler[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
+SCB_nVECISR SCB_enVECISR_GPIO[6]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,
                            SCB_enVECISR_GPIOE,SCB_enVECISR_GPIOF};
 
 NVIC_nSTIR NVIC_enSTIR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_enSTIR_GPIOC,NVIC_enSTIR_GPIOD,
@@ -45,12 +45,12 @@ void GPIO_vIRQSourceHandler_Dummy(void)
 
 void GPIO__vInit(void)
 {
-    GPIO__vRegisterMODULEISR(GPIOA_vISR,GPIO_enPORTA);
-    GPIO__vRegisterMODULEISR(GPIOB_vISR,GPIO_enPORTB);
-    GPIO__vRegisterMODULEISR(GPIOC_vISR,GPIO_enPORTC);
-    GPIO__vRegisterMODULEISR(GPIOD_vISR,GPIO_enPORTD);
-    GPIO__vRegisterMODULEISR(GPIOE_vISR,GPIO_enPORTE);
-    GPIO__vRegisterMODULEISR(GPIOF_vISR,GPIO_enPORTF);
+    GPIO__vRegisterMODULEISR(GPIOA_vISR,GPIO_enPORT_A);
+    GPIO__vRegisterMODULEISR(GPIOB_vISR,GPIO_enPORT_B);
+    GPIO__vRegisterMODULEISR(GPIOC_vISR,GPIO_enPORT_C);
+    GPIO__vRegisterMODULEISR(GPIOD_vISR,GPIO_enPORT_D);
+    GPIO__vRegisterMODULEISR(GPIOE_vISR,GPIO_enPORT_E);
+    GPIO__vRegisterMODULEISR(GPIOF_vISR,GPIO_enPORT_F);
 }
 
 
@@ -60,12 +60,12 @@ void GPIO__vRegisterIRQVectorHandler(void (*Isr) (void),GPIO_nPORT enPort,GPIO_n
     uint32_t u32Pin =(uint32_t) enPin;
     if((uint32_t)Isr !=0)
     {
-        if(enPort>GPIO_enMAX)
+        if(enPort>GPIO_enPORT_MAX)
         {
-            enPort=GPIO_enMAX;
+            enPort=GPIO_enPORT_MAX;
         }
 
-        enPin&=GPIO_enALL;
+        enPin&=GPIO_enPIN_ALL;
         while((u32Pin&0x1u) ==0)
         {
             u32Count++;
@@ -80,11 +80,11 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
     SCB_nVECISR enVector=SCB_enVECISR_GPIOA;
     if(0 != (uint32_t)Isr)
     {
-        if(enPort>GPIO_enMAX)
+        if(enPort>GPIO_enPORT_MAX)
         {
-            enPort=GPIO_enMAX;
+            enPort=GPIO_enPORT_MAX;
         }
-        enVector=SCB_enVECISR_GPIO__vIRQSourceHandler[enPort];
+        enVector=SCB_enVECISR_GPIO[enPort];
 
         GPIO_ISR[enPort]=(void (*) (void))((uint32_t)Isr|1);
         SCB__vRegisterIRQVectorHandler(GPIO_ISR[enPort],enVector);
@@ -94,9 +94,9 @@ void GPIO__vRegisterMODULEISR(void (*Isr) (void),GPIO_nPORT enPort)
 void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
 
     enVector=NVIC_enSTIR_GPIO[enPort];
@@ -108,9 +108,9 @@ void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
 void GPIO__vDisInterruptVector(GPIO_nPORT enPort)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
 
     enVector=NVIC_enSTIR_GPIO[enPort];
@@ -124,9 +124,9 @@ void GPIO__vSetReady(GPIO_nPORT enPort)
 {
     SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enGPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
     enPeripheral|=enPort;
     enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
@@ -141,9 +141,9 @@ void GPIO__vClearReady(GPIO_nPORT enPort)
 {
     SYSCTL_nPERIPHERAL_READY enReady=SYSCTL_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enGPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
     enPeripheral|=enPort;
     enReady=SYSCTL__enIsPeripheralReady(enPeripheral);
@@ -157,9 +157,9 @@ GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 {
     GPIO_nREADY enReady=GPIO_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enGPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
     enPeripheral|=enPort;
     enReady=(GPIO_nREADY)SYSCTL__enIsPeripheralReady(enPeripheral);
@@ -167,10 +167,10 @@ GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 }
 GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort)
 {
-    GPIO_nBUS enReturn= GPIO_enAPB;
-    if(enPort>GPIO_enMAX)
+    GPIO_nBUS enReturn= GPIO_enBUS_APB;
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
     SYSCTL_nGPIOBUS enGPIO =(SYSCTL_nGPIOBUS)(1<<enPort);
     enReturn = (GPIO_nBUS)SYSCTL__vGetGPIOBus(enGPIO);
@@ -179,14 +179,14 @@ GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort)
 
 void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enDir)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -207,14 +207,14 @@ GPIO_nDIR GPIO__enGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDIR enDir=GPIO_enDIR_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
@@ -238,13 +238,13 @@ GPIO_nDIR GPIO__enGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 inline void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -255,14 +255,14 @@ inline void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 inline uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0xFFFFFFFF;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
@@ -275,15 +275,15 @@ inline uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
-    if(enPort>GPIO_enMAX)
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
-    if(GPIO_enAHB==enBus)
+    if(GPIO_enBUS_AHB==enBus)
     {
         GPIO_AHB->AHB[(uint32_t)enPort].GPIODATA_MASK[enPin]=u32Data;
     }
@@ -291,18 +291,18 @@ inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32D
 inline uint32_t GPIO_AHB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0xFFFFFFFF;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
     {
-        if(GPIO_enAHB ==enBus)
+        if(GPIO_enBUS_AHB ==enBus)
         {
             u32Reg=GPIO_AHB->AHB[(uint32_t)enPort].GPIODATA_MASK[enPin];
         }
@@ -324,16 +324,16 @@ inline uint32_t GPIO_AHB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 inline void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
-    if(GPIO_enAPB==enBus)
+    if(GPIO_enBUS_APB==enBus)
     {
         gpio=GPIO_APB_BLOCK[(uint32_t)enPort];
         gpio->GPIODATA_MASK[enPin]=u32Data;
@@ -343,19 +343,19 @@ inline void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32D
 inline uint32_t GPIO_APB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0xFFFFFFFF;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
     {
-        if(GPIO_enAPB ==enBus)
+        if(GPIO_enBUS_APB ==enBus)
         {
             gpio= GPIO_APB_BLOCK[enPort];
             u32Reg=gpio->GPIODATA_MASK[enPin];
@@ -377,14 +377,14 @@ inline uint32_t GPIO_APB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -406,14 +406,14 @@ GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nSENSE enSense=GPIO_enSENSE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
@@ -435,15 +435,15 @@ GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vSetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nEDGE enEdge)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32RegIEV=0;
     uint32_t u32RegIBE=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_EDGE);
@@ -477,16 +477,16 @@ GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nEDGE enEdge=GPIO_enEDGE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_nSENSE enSense=GPIO_enSENSE_UNDEF;
     uint32_t u32RegIEV=0;
     uint32_t u32RegIBE=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     enSense= GPIO__enGetIntSense(enPort,enPin);
@@ -519,14 +519,14 @@ GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_LEVEL);
@@ -548,15 +548,15 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nLEVEL enLevel=GPIO_enLEVEL_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_nSENSE enSense=GPIO_enSENSE_UNDEF;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     enSense= GPIO__enGetIntSense(enPort,enPin);
@@ -582,14 +582,14 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -616,14 +616,14 @@ void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nINT_CONFI
 }
 void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -635,13 +635,13 @@ void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -652,16 +652,16 @@ void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_nINT_STATUS enStatus= GPIO_enINT_STATUS_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
 
@@ -684,17 +684,17 @@ GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPi
 
 void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     uint32_t u32RegSLR=0;
     GPIO_AUX_TypeDef* gpio=0;
     uint32_t u32Drive =enDrive&0x3;
     uint32_t u32SlewRate =(enDrive>>8)&0x1;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_LEVEL);
@@ -720,14 +720,14 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDRIVE enDrive=GPIO_enDRIVE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_AUX_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
 
@@ -760,14 +760,14 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32RegCR=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -783,14 +783,14 @@ void GPIO__vUnlock(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32RegCR=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -808,14 +808,14 @@ void GPIO__vLock(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -829,14 +829,14 @@ void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vUnlock(enPort,enPin);
@@ -849,14 +849,14 @@ void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vUnlock(enPort,enPin);
@@ -869,14 +869,14 @@ void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vUnlock(enPort,enPin);
@@ -889,14 +889,14 @@ void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -908,14 +908,14 @@ void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -927,14 +927,14 @@ void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nOUTMODE enMode)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vEnDigital(enPort,enPin);
@@ -956,14 +956,14 @@ GPIO_nOUTMODE GPIO__enGetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nOUTMODE enOutMode=GPIO_enOUTMODE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
@@ -985,15 +985,15 @@ GPIO_nOUTMODE GPIO__enGetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nRESMODE enMode)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32RegPUR=0;
     uint32_t u32RegPDR=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vUnlock(enPort,enPin);
@@ -1026,15 +1026,15 @@ GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nRESMODE enRes=GPIO_enRESMODE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32RegPU=0;
     uint32_t u32RegPD=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)
@@ -1063,7 +1063,7 @@ GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Port =(enFunction>>16)&0xFF;
     uint32_t u32Bit =(enFunction>>8)&0x1F;
     uint32_t u32Pin =(u32Bit>>2)&0xFF;
@@ -1072,11 +1072,11 @@ void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
     GPIO_TypeDef* gpio=0;
     u32Value<<=u32Bit;
     u32Pin=(1<<u32Pin);
-    if(u32Port>(uint32_t)GPIO_enMAX)
+    if(u32Port>(uint32_t)GPIO_enPORT_MAX)
     {
-        u32Port=(uint32_t)GPIO_enMAX;
+        u32Port=(uint32_t)GPIO_enPORT_MAX;
     }
-    u32Pin&=GPIO_enALL;
+    u32Pin&=GPIO_enPIN_ALL;
 
     GPIO__vSetReady((GPIO_nPORT)u32Port);
     enBus=GPIO__enGetBus((GPIO_nPORT)u32Port);
@@ -1135,7 +1135,7 @@ void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef* psConfig)
 GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
     GPIO_CONFIG_Typedef* psConfig=GPIO__psCreateConfigStruct(enConfig);
 
     if(psConfig!=0)
@@ -1145,7 +1145,7 @@ GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG e
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
         GPIO__vDeleteConfigStruct(psConfig);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 
@@ -1154,14 +1154,14 @@ GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG e
 GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_CONFIG_Typedef* psConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
     if(psConfig!=0)
     {
         GPIO__vSetResistorMode(enPort,enPin,psConfig->enResistorMode);
         GPIO__vSetOutputMode(enPort,enPin,psConfig->enOutputMode);
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 
@@ -1222,7 +1222,7 @@ GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
 GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
 
     uint32_t u32Port =(enFunction>>16)&0xFF;
     uint32_t u32Bit =(enFunction>>8)&0x1F;
@@ -1240,7 +1240,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
         GPIO__vDeleteConfigStruct(psConfig);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 
@@ -1249,7 +1249,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
 GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_CONFIG_Typedef* psConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
 
     uint32_t u32Port =(enFunction>>16)&0xFF;
     uint32_t u32Bit =(enFunction>>8)&0x1F;
@@ -1264,7 +1264,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,GP
         GPIO__vSetOutputMode(enPort,enPin,psConfig->enOutputMode);
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 
@@ -1348,11 +1348,11 @@ void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
 {
     uint32_t u32Port =(enFunction>>8)&0xFF;
     uint32_t u32Pin =(enFunction);
-    if(u32Port>(uint32_t)GPIO_enMAX)
+    if(u32Port>(uint32_t)GPIO_enPORT_MAX)
     {
-        u32Port=(uint32_t)GPIO_enMAX;
+        u32Port=(uint32_t)GPIO_enPORT_MAX;
     }
-    u32Pin&=GPIO_enALL;
+    u32Pin&=GPIO_enPIN_ALL;
 
     GPIO__vSetReady((GPIO_nPORT)u32Port);
     GPIO__enSetConfig((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
@@ -1365,14 +1365,14 @@ void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
 
 void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -1385,14 +1385,14 @@ void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -1403,14 +1403,14 @@ void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -1422,14 +1422,14 @@ void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -1443,91 +1443,91 @@ void GPIOA_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<0);
-    if(GPIO_enAPB ==u32RegBUS)
+    if(GPIO_enBUS_APB ==u32RegBUS)
     {
         u32Reg=GPIOA_APB_GPIOMIS_R;
-        if(u32Reg & GPIO_enPIN0)
+        if(u32Reg & GPIO_enPIN_0)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN0;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_0;
             GPIO__vIRQSourceHandler[0][0]();
         }
-        if(u32Reg & GPIO_enPIN1)
+        if(u32Reg & GPIO_enPIN_1)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN1;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_1;
             GPIO__vIRQSourceHandler[0][1]();
         }
-        if(u32Reg & GPIO_enPIN2)
+        if(u32Reg & GPIO_enPIN_2)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN2;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_2;
             GPIO__vIRQSourceHandler[0][2]();
         }
-        if(u32Reg & GPIO_enPIN3)
+        if(u32Reg & GPIO_enPIN_3)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN3;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_3;
             GPIO__vIRQSourceHandler[0][3]();
         }
-        if(u32Reg & GPIO_enPIN4)
+        if(u32Reg & GPIO_enPIN_4)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN4;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_4;
             GPIO__vIRQSourceHandler[0][4]();
         }
-        if(u32Reg & GPIO_enPIN5)
+        if(u32Reg & GPIO_enPIN_5)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN5;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_5;
             GPIO__vIRQSourceHandler[0][5]();
         }
-        if(u32Reg & GPIO_enPIN6)
+        if(u32Reg & GPIO_enPIN_6)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN6;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_6;
             GPIO__vIRQSourceHandler[0][6]();
         }
-        if(u32Reg & GPIO_enPIN7)
+        if(u32Reg & GPIO_enPIN_7)
         {
-            GPIOA_APB_GPIOICR_R=GPIO_enPIN7;
+            GPIOA_APB_GPIOICR_R=GPIO_enPIN_7;
             GPIO__vIRQSourceHandler[0][7]();
         }
     }
     else
     {
         u32Reg=GPIOA_AHB_GPIOMIS_R;
-        if(u32Reg & GPIO_enPIN0)
+        if(u32Reg & GPIO_enPIN_0)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN0;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_0;
             GPIO__vIRQSourceHandler[0][0]();
         }
-        if(u32Reg & GPIO_enPIN1)
+        if(u32Reg & GPIO_enPIN_1)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN1;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_1;
             GPIO__vIRQSourceHandler[0][1]();
         }
-        if(u32Reg & GPIO_enPIN2)
+        if(u32Reg & GPIO_enPIN_2)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN2;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_2;
             GPIO__vIRQSourceHandler[0][2]();
         }
-        if(u32Reg & GPIO_enPIN3)
+        if(u32Reg & GPIO_enPIN_3)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN3;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_3;
             GPIO__vIRQSourceHandler[0][3]();
         }
-        if(u32Reg & GPIO_enPIN4)
+        if(u32Reg & GPIO_enPIN_4)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN4;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_4;
             GPIO__vIRQSourceHandler[0][4]();
         }
-        if(u32Reg & GPIO_enPIN5)
+        if(u32Reg & GPIO_enPIN_5)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN5;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_5;
             GPIO__vIRQSourceHandler[0][5]();
         }
-        if(u32Reg & GPIO_enPIN6)
+        if(u32Reg & GPIO_enPIN_6)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN6;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_6;
             GPIO__vIRQSourceHandler[0][6]();
         }
-        if(u32Reg & GPIO_enPIN7)
+        if(u32Reg & GPIO_enPIN_7)
         {
-            GPIOA_AHB_GPIOICR_R=GPIO_enPIN7;
+            GPIOA_AHB_GPIOICR_R=GPIO_enPIN_7;
             GPIO__vIRQSourceHandler[0][7]();
         }
     }
@@ -1537,91 +1537,91 @@ void GPIOB_vISR(void)
 {
     volatile uint32_t u32Reg=0;
     uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<1);
-    if(GPIO_enAPB ==u32RegBUS)
+    if(GPIO_enBUS_APB ==u32RegBUS)
     {
         u32Reg=GPIOB_APB_GPIOMIS_R;
-        if(u32Reg & GPIO_enPIN0)
+        if(u32Reg & GPIO_enPIN_0)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN0;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_0;
             GPIO__vIRQSourceHandler[1][0]();
         }
-        if(u32Reg & GPIO_enPIN1)
+        if(u32Reg & GPIO_enPIN_1)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN1;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_1;
             GPIO__vIRQSourceHandler[1][1]();
         }
-        if(u32Reg & GPIO_enPIN2)
+        if(u32Reg & GPIO_enPIN_2)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN2;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_2;
             GPIO__vIRQSourceHandler[1][2]();
         }
-        if(u32Reg & GPIO_enPIN3)
+        if(u32Reg & GPIO_enPIN_3)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN3;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_3;
             GPIO__vIRQSourceHandler[1][3]();
         }
-        if(u32Reg & GPIO_enPIN4)
+        if(u32Reg & GPIO_enPIN_4)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN4;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_4;
             GPIO__vIRQSourceHandler[1][4]();
         }
-        if(u32Reg & GPIO_enPIN5)
+        if(u32Reg & GPIO_enPIN_5)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN5;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_5;
             GPIO__vIRQSourceHandler[1][5]();
         }
-        if(u32Reg & GPIO_enPIN6)
+        if(u32Reg & GPIO_enPIN_6)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN6;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_6;
             GPIO__vIRQSourceHandler[1][6]();
         }
-        if(u32Reg & GPIO_enPIN7)
+        if(u32Reg & GPIO_enPIN_7)
         {
-            GPIOB_APB_GPIOICR_R=GPIO_enPIN7;
+            GPIOB_APB_GPIOICR_R=GPIO_enPIN_7;
             GPIO__vIRQSourceHandler[1][7]();
         }
     }
     else
     {
         u32Reg=GPIOB_AHB_GPIOMIS_R;
-        if(u32Reg & GPIO_enPIN0)
+        if(u32Reg & GPIO_enPIN_0)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN0;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_0;
             GPIO__vIRQSourceHandler[1][0]();
         }
-        if(u32Reg & GPIO_enPIN1)
+        if(u32Reg & GPIO_enPIN_1)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN1;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_1;
             GPIO__vIRQSourceHandler[1][1]();
         }
-        if(u32Reg & GPIO_enPIN2)
+        if(u32Reg & GPIO_enPIN_2)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN2;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_2;
             GPIO__vIRQSourceHandler[1][2]();
         }
-        if(u32Reg & GPIO_enPIN3)
+        if(u32Reg & GPIO_enPIN_3)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN3;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_3;
             GPIO__vIRQSourceHandler[1][3]();
         }
-        if(u32Reg & GPIO_enPIN4)
+        if(u32Reg & GPIO_enPIN_4)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN4;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_4;
             GPIO__vIRQSourceHandler[1][4]();
         }
-        if(u32Reg & GPIO_enPIN5)
+        if(u32Reg & GPIO_enPIN_5)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN5;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_5;
             GPIO__vIRQSourceHandler[1][5]();
         }
-        if(u32Reg & GPIO_enPIN6)
+        if(u32Reg & GPIO_enPIN_6)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN6;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_6;
             GPIO__vIRQSourceHandler[1][6]();
         }
-        if(u32Reg & GPIO_enPIN7)
+        if(u32Reg & GPIO_enPIN_7)
         {
-            GPIOB_AHB_GPIOICR_R=GPIO_enPIN7;
+            GPIOB_AHB_GPIOICR_R=GPIO_enPIN_7;
             GPIO__vIRQSourceHandler[1][7]();
         }
     }
@@ -1630,91 +1630,91 @@ void GPIOC_vISR(void)
 {
     volatile uint32_t u32Reg=0;
      uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
-     if(GPIO_enAPB ==u32RegBUS)
+     if(GPIO_enBUS_APB ==u32RegBUS)
      {
          u32Reg=GPIOC_APB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN0;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[2][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN1;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[2][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN2;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[2][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN3;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[2][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN4;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[2][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN5;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[2][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN6;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[2][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOC_APB_GPIOICR_R=GPIO_enPIN7;
+             GPIOC_APB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[2][7]();
          }
      }
      else
      {
          u32Reg=GPIOC_AHB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN0;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[2][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN1;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[2][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN2;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[2][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN3;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[2][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN4;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[2][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN5;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[2][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN6;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[2][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOC_AHB_GPIOICR_R=GPIO_enPIN7;
+             GPIOC_AHB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[2][7]();
          }
      }
@@ -1724,91 +1724,91 @@ void GPIOD_vISR(void)
 {
     volatile uint32_t u32Reg=0;
      uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
-     if(GPIO_enAPB ==u32RegBUS)
+     if(GPIO_enBUS_APB ==u32RegBUS)
      {
          u32Reg=GPIOD_APB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN0;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[3][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN1;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[3][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN2;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[3][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN3;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[3][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN4;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[3][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN5;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[3][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN6;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[3][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOD_APB_GPIOICR_R=GPIO_enPIN7;
+             GPIOD_APB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[3][7]();
          }
      }
      else
      {
          u32Reg=GPIOD_AHB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN0;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[3][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN1;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[3][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN2;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[3][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN3;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[3][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN4;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[3][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN5;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[3][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN6;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[3][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOD_AHB_GPIOICR_R=GPIO_enPIN7;
+             GPIOD_AHB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[3][7]();
          }
      }
@@ -1817,91 +1817,91 @@ void GPIOE_vISR(void)
 {
     volatile uint32_t u32Reg=0;
      uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
-     if(GPIO_enAPB ==u32RegBUS)
+     if(GPIO_enBUS_APB ==u32RegBUS)
      {
          u32Reg=GPIOE_APB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN0;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[4][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN1;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[4][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN2;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[4][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN3;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[4][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN4;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[4][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN5;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[4][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN6;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[4][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOE_APB_GPIOICR_R=GPIO_enPIN7;
+             GPIOE_APB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[4][7]();
          }
      }
      else
      {
          u32Reg=GPIOE_AHB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN0;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[4][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN1;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[4][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN2;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[4][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN3;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[4][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN4;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[4][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN5;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[4][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN6;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[4][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOE_AHB_GPIOICR_R=GPIO_enPIN7;
+             GPIOE_AHB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[4][7]();
          }
      }
@@ -1910,91 +1910,91 @@ void GPIOF_vISR(void)
 {
     volatile uint32_t u32Reg=0;
      uint32_t u32RegBUS=SYSCTL_GPIOHBCTL_R&(1<<2);
-     if(GPIO_enAPB ==u32RegBUS)
+     if(GPIO_enBUS_APB ==u32RegBUS)
      {
          u32Reg=GPIOF_APB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN0;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[5][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN1;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[5][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN2;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[5][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN3;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[5][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN4;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[5][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN5;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[5][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN6;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[5][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOF_APB_GPIOICR_R=GPIO_enPIN7;
+             GPIOF_APB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[5][7]();
          }
      }
      else
      {
          u32Reg=GPIOF_AHB_GPIOMIS_R;
-         if(u32Reg & GPIO_enPIN0)
+         if(u32Reg & GPIO_enPIN_0)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN0;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_0;
              GPIO__vIRQSourceHandler[5][0]();
          }
-         if(u32Reg & GPIO_enPIN1)
+         if(u32Reg & GPIO_enPIN_1)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN1;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_1;
              GPIO__vIRQSourceHandler[5][1]();
          }
-         if(u32Reg & GPIO_enPIN2)
+         if(u32Reg & GPIO_enPIN_2)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN2;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_2;
              GPIO__vIRQSourceHandler[5][2]();
          }
-         if(u32Reg & GPIO_enPIN3)
+         if(u32Reg & GPIO_enPIN_3)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN3;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_3;
              GPIO__vIRQSourceHandler[5][3]();
          }
-         if(u32Reg & GPIO_enPIN4)
+         if(u32Reg & GPIO_enPIN_4)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN4;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_4;
              GPIO__vIRQSourceHandler[5][4]();
          }
-         if(u32Reg & GPIO_enPIN5)
+         if(u32Reg & GPIO_enPIN_5)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN5;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_5;
              GPIO__vIRQSourceHandler[5][5]();
          }
-         if(u32Reg & GPIO_enPIN6)
+         if(u32Reg & GPIO_enPIN_6)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN6;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_6;
              GPIO__vIRQSourceHandler[5][6]();
          }
-         if(u32Reg & GPIO_enPIN7)
+         if(u32Reg & GPIO_enPIN_7)
          {
-             GPIOF_AHB_GPIOICR_R=GPIO_enPIN7;
+             GPIOF_AHB_GPIOICR_R=GPIO_enPIN_7;
              GPIO__vIRQSourceHandler[5][7]();
          }
      }

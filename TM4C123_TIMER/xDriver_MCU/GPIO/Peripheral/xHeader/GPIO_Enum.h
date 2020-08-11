@@ -29,8 +29,8 @@
 
 typedef enum
 {
-    GPIO_enOK=0u,
-    GPIO_enERROR=1u,
+    GPIO_enSTATUS_OK=0u,
+    GPIO_enSTATUS_ERROR=1u,
     GPIO_enSTATUS_UNDEF=0xFFu,
 }GPIO_nSTATUS;
 
@@ -49,30 +49,30 @@ typedef enum
 
 typedef enum
 {
-    GPIO_enAPB=0u,
-    GPIO_enAHB=1u,
+    GPIO_enBUS_APB=0u,
+    GPIO_enBUS_AHB=1u,
 }GPIO_nBUS;
 typedef enum
 {
-    GPIO_enPORTA=0u,
-    GPIO_enPORTB=1u,
-    GPIO_enPORTC=2u,
-    GPIO_enPORTD=3u,
-    GPIO_enPORTE=4u,
-    GPIO_enPORTF=5u,
-    GPIO_enMAX=5u,
+    GPIO_enPORT_A=0u,
+    GPIO_enPORT_B=1u,
+    GPIO_enPORT_C=2u,
+    GPIO_enPORT_D=3u,
+    GPIO_enPORT_E=4u,
+    GPIO_enPORT_F=5u,
+    GPIO_enPORT_MAX=5u,
 }GPIO_nPORT;
 typedef enum
 {
-    GPIO_enPIN0=0x1u,
-    GPIO_enPIN1=0x2u,
-    GPIO_enPIN2=0x4u,
-    GPIO_enPIN3=0x8u,
-    GPIO_enPIN4=0x10u,
-    GPIO_enPIN5=0x20u,
-    GPIO_enPIN6=0x40u,
-    GPIO_enPIN7=0x80u,
-    GPIO_enALL=0xFFu,
+    GPIO_enPIN_0=0x1u,
+    GPIO_enPIN_1=0x2u,
+    GPIO_enPIN_2=0x4u,
+    GPIO_enPIN_3=0x8u,
+    GPIO_enPIN_4=0x10u,
+    GPIO_enPIN_5=0x20u,
+    GPIO_enPIN_6=0x40u,
+    GPIO_enPIN_7=0x80u,
+    GPIO_enPIN_ALL=0xFFu,
 }GPIO_nPIN;
 
 typedef enum

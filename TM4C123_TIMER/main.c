@@ -35,11 +35,11 @@ GPIODATA_MASK_TypeDef* psLedBlue=GPIOF_AHB_GPIODATA_MASK;
 GPIODATA_MASK_TypeDef* psSW1=GPIOF_AHB_GPIODATA_MASK;
 GPIODATA_MASK_TypeDef* psSW2=GPIOF_AHB_GPIODATA_MASK;
 
-GPIO_nPIN enSW2Pin=GPIO_enPIN0;
-GPIO_nPIN enLedRedPin=GPIO_enPIN1;
-GPIO_nPIN enLedBluePin=GPIO_enPIN2;
-GPIO_nPIN enLedGreenPin=GPIO_enPIN3;
-GPIO_nPIN enSW1Pin=GPIO_enPIN4;
+GPIO_nPIN enSW2Pin=GPIO_enPIN_0;
+GPIO_nPIN enLedRedPin=GPIO_enPIN_1;
+GPIO_nPIN enLedBluePin=GPIO_enPIN_2;
+GPIO_nPIN enLedGreenPin=GPIO_enPIN_3;
+GPIO_nPIN enSW1Pin=GPIO_enPIN_4;
 
 volatile uint32_t u32Update=0;
 volatile uint32_t u32Counter=0;
@@ -47,7 +47,7 @@ volatile uint32_t u32Priority=0;
 
 char LCD1602_pu8Buffer1[LCD1602_COLUMN_MAX+1u]=" INDEVICE TIVAC ";
 char LCD1602_pu8Buffer2[LCD1602_COLUMN_MAX+1u]="  LCD1602 SW:   ";
-GPIO_nBUS enBus=GPIO_enAPB;
+GPIO_nBUS enBus=GPIO_enBUS_APB;
 
 volatile uint32_t vu32Refresh=0;
 
@@ -78,11 +78,11 @@ int main(void)
     EEPROM__enInit();
     MAIN_vInitGPIO();
     LCD1602__enInit();
-    enBus=GPIO__enGetBus(GPIO_enPORTF);
+    enBus=GPIO__enGetBus(GPIO_enPORT_F);
 
     DMA__vSetReady(DMA_enMODULE_0);
 
-    if(GPIO_enAPB==enBus)
+    if(GPIO_enBUS_APB==enBus)
     {
         psLedRed=GPIOF_APB_GPIODATA_MASK;
         psLedGreen=GPIOF_APB_GPIODATA_MASK;
@@ -213,9 +213,9 @@ int main(void)
 void MAIN_vInitGPIO(void)
 {
     GPIO__vInit();
-    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW2, GPIO_enPORTF, GPIO_enPIN0);
-    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW1, GPIO_enPORTF, GPIO_enPIN4);
-    GPIO__vEnInterruptVector(GPIO_enPORTF,GPIO_enPRI7);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW2, GPIO_enPORT_F, GPIO_enPIN_0);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW1, GPIO_enPORT_F, GPIO_enPIN_4);
+    GPIO__vEnInterruptVector(GPIO_enPORT_F,GPIO_enPRI7);
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
@@ -224,10 +224,10 @@ void MAIN_vInitGPIO(void)
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
 
-    GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1|GPIO_enPIN2), 0u);
+    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_1|GPIO_enPIN_2), 0u);
 
-    GPIO__vClearInterruptSource(GPIO_enPORTF,  (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4));
-    GPIO__vEnInterruptConfig(GPIO_enPORTF, (GPIO_nPIN)(GPIO_enPIN0|GPIO_enPIN4), GPIO_enINT_CONFIG_EDGE_BOTH);
+    GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(GPIO_enPIN_0|GPIO_enPIN_4));
+    GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(GPIO_enPIN_0|GPIO_enPIN_4), GPIO_enINT_CONFIG_EDGE_BOTH);
 
 
 }
@@ -239,13 +239,13 @@ void MAIN_vIsrSW1(void)
     enServoEnable= ServoMoto_SG90_enENABLE;
     if(psSW1->DATA_MASK[enSW1Pin]==0u)
     {
-        GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1), GPIO_enPIN1);
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_1), GPIO_enPIN_1);
         vu32Refresh|=(uint32_t)enSW1Pin;
     }
     else
     {
 
-        GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN1), 0u);
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_1), 0u);
         vu32Refresh&=~(uint32_t)enSW1Pin;
     }
 }
@@ -258,13 +258,13 @@ void MAIN_vIsrSW2(void)
     enServoEnable= ServoMoto_SG90_enDISABLE;
     if(psSW2->DATA_MASK[(uint32_t)enSW2Pin]==0u)
     {
-        GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN2), GPIO_enPIN2);
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_2), GPIO_enPIN_2);
         vu32Refresh|=(uint32_t)enSW2Pin;
     }
     else
     {
 
-        GPIO__vSetData(GPIO_enPORTF,(GPIO_nPIN) (GPIO_enPIN2), 0u);
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_2), 0u);
         vu32Refresh&=~(uint32_t)enSW2Pin;
     }
 }

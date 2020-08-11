@@ -28,10 +28,10 @@
 
 GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort)
 {
-    GPIO_nBUS enReturn= GPIO_enAPB;
-    if(enPort>GPIO_enMAX)
+    GPIO_nBUS enReturn= GPIO_enBUS_APB;
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
     SYSCTL_nGPIOBUS enGPIO =(SYSCTL_nGPIOBUS)((uint32_t)1u<<(uint32_t)enPort);
     enReturn = (GPIO_nBUS)SYSCTL__vGetGPIOBus(enGPIO);

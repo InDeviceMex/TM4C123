@@ -31,7 +31,7 @@
 
 void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
     uint32_t u32Pin =(u32Bit>>2u)&0xFFu;
@@ -40,11 +40,11 @@ void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
     GPIO_TypeDef* gpio=0;
     u32Value<<=u32Bit;
     u32Pin=((uint32_t)1u<<u32Pin);
-    if(u32Port>(uint32_t)GPIO_enMAX)
+    if(u32Port>(uint32_t)GPIO_enPORT_MAX)
     {
-        u32Port=(uint32_t)GPIO_enMAX;
+        u32Port=(uint32_t)GPIO_enPORT_MAX;
     }
-    u32Pin&=GPIO_enALL;
+    u32Pin&=GPIO_enPIN_ALL;
 
     GPIO__vSetReady((GPIO_nPORT)u32Port);
     enBus=GPIO__enGetBus((GPIO_nPORT)u32Port);

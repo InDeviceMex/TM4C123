@@ -268,7 +268,7 @@ LCD1602_nSTATUS LCD1602_enGetAddress(uint8_t* pu8Column,uint8_t* pu8Row)
     {
         u8DataRead=LCD1602__u8Read(LCD1602_enCOMMAND);
 
-        if(GPIO_enPIN6 & u8DataRead)
+        if(GPIO_enPIN_6 & u8DataRead)
         {
             *pu8Row=(uint8_t)(LCD1602_ROW_MAX-1u);
         }
@@ -305,12 +305,12 @@ LCD1602_nBUSY   LCD1602_enReadCommand(uint8_t* pu8Column,uint8_t* pu8Row)
         *pu8Row=0u;
         u8DataRead=LCD1602__u8Read(LCD1602_enCOMMAND);
 
-        if(0u==(GPIO_enPIN7 & u8DataRead))
+        if(0u==(GPIO_enPIN_7 & u8DataRead))
         {
             enBusyBit=LCD1602_enOK;
         }
 
-        if(GPIO_enPIN6 & u8DataRead)
+        if(GPIO_enPIN_6 & u8DataRead)
         {
             *pu8Row=1u;
         }
@@ -327,7 +327,7 @@ LCD1602_nBUSY   LCD1602_enReadBusy(void)
     uint8_t u8DataRead=0u;
     u8DataRead=LCD1602__u8Read(LCD1602_enCOMMAND);
 
-    if(0u==((uint8_t)GPIO_enPIN7 & u8DataRead))
+    if(0u==((uint8_t)GPIO_enPIN_7 & u8DataRead))
     {
         enBusyBit=LCD1602_enOK;
     }

@@ -26,6 +26,7 @@
 
 
 
+#include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/FLASH_Interrupt.h>
 
 
 #endif /* XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_FLASH_INTRINSICS_H_ */

@@ -26,16 +26,14 @@
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptSource.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
-#include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
+#include <xDriver_MCU/FLASH/FLASH.h>
 
 
 void EEPROM__vEnInterruptSource(void)
 {
     uint32_t u32Reg=0;
     EEPROM__vSetReady();
-    u32Reg=FLASH_FCIM_R;
-    u32Reg|=FLASH_FCIM_R_EMASK_MASK;
-    FLASH_FCIM_R=u32Reg;
+    FLASH__vEnInterruptSource(FLASH_enINT_EEPROM);
 
     u32Reg=EEPROM_EEINT_R;
     u32Reg|=EEPROM_EEINT_R_INT_MASK;
@@ -47,9 +45,7 @@ void EEPROM__vDisInterruptSource(void)
 {
     uint32_t u32Reg=0;
     EEPROM__vSetReady();
-    u32Reg=FLASH_FCIM_R;
-    u32Reg&=~FLASH_FCIM_R_EMASK_MASK;
-    FLASH_FCIM_R=u32Reg;
+    FLASH__vDisInterruptSource(FLASH_enINT_EEPROM);
 
     u32Reg=EEPROM_EEINT_R;
     u32Reg&=~EEPROM_EEINT_R_INT_MASK;
@@ -60,28 +56,27 @@ void EEPROM__vDisInterruptSource(void)
 void EEPROM__vClearInterruptSource(void)
 {
     EEPROM__vSetReady();
-    FLASH_FCMISC_R=FLASH_FCMISC_R_EMISC_MASK;
+    FLASH__vClearInterruptSource(FLASH_enINT_EEPROM);
 }
 
 EEPROM_nINT_STATUS EEPROM__enStatusInterruptSource(void)
 {
-    EEPROM_nINT_STATUS enStatus= EEPROM_enINT_STATUS_UNDEF;
+    EEPROM_nINT_STATUS enEEPROMStatus= EEPROM_enINT_STATUS_UNDEF;
+    FLASH_nINT_STATUS enFlashStatus= FLASH_enINT_STATUS_UNDEF;
     EEPROM_nREADY enReady= EEPROM_enNOREADY;
-    uint32_t u32Reg=0;
     enReady = EEPROM__enIsReady();
     if(EEPROM_enREADY == enReady)
     {
-        u32Reg=FLASH_FCRIS_R;
-        u32Reg&=FLASH_FCRIS_R_ERIS_MASK;
-        if(0u != u32Reg)
+        enFlashStatus =FLASH__enStatusInterruptSource(FLASH_enINT_EEPROM);
+        if(FLASH_enINT_OCCUR == enFlashStatus)
         {
-            enStatus= EEPROM_enINT_OCCUR;
+            enEEPROMStatus= EEPROM_enINT_OCCUR;
         }
         else
         {
-            enStatus= EEPROM_enINT_NOOCCUR;
+            enEEPROMStatus= EEPROM_enINT_NOOCCUR;
         }
     }
-    return enStatus;
+    return enEEPROMStatus;
 }
 

@@ -27,6 +27,5 @@
 
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptRegisterIRQSource.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptSource.h>
-#include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptRoutine.h>
 
 #endif /* XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_INTERRUPT_EEPROM_INTERRUPT_H_ */

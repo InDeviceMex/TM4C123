@@ -30,17 +30,17 @@
 
 void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     uint32_t u32RegSLR=0;
     GPIO_AUX_TypeDef* gpio=0;
     uint32_t u32Drive =enDrive&0x3u;
     uint32_t u32SlewRate =(enDrive>>8u)&0x1u;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     GPIO__vSetIntSense(enPort,enPin, GPIO_enSENSE_LEVEL);
@@ -66,14 +66,14 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDRIVE enDrive=GPIO_enDRIVE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_AUX_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
 

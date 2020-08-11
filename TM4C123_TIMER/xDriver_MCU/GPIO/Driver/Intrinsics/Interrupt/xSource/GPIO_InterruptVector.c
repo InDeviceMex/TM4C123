@@ -33,9 +33,9 @@ static NVIC_nSTIR NVIC_enSTIR_GPIO[6]={NVIC_enSTIR_GPIOA,NVIC_enSTIR_GPIOB,NVIC_
 void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
 
     enVector=NVIC_enSTIR_GPIO[enPort];
@@ -47,9 +47,9 @@ void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority)
 void GPIO__vDisInterruptVector(GPIO_nPORT enPort)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_GPIOA;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
 
     enVector=NVIC_enSTIR_GPIO[enPort];

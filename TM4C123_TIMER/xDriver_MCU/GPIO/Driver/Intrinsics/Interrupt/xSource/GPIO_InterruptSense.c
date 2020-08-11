@@ -29,14 +29,14 @@
 
 void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -58,14 +58,14 @@ GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nSENSE enSense=GPIO_enSENSE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     if(GPIO_enREADY == enReady)

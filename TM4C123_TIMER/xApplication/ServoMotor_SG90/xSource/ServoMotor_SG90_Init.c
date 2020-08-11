@@ -33,7 +33,7 @@
 ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModule,GPIO_nDIGITAL_FUNCTION enGpioDigital)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
-    GPIO_nSTATUS enGPIOStatus= GPIO_enERROR;
+    GPIO_nSTATUS enGPIOStatus= GPIO_enSTATUS_ERROR;
     TIMER_nSTATUS enTIMERStatus= TIMER_enERROR;
     TIMER_EXTRAMODE_Typedef psExtraMode;
     uint32_t u32SysFreq=0u;
@@ -56,7 +56,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         psServoMotor->u32DeltaCount=u32ServoMaxPulse;
 
         enGPIOStatus = GPIO__enSetDigitalConfig(enGpioDigital,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-        if(GPIO_enOK == enGPIOStatus)
+        if(GPIO_enSTATUS_OK == enGPIOStatus)
         {
             psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
             psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;

@@ -23,8 +23,8 @@
  */
 #include <stdint.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptRegisterIRQSource.h>
-#include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptRoutine.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
+#include <xDriver_MCU/FLASH/FLASH.h>
 
 void EEPROM__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void))
 {
@@ -32,7 +32,7 @@ void EEPROM__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void))
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
         u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
-        EEPROM__vIRQSourceHandler=(void (*) (void))u32IrqSourceHandler;
+        FLASH__vRegisterIRQSourceHandler((void (*) (void))u32IrqSourceHandler, FLASH_enINTERRUPT_EEPROM);
     }
 }
 

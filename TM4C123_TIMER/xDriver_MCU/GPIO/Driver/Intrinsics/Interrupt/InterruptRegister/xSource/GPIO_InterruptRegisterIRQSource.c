@@ -24,7 +24,7 @@
 
 #include <stdint.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/GPIO_InterruptRegisterIRQSource.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Pines.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Source.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
 void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),GPIO_nPORT enPort,GPIO_nPIN enPin)
@@ -34,12 +34,12 @@ void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),GPIO_nPOR
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
-        if(enPort>GPIO_enMAX)
+        if(enPort>GPIO_enPORT_MAX)
         {
-            enPort=GPIO_enMAX;
+            enPort=GPIO_enPORT_MAX;
         }
 
-        enPin&=GPIO_enALL;
+        enPin&=GPIO_enPIN_ALL;
         while((u32Pin&0x1u) ==0u)
         {
             u32Count++;

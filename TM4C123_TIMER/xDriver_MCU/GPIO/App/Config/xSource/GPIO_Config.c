@@ -31,7 +31,7 @@
 GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
     GPIO_CONFIG_Typedef* psConfig=GPIO__psCreateConfigStruct(enConfig);
 
     if(psConfig!=0)
@@ -41,7 +41,7 @@ GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG e
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
         GPIO__vDeleteConfigStruct(psConfig);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 
@@ -50,14 +50,14 @@ GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG e
 GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,const GPIO_CONFIG_Typedef* psConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
     if(psConfig!=0)
     {
         GPIO__vSetResistorMode(enPort,enPin,psConfig->enResistorMode);
         GPIO__vSetOutputMode(enPort,enPin,psConfig->enOutputMode);
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 

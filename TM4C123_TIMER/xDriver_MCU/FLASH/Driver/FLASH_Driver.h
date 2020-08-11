@@ -24,6 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_DRIVER_H_
 
+#include <xDriver_MCU/FLASH/Driver/Intrinsics/FLASH_Intrinsics.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Erase.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Write.h>

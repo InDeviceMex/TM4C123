@@ -36,7 +36,7 @@
 GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
 
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
@@ -54,7 +54,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
         GPIO__vDeleteConfigStruct(psConfig);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 
@@ -68,7 +68,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
 GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,const GPIO_CONFIG_Typedef* psConfig)
 {
 
-    GPIO_nSTATUS enReturn=GPIO_enERROR;
+    GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
 
     uint32_t u32Port =(enFunction>>16u)&0xFFu;
     uint32_t u32Bit =(enFunction>>8u)&0x1Fu;
@@ -83,7 +83,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,co
         GPIO__vSetOutputMode(enPort,enPin,psConfig->enOutputMode);
         GPIO__vSetDirection(enPort,enPin,psConfig->enDirection);
         GPIO__vSetDrive(enPort,enPin,psConfig->enDrive);
-        enReturn = GPIO_enOK;
+        enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 

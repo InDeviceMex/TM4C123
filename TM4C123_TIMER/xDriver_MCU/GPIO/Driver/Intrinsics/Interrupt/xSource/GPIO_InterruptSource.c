@@ -31,14 +31,14 @@
 
 void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -50,14 +50,14 @@ void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -69,13 +69,13 @@ void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     GPIO__vSetReady(enPort);
     enBus=GPIO__enGetBus(enPort);
     gpio=GPIO_BLOCK[enBus][(uint32_t)enPort];
@@ -85,16 +85,16 @@ void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus=GPIO_enAPB;
+    GPIO_nBUS enBus=GPIO_enBUS_APB;
     GPIO_nINT_STATUS enStatus= GPIO_enINT_STATUS_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
     uint32_t u32Reg=0;
     GPIO_TypeDef* gpio=0;
-    if(enPort>GPIO_enMAX)
+    if(enPort>GPIO_enPORT_MAX)
     {
-        enPort=GPIO_enMAX;
+        enPort=GPIO_enPORT_MAX;
     }
-    enPin&=GPIO_enALL;
+    enPin&=GPIO_enPIN_ALL;
     enReady = GPIO__enIsReady(enPort);
     enBus=GPIO__enGetBus(enPort);
 
