@@ -27,12 +27,12 @@
 
 
 
-HIB_nSTATUS HIB__enEnLOWBATWakeUp(void)
+HIB_nSTATUS HIB__enEnLowBatteryWakeUp(void)
 {
     return HIB__enSetControlGeneric((uint32_t) HIB_enBATWAKE_EN,HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
 }
 
-HIB_nSTATUS HIB__enDisLOWBATWakeUp(void)
+HIB_nSTATUS HIB__enDisLowBatteryWakeUp(void)
 {
     return HIB__enSetControlGeneric((uint32_t) HIB_enBATWAKE_DIS,HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
 }
@@ -44,5 +44,5 @@ HIB_nSTATUS HIB__enSetLowBatteryWakeUp(HIB_nBATWAKE enBatWake)
 
 HIB_nBATWAKE HIB__enGetLowBatteryWakeUp(void)
 {
-    return (HIB_nBATCOMP) HIB__u32GetControlGeneric(HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
+    return (HIB_nBATWAKE) HIB__u32GetControlGeneric(HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
 }

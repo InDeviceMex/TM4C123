@@ -25,7 +25,6 @@
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalCountStatus.h>
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalStatus.h>
 #include <xDriver_MCU/HIB/Driver/HIB_Driver.h>
-#include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 #include <stdint.h>
 
 #define HIB_TIMEOUT_MAX (1200000u)
@@ -45,8 +44,8 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     HIB__vEnInterruptVector(HIB_enPRI7);
 
 
-    HIB__enEnModule();
-    HIB_HIBCTL_R|=HIB_HIBCTL_R_CLK32EN_EN;
+    HIB__enEnRTCTimer();
+    HIB__enEnModuleClock();
     HIB__enClearInterruptSource(HIB_enINT_WC);
     HIB__enEnInterruptSource(HIB_enINT_WC);
 
@@ -84,7 +83,13 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
     enReturn= HIB__enWait();
     if(HIB_enSTATUS_OK == enReturn)
     {
-        enReturn= HIB__enEnControlGeneric((uint32_t)(HIB_HIBCTL_R_RTCEN_EN|HIB_HIBCTL_R_VABORT_EN));
+
+        enReturn= HIB__enSetPowerCut(HIB_enVABORT_LOWVOLT);
+    }
+    if(HIB_enSTATUS_OK == enReturn)
+    {
+
+        enReturn= HIB__enEnRTCTimer();
     }
     return enReturn;
 }
@@ -98,12 +103,8 @@ void HIB_vWCSourceHandler(void)
 void HIB_vRTCALTSourceHandler(void)
 {
     uint32_t u32Reg=0;
-    do
-    {
-        u32Reg = HIB_HIBRTCC_R;
-    }while (HIB_HIBRTCC_R != u32Reg );
-
-    HIB__enWait();
+    uint32_t u32RegSub=0;
+    HIB__enGetCounter(&u32Reg,&u32RegSub);
     HIB__enSetMatch(u32Reg+(uint32_t)10u, 0u);
     HIB__enSetGlobalCountStatus(HIB_enREADY);
 }

@@ -44,7 +44,6 @@ HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask)
             u32Reg|=u32Mask;
             HIB_HIBCTL_R=u32Reg;
         }
-        enReturn = HIB__enWait();
     }
     else
     {

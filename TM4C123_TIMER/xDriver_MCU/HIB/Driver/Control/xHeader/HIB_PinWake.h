@@ -1,6 +1,6 @@
 /**
  *
- * @file HIB_BatteryWake.h
+ * @file HIB_PinWake.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,18 +21,18 @@
  * Date           Author     Version     Description
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYWAKE_H_
-#define XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYWAKE_H_
+#ifndef XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_PINWAKE_H_
+#define XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_PINWAKE_H_
 
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
-HIB_nSTATUS HIB__enEnLowBatteryWakeUp(void);
-HIB_nSTATUS HIB__enDisLowBatteryWakeUp(void);
+HIB_nSTATUS HIB__enEnPinWakeUp(void);
+HIB_nSTATUS HIB__enDisPinWakeUp(void);
 
-HIB_nSTATUS HIB__enSetLowBatteryWakeUp(HIB_nBATWAKE enBatWake);
-HIB_nBATWAKE HIB__enGetLowBatteryWakeUp(void);
-
-
+HIB_nSTATUS HIB__enSetPinWakeUp(HIB_nPINWAKE enPinWake);
+HIB_nPINWAKE HIB__enGetPinWakeUp(void);
 
 
-#endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYWAKE_H_ */
+
+
+#endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_PINWAKE_H_ */

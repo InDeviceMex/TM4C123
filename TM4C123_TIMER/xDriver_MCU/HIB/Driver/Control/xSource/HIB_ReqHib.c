@@ -14,9 +14,7 @@
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
 
-HIB_nSTATUS HIB__enReqHibernation(void)
+HIB_nSTATUS HIB__enRequestHibernation(void)
 {
-    HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
-    enReturn = HIB__enEnControlGeneric(HIB_HIBCTL_R_HIBREQ_INIT);
-    return (HIB_nSTATUS) enReturn;
+    return HIB__enSetControlGeneric((uint32_t) HIB_enREQUEST_INIT,HIB_HIBCTL_HIBREQ_MASK, HIB_HIBCTL_R_HIBREQ_BIT);
 }
