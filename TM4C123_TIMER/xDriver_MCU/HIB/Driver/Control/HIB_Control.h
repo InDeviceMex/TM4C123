@@ -27,8 +27,9 @@
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_OscillatorDrive.h>
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_OscillatorBypass.h>
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_BatteryComparator.h>
+#include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_BatteryCheck.h>
+#include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_BatteryWake.h>
 
-#include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_LowBatWakeUp.h>
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_Module.h>
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_RTCWakeUp.h>
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_ReqHib.h>

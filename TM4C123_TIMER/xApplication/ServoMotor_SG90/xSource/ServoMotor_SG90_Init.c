@@ -40,8 +40,6 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     uint32_t u32ServoFreq=0u;
     uint32_t u32ServoMaxPulse=0u;
     uint32_t u32ServoMinCount=0u;
-    volatile TIMER_MODE_Typedef psMode;
-    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
 
     if(0u != psServoMotor)
     {

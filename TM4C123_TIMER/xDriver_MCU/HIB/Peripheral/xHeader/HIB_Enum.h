@@ -88,12 +88,16 @@ typedef enum
 
 typedef enum
 {
-    HIB_enBATCHECK_READY   = 0u,
-    HIB_enBATCHECK_BUSY    = 1u,
     HIB_enBATCHECK_INIT    = 1u,
     HIB_enBATCHECK_UNDEF  = 0xFFu,
 }HIB_nBATCHECK;
 
+typedef enum
+{
+    HIB_enBATCHECK_STATUS_READY   = 0u,
+    HIB_enBATCHECK_STATUS_BUSY    = 1u,
+    HIB_enBATCHECK_STATUS_UNDEF  = 0xFFu,
+}HIB_nBATCHECK_STATUS;
 typedef enum
 {
     HIB_enBATWAKE_DIS    = 0u,

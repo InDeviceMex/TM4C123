@@ -29,7 +29,6 @@ HIB_nSTATUS HIB__enGetMatch(uint32_t* pu32Match, uint32_t *pu32SubMatch)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_UNDEF;
     HIB_nREADY enReady = HIB_enNOREADY;
-    volatile uint32_t u32SecondRead= 0;
     enReady = HIB__enIsReady();
     if(HIB_enREADY == enReady)
     {
