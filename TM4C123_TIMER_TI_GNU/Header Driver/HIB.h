@@ -942,24 +942,24 @@ typedef volatile struct
 typedef enum
 {
     HIB_enREADY = 0u,
-    HIB_enBUSY =1u,
+    HIB_enSTATUS_BUSY =1u,
 }HIB_nREADY;
 
 typedef enum
 {
-    HIB_enOK = 0u,
-    HIB_enERROR =1u,
+    HIB_enSTATUS_OK = 0u,
+    HIB_enSTATUS_ERROR =1u,
 }HIB_nSTATUS;
 
 typedef enum
 {
-    HIB_enRTCALT =0x1u,
-    HIB_enLOWBAT  =0x4u,
-    HIB_enEXTW=0x8u,
-    HIB_enWC =0x10u,
-    HIB_enALL =0x1Fu,
+    HIB_enINT_RTCALT =0x1u,
+    HIB_enINT_LOWBAT  =0x4u,
+    HIB_enINT_EXTW=0x8u,
+    HIB_enINT_WC =0x10u,
+    HIB_enINT_ALL =0x1Fu,
 
-}HIB_nINTERRUPT;
+}HIB_nINT;
 
 HIB_nSTATUS HIB__enReadCounter(uint32_t* pu32Counter, uint32_t *pu32SubCounter);
 HIB_nSTATUS HIB__enSetCounter(uint32_t u32Counter);
@@ -977,9 +977,9 @@ HIB_nSTATUS HIB__enEnModule(void);
 HIB_nSTATUS HIB__enDisModule(void);
 
 /* ToDo make a better handle of interrupt as GPIO*/
-HIB_nSTATUS HIB__enEnInterrupt(HIB_nINTERRUPT enInterrupt);
-HIB_nSTATUS HIB__enDisInterrupt(HIB_nINTERRUPT enInterrupt);
-HIB_nSTATUS HIB__enClearInterrupt(HIB_nINTERRUPT enInterrupt);
+HIB_nSTATUS HIB__enEnInterrupt(HIB_nINT enInterrupt);
+HIB_nSTATUS HIB__enDisInterrupt(HIB_nINT enInterrupt);
+HIB_nSTATUS HIB__enClearInterrupt(HIB_nINT enInterrupt);
 HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch);
 
 

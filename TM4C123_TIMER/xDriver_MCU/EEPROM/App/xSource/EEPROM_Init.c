@@ -3,13 +3,7 @@
  */
 
 #include <EEPROM/App/xHeader/EEPROM_Init.h>
-#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
-#include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/SYSCTL/SYSCTL.h>
-
-
-
-
+#include <EEPROM/Driver/EEPROM_Driver.h>
 
 /**
  *
@@ -49,8 +43,7 @@ EEPROM_nSTATUS EEPROM__enInit (void)
 
 void EEPROM__vDeInit (void)
 {
-    SYSCTL__vResetPeripheral(SYSCTL_enEEPROM);
-    SYSCTL__vDisRunModePeripheral(SYSCTL_enEEPROM);
-    NVIC__enClearEnableIRQ(NVIC_enSTIR_FLASH);
+    EEPROM__vClearReady();
+    EEPROM__vDisInterruptSource();
 }
 /*End File*/

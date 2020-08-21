@@ -24,15 +24,13 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_DRIVER_H_
 
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Intrinsics.h>
+#include <xDriver_MCU/HIB/Driver/Intrinsics/HIB_Intrinsics.h>
+
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Counter.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_WakeUp.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_RTCWakeUp.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_LowBatWakeUp.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_ReqHib.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Module.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Interrupt.h>
-#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Init.h>
+#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Load.h>
+#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Match.h>
+
+#include <xDriver_MCU/HIB/Driver/Control/HIB_Control.h>
 
 
 

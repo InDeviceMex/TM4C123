@@ -30,6 +30,7 @@
 void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneric,uint32_t u32Mask, uint32_t u32Bit)
 {
     uint32_t u32Reg=0;
+    uint32_t u32RegControl=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
@@ -45,7 +46,9 @@ void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneri
     psTimerCTL=TIMER_BLOCK[u32Wide][u32Number];
 
     u32Reg=psTimerCTL->GPTMCTL;
-    psTimerCTL->GPTMCTL&=~(GPTM_GPTMCTL_TAEN_MASK<<u32Shift);
+    u32RegControl=u32Reg;
+    u32RegControl&=~(GPTM_GPTMCTL_TAEN_MASK<<u32Shift);
+    psTimerCTL->GPTMCTL=u32RegControl;
     u32Shift+=u32Bit;
     u32Reg&=~(u32Mask<<u32Shift);
     u32RegAux =((uint32_t)u32ControlGeneric&u32Mask) ;

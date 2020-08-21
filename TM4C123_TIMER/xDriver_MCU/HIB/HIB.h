@@ -8,8 +8,7 @@
 #ifndef HEADER_DRIVER_HIB_H_
 #define HEADER_DRIVER_HIB_H_
 
-
-
+#include <xDriver_MCU/HIB/App/HIB_App.h>
 #include <xDriver_MCU/HIB/Driver/HIB_Driver.h>
 
 #endif /* HEADER_DRIVER_HIB_H_ */

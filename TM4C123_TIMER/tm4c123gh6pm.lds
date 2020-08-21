@@ -45,7 +45,7 @@ SECTIONS {
 
     PROVIDE (_vtable_base_address = 0x20000000);
 
-    .vtable (_vtable_base_address) : AT (_vtable_base_address) {
+    .vtable 4_vtable_base_address) : AT (_vtable_base_address) {
         KEEP (*(.vtable))
     } > REGION_VTABLE
 
