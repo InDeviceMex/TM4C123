@@ -27,6 +27,7 @@
 #include <xDriver_MCU/HIB/Driver/Intrinsics/HIB_Intrinsics.h>
 
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Counter.h>
+#include <xDriver_MCU/HIB/Driver/xHeader/HIB_Trim.h>
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Load.h>
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Match.h>
 

@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
-void HIB__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),HIB_nINT enInterrupt);
+void HIB__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),HIB_nINTERRUPT enInterrupt);
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTREGISTER_XHEADER_HIB_INTERRUPTREGISTERIRQSOURCE_H_ */

@@ -33,21 +33,12 @@ HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask)
     uint32_t u32Reg =0u;
 
     HIB__vSetReady();
-    u32Reg = HIB_HIBCTL_R;
-    u32Reg&= HIB_HIBCTL_R_CLK32EN_MASK;
-    if((uint32_t)HIB_HIBCTL_R_CLK32EN_EN == u32Reg)
+    enReturn = HIB__enWait();
+    if(HIB_enSTATUS_OK == enReturn)
     {
-        enReturn = HIB__enWait();
-        if(HIB_enSTATUS_OK == enReturn)
-        {
-            u32Reg=HIB_HIBCTL_R;
-            u32Reg|=u32Mask;
-            HIB_HIBCTL_R=u32Reg;
-        }
-    }
-    else
-    {
-        enReturn = HIB_enSTATUS_ERROR;
+        u32Reg=HIB_HIBCTL_R;
+        u32Reg|=u32Mask;
+        HIB_HIBCTL_R=u32Reg;
     }
     return (HIB_nSTATUS) enReturn;
 }
@@ -56,24 +47,13 @@ HIB_nSTATUS HIB__enDisControlGeneric(uint32_t u32Mask)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
     uint32_t u32Reg =0u;
-
     HIB__vSetReady();
-    u32Reg = HIB_HIBCTL_R;
-    u32Reg&= HIB_HIBCTL_R_CLK32EN_MASK;
-    if((uint32_t)HIB_HIBCTL_R_CLK32EN_EN == u32Reg)
+    enReturn = HIB__enWait();
+    if(HIB_enSTATUS_OK == enReturn)
     {
-
-        enReturn = HIB__enWait();
-        if(HIB_enSTATUS_OK == enReturn)
-        {
-            u32Reg=HIB_HIBCTL_R;
-            u32Reg&=~u32Mask;
-            HIB_HIBCTL_R=u32Reg;
-        }
-    }
-    else
-    {
-        enReturn = HIB_enSTATUS_ERROR;
+        u32Reg=HIB_HIBCTL_R;
+        u32Reg&=~u32Mask;
+        HIB_HIBCTL_R=u32Reg;
     }
     return (HIB_nSTATUS) enReturn;
 }

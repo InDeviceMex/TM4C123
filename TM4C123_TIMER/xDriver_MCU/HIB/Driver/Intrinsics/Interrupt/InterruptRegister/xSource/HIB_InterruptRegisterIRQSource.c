@@ -26,13 +26,13 @@
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/HIB_InterruptRoutine_Source.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
-void HIB__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),HIB_nINT enInterrupt)
+void HIB__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),HIB_nINTERRUPT enInterrupt)
 {
     uint32_t u32Interrupt =(uint32_t) enInterrupt;
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
-        if(HIB_enINTERRUPT_MAX<=u32Interrupt)
+        if(HIB_enINTERRUPT_MAX>=u32Interrupt)
         {
             u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
             HIB__vIRQSourceHandler[u32Interrupt]=(void (*) (void))u32IrqSourceHandler;

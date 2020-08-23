@@ -75,9 +75,10 @@ int main(void)
     SYSEXC__vInit((SYSEXC_nINT)((uint32_t)SYSEXC_enINT_INVALID|(uint32_t)SYSEXC_enINT_DIV0|
             (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
+    MAIN_vInitGPIO();
+    HIB__enInit(1u, 0u);
     WDT__vInit(0xFFFFFFFFu);
     SysTick__enInitUs(10.0f,SCB_enSHPR0);
-    MAIN_vInitGPIO();
     LCD1602__enInit();
     enBus=GPIO__enGetBus(GPIO_enPORT_F);
 
