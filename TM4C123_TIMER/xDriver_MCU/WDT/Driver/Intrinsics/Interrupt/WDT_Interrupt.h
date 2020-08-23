@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_Interrupt.h
+ * @file WDT_InterruptSource.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -26,15 +26,9 @@
 
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRegister/WDT_InterruptRegister.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
-#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptModule.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptSource.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptVector.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptType.h>
-#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
-
-WDT_nINTERRUPT WDT__enGetInterrupt(WDT_nMODULE enModule);
-void WDT__vEnInterrupt(WDT_nMODULE enModule);
-void WDT__vDisInterrupt(WDT_nMODULE enModule);
-void WDT__vClearInterrupt(WDT_nMODULE enModule);
-WDT_nINT_STATUS WDT__enStatusInterrupt(WDT_nMODULE enModule);
 
 
 

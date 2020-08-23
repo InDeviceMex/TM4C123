@@ -30,7 +30,7 @@
 
 static uint32_t u32IntMask[3]={(uint32_t)TIMER_enINT_TA_ALL,(uint32_t)TIMER_enINT_TB_ALL,(uint32_t)TIMER_enINT_TW_ALL};
 
-void TIMER__vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
@@ -83,7 +83,7 @@ void TIMER__vEnInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 
 
 
-void TIMER__vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
@@ -134,7 +134,7 @@ void TIMER__vDisInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     psTimerIMR->GPTMIMR=u32Reg;
 }
 
-void TIMER__vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
     uint32_t u32Reg=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
@@ -165,7 +165,7 @@ void TIMER__vClearInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     psTimerICR->GPTMICR=u32Reg;
 }
 
-TIMER_nINT_STATUS TIMER__enStatusInterrupt(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 {
     TIMER_nINT_STATUS enInt=TIMER_enINT_STATUS_UNDEF;
     uint32_t u32Reg=0;

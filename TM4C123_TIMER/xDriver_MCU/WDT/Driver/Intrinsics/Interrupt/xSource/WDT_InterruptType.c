@@ -27,7 +27,7 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/xHeader/WDT_Lock.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-void WDT__vSetInterruptType(WDT_nMODULE enModule, WDT_nINT_TYPE enType)
+void WDT__vSetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE enType)
 {
     uint32_t u32RegType=0u;
     uint32_t u32Reg=0u;
@@ -55,7 +55,7 @@ void WDT__vSetInterruptType(WDT_nMODULE enModule, WDT_nINT_TYPE enType)
     }
 }
 
-WDT_nINT_TYPE WDT__enGetInterruptType(WDT_nMODULE enModule)
+WDT_nINT_TYPE WDT__enGetInterruptSourceType(WDT_nMODULE enModule)
 {
     WDT_nINT_TYPE enStatus= WDT_enINT_TYPE_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;

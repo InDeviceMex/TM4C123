@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_InterruptRegisterMODULE.h
+ * @file WDT_InterruptRegisterIRQVector.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void WDT__vRegisterMODULEISR(void (*Isr) (void),WDT_nINT_TYPE enIntType);
+void WDT__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),WDT_nINT_TYPE enIntType);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTREGISTER_WDT_INTERRUPTREGISTERMODULE_H_ */

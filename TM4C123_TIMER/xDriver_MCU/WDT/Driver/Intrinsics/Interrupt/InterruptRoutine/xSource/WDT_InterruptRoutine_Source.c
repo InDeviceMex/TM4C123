@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_InterruptRoutine_Modules.c
+ * @file WDT_InterruptRoutine_Source.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -22,14 +22,16 @@
  * 22 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Modules.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Source.h>
 
-static void WDT_vDUMMY(void);
+static void WDT_vIRQSourceHandler_Dummy(void);
 
-void (*WDT__MODULE[(uint32_t)WDT_enMODULE_MAX+1u]) (void)={&WDT_vDUMMY,&WDT_vDUMMY};
+void (*WDT__vIRQSourceHandler[(uint32_t)WDT_enINT_TYPE_MAX+1u][(uint32_t)WDT_enMODULE_MAX+1u]) (void)=
+{{&WDT_vIRQSourceHandler_Dummy, &WDT_vIRQSourceHandler_Dummy},
+ {&WDT_vIRQSourceHandler_Dummy, &WDT_vIRQSourceHandler_Dummy}};
 
 
-static void WDT_vDUMMY(void)
+static void WDT_vIRQSourceHandler_Dummy(void)
 {
     while(1u)
     {

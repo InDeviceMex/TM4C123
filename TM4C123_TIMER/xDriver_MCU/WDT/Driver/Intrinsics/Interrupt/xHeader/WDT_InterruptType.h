@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void WDT__vSetInterruptType(WDT_nMODULE enModule, WDT_nINT_TYPE enType);
-WDT_nINT_TYPE WDT__enGetInterruptType(WDT_nMODULE enModule);
+void WDT__vSetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE enType);
+WDT_nINT_TYPE WDT__enGetInterruptSourceType(WDT_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTTYPE_H_ */

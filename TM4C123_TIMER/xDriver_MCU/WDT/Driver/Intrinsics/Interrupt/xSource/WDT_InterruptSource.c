@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_Interrupt.c
+ * @file WDT_InterruptSource.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -23,12 +23,12 @@
  */
 
 #include <stdint.h>
-#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/WDT_Interrupt.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptSource.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/WDT_Primitives.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/xHeader/WDT_Lock.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-WDT_nINTERRUPT WDT__enGetInterrupt(WDT_nMODULE enModule)
+WDT_nINTERRUPT WDT__enGetInterruptSource(WDT_nMODULE enModule)
 {
     WDT_nINTERRUPT enStatus= WDT_enINTERRUPT_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;
@@ -49,7 +49,7 @@ WDT_nINTERRUPT WDT__enGetInterrupt(WDT_nMODULE enModule)
 }
 
 
-void WDT__vEnInterrupt(WDT_nMODULE enModule)
+void WDT__vEnInterruptSource(WDT_nMODULE enModule)
 {
     uint32_t u32Reg=0u;
     if(enModule>WDT_enMODULE_MAX)
@@ -65,7 +65,7 @@ void WDT__vEnInterrupt(WDT_nMODULE enModule)
     WDT__vLock(enModule);
 }
 
-void WDT__vDisInterrupt(WDT_nMODULE enModule)
+void WDT__vDisInterruptSource(WDT_nMODULE enModule)
 {
     if(enModule>WDT_enMODULE_MAX)
     {
@@ -75,7 +75,7 @@ void WDT__vDisInterrupt(WDT_nMODULE enModule)
 }
 
 
-void WDT__vClearInterrupt(WDT_nMODULE enModule)
+void WDT__vClearInterruptSource(WDT_nMODULE enModule)
 {
     if(enModule>WDT_enMODULE_MAX)
     {
@@ -88,7 +88,7 @@ void WDT__vClearInterrupt(WDT_nMODULE enModule)
     WDT__vLock(enModule);
 }
 
-WDT_nINT_STATUS WDT__enStatusInterrupt(WDT_nMODULE enModule)
+WDT_nINT_STATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule)
 {
     WDT_nINT_STATUS enStatus= WDT_enINT_STATUS_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;

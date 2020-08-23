@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_InterruptModule.h
+ * @file WDT_InterruptVector.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void WDT__vEnInterruptMODULE(WDT_nPRIORITY enPriority);
-void WDT__vDisInterruptMODULE(void);
+void WDT__vEnInterruptSourceVector(WDT_nPRIORITY enPriority);
+void WDT__vDisInterruptSourceVector(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTMODULE_H_ */

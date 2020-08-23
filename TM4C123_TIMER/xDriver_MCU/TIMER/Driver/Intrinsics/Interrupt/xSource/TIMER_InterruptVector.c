@@ -1,6 +1,6 @@
 /**
  *
- * @file TIMER_InterruptModule.c
+ * @file TIMER_InterruptVector.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -23,7 +23,7 @@
  */
 #include <stdint.h>
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/xHeader/TIMER_InterruptModule.h>
+#include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/xHeader/TIMER_InterruptVector.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
 static NVIC_nSTIR NVIC_VECTOR_TIMER[2][2][6]={
@@ -38,7 +38,7 @@ static NVIC_nSTIR NVIC_VECTOR_TIMER[2][2][6]={
                               };
 
 
-void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority)
+void TIMER__vEnInterruptSourceVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
@@ -53,7 +53,7 @@ void TIMER__vEnInterruptMODULE(TIMER_nMODULE enModule,TIMER_nPRIORITY enPriority
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
 }
 
-void TIMER__vDisInterruptMODULE(TIMER_nMODULE enModule)
+void TIMER__vDisInterruptSourceVector(TIMER_nMODULE enModule)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;

@@ -23,15 +23,15 @@
  */
 #include <xDriver_MCU/WDT/App/ModeLoad/WDT_ModeLoad.h>
 #include <xDriver_MCU/WDT/App/xHeader/WDT_Init.h>
-#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/WDT_InterruptRegisterMODULE.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/WDT_InterruptRegisterIRQVector.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
 #include <xDriver_MCU/WDT/Driver/WDT_Driver.h>
 
 void WDT__vInit(uint32_t u32ReloadValue)
 {
-    WDT__vRegisterMODULEISR(&WDT_NMI__vIRQVectorHandler,WDT_enINT_TYPE_NMI);
-    WDT__vEnInterruptMODULE(WDT_enPRI4);
-    WDT__vEnInterrupt(WDT_enMODULE_0);
+    WDT__vRegisterIRQVectorHandler(&WDT_NMI__vIRQVectorHandler,WDT_enINT_TYPE_NMI);
+    WDT__vEnInterruptSourceVector(WDT_enPRI4);
+    WDT__vEnInterruptSource(WDT_enMODULE_0);
     WDT__enSetMode_Load(WDT_enMODULE_0,WDT_enMODE_NORESET_NMI_FREEZE_EN,u32ReloadValue);
 }
 

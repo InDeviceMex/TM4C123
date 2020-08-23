@@ -36,16 +36,16 @@ WDT_nSTATUS WDT__enSetMode(WDT_nMODULE enModule, WDT_nMODE enMode)
     {
         if(WDT_enINTERRUPT_DISABLE == psMode->enInterrupt)
         {
-            WDT__vDisInterrupt(enModule);
+            WDT__vDisInterruptSource(enModule);
         }
         WDT__vSetStall(enModule,psMode->enStall);
         WDT__vSetResetOutput(enModule,psMode->enResetOutput);
-        WDT__vSetInterruptType(enModule,psMode->enIntType);
+        WDT__vSetInterruptSourceType(enModule,psMode->enIntType);
 
         if(WDT_enINTERRUPT_ENABLE == psMode->enInterrupt)
         {
 
-            WDT__vEnInterrupt(enModule);
+            WDT__vEnInterruptSource(enModule);
         }
 
         WDT__vDeleteModeStruct(psMode);
@@ -61,16 +61,16 @@ WDT_nSTATUS WDT__enSetModeStruct(WDT_nMODULE enModule, const WDT_MODE_Typedef* p
     {
         if(WDT_enINTERRUPT_DISABLE == psMode->enInterrupt)
         {
-            WDT__vDisInterrupt(enModule);
+            WDT__vDisInterruptSource(enModule);
         }
         WDT__vSetStall(enModule,psMode->enStall);
         WDT__vSetResetOutput(enModule,psMode->enResetOutput);
-        WDT__vSetInterruptType(enModule,psMode->enIntType);
+        WDT__vSetInterruptSourceType(enModule,psMode->enIntType);
 
         if(WDT_enINTERRUPT_ENABLE == psMode->enInterrupt)
         {
 
-            WDT__vEnInterrupt(enModule);
+            WDT__vEnInterruptSource(enModule);
         }
         enReturn = WDT_enOK;
     }
@@ -89,9 +89,9 @@ WDT_nMODE WDT__enGetMode(WDT_nMODULE enModule)
 
     uint32_t u32Reg=0;
 
-    enInterrupt  =WDT__enGetInterrupt(enModule);
+    enInterrupt  =WDT__enGetInterruptSource(enModule);
     enStall      =WDT__enGetStall(enModule);
-    enIntType    =WDT__enGetInterruptType(enModule);
+    enIntType    =WDT__enGetInterruptSourceType(enModule);
     enResetOutput=WDT__enGetResetOutput(enModule);
       u32Reg = ((uint32_t)enInterrupt     <<0u);
     u32Reg|= ((uint32_t)enStall         <<8u);
@@ -106,9 +106,9 @@ WDT_nMODE WDT__enGetMode(WDT_nMODULE enModule)
 void WDT__vGetMode(WDT_nMODULE enModule, WDT_MODE_Typedef* psMode)
 {
 
-    psMode->enInterrupt  =WDT__enGetInterrupt(enModule);
+    psMode->enInterrupt  =WDT__enGetInterruptSource(enModule);
     psMode->enStall      =WDT__enGetStall(enModule);
-    psMode->enIntType    =WDT__enGetInterruptType(enModule);
+    psMode->enIntType    =WDT__enGetInterruptSourceType(enModule);
     psMode->enResetOutput=WDT__enGetResetOutput(enModule);
 
 }
@@ -124,9 +124,9 @@ WDT_MODE_Typedef* WDT__psGetMode(WDT_nMODULE enModule)
     #endif
     if(0!= psMode)
     {
-        psMode->enInterrupt  =WDT__enGetInterrupt(enModule);
+        psMode->enInterrupt  =WDT__enGetInterruptSource(enModule);
         psMode->enStall      =WDT__enGetStall(enModule);
-        psMode->enIntType    =WDT__enGetInterruptType(enModule);
+        psMode->enIntType    =WDT__enGetInterruptSourceType(enModule);
         psMode->enResetOutput=WDT__enGetResetOutput(enModule);
     }
     return psMode;

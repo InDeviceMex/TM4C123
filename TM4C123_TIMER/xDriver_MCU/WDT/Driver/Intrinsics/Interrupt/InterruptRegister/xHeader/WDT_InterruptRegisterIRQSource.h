@@ -1,6 +1,6 @@
 /**
  *
- * @file WDT_InterruptRegisterISR.h
+ * @file WDT_InterruptRegisterIRQSource.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void WDT__vRegisterISR(void (*Isr) (void),WDT_nMODULE enModule);
+void WDT__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),WDT_nINT_TYPE enIntType,WDT_nMODULE enModule);
 
 
 
