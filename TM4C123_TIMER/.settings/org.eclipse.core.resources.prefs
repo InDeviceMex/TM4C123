@@ -1037,6 +1037,14 @@ encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRouti
 encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_ModuleB_16/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_ModuleB_32/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_ModuleB_32/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleA_16/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleA_16/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleA_32/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleA_32/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleB_16/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleB_16/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleB_32/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleB_32/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/xSource/subdir_rules.mk=UTF-8

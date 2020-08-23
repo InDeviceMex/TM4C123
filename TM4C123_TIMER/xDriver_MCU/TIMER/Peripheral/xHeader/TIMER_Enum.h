@@ -49,6 +49,7 @@ typedef enum
 {
     TIMER_en32=0u,
     TIMER_en64=1u,
+    TIMER_enLETTER_MAX=1u,
 }TIMER_nLETTER;
 
 typedef enum
@@ -56,7 +57,20 @@ typedef enum
     TIMER_enA=0u,
     TIMER_enB=1u,
     TIMER_enW=2u,
+    TIMER_enWIDE_MAX=2u,
 }TIMER_nWIDE;
+
+
+typedef enum
+{
+    TIMER_enMODULE_NUM_0=0u,
+    TIMER_enMODULE_NUM_1=1u,
+    TIMER_enMODULE_NUM_2=2u,
+    TIMER_enMODULE_NUM_3=3u,
+    TIMER_enMODULE_NUM_4=4u,
+    TIMER_enMODULE_NUM_5=5u,
+    TIMER_enMODULE_NUM_MAX=5u,
+}TIMER_nMODULE_NUM;
 
 typedef enum
 {
