@@ -29,6 +29,8 @@
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/TIMER_Intrinsics.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/TIMER_Mode.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Configuration.h>
+#include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_FreeCount.h>
+#include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Count.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Match.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Reload.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Syncronize.h>

@@ -62,11 +62,20 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
     switch (enConfig)
     {
     case TIMER_enCONFIG_WIDE:
-        pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
-        pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
+        if(TIMER_en64 == (uint32_t)u32Wide)
+        {
+            pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
+            pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
 
-        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFu);
-        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFu);
+            *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFu);
+            *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFu);
+        }
+        else
+        {
+            pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
+            u64Reload&=0xFFFFFFFFu;
+            *pu32TimerILRLow =  (uint32_t) (u64Reload);
+        }
         break;
     case TIMER_enCONFIG_RTC:
         pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
@@ -149,15 +158,26 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint32_t* pu32Prescaler
         switch (enConfig)
         {
         case TIMER_enCONFIG_WIDE:
-            pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
-            pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
-            u32Reg = (uint32_t)(*pu32TimerILRHigh);
-            u64Reg = (uint64_t) u32Reg;
-            u64Reg<<=32u;
-            u32Reg = (uint32_t)(*pu32TimerILRLow);
-            u64Reg|= (uint64_t)u32Reg;
+            if(TIMER_en64 == (uint32_t)u32Wide)
+            {
+                pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
+                pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
+                u32Reg = (uint32_t)(*pu32TimerILRHigh);
+                u64Reg = (uint64_t) u32Reg;
+                u64Reg<<=32u;
+                u32Reg = (uint32_t)(*pu32TimerILRLow);
+                u64Reg|= (uint64_t)u32Reg;
 
-            *pu64Reload= u64Reg;
+                *pu64Reload= u64Reg;
+            }
+            else
+            {
+                pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
+                u32Reg = (uint32_t)(*pu32TimerILRLow);
+                u64Reg = (uint64_t)u32Reg;
+
+                *pu64Reload= u64Reg;
+            }
             break;
         case TIMER_enCONFIG_RTC:
             pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];

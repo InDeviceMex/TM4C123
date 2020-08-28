@@ -28,24 +28,24 @@
 
 void TIMER3B__vIRQVectorHandler(void)
 {
-    volatile uint8_t u8Reg=0;
-    u8Reg=(uint8_t)GPTM3_TB_GPTMTnMIS_R;
-    if(u8Reg & (uint8_t)TIMER_enINT_TB_TIMEOUT)
+    volatile uint32_t u32Reg=0;
+    u32Reg=(uint32_t)GPTM3_TB_GPTMTnMIS_R;
+    if(u32Reg & (uint32_t)TIMER_enINT_TB_TIMEOUT)
     {
         GPTM3_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_TIMEOUT;
         TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_3][(uint32_t)TIMER_enINTERRUPT_TIMEOUT]();
     }
-    if(u8Reg & (uint8_t)TIMER_enINT_TB_CAPTURE_MATCH)
+    if(u32Reg & (uint32_t)TIMER_enINT_TB_CAPTURE_MATCH)
     {
         GPTM3_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_3][(uint32_t)TIMER_enINTERRUPT_CAPTURE_MATCH]();
     }
-    if(u8Reg & (uint8_t)TIMER_enINT_TB_CAPTURE_EVENT)
+    if(u32Reg & (uint32_t)TIMER_enINT_TB_CAPTURE_EVENT)
     {
         GPTM3_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_3][(uint32_t)TIMER_enINTERRUPT_CAPTURE_EVENT]();
     }
-    if(u8Reg & (uint8_t)TIMER_enINT_TB_MATCH)
+    if(u32Reg & (uint32_t)TIMER_enINT_TB_MATCH)
     {
         GPTM3_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_3][(uint32_t)TIMER_enINTERRUPT_MATCH]();

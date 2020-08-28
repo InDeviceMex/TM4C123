@@ -20,12 +20,15 @@
 int main (void);
 
 void MAIN_vInitGPIO(void);
+void MAIN_vInitTIMER(void);
 void MAIN_vPWMServoInit(void);
 void MAIN_vPWMPos(int8_t s8Angle);
 void MAIN_vPWMPosFloat(float fAngle);
 /*ISR Functions*/
 void MAIN_SW1__vIRQSourceHandler(void);
 void MAIN_SW2__vIRQSourceHandler(void);
+void MAIN_TIMER2A__vIRQSourceHandler(void);
+void MAIN_TIMER2B__vIRQSourceHandler(void);
 
 GPIO_nPIN enSW2Pin=GPIO_enPIN_0;
 GPIO_nPIN enLedRedPin=GPIO_enPIN_1;
@@ -59,6 +62,8 @@ int main(void)
     uint8_t u8ColumnCurrent=0;
     uint8_t u8Counter=0;
     uint8_t u8Dir=0;
+    uint64_t u64ValurOneshot2A=0u;
+    uint64_t u64ValurOneshot2B=0u;
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -86,9 +91,11 @@ int main(void)
     fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
     ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor1,(fAngleAbosulte));
     ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor2,(fAngleAbosulte));
-
+    MAIN_vInitTIMER();
     while(1u)
     {
+        TIMER__enGetCount(TIMER_enT2A, &u64ValurOneshot2A);
+        TIMER__enGetCount(TIMER_enT2B, &u64ValurOneshot2B);
         fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
         if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
         {
@@ -196,6 +203,45 @@ int main(void)
     }
 }
 
+void MAIN_vInitTIMER(void)
+{
+    TIMER_EXTRAMODE_Typedef psExtraMode;
+    volatile TIMER_MODE_Typedef psMode;
+    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
+
+    TIMER__vInit();
+
+    TIMER__vEnInterruptSourceVector(TIMER_enT2A,TIMER_enPRI7);
+    TIMER__vEnInterruptSourceVector(TIMER_enT2B,TIMER_enPRI7);
+
+    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER2A__vIRQSourceHandler,TIMER_enT2A,TIMER_enINTERRUPT_TIMEOUT);
+    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER2B__vIRQSourceHandler,TIMER_enT2B,TIMER_enINTERRUPT_TIMEOUT);
+
+
+    psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
+    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;
+    psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
+    psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
+    psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
+    psExtraMode.enStall=TIMER_enSTALL_FREEZE;
+    psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
+    psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
+
+    TIMER__enSetExtraModeStruct(TIMER_enT2A,&psExtraMode);
+
+    psExtraMode.enWaitTrigger=TIMER_enWAIT_DAISY;
+    TIMER__enSetExtraModeStruct(TIMER_enT2B,&psExtraMode);
+
+    TIMER__enSetMode_Reload(TIMER_enT2A,TIMER_enMODE_ONE_SHOT_INDIVIDUAL_DOWN,0u,0x5FFFFAu);
+    TIMER__enSetMode_Reload(TIMER_enT2B,TIMER_enMODE_ONE_SHOT_INDIVIDUAL_UP,0u,0x5FFFFAu);
+    TIMER__vEnInterruptSource(TIMER_enT2A,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
+    TIMER__vEnInterruptSource(TIMER_enT2B,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
+    TIMER__vSetEnable(TIMER_enT2A,TIMER_enENABLE_START);
+    TIMER__vSetEnable(TIMER_enT2B,TIMER_enENABLE_START);
+
+}
+
+
 void MAIN_vInitGPIO(void)
 {
     GPIO__vInit();
@@ -215,6 +261,16 @@ void MAIN_vInitGPIO(void)
     GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|enSW1Pin));
     GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
 
+
+}
+
+void MAIN_TIMER2A__vIRQSourceHandler(void)
+{
+
+}
+
+void MAIN_TIMER2B__vIRQSourceHandler(void)
+{
 
 }
 
