@@ -24,16 +24,8 @@ void MAIN_vPWMServoInit(void);
 void MAIN_vPWMPos(int8_t s8Angle);
 void MAIN_vPWMPosFloat(float fAngle);
 /*ISR Functions*/
-void MAIN_vIsrSW1(void);
-void MAIN_vIsrSW2(void);
-
-GPIODATA_MASK_TypeDef* psLedRed=GPIOF_AHB_GPIODATA_MASK;
-GPIODATA_MASK_TypeDef* psLedGreen=GPIOF_AHB_GPIODATA_MASK;
-GPIODATA_MASK_TypeDef* psLedBlue=GPIOF_AHB_GPIODATA_MASK;
-
-
-GPIODATA_MASK_TypeDef* psSW1=GPIOF_AHB_GPIODATA_MASK;
-GPIODATA_MASK_TypeDef* psSW2=GPIOF_AHB_GPIODATA_MASK;
+void MAIN_SW1__vIRQSourceHandler(void);
+void MAIN_SW2__vIRQSourceHandler(void);
 
 GPIO_nPIN enSW2Pin=GPIO_enPIN_0;
 GPIO_nPIN enLedRedPin=GPIO_enPIN_1;
@@ -76,22 +68,14 @@ int main(void)
             (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
     MAIN_vInitGPIO();
-    HIB__enInit(1u, 0u);
+    HIB__enInit(5u, 0u);
     WDT__vInit(0xFFFFFFFFu);
-    SysTick__enInitUs(10.0f,SCB_enSHPR0);
+    SysTick__enInitUs(100.0f,SCB_enSHPR0);
     LCD1602__enInit();
     enBus=GPIO__enGetBus(GPIO_enPORT_F);
 
     DMA__vSetReady(DMA_enMODULE_0);
 
-    if(GPIO_enBUS_APB==enBus)
-    {
-        psLedRed=GPIOF_APB_GPIODATA_MASK;
-        psLedGreen=GPIOF_APB_GPIODATA_MASK;
-        psLedBlue=GPIOF_APB_GPIODATA_MASK;
-        psSW1=GPIOF_APB_GPIODATA_MASK;
-        psSW2=GPIOF_APB_GPIODATA_MASK;
-    }
     LCD1602__enReloadScreenDirect();
     ServoMotor_SG90__enInit(&sServoMotor1,TIMER_enT1B,GPIO_enT1CCP1_F3);
     ServoMotor_SG90__enInit(&sServoMotor2,TIMER_enT0B,GPIO_enT0CCP1);
@@ -100,8 +84,8 @@ int main(void)
     u8Row=0u;
     fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
     fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
-    ServoMotor_SG90__enSetAngleFloat(&sServoMotor1,(fAngleAbosulte-90.0f));
-    ServoMotor_SG90__enSetAngleFloat(&sServoMotor2,(fAngleAbosulte-90.0f));
+    ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor1,(fAngleAbosulte));
+    ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor2,(fAngleAbosulte));
 
     while(1u)
     {
@@ -117,7 +101,7 @@ int main(void)
         if(fTimeSystickEnd_Task1>50000.0f)
         {
 #ifdef __DEBUG__
-            WDT__vSetLoad(WDT_enMODULE_0, 4600000u);
+            WDT__vSetLoad(WDT_enMODULE_0, 7000000u);
 #else
             WDT__vSetLoad(WDT_enMODULE_0, 4003000u);
 #endif
@@ -196,8 +180,8 @@ int main(void)
                         u8Dir=0u;
                     }
                 }
-                ServoMotor_SG90__enSetAngleFloat(&sServoMotor2,(fAngleAbosulte-90.0f));
-                ServoMotor_SG90__enSetAngleFloat(&sServoMotor1,(fAngleAbosulte-90.0f));
+                ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor2,(fAngleAbosulte));
+                ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor1,(fAngleAbosulte));
             }
             if(u8ColumnCurrent>=15u)
             {
@@ -215,8 +199,8 @@ int main(void)
 void MAIN_vInitGPIO(void)
 {
     GPIO__vInit();
-    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW2, GPIO_enPORT_F, GPIO_enPIN_0);
-    GPIO__vRegisterIRQSourceHandler(&MAIN_vIsrSW1, GPIO_enPORT_F, GPIO_enPIN_4);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_SW2__vIRQSourceHandler, GPIO_enPORT_F, enSW2Pin);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_SW1__vIRQSourceHandler, GPIO_enPORT_F, enSW1Pin);
     GPIO__vEnInterruptVector(GPIO_enPORT_F,GPIO_enPRI7);
     /*GREEN, RED, BlUE LED*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
@@ -226,47 +210,38 @@ void MAIN_vInitGPIO(void)
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
 
-    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_1|GPIO_enPIN_2), 0u);
+    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin|enLedBluePin), 0u);
 
-    GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(GPIO_enPIN_0|GPIO_enPIN_4));
-    GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(GPIO_enPIN_0|GPIO_enPIN_4), GPIO_enINT_CONFIG_EDGE_BOTH);
+    GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|enSW1Pin));
+    GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
 
 
 }
 
-void MAIN_vIsrSW1(void)
+void MAIN_SW1__vIRQSourceHandler(void)
 {
+    uint32_t u32SW1Data=0u;
     ServoMotor_SG90__enEnable(&sServoMotor1);
     ServoMotor_SG90__enEnable(&sServoMotor2);
     enServoEnable= ServoMoto_SG90_enENABLE;
-    if(psSW1->DATA_MASK[enSW1Pin]==0u)
+    u32SW1Data=GPIO__u32GetData(GPIO_enPORT_F, enSW1Pin);
+    if(u32SW1Data==0u)
     {
-        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_1), GPIO_enPIN_1);
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin),(uint32_t) enLedRedPin);
         vu32Refresh|=(uint32_t)enSW1Pin;
     }
     else
     {
 
-        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_1), 0u);
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin), 0u);
         vu32Refresh&=~(uint32_t)enSW1Pin;
     }
 }
 
 
-void MAIN_vIsrSW2(void)
+void MAIN_SW2__vIRQSourceHandler(void)
 {
     ServoMotor_SG90__enDisable(&sServoMotor1);
     ServoMotor_SG90__enDisable(&sServoMotor2);
     enServoEnable= ServoMoto_SG90_enDISABLE;
-    if(psSW2->DATA_MASK[(uint32_t)enSW2Pin]==0u)
-    {
-        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_2), GPIO_enPIN_2);
-        vu32Refresh|=(uint32_t)enSW2Pin;
-    }
-    else
-    {
-
-        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_2), 0u);
-        vu32Refresh&=~(uint32_t)enSW2Pin;
-    }
 }

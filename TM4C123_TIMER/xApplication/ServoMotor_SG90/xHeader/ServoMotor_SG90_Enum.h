@@ -45,6 +45,8 @@ typedef struct
 {
     uint32_t u32DeltaCount;
     uint32_t u32MinCount;
+    uint32_t u32DegreeCount;
+    float    fDegreeCount;
     TIMER_nMODULE enTimerModule;
     GPIO_nDIGITAL_FUNCTION enGpioDigital;
 }ServoMoto_SG90_Typedef;

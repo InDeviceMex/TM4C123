@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/TIMER_RegisterPeripheral_Bitbanding.h>
 
-GPTM_BITBANDING_TypeDef *TIMER_BITBANDING_BLOCK[2][6]={
+GPTM_BITBANDING_TypeDef *TIMER_BITBANDING_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]={
                                      {GPTM0_BITBANDING,GPTM1_BITBANDING,GPTM2_BITBANDING,GPTM3_BITBANDING,GPTM4_BITBANDING,GPTM5_BITBANDING},
                                      {GPWTM0_BITBANDING,GPWTM1_BITBANDING,GPWTM2_BITBANDING,GPWTM3_BITBANDING,GPWTM4_BITBANDING,GPWTM5_BITBANDING},
                                   };

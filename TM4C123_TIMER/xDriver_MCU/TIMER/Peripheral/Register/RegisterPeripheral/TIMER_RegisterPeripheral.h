@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_
 
+#include <stdint.h>
+#include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 #include <xDriver_MCU/TIMER/Peripheral/Struct/StructPeripheral/TIMER_StructPeripheral.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_Control_32/TIMER_RegisterPeripheral_Control_32.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_Control_64/TIMER_RegisterPeripheral_Control_64.h>
@@ -43,13 +45,13 @@
 #define GPWTM                     (((GPWTMS_TypeDef*)(GPWTM_BASE)))
 #define GPWTM_UNION               (((GPWTM_UNION_TypeDef*)(GPWTM_BASE)))
 
-extern GPTM_TypeDef *TIMER_BLOCK[2][6];
+extern GPTM_TypeDef *TIMER_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
 
-extern volatile uint32_t * TIMER_TnMR_BLOCK[2][2][6];
-extern volatile uint32_t * TIMER_TnILR_BLOCK[2][2][6];
-extern volatile uint32_t * TIMER_TnPR_BLOCK[2][2][6];
-extern volatile uint32_t * TIMER_TnMATCHR_BLOCK[2][2][6];
-extern volatile uint32_t * TIMER_TnPMR_BLOCK[2][2][6];
+extern volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
+extern volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
+extern volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
+extern volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
+extern volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
 extern volatile uint32_t * TIMER_RTCPD_BLOCK[6];
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_ */

@@ -51,6 +51,7 @@ typedef enum
 {
     GPIO_enBUS_APB=0u,
     GPIO_enBUS_AHB=1u,
+    GPIO_enBUS_MAX=1u,
 }GPIO_nBUS;
 typedef enum
 {
