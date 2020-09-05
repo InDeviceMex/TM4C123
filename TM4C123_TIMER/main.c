@@ -4,203 +4,184 @@
  * main.c
  */
 
-#include <LCD1602/Generic/LCD1602_Generic.h>
-
-/*Include not allowed, this use directly the PeripheralRegisters*/
+/*Standard Libraries*/
 #include <float.h>
 #include <stdint.h>
-#include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
-#include <xDriver_MCU.h>
-#include <xApplication/ServoMotor_SG90/ServoMotor_SG90.h>
 #include "stdlib.h"
 
+/*MCU Drivers*/
+#include <xDriver_MCU.h>
+#include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
+
+/*Applications Drivers*/
+#include <LCD1602/Generic/LCD1602_Generic.h>
+#include <xApplication/ServoMotor_SG90/ServoMotor_SG90.h>
+
+/*Utils Libraries*/
+#include <xUtils/Conversion/Conversion.h>
 
 /*Local functions*/
-
 int main (void);
 
 void MAIN_vInitGPIO(void);
 void MAIN_vInitTIMER(void);
-void MAIN_vPWMServoInit(void);
-void MAIN_vPWMPos(int8_t s8Angle);
-void MAIN_vPWMPosFloat(float fAngle);
+
 /*ISR Functions*/
-void MAIN_SW1__vIRQSourceHandler(void);
-void MAIN_SW2__vIRQSourceHandler(void);
-void MAIN_TIMER2A__vIRQSourceHandler(void);
-void MAIN_TIMER2B__vIRQSourceHandler(void);
+void MAIN_SW1_vIRQSourceHandler(void);
+void MAIN_SW2_vIRQSourceHandler(void);
+void MAIN_TIMER3A_vIRQSourceHandler(void);
+void MAIN_TIMER3B_vIRQSourceHandler(void);
 
-GPIO_nPIN enSW2Pin=GPIO_enPIN_0;
-GPIO_nPIN enLedRedPin=GPIO_enPIN_1;
-GPIO_nPIN enLedBluePin=GPIO_enPIN_2;
-GPIO_nPIN enLedGreenPin=GPIO_enPIN_3;
-GPIO_nPIN enSW1Pin=GPIO_enPIN_4;
+/*Global Variables*/
+static GPIO_nPIN MAIN_enLedRedPin=GPIO_enPIN_1;
+static GPIO_nPIN MAIN_enSW1Pin=GPIO_enPIN_4;
+static uint64_t MAIN_u64Valueus=0u;
 
-volatile uint32_t u32Update=0;
-volatile uint32_t u32Counter=0;
-volatile uint32_t u32Priority=0;
-
-char LCD1602_pu8Buffer1[LCD1602_COLUMN_MAX+1u]=" INDEVICE TIVAC ";
-char LCD1602_pu8Buffer2[LCD1602_COLUMN_MAX+1u]="  LCD1602 SW:   ";
-GPIO_nBUS enBus=GPIO_enBUS_APB;
-
-volatile uint32_t vu32Refresh=0;
-
-ServoMoto_SG90_Typedef sServoMotor1={0};
-ServoMoto_SG90_Typedef sServoMotor2={0};
-ServoMoto_SG90_nENABLE enServoEnable=ServoMoto_SG90_enDISABLE;
+static ServoMoto_SG90_Typedef MAIN_sServoMotor1={0};
+static ServoMoto_SG90_Typedef MAIN_sServoMotor2={0};
+static ServoMoto_SG90_nENABLE MAIN_enServoEnable=ServoMoto_SG90_enDISABLE;
 
 int main(void)
 {
-    float fTimeSystickStart_Task1=0.0;
-    float fTimeSystickEnd_Task1=0.0;
-    float fTimeSystickStart_Task2=0.0;
-    float fTimeSystickEnd_Task2=0.0;
-    float fAngleAbosulte=0.0f;
-    uint8_t u8Column=0;
-    uint8_t u8Row=0;
-    uint8_t u8ColumnCurrent=0;
-    uint8_t u8Counter=0;
-    uint8_t u8Dir=0;
-    uint64_t u64ValurOneshot2A=0u;
-    uint64_t u64ValurOneshot2B=0u;
-    __asm(" cpsie i");
-    MPU__vInit();
-    SCB__vInit();
-    FLASH__enInit();
-    EEPROM__enInit();
-    SYSEXC__vInit((SYSEXC_nINT)((uint32_t)SYSEXC_enINT_INVALID|(uint32_t)SYSEXC_enINT_DIV0|
-            (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
-    SYSCTL__enInit();/* system clock 80MHz*/
-    MAIN_vInitGPIO();
-    HIB__enInit(5u, 0u);
-    WDT__vInit(0xFFFFFFFFu);
-    SysTick__enInitUs(100.0f,SCB_enSHPR0);
-    LCD1602__enInit();
-    enBus=GPIO__enGetBus(GPIO_enPORT_F);
+  float fValueus=0.0f;
+  char pu8Buffer2[LCD1602_COLUMN_MAX+1u]=" CM:            ";
+  char pcBuffer[LCD1602_COLUMN_MAX+1u];
+  float fTimeSystickStart_Task1=0.0f;
+  float fTimeSystickEnd_Task1=0.0f;
+  float fTimeSystickStart_Task2=0.0f;
+  float fTimeSystickEnd_Task2=0.0f;
+  float fAngleAbosulte=0.0f;
+  uint8_t u8Column=0u;
+  uint8_t u8Row=0u;
+  uint8_t u8ColumnCurrent=0u;
+  uint8_t u8Counter=0u;
+  uint8_t u8Dir=0u;
+  __asm(" cpsie i");
+  MPU__vInit();
+  SCB__vInit();
+  FLASH__enInit();
+  EEPROM__enInit();
+  SYSEXC__vInit((SYSEXC_nINT)((uint32_t)SYSEXC_enINT_INVALID|(uint32_t)SYSEXC_enINT_DIV0|
+          (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
+  SYSCTL__enInit();/* system clock 80MHz*/
+  MAIN_vInitGPIO();
+  HIB__enInit(5u, 0u);
+  /*WDT__vInit(0xFFFFFFFFu);*/
+  SysTick__enInitUs(100.0f,SCB_enSHPR0);
+  LCD1602__enInit();
 
-    DMA__vSetReady(DMA_enMODULE_0);
+  DMA__vSetReady(DMA_enMODULE_0);
 
-    LCD1602__enReloadScreenDirect();
-    ServoMotor_SG90__enInit(&sServoMotor1,TIMER_enT1B,GPIO_enT1CCP1_F3);
-    ServoMotor_SG90__enInit(&sServoMotor2,TIMER_enT0B,GPIO_enT0CCP1);
-    u8ColumnCurrent=0u;
-    u8Column=0u;
-    u8Row=0u;
-    fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
-    fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
-    ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor1,(fAngleAbosulte));
-    ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor2,(fAngleAbosulte));
-    MAIN_vInitTIMER();
-    while(1u)
+  LCD1602__enReloadScreenDirect();
+  ServoMotor_SG90__enInit(&MAIN_sServoMotor1,TIMER_enT1B,GPIO_enT1CCP1_F3,550u,2500u);
+  ServoMotor_SG90__enInit(&MAIN_sServoMotor2,TIMER_enT0B,GPIO_enT0CCP1,800u,2000u);
+  u8ColumnCurrent=0u;
+  u8Column=0u;
+  u8Row=0u;
+  fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
+  fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+  ServoMotor_SG90__enSetAngleAbsoluteFloat(&MAIN_sServoMotor1,(fAngleAbosulte));
+  ServoMotor_SG90__enSetAngleAbsoluteFloat(&MAIN_sServoMotor2,(fAngleAbosulte));
+  MAIN_vInitTIMER();
+  while(1u)
+  {
+    fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
+    if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
     {
-        TIMER__enGetCount(TIMER_enT2A, &u64ValurOneshot2A);
-        TIMER__enGetCount(TIMER_enT2B, &u64ValurOneshot2B);
-        fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
-        if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
-        {
-            fTimeSystickEnd_Task1=( fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
-        }
-        else
-        {
-            fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
-        }
-        if(fTimeSystickEnd_Task1>50000.0f)
-        {
-#ifdef __DEBUG__
-            WDT__vSetLoad(WDT_enMODULE_0, 7000000u);
-#else
-            WDT__vSetLoad(WDT_enMODULE_0, 4003000u);
-#endif
-
-            fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
-            if(vu32Refresh == (uint32_t)((uint32_t)enSW1Pin|(uint32_t)enSW2Pin))
-            {
-                u8Column=13u;
-                u8Row=0u;
-                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"BT",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-            }
-            else if(vu32Refresh == (enSW1Pin))
-            {
-                u8Column=13u;
-                u8Row=0u;
-                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"1 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-            }
-            else if(vu32Refresh == (enSW2Pin))
-            {
-                u8Column=13u;
-                u8Row=0u;
-                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"2 ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-            }
-            else
-            {
-                u8Column=13u;
-                u8Row=0u;
-                LCD1602__enWriteStringBufferSection((char*)LCD1602_pu8Buffer2,(const char*)"NN",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-            }
-            u8Column=u8ColumnCurrent;
-            u8Row=0u;
-            /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);*/
-            u8Column=u8ColumnCurrent;
-            u8Row=1u;
-            /*LCD1602__enPrintfSection((char*)LCD1602_pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u);*/
-        }
-
-
-
-
-        fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
-        if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
-        {
-
-            fTimeSystickEnd_Task2=( fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
-        }
-        else
-        {
-            fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
-        }
-        if(fTimeSystickEnd_Task2>120000.0f)
-        {
-            fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
-
-            if(ServoMoto_SG90_enENABLE == enServoEnable)
-            {
-                if( u8Dir == 0u)
-                {
-                    if(fAngleAbosulte<=176.0f)
-                    {
-                        fAngleAbosulte+=4.0f;
-                    }
-                    else
-                    {
-                        u8Dir=1u;
-                    }
-                }
-                else
-                {
-                    if(fAngleAbosulte>=4.0f)
-                    {
-                        fAngleAbosulte-=4.0f;
-                    }
-                    else
-                    {
-                        u8Dir=0u;
-                    }
-                }
-                ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor2,(fAngleAbosulte));
-                ServoMotor_SG90__enSetAngleAbsoluteFloat(&sServoMotor1,(fAngleAbosulte));
-            }
-            if(u8ColumnCurrent>=15u)
-            {
-                u8ColumnCurrent=0u;
-            }
-            else
-            {
-                u8ColumnCurrent++;
-            }
-
-        }
+      fTimeSystickEnd_Task1=( fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
     }
+    else
+    {
+      fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
+    }
+    if(fTimeSystickEnd_Task1>200000.0f)
+    {
+      fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
+
+      TIMER__vSetEdgeEvent(TIMER_enT3B,TIMER_enEDGE_EVENT_POSITIVE);
+      TIMER__vSetEnable(TIMER_enT3B,TIMER_enENABLE_START);
+
+      TIMER__vSetEnable(TIMER_enT3A,TIMER_enENABLE_START);
+      GPIO__vSetData(GPIO_enPORT_A,(GPIO_nPIN) GPIO_enPIN_7, GPIO_enPIN_7);
+
+      TIMER__vSetEdgeEvent(TIMER_enT3B,TIMER_enEDGE_EVENT_POSITIVE);
+      TIMER__vClearInterruptSource(TIMER_enT3B,(TIMER_nINT)(TIMER_enINT_CAPTURE_EVENT));
+      TIMER__vSetReload(TIMER_enT3B, 0u, 3040000u);
+      TIMER__vSetEnable(TIMER_enT3B,TIMER_enENABLE_START);
+
+      TIMER__vSetEnable(TIMER_enT3A,TIMER_enENABLE_START);
+      GPIO__vSetData(GPIO_enPORT_A,(GPIO_nPIN) GPIO_enPIN_7, GPIO_enPIN_7);
+
+      u8Column=5u;
+      u8Row=0u;
+      LCD1602__enWriteStringBufferSection((char*)pu8Buffer2,(const char*)"           ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+      fValueus= (float) MAIN_u64Valueus;
+      fValueus/=17.4f;
+      MAIN_u64Valueus = (uint64_t) fValueus;
+      fValueus= (float) MAIN_u64Valueus;
+      fValueus*=0.3f;
+      CONV__u8Float2String((double)fValueus,0u,3u,3,1,pcBuffer);
+
+      u8Column=5u;
+      u8Row=0u;
+      LCD1602__enWriteStringBufferSection((char*)pu8Buffer2,(const char*)pcBuffer,&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
+      u8Column=u8ColumnCurrent;
+      u8Row=0u;
+      /*LCD1602__enPrintfSection((char*)MAIN_pu8Buffer1,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,0u,0u);*/
+      u8Column=0u;
+      u8Row=1u;LCD1602__enWriteStringScreenSectionDirect_Secure((char*)pu8Buffer2,&u8Column,&u8Row,(uint8_t*)&u8Counter,0u,15u,1u,1u, 15u);
+    }
+
+    fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
+    if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
+    {
+      fTimeSystickEnd_Task2=( fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
+    }
+    else
+    {
+      fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
+    }
+    if(fTimeSystickEnd_Task2>120000.0f)
+    {
+      fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+
+      if(ServoMoto_SG90_enENABLE == MAIN_enServoEnable)
+      {
+        if( u8Dir == 0u)
+        {
+          if(fAngleAbosulte<=176.0f)
+          {
+              fAngleAbosulte+=4.0f;
+          }
+          else
+          {
+              u8Dir=1u;
+          }
+        }
+        else
+        {
+          if(fAngleAbosulte>=4.0f)
+          {
+              fAngleAbosulte-=4.0f;
+          }
+          else
+          {
+              u8Dir=0u;
+          }
+        }
+        ServoMotor_SG90__enSetAngleAbsoluteFloat(&MAIN_sServoMotor2,(fAngleAbosulte));
+        ServoMotor_SG90__enSetAngleAbsoluteFloat(&MAIN_sServoMotor1,(fAngleAbosulte));
+      }
+      if(u8ColumnCurrent>=15u)
+      {
+        u8ColumnCurrent=0u;
+      }
+      else
+      {
+        u8ColumnCurrent++;
+      }
+    }
+  }
 }
 
 void MAIN_vInitTIMER(void)
@@ -211,15 +192,14 @@ void MAIN_vInitTIMER(void)
 
     TIMER__vInit();
 
-    TIMER__vEnInterruptSourceVector(TIMER_enT2A,TIMER_enPRI7);
-    TIMER__vEnInterruptSourceVector(TIMER_enT2B,TIMER_enPRI7);
+    TIMER__vEnInterruptSourceVector(TIMER_enT3A,TIMER_enPRI1);
+    TIMER__vEnInterruptSourceVector(TIMER_enT3B,TIMER_enPRI1);
 
-    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER2A__vIRQSourceHandler,TIMER_enT2A,TIMER_enINTERRUPT_TIMEOUT);
-    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER2B__vIRQSourceHandler,TIMER_enT2B,TIMER_enINTERRUPT_TIMEOUT);
+    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER3A_vIRQSourceHandler,TIMER_enT3A,TIMER_enINTERRUPT_TIMEOUT);
+    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER3B_vIRQSourceHandler,TIMER_enT3B,TIMER_enINTERRUPT_CAPTURE_EVENT);
 
 
     psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
-    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;
     psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
     psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
     psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
@@ -227,28 +207,33 @@ void MAIN_vInitTIMER(void)
     psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
     psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
 
-    TIMER__enSetExtraModeStruct(TIMER_enT2A,&psExtraMode);
+    TIMER__enSetExtraModeStruct(TIMER_enT3A,&psExtraMode);
 
+    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_CYCLE;
     psExtraMode.enWaitTrigger=TIMER_enWAIT_DAISY;
-    TIMER__enSetExtraModeStruct(TIMER_enT2B,&psExtraMode);
+    TIMER__enSetExtraModeStruct(TIMER_enT3B,&psExtraMode);
 
-    TIMER__enSetMode_Reload(TIMER_enT2A,TIMER_enMODE_ONE_SHOT_INDIVIDUAL_DOWN,0u,0x5FFFFAu);
-    TIMER__enSetMode_Reload(TIMER_enT2B,TIMER_enMODE_ONE_SHOT_INDIVIDUAL_UP,0u,0x5FFFFAu);
-    TIMER__vEnInterruptSource(TIMER_enT2A,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
-    TIMER__vEnInterruptSource(TIMER_enT2B,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
-    TIMER__vSetEnable(TIMER_enT2A,TIMER_enENABLE_START);
-    TIMER__vSetEnable(TIMER_enT2B,TIMER_enENABLE_START);
+    TIMER__enSetMode_Reload(TIMER_enT3A,TIMER_enMODE_ONE_SHOT_INDIVIDUAL_UP,0u,8000u);
+    TIMER__enSetMode_Reload(TIMER_enT3B,TIMER_enMODE_EDGE_TIME_POSITIVE_INDIVIDUAL_DOWN,0u,0xFFFFFFu);
 
+    GPIO__enSetDigitalConfig(GPIO_enT3CCP1,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
+
+    TIMER__vEnInterruptSource(TIMER_enT3A,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
+    TIMER__vClearInterruptSource(TIMER_enT3B,(TIMER_nINT)(TIMER_enINT_CAPTURE_EVENT));
+    TIMER__vEnInterruptSource(TIMER_enT3B,(TIMER_nINT)(TIMER_enINT_CAPTURE_EVENT));
 }
 
 
 void MAIN_vInitGPIO(void)
 {
+    GPIO_nPIN enLedBluePin=GPIO_enPIN_2;
+    GPIO_nPIN enSW2Pin=GPIO_enPIN_0;
     GPIO__vInit();
-    GPIO__vRegisterIRQSourceHandler(&MAIN_SW2__vIRQSourceHandler, GPIO_enPORT_F, enSW2Pin);
-    GPIO__vRegisterIRQSourceHandler(&MAIN_SW1__vIRQSourceHandler, GPIO_enPORT_F, enSW1Pin);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_SW2_vIRQSourceHandler, GPIO_enPORT_F, enSW2Pin);
+    GPIO__vRegisterIRQSourceHandler(&MAIN_SW1_vIRQSourceHandler, GPIO_enPORT_F, MAIN_enSW1Pin);
     GPIO__vEnInterruptVector(GPIO_enPORT_F,GPIO_enPRI7);
     /*GREEN, RED, BlUE LED*/
+    GPIO__enSetDigitalConfig(GPIO_enGPIOA7,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
 
@@ -256,48 +241,70 @@ void MAIN_vInitGPIO(void)
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
 
-    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin|enLedBluePin), 0u);
+    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (MAIN_enLedRedPin|enLedBluePin), 0u);
+    GPIO__vSetData(GPIO_enPORT_A,(GPIO_nPIN) GPIO_enPIN_7, 0u);
 
-    GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|enSW1Pin));
-    GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
+    GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|MAIN_enSW1Pin));
+    GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|MAIN_enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
 
-
-}
-
-void MAIN_TIMER2A__vIRQSourceHandler(void)
-{
 
 }
 
-void MAIN_TIMER2B__vIRQSourceHandler(void)
+void MAIN_TIMER3A_vIRQSourceHandler(void)
 {
-
+    GPIO__vSetData(GPIO_enPORT_A,(GPIO_nPIN) GPIO_enPIN_7, 0u);
 }
 
-void MAIN_SW1__vIRQSourceHandler(void)
+void MAIN_TIMER3B_vIRQSourceHandler(void)
 {
-    uint32_t u32SW1Data=0u;
-    ServoMotor_SG90__enEnable(&sServoMotor1);
-    ServoMotor_SG90__enEnable(&sServoMotor2);
-    enServoEnable= ServoMoto_SG90_enENABLE;
-    u32SW1Data=GPIO__u32GetData(GPIO_enPORT_F, enSW1Pin);
-    if(u32SW1Data==0u)
+    static uint64_t u64Rising = 0u;
+    static uint64_t u64Falling = 0u;
+    TIMER_nEDGE_EVENT enEvent=TIMER_enEDGE_EVENT_UNDEF;
+    enEvent = TIMER__enGetEdgeEvent(TIMER_enT3B);
+    if(enEvent == TIMER_enEDGE_EVENT_POSITIVE)
     {
-        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin),(uint32_t) enLedRedPin);
-        vu32Refresh|=(uint32_t)enSW1Pin;
+        TIMER__vSetEdgeEvent(TIMER_enT3B,TIMER_enEDGE_EVENT_NEGATIVE);
+        TIMER__enGetCount(TIMER_enT3B, &u64Rising);
     }
     else
     {
+        TIMER__enGetCount(TIMER_enT3B, &u64Falling);
+        TIMER__vSetEnable(TIMER_enT3B,TIMER_enENABLE_STOP);
+        if(u64Falling>u64Rising)
+        {
+            MAIN_u64Valueus = u64Falling - u64Rising;
+        }
+        else
+        {
+            MAIN_u64Valueus = u64Rising;
+            MAIN_u64Valueus -= u64Falling;
+        }
+        MAIN_u64Valueus/=80U;
+    }
+}
 
-        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin), 0u);
-        vu32Refresh&=~(uint32_t)enSW1Pin;
+void MAIN_SW1_vIRQSourceHandler(void)
+{
+    uint32_t u32SW1Data=0u;
+    ServoMotor_SG90__enEnable(&MAIN_sServoMotor1);
+    ServoMotor_SG90__enEnable(&MAIN_sServoMotor2);
+    MAIN_enServoEnable= ServoMoto_SG90_enENABLE;
+    u32SW1Data=GPIO__u32GetData(GPIO_enPORT_F, MAIN_enSW1Pin);
+    if(u32SW1Data==0u)
+    {
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (MAIN_enLedRedPin),(uint32_t) MAIN_enLedRedPin);
+    }
+    else
+    {
+        GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (MAIN_enLedRedPin), 0u);
     }
 }
 
 
-void MAIN_SW2__vIRQSourceHandler(void)
+void MAIN_SW2_vIRQSourceHandler(void)
 {
-    ServoMotor_SG90__enDisable(&sServoMotor1);
-    ServoMotor_SG90__enDisable(&sServoMotor2);
-    enServoEnable= ServoMoto_SG90_enDISABLE;
+    ServoMotor_SG90__enDisable(&MAIN_sServoMotor1);
+    ServoMotor_SG90__enDisable(&MAIN_sServoMotor2);
+
+    MAIN_enServoEnable= ServoMoto_SG90_enDISABLE;
 }
