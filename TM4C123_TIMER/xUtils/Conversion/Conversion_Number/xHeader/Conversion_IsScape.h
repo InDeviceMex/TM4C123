@@ -26,6 +26,6 @@
 
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 
-CONV_nSCAPE CONV_enIsScape(char cCharacter);
+CONV_nSCAPE CONV__enIsScape(char cCharacter);
 
 #endif /* XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER_CONVERSION_ISSCAPE_H_ */

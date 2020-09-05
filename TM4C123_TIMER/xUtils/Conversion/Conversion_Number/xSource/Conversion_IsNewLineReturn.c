@@ -24,7 +24,7 @@
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsNewLineReturn.h>
 
-CONV_nNEWLINERETURN CONV_enIsNewLineReturn(char cCharacter)
+CONV_nNEWLINERETURN CONV__enIsNewLineReturn(char cCharacter)
 {
     CONV_nNEWLINERETURN enStatus= CONV_enNEWLINERETURN_NO;
     if((cCharacter == '\n') || (cCharacter == '\r') )

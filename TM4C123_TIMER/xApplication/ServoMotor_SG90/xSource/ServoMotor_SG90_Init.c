@@ -31,7 +31,7 @@
 #define SERVO_MAXFREC (1111u) /*900 us*/
 #define SERVO_MINFREC (500u) /*2000 us*/
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModule,GPIO_nDIGITAL_FUNCTION enGpioDigital)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModule,GPIO_nDIGITAL_FUNCTION enGpioDigital,uint32_t u32MinTime, uint32_t u32MaxTime)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     GPIO_nSTATUS enGPIOStatus= GPIO_enSTATUS_ERROR;
@@ -43,17 +43,28 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     uint32_t u32ServoMinPulse=0u;
     uint32_t u32ServoMinCount=0u;
     uint32_t u32DegreeCount=0u;
+    uint32_t u32Reg=0u;
+    uint32_t u32MinFrec=1000000u;
+    uint32_t u32MaxFrec=1000000u;
     float fDegreeCount=0.0f;
 
-    if(0u != psServoMotor)
+    if((0u != psServoMotor) && (0u!=u32MinTime) && (0u!=u32MaxTime))
     {
+        if(u32MinTime>u32MaxTime)
+        {
+            u32Reg=u32MinTime;
+            u32MinTime=u32MaxTime;
+            u32MaxTime=u32Reg;
+        }
+        u32MaxFrec/=u32MinTime;
+        u32MinFrec/=u32MaxTime;
         psServoMotor->enGpioDigital=enGpioDigital;
         psServoMotor->enTimerModule=enTimerModule;
 
         u32SysFreq= SYSCTL__u32GetClock();
         u32ServoFreq=u32SysFreq/SERVO_FREC;
-        u32ServoMaxPulse = u32SysFreq/SERVO_MAXFREC;
-        u32ServoMinPulse = u32SysFreq/SERVO_MINFREC;
+        u32ServoMaxPulse = u32SysFreq/u32MaxFrec;
+        u32ServoMinPulse = u32SysFreq/u32MinFrec;
         u32ServoMinCount = u32ServoFreq-u32ServoMaxPulse;
         psServoMotor->u32MinCount=u32ServoMinCount;
         psServoMotor->u32DeltaCount=u32ServoMinPulse - u32ServoMaxPulse;

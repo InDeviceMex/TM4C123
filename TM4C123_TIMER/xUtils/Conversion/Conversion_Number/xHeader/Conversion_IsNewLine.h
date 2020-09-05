@@ -26,7 +26,7 @@
 
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 
-CONV_nNEWLINE CONV_enIsNewLine(char cCharacter);
+CONV_nNEWLINE CONV__enIsNewLine(char cCharacter);
 
 
 

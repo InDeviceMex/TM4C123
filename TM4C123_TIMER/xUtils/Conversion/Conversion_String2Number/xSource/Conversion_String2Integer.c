@@ -45,14 +45,14 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
     if((uint32_t)0u == (uint32_t)pcString)
     {
         /* The following situation is only valid when CONV_enSTATUS_OK is 0 and CONV_enSTATUS_ERROR is 1*/
-        enStatus=(CONV_nSTATUS)CONV_enIsNewLineReturn(*pcString);
-        enStatus&=(CONV_nSTATUS)CONV_enIsScape(*pcString);
-        enStatus&=(CONV_nSTATUS)CONV_enIsNull(*pcString);
+        enStatus=(CONV_nSTATUS)CONV__enIsNewLineReturn(*pcString);
+        enStatus&=(CONV_nSTATUS)CONV__enIsScape(*pcString);
+        enStatus&=(CONV_nSTATUS)CONV__enIsNull(*pcString);
         while(enStatus)
         {
 
-            enDigit=CONV_enIsDigit(*pcString);
-            enBackSpace=CONV_enIsBackSpace(*pcString);
+            enDigit=CONV__enIsDigit(*pcString);
+            enBackSpace=CONV__enIsBackSpace(*pcString);
 
             if((*pcString=='-') && (s32Length==0))
             {
@@ -73,7 +73,7 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
             else if((CONV_enBACKSPACE_OK==enBackSpace) && (0 != s32Length))
             {
                 pcStringBack--;
-                enDigit=CONV_enIsDigit(*pcStringBack);
+                enDigit=CONV__enIsDigit(*pcStringBack);
                 if(CONV_enDIGIT_OK == enDigit)
                 {
                     s64NumSignedReg/=10;
@@ -93,9 +93,9 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
 
             pcString++;
 
-            enStatus=(CONV_nSTATUS)CONV_enIsNewLineReturn(*pcString);
-            enStatus&=(CONV_nSTATUS)CONV_enIsScape(*pcString);
-            enStatus&=(CONV_nSTATUS)CONV_enIsNull(*pcString);
+            enStatus=(CONV_nSTATUS)CONV__enIsNewLineReturn(*pcString);
+            enStatus&=(CONV_nSTATUS)CONV__enIsScape(*pcString);
+            enStatus&=(CONV_nSTATUS)CONV__enIsNull(*pcString);
         }
 
 
