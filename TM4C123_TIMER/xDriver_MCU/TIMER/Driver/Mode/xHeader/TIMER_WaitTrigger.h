@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTrigger);
+void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTriggerParam);
 TIMER_nWAIT TIMER__enGetWaitTrigger(TIMER_nMODULE enModule);
 
 

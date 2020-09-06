@@ -40,11 +40,11 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
 
     TIMER_nSTATUS enStatus = TIMER_enERROR;
     TIMER_nREADY enReady = TIMER_enNOREADY;
-    TIMER_nCONFIG enConfig=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubMode=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltMode=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirection=TIMER_enCOUNT_DIR_DOWN;
-    TIMER_nSNAPSHOT enSnapshot=TIMER_enSNAPSHOT_UNDEF;
+    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
+    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
+    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
+    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
+    TIMER_nSNAPSHOT enSnapshotVar=TIMER_enSNAPSHOT_UNDEF;
     /*Erase*/
     uint64_t u64Reg=0u;
     uint32_t u32Reg=0u;
@@ -66,8 +66,8 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
     {
         enStatus = TIMER_enOK;
 
-        enConfig=TIMER__enGetConfiguration(enModule);
-        switch (enConfig)
+        enConfigVar=TIMER__enGetConfiguration(enModule);
+        switch (enConfigVar)
         {
         case TIMER_enCONFIG_WIDE:
             if(TIMER_en64 == (uint32_t)u32Wide)
@@ -109,15 +109,15 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
             break;
         case TIMER_enCONFIG_INDIVIDUAL:
 
-            enSubMode=TIMER__enGetSubMode(enModule);
-            enAltMode=TIMER__enGetAltMode(enModule);
-            enDirection=TIMER__enGetCountDir(enModule);
+            enSubModeVar=TIMER__enGetSubMode(enModule);
+            enAltModeVar=TIMER__enGetAltMode(enModule);
+            enDirectionVar=TIMER__enGetCountDir(enModule);
 
             pu32TimerCOUNTLow=TIMER_TnR_BLOCK[u32Wide][u32Letter][u32Number];
             pu32TimerPS=TIMER_TnPS_BLOCK[u32Wide][u32Letter][u32Number];
             pu32TimerCOUNTFREE=TIMER_TnV_BLOCK[u32Wide][u32Letter][u32Number];
             /*Prescaler*/
-            if((TIMER_enALT_MODE_CC==enAltMode)&& (TIMER_enSUB_MODE_CAPTURE!=enSubMode) && (TIMER_enCOUNT_DIR_DOWN==enDirection))
+            if((TIMER_enALT_MODE_CC==enAltModeVar)&& (TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
             {
 
                 if(TIMER_en64 == (uint32_t)u32Wide)
@@ -170,7 +170,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
                 }
                 else
                 {
-                    if( TIMER_enSUB_MODE_CAPTURE==enSubMode )
+                    if( TIMER_enSUB_MODE_CAPTURE==enSubModeVar )
                     {
                         u32Reg  = *pu32TimerCOUNTLow;
                         u64Reg  = (uint64_t)u32Reg;
@@ -179,8 +179,8 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
                     }
                     else
                     {
-                        enSnapshot= TIMER__enGetSnapShot(enModule);
-                        if(TIMER_enSNAPSHOT_DIS== enSnapshot)
+                        enSnapshotVar= TIMER__enGetSnapShot(enModule);
+                        if(TIMER_enSNAPSHOT_DIS== enSnapshotVar)
                         {
                             u32Reg  = *pu32TimerCOUNTLow;
                             u32Reg &= pu32SizeMask[u32Wide];

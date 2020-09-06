@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStall);
+void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStallParam);
 TIMER_nRTC_STALL TIMER__enGetRTCStall(TIMER_nMODULE enModule);
 
 

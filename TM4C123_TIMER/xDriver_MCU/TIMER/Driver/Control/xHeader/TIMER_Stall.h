@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-void TIMER__vSetStall(TIMER_nMODULE enModule, TIMER_nSTALL enStall);
+void TIMER__vSetStall(TIMER_nMODULE enModule, TIMER_nSTALL enStallParam);
 TIMER_nSTALL TIMER__enGetStall(TIMER_nMODULE enModule);
 
 

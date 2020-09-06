@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
 
-void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTrigger)
+void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTriggerParam)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enWaitTrigger, GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enWaitTriggerParam, GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
 }
 
 TIMER_nWAIT TIMER__enGetWaitTrigger(TIMER_nMODULE enModule)

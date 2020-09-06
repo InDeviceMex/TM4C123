@@ -39,10 +39,10 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     uint32_t MATCH_pu32SizeShift[2]={16,32};
     uint64_t MATCH_pu64TimerSize[2]={0xFFFFFF,0xFFFFFFFFFFFF};
 
-    TIMER_nCONFIG enConfig=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubMode=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltMode=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirection=TIMER_enCOUNT_DIR_DOWN;
+    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
+    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
+    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
+    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
     uint32_t u32Reg=0;
     uint32_t u32RegPrescaler=0;
@@ -58,9 +58,9 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     }
     TIMER__vSetReady(enModule);
 
-    enConfig=TIMER__enGetConfiguration(enModule);
+    enConfigVar=TIMER__enGetConfiguration(enModule);
 
-    switch (enConfig)
+    switch (enConfigVar)
     {
     case TIMER_enCONFIG_WIDE:
         if(TIMER_en64 == (uint32_t)u32Wide)
@@ -88,14 +88,14 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
         break;
     case TIMER_enCONFIG_INDIVIDUAL:
 
-        enSubMode=TIMER__enGetSubMode(enModule);
-        enAltMode=TIMER__enGetAltMode(enModule);
-        enDirection=TIMER__enGetCountDir(enModule);
+        enSubModeVar=TIMER__enGetSubMode(enModule);
+        enAltModeVar=TIMER__enGetAltMode(enModule);
+        enDirectionVar=TIMER__enGetCountDir(enModule);
 
         pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][u32Letter][u32Number];
         pu32TimerPMR=TIMER_TnPMR_BLOCK[u32Wide][u32Letter][u32Number];
         /*Prescaler*/
-        if((TIMER_enALT_MODE_CC==enAltMode)&&(TIMER_enSUB_MODE_CAPTURE!=enSubMode) && (TIMER_enCOUNT_DIR_DOWN==enDirection))
+        if((TIMER_enALT_MODE_CC==enAltModeVar)&&(TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
         {
             u64Match&=MATCH_pu64TimerSize[u32Wide];
             u32RegPrescaler=(uint32_t)(u64Match&(uint64_t)MATCH_pu32PrescalerMask[u32Wide]);
@@ -130,10 +130,10 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
 
     TIMER_nSTATUS enStatus = TIMER_enERROR;
     TIMER_nREADY enReady = TIMER_enNOREADY;
-    TIMER_nCONFIG enConfig=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubMode=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltMode=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirection=TIMER_enCOUNT_DIR_DOWN;
+    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
+    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
+    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
+    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
     uint64_t u64Reg=0u;
     uint32_t u32Reg=0u;
@@ -154,8 +154,8 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
     {
         enStatus = TIMER_enOK;
 
-        enConfig=TIMER__enGetConfiguration(enModule);
-        switch (enConfig)
+        enConfigVar=TIMER__enGetConfiguration(enModule);
+        switch (enConfigVar)
         {
         case TIMER_enCONFIG_WIDE:
             if(TIMER_en64 == (uint32_t)u32Wide)
@@ -197,14 +197,14 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
             break;
         case TIMER_enCONFIG_INDIVIDUAL:
 
-            enSubMode=TIMER__enGetSubMode(enModule);
-            enAltMode=TIMER__enGetAltMode(enModule);
-            enDirection=TIMER__enGetCountDir(enModule);
+            enSubModeVar=TIMER__enGetSubMode(enModule);
+            enAltModeVar=TIMER__enGetAltMode(enModule);
+            enDirectionVar=TIMER__enGetCountDir(enModule);
 
             pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][u32Letter][u32Number];
             pu32TimerPMR=TIMER_TnPMR_BLOCK[u32Wide][u32Letter][u32Number];
             /*Prescaler*/
-            if((TIMER_enALT_MODE_CC==enAltMode)&&(TIMER_enSUB_MODE_CAPTURE!=enSubMode) && (TIMER_enCOUNT_DIR_DOWN==enDirection))
+            if((TIMER_enALT_MODE_CC==enAltModeVar)&&(TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
             {
                 u32Reg  = *pu32TimerMATCHRLow;
                 u32Reg &= pu32SizeMask[u32Wide];

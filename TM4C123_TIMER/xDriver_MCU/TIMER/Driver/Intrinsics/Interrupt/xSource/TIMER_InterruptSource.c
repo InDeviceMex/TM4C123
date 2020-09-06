@@ -30,7 +30,7 @@
 
 static uint32_t u32IntMask[3]={(uint32_t)TIMER_enINT_TA_ALL,(uint32_t)TIMER_enINT_TB_ALL,(uint32_t)TIMER_enINT_TW_ALL};
 
-void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
@@ -45,7 +45,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     }
     TIMER__vSetReady(enModule);
 #if 0
-    if(enInterrupt&TIMER_enINT_MATCH)
+    if(enInterruptParam&TIMER_enINT_MATCH)
     {
         if(TIMER_enEVENT_INT_DIS == TIMER__enGetMatchEventInterrupt)
         {
@@ -53,7 +53,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
         }
     }
 
-    if(enInterrupt&TIMER_enINT_CAPTURE_EVENT)
+    if(enInterruptParam&TIMER_enINT_CAPTURE_EVENT)
     {
         if(TIMER_enPWM_INT_DIS == TIMER__enGetPWMInterrupt)
         {
@@ -62,7 +62,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     }
 #endif
     psTimerIMR=TIMER_BLOCK[u32Wide][u32Number];
-    u32Int=(uint32_t)enInterrupt;
+    u32Int=(uint32_t)enInterruptParam;
     if(TIMER_enB==u32Letter)
     {
         u32Int&=~(uint32_t)TIMER_enINT_RTC;
@@ -83,7 +83,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
 
 
 
-void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
@@ -98,7 +98,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     }
     TIMER__vSetReady(enModule);
 #if 0
-    if(enInterrupt&TIMER_enINT_MATCH)
+    if(enInterruptParam&TIMER_enINT_MATCH)
     {
         if(TIMER_enEVENT_INT_EN == TIMER__enGetMatchEventInterrupt)
         {
@@ -106,7 +106,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
         }
     }
 
-    if(enInterrupt&TIMER_enINT_CAPTURE_EVENT)
+    if(enInterruptParam&TIMER_enINT_CAPTURE_EVENT)
     {
         if(TIMER_enPWM_INT_EN == TIMER__enGetPWMInterrupt)
         {
@@ -115,7 +115,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     }
 #endif
     psTimerIMR=TIMER_BLOCK[u32Wide][u32Number];
-    u32Int=(uint32_t)enInterrupt;
+    u32Int=(uint32_t)enInterruptParam;
     if(TIMER_enB==u32Letter)
     {
         u32Int&=~(uint32_t)TIMER_enINT_RTC;
@@ -134,7 +134,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
     psTimerIMR->GPTMIMR=u32Reg;
 }
 
-void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
     uint32_t u32Reg=0;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
@@ -149,7 +149,7 @@ void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt
     TIMER__vSetReady(enModule);
 
     psTimerICR=TIMER_BLOCK[u32Wide][u32Number];
-    u32Reg=(uint32_t)enInterrupt;
+    u32Reg=(uint32_t)enInterruptParam;
     if(TIMER_enB==u32Letter)
     {
         u32Reg&=~(uint32_t)TIMER_enINT_RTC;
@@ -165,7 +165,7 @@ void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt
     psTimerICR->GPTMICR=u32Reg;
 }
 
-TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt)
+TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
     TIMER_nINT_STATUS enInt=TIMER_enINT_STATUS_UNDEF;
     uint32_t u32Reg=0;
@@ -184,7 +184,7 @@ TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_n
     if(TIMER_enREADY == enReady)
     {
         psTimerRIS=TIMER_BLOCK[u32Wide][u32Number];
-        u32Int=(uint32_t)enInterrupt;
+        u32Int=(uint32_t)enInterruptParam;
         if(TIMER_enB==u32Letter)
         {
             u32Int&=~(uint32_t)TIMER_enINT_RTC;

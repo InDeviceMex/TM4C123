@@ -26,8 +26,6 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_PendSV.h>
 
-#define SCB_vBarrier() {__asm(" DSB");}
-
 inline void SCB_PendSV__vSetPending(void)
 {
     SCB_ICSR_R|=SCB_ICSR_R_PENDSVSET_SET;

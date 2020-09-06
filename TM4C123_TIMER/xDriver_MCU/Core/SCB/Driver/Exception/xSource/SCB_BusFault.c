@@ -26,9 +26,6 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_BusFault.h>
 
-
-#define SCB_vBarrier() {__asm(" DSB");}
-
 inline void SCB_BusFault__vSetPriority(SCB_nSHPR enPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;

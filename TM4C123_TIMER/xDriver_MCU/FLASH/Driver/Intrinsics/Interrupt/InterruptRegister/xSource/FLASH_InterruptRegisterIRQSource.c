@@ -26,9 +26,9 @@
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Source.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 
-void FLASH__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),FLASH_nINTERRUPT enInterrupt)
+void FLASH__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),FLASH_nINTERRUPT enInterruptParam)
 {
-    uint32_t u32Interrupt =(uint32_t) enInterrupt;
+    uint32_t u32Interrupt =(uint32_t) enInterruptParam;
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {

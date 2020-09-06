@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
 
-void TIMER__vSetStall(TIMER_nMODULE enModule, TIMER_nSTALL enStall)
+void TIMER__vSetStall(TIMER_nMODULE enModule, TIMER_nSTALL enStallParam)
 {
-    TIMER__vSetControlGeneric(enModule, (uint32_t) enStall, GPTM_TA_GPTMTnCTL_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_R_TnSTALL_BIT);
+    TIMER__vSetControlGeneric(enModule, (uint32_t) enStallParam, GPTM_TA_GPTMTnCTL_TnSTALL_MASK, GPTM_TA_GPTMTnCTL_R_TnSTALL_BIT);
 }
 
 TIMER_nSTALL TIMER__enGetStall(TIMER_nMODULE enModule)

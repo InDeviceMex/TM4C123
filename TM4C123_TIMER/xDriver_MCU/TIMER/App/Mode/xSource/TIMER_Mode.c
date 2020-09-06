@@ -87,37 +87,37 @@ TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule)
 {
     TIMER_nMODE enMode=TIMER_enMODE_UNDEF;
 
-    TIMER_nCONFIG       enConfig=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE     enSubMode=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nEDGE_MODE    enEdgeMode=TIMER_enEDGE_MODE_COUNT;
-    TIMER_nALT_MODE     enAltMode=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR    enDirection=TIMER_enCOUNT_DIR_DOWN;
-    TIMER_nSNAPSHOT     enSnapShot=TIMER_enSNAPSHOT_DIS;
-    TIMER_nPWM_OUT_INIT enPWMOutInit=TIMER_enPWM_OUT_INIT_LOW;
-    TIMER_nEDGE_EVENT   enEdgeEvent=TIMER_enEDGE_EVENT_POSITIVE;
-    TIMER_nPWM_OUTPUT   enPWMOut=TIMER_enPWM_OUTPUT_STRAIGHT;
+    TIMER_nCONFIG       enConfigVar=TIMER_enCONFIG_WIDE;
+    TIMER_nSUB_MODE     enSubModeVar=TIMER_enSUB_MODE_RESERVED;
+    TIMER_nEDGE_MODE    enEdgeModeVar=TIMER_enEDGE_MODE_COUNT;
+    TIMER_nALT_MODE     enAltModeVar=TIMER_enALT_MODE_CC;
+    TIMER_nCOUNT_DIR    enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
+    TIMER_nSNAPSHOT     enSnapShotVar=TIMER_enSNAPSHOT_DIS;
+    TIMER_nPWM_OUT_INIT enPWMOutInitVar=TIMER_enPWM_OUT_INIT_LOW;
+    TIMER_nEDGE_EVENT   enEdgeEventVar=TIMER_enEDGE_EVENT_POSITIVE;
+    TIMER_nPWM_OUTPUT   enPWMOutVar=TIMER_enPWM_OUTPUT_STRAIGHT;
 
     uint32_t u32Reg=0;
 
-    enConfig=TIMER__enGetConfiguration(enModule);
-    enSubMode=TIMER__enGetSubMode(enModule);
-    enEdgeMode=TIMER__enGetEdgeMode(enModule);
-    enAltMode=TIMER__enGetAltMode(enModule);
-    enDirection=TIMER__enGetCountDir(enModule);
-    enSnapShot=TIMER__enGetSnapShot(enModule);
-    enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
-    enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
-    enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
+    enConfigVar=TIMER__enGetConfiguration(enModule);
+    enSubModeVar=TIMER__enGetSubMode(enModule);
+    enEdgeModeVar=TIMER__enGetEdgeMode(enModule);
+    enAltModeVar=TIMER__enGetAltMode(enModule);
+    enDirectionVar=TIMER__enGetCountDir(enModule);
+    enSnapShotVar=TIMER__enGetSnapShot(enModule);
+    enPWMOutInitVar=TIMER__enGetPWMOutputInit(enModule);
+    enEdgeEventVar=TIMER__enGetEdgeEvent(enModule);
+    enPWMOutVar=TIMER__enGetPWMOutputLevel(enModule);
 
-    u32Reg = ((uint32_t)enDirection <<0);
-    u32Reg|= ((uint32_t)enAltMode   <<4);
-    u32Reg|= ((uint32_t)enEdgeMode  <<8);
-    u32Reg|= ((uint32_t)enSubMode   <<12);
-    u32Reg|= ((uint32_t)enConfig    <<16);
-    u32Reg|= ((uint32_t)enPWMOut    <<20);
-    u32Reg|= ((uint32_t)enPWMOutInit<<24);
-    u32Reg|= ((uint32_t)enEdgeEvent <<28);
-    u32Reg|= ((uint32_t)enSnapShot  <<30);
+    u32Reg = ((uint32_t)enDirectionVar <<0);
+    u32Reg|= ((uint32_t)enAltModeVar  <<4);
+    u32Reg|= ((uint32_t)enEdgeModeVar  <<8);
+    u32Reg|= ((uint32_t)enSubModeVar   <<12);
+    u32Reg|= ((uint32_t)enConfigVar    <<16);
+    u32Reg|= ((uint32_t)enPWMOutVar    <<20);
+    u32Reg|= ((uint32_t)enPWMOutInitVar<<24);
+    u32Reg|= ((uint32_t)enEdgeEventVar <<28);
+    u32Reg|= ((uint32_t)enSnapShotVar  <<30);
 
     enMode = (TIMER_nMODE)u32Reg;
     return enMode;

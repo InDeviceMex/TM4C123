@@ -26,9 +26,9 @@
 
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
-HIB_nSTATUS HIB__enEnInterruptSource(HIB_nINT enInterrupt);
-HIB_nSTATUS HIB__enDisInterruptSource(HIB_nINT enInterrupt);
-HIB_nSTATUS HIB__enClearInterruptSource(HIB_nINT enInterrupt);
-HIB_nINT_STATUS HIB__enStatusInterruptSource(HIB_nINT enInterrupt);
+HIB_nSTATUS HIB__enEnInterruptSource(HIB_nINT enInterruptParam);
+HIB_nSTATUS HIB__enDisInterruptSource(HIB_nINT enInterruptParam);
+HIB_nSTATUS HIB__enClearInterruptSource(HIB_nINT enInterruptParam);
+HIB_nINT_STATUS HIB__enStatusInterruptSource(HIB_nINT enInterruptParam);
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_XHEADER_HIB_INTERRUPTSOURCE_H_ */

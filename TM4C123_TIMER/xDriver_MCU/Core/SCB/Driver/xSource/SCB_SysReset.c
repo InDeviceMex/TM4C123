@@ -28,7 +28,12 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-#define SCB_vBarrier() {__asm(" DSB");}
+static inline void SCB_vNoOperation(void);
+
+static inline void SCB_vNoOperation(void)
+{
+  {__asm(" NOP");}
+}
 inline void SCB__vReqSysReset(void)
 {
     uint32_t u32Reg=SCB_AIRCR_R;
@@ -42,7 +47,7 @@ inline void SCB__vReqSysReset(void)
 
         while(1u)
         {
-            __asm(" NOP");
+          SCB_vNoOperation();
         }
 
     }

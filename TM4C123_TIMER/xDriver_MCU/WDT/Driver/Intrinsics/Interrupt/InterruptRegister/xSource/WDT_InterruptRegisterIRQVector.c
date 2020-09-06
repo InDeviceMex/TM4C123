@@ -28,9 +28,9 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void WDT__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),WDT_nINT_TYPE enIntType)
+void WDT__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),WDT_nINT_TYPE enIntTypeParam)
 {
-    uint32_t u32IntType= (uint32_t)enIntType;
+    uint32_t u32IntType= (uint32_t)enIntTypeParam;
     uint32_t u32IrqVectorHandler=0u;
     if(0u != (uint32_t)pfIrqVectorHandler)
     {

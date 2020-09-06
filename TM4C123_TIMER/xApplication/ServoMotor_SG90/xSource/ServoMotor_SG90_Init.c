@@ -31,7 +31,7 @@
 #define SERVO_MAXFREC (1111u) /*900 us*/
 #define SERVO_MINFREC (500u) /*2000 us*/
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModule,GPIO_nDIGITAL_FUNCTION enGpioDigital,uint32_t u32MinTime, uint32_t u32MaxTime)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModuleParam,GPIO_nDIGITAL_FUNCTION enGpioDigitalParam,uint32_t u32MinTime, uint32_t u32MaxTime)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     GPIO_nSTATUS enGPIOStatus= GPIO_enSTATUS_ERROR;
@@ -42,11 +42,11 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     uint32_t u32ServoMaxPulse=0u;
     uint32_t u32ServoMinPulse=0u;
     uint32_t u32ServoMinCount=0u;
-    uint32_t u32DegreeCount=0u;
+    uint32_t u32DegreeCountVar=0u;
     uint32_t u32Reg=0u;
     uint32_t u32MinFrec=1000000u;
     uint32_t u32MaxFrec=1000000u;
-    float32_t fDegreeCount=0.0f;
+    float32_t fDegreeCountVar=0.0f;
 
     if((0u != psServoMotor) && (0u!=u32MinTime) && (0u!=u32MaxTime))
     {
@@ -58,8 +58,8 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         }
         u32MaxFrec/=u32MinTime;
         u32MinFrec/=u32MaxTime;
-        psServoMotor->enGpioDigital=enGpioDigital;
-        psServoMotor->enTimerModule=enTimerModule;
+        psServoMotor->enGpioDigital=enGpioDigitalParam;
+        psServoMotor->enTimerModule=enTimerModuleParam;
 
         u32SysFreq= SYSCTL__u32GetClock();
         u32ServoFreq=u32SysFreq/SERVO_FREC;
@@ -69,13 +69,13 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         psServoMotor->u32MinCount=u32ServoMinCount;
         psServoMotor->u32DeltaCount=u32ServoMinPulse - u32ServoMaxPulse;
         psServoMotor->u32DegreeCount=psServoMotor->u32DeltaCount;
-        u32DegreeCount = psServoMotor->u32DeltaCount;
-        fDegreeCount= (float32_t)u32DegreeCount;
-        psServoMotor->fDegreeCount=fDegreeCount;
+        u32DegreeCountVar = psServoMotor->u32DeltaCount;
+        fDegreeCountVar= (float32_t)u32DegreeCountVar;
+        psServoMotor->fDegreeCount=fDegreeCountVar;
         psServoMotor->u32DegreeCount/=180u;
         psServoMotor->fDegreeCount/=180.0f;
 
-        enGPIOStatus = GPIO__enSetDigitalConfig(enGpioDigital,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
+        enGPIOStatus = GPIO__enSetDigitalConfig(enGpioDigitalParam,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
         if(GPIO_enSTATUS_OK == enGPIOStatus)
         {
             psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
@@ -87,10 +87,10 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
             psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
             psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
 
-            enTIMERStatus = TIMER__enSetExtraModeStruct(enTimerModule,&psExtraMode);
+            enTIMERStatus = TIMER__enSetExtraModeStruct(enTimerModuleParam,&psExtraMode);
             if(TIMER_enOK == enTIMERStatus)
             {
-                enTIMERStatus = TIMER__enSetMode_ReloadMatch(enTimerModule,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,(uint64_t)u32ServoFreq,(uint64_t)u32ServoMinCount);
+                enTIMERStatus = TIMER__enSetMode_ReloadMatch(enTimerModuleParam,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN,0u,(uint64_t)u32ServoFreq,(uint64_t)u32ServoMinCount);
                 if(TIMER_enOK == enTIMERStatus)
                 {
                     enServoStatus=ServoMoto_SG90_enOK;

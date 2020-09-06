@@ -28,14 +28,14 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
-void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive)
+void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDriveParam)
 {
     GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
     uint32_t u32RegSLR=0;
     GPIO_AUX_TypeDef* gpio=0;
-    uint32_t u32Drive =enDrive&0x3u;
-    uint32_t u32SlewRate =(enDrive>>8u)&0x1u;
+    uint32_t u32Drive =enDriveParam&0x3u;
+    uint32_t u32SlewRate =(enDriveParam>>8u)&0x1u;
     if(enPort>GPIO_enPORT_MAX)
     {
         enPort=GPIO_enPORT_MAX;
@@ -64,7 +64,7 @@ void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrive)
 
 GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nDRIVE enDrive=GPIO_enDRIVE_UNDEF;
+    GPIO_nDRIVE enDriveVar=GPIO_enDRIVE_UNDEF;
     GPIO_nREADY enReady= GPIO_enNOREADY;
     GPIO_nBUS enBus=GPIO_enBUS_APB;
     uint32_t u32Reg=0;
@@ -80,9 +80,9 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
     if((GPIO_enREADY == enReady))
     {
         gpio=GPIO_AUX_BLOCK[enBus][(uint32_t)enPort];
-        for(enDrive=GPIO_enDRIVE_2mA;enDrive<=GPIO_enDRIVE_8mA;enDrive++)
+        for(enDriveVar=GPIO_enDRIVE_2mA;enDriveVar<=GPIO_enDRIVE_8mA;enDriveVar++)
         {
-            u32Reg=gpio->GPIODRR[enDrive];
+            u32Reg=gpio->GPIODRR[enDriveVar];
             u32Reg&=enPin;
             if(0u!=u32Reg)
             {
@@ -90,17 +90,17 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
             }
 
         }
-        if(GPIO_enDRIVE_8mA == enDrive)
+        if(GPIO_enDRIVE_8mA == enDriveVar)
         {
             u32Reg=gpio->GPIOSLR;
             u32Reg&=enPin;
             if(0u!=u32Reg)
             {
-                enDrive=GPIO_enDRIVE_8mA_SLR;
+              enDriveVar=GPIO_enDRIVE_8mA_SLR;
             }
         }
     }
-    return enDrive;
+    return enDriveVar;
 }
 
 

@@ -24,10 +24,6 @@
 #include <FLASH/App/xHeader/FLASH_Init.h>
 #include <FLASH/Driver/FLASH_Driver.h>
 
-/**
- *
- * @section Global Functions
- */
 FLASH_nSTATUS FLASH__enInit (void)
 {
     /*

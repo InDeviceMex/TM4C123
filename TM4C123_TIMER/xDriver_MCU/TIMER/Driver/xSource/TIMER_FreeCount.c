@@ -38,10 +38,10 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
     uint32_t pu32SizeShift[2]={16u,32u};
     uint64_t pu64TimerSize[2]={0xFFFFFFu,0xFFFFFFFFFFFFu};
 
-    TIMER_nCONFIG enConfig=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubMode=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltMode=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirection=TIMER_enCOUNT_DIR_DOWN;
+    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
+    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
+    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
+    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
     uint64_t u64Reg=0u;
     uint32_t u32Reg=0u;
@@ -59,8 +59,8 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
     }
     TIMER__vSetReady(enModule);
 
-    enConfig=TIMER__enGetConfiguration(enModule);
-    switch (enConfig)
+    enConfigVar=TIMER__enGetConfiguration(enModule);
+    switch (enConfigVar)
     {
     case TIMER_enCONFIG_WIDE:
         if(TIMER_en64 == (uint32_t)u32Wide)
@@ -107,14 +107,14 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
         break;
     case TIMER_enCONFIG_INDIVIDUAL:
 
-        enSubMode=TIMER__enGetSubMode(enModule);
-        enAltMode=TIMER__enGetAltMode(enModule);
-        enDirection=TIMER__enGetCountDir(enModule);
+        enSubModeVar=TIMER__enGetSubMode(enModule);
+        enAltModeVar=TIMER__enGetAltMode(enModule);
+        enDirectionVar=TIMER__enGetCountDir(enModule);
 
         pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][u32Letter][u32Number];
         pu32TimerPV=TIMER_TnPV_BLOCK[u32Wide][u32Letter][u32Number];
         /*Prescaler*/
-        if((TIMER_enALT_MODE_CC==enAltMode)&& (TIMER_enSUB_MODE_CAPTURE!=enSubMode) && (TIMER_enCOUNT_DIR_DOWN==enDirection))
+        if((TIMER_enALT_MODE_CC==enAltModeVar)&& (TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
         {
 
             if(TIMER_en64 == (uint32_t)u32Wide)
@@ -188,10 +188,10 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
 
     TIMER_nSTATUS enStatus = TIMER_enERROR;
     TIMER_nREADY enReady = TIMER_enNOREADY;
-    TIMER_nCONFIG enConfig=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubMode=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltMode=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirection=TIMER_enCOUNT_DIR_DOWN;
+    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
+    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
+    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
+    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
     uint64_t u64Reg=0u;
     uint32_t u32Reg=0u;
@@ -212,8 +212,8 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
     {
         enStatus = TIMER_enOK;
 
-        enConfig=TIMER__enGetConfiguration(enModule);
-        switch (enConfig)
+        enConfigVar=TIMER__enGetConfiguration(enModule);
+        switch (enConfigVar)
         {
         case TIMER_enCONFIG_WIDE:
             if(TIMER_en64 == (uint32_t)u32Wide)
@@ -255,14 +255,14 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
             break;
         case TIMER_enCONFIG_INDIVIDUAL:
 
-            enSubMode=TIMER__enGetSubMode(enModule);
-            enAltMode=TIMER__enGetAltMode(enModule);
-            enDirection=TIMER__enGetCountDir(enModule);
+            enSubModeVar=TIMER__enGetSubMode(enModule);
+            enAltModeVar=TIMER__enGetAltMode(enModule);
+            enDirectionVar=TIMER__enGetCountDir(enModule);
 
             pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][u32Letter][u32Number];
             pu32TimerPV=TIMER_TnPV_BLOCK[u32Wide][u32Letter][u32Number];
             /*Prescaler*/
-            if((TIMER_enALT_MODE_CC==enAltMode)&& (TIMER_enSUB_MODE_CAPTURE!=enSubMode) && (TIMER_enCOUNT_DIR_DOWN==enDirection))
+            if((TIMER_enALT_MODE_CC==enAltModeVar)&& (TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
             {
 
                 if(TIMER_en64 == (uint32_t)u32Wide)

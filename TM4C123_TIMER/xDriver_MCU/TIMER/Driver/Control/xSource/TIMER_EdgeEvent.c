@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
 
-void TIMER__vSetEdgeEvent(TIMER_nMODULE enModule, TIMER_nEDGE_EVENT enEdgeEvent)
+void TIMER__vSetEdgeEvent(TIMER_nMODULE enModule, TIMER_nEDGE_EVENT enEdgeEventVar)
 {
-    TIMER__vSetControlGeneric(enModule, (uint32_t) enEdgeEvent, GPTM_TA_GPTMTnCTL_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_R_TnEVENT_BIT);
+    TIMER__vSetControlGeneric(enModule, (uint32_t) enEdgeEventVar, GPTM_TA_GPTMTnCTL_TnEVENT_MASK, GPTM_TA_GPTMTnCTL_R_TnEVENT_BIT);
 }
 
 TIMER_nEDGE_EVENT TIMER__enGetEdgeEvent(TIMER_nMODULE enModule)

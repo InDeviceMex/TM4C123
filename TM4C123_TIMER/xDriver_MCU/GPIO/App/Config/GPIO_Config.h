@@ -27,7 +27,7 @@
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
 
-GPIO_nSTATUS         GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfig);
+GPIO_nSTATUS         GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,GPIO_nCONFIG enConfigParam);
 GPIO_nSTATUS         GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,const GPIO_CONFIG_Typedef* psConfig);
 
 GPIO_nCONFIG         GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin);

@@ -26,18 +26,18 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
 
-void TIMER__vSetSubMode(TIMER_nMODULE enModule, TIMER_nSUB_MODE enSubMode)
+void TIMER__vSetSubMode(TIMER_nMODULE enModule, TIMER_nSUB_MODE enSubModeParam)
 {
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
     if(TIMER_enW != u32Letter)
     {
-        TIMER__vSetModeGeneric(enModule, (uint32_t) enSubMode, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
+        TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
     }
     else
     {
-        if(TIMER_enSUB_MODE_CAPTURE>enSubMode)
+        if(TIMER_enSUB_MODE_CAPTURE>enSubModeParam)
         {
-            TIMER__vSetModeGeneric(enModule, (uint32_t) enSubMode, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
+            TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
         }
     }
 }

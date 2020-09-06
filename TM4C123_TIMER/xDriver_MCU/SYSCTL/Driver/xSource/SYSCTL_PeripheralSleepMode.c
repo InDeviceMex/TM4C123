@@ -27,7 +27,12 @@
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralSleepMode.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
-#define SYSCTL_vNoOperation()   {__asm(" NOP");}
+inline void SYSCTL_vNoOperation(void);
+
+inline void SYSCTL_vNoOperation(void)
+{
+  {__asm(" NOP");}
+}
 
 
 void SYSCTL__vEnSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)

@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Enum.h>
 
-void SYSEXC__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),SYSEXC_nINTERRUPT enInterrupt);
+void SYSEXC__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),SYSEXC_nINTERRUPT enInterruptParam);
 
 #endif /* XDRIVER_MCU_SYSEXC_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTREGISTER_XHEADER_SYSEXC_INTERRUPTREGISTERIRQSOURCE_H_ */

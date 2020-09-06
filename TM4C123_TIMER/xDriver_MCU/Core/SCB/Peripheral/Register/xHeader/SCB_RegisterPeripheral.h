@@ -230,10 +230,6 @@
 #define SCB_ISAR4            (((ISAR4_TypeDef*)(SCB_BASE+SCB_ISAR4_OFFSET )))
 #define SCB_ISAR4_R          (*((volatile const uint32_t *)(SCB_BASE+SCB_ISAR4_OFFSET)))
 
-
-
-
-
-
+inline void SCB_vBarrier(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_PERIPHERAL_SCB_REGISTER_SCB_REGISTERPERIPHERAL_H_ */

@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
 
-void TIMER__vSetSnapShot(TIMER_nMODULE enModule, TIMER_nSNAPSHOT enSnapShot)
+void TIMER__vSetSnapShot(TIMER_nMODULE enModule, TIMER_nSNAPSHOT enSnapShotParam)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enSnapShot,GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enSnapShotParam,GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
 }
 
 TIMER_nSNAPSHOT TIMER__enGetSnapShot(TIMER_nMODULE enModule)

@@ -26,10 +26,10 @@
 
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-void FLASH__vEnInterruptSource(FLASH_nINT enInterrupt);
-void FLASH__vDisInterruptSource(FLASH_nINT enInterrupt);
-void FLASH__vClearInterruptSource(FLASH_nINT enInterrupt);
-FLASH_nINT_STATUS FLASH__enStatusInterruptSource(FLASH_nINT enInterrupt);
+void FLASH__vEnInterruptSource(FLASH_nINT enInterruptParam);
+void FLASH__vDisInterruptSource(FLASH_nINT enInterruptParam);
+void FLASH__vClearInterruptSource(FLASH_nINT enInterruptParam);
+FLASH_nINT_STATUS FLASH__enStatusInterruptSource(FLASH_nINT enInterruptParam);
 
 
 #endif /* XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_INTERRUPT_XHEADER_FLASH_INTERRUPTSOURCE_H_ */

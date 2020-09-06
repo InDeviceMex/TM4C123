@@ -81,7 +81,7 @@ void WDT__vSetStall(WDT_nMODULE enModule, WDT_nSTALL enStallValue)
 
 WDT_nSTALL WDT__enGetStall(WDT_nMODULE enModule)
 {
-    WDT_nSTALL enStall= WDT_enSTALL_UNDEF;
+    WDT_nSTALL enStallVar= WDT_enSTALL_UNDEF;
     WDT_nREADY enReady= WDT_enNOREADY;
     uint32_t u32Reg=0u;
     if(enModule>WDT_enMODULE_MAX)
@@ -94,8 +94,8 @@ WDT_nSTALL WDT__enGetStall(WDT_nMODULE enModule)
         u32Reg=WDT->W[enModule].WDTTEST;
         u32Reg>>=WDT_WDTTEST_R_STALL_BIT;
         u32Reg&=WDT_WDTTEST_STALL_MASK;
-        enStall= (WDT_nSTALL)u32Reg;
+        enStallVar= (WDT_nSTALL)u32Reg;
     }
-    return enStall;
+    return enStallVar;
 }
 

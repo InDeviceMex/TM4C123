@@ -28,7 +28,7 @@
 #include <xDriver_MCU/TIMER/TIMER.h>
 #include <xDriver_MCU/GPIO/GPIO.h>
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModule,GPIO_nDIGITAL_FUNCTION enGpioDigital,uint32_t u32MinTime, uint32_t u32MaxTime);
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModuleParam,GPIO_nDIGITAL_FUNCTION enGpioDigitalParam,uint32_t u32MinTime, uint32_t u32MaxTime);
 
 
 

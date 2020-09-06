@@ -26,7 +26,6 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_SysTick.h>
 
-#define SCB_vBarrier() {__asm(" DSB");}
 
 inline void SCB_SysTick__vSetPriority(SCB_nSHPR enPriority)
 {

@@ -39,7 +39,8 @@ uint8_t CONV__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
     char *pcPointerActual=0u;
     char *pcPointerActualAux=0u;
     char* pcConvAux=0u;
-    uint8_t u8DeciActual=0;
+    int8_t s8CharAux=0u;
+    uint8_t u8DeciActual=0u;
     int8_t s8Num=0;
     int8_t s8I=0;
     uint8_t u8FlagSign=1;
@@ -83,7 +84,9 @@ uint8_t CONV__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
         u8Comp1|=u8Comp2;
         if ((uint8_t)1 == u8Comp1)
         {
-            *pcPointerActual = (uint8_t)s8Num  + '0';/*pcConvierte el valor en caracter*/
+            s8CharAux=s8Num;
+            s8CharAux+=(int8_t)'0';
+            *pcPointerActual = (char)s8CharAux;
             u8DeciActual++;
         }
         else

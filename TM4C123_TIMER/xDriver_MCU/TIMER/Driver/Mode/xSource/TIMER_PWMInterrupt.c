@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
 
-void TIMER__vSetPWMInterrupt(TIMER_nMODULE enModule, TIMER_nPWM_INT enPWMInterrupt)
+void TIMER__vSetPWMInterrupt(TIMER_nMODULE enModule, TIMER_nPWM_INT enPWMInterruptParam)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enPWMInterrupt, GPTM_TA_GPTMTnMR_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enPWMInterruptParam, GPTM_TA_GPTMTnMR_TnPWMIE_MASK, GPTM_TA_GPTMTnMR_R_TnPWMIE_BIT);
 }
 
 TIMER_nPWM_INT TIMER__enGetPWMInterrupt(TIMER_nMODULE enModule)

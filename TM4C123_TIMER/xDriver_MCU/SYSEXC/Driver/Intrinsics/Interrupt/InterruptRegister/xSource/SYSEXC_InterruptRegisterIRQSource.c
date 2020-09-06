@@ -26,9 +26,9 @@
 #include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/SYSEXC_InterruptRoutine_Source.h>
 #include <xDriver_MCU/SYSEXC/Peripheral/SYSEXC_Peripheral.h>
 
-void SYSEXC__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),SYSEXC_nINTERRUPT enInterrupt)
+void SYSEXC__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),SYSEXC_nINTERRUPT enInterruptParam)
 {
-    uint32_t u32Interrupt =(uint32_t) enInterrupt;
+    uint32_t u32Interrupt =(uint32_t) enInterruptParam;
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {

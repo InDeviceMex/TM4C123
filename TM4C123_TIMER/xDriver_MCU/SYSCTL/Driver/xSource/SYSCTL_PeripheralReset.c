@@ -26,8 +26,13 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralReset.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
+static inline void SYSCTL_vNoOperation(void);
 
-#define SYSCTL_vNoOperation()   {__asm(" NOP");}
+static inline void SYSCTL_vNoOperation(void)
+{
+  {__asm(" NOP");}
+}
+
 
 void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {

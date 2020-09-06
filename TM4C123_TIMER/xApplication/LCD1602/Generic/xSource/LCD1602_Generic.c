@@ -205,7 +205,7 @@ LCD1602_nSTATUS LCD1602_enReadData(char* pcData)
         enBusyBit= LCD1602_enWait();
         if(LCD1602_enOK == enBusyBit)
         {
-            *pcData=LCD1602__u8Read(LCD1602_enDATA);
+            *pcData=(char)LCD1602__u8Read(LCD1602_enDATA);
             enStatus =LCD1602_enSTATUS_OK;
         }
     }
@@ -631,7 +631,7 @@ LCD1602_nSTATUS LCD1602__enReadBuffer(char* pcData,const char* pcBuffer, const u
             pcBufferAux=pcBuffer;
             pcBufferAux +=u32Index;
             u8AuxValue=(uint8_t)*pcBufferAux;
-            *pcData= (uint8_t)u8AuxValue;
+            *pcData= (char)u8AuxValue;
             enStatus=LCD1602_enSTATUS_OK;
         }
     }
@@ -1055,7 +1055,7 @@ LCD1602_nSTATUS LCD1602__enReadString(char* pcString, uint8_t u8Column,uint8_t u
                                 break;
                             }
                         }
-                        *pcString=0u;
+                        *pcString=(char)0;
                         if(LCD1602_enSTATUS_OK==enStatus)
                         {
                             enStatus=LCD1602_enSetAddress(u8CurrentColumn,u8CurrentRow);

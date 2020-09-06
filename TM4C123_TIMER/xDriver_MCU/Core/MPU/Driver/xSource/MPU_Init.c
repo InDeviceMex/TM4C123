@@ -30,7 +30,15 @@
 #define MPU_FLASH_CODE_ADDR (0x00000000u)
 #define MPU_FLASH_CODE_SIZE (18u-1u)
 
-#define MPU_vBlocking() {__asm(" DSB");__asm(" ISB");}
+inline void MPU_vBlocking(void);
+
+inline void MPU_vBlocking(void)
+{
+  {
+    __asm(" DSB");
+    __asm(" ISB");
+  }
+}
 
 
 void MPU__vInit(void)

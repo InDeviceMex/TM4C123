@@ -21,13 +21,15 @@
  * Date           Author     Version     Description
  * 17 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+ #include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsDigit.h>
 
 CONV_nDIGIT CONV__enIsDigit(char cCharacter)
 {
     CONV_nDIGIT enStatus= CONV_enDIGIT_NO;
-    if((cCharacter >= '0') && (cCharacter <= '9'))
+    uint8_t u8Char = (uint8_t)cCharacter;
+    if((u8Char >= (uint8_t)'0') && (u8Char <=(uint8_t) '9'))
     {
         enStatus=CONV_enDIGIT_OK;
     }

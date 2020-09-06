@@ -33,7 +33,7 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 
 
-GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfig)
+GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCONFIG enConfigParam)
 {
 
     GPIO_nSTATUS enReturn=GPIO_enSTATUS_ERROR;
@@ -44,7 +44,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,GPIO_nCO
     u32Pin=((uint32_t)1u<<u32Pin);
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
-    GPIO_CONFIG_Typedef* psConfig=GPIO__psCreateConfigStruct(enConfig);
+    GPIO_CONFIG_Typedef* psConfig=GPIO__psCreateConfigStruct(enConfigParam);
 
     if(psConfig!=0)
     {
@@ -99,22 +99,22 @@ GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
     GPIO_nPORT enPort=(GPIO_nPORT)u32Port;
     GPIO_nPIN enPin =(GPIO_nPIN)u32Pin;
 
-    GPIO_nRESMODE   enResistorMode= GPIO_enRESMODE_UNDEF;
-    GPIO_nOUTMODE   enOutputMode= GPIO_enOUTMODE_UNDEF;
-    GPIO_nDIR       enDirection = GPIO_enDIR_UNDEF;
-    GPIO_nDRIVE     enDrive = GPIO_enDRIVE_UNDEF;
+    GPIO_nRESMODE   enResistorModeVar= GPIO_enRESMODE_UNDEF;
+    GPIO_nOUTMODE   enOutputModeVar= GPIO_enOUTMODE_UNDEF;
+    GPIO_nDIR       enDirectionVar = GPIO_enDIR_UNDEF;
+    GPIO_nDRIVE     enDriveVar = GPIO_enDRIVE_UNDEF;
 
     uint32_t u32Reg=0;
 
-    enResistorMode=GPIO__enGetResistorMode(enPort, enPin);
-    enOutputMode=GPIO__enGetOutputMode(enPort, enPin);
-    enDirection=GPIO__enGetDirection(enPort, enPin);
-    enDrive=GPIO__enGetDrive(enPort, enPin);
+    enResistorModeVar=GPIO__enGetResistorMode(enPort, enPin);
+    enOutputModeVar=GPIO__enGetOutputMode(enPort, enPin);
+    enDirectionVar=GPIO__enGetDirection(enPort, enPin);
+    enDriveVar=GPIO__enGetDrive(enPort, enPin);
 
-    u32Reg = ((uint32_t)enResistorMode <<0);
-    u32Reg|= ((uint32_t)enOutputMode   <<4);
-    u32Reg|= ((uint32_t)enDirection  <<8);
-    u32Reg|= ((uint32_t)enDrive   <<16);
+    u32Reg = ((uint32_t)enResistorModeVar <<0);
+    u32Reg|= ((uint32_t)enOutputModeVar   <<4);
+    u32Reg|= ((uint32_t)enDirectionVar  <<8);
+    u32Reg|= ((uint32_t)enDriveVar   <<16);
 
     enConfig = (GPIO_nCONFIG)u32Reg;
     return enConfig;

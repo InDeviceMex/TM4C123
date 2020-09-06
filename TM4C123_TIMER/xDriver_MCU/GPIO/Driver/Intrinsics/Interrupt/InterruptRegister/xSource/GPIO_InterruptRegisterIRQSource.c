@@ -1,6 +1,6 @@
 /**
  *
- * @file GPIO_InterruptRegisterISR.c
+ * @file GPIO_InterruptRegisterIRQSource.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

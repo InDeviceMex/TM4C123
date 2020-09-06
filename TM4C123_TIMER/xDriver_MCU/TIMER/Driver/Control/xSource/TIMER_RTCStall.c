@@ -26,12 +26,12 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
 
-void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStall)
+void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStallParam)
 {
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
     if(TIMER_enW == u32Letter)
     {
-        TIMER__vSetControlGeneric(enModule, (uint32_t) enRTCStall, GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
+        TIMER__vSetControlGeneric(enModule, (uint32_t) enRTCStallParam, GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
     }
 }
 

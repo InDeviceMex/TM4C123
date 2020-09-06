@@ -34,7 +34,7 @@ CONV_nSTATUS CONV__enConversion(char* pcPointer, uint64_t u64Number,uint8_t* u8L
     {
         enStatus = CONV_enSTATUS_OK;
         *u8Length=0u;
-        *pcPointer = 0u;/*guarda el fin de cadena en la ultima posicion*/
+        *pcPointer = (char)0;/*guarda el fin de cadena en la ultima posicion*/
 
         do{
             (*u8Length)++;

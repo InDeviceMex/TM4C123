@@ -40,7 +40,7 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
 
     char cStringBack[30]={0};
     char* pcStringBack=cStringBack;
-    char  cValueAux=0;
+    uint8_t  u8ValueAux=0;
 
     if((uint32_t)0u == (uint32_t)pcString)
     {
@@ -64,8 +64,9 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
             else if(CONV_enDIGIT_OK == enDigit)
             {
                 s64NumSignedReg*=10;
-                cValueAux= *pcString-'0';
-                s64NumSignedReg+=(int64_t)cValueAux;
+                u8ValueAux= (uint8_t)*pcString;
+                u8ValueAux-=(uint8_t)'0';
+                s64NumSignedReg+=(int64_t)u8ValueAux;
                 s32Length++;
                 *pcStringBack=*pcString;
                 pcStringBack+=1u;

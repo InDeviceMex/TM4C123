@@ -82,21 +82,21 @@ WDT_nMODE WDT__enGetMode(WDT_nMODULE enModule)
 {
     WDT_nMODE enMode=WDT_enMODE_UNDEF;
 
-    WDT_nINT_TYPE       enIntType=WDT_enINT_TYPE_UNDEF;
-    WDT_nRESET          enResetOutput=WDT_enRESET_UNDEF;
-    WDT_nINTERRUPT      enInterrupt=WDT_enINTERRUPT_UNDEF;
-    WDT_nSTALL          enStall=WDT_enSTALL_UNDEF;
+    WDT_nINT_TYPE       enIntTypeVar=WDT_enINT_TYPE_UNDEF;
+    WDT_nRESET          enResetOutputVar=WDT_enRESET_UNDEF;
+    WDT_nINTERRUPT      enInterruptVar=WDT_enINTERRUPT_UNDEF;
+    WDT_nSTALL          enStallVar=WDT_enSTALL_UNDEF;
 
     uint32_t u32Reg=0;
 
-    enInterrupt  =WDT__enGetInterruptSource(enModule);
-    enStall      =WDT__enGetStall(enModule);
-    enIntType    =WDT__enGetInterruptSourceType(enModule);
-    enResetOutput=WDT__enGetResetOutput(enModule);
-      u32Reg = ((uint32_t)enInterrupt     <<0u);
-    u32Reg|= ((uint32_t)enStall         <<8u);
-    u32Reg|= ((uint32_t)enIntType       <<16u);
-    u32Reg|= ((uint32_t)enResetOutput   <<24u);
+    enInterruptVar  =WDT__enGetInterruptSource(enModule);
+    enStallVar      =WDT__enGetStall(enModule);
+    enIntTypeVar    =WDT__enGetInterruptSourceType(enModule);
+    enResetOutputVar=WDT__enGetResetOutput(enModule);
+      u32Reg = ((uint32_t)enInterruptVar     <<0u);
+    u32Reg|= ((uint32_t)enStallVar         <<8u);
+    u32Reg|= ((uint32_t)enIntTypeVar       <<16u);
+    u32Reg|= ((uint32_t)enResetOutputVar   <<24u);
 
     enMode = (WDT_nMODE)u32Reg;
 

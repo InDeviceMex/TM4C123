@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
 
-void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltMode)
+void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltModeVar)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enAltMode, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enAltModeVar, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
 }
 
 TIMER_nALT_MODE TIMER__enGetAltMode(TIMER_nMODULE enModule)

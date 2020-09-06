@@ -26,9 +26,9 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
 
-void TIMER__vSetMatchEventInterrupt(TIMER_nMODULE enModule, TIMER_nEVENT_INT enEventInterrupt)
+void TIMER__vSetMatchEventInterrupt(TIMER_nMODULE enModule, TIMER_nEVENT_INT enEventInterruptParam)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enEventInterrupt, GPTM_TA_GPTMTnMR_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enEventInterruptParam, GPTM_TA_GPTMTnMR_TnMIE_MASK, GPTM_TA_GPTMTnMR_R_TnMIE_BIT);
 }
 
 TIMER_nEVENT_INT TIMER__enGetMatchEventInterrupt(TIMER_nMODULE enModule)

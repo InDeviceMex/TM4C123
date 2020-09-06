@@ -11,8 +11,6 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/FPU/Peripheral/FPU_Peripheral.h>
 
-#define FPU_vBlocking() {__asm(" DSB");__asm(" ISB");}
-
 FPU_nACCESS FPU__enGetAccessType(void)
 {
     FPU_nACCESS enReturn= FPU_enDENIED;

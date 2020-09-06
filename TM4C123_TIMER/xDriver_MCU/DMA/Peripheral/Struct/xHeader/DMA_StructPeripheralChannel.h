@@ -49,7 +49,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    DMACHANNEL_TypeDef DMACH[32];
+    DMACHANNEL_TypeDef DMACh[32];
 }DMACH_TypeDef;
 
 

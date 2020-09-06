@@ -26,9 +26,9 @@
 
 #include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Enum.h>
 
-void SYSEXC__vEnInterruptSource(SYSEXC_nINT enInterrupt);
-void SYSEXC__vDisInterruptSource(SYSEXC_nINT enInterrupt);
-void SYSEXC__vClearInterruptSource(SYSEXC_nINT enInterrupt);
-SYSEXC_nINT_STATUS SYSEXC__enStatusInterruptSource(SYSEXC_nINT enInterrupt);
+void SYSEXC__vEnInterruptSource(SYSEXC_nINT enInterruptParam);
+void SYSEXC__vDisInterruptSource(SYSEXC_nINT enInterruptParam);
+void SYSEXC__vClearInterruptSource(SYSEXC_nINT enInterruptParam);
+SYSEXC_nINT_STATUS SYSEXC__enStatusInterruptSource(SYSEXC_nINT enInterruptParam);
 
 #endif /* XDRIVER_MCU_SYSEXC_DRIVER_INTRINSICS_INTERRUPT_XHEADER_SYSEXC_INTERRUPTSOURCE_H_ */

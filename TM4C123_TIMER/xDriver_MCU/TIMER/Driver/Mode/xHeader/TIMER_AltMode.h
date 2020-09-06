@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltMode);
+void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltModeVar);
 TIMER_nALT_MODE TIMER__enGetAltMode(TIMER_nMODULE enModule);
 
 
