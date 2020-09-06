@@ -22,7 +22,7 @@
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <SYSEXC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/SYSEXC_InterruptRegisterIRQVector.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/SCB.h>
 #include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/SYSEXC_InterruptRoutine.h>
 

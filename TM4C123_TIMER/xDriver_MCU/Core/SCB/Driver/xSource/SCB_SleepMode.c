@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_SleepMode.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
 SCB_nSTATUS SCB__enSetSleepMode(SCB_nSleepDeep enSleepMode)

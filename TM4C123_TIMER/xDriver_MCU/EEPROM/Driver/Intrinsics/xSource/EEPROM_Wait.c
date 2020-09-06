@@ -26,7 +26,7 @@
  */
 #include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_Wait.h>
 #include <EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 

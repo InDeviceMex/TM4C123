@@ -23,7 +23,7 @@
  */
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Vector_GPIOA.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Source.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>

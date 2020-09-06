@@ -22,7 +22,7 @@
  * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterAddressChannel.h>
 
 #if defined ( __TI_ARM__ )

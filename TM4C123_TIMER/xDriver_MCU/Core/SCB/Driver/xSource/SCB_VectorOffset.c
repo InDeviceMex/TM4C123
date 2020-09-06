@@ -53,8 +53,8 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
         for(u32Count=0u; u32Count<0x100u;u32Count++ )
         {
             *pu32Ram=*pu32Flash;
-            pu32Ram++;
-            pu32Flash++;
+            pu32Ram+=1u;
+            pu32Flash+=1u;
         }
         __asm(" cpsid i");
         SCB_VTOR_R= u32Offset;

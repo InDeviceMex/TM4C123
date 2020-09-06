@@ -9,7 +9,7 @@
 #define HEADER_APP_PRINTF_H_
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <xApplication/CONVERSION/Generic/xHeader/CONV.h>

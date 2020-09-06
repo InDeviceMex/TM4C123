@@ -24,7 +24,7 @@
 
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <stdlib.h>
 #include <xDriver_MCU/GPIO/App/Config/xHeader/GPIO_ConfigStruct.h>
 #include <xDriver_MCU/GPIO/App/xHeader/GPIO_DigitalConfig.h>

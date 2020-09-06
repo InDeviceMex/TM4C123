@@ -24,7 +24,7 @@
 #ifndef XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_POINTER2STRING_H_
 #define XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_POINTER2STRING_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 uint8_t CONV__u8Pointer2String(void* vNumber, char* pcConv);
 

@@ -24,11 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERADDRESSCHANNEL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERADDRESSCHANNEL_H_
 
-#include <stdint.h>
-
-#if defined ( __TI_ARM__ )
-    #pragma CHECK_MISRA("-10.3")
-#endif
+#include <xUtils/Standard/Standard.h>
 
 #define DMACH_MAX (32u)
 #define DMACH_REG_NUM (4u)

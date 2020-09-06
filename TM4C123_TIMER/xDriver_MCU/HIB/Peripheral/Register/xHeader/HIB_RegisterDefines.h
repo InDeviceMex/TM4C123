@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_REGISTER_HIB_REGISTERDEFINES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_REGISTER_HIB_REGISTERDEFINES_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
 ************************************ 1 HIBRTCC *********************************************

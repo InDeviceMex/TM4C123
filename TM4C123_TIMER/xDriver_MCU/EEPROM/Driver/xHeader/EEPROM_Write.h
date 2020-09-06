@@ -9,7 +9,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_WRITE_H_
 
 #include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 EEPROM_nSTATUS EEPROM__enWriteWorld(uint32_t u32Data,uint32_t u32Address);
 EEPROM_nSTATUS EEPROM__enWriteHalfWorld(uint16_t u16Data,uint32_t u32Address);

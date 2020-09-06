@@ -6,7 +6,7 @@
  */
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteIntrinsics.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Erase.h>
@@ -50,6 +50,7 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
     uint32_t u32Value=0;
     uint32_t u32CountActual=0;
     uint32_t u32CountMax=0;
+    uint32_t *pu32Address=0u;
 
     u32CountActual=(u32Address&0x7Fu)>>2;
     u32CountMax=(u32CountActual)+u32Count;
@@ -63,12 +64,14 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
                 FLASH_FMA_R=u32Address;
                 while(u32Count)
                 {
-                    u32Value=*((uint32_t*)u32Address+(u32CountActual));
+                    pu32Address = (uint32_t*)u32Address;
+                    pu32Address += u32CountActual;
+                    u32Value=*pu32Address;
                     if( (uint32_t)0xFFFFFFFFu == u32Value)
                     {
                         FLASH_FWBn->FWB[u32CountActual]=*pu32Data;
                     }
-                    pu32Data++;
+                    pu32Data+=1u;
                     u32Count--;
                     u32CountActual++;
                 }

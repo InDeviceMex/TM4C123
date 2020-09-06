@@ -25,13 +25,14 @@
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterIRQVector.h>
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Write.h>
 
 void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
+    uint32_t* pu32BaseVector = 0u;
 
     if((uint32_t)pfIrqVectorHandler !=0u)
     {
@@ -43,7 +44,9 @@ void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECIS
         }
         else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
         {
-            *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)pfIrqVectorHandler|1u;
+            pu32BaseVector= (uint32_t*)u32BaseVector;
+            pu32BaseVector+=(uint32_t)enVector;
+            *(pu32BaseVector)=(uint32_t)pfIrqVectorHandler|1u;
         }
         else{}
     }

@@ -22,7 +22,7 @@
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptSource.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>

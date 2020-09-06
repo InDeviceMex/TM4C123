@@ -33,7 +33,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_INIT_H_
 
 #include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 /**
  * @brief EEPROM Initialization Function

@@ -8,7 +8,7 @@
 
 #include <xDriver_MCU/Core/FPU/Driver/xHeader/FPU_HalfPrecision.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/FPU/Peripheral/FPU_Peripheral.h>
 
 FPU_nHALF_PRECISION FPU__enGetHalfPrecision(void)

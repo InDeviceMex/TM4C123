@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_FPU_REGISTERADDRESS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_FPU_REGISTERADDRESS_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 #define FPU_BASE            ((uint32_t)0xE000E000u)
 #define FPU_OFFSET          ((uint32_t)0x00000D88u)

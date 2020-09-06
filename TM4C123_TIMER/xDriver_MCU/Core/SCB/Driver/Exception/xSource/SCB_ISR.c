@@ -22,7 +22,7 @@
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_ISR.h>
 

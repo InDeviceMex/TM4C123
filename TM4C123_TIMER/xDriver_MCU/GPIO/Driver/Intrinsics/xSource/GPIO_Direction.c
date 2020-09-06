@@ -22,7 +22,7 @@
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Direction.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>

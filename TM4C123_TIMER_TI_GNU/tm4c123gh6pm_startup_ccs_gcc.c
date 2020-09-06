@@ -22,7 +22,7 @@
 /**/
 /*******************************************************************************/
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 /*******************************************************************************/
 /**/
@@ -290,11 +290,11 @@ ResetISR(void)
           "        blt     zero_loop");
 
     /**/
-    /* Enable the floating-point unit.  This must be done here to handle the*/
-    /* case where main() uses floating-point and the function prologue saves*/
-    /* floating-point registers (which will fault if floating-point is not*/
-    /* enabled).  Any configuration of the floating-point unit using DriverLib*/
-    /* APIs must be done here prior to the floating-point unit being enabled.*/
+    /* Enable the float32_ting-point unit.  This must be done here to handle the*/
+    /* case where main() uses float32_ting-point and the function prologue saves*/
+    /* float32_ting-point registers (which will fault if float32_ting-point is not*/
+    /* enabled).  Any configuration of the float32_ting-point unit using DriverLib*/
+    /* APIs must be done here prior to the float32_ting-point unit being enabled.*/
     /**/
     /* Note that this does not use DriverLib since it might not be included in*/
     /* this project.*/

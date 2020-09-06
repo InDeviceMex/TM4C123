@@ -8,7 +8,7 @@
 #ifndef SYSCTL_H_
 #define SYSCTL_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 #define SYSCTL_BASE            (0x400FE000u)
 #define SYSCTL_BITBANDING_BASE (0x42000000u)

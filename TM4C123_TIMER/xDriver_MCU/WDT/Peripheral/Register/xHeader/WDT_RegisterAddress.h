@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_REGISTER_WDT_REGISTERADDRESS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_REGISTER_WDT_REGISTERADDRESS_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 #define WDT_BASE            ((uint32_t)0x40000000u)
 #define WDT0_BASE           ((uint32_t)0x40000000u)

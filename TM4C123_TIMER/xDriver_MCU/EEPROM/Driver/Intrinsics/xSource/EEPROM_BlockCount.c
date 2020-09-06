@@ -27,7 +27,7 @@
  * Include Files
  */
 #include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_BlockCount.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 /**

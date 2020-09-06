@@ -22,7 +22,7 @@
  * 6 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xApplication/ServoMotor_SG90/xHeader/ServoMotor_SG90_Init.h>
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
@@ -46,7 +46,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     uint32_t u32Reg=0u;
     uint32_t u32MinFrec=1000000u;
     uint32_t u32MaxFrec=1000000u;
-    float fDegreeCount=0.0f;
+    float32_t fDegreeCount=0.0f;
 
     if((0u != psServoMotor) && (0u!=u32MinTime) && (0u!=u32MaxTime))
     {
@@ -70,7 +70,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         psServoMotor->u32DeltaCount=u32ServoMinPulse - u32ServoMaxPulse;
         psServoMotor->u32DegreeCount=psServoMotor->u32DeltaCount;
         u32DegreeCount = psServoMotor->u32DeltaCount;
-        fDegreeCount= (float)u32DegreeCount;
+        fDegreeCount= (float32_t)u32DegreeCount;
         psServoMotor->fDegreeCount=fDegreeCount;
         psServoMotor->u32DegreeCount/=180u;
         psServoMotor->fDegreeCount/=180.0f;

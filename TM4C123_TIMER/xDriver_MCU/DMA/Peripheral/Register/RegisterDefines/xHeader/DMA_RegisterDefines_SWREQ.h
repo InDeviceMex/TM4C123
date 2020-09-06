@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_SWREQ_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_SWREQ_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 /**************************************************************************************
 ************************************* 9 DMASWREQ *************************************

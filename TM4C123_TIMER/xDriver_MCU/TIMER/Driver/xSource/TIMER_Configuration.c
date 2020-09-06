@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Configuration.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>

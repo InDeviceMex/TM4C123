@@ -24,7 +24,7 @@
 
 #include <xApplication/LCD1602/Adaptive/Functions/xHeader/LCD1602_Read.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xApplication/LCD1602/Adaptive/xHeader/LCD1602_Enum.h>
 #include <xApplication/LCD1602/Adaptive/Intrinsics/LCD1602_Intrinsics.h>
 

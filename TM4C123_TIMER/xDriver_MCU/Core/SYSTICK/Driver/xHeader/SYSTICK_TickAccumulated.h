@@ -8,7 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_DRIVER_SYSTICK_TICKACCUMULATED_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_DRIVER_SYSTICK_TICKACCUMULATED_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 uint64_t SysTick__u64GetTickAccumulated(void);
 

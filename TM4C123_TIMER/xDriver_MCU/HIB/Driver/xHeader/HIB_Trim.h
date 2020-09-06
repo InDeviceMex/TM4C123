@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_TRIM_H_
 #define XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_TRIM_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetTrim(uint32_t u32Trim);

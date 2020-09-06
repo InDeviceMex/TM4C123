@@ -6,7 +6,7 @@
  */
 #include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <EEPROM/Driver/xHeader/EEPROM_Write.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 EEPROM_nSTATUS EEPROM__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
@@ -37,8 +37,8 @@ EEPROM_nSTATUS EEPROM__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
     uint32_t u32Offset = (u32Address >> (uint32_t)2u) &(uint32_t)0xFu;/*First 16 worlds*/
     uint32_t u32Pos = (u32Address >> (uint32_t)1u) & (uint32_t)1u;
 
-    volatile uint32_t u32DataAux = 0;
-    volatile uint16_t *pu16DataAux = 0;
+    static volatile uint16_t *pu16DataAux = 0;
+    static volatile uint32_t u32DataAux = 0;
     if((u32MaxAddress) > u32Address)
     {
         EEPROM_EEBLOCK_R = u32Block;
@@ -48,7 +48,8 @@ EEPROM_nSTATUS EEPROM__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
 
         if(EEPROM_enOK == enReturn)
         {
-            pu16DataAux = (volatile uint16_t*) &u32DataAux + u32Pos;
+            pu16DataAux = (volatile uint16_t*) &u32DataAux;
+            pu16DataAux+=u32Pos;
             *pu16DataAux = u16Data;
 
             EEPROM_EERDWR_R = u32DataAux;
@@ -68,8 +69,8 @@ EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address)
     uint32_t u32Offset =(u32Address>>(uint32_t)2u)&(uint32_t)0xFu;/*First 16 worlds*/
     uint32_t u32Pos=(u32Address)&(uint32_t)0x3u;
 
-    volatile uint32_t u32DataAux=0;
-    volatile uint8_t* pu8DataAux=0;
+    static volatile uint8_t* pu8DataAux=0;
+    static volatile uint32_t u32DataAux=0;
     if((u32MaxAddress )> u32Address )
     {
         EEPROM_EEBLOCK_R=u32Block;
@@ -79,7 +80,8 @@ EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address)
 
         if(EEPROM_enOK ==enReturn)
         {
-            pu8DataAux=(volatile uint8_t*)&u32DataAux+u32Pos;
+            pu8DataAux=(volatile uint8_t*)&u32DataAux;
+            pu8DataAux+=u32Pos;
             *pu8DataAux=u8Data;
 
             EEPROM_EERDWR_R=u32DataAux;
@@ -104,7 +106,7 @@ EEPROM_nSTATUS EEPROM__enWriteWorldBlock(const uint32_t* pu32Data,uint32_t u32Ad
         do
         {
             EEPROM_EERDWR_R=*pu32Data;
-            pu32Data++;
+            pu32Data+=1u;
             enReturn=EEPROM__enWait();
         }while((uint32_t) 0 != EEPROM_EEOFFSET_R);
     }

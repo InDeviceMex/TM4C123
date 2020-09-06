@@ -25,7 +25,7 @@
 
 #include <xDriver_MCU/Core/MPU/Driver/xHeader/MPU_Init.h>
 #include <xDriver_MCU/Core/MPU/Peripheral/MPU_Peripheral.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 #define MPU_FLASH_CODE_ADDR (0x00000000u)
 #define MPU_FLASH_CODE_SIZE (18u-1u)

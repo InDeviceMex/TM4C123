@@ -24,7 +24,7 @@
 #ifndef XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_INTRINSICS_LCD1602_READBYTE_H_
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_INTRINSICS_LCD1602_READBYTE_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 uint8_t LCD1602__u8ReadLowByte(void);
 uint8_t LCD1602__u8ReadHighByte(void);

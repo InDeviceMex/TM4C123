@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_ENUM_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_ENUM_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 typedef enum
 {

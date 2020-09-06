@@ -23,7 +23,7 @@
  */
 #include <xApplication/LCD1602/Adaptive/Intrinsics/xHeader/LCD1602_ReadByte.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xApplication/LCD1602/Adaptive/xHeader/LCD1602_Defines.h>
 #include <xDriver_MCU/GPIO/GPIO.h>
 

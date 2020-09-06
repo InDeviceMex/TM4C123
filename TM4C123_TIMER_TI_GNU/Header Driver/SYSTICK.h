@@ -8,7 +8,7 @@
 #ifndef HEADER_DRIVER_SYSTICK_H_
 #define HEADER_DRIVER_SYSTICK_H_
 
-#include <stdint.h>                             /* standard types definitions                      */
+#include <xUtils/Standard/Standard.h>                             /* standard types definitions                      */
 #include "SCB.h"
 #include "SYSCTL.h"
 
@@ -223,18 +223,18 @@ typedef enum
 }SysTick_nCLKSOURCE;
 
 SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysTick_nCLKSOURCE enClockSource);
-SysTick_nSTATUS SysTick__enInitFrequency(float fFrequency, SCB_nSHPR enPriority);
-SysTick_nSTATUS SysTick__enInitUs(float fTimeUs, SCB_nSHPR enPriority);
+SysTick_nSTATUS SysTick__enInitFrequency(float32_t fFrequency, SCB_nSHPR enPriority);
+SysTick_nSTATUS SysTick__enInitUs(float32_t fTimeUs, SCB_nSHPR enPriority);
 
-float SysTick__fGetTimeUs(void);
-float SysTick__fGetFrequency(void);
+float32_t SysTick__fGetTimeUs(void);
+float32_t SysTick__fGetFrequency(void);
 void SysTick__vClearCount(void);
 uint32_t SysTick__u32GetCount(void);
 uint32_t SysTick__u32GetCurrentTick(void);
 uint64_t SysTick__u64GetCurrentCountTick(void);
 uint32_t SysTick__u32GetMaxTick(void);
 
-void SysTick__vDelayUs(float fTimeUs);
+void SysTick__vDelayUs(float32_t fTimeUs);
 
 
 #endif /* HEADER_DRIVER_SYSTICK_H_ */

@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 18 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/Conversion_Number.h>
 #include <xUtils/Conversion/Conversion_String2Number/xHeader/Conversion_String2Integer.h>
@@ -59,7 +59,7 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
                 enSign=CONV_enSIGNED_NEGATIVE;
                 s32Length++;
                 *pcStringBack=*pcString;
-                pcStringBack++;
+                pcStringBack+=1u;
             }
             else if(CONV_enDIGIT_OK == enDigit)
             {
@@ -68,11 +68,11 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
                 s64NumSignedReg+=(int64_t)cValueAux;
                 s32Length++;
                 *pcStringBack=*pcString;
-                pcStringBack++;
+                pcStringBack+=1u;
             }
             else if((CONV_enBACKSPACE_OK==enBackSpace) && (0 != s32Length))
             {
-                pcStringBack--;
+                pcStringBack-=1u;
                 enDigit=CONV__enIsDigit(*pcStringBack);
                 if(CONV_enDIGIT_OK == enDigit)
                 {
@@ -91,7 +91,7 @@ int32_t CONV__s32String2Int(const char* pcString,int64_t* s64NumSigned )
             }
             else{}
 
-            pcString++;
+            pcString+=1u;
 
             enStatus=(CONV_nSTATUS)CONV__enIsNewLineReturn(*pcString);
             enStatus&=(CONV_nSTATUS)CONV__enIsScape(*pcString);

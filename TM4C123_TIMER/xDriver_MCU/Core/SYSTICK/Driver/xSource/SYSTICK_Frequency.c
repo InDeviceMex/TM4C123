@@ -11,20 +11,20 @@
 
 #include <xDriver_MCU/Core/SYSTICK/Driver/xHeader/SYSTICK_Frequency.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_FreeCount.h>
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_TickFreq.h>
 
-float SysTick__fGetFrequency(void)
+float32_t SysTick__fGetFrequency(void)
 {
-    float fReg=0.0;
+    float32_t fReg=0.0;
     uint32_t u32FreeCount= SysTick__u32GetFreeCount();
     if(u32FreeCount!=0u)
     {
-        float fTickFrec = SysTick__fGetTickFreq();
+        float32_t fTickFrec = SysTick__fGetTickFreq();
         fReg=fTickFrec;
-        fReg/=(float)u32FreeCount;
+        fReg/=(float32_t)u32FreeCount;
     }
-    return (float)(fReg);
+    return (float32_t)(fReg);
 
 }

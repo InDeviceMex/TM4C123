@@ -25,7 +25,7 @@
 #define XDRIVER_MCU_FLASH_APP_XHEADER_FLASH_INIT_H_
 
 #include <FLASH/Peripheral/xHeader/FLASH_Enum.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 FLASH_nSTATUS FLASH__enInit(void);
 void FLASH__vDeInit(void);

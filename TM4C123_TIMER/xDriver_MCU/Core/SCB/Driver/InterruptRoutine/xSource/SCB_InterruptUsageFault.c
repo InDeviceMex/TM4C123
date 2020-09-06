@@ -22,7 +22,7 @@
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptUsageFault.h>
 uint32_t SCB_UsageFault_pu32Context[8];

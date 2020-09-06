@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 1 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/DMA_InterruptRegisterISRVector.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Modules.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>

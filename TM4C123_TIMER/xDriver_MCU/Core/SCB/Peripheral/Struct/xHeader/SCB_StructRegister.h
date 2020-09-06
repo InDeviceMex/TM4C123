@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_PERIPHERAL_SCB_STRUCT_SCB_STRUCTREGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_PERIPHERAL_SCB_STRUCT_SCB_STRUCTREGISTER_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 typedef volatile struct
 {
@@ -200,39 +200,44 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint16_t UNDEFINSTR :1;
-    volatile uint16_t INVSTATE   :1;
-    volatile uint16_t INVPC      :1;
-    volatile uint16_t NOCP       :1;
-    const    uint16_t reserved   :4;
-    volatile uint16_t UNALIGNED  :1;
-    volatile uint16_t DIVBYZERO  :1;
-    const    uint16_t reserved1  :6;
-}UCFSR_TypeDef;
+  volatile uint32_t   IACCVIOL         :1;
+  volatile uint32_t   DACCVIOL        :1;
+  const    uint32_t   reserved           :1;
+  volatile uint32_t   MUNSTKERR    :1;
+  volatile uint32_t   MSTKERR         :1;
+  volatile uint32_t   MLSPERR         :1;
+  const    uint32_t   reserved1         :1;
+  volatile uint32_t  MMARVALID     :1;
+  const    uint32_t   reserved2         : 24;
+}MCFSR_TypeDef;
 
 typedef volatile struct
 {
-    volatile uint8_t IBUSERR    :1;
-    volatile uint8_t PRECISERR  :1;
-    volatile uint8_t IMPRECISERR:1;
-    volatile uint8_t UNSTKERR   :1;
-    volatile uint8_t STKERR     :1;
-    volatile uint8_t LSPERR     :1;
-    const    uint8_t reserved   :1;
-    volatile uint8_t BFARVALID  :1;
+    const    uint32_t   reserved        :8;
+    volatile uint32_t IBUSERR         :1;
+    volatile uint32_t PRECISERR     :1;
+    volatile uint32_t IMPRECISERR:1;
+    volatile uint32_t UNSTKERR    :1;
+    volatile uint32_t STKERR          :1;
+    volatile uint32_t LSPERR          :1;
+    const    uint32_t reserved1      :1;
+    volatile uint32_t BFARVALID   :1;
+    const    uint32_t   reserved2     :16;
 }BCFSR_TypeDef;
 
 typedef volatile struct
 {
-    volatile uint8_t IACCVIOL   :1;
-    volatile uint8_t DACCVIOL   :1;
-    const    uint8_t reserved   :1;
-    volatile uint8_t MUNSTKERR  :1;
-    volatile uint8_t MSTKERR    :1;
-    volatile uint8_t MLSPERR    :1;
-    const    uint8_t reserved1  :1;
-    volatile uint8_t MMARVALID  :1;
-}MCFSR_TypeDef;
+    const    uint32_t reserved   :16;
+    volatile uint32_t UNDEFINSTR :1;
+    volatile uint32_t INVSTATE   :1;
+    volatile uint32_t INVPC      :1;
+    volatile uint32_t NOCP       :1;
+    const    uint32_t reserved1  :4;
+    volatile uint32_t UNALIGNED  :1;
+    volatile uint32_t DIVBYZERO  :1;
+    const    uint32_t reserved2  :6;
+}UCFSR_TypeDef;
+
 
 typedef volatile struct
 {

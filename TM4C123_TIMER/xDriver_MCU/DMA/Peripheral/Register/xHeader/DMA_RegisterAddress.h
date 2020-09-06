@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERADDRESS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERADDRESS_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 #define DMA_BASE                    ((uint32_t)0x400FF000u)
 #define DMA_OFFSET                  ((uint32_t)0x000FF000u)

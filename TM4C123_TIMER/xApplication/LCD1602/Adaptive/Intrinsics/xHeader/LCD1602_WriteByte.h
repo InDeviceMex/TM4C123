@@ -24,7 +24,7 @@
 #ifndef XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_INTRINSICS_LCD1602_WRITEBYTE_H_
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_INTRINSICS_LCD1602_WRITEBYTE_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 void LCD1602__vWriteLowNible(uint8_t u8Data);
 void LCD1602__vWriteHighNible(uint8_t u8Data);

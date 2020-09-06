@@ -8,7 +8,7 @@
 
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #define FLASH_TIMEOUT_MAX (9000000u)
 

@@ -25,7 +25,7 @@
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalCountStatus.h>
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalStatus.h>
 #include <xDriver_MCU/HIB/Driver/HIB_Driver.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 #include <xDriver_MCU/GPIO/GPIO.h>
 

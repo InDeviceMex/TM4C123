@@ -9,7 +9,7 @@
 #define HEADER_DRIVER_HIB_H_
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <NVIC.h>
 #include <SCB.h>
 #include <SYSCTL.h>

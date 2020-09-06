@@ -22,7 +22,7 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral/GPIO_RegisterPeripheral.h>
 

@@ -5,8 +5,7 @@
  */
 
 /*Standard Libraries*/
-#include <float.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include "stdlib.h"
 
 /*MCU Drivers*/
@@ -21,7 +20,7 @@
 #include <xUtils/Conversion/Conversion.h>
 
 /*Local functions*/
-int main (void);
+int32_t main (void);
 
 void MAIN_vInitGPIO(void);
 void MAIN_vInitTIMER(void);
@@ -41,16 +40,16 @@ static ServoMoto_SG90_Typedef MAIN_sServoMotor1={0};
 static ServoMoto_SG90_Typedef MAIN_sServoMotor2={0};
 static ServoMoto_SG90_nENABLE MAIN_enServoEnable=ServoMoto_SG90_enDISABLE;
 
-int main(void)
+int32_t main(void)
 {
-  float fValueus=0.0f;
+  float32_t fValueus=0.0f;
   char pu8Buffer2[LCD1602_COLUMN_MAX+1u]=" CM:            ";
   char pcBuffer[LCD1602_COLUMN_MAX+1u];
-  float fTimeSystickStart_Task1=0.0f;
-  float fTimeSystickEnd_Task1=0.0f;
-  float fTimeSystickStart_Task2=0.0f;
-  float fTimeSystickEnd_Task2=0.0f;
-  float fAngleAbosulte=0.0f;
+  float32_t fTimeSystickStart_Task1=0.0f;
+  float32_t fTimeSystickEnd_Task1=0.0f;
+  float32_t fTimeSystickStart_Task2=0.0f;
+  float32_t fTimeSystickEnd_Task2=0.0f;
+  float32_t fAngleAbosulte=0.0f;
   uint8_t u8Column=0u;
   uint8_t u8Row=0u;
   uint8_t u8ColumnCurrent=0u;
@@ -115,12 +114,12 @@ int main(void)
       u8Column=5u;
       u8Row=0u;
       LCD1602__enWriteStringBufferSection((char*)pu8Buffer2,(const char*)"           ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
-      fValueus= (float) MAIN_u64Valueus;
+      fValueus= (float32_t) MAIN_u64Valueus;
       fValueus/=17.4f;
       MAIN_u64Valueus = (uint64_t) fValueus;
-      fValueus= (float) MAIN_u64Valueus;
+      fValueus= (float32_t) MAIN_u64Valueus;
       fValueus*=0.3f;
-      CONV__u8Float2String((double)fValueus,0u,3u,3,1,pcBuffer);
+      CONV__u8Float2String((float64_t)fValueus,0u,3u,3,1,pcBuffer);
 
       u8Column=5u;
       u8Row=0u;

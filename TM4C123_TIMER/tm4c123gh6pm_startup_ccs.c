@@ -22,7 +22,7 @@
 /**/
 /*******************************************************************************/
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/FPU/FPU.h>
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
@@ -240,7 +240,7 @@ ResetISR(void)
 {
     /**/
     /* Jump to the CCS C initialization routine.  This will enable the*/
-    /* floating-point unit as well, so that does not need to be done here.*/
+    /* float32_ting-point unit as well, so that does not need to be done here.*/
     /**/
     NVIC__vDeInitInterrupts();
     SYSCTL__vDeInitClockGates();

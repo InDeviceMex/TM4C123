@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_MODELOAD_WDT_MODELOAD_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_MODELOAD_WDT_MODELOAD_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
 WDT_nSTATUS WDT__enSetMode_Load(WDT_nMODULE enModule, WDT_nMODE enMode, uint32_t u32Load);

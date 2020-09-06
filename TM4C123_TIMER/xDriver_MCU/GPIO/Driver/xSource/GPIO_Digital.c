@@ -23,7 +23,7 @@
  */
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/xHeader/GPIO_Digital.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Lock.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>

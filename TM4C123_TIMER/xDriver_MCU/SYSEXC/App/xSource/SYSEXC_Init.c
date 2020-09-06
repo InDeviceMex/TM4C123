@@ -23,7 +23,7 @@
  */
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSEXC/App/xHeader/SYSEXC_Init.h>
 #include <xDriver_MCU/SYSEXC/Driver/SYSEXC_Driver.h>
 

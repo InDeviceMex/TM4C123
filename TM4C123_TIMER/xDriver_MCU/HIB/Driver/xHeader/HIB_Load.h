@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_LOAD_H_
 #define XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_LOAD_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enGetLoad(uint32_t* pu32Load);

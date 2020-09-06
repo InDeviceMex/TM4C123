@@ -23,7 +23,7 @@
  */
 
 #include <stdlib.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/App/Config/xHeader/GPIO_ConfigStruct.h>
 
 void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,GPIO_CONFIG_Typedef* psConfig)

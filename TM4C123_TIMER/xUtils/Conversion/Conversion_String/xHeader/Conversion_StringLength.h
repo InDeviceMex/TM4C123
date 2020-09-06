@@ -24,7 +24,7 @@
 #ifndef XUTILS_CONVERSION_XHEADER_CONVERSION_STRING_CONVERSION_STRINGLENGTH_H_
 #define XUTILS_CONVERSION_XHEADER_CONVERSION_STRING_CONVERSION_STRINGLENGTH_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 uint32_t CONV_u32StringLength(const char* pcString, uint32_t u32MaxSize);
 

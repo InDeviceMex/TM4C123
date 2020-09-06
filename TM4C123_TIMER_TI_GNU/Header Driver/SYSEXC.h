@@ -8,7 +8,7 @@
 #ifndef SYSEXC_H_
 #define SYSEXC_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <NVIC.h>
 #include <SCB.h>
 

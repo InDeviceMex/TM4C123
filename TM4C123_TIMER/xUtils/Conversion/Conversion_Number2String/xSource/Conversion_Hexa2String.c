@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 17 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Hexa2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/Conversion_Primitives/Conversion_Primitives.h>
@@ -43,7 +43,7 @@ uint8_t CONV__u8Hex2String(uint64_t u64Number, char* pcConv)
         pcPointerActual-= u8Length;
         *pcPointerActual = 'x';
         u8Length++;
-        pcPointerActual--;
+        pcPointerActual-=1u;
         *pcPointerActual = '0';
         enStatus=CONV__enInversion(pcPointerActual,pcConv,u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
@@ -71,7 +71,7 @@ uint8_t CONV__u8HEX2String(uint64_t u64Number, char* pcConv)
         pcPointerActual-= u8Length;
         *pcPointerActual = 'X';
         u8Length++;
-        pcPointerActual--;
+        pcPointerActual-=1u;
         *pcPointerActual = '0';
         enStatus=CONV__enInversion(pcPointerActual,pcConv,u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)

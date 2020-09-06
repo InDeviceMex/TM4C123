@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 17 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringLength.h>
 
 uint32_t CONV_u32StringLength(const char* pcString, uint32_t u32MaxSize)
@@ -33,7 +33,7 @@ uint32_t CONV_u32StringLength(const char* pcString, uint32_t u32MaxSize)
       pcStringReg = pcString;
       while(((char)0!=(char) *pcStringReg) && ((uint32_t)0!=(uint32_t)u32MaxSize))
       {
-          pcStringReg++;
+          pcStringReg+=1u;
           u32MaxSize--;
       }
       u32Count=(uint32_t)pcStringReg;

@@ -8,7 +8,7 @@
 
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteMulti.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <stdlib.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Erase.h>
@@ -60,8 +60,8 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                     for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
                     {
                         *pu32PageData =*pu32Address;
-                        pu32PageData++;
-                        pu32Address++;
+                        pu32PageData+=1u;
+                        pu32Address+=1u;
                     }
                     /*Identificar si el contador actual sigue sienod mayor al limite de mi pagina o se
                      * delimita en la pagina
@@ -75,12 +75,13 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                         u32Dif=u32Count;
                     }
 
-                    pu32PageData=pu32PageDataInitial+u32OffsetWorld;
+                    pu32PageData=pu32PageDataInitial;
+                    pu32PageData+=u32OffsetWorld;
                     for(u32Pos=(uint32_t)0;u32Pos<u32Dif;u32Pos++)
                     {
                         *pu32PageData =*pu32Data;
-                        pu32PageData++;
-                        pu32Data++;
+                        pu32PageData+=1u;
+                        pu32Data+=1u;
                     }
 
                     FLASH__enPageErase(u32AddressPage);
@@ -155,8 +156,8 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                     for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
                     {
                         *pu32PageData =*pu32Address;
-                        pu32PageData++;
-                        pu32Address++;
+                        pu32PageData+=1u;
+                        pu32Address+=1u;
                     }
                     /*Identificar si el contador actual sigue sienod mayor al limite de mi pagina o se
                      * delimita en la pagina
@@ -170,12 +171,13 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                         u32Dif=u32Count;
                     }
 
-                    pu16PageData=(uint16_t*)pu32PageDataInitial+u32OffsetHalfWorld;
+                    pu16PageData=(uint16_t*)pu32PageDataInitial;
+                    pu16PageData+=u32OffsetHalfWorld;
                     for(u32Pos=(uint32_t)0u;u32Pos<u32Dif;u32Pos++)
                     {
                         *pu16PageData =*pu16Data;
-                        pu16PageData++;
-                        pu16Data++;
+                        pu16PageData+=1u;
+                        pu16Data+=1u;
                     }
 
                     FLASH__enPageErase(u32AddressPage);
@@ -251,8 +253,8 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                     for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
                     {
                         *pu32PageData =*pu32Address;
-                        pu32PageData++;
-                        pu32Address++;
+                        pu32PageData+=1u;
+                        pu32Address+=1u;
                     }
                     /*Identificar si el contador actual sigue sienod mayor al limite de mi pagina o se
                      * delimita en la pagina
@@ -266,12 +268,13 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                         u32Dif=u32Count;
                     }
 
-                    pu8PageData=(uint8_t*)pu32PageDataInitial+u32OffsetByte;
+                    pu8PageData=(uint8_t*)pu32PageDataInitial;
+                    pu8PageData+=u32OffsetByte;
                     for(u32Pos=(uint32_t)0;u32Pos<u32Dif;u32Pos++)
                     {
                         *pu8PageData =*pu8Data;
-                        pu8PageData++;
-                        pu8Data++;
+                        pu8PageData+=1u;
+                        pu8Data+=1u;
                     }
 
                     FLASH__enPageErase(u32AddressPage);

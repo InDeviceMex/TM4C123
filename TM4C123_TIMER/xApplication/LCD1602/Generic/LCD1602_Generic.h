@@ -10,7 +10,7 @@
 
 
 #include <stdarg.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xApplication/CONVERSION/Generic/xHeader/CONV.h>
 #include <xApplication/LCD1602/Adaptive/LCD1602_Adaptive.h>
 /*Definciones de Comando*/

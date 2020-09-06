@@ -14,11 +14,11 @@
 #include <xDriver_MCU/Core/SYSTICK/Driver/xHeader/SYSTICK_TickAccumulated.h>
 
 
- void SysTick__vDelayUs(float fTimeUs)
+ void SysTick__vDelayUs(float32_t fTimeUs)
 {
     uint64_t u64CountInitial = SysTick__u64GetTickAccumulated();
-    float fCount=0.0;
-    float fUsTick=0.0;
+    float32_t fCount=0.0;
+    float32_t fUsTick=0.0;
     uint64_t u64CountDelta = 0;
     uint64_t u64CountCurrent = 0;
     uint64_t u64CountMax=0;

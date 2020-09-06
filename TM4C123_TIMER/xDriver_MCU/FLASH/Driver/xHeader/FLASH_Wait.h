@@ -10,7 +10,7 @@
 
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
 #if defined ( __TI_ARM__ )

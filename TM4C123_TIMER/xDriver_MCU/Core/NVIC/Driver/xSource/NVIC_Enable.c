@@ -25,7 +25,7 @@
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Enable.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Priority.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 

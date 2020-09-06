@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_RESET_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_RESET_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
 void WDT__vEnResetOutput(WDT_nMODULE enModule);

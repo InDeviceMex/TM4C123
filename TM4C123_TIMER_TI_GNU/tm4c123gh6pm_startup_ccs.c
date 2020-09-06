@@ -22,7 +22,7 @@
 /**/
 /*******************************************************************************/
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 /*******************************************************************************/
 /**/
@@ -238,7 +238,7 @@ ResetISR(void)
 {
     /**/
     /* Jump to the CCS C initialization routine.  This will enable the*/
-    /* floating-point unit as well, so that does not need to be done here.*/
+    /* float32_ting-point unit as well, so that does not need to be done here.*/
     /**/
     __asm("    .global _c_int00\n"
           "    b.w     _c_int00");

@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_CLOCK_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_CLOCK_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 uint32_t SYSCTL__u32GetClock(void);
 

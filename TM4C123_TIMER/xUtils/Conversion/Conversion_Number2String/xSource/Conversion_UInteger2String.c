@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 18 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number2String/Conversion_Primitives/Conversion_Primitives.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_UInteger2String.h>

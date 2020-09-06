@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 void SCB__vSetVectorOffset(uint32_t u32Offset);
 

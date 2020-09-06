@@ -29,6 +29,7 @@ CONV_nSTATUS CONV__enConversion(char* pcPointer, uint64_t u64Number,uint8_t* u8L
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     uint8_t  u8Num=0u;
     uint64_t u64NumberReg = 0u;
+    const char* pcLookUpTableReg=0u;
     if(((uint32_t)0 != (uint32_t)pcPointer) && ((uint32_t)0 != (uint32_t)pcLookUpTable)&& ((uint32_t)0 != (uint32_t)u8Length))
     {
         enStatus = CONV_enSTATUS_OK;
@@ -37,11 +38,13 @@ CONV_nSTATUS CONV__enConversion(char* pcPointer, uint64_t u64Number,uint8_t* u8L
 
         do{
             (*u8Length)++;
-            pcPointer--;/*se decrementa la posicion donse guardara el valor*/
+            pcPointer-=1u;/*se decrementa la posicion donse guardara el valor*/
             u64NumberReg=u64Number;
             u64NumberReg%=u8Base;
             u8Num=(uint8_t)(u64NumberReg);/*obtiene el digito de menor peso*/
-            *pcPointer =(char) pcLookUpTable[u8Num];/*convierte el valor en caracter*/
+            pcLookUpTableReg = pcLookUpTable;
+            pcLookUpTableReg+=u8Num;
+            (*pcPointer) =(char) *pcLookUpTableReg;/*convierte el valor en caracter*/
             u64Number/=u8Base;
         }  while((u64Number > 0u));/*mientras exista un digito sigue el ciclo*/
     }

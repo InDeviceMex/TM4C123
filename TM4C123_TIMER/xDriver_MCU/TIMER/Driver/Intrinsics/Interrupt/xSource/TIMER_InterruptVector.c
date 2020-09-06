@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/xHeader/TIMER_InterruptVector.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>

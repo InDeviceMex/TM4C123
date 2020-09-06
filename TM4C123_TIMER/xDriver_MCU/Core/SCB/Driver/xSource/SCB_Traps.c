@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_Traps.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
 

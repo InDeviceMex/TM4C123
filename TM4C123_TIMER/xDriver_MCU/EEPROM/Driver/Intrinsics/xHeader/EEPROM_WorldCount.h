@@ -25,7 +25,7 @@
 #define XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WORLDCOUNT_H_
 
 #include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 
 /**

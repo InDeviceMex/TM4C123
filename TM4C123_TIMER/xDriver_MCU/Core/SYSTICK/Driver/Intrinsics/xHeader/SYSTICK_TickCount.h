@@ -10,7 +10,7 @@
 
 
 
-#include <stdint.h>                             /* standard types definitions                      */
+#include <xUtils/Standard/Standard.h>                             /* standard types definitions                      */
 
 void SysTick__vClearTickCount(void);
 void SysTick__vSetTickCount(uint32_t u32Tick);

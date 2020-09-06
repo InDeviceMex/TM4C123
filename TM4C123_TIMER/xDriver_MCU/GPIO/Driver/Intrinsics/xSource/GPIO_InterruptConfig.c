@@ -25,7 +25,7 @@
 
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_InterruptConfig.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/GPIO_Interrupt.h>
 

@@ -22,7 +22,7 @@
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/xHeader/GPIO_Digital.h>
 #include <xDriver_MCU/GPIO/Driver/xHeader/GPIO_OutputMode.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>

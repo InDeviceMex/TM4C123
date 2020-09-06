@@ -24,7 +24,7 @@
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Active.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
 inline NVIC_nACTIVE NVIC__enGetActiveIRQ(NVIC_nSTIR enIRQ)

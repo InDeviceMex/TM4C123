@@ -24,7 +24,7 @@
 #ifndef XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_FUNCTIONS_LCD1602_WRITE_H_
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_FUNCTIONS_LCD1602_WRITE_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xApplication/LCD1602/Adaptive/xHeader/LCD1602_Enum.h>
 
 void LCD1602__vWritePin8Bit(uint8_t u8Data,LCD1602_nRS enMode);

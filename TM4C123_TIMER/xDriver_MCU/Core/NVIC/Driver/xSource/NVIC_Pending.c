@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Pending.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
 inline NVIC_nPENDING NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ)

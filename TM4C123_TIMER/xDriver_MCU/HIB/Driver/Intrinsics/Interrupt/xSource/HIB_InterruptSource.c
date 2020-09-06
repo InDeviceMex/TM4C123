@@ -23,7 +23,7 @@
  */
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/xHeader/HIB_InterruptSource.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/HIB_Primitives.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>

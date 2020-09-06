@@ -24,7 +24,7 @@
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_DeInitInterrupts.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Enable.h>
 
 

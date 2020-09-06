@@ -9,7 +9,7 @@
 
 #include <xDriver_MCU/Core/FPU/Driver/xHeader/FPU_Rounding.h>
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/FPU/Peripheral/FPU_Peripheral.h>
 
 FPU_nROUNDING FPU__enGetRounding(void)

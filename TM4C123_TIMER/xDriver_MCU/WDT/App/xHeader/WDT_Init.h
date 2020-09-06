@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_INIT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_INIT_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 void WDT__vInit(uint32_t u32ReloadValue);
 

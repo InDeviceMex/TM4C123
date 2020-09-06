@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_REGISTER_NVIC_REGISTERDEFINES_NVIC_REGISTERDEFINES_SET3_NVIC_REGISTERDEFINES_SET3_ICER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_REGISTER_NVIC_REGISTERDEFINES_NVIC_REGISTERDEFINES_SET3_NVIC_REGISTERDEFINES_SET3_ICER_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 /********************************************************************************************/
 /************************************* ICER3 ***********************************************/

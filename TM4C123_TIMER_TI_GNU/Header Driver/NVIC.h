@@ -8,7 +8,7 @@
 #ifndef NVIC_H_
 #define NVIC_H_
 
-#include <stdint.h>                      		/* standard types definitions                      */
+#include <xUtils/Standard/Standard.h>                      		/* standard types definitions                      */
 
 
 #define NVIC_BASE            ((uint32_t)0xE000E000UL)

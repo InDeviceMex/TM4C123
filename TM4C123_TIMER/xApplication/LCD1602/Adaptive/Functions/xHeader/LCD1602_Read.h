@@ -24,7 +24,7 @@
 #ifndef XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_FUNCTIONS_LCD1602_READ_H_
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_FUNCTIONS_LCD1602_READ_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <xApplication/LCD1602/Adaptive/xHeader/LCD1602_Enum.h>
 
 uint8_t LCD1602__u8Read(LCD1602_nRS enMode);

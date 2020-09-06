@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_STRUCT_NVIC_STRUCTREGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_PERIPHERAL_NVIC_STRUCT_NVIC_STRUCTREGISTER_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 typedef volatile struct
 {
@@ -613,26 +613,29 @@ typedef volatile struct
     volatile uint32_t NVIC_RES155       :3;/*139*/
 }IPR34_TypeDef;
 
-
-
 typedef volatile struct
 {
-    const uint32_t reserved :5;
-    volatile uint32_t IP0   :3;/*0*/
-    const uint32_t reserved1:5;
-    volatile uint32_t IP1   :3;/*1*/
-    const uint32_t reserved2:5;
-    volatile uint32_t IP2   :3;/*2*/
-    const uint32_t reserved3:5;
-    volatile uint32_t IP3   :3;/*3*/
+  const uint32_t reserved :5;
+  volatile uint32_t IP0   :3;/*0*/
+  const uint32_t reserved1:5;
+  volatile uint32_t IP1   :3;/*1*/
+  const uint32_t reserved2:5;
+  volatile uint32_t IP2   :3;/*2*/
+  const uint32_t reserved3:5;
+  volatile uint32_t IP3   :3;/*3*/
 }IPRw_TypeDef;
 
+#if defined ( __TI_ARM__ )
+    #pragma CHECK_MISRA("-6.4")
+#endif
 typedef volatile struct
 {
      const uint8_t reserved    :5;
-     volatile uint8_t IP        :3;/*0*/
+     volatile uint8_t IP        :3;
 }IPRb_TypeDef;
-
+#if defined ( __TI_ARM__ )
+    #pragma RESET_MISRA("6.4")
+#endif
 
 typedef volatile struct
 {

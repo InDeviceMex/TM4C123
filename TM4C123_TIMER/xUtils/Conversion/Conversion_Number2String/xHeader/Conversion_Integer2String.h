@@ -24,7 +24,7 @@
 #ifndef XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_INTEGER2STRING_H_
 #define XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_INTEGER2STRING_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 
 uint8_t CONV__u8Int2String(int64_t s64Number, char* pcConv);
 uint8_t CONV__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Padding0,uint8_t u8Deci, char* pcConv);

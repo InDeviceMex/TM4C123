@@ -8,7 +8,7 @@
 #ifndef HEADER_DRIVER_FPU_H_
 #define HEADER_DRIVER_FPU_H_
 
-#include <stdint.h>                             /* standard types definitions                      */
+#include <xUtils/Standard/Standard.h>                             /* standard types definitions                      */
 
 
 #define FPU_BASE            ((uint32_t)0xE000E000u)
