@@ -93,7 +93,7 @@ int32_t main(void)
     {
       fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
     }
-    if(fTimeSystickEnd_Task1>200000.0f)
+    if(fTimeSystickEnd_Task1>500000.0f)
     {
       fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
 
