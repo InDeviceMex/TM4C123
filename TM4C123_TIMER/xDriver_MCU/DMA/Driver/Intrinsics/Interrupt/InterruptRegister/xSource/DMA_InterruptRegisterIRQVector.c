@@ -21,10 +21,9 @@
  * Date           Author     Version     Description
  * 1 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
+#include <DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Vector_Software.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/DMA_InterruptRegisterIRQVector.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Modules.h>
-#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/SCB.h>
 
 void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nMODULE enModule)
