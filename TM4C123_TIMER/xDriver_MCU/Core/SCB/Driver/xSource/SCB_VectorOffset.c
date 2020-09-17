@@ -27,7 +27,15 @@
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteMulti.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-#define SCB_vBarrier() {__asm(" DSB");}
+#if defined ( __TI_ARM__ )
+
+#pragma DATA_SECTION(SCB__pfnVectors, ".vtable")
+void (*SCB__pfnVectors[0x100u])(void) = {0};
+
+#elif defined ( __GNUC__ )
+__attribute__((section(".vtable"))) void (*SCB__pfnVectors[0x100u])(void) = {0};
+#endif
+
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {
     uint32_t* pu32Ram=0;
@@ -45,11 +53,11 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
         SCB_vBarrier();
         __asm(" cpsie i");
     }
-    else if((u32Offset>=0x20000000u) && (u32Offset<=0x20000400u))
+    else if((u32Offset>=(uint32_t)&SCB__pfnVectors))
     {
         u32FlashTemp=(uint32_t)SCB_VTOR_R;
         pu32Flash=(const uint32_t*)u32FlashTemp;
-        pu32Ram=(uint32_t*)u32Offset;
+        pu32Ram=(uint32_t*)&SCB__pfnVectors;
         for(u32Count=0u; u32Count<0x100u;u32Count++ )
         {
             *pu32Ram=*pu32Flash;
@@ -57,7 +65,7 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
             pu32Flash+=1u;
         }
         __asm(" cpsid i");
-        SCB_VTOR_R= u32Offset;
+        SCB_VTOR_R= (uint32_t)&SCB__pfnVectors;
         SCB_vBarrier();
         __asm(" cpsie i");
     }
