@@ -70,7 +70,7 @@ static uint32_t pui32Stack[0x200>>2] __attribute__((section(".stack")));
 /**/
 /*******************************************************************************/
 __attribute__ ((section(".intvecs")))
-void (* const g_pfnVectors[])(void) =
+void (* const g_pfnVectors[0x100])(void) =
 {
     (void (*)(void))((uint32_t)pui32Stack + sizeof(pui32Stack)),
                                             /* The initial stack pointer*/

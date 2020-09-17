@@ -23,7 +23,7 @@
  */
 
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterIRQVector.h>
-
+#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_VectorOffset.h>
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
@@ -42,7 +42,7 @@ void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECIS
             FLASH__enWriteWorld((uint32_t)pfIrqVectorHandler|1u,u32BaseVector+((uint32_t)enVector*4u));
             __asm(" cpsie i");
         }
-        else if((u32BaseVector>=0x20000000u) && (u32BaseVector<=0x20000400u) )
+        else if((u32BaseVector>=(uint32_t)&SCB__pfnVectors[0]) && (u32BaseVector<=(uint32_t)&SCB__pfnVectors[0x100]) )
         {
             pu32BaseVector= (uint32_t*)u32BaseVector;
             pu32BaseVector+=(uint32_t)enVector;

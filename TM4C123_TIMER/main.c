@@ -237,8 +237,6 @@ void MAIN_vTaskServo(void)
 void MAIN_vInitTIMER(void)
 {
     TIMER_EXTRAMODE_Typedef psExtraMode;
-    volatile TIMER_MODE_Typedef psMode;
-    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
 
     TIMER__vInit();
 

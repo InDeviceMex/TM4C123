@@ -66,6 +66,6 @@
 #define FPU_MVFR1_R          (*((const uint32_t *)(FPU_BASE+FPU_MVFR1_OFFSET)))
 
 
-inline void FPU_vBlocking(void);
+void FPU_vBlocking(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_FPU_REGISTERPERIPHERAL_H_ */

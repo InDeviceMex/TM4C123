@@ -46,6 +46,13 @@ typedef enum
 
 typedef enum
 {
+    DMA_enVECTOR_SW      =0u,
+    DMA_enVECTOR_ERROR      =1u,
+    DMA_enVECTOR_MAX    =1u,
+}DMA_nVECTOR;
+
+typedef enum
+{
     DMA_enENABLE_DIS    =0u,
     DMA_enENABLE_EN     =1u,
     DMA_enENABLE_UNDEF  =0xFFu,

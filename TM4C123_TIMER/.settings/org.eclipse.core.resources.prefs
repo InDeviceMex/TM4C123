@@ -30,6 +30,8 @@ encoding//Debug/xApplication/ServoMotor_SG90/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xApplication/ServoMotor_SG90/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/FPU/Driver/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xDriver_MCU/Core/FPU/Peripheral/Register/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xDriver_MCU/Core/FPU/Peripheral/Register/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/MPU/Driver/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/MPU/Driver/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/NVIC/Driver/xSource/subdir_rules.mk=UTF-8
@@ -40,6 +42,8 @@ encoding//Debug/xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xSource/subdir_rule
 encoding//Debug/xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/SCB/Driver/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/SCB/Driver/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xDriver_MCU/Core/SCB/Peripheral/Register/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xDriver_MCU/Core/SCB/Peripheral/Register/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/SYSTICK/App/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/SYSTICK/App/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xSource/subdir_rules.mk=UTF-8

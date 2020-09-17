@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
-extern void (*DMA__MODULE[(uint32_t)DMA_enMODULE_MAX+1u]) (void);
+void DMA_SW__vIRQVectorHandler(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTERRUPT_DMA_INTERRUPTROUTINE_DMA_INTERRUPTROUTINE_MODULES_H_ */
