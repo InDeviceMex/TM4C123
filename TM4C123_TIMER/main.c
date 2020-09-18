@@ -121,10 +121,7 @@ void MAIN_vTaskLCDUpdate(void)
         u8Row=0u;
         LCD1602__enWriteStringBufferSection((char*)pu8Buffer2,(const char*)"     ",&u8Column,&u8Row,&u8Counter,0u,15u,0u,0u);
         fValueus= (float32_t) MAIN_u64Valueus;
-        fValueus/=17.4f;
-        MAIN_u64Valueus = (uint64_t) fValueus;
-        fValueus= (float32_t) MAIN_u64Valueus;
-        fValueus*=0.3f;
+        fValueus/=58.0f;
         CONV__u8Float2String((float64_t)fValueus,0u,3u,3,1,pcBuffer);
 
         u8Column=11u;

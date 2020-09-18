@@ -59,7 +59,7 @@ typedef enum
     NVIC_enPRI5=5u,
     NVIC_enPRI6=6u,
     NVIC_enPRI7=7u,
-    NVIC_enDEFAULT=0xFFu,
+    NVIC_enDEFAULT=0xFFFFFFFFu,
 }NVIC_nPRIORITY;
 typedef enum
 {

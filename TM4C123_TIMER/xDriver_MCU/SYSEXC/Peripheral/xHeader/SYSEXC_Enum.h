@@ -28,7 +28,7 @@ typedef enum
 {
     SYSEXC_enSTATUS_OK =0u,
     SYSEXC_enSTATUS_ERROR=1u,
-    SYSEXC_enSTATUS_UNDEF=0xFFu,
+    SYSEXC_enSTATUS_UNDEF=0xFFFFFFFFu,
 }SYSEXC_nSTATUS;
 
 typedef enum
@@ -58,7 +58,7 @@ typedef enum
 {
     SYSEXC_enINT_NOOCCUR=0u,
     SYSEXC_enINT_OCCUR=1u,
-    SYSEXC_enINT_STATUS_UNDEF=0xFFu,
+    SYSEXC_enINT_STATUS_UNDEF=0xFFFFFFFFu,
 }SYSEXC_nINT_STATUS;
 
 typedef enum
@@ -71,7 +71,7 @@ typedef enum
     SYSEXC_enPRI5=5u,
     SYSEXC_enPRI6=6u,
     SYSEXC_enPRI7=7u,
-    SYSEXC_enDEFAULT=0xFFu,
+    SYSEXC_enDEFAULT=0xFFFFFFFFu,
 }SYSEXC_nPRIORITY;
 
 

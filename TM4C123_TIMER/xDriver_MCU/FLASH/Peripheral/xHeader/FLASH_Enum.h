@@ -45,7 +45,7 @@ typedef enum
 {
     FLASH_enINT_NOOCCUR=0u,
     FLASH_enINT_OCCUR=1u,
-    FLASH_enINT_STATUS_UNDEF=0xFFu,
+    FLASH_enINT_STATUS_UNDEF=0xFFFFFFFFu,
 }FLASH_nINT_STATUS;
 
 typedef enum
@@ -58,7 +58,7 @@ typedef enum
     FLASH_enPRI5=5u,
     FLASH_enPRI6=6u,
     FLASH_enPRI7=7u,
-    FLASH_enDEFAULT=0xFFu,
+    FLASH_enDEFAULT=0xFFFFFFFFu,
 }FLASH_nPRIORITY;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_ENUM_H_ */

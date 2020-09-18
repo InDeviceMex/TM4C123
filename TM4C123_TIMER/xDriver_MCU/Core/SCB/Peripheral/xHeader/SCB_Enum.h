@@ -38,7 +38,7 @@ typedef enum
     SCB_enPRIGROUP_XXY =1u,
     SCB_enPRIGROUP_XYY =2u,
     SCB_enPRIGROUP_YYY =3u,
-    SCB_enPRIGROUP_ERROR =0xFFu,
+    SCB_enPRIGROUP_ERROR =0xFFFFFFFFu,
 }SCB_nPRIGROUP;
 
 typedef enum
@@ -94,28 +94,28 @@ typedef enum
 {
     SCB_enALIGN_4BYTE =0u,
     SCB_enALIGN_8BYTE =1u,
-    SCB_enALIGN_ERROR =0xFFu,
+    SCB_enALIGN_ERROR =0xFFFFFFFFu,
 }SCB_nAlignment;
 
 typedef enum
 {
     SCB_enWAKEUP_ONLY =0u,
     SCB_enWAKEUP_ALL   =1u,
-    SCB_enWAKEUP_ERROR   =0xFFu,
+    SCB_enWAKEUP_ERROR   =0xFFFFFFFFu,
 }SCB_nWAKEUPSOURCE;
 
 typedef enum
 {
     SCB_enSLEEPONEXIT_NOSLEEP =0u,
     SCB_enSLEEPONEXIT_SLEEP   =1u,
-    SCB_enSLEEPONEXIT_ERROR   =0xFFu,
+    SCB_enSLEEPONEXIT_ERROR   =0xFFFFFFFFu,
 }SCB_nSLEEPONEXIT;
 
 typedef enum
 {
     SCB_enSleepDeep_Sleep=0u,
     SCB_enSleepDeep_DeepSleep=1u,
-    SCB_enSleepDeep_ERROR=0xFFu,
+    SCB_enSleepDeep_ERROR=0xFFFFFFFFu,
 }SCB_nSleepDeep;
 
 typedef enum

@@ -32,13 +32,13 @@ typedef enum
 {
     ServoMoto_SG90_enOK=0u,
     ServoMoto_SG90_enERROR=1u,
-    ServoMoto_SG90_enSTATUS_UNDEF=0xFFu,
+    ServoMoto_SG90_enSTATUS_UNDEF=0xFFFFFFFFu,
 }ServoMoto_SG90_nSTATUS;
 typedef enum
 {
     ServoMoto_SG90_enDISABLE=0u,
     ServoMoto_SG90_enENABLE=1u,
-    ServoMoto_SG90_enENABLE_UNDEF=0xFFu,
+    ServoMoto_SG90_enENABLE_UNDEF=0xFFFFFFFFu,
 }ServoMoto_SG90_nENABLE;
 
 typedef struct

@@ -75,45 +75,31 @@ LCD1602_nSTATUS LCD1602__enInit(void)
 
     /*Wirte 0x3x to LCD*/
     LCD1602__vWritePin8Bit(0x30u,LCD1602_enCOMMAND);
-    LCD1602__vDelay(40.0f);/*40 us*/
+    LCD1602__vDelay(100.0f);/*100 us*/
 
     /*Write 0x2x to LCD in order to configure as 4 bits*/
     LCD1602__vWritePin8Bit(0x20u,LCD1602_enCOMMAND);
-    LCD1602__vDelay(40.0f);/*40 us*/
+    LCD1602__vDelay(100.0f);/*100 us*/
 
 
     /*M8BIT o M4BIT,M2LINE o M1LINE, M5_8_Font o M5_11_Font */
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enM4BIT|LCD1602_enM2LINE|LCD1602_enM5_8_Font));
-    if(LCD1602_enSTATUS_OK==enStatus)
+
+    /*ONDisp o OFFDisp, ONCursor o OFFCursor,ONBlink o OFFBLink*/
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enONDisp|LCD1602_enOFFCursor|LCD1602_enOFFBlink) );
+
+    enStatus=LCD1602__enClearScreenDirect();
+
+    /*IAdd o DAdd*/
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enIncAdd));
+
+    for(u32WriteSpecialChar=0u;u32WriteSpecialChar<8u;u32WriteSpecialChar++)
     {
-        /*ONDisp o OFFDisp, ONCursor o OFFCursor,ONBlink o OFFBLink*/
-        enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enONDisp|LCD1602_enOFFCursor|LCD1602_enOFFBlink) );
-        if(LCD1602_enSTATUS_OK==enStatus)
-        {
-            enStatus=LCD1602__enClearScreenDirect();
-            if(LCD1602_enSTATUS_OK==enStatus)
-            {
-                /*IAdd o DAdd*/
-                enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enIncAdd));
-                if(LCD1602_enSTATUS_OK==enStatus)
-                {
-                    for(u32WriteSpecialChar=0u;u32WriteSpecialChar<8u;u32WriteSpecialChar++)
-                    {
-                        enStatus= LCD1602__enWriteGCRam((const char*)&LCD1602_pcSpecialChar[u32WriteSpecialChar][0u],(uint8_t) u32WriteSpecialChar);
-                        if(LCD1602_enSTATUS_ERROR==enStatus)
-                        {
-                            break;
-                        }
-                    }
-                    if(LCD1602_enSTATUS_OK==enStatus)
-                    {
-                        enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enHOME));/*Manda cursor a home*/
-                        LCD1602__vDelay(1640.0f);
-                    }
-                }
-            }
-        }
+        enStatus= LCD1602__enWriteGCRam((const char*)&LCD1602_pcSpecialChar[u32WriteSpecialChar][0u],(uint8_t) u32WriteSpecialChar);
     }
+
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enHOME));/*Manda cursor a home*/
+    LCD1602__vDelay(1640.0f);
 
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enSRDisp) );
     enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enSRDisp) );

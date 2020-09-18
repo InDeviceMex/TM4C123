@@ -55,7 +55,7 @@ typedef enum
 {
     DMA_enENABLE_DIS    =0u,
     DMA_enENABLE_EN     =1u,
-    DMA_enENABLE_UNDEF  =0xFFu,
+    DMA_enENABLE_UNDEF  =0xFFFFFFFFu,
 }DMA_nENABLE;
 
 typedef enum
@@ -70,70 +70,70 @@ typedef enum
     DMA_enSTATE_WD_CTL_DATA =7u,
     DMA_enSTATE_WD_STALLED  =8u,
     DMA_enSTATE_WD_DONE     =9u,
-    DMA_enSTATE_UNDEF       =0xFFu,
+    DMA_enSTATE_UNDEF       =0xFFFFFFFFu,
 }DMA_nSTATE;
 
 typedef enum
 {
     DMA_enERROR_NOPENDING    =0u,
     DMA_enERROR_PENDING  =1u,
-    DMA_enERROR_UNDEF  =0xFFu,
+    DMA_enERROR_UNDEF  =0xFFFFFFFFu,
 }DMA_nERROR;
 
 typedef enum
 {
     DMA_enCH_WAITING_NO     =0u,
     DMA_enCH_WAITING_YES    =1u,
-    DMA_enCH_WAITING_UNDEF  =0xFFu,
+    DMA_enCH_WAITING_UNDEF  =0xFFFFFFFFu,
 }DMA_nCH_WAITING;
 
 typedef enum
 {
     DMA_enCH_SWREQ_NO       =0u,
     DMA_enCH_SWREQ_TRIGGER  =1u,
-    DMA_enCH_SWREQ_UNDEF    =0xFFu,
+    DMA_enCH_SWREQ_UNDEF    =0xFFFFFFFFu,
 }DMA_nCH_SWREQ;
 
 typedef enum
 {
     DMA_enCH_REQTYPE_BOTH       =0u,
     DMA_enCH_REQTYPE_BURST      =1u,
-    DMA_enCH_REQTYPE_UNDEF      =0xFFu,
+    DMA_enCH_REQTYPE_UNDEF      =0xFFFFFFFFu,
 }DMA_nCH_REQTYPE;
 
 typedef enum
 {
     DMA_enCH_PERIPHERAL_DIS     =0u,
     DMA_enCH_PERIPHERAL_ENA     =1u,
-    DMA_enCH_PERIPHERAL_UNDEF   =0xFFu,
+    DMA_enCH_PERIPHERAL_UNDEF   =0xFFFFFFFFu,
 }DMA_nCH_PERIPHERAL;
 
 typedef enum
 {
     DMA_enCH_ENA_DIS    =0u,
     DMA_enCH_ENA_ENA    =1u,
-    DMA_enCH_ENA_UNDEF  =0xFFu,
+    DMA_enCH_ENA_UNDEF  =0xFFFFFFFFu,
 }DMA_nCH_ENA;
 
 typedef enum
 {
     DMA_enCH_CTL_PRIMARY    =0u,
     DMA_enCH_CTL_ALTERTATE  =1u,
-    DMA_enCH_CTL_UNDEF      =0xFFu,
+    DMA_enCH_CTL_UNDEF      =0xFFFFFFFFu,
 }DMA_nCH_CTL;
 
 typedef enum
 {
     DMA_enCH_PRIO_DEFAULT   =0u,
     DMA_enCH_PRIO_HIGH      =1u,
-    DMA_enCH_PRIO_UNDEF     =0xFFu,
+    DMA_enCH_PRIO_UNDEF     =0xFFFFFFFFu,
 }DMA_nCH_PRIO;
 
 typedef enum
 {
     DMA_enCH_INT_NOOCCUR        =0u,
     DMA_enCH_INT_OCCUR          =1u,
-    DMA_enCH_INT_STATUS_UNDEF   =0xFFu,
+    DMA_enCH_INT_STATUS_UNDEF   =0xFFFFFFFFu,
 }DMA_nCH_INT_STATUS;
 
 typedef enum
@@ -142,7 +142,7 @@ typedef enum
     DMA_enCH_DST_INC_HALF_WORD  =1u,
     DMA_enCH_DST_INC_WORD       =2u,
     DMA_enCH_DST_INC_NO         =3u,
-    DMA_enCH_DST_INC_UNDEF      =0xFFu,
+    DMA_enCH_DST_INC_UNDEF      =0xFFFFFFFFu,
 }DMA_nCH_DST_INC;
 
 typedef enum
@@ -150,7 +150,7 @@ typedef enum
     DMA_enCH_DST_SIZE_BYTE      =0u,
     DMA_enCH_DST_SIZE_HALF_WORD =1u,
     DMA_enCH_DST_SIZE_WORD      =2u,
-    DMA_enCH_DST_SIZE_UNDEF     =0xFFu,
+    DMA_enCH_DST_SIZE_UNDEF     =0xFFFFFFFFu,
 }DMA_nCH_DST_SIZE;
 
 typedef enum
@@ -159,7 +159,7 @@ typedef enum
     DMA_enCH_SRC_INC_HALF_WORD  =1u,
     DMA_enCH_SRC_INC_WORD       =2u,
     DMA_enCH_SRC_INC_NO         =3u,
-    DMA_enCH_SRC_INC_UNDEF      =0xFFu,
+    DMA_enCH_SRC_INC_UNDEF      =0xFFFFFFFFu,
 }DMA_nCH_SRC_INC;
 
 typedef enum
@@ -167,7 +167,7 @@ typedef enum
     DMA_enCH_SRC_SIZE_BYTE      =0u,
     DMA_enCH_SRC_SIZE_HALF_WORD =1u,
     DMA_enCH_SRC_SIZE_WORD      =2u,
-    DMA_enCH_SRC_SIZE_UNDEF     =0xFFu,
+    DMA_enCH_SRC_SIZE_UNDEF     =0xFFFFFFFFu,
 }DMA_nCH_SRC_SIZE;
 
 typedef enum
@@ -183,7 +183,7 @@ typedef enum
     DMA_enCH_BURST_SIZE_256     =8u,
     DMA_enCH_BURST_SIZE_512     =9u,
     DMA_enCH_BURST_SIZE_1024    =10u,
-    DMA_enCH_BURST_SIZE_UNDEF   =0xFFu,
+    DMA_enCH_BURST_SIZE_UNDEF   =0xFFFFFFFFu,
 }DMA_nCH_BURST_SIZE;
 
 typedef enum
@@ -196,7 +196,7 @@ typedef enum
     DMA_enCH_MODE_ALT_MEM_SG=5u,
     DMA_enCH_MODE_PER_SG    =6u,
     DMA_enCH_MODE_ALT_PER_SG=7u,
-    DMA_enCH_MODE_UNDEF     =0xFFu,
+    DMA_enCH_MODE_UNDEF     =0xFFFFFFFFu,
 }DMA_nCH_MODE;
 
 typedef enum

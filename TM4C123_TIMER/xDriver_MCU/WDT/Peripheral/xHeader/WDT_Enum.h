@@ -49,21 +49,21 @@ typedef enum
 {
     WDT_enWRITE_STATUS_BUSY=0u,
     WDT_enWRITE_STATUS_READY=1u,
-    WDT_enWRITE_STATUS_UNDEF=0xFFu,
+    WDT_enWRITE_STATUS_UNDEF=0xFFFFFFFFu,
 }WDT_nWRITE_STATUS;
 
 typedef enum
 {
     WDT_enRESET_DISABLE=0u,
     WDT_enRESET_ENABLE=1u,
-    WDT_enRESET_UNDEF=0xFFu,
+    WDT_enRESET_UNDEF=0xFFFFFFFFu,
 }WDT_nRESET;
 
 typedef enum
 {
     WDT_enINTERRUPT_DISABLE=0u,
     WDT_enINTERRUPT_ENABLE=1u,
-    WDT_enINTERRUPT_UNDEF=0xFFu,
+    WDT_enINTERRUPT_UNDEF=0xFFFFFFFFu,
 }WDT_nINTERRUPT;
 
 typedef enum
@@ -71,28 +71,28 @@ typedef enum
     WDT_enINT_TYPE_STANDARD=0u,
     WDT_enINT_TYPE_NMI=1u,
     WDT_enINT_TYPE_MAX=1u,
-    WDT_enINT_TYPE_UNDEF=0xFFu,
+    WDT_enINT_TYPE_UNDEF=0xFFFFFFFFu,
 }WDT_nINT_TYPE;
 
 typedef enum
 {
     WDT_enINT_STATUS_NOOCCUR=0u,
     WDT_enINT_STATUS_OCCUR=1u,
-    WDT_enINT_STATUS_UNDEF=0xFFu,
+    WDT_enINT_STATUS_UNDEF=0xFFFFFFFFu,
 }WDT_nINT_STATUS;
 
 typedef enum
 {
     WDT_enSTALL_CONTINUE=0u,
     WDT_enSTALL_FREEZE=1u,
-    WDT_enSTALL_UNDEF=0xFFu,
+    WDT_enSTALL_UNDEF=0xFFFFFFFFu,
 }WDT_nSTALL;
 
 typedef enum
 {
     WDT_enLOCK_UNLOCKED=0u,
     WDT_enLOCK_LOCKED=1u,
-    WDT_enLOCK_UNDEF=0xFFu,
+    WDT_enLOCK_UNDEF=0xFFFFFFFFu,
 }WDT_nLOCK;
 
 typedef enum
@@ -112,7 +112,7 @@ typedef enum
     WDT_enPRI5=5u,
     WDT_enPRI6=6u,
     WDT_enPRI7=7u,
-    WDT_enDEFAULT=0xFFu,
+    WDT_enDEFAULT=0xFFFFFFFFu,
 }WDT_nPRIORITY;
 
 typedef enum

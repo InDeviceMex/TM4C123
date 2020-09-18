@@ -28,7 +28,7 @@ typedef enum
 {
     CONV_enSTATUS_OK = 0u,
     CONV_enSTATUS_ERROR = 1u,
-    CONV_enNAN = 0xFFu,
+    CONV_enNAN = 0xFFFFFFFFu,
 }CONV_nSTATUS;
 
 typedef enum
