@@ -25,6 +25,9 @@
 #define XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_
 
 
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_ControlWorld.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestAddress.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceAddress.h>
 
 
 

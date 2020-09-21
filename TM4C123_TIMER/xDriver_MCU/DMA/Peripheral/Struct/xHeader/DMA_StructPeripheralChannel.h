@@ -30,17 +30,17 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t DMASRCENDP;
+        volatile uint32_t DMASRCENDP;
         DMASRCENDP_TypeDef      DMASRCENDP_Bit;
     };
     union
     {
-        volatile const uint32_t DMADSTENDP;
+        volatile uint32_t DMADSTENDP;
         DMADSTENDP_TypeDef      DMADSTENDP_Bit;
     };
     union
     {
-        volatile const uint32_t DMACHCTL;
+        volatile uint32_t DMACHCTL;
         DMACHCTL_TypeDef        DMACHCTL_Bit;
     };
     const uint32_t reserved;

@@ -27,8 +27,8 @@
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterAddressChannel.h>
 #include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel.h>
 
-#define DMACH             (((DMACH_TypeDef*)(DMACH_BASE+DMACH_OFFSET )))
-#define DMAALTCH          (((DMACH_TypeDef*)(DMAALTCH_BASE+DMAALTCH_OFFSET )))
+#define DMACH             (((DMACH_TypeDef*)(DMACH_BASE)))
+#define DMAALTCH          (((DMACH_TypeDef*)(DMAALTCH_BASE)))
 
 /********************************************************************************************
 ************************************** 1 DMASRCENDP **********************************************

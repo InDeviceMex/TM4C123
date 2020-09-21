@@ -42,7 +42,7 @@ typedef volatile struct
     volatile uint32_t NXTUSEBURST :1;
     volatile uint32_t XFERSIZE    :10;
     volatile uint32_t ARBSIZE     :4;
-    const    uint32_t reserved    :6;
+    volatile    uint32_t reserved    :6;
     volatile uint32_t SRCSIZE     :2;
     volatile uint32_t SRCINC      :2;
     volatile uint32_t DSTSIZE     :2;

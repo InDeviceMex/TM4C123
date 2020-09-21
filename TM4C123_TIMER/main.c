@@ -48,10 +48,34 @@ char pu8Buffer2[LCD1602_COLUMN_MAX+1u]="DISTANCE:       ";
 static float32_t fAngleAbosulte=0.0f;
 
 
+uint8_t pu8DMASourceBufferCh0[100u] = {0u};
+uint8_t pu8DMADestBufferCh0[100u] = {0u};
+
 
 int32_t main(void)
 {
+    uint32_t u32Pos= 0u;
     volatile DMA_nCH_WAITING enDMAWait = DMA_enCH_WAITING_NO;
+    DMACHCTL_TypeDef enDMACh0Control =
+    {
+         1,
+         0,
+         100-1,
+         7,
+         0,
+         0,
+         0,
+         0,
+         0,
+    };
+    DMA_CONFIG_Typedef enDMACh0Config=
+    {
+       DMA_enCH_REQTYPE_BOTH,
+       DMA_enCH_PERIPHERAL_DIS,
+       DMA_enCH_CTL_PRIMARY ,
+       DMA_enCH_PRIO_DEFAULT ,
+       DMA_enCH_ENCODER_4
+    };
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -66,16 +90,18 @@ int32_t main(void)
     SysTick__enInitUs(100.0f,SCB_enSHPR0);
     LCD1602__enInit();
 
+    for(u32Pos =0u; u32Pos<100u; u32Pos++)
+    {
+        pu8DMASourceBufferCh0[u32Pos] =(uint8_t)u32Pos;
+    }
     DMA__vInit();
 
-    DMA_CH__vSetControlStructure(DMA_enCH_MODULE_0, DMA_enCH_CTL_PRIMARY);
-    DMA_CH__vSetPriority(DMA_enCH_MODULE_0, DMA_enCH_PRIO_HIGH);
-    DMA_CH__vSetRequestType(DMA_enCH_MODULE_0, DMA_enCH_REQTYPE_BURST);
-    DMA_CH__vSetPeripheralEnable(DMA_enCH_MODULE_0, DMA_enCH_PERIPHERAL_ENA);
-
-    DMA_CH__vSetEncoderDefine(DMA_enCHSRC_CH0_SOFTWARE);
-    DMA_CH__vSetEnable(DMA_enCH_MODULE_0,DMA_enCH_ENA_ENA);
-    DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_0);
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_30, (uint32_t) &pu8DMADestBufferCh0[100-1]);
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_30, (uint32_t) &pu8DMASourceBufferCh0[100-1]);
+    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_30, enDMACh0Control);
+    DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_30, enDMACh0Config);
+    DMA_CH__vSetEnable(DMA_enCH_MODULE_30,DMA_enCH_ENA_ENA);
+    DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_30);
     LCD1602__enReloadScreenDirect();
     enDMAWait = DMA_CH__enGetWaitStatus(DMA_enCH_MODULE_15);
 

@@ -31,6 +31,7 @@
 #include <xDriver_MCU/DMA/Driver/xHeader/DMA_ChannelControlPointer.h>
 #include <xDriver_MCU/DMA/Driver/xHeader/DMA_ChannelControlAltPointer.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/DMA_CH_Config.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/DMA_CH_Control.h>
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_DRIVER_H_ */

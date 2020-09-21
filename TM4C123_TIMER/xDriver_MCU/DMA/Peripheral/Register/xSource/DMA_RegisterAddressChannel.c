@@ -24,18 +24,18 @@
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterAddressChannel.h>
-
+#include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel.h>
 #if defined ( __TI_ARM__ )
 
-#pragma DATA_SECTION(DMA__u32Channel, ".dma")
-#pragma DATA_SECTION(DMA__u32ChannelAlt, ".dmaalt")
+#pragma DATA_SECTION(DMA__sChannel, ".dma")
+#pragma DATA_SECTION(DMA__sChannelAlt, ".dmaalt")
 
-volatile uint32_t DMA__u32Channel[DMACH_MAX*DMACH_REG_NUM];
-volatile uint32_t DMA__u32ChannelAlt[DMACH_MAX*DMACH_REG_NUM];
+volatile DMACHANNEL_TypeDef DMA__sChannel[DMACH_MAX];
+volatile DMACHANNEL_TypeDef DMA__sChannelAlt[DMACH_MAX];
 
 #elif defined ( __GNUC__ )
-__attribute__((section(".dma"))) volatile uint32_t DMA__u32Channel[DMACH_MAX*DMACH_REG_NUM];
-__attribute__((section(".dmaalt"))) volatile uint32_t DMA__u32ChannelAlt[DMACH_MAX*DMACH_REG_NUM];
+__attribute__((section(".dma"))) volatile DMACHANNEL_TypeDef DMA__sChannel[DMACH_MAX];
+__attribute__((section(".dmaalt"))) volatile DMACHANNEL_TypeDef DMA__sChannelAlt[DMACH_MAX];
 #endif
 
 

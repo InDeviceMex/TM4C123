@@ -25,19 +25,19 @@
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERADDRESSCHANNEL_H_
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel.h>
 
 #define DMACH_MAX (32u)
 #define DMACH_REG_NUM (4u)
 
-extern volatile uint32_t DMA__u32Channel[DMACH_MAX*DMACH_REG_NUM];
-extern volatile uint32_t DMA__u32ChannelAlt[DMACH_MAX*DMACH_REG_NUM];
+extern volatile DMACHANNEL_TypeDef DMA__sChannel[DMACH_MAX];
+extern volatile DMACHANNEL_TypeDef DMA__sChannelAlt[DMACH_MAX];
 
+#define DMACH_BASE            ((uint32_t)DMA__sChannel)
+#define DMACH_OFFSET          ((uint32_t)DMA__sChannel & (uint32_t)0x00FFFFFFu)
 
-#define DMACH_BASE            ((uint32_t)DMA__u32Channel)
-#define DMACH_OFFSET          ((uint32_t)DMA__u32Channel & (uint32_t)0x00FFFFFFu)
-
-#define DMAALTCH_BASE         ((uint32_t)DMA__u32ChannelAlt)
-#define DMAALTCH_OFFSET       ((uint32_t)DMA__u32ChannelAlt & (uint32_t)0x00FFFFFFu)
+#define DMAALTCH_BASE         ((uint32_t)DMA__sChannelAlt)
+#define DMAALTCH_OFFSET       ((uint32_t)DMA__sChannelAlt & (uint32_t)0x00FFFFFFu)
 
 #define DMACH_BITBANDING_BASE           ((uint32_t)0x22000000u)
 #define DMAALTCH_BITBANDING_BASE        ((uint32_t)0x22000000u)
