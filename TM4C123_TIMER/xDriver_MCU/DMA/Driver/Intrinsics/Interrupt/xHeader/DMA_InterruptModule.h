@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
-void DMA__vEnInterruptMODULE(DMA_nPRIORITY enPriority);
+void DMA__vEnInterruptMODULE(DMA_nPRIORITY enDMAModulePriority);
 void DMA__vDisInterruptMODULE(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTERRUPT_DMA_INTERRUPTMODULE_H_ */

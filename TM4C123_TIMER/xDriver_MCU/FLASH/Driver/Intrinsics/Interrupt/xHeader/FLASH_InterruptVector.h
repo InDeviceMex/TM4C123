@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-void FLASH__vEnInterruptVector(FLASH_nPRIORITY enPriority);
+void FLASH__vEnInterruptVector(FLASH_nPRIORITY enFlashPriority);
 void FLASH__vDisInterruptVector(void);
 
 #endif /* XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_INTERRUPT_XHEADER_FLASH_INTERRUPTVECTOR_H_ */

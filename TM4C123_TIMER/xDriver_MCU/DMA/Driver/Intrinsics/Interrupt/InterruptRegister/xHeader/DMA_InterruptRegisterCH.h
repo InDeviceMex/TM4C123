@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
-void DMA__vRegisterCHISR(void (*Isr) (void),DMA_nCHSRC enIntType);
+void DMA__vRegisterCHISR(void (*Isr) (void),DMA_nCHSRC enInterruptType);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTERRUPT_DMA_INTERRUPTREGISTER_DMA_INTERRUPTREGISTERCH_H_ */

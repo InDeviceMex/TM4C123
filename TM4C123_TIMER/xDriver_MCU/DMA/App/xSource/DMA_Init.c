@@ -29,8 +29,8 @@
 
 void DMA__vInit(void)
 {
-    DMA__vRegisterIRQVectorHandler(DMA_SW__vIRQVectorHandler,DMA_enVECTOR_SW);
-    DMA__vRegisterIRQVectorHandler(DMA_ERROR__vIRQVectorHandler,DMA_enVECTOR_ERROR);
+    DMA__vRegisterIRQVectorHandler(&DMA_SW__vIRQVectorHandler,DMA_enVECTOR_SW);
+    DMA__vRegisterIRQVectorHandler(&DMA_ERROR__vIRQVectorHandler,DMA_enVECTOR_ERROR);
     DMA__vSetChannelControlPointer((uint32_t)DMA__u32Channel);
     DMA__vSetModuleEnable(DMA_enENABLE_EN);
 }

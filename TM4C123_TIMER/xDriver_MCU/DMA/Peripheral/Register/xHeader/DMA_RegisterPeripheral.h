@@ -57,7 +57,7 @@
 ************************************** 8 DMAWAITSTAT **********************************************
 ********************************************************************************************/
 #define DMA_DMAWAITSTAT            (((DMAWAITSTAT_TypeDef*)(DMA_BASE+DMA_DMAWAITSTAT_OFFSET )))
-#define DMA_DMAWAITSTAT_R          (*((volatile const uint32_t *)(DMA_BASE+DMA_DMAWAITSTAT_OFFSET)))
+#define DMA_DMAWAITSTAT_R          (*((volatile uint32_t *)(DMA_BASE+DMA_DMAWAITSTAT_OFFSET)))
 
 /********************************************************************************************
 ************************************** 9 DMASWREQ **********************************************

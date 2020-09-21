@@ -27,11 +27,11 @@
 #include <xDriver_MCU/SYSEXC/App/xHeader/SYSEXC_Init.h>
 #include <xDriver_MCU/SYSEXC/Driver/SYSEXC_Driver.h>
 
-void SYSEXC__vInit(SYSEXC_nINT enInterruptParam,SYSEXC_nPRIORITY enPriority)
+void SYSEXC__vInit(SYSEXC_nINT enInterruptParam,SYSEXC_nPRIORITY enSYSEXCPriority)
 {
     SYSEXC__vRegisterIRQVectorHandler(&SYSEXC__vIRQVectorHandler);
 
     SYSEXC__vDisInterruptSource(SYSEXC_enINT_ALL);
     SYSEXC__vEnInterruptSource(enInterruptParam);
-    SYSEXC__vEnInterruptVector(enPriority);
+    SYSEXC__vEnInterruptVector(enSYSEXCPriority);
 }

@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Enum.h>
 
-void SYSEXC__vEnInterruptVector(SYSEXC_nPRIORITY enPriority);
+void SYSEXC__vEnInterruptVector(SYSEXC_nPRIORITY enSYSEXCPriority);
 void SYSEXC__vDisInterruptVector(void);
 
 

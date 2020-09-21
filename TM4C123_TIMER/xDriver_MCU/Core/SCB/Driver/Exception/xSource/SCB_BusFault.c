@@ -26,13 +26,13 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_BusFault.h>
 
-inline void SCB_BusFault__vSetPriority(SCB_nSHPR enPriority)
+inline void SCB_BusFault__vSetPriority(SCB_nSHPR enSCBPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;
     uint32_t u32RegAux=0;
 
     u32Reg&=~SCB_SHPR1_R_BUS_MASK;
-    u32RegAux = ((uint32_t)enPriority &SCB_SHPR1_BUS_MASK);
+    u32RegAux = ((uint32_t)enSCBPriority &SCB_SHPR1_BUS_MASK);
     u32RegAux<<=SCB_SHPR1_R_BUS_BIT;
     u32Reg|=u32RegAux;
     SCB_vBarrier();

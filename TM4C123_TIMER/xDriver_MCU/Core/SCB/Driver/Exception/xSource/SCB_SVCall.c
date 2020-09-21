@@ -26,13 +26,13 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_SVCall.h>
 
-inline void SCB_SVCall__vSetPriority(SCB_nSHPR enPriority)
+inline void SCB_SVCall__vSetPriority(SCB_nSHPR enSVCallPriority)
 {
     uint32_t u32Reg=SCB_SHPR2_R;
     uint32_t u32RegAux=0;
 
     u32Reg&=~SCB_SHPR2_R_SVCALL_MASK;
-    u32RegAux = ((uint32_t)enPriority &SCB_SHPR2_SVCALL_MASK);
+    u32RegAux = ((uint32_t)enSVCallPriority &SCB_SHPR2_SVCALL_MASK);
     u32RegAux<<=SCB_SHPR2_R_SVCALL_BIT;
     u32Reg|=u32RegAux;
     SCB_vBarrier();

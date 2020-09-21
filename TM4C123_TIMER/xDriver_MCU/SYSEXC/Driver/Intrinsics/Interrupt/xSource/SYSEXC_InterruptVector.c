@@ -24,12 +24,12 @@
 #include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/xHeader/SYSEXC_InterruptVector.h>
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
 
-void SYSEXC__vEnInterruptVector(SYSEXC_nPRIORITY enPriority)
+void SYSEXC__vEnInterruptVector(SYSEXC_nPRIORITY enSYSEXCPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_SYSEXC;
 
-    enPriority&=0x7u;
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
+    enSYSEXCPriority&=0x7u;
+    NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enSYSEXCPriority);
 }
 
 void SYSEXC__vDisInterruptVector(void)

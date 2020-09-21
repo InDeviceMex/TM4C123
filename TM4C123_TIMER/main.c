@@ -51,6 +51,7 @@ static float32_t fAngleAbosulte=0.0f;
 
 int32_t main(void)
 {
+    volatile DMA_nCH_WAITING enDMAWait = DMA_enCH_WAITING_NO;
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -65,9 +66,19 @@ int32_t main(void)
     SysTick__enInitUs(100.0f,SCB_enSHPR0);
     LCD1602__enInit();
 
-    DMA__vSetReady(DMA_enMODULE_0);
+    DMA__vInit();
 
+    DMA_CH__vSetControlStructure(DMA_enCH_MODULE_0, DMA_enCH_CTL_PRIMARY);
+    DMA_CH__vSetPriority(DMA_enCH_MODULE_0, DMA_enCH_PRIO_HIGH);
+    DMA_CH__vSetRequestType(DMA_enCH_MODULE_0, DMA_enCH_REQTYPE_BURST);
+    DMA_CH__vSetPeripheralEnable(DMA_enCH_MODULE_0, DMA_enCH_PERIPHERAL_ENA);
+
+    DMA_CH__vSetEncoderDefine(DMA_enCHSRC_CH0_SOFTWARE);
+    DMA_CH__vSetEnable(DMA_enCH_MODULE_0,DMA_enCH_ENA_ENA);
+    DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_0);
     LCD1602__enReloadScreenDirect();
+    enDMAWait = DMA_CH__enGetWaitStatus(DMA_enCH_MODULE_15);
+
     ServoMotor_SG90__enInit(&MAIN_sServoMotor1,TIMER_enT1B,GPIO_enT1CCP1_F3,550u,2500u);
     ServoMotor_SG90__enInit(&MAIN_sServoMotor2,TIMER_enT0B,GPIO_enT0CCP1,800u,2000u);
     ServoMotor_SG90__enSetAngleAbsoluteFloat(&MAIN_sServoMotor1,(fAngleAbosulte));
@@ -186,7 +197,7 @@ void MAIN_vTaskServo(void)
 {
     static float32_t fTimeSystickStart_Task2=0.0f;
     static float32_t fTimeSystickEnd_Task2=0.0f;
-    uint8_t u8Dir=0u;
+    static uint8_t u8Dir=0u;
     fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
     if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
     {

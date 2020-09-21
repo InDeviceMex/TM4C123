@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
-void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enPriority);
+void GPIO__vEnInterruptVector(GPIO_nPORT enPort,GPIO_nPRIORITY enGPIOPriority);
 void GPIO__vDisInterruptVector(GPIO_nPORT enPort);
 
 

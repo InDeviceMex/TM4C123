@@ -27,13 +27,13 @@
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_SysTick.h>
 
 
-inline void SCB_SysTick__vSetPriority(SCB_nSHPR enPriority)
+inline void SCB_SysTick__vSetPriority(SCB_nSHPR enSysTickPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
     uint32_t u32RegAux=0;
 
     u32Reg&=~SCB_SHPR3_R_SYSTICK_MASK;
-    u32RegAux = ((uint32_t)enPriority &SCB_SHPR3_SYSTICK_MASK);
+    u32RegAux = ((uint32_t)enSysTickPriority &SCB_SHPR3_SYSTICK_MASK);
     u32RegAux<<= SCB_SHPR3_R_SYSTICK_BIT;
     u32Reg|=u32RegAux;
     SCB_vBarrier();

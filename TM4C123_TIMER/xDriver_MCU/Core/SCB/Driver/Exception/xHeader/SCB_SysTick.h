@@ -30,7 +30,7 @@ void SCB_SysTick__vSetPending(void);
 void SCB_SysTick__vClearPending(void);
 SCB_nPENDSTATE SCB_SysTick__enGetPending(void);
 
-void SCB_SysTick__vSetPriority(SCB_nSHPR enPriority);
+void SCB_SysTick__vSetPriority(SCB_nSHPR enSysTickPriority);
 SCB_nSHPR SCB_SysTick__enGetPriority(void);
 
 

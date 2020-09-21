@@ -24,10 +24,10 @@
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptVector.h>
 
-void WDT__vEnInterruptSourceVector(WDT_nPRIORITY enPriority)
+void WDT__vEnInterruptSourceVector(WDT_nPRIORITY enWDTPriority)
 {
-    enPriority&=0x7u;
-    NVIC__enSetEnableIRQ(NVIC_enSTIR_WDT01,(NVIC_nPRIORITY)enPriority);
+    enWDTPriority&=0x7u;
+    NVIC__enSetEnableIRQ(NVIC_enSTIR_WDT01,(NVIC_nPRIORITY)enWDTPriority);
 }
 
 void WDT__vDisInterruptSourceVector(void)

@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
-void DMA_CH__vSetControlStructure(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enControlStructure);
+void DMA_CH__vSetControlStructure(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelControlStructure);
 DMA_nCH_CTL DMA_CH__enGetControlStructure(DMA_nCH_MODULE enChannel);
 
 #endif /* XDRIVER_MCU_DMA_DRIVER_CH_CONFIG_XHEADER_DMA_CH_CONTROLSTRUCTURE_H_ */

@@ -158,6 +158,7 @@ typedef enum
     DMA_enCH_ENCODER_3      = ((uint32_t)3u),
     DMA_enCH_ENCODER_4      = ((uint32_t)4u),
     DMA_enCH_ENCODER_MAX    = ((uint32_t)4u),
+    DMA_enCH_ENCODER_UNDEF = 0xFFFFFFFFu,
 }DMA_nCH_ENCODER;
 
 typedef enum
@@ -209,6 +210,13 @@ typedef enum
     DMA_enCH_BURST_SIZE_1024    =10u,
     DMA_enCH_BURST_SIZE_UNDEF   =0xFFFFFFFFu,
 }DMA_nCH_BURST_SIZE;
+
+typedef enum
+{
+    DMA_enCH_BURST_OFF      =0u,
+    DMA_enCH_BURST_ON       =1u,
+    DMA_enCH_BURST_UNDEF   =0xFFFFFFFFu,
+}DMA_nCH_BURST;
 
 typedef enum
 {
@@ -405,8 +413,14 @@ typedef enum
     DMA_enCHSRC_CH29_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_29,
 
     DMA_enCHSRC_CH30_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_30,
+    DMA_enCHSRC_UNDEF =  0xFFFFFFFF,
 }DMA_nCHSRC;
 
+#if 0
+/*
+ * This Struct is already defined in DMA_StructRegisterChannel.h
+ *  DMACHCTL_TypeDef
+ *  */
 typedef struct
 {
     uint32_t transferMode   :3;
@@ -419,14 +433,27 @@ typedef struct
     uint32_t destSize            :2;
     uint32_t destInc              :2;
 }DMA_CONTROL_Typedef;
+#endif
 
+typedef struct
+{
+    DMA_nCH_MODE             enTransferMode;
+    DMA_nCH_BURST            enUseBurst;
+    uint32_t                            u32TransferSize;
+    DMA_nCH_BURST_SIZE   enBurstSize;
+    DMA_nCH_SRC_SIZE        enSourceSize;
+    DMA_nCH_SRC_INC         enSourceInc;
+    DMA_nCH_DST_SIZE       enDestSource;
+    DMA_nCH_DST_INC        enDestInc;
+}DMA_CONTROL_Typedef;
 
 typedef struct
 {
     DMA_nCH_REQTYPE enReqType;
-    DMA_nCH_PERIPHERAL enPeripheralEn;
+    DMA_nCH_PERIPHERAL enPeripheralEnable;
     DMA_nCH_CTL enControlStructure;
-    DMA_nCH_PRIO enPriority;
+    DMA_nCH_PRIO enChannelPriority;
+    DMA_nCH_ENCODER enEncoder;
 }DMA_CONFIG_Typedef;
 
 

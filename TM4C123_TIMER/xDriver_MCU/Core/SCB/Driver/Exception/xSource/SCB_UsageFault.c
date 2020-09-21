@@ -27,13 +27,13 @@
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_UsageFault.h>
 
 
-inline void SCB_UsageFault__vSetPriority(SCB_nSHPR enPriority)
+inline void SCB_UsageFault__vSetPriority(SCB_nSHPR enUsageFaultPriority)
 {
     uint32_t u32Reg=SCB_SHPR1_R;
     uint32_t u32RegAux=0;
 
     u32Reg&=~SCB_SHPR1_R_USAGE_MASK;
-    u32RegAux = ((uint32_t)enPriority &SCB_SHPR1_USAGE_MASK);
+    u32RegAux = ((uint32_t)enUsageFaultPriority &SCB_SHPR1_USAGE_MASK);
     u32RegAux<<=SCB_SHPR1_R_USAGE_BIT;
     u32Reg|=u32RegAux;
     SCB_vBarrier();

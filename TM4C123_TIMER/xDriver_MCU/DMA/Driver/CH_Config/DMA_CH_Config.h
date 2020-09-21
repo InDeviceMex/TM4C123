@@ -26,6 +26,7 @@
 
 
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_ControlStructure.h>
+#include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_Encoder.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_Enable.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_InterruptStatus.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_Peripheral.h>

@@ -37,12 +37,12 @@ void DMA_CH__vSetConfigGeneric(DMA_nCH_MODULE enChannel, volatile uint32_t *pvu3
     DMA__vSetReady(DMA_enMODULE_0);
 
     u32Reg=*pvu32Register;
-    u32Reg|=(0x1u<<u32Channel);
+    u32Reg|=((uint32_t)0x1u<<u32Channel);
     *pvu32Register = u32Reg;
 }
 
 
-uint32_t DMA_CH__u32GetConfigGeneric(DMA_nCH_MODULE enChannel, volatile uint32_t *pvu32Register)
+uint32_t DMA_CH__u32GetConfigGeneric(DMA_nCH_MODULE enChannel, const volatile uint32_t * const pvu32Register)
 {
     uint32_t u32Reg=0u;
     uint32_t u32Result = 0xFFFFFFFF;

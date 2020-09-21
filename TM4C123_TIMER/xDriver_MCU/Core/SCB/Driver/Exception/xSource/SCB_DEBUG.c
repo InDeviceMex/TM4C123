@@ -26,13 +26,13 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_DEBUG.h>
 
-void SCB_DEBUG__vSetPriority(SCB_nSHPR enPriority)
+void SCB_DEBUG__vSetPriority(SCB_nSHPR enDEBUGPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
     uint32_t u32RegAux=0;
 
     u32Reg&=~SCB_SHPR3_R_DEBUG_MASK;
-    u32RegAux =((uint32_t)enPriority &SCB_SHPR3_DEBUG_MASK);
+    u32RegAux =((uint32_t)enDEBUGPriority &SCB_SHPR3_DEBUG_MASK);
     u32RegAux<<= SCB_SHPR3_R_DEBUG_BIT;
     u32Reg|=u32RegAux;
     SCB_vBarrier();

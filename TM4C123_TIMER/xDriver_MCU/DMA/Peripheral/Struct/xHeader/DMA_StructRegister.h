@@ -328,7 +328,7 @@ typedef volatile struct
 {
         union
         {
-                uint32_t                         CHMAP[4];
+                volatile uint32_t                         CHMAP[4];
                 DMACHMAP0_TypeDef CHMAP_bit[4];
         };
 }DMACHMAP_TypeDef;

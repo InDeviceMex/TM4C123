@@ -30,7 +30,7 @@ void SCB_MemoryFault__vSetPending(void);
 void SCB_MemoryFault__vClearPending(void);
 SCB_nPENDSTATE SCB_MemoryFault__enGetPending(void);
 
-void SCB_MemoryFault__vSetPriority(SCB_nSHPR enPriority);
+void SCB_MemoryFault__vSetPriority(SCB_nSHPR enMemoryPriority);
 SCB_nSHPR SCB_MemoryFault__enGetPriority(void);
 
 void SCB_MemoryFault__vEnable(void);

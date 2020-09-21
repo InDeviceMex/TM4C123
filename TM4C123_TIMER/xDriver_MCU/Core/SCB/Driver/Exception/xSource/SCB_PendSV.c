@@ -45,13 +45,13 @@ SCB_nPENDSTATE SCB_PendSV__enGetPending(void)
 }
 
 
-inline void SCB_PendSV__vSetPriority(SCB_nSHPR enPriority)
+inline void SCB_PendSV__vSetPriority(SCB_nSHPR enPendSVPriority)
 {
     uint32_t u32Reg=SCB_SHPR3_R;
     uint32_t u32RegAux=0;
 
     u32Reg&=~SCB_SHPR3_R_PENDSV_MASK;
-    u32RegAux = ((uint32_t)enPriority &SCB_SHPR3_PENDSV_MASK);
+    u32RegAux = ((uint32_t)enPendSVPriority &SCB_SHPR3_PENDSV_MASK);
     u32RegAux <<= SCB_SHPR3_R_PENDSV_BIT;
     u32Reg|=u32RegAux;
     SCB_vBarrier();

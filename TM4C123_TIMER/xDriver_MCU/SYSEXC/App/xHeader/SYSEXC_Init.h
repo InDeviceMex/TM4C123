@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Enum.h>
 
-void SYSEXC__vInit(SYSEXC_nINT enInterruptParam,SYSEXC_nPRIORITY enPriority);
+void SYSEXC__vInit(SYSEXC_nINT enInterruptParam,SYSEXC_nPRIORITY enSYSEXCPriority);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_DRIVER_SYSEXC_INIT_H_ */

@@ -31,7 +31,7 @@ void SCB_SVCall__vClearPending(void);
 SCB_nPENDSTATE SCB_SVCall__enGetPending(void);
 
 
-void SCB_SVCall__vSetPriority(SCB_nSHPR enPriority);
+void SCB_SVCall__vSetPriority(SCB_nSHPR enSVCallPriority);
 SCB_nSHPR SCB_SVCall__enGetPriority(void);
 
 
