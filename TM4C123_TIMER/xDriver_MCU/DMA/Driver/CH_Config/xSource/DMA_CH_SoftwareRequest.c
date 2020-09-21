@@ -1,6 +1,6 @@
 /**
  *
- * @file DMA_Intrinsics.h
+ * @file DMA_CH_SoftwareRequest.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 29 jul. 2020 @endverbatim
+ * @verbatim 20 sep. 2020 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,13 +19,16 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 29 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * 20 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTRINSICS_H_
-#define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTRINSICS_H_
-
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/xHeader/DMA_CH_ConfigGeneric.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/DMA_Interrupt.h>
+#include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_SoftwareRequest.h>
+#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
 
-#endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_INTRINSICS_DMA_INTRINSICS_H_ */
+void DMA_CH__vSetSoftwareRequest(DMA_nCH_MODULE enChannel)
+{
+    DMA_CH__vSetConfigGeneric(enChannel,&DMA_DMASWREQ_R);
+}
+

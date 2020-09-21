@@ -24,10 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_H_
 
-
-
 #include <xDriver_MCU/DMA/Driver/DMA_Driver.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-
+#include <xDriver_MCU/DMA/App/DMA_App.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_H_ */

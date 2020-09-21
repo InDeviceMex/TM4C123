@@ -25,5 +25,12 @@
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_DRIVER_H_
 
 #include <xDriver_MCU/DMA/Driver/Intrinsics/DMA_Intrinsics.h>
+#include <xDriver_MCU/DMA/Driver/xHeader/DMA_Enable.h>
+#include <xDriver_MCU/DMA/Driver/xHeader/DMA_Error.h>
+#include <xDriver_MCU/DMA/Driver/xHeader/DMA_State.h>
+#include <xDriver_MCU/DMA/Driver/xHeader/DMA_ChannelControlPointer.h>
+#include <xDriver_MCU/DMA/Driver/xHeader/DMA_ChannelControlAltPointer.h>
+#include <xDriver_MCU/DMA/Driver/CH_Config/DMA_CH_Config.h>
+
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_DRIVER_DMA_DRIVER_H_ */

@@ -24,11 +24,12 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTER_H_
 
+#include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterAddressChannel.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterDefinesChannel.h>
-#include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterPeripheral.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterPeripheral_Bitbanding.h>
-#include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterPeripheralChannel.h>
+#include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterPeripheral.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterPeripheralChannel_Bitbanding.h>
+#include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterPeripheralChannel.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/RegisterDefines/DMA_RegisterDefines.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTER_H_ */

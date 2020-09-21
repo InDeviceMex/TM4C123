@@ -126,6 +126,7 @@ typedef volatile struct
         BITBANDING_DMACHIS_TypeDef      DMACHIS_Bit;
     };
     const uint32_t reserved2[2*32];
+#if 0
     union
     {
         volatile uint32_t               DMACHMAP0[32];
@@ -145,6 +146,12 @@ typedef volatile struct
     {
         volatile uint32_t               DMACHMAP3[32];
         BITBANDING_DMACHMAP3_TypeDef    DMACHMAP3_Bit;
+    };
+#endif
+    union
+    {
+        volatile uint32_t               DMACHMAP0[4][32];
+        BITBANDING_DMACHMAP0_TypeDef    DMACHMAP0_Bit[4];
     };
     const uint32_t reserved3[688*32];
     union

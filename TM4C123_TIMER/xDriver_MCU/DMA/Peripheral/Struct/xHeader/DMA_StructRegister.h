@@ -326,6 +326,15 @@ typedef volatile struct
 
 typedef volatile struct
 {
+        union
+        {
+                uint32_t                         CHMAP[4];
+                DMACHMAP0_TypeDef CHMAP_bit[4];
+        };
+}DMACHMAP_TypeDef;
+
+typedef volatile struct
+{
     volatile const uint32_t PID0      :8;
     const    uint32_t       reserved  :24;
 }DMAPeriphID0_TypeDef;

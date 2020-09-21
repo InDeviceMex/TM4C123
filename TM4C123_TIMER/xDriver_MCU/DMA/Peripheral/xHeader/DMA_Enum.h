@@ -60,6 +60,19 @@ typedef enum
 
 typedef enum
 {
+    DMA_enPRI0=0u,
+    DMA_enPRI1=1u,
+    DMA_enPRI2=2u,
+    DMA_enPRI3=3u,
+    DMA_enPRI4=4u,
+    DMA_enPRI5=5u,
+    DMA_enPRI6=6u,
+    DMA_enPRI7=7u,
+    DMA_enDEFAULT=0xFFFFFFFFu,
+}DMA_nPRIORITY;
+
+typedef enum
+{
     DMA_enSTATE_IDLE        =0u,
     DMA_enSTATE_RD_CTL_DATA =1u,
     DMA_enSTATE_RD_SRC_PT   =2u,
@@ -72,13 +85,6 @@ typedef enum
     DMA_enSTATE_WD_DONE     =9u,
     DMA_enSTATE_UNDEF       =0xFFFFFFFFu,
 }DMA_nSTATE;
-
-typedef enum
-{
-    DMA_enERROR_NOPENDING    =0u,
-    DMA_enERROR_PENDING  =1u,
-    DMA_enERROR_UNDEF  =0xFFFFFFFFu,
-}DMA_nERROR;
 
 typedef enum
 {
@@ -103,8 +109,8 @@ typedef enum
 
 typedef enum
 {
-    DMA_enCH_PERIPHERAL_DIS     =0u,
-    DMA_enCH_PERIPHERAL_ENA     =1u,
+    DMA_enCH_PERIPHERAL_ENA     =0u,
+    DMA_enCH_PERIPHERAL_DIS     =1u,
     DMA_enCH_PERIPHERAL_UNDEF   =0xFFFFFFFFu,
 }DMA_nCH_PERIPHERAL;
 
@@ -131,10 +137,28 @@ typedef enum
 
 typedef enum
 {
+    DMA_enERROR_NOPENDING    =0u,
+    DMA_enERROR_PENDING  =1u,
+    DMA_enERROR_UNDEF  =0xFFFFFFFFu,
+}DMA_nERROR;
+
+typedef enum
+{
     DMA_enCH_INT_NOOCCUR        =0u,
     DMA_enCH_INT_OCCUR          =1u,
+    DMA_enCH_INT_CLEAR          =1u,
     DMA_enCH_INT_STATUS_UNDEF   =0xFFFFFFFFu,
 }DMA_nCH_INT_STATUS;
+
+typedef enum
+{
+    DMA_enCH_ENCODER_0      = ((uint32_t)0u),
+    DMA_enCH_ENCODER_1      = ((uint32_t)1u),
+    DMA_enCH_ENCODER_2      = ((uint32_t)2u),
+    DMA_enCH_ENCODER_3      = ((uint32_t)3u),
+    DMA_enCH_ENCODER_4      = ((uint32_t)4u),
+    DMA_enCH_ENCODER_MAX    = ((uint32_t)4u),
+}DMA_nCH_ENCODER;
 
 typedef enum
 {
@@ -234,215 +258,176 @@ typedef enum
     DMA_enCH_MODULE_30  = ((uint32_t)30u),
     DMA_enCH_MODULE_31  = ((uint32_t)31u),
     DMA_enCH_MODULE_MAX = ((uint32_t)31u),
+    DMA_enCH_MODULE_UNDEF = 0xFFFFFFFFu,
 }DMA_nCH_MODULE;
 
 typedef enum
 {
-    DMA_enCH_ENCODER_0      = ((uint32_t)0u),
-    DMA_enCH_ENCODER_1      = ((uint32_t)1u),
-    DMA_enCH_ENCODER_2      = ((uint32_t)2u),
-    DMA_enCH_ENCODER_3      = ((uint32_t)3u),
-    DMA_enCH_ENCODER_4      = ((uint32_t)4u),
-    DMA_enCH_ENCODER_MAX    = ((uint32_t)4u),
-}DMA_nCH_ENCODER;
+    DMA_enCHSRC_CH0_USB0EP1_RX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)| (uint32_t)DMA_enCH_MODULE_0,
+    DMA_enCHSRC_CH0_UART2_RX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)| (uint32_t)DMA_enCH_MODULE_0,
+    DMA_enCHSRC_CH0_GPTM4A      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)| (uint32_t)DMA_enCH_MODULE_0,
+    DMA_enCHSRC_CH0_SOFTWARE    =((uint32_t)DMA_enCH_ENCODER_4<<8u)| (uint32_t)DMA_enCH_MODULE_0,
 
-typedef enum
-{
-    DMA_enCHSRC_CH0_0_USB0EP1_RX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)| (uint32_t)DMA_enCH_MODULE_0,
-    DMA_enCHSRC_CH0_1_UART2_RX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)| (uint32_t)DMA_enCH_MODULE_0,
-    DMA_enCHSRC_CH0_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)| (uint32_t)DMA_enCH_MODULE_0,
-    DMA_enCHSRC_CH0_3_GPTM4A      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)| (uint32_t)DMA_enCH_MODULE_0,
-    DMA_enCHSRC_CH0_4_SOFTWARE    =((uint32_t)DMA_enCH_ENCODER_4<<8u)| (uint32_t)DMA_enCH_MODULE_0,
+    DMA_enCHSRC_CH1_USB0EP1_TX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_1,
+    DMA_enCHSRC_CH1_UART2_TX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_1,
+    DMA_enCHSRC_CH1_GPTM4B      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_1,
+    DMA_enCHSRC_CH1_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_1,
 
-    DMA_enCHSRC_CH1_0_USB0EP1_TX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_1,
-    DMA_enCHSRC_CH1_1_UART2_TX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_1,
-    DMA_enCHSRC_CH1_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_1,
-    DMA_enCHSRC_CH1_3_GPTM4B      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_1,
-    DMA_enCHSRC_CH1_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_1,
+    DMA_enCHSRC_CH2_USB0EP2_RX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_2,
+    DMA_enCHSRC_CH2_GPTM3A      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_2,
+    DMA_enCHSRC_CH2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_2,
 
-    DMA_enCHSRC_CH2_0_USB0EP2_RX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_2,
-    DMA_enCHSRC_CH2_1_GPTM3A      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_2,
-    DMA_enCHSRC_CH2_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_2,
-    DMA_enCHSRC_CH2_3_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_2,
-    DMA_enCHSRC_CH2_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_2,
+    DMA_enCHSRC_CH3_USB0EP2_TX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_3,
+    DMA_enCHSRC_CH3_GPTM3B      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_3,
+    DMA_enCHSRC_CH3_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_3,
 
-    DMA_enCHSRC_CH3_0_USB0EP2_TX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_3,
-    DMA_enCHSRC_CH3_1_GPTM3B      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_3,
-    DMA_enCHSRC_CH3_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_3,
-    DMA_enCHSRC_CH3_3_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_3,
-    DMA_enCHSRC_CH3_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_3,
+    DMA_enCHSRC_CH4_USB0EP3_RX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_4,
+    DMA_enCHSRC_CH4_GPTM2A      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_4,
+    DMA_enCHSRC_CH4_GPIOA       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_4,
+    DMA_enCHSRC_CH4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_4,
 
-    DMA_enCHSRC_CH4_0_USB0EP3_RX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_4,
-    DMA_enCHSRC_CH4_1_GPTM2A      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_4,
-    DMA_enCHSRC_CH4_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_4,
-    DMA_enCHSRC_CH4_3_GPIOA       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_4,
-    DMA_enCHSRC_CH4_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_4,
+    DMA_enCHSRC_CH5_USB0EP3_TX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_5,
+    DMA_enCHSRC_CH5_GPTM2B      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_5,
+    DMA_enCHSRC_CH5_GPIOB       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_5,
+    DMA_enCHSRC_CH5_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_5,
 
-    DMA_enCHSRC_CH5_0_USB0EP3_TX  = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_5,
-    DMA_enCHSRC_CH5_1_GPTM2B      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_5,
-    DMA_enCHSRC_CH5_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_5,
-    DMA_enCHSRC_CH5_3_GPIOB       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_5,
-    DMA_enCHSRC_CH5_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_5,
+    DMA_enCHSRC_CH6_GPTM2A      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_6,
+    DMA_enCHSRC_CH6_UART5_RX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_6,
+    DMA_enCHSRC_CH6_GPIOC       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_6,
+    DMA_enCHSRC_CH6_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_6,
 
-    DMA_enCHSRC_CH6_0_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_6,
-    DMA_enCHSRC_CH6_1_GPTM2A      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_6,
-    DMA_enCHSRC_CH6_2_UART5_RX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_6,
-    DMA_enCHSRC_CH6_3_GPIOC       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_6,
-    DMA_enCHSRC_CH6_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_6,
+    DMA_enCHSRC_CH7_GPTM2B      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_7,
+    DMA_enCHSRC_CH7_UART5_TX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_7,
+    DMA_enCHSRC_CH7_GPIOD       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_7,
+    DMA_enCHSRC_CH7_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_7,
 
-    DMA_enCHSRC_CH7_0_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_7,
-    DMA_enCHSRC_CH7_1_GPTM2B      = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_7,
-    DMA_enCHSRC_CH7_2_UART5_TX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_7,
-    DMA_enCHSRC_CH7_3_GPIOD       = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_7,
-    DMA_enCHSRC_CH7_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_7,
+    DMA_enCHSRC_CH8_UART0_RX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_8,
+    DMA_enCHSRC_CH8_UART1_RX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_8,
+    DMA_enCHSRC_CH8_GPTM5A      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_8,
+    DMA_enCHSRC_CH8_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_8,
 
-    DMA_enCHSRC_CH8_0_UART0_RX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_8,
-    DMA_enCHSRC_CH8_1_UART1_RX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_8,
-    DMA_enCHSRC_CH8_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_8,
-    DMA_enCHSRC_CH8_3_GPTM5A      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_8,
-    DMA_enCHSRC_CH8_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_8,
+    DMA_enCHSRC_CH9_UART0_TX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_9,
+    DMA_enCHSRC_CH9_UART1_TX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_9,
+    DMA_enCHSRC_CH9_GPTM5B      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_9,
+    DMA_enCHSRC_CH9_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_9,
 
-    DMA_enCHSRC_CH9_0_UART0_TX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_9,
-    DMA_enCHSRC_CH9_1_UART1_TX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_9,
-    DMA_enCHSRC_CH9_2_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_9,
-    DMA_enCHSRC_CH9_3_GPTM5B      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_9,
-    DMA_enCHSRC_CH9_4_SOFTWARE    = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_9,
+    DMA_enCHSRC_CH10_SSI0_RX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_10,
+    DMA_enCHSRC_CH10_SSI1_RX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_10,
+    DMA_enCHSRC_CH10_UART6_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_10,
+    DMA_enCHSRC_CH10_GPWTM0A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_10,
+    DMA_enCHSRC_CH10_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_10,
 
-    DMA_enCHSRC_CH10_0_SSI0_RX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_10,
-    DMA_enCHSRC_CH10_1_SSI1_RX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_10,
-    DMA_enCHSRC_CH10_2_UART6_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_10,
-    DMA_enCHSRC_CH10_3_GPWTM0A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_10,
-    DMA_enCHSRC_CH10_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_10,
+    DMA_enCHSRC_CH11_SSI0_TX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_11,
+    DMA_enCHSRC_CH11_SSI1_TX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_11,
+    DMA_enCHSRC_CH11_UART6_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_11,
+    DMA_enCHSRC_CH11_GPWTM0B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_11,
+    DMA_enCHSRC_CH11_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_11,
 
-    DMA_enCHSRC_CH11_0_SSI0_TX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_11,
-    DMA_enCHSRC_CH11_1_SSI1_TX    = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_11,
-    DMA_enCHSRC_CH11_2_UART6_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_11,
-    DMA_enCHSRC_CH11_3_GPWTM0B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_11,
-    DMA_enCHSRC_CH11_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_11,
+    DMA_enCHSRC_CH12_UART2_RX   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_12,
+    DMA_enCHSRC_CH12_SSI2_RX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_12,
+    DMA_enCHSRC_CH12_GPWTM1A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_12,
+    DMA_enCHSRC_CH12_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_12,
 
-    DMA_enCHSRC_CH12_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_12,
-    DMA_enCHSRC_CH12_1_UART2_RX   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_12,
-    DMA_enCHSRC_CH12_2_SSI2_RX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_12,
-    DMA_enCHSRC_CH12_3_GPWTM1A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_12,
-    DMA_enCHSRC_CH12_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_12,
+    DMA_enCHSRC_CH13_UART2_TX   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_13,
+    DMA_enCHSRC_CH13_SSI2_TX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_13,
+    DMA_enCHSRC_CH13_GPWTM1B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_13,
+    DMA_enCHSRC_CH13_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_13,
 
-    DMA_enCHSRC_CH13_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_13,
-    DMA_enCHSRC_CH13_1_UART2_TX   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_13,
-    DMA_enCHSRC_CH13_2_SSI2_TX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_13,
-    DMA_enCHSRC_CH13_3_GPWTM1B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_13,
-    DMA_enCHSRC_CH13_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_13,
+    DMA_enCHSRC_CH14_ADC0_SS0   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_14,
+    DMA_enCHSRC_CH14_GPTM2A     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_14,
+    DMA_enCHSRC_CH14_SSI3_RX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_14,
+    DMA_enCHSRC_CH14_GPIOE      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_14,
+    DMA_enCHSRC_CH14_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_14,
 
-    DMA_enCHSRC_CH14_0_ADC0_SS0   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_14,
-    DMA_enCHSRC_CH14_1_GPTM2A     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_14,
-    DMA_enCHSRC_CH14_2_SSI3_RX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_14,
-    DMA_enCHSRC_CH14_3_GPIOE      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_14,
-    DMA_enCHSRC_CH14_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_14,
+    DMA_enCHSRC_CH15_ADC0_SS1   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_15,
+    DMA_enCHSRC_CH15_GPTM2B     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_15,
+    DMA_enCHSRC_CH15_SSI3_TX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_15,
+    DMA_enCHSRC_CH15_GPIOF      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_15,
+    DMA_enCHSRC_CH15_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_15,
 
-    DMA_enCHSRC_CH15_0_ADC0_SS1   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_15,
-    DMA_enCHSRC_CH15_1_GPTM2B     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_15,
-    DMA_enCHSRC_CH15_2_SSI3_TX    = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_15,
-    DMA_enCHSRC_CH15_3_GPIOF      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_15,
-    DMA_enCHSRC_CH15_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_15,
+    DMA_enCHSRC_CH16_ADC0_SS2   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_16,
+    DMA_enCHSRC_CH16_UART3_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_16,
+    DMA_enCHSRC_CH16_GPWTM2A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_16,
+    DMA_enCHSRC_CH16_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_16,
 
-    DMA_enCHSRC_CH16_0_ADC0_SS2   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_16,
-    DMA_enCHSRC_CH16_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_16,
-    DMA_enCHSRC_CH16_2_UART3_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_16,
-    DMA_enCHSRC_CH16_3_GPWTM2A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_16,
-    DMA_enCHSRC_CH16_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_16,
+    DMA_enCHSRC_CH17_ADC0_SS3   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_17,
+    DMA_enCHSRC_CH17_UART3_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_17,
+    DMA_enCHSRC_CH17_GPWTM2B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_17,
+    DMA_enCHSRC_CH17_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_17,
 
-    DMA_enCHSRC_CH17_0_ADC0_SS3   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_17,
-    DMA_enCHSRC_CH17_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_17,
-    DMA_enCHSRC_CH17_2_UART3_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_17,
-    DMA_enCHSRC_CH17_3_GPWTM2B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_17,
-    DMA_enCHSRC_CH17_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_17,
+    DMA_enCHSRC_CH18_GPTM0A     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_18,
+    DMA_enCHSRC_CH18_GPTM1A     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_18,
+    DMA_enCHSRC_CH18_UART4_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_18,
+    DMA_enCHSRC_CH18_GPIOB      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_18,
+    DMA_enCHSRC_CH18_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_18,
 
-    DMA_enCHSRC_CH18_0_GPTM0A     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_18,
-    DMA_enCHSRC_CH18_1_GPTM1A     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_18,
-    DMA_enCHSRC_CH18_2_UART4_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_18,
-    DMA_enCHSRC_CH18_3_GPIOB      = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_18,
-    DMA_enCHSRC_CH18_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_18,
+    DMA_enCHSRC_CH19_GPTM0B     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_19,
+    DMA_enCHSRC_CH19_GPTM1B     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_19,
+    DMA_enCHSRC_CH19_UART4_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_19,
+    DMA_enCHSRC_CH19_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_19,
 
-    DMA_enCHSRC_CH19_0_GPTM0B     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_19,
-    DMA_enCHSRC_CH19_1_GPTM1B     = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_19,
-    DMA_enCHSRC_CH19_2_UART4_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_19,
-    DMA_enCHSRC_CH19_3_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_19,
-    DMA_enCHSRC_CH19_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_19,
+    DMA_enCHSRC_CH20_GPTM1A     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_20,
+    DMA_enCHSRC_CH20_UART7_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_20,
+    DMA_enCHSRC_CH20_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_20,
 
-    DMA_enCHSRC_CH20_0_GPTM1A     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_20,
-    DMA_enCHSRC_CH20_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_20,
-    DMA_enCHSRC_CH20_2_UART7_RX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_20,
-    DMA_enCHSRC_CH20_3_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_20,
-    DMA_enCHSRC_CH20_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_20,
+    DMA_enCHSRC_CH21_GPTM1B     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_21,
+    DMA_enCHSRC_CH21_UART7_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_21,
+    DMA_enCHSRC_CH21_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_21,
 
-    DMA_enCHSRC_CH21_0_GPTM1B     = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_21,
-    DMA_enCHSRC_CH21_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_21,
-    DMA_enCHSRC_CH21_2_UART7_TX   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_21,
-    DMA_enCHSRC_CH21_3_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_21,
-    DMA_enCHSRC_CH21_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_21,
+    DMA_enCHSRC_CH22_UART1_RX   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_22,
+    DMA_enCHSRC_CH22_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_22,
 
-    DMA_enCHSRC_CH22_0_UART1_RX   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_22,
-    DMA_enCHSRC_CH22_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_22,
-    DMA_enCHSRC_CH22_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_22,
-    DMA_enCHSRC_CH22_3_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_22,
-    DMA_enCHSRC_CH22_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_22,
+    DMA_enCHSRC_CH23_UART1_TX   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_23,
+    DMA_enCHSRC_CH23_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_23,
 
-    DMA_enCHSRC_CH23_0_UART1_TX   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_23,
-    DMA_enCHSRC_CH23_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_23,
-    DMA_enCHSRC_CH23_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_23,
-    DMA_enCHSRC_CH23_3_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_23,
-    DMA_enCHSRC_CH23_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_23,
+    DMA_enCHSRC_CH24_SSI1_RX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_24,
+    DMA_enCHSRC_CH24_ADC1_SS0   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_24,
+    DMA_enCHSRC_CH24_GPWTM3A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_24,
+    DMA_enCHSRC_CH24_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_24,
 
-    DMA_enCHSRC_CH24_0_SSI1_RX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_24,
-    DMA_enCHSRC_CH24_1_ADC1_SS0   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_24,
-    DMA_enCHSRC_CH24_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_24,
-    DMA_enCHSRC_CH24_3_GPWTM3A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_24,
-    DMA_enCHSRC_CH24_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_24,
+    DMA_enCHSRC_CH25_SSI1_TX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_25,
+    DMA_enCHSRC_CH25_ADC1_SS1   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_25,
+    DMA_enCHSRC_CH25_GPWTM3B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_25,
+    DMA_enCHSRC_CH25_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_25,
 
-    DMA_enCHSRC_CH25_0_SSI1_TX    = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_25,
-    DMA_enCHSRC_CH25_1_ADC1_SS1   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_25,
-    DMA_enCHSRC_CH25_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_25,
-    DMA_enCHSRC_CH25_3_GPWTM3B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_25,
-    DMA_enCHSRC_CH25_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_25,
+    DMA_enCHSRC_CH26_ADC1_SS2   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_26,
+    DMA_enCHSRC_CH26_GPWTM4A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_26,
+    DMA_enCHSRC_CH26_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_26,
 
-    DMA_enCHSRC_CH26_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_26,
-    DMA_enCHSRC_CH26_1_ADC1_SS2   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_26,
-    DMA_enCHSRC_CH26_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_26,
-    DMA_enCHSRC_CH26_3_GPWTM4A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_26,
-    DMA_enCHSRC_CH26_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_26,
+    DMA_enCHSRC_CH27_ADC1_SS3   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_27,
+    DMA_enCHSRC_CH27_GPWTM4B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_27,
+    DMA_enCHSRC_CH27_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_27,
 
-    DMA_enCHSRC_CH27_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_27,
-    DMA_enCHSRC_CH27_1_ADC1_SS3   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_27,
-    DMA_enCHSRC_CH27_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_27,
-    DMA_enCHSRC_CH27_3_GPWTM4B    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_27,
-    DMA_enCHSRC_CH27_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_27,
+    DMA_enCHSRC_CH28_GPWTM5A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_28,
+    DMA_enCHSRC_CH28_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_28,
 
-    DMA_enCHSRC_CH28_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_28,
-    DMA_enCHSRC_CH28_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_28,
-    DMA_enCHSRC_CH28_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_28,
-    DMA_enCHSRC_CH28_3_GPWTM5A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_28,
-    DMA_enCHSRC_CH28_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_28,
+    DMA_enCHSRC_CH29_GPWTM5A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_29,
+    DMA_enCHSRC_CH29_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_29,
 
-    DMA_enCHSRC_CH29_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_29,
-    DMA_enCHSRC_CH29_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_29,
-    DMA_enCHSRC_CH29_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_29,
-    DMA_enCHSRC_CH29_3_GPWTM5A    = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_29,
-    DMA_enCHSRC_CH29_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_29,
-
-    DMA_enCHSRC_CH30_0_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_30,
-    DMA_enCHSRC_CH30_1_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_30,
-    DMA_enCHSRC_CH30_2_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_30,
-    DMA_enCHSRC_CH30_3_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_30,
-    DMA_enCHSRC_CH30_4_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_30,
-
-    DMA_enCHSRC_CH31_0_RESERVED   = ((uint32_t)DMA_enCH_ENCODER_0<<8u)|(uint32_t)DMA_enCH_MODULE_31,
-    DMA_enCHSRC_CH31_1_RESERVED   = ((uint32_t)DMA_enCH_ENCODER_1<<8u)|(uint32_t)DMA_enCH_MODULE_31,
-    DMA_enCHSRC_CH31_2_RESERVED   = ((uint32_t)DMA_enCH_ENCODER_2<<8u)|(uint32_t)DMA_enCH_MODULE_31,
-    DMA_enCHSRC_CH31_3_RESERVED   = ((uint32_t)DMA_enCH_ENCODER_3<<8u)|(uint32_t)DMA_enCH_MODULE_31,
-    DMA_enCHSRC_CH31_4_RESERVED   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_31,
+    DMA_enCHSRC_CH30_SOFTWARE   = ((uint32_t)DMA_enCH_ENCODER_4<<8u)|(uint32_t)DMA_enCH_MODULE_30,
 }DMA_nCHSRC;
 
+typedef struct
+{
+    uint32_t transferMode   :3;
+    uint32_t useBurst           :1;
+    uint32_t transferSize      :10;
+    uint32_t burstSize          :4;
+    uint32_t reserved           :6;
+    uint32_t sourceSize        :2;
+    uint32_t sourceInc          :2;
+    uint32_t destSize            :2;
+    uint32_t destInc              :2;
+}DMA_CONTROL_Typedef;
 
 
+typedef struct
+{
+    DMA_nCH_REQTYPE enReqType;
+    DMA_nCH_PERIPHERAL enPeripheralEn;
+    DMA_nCH_CTL enControlStructure;
+    DMA_nCH_PRIO enPriority;
+}DMA_CONFIG_Typedef;
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_ENUM_H_ */
