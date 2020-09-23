@@ -233,6 +233,14 @@ typedef enum
 
 typedef enum
 {
+    DMA_enCH_INTERRUPT_SOURCE_SOFTWARE  =0u,
+    DMA_enCH_INTERRUPT_SOURCE_PERIPHERAL       =1u,
+    DMA_enCH_INTERRUPT_SOURCE_MAX       =1u,
+    DMA_enCH_INTERRUPT_SOURCE_UNDEF   =0xFFFFFFFFu,
+}DMA_nCH_INTERRUPT_SOURCE;
+
+typedef enum
+{
     DMA_enCH_MODULE_0   = ((uint32_t)0u),
     DMA_enCH_MODULE_1   = ((uint32_t)1u),
     DMA_enCH_MODULE_2   = ((uint32_t)2u),

@@ -29,7 +29,7 @@
 
 void DMA_ERROR__vIRQVectorHandler(void)
 {
-
+    while(1u){}
 }
 
 

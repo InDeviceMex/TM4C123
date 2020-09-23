@@ -32,6 +32,7 @@ void MAIN_vInitTIMER(void);
 /*ISR Functions*/
 void MAIN_SW1_vIRQSourceHandler(void);
 void MAIN_SW2_vIRQSourceHandler(void);
+void MAIN_DMA_CH31_vIRQSourceHandler(void);
 void MAIN_TIMER3A_vIRQSourceHandler(void);
 void MAIN_TIMER3B_vIRQSourceHandler(void);
 
@@ -51,23 +52,23 @@ static float32_t fAngleAbosulte=0.0f;
 uint8_t pu8DMASourceBufferCh0[100u] = {0u};
 uint8_t pu8DMADestBufferCh0[100u] = {0u};
 
-
+DMACHCTL_TypeDef enDMACh0Control =
+{
+     1,
+     0,
+     100-1,
+     7,
+     0,
+     0,
+     0,
+     0,
+     0,
+};
 int32_t main(void)
 {
     uint32_t u32Pos= 0u;
     volatile DMA_nCH_WAITING enDMAWait = DMA_enCH_WAITING_NO;
-    DMACHCTL_TypeDef enDMACh0Control =
-    {
-         1,
-         0,
-         100-1,
-         7,
-         0,
-         0,
-         0,
-         0,
-         0,
-    };
+
     DMA_CONFIG_Typedef enDMACh0Config=
     {
        DMA_enCH_REQTYPE_BOTH,
@@ -95,11 +96,12 @@ int32_t main(void)
         pu8DMASourceBufferCh0[u32Pos] =(uint8_t)u32Pos;
     }
     DMA__vInit();
-
+    DMA__vEnInterruptSourceVector(DMA_enVECTOR_SW,DMA_enPRI3);
+    DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH31_vIRQSourceHandler,DMA_enCH_MODULE_30, DMA_enCH_ENCODER_4 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_30, (uint32_t) &pu8DMADestBufferCh0[100-1]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_30, (uint32_t) &pu8DMASourceBufferCh0[100-1]);
-    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_30, enDMACh0Control);
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_30, enDMACh0Config);
+    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_30, enDMACh0Control);
     DMA_CH__vSetEnable(DMA_enCH_MODULE_30,DMA_enCH_ENA_ENA);
     DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_30);
     LCD1602__enReloadScreenDirect();
@@ -195,6 +197,9 @@ void MAIN_vTaskLCDReInit(void)
     {
         fTimeSystickStart_Task3 = SysTick__fGetTimeUs();
 
+        DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_30, enDMACh0Control);
+        DMA_CH__vSetEnable(DMA_enCH_MODULE_30,DMA_enCH_ENA_ENA);
+        DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_30);
         u8Column=0u;
         u8Row=1u;
         for(u8Pos = 0u; u8Pos<LCD1602_COLUMN_MAX;u8Pos++)
@@ -367,10 +372,15 @@ void MAIN_TIMER3B_vIRQSourceHandler(void)
 
 void MAIN_SW1_vIRQSourceHandler(void)
 {
-    uint32_t u32SW1Data=0u;
     ServoMotor_SG90__enEnable(&MAIN_sServoMotor1);
     ServoMotor_SG90__enEnable(&MAIN_sServoMotor2);
     MAIN_enServoEnable= ServoMoto_SG90_enENABLE;
+
+}
+
+void MAIN_DMA_CH31_vIRQSourceHandler(void)
+{
+    uint32_t u32SW1Data=0u;
     u32SW1Data=GPIO__u32GetData(GPIO_enPORT_F, MAIN_enSW1Pin);
     if(u32SW1Data==0u)
     {
@@ -381,7 +391,6 @@ void MAIN_SW1_vIRQSourceHandler(void)
         GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (MAIN_enLedRedPin), 0u);
     }
 }
-
 
 void MAIN_SW2_vIRQSourceHandler(void)
 {

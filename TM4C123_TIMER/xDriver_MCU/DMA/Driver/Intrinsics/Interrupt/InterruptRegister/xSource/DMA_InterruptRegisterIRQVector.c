@@ -44,6 +44,3 @@ void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nVECTO
         SCB__vRegisterIRQVectorHandler(DMA__pvIRQVectorHandler[(uint32_t)enVector],enSCBVector);
     }
 }
-
-
-

@@ -27,7 +27,7 @@
 
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRegister/DMA_InterruptRegister.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/DMA_InterruptRoutine.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/xHeader/DMA_InterruptModule.h>
+#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/xHeader/DMA_InterruptVector.h>
 
 
 
