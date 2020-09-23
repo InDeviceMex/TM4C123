@@ -443,7 +443,7 @@ typedef struct
     DMA_nCH_BURST_SIZE   enBurstSize;
     DMA_nCH_SRC_SIZE        enSourceSize;
     DMA_nCH_SRC_INC         enSourceInc;
-    DMA_nCH_DST_SIZE       enDestSource;
+    DMA_nCH_DST_SIZE       enDestSize;
     DMA_nCH_DST_INC        enDestInc;
 }DMA_CONTROL_Typedef;
 

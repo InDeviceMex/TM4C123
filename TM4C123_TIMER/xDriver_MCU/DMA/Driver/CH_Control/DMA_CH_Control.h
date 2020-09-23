@@ -24,11 +24,19 @@
 #ifndef XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_
 #define XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_
 
-
 #include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_ControlWorld.h>
-#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestAddress.h>
-#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceAddress.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_Burst.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_BurstSize.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_TransferMode.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_TransferSize.h>
 
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceAddress.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceIncrement.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceSize.h>
+
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationAddress.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationIncrement.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationSize.h>
 
 
 #endif /* XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_ */

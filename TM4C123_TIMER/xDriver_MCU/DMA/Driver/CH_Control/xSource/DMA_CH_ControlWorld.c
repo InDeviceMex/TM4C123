@@ -61,3 +61,77 @@ void DMA_CH__vSetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStr
 }
 
 
+
+uint32_t DMA_CH__u32GetAlternateControlWorld(DMA_nCH_MODULE enChannel)
+{
+    uint32_t u32Channel=(uint32_t)enChannel;
+    uint32_t u32Reg = 0u;
+    if((uint32_t)DMA_enCH_MODULE_MAX<u32Channel)
+    {
+        u32Channel = DMA_enCH_MODULE_MAX;
+    }
+    u32Reg = DMACH->DMACh[u32Channel].DMACHCTL;
+    return u32Reg;
+}
+
+uint32_t DMA_CH__u32GetPrimaryControlWorld(DMA_nCH_MODULE enChannel)
+{
+    uint32_t u32Channel=(uint32_t)enChannel;
+    uint32_t u32Reg = 0u;
+    if((uint32_t)DMA_enCH_MODULE_MAX<u32Channel)
+    {
+        u32Channel = DMA_enCH_MODULE_MAX;
+    }
+    u32Reg = DMAALTCH->DMACh[u32Channel].DMACHCTL;
+    return u32Reg;
+}
+
+uint32_t DMA_CH__u32GetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
+{
+    uint32_t u32Reg = 0u;
+    if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
+    {
+        u32Reg = DMA_CH__u32GetPrimaryControlWorld(enChannel);
+    }
+    else
+    {
+        u32Reg =DMA_CH__u32GetAlternateControlWorld(enChannel);
+    }
+    return u32Reg;
+}
+
+
+void DMA_CH__vGetAlternateControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef* psChannelControlWorld)
+{
+    uint32_t u32Reg = 0u;
+    volatile uint32_t* pu32Reg = (volatile uint32_t*)psChannelControlWorld;
+    if(0u != (uint32_t)psChannelControlWorld)
+    {
+        u32Reg= DMA_CH__u32GetAlternateControlWorld(enChannel);
+        *pu32Reg =u32Reg;
+    }
+}
+
+void DMA_CH__vGetPrimaryControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef* psChannelControlWorld)
+{
+    uint32_t u32Reg = 0u;
+    volatile uint32_t* pu32Reg = (volatile uint32_t*)psChannelControlWorld;
+    if(0u != (uint32_t)psChannelControlWorld)
+    {
+        u32Reg= DMA_CH__u32GetPrimaryControlWorld(enChannel);
+        *pu32Reg =u32Reg;
+    }
+}
+
+void DMA_CH__vGetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure,DMACHCTL_TypeDef* psChannelControlWorld)
+{
+    if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
+    {
+        DMA_CH__vGetPrimaryControlWorld(enChannel,psChannelControlWorld);
+    }
+    else
+    {
+        DMA_CH__vGetAlternateControlWorld(enChannel,psChannelControlWorld);
+    }
+}
+

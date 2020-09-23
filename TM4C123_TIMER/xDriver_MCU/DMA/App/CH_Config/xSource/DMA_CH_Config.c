@@ -70,3 +70,9 @@ DMA_CONFIG_Typedef* DMA_CH__psGetConfig(DMA_nCH_MODULE enDMAChannel)
     return psConfig;
 
 }
+
+
+void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* psConfig)
+{
+    free(psConfig);
+}

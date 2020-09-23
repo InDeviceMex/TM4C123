@@ -124,18 +124,23 @@ TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule)
 }
 
 
-void TIMER__vGetMode(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode)
+TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode)
 {
-    psMode->enConfig=TIMER__enGetConfiguration(enModule);
-    psMode->enSubMode=TIMER__enGetSubMode(enModule);
-    psMode->enEdgeMode=TIMER__enGetEdgeMode(enModule);
-    psMode->enAltMode=TIMER__enGetAltMode(enModule);
-    psMode->enDirection=TIMER__enGetCountDir(enModule);
-    psMode->enSnapShot=TIMER__enGetSnapShot(enModule);
-    psMode->enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
-    psMode->enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
-    psMode->enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
-
+    TIMER_nSTATUS enStatus = TIMER_enERROR;
+    if(0!= psMode)
+    {
+        psMode->enConfig=TIMER__enGetConfiguration(enModule);
+        psMode->enSubMode=TIMER__enGetSubMode(enModule);
+        psMode->enEdgeMode=TIMER__enGetEdgeMode(enModule);
+        psMode->enAltMode=TIMER__enGetAltMode(enModule);
+        psMode->enDirection=TIMER__enGetCountDir(enModule);
+        psMode->enSnapShot=TIMER__enGetSnapShot(enModule);
+        psMode->enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
+        psMode->enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
+        psMode->enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
+        enStatus = TIMER_enOK;
+    }
+    return enStatus;
 }
 
 
@@ -148,18 +153,7 @@ TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule)
     #elif defined ( __GNUC__ )
     psMode = (TIMER_MODE_Typedef*) malloc(sizeof(TIMER_MODE_Typedef)*sizeof(uint32_t));
     #endif
-    if(0!= psMode)
-    {
-        psMode->enConfig=TIMER__enGetConfiguration(enModule);
-        psMode->enSubMode=TIMER__enGetSubMode(enModule);
-        psMode->enEdgeMode=TIMER__enGetEdgeMode(enModule);
-        psMode->enAltMode=TIMER__enGetAltMode(enModule);
-        psMode->enDirection=TIMER__enGetCountDir(enModule);
-        psMode->enSnapShot=TIMER__enGetSnapShot(enModule);
-        psMode->enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
-        psMode->enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
-        psMode->enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
-    }
+    TIMER__enGetModeStruct(enModule, psMode);
     return psMode;
 
 }

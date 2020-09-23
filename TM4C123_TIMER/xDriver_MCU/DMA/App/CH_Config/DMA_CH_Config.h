@@ -32,4 +32,6 @@ void DMA_CH__vGetConfig(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef* psConfi
 DMA_CONFIG_Typedef* DMA_CH__psGetConfig(DMA_nCH_MODULE enDMAChannel);
 
 
+void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* psConfig);
+
 #endif /* XDRIVER_MCU_DMA_APP_CH_CONFIG_DMA_CH_CONFIG_H_ */
