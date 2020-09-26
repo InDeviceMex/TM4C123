@@ -32,7 +32,7 @@ void MAIN_vInitTIMER(void);
 /*ISR Functions*/
 void MAIN_SW1_vIRQSourceHandler(void);
 void MAIN_SW2_vIRQSourceHandler(void);
-void MAIN_DMA_CH31_vIRQSourceHandler(void);
+void MAIN_DMA_CH30_vIRQSourceHandler(void);
 void MAIN_TIMER3A_vIRQSourceHandler(void);
 void MAIN_TIMER3B_vIRQSourceHandler(void);
 
@@ -54,10 +54,10 @@ uint8_t pu8DMADestBufferCh0[100u] = {0u};
 
 DMACHCTL_TypeDef enDMACh0Control =
 {
-     1,
+     1u,
      0,
-     100-1,
-     7,
+     100u-1u,
+     7u,
      0,
      0,
      0,
@@ -97,13 +97,22 @@ int32_t main(void)
     }
     DMA__vInit();
     DMA__vEnInterruptSourceVector(DMA_enVECTOR_SW,DMA_enPRI3);
-    DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH31_vIRQSourceHandler,DMA_enCH_MODULE_30, DMA_enCH_ENCODER_4 );
+    DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH30_vIRQSourceHandler,DMA_enCH_MODULE_30, DMA_enCH_ENCODER_4 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_30, (uint32_t) &pu8DMADestBufferCh0[100-1]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_30, (uint32_t) &pu8DMASourceBufferCh0[100-1]);
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_30, enDMACh0Config);
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_30, enDMACh0Control);
     DMA_CH__vSetEnable(DMA_enCH_MODULE_30,DMA_enCH_ENA_ENA);
     DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_30);
+
+    //DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH30_vIRQSourceHandler,DMA_enCH_MODULE_5, DMA_enCH_ENCODER_4 );
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_5, (uint32_t) &pu8DMASourceBufferCh0[100-1]);
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_5, (uint32_t) &pu8DMADestBufferCh0[100-1]);
+    DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_5, enDMACh0Config);
+    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_5, enDMACh0Control);
+    DMA_CH__vSetEnable(DMA_enCH_MODULE_5,DMA_enCH_ENA_ENA);
+
+
     LCD1602__enReloadScreenDirect();
     enDMAWait = DMA_CH__enGetWaitStatus(DMA_enCH_MODULE_15);
 
@@ -378,7 +387,7 @@ void MAIN_SW1_vIRQSourceHandler(void)
 
 }
 
-void MAIN_DMA_CH31_vIRQSourceHandler(void)
+void MAIN_DMA_CH30_vIRQSourceHandler(void)
 {
     uint32_t u32SW1Data=0u;
     u32SW1Data=GPIO__u32GetData(GPIO_enPORT_F, MAIN_enSW1Pin);
