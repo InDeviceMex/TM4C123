@@ -10,7 +10,7 @@
 
 
 #include "stdlib.h"
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include "SYSCTL.h"
 
 #define FLASH_BASE              (0x400FD000u)

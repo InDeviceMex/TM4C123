@@ -11,7 +11,7 @@
 
 #define SCB_BASE            (0xE000E000ul)
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <FLASH.h>
 
 typedef volatile struct
@@ -3173,7 +3173,7 @@ void SCB__vEnableTraps(void);
 
 void SCB__vInit(void);
 
-void SCB__vRegisterISR(void (*Isr) (void),SCB_nVECISR enVector);
-void SCB__vUnRegisterISR(SCB_nVECISR enVector);
+void SCB__vRegisterIRQVectorHandler(void (*Isr) (void),SCB_nVECISR enVector);
+void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector);
 
 #endif /* SCB_H_ */

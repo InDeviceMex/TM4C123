@@ -9,7 +9,7 @@
 #define TIMER_H_
 
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include "SCB.h"
 #include "NVIC.h"
 #include "SYSCTL.h"

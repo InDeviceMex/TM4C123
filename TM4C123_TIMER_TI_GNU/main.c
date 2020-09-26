@@ -34,9 +34,9 @@ void MAIN_vRGBLedIntPorcentaje(uint8_t u8RedValue, uint8_t u8GreenValue, uint8_t
 void TIMER2W__vISR(void);
 
 
-GPIO_nPIN enLedRedPin=GPIO_enPIN1;
-GPIO_nPIN enLedBluePin=GPIO_enPIN2;
-GPIO_nPIN enLedGreenPin=GPIO_enPIN3;
+GPIO_nPIN enLedRedPin=GPIO_enPIN_1;
+GPIO_nPIN enLedBluePin=GPIO_enPIN_2;
+GPIO_nPIN enLedGreenPin=GPIO_enPIN_3;
 
 volatile uint32_t u32Update=0;
 volatile uint32_t u32Counter=0;

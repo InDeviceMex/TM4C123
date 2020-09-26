@@ -8,7 +8,7 @@
 #ifndef EEPROM_H_
 #define EEPROM_H_
 
-#include <stdint.h>
+#include <xUtils/Standard/Standard.h>
 #include <NVIC.h>
 #include <SYSCTL.h>
 
