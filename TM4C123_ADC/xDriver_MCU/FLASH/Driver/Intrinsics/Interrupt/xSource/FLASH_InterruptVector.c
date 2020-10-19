@@ -22,7 +22,8 @@
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/xHeader/FLASH_InterruptVector.h>
-#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Dependencies.h>
+
 
 void FLASH__vEnInterruptVector(FLASH_nPRIORITY enFlashPriority)
 {

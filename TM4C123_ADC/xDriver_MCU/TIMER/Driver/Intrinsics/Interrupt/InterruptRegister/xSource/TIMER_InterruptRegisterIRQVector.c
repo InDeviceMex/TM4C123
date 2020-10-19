@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/TIMER_InterruptRegisterIRQVector.h>
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Dependencies.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/TIMER_InterruptRoutine.h>
 
 const SCB_nVECISR SCB_enVECISR_TIMER[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]={

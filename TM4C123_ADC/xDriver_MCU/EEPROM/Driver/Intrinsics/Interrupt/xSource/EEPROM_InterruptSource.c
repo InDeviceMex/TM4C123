@@ -26,7 +26,7 @@
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptSource.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
-#include <xDriver_MCU/FLASH/FLASH.h>
+#include <xDriver_MCU/EEPROM/Peripheral/xHeader/EEPROM_Dependencies.h>
 
 
 void EEPROM__vEnInterruptSource(void)

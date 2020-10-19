@@ -24,7 +24,7 @@
 #include <DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/DMA_InterruptRoutine.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/DMA_InterruptRegisterIRQVector.h>
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
 const SCB_nVECISR SCB_enVECISR_DMA[(uint32_t)(DMA_enVECTOR_MAX+1u)]={SCB_enVECISR_UDMASOFT,SCB_enVECISR_UDMAERROR};
 

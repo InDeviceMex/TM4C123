@@ -21,9 +21,9 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <SYSEXC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/SYSEXC_InterruptRegisterIRQVector.h>
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <SYSEXC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/SYSEXC_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Dependencies.h>
 #include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/SYSEXC_InterruptRoutine.h>
 
 void SYSEXC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))

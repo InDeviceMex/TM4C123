@@ -24,7 +24,7 @@
 
 #include <GPIO/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/GPIO_InterruptRegisterIRQVector.h>
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine.h>
 
 const SCB_nVECISR SCB_enVECISR_GPIO[(uint32_t)GPIO_enPORT_MAX+ 1u]={SCB_enVECISR_GPIOA,SCB_enVECISR_GPIOB,SCB_enVECISR_GPIOC,SCB_enVECISR_GPIOD,

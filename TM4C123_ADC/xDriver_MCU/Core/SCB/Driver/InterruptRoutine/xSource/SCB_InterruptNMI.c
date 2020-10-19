@@ -24,8 +24,7 @@
 
 
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptNMI.h>
-#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
-#include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
+#include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Dependencies.h>
 
 void NMI__vIRQVectorHandler(void)
 {

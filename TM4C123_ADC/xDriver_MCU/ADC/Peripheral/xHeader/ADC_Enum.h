@@ -67,25 +67,25 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_0 = 0u,
-    ADC_enSEQ_1 = 1u,
-    ADC_enSEQ_2 = 2u,
-    ADC_enSEQ_3 = 3u,
-    ADC_enSEQ_MAX = 3u,
+    ADC_enSEQ_0 = 1u,
+    ADC_enSEQ_1 = 0x2u,
+    ADC_enSEQ_2 = 0x4u,
+    ADC_enSEQ_3 = 0x8u,
+    ADC_enSEQ_ALL = 0xFu,
     ADC_enSEQ_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ;
 
 typedef enum
 {
-    ADC_enCOMP_0 = 0u,
-    ADC_enCOMP_1 = 1u,
-    ADC_enCOMP_2 = 2u,
-    ADC_enCOMP_3 = 3u,
-    ADC_enCOMP_4 = 4u,
-    ADC_enCOMP_5 = 5u,
-    ADC_enCOMP_6 = 6u,
-    ADC_enCOMP_7 = 7u,
-    ADC_enCOMP_MAX = 3u,
+    ADC_enCOMP_0 = 0x01u,
+    ADC_enCOMP_1 = 0x02u,
+    ADC_enCOMP_2 = 0x04u,
+    ADC_enCOMP_3 = 0x08u,
+    ADC_enCOMP_4 = 0x10u,
+    ADC_enCOMP_5 = 0x20u,
+    ADC_enCOMP_6 = 0x40u,
+    ADC_enCOMP_7 = 0x80u,
+    ADC_enCOMP_ALL = 0xFFu,
     ADC_enCOMP_UNDEF = 0xFFFFFFFFu,
 }ADC_nCOMP;
 
@@ -173,10 +173,17 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_INT_DIS = 0u,
-    ADC_enSEQ_INT_ENA = 1u,
-    ADC_enSEQ_INT_UNDEF = 0xFFFFFFFFu,
-}ADC_nSEQ_INT;
+    ADC_enSEQ_INT_CONV_DIS = 0u,
+    ADC_enSEQ_INT_CONV_ENA = 1u,
+    ADC_enSEQ_INT_CONV_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_INT_CONV;
+
+typedef enum
+{
+    ADC_enSEQ_INT_COMP_DIS = 0u,
+    ADC_enSEQ_INT_COMP_ENA = 1u,
+    ADC_enSEQ_INT_COMP_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_INT_COMP;
 
 typedef enum
 {

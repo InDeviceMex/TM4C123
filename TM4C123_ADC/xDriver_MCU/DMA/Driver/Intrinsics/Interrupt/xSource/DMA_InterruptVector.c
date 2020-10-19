@@ -22,7 +22,7 @@
  * 23 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/xHeader/DMA_InterruptVector.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 

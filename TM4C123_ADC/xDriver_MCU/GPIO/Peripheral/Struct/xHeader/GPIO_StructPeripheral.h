@@ -25,6 +25,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTPERIPHERAL_H_
 
 #include <xDriver_MCU/GPIO/Peripheral/Struct/xHeader/GPIO_StructRegister.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
 typedef volatile struct
 {
@@ -407,12 +408,12 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    GPIO_TypeDef AHB[6];
+    GPIO_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX +1u];
 }GPIO_AHB_TypeDef;
 
 typedef volatile struct
 {
-    GPIO_AUX_TypeDef AHB[6];
+    GPIO_AUX_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX +1u];
 }GPIO_AHB_AUX_TypeDef;
 
 typedef volatile struct

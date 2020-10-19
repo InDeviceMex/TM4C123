@@ -22,7 +22,7 @@
  * 22 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <xDriver_MCU/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Dependencies.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Ready.h>
 
 void HIB__vSetReady(void)

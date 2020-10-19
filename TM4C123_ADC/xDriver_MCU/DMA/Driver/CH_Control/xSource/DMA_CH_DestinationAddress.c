@@ -1,6 +1,6 @@
 /**
  *
- * @file DMA_CH_DestAddress.c
+ * @file DMA_CH_DestinationAddress.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

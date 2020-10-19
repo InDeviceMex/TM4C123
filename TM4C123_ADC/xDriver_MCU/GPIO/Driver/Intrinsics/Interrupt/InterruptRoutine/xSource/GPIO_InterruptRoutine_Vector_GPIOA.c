@@ -27,9 +27,7 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Vector_GPIOA.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Source.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
-#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Source.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
 
 void GPIOA__vIRQVectorHandler(void)
 {

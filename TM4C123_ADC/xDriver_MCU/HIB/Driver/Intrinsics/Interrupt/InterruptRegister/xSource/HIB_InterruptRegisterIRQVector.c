@@ -23,7 +23,7 @@
  */
 #include <HIB/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/HIB_InterruptRegisterIRQVector.h>
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Dependencies.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/InterruptRoutine/HIB_InterruptRoutine.h>
 
 void HIB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))

@@ -10,7 +10,7 @@
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Erase.h>
-#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Dependencies.h>
 
 FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
 {

@@ -11,7 +11,7 @@
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SYSTICK/Peripheral/xHeader/SYSTICK_Enum.h>
-#include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
+#include <xDriver_MCU/Core/SYSTICK/Peripheral/xHeader/SYSTICK_Dependencies.h>
 
 SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysTick_nCLKSOURCE enClockSource);
 SysTick_nSTATUS SysTick__enInitFrequency(float32_t fFrequency, SCB_nSHPR enPriority);

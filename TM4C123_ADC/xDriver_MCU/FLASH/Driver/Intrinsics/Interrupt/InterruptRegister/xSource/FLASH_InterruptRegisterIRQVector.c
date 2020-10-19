@@ -24,7 +24,7 @@
 
 #include <FLASH/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/FLASH_InterruptRegisterIRQVector.h>
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Dependencies.h>
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/FLASH_InterruptRoutine.h>
 
 void FLASH__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))

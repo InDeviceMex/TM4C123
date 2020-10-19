@@ -25,9 +25,7 @@
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_ModuleA_16/xHeader/TIMER_InterruptRoutine_Vector_ModuleA_16_Module5.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/TIMER_InterruptRoutine_Source.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
-#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Source.h>
+#include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Dependencies.h>
 
 void TIMER5A__vIRQVectorHandler(void)
 {

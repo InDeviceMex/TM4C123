@@ -22,7 +22,6 @@
 /*Local functions*/
 int32_t main (void);
 
-
 void MAIN_vInitGPIO(void);
 
 /*ISR Functions*/
@@ -123,10 +122,10 @@ void MAIN_vInitGPIO(void)
 
     GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin|enLedBluePin), 0u);
 
-    //GPIO__vEnDMATrigger(GPIO_enPORT_F,(GPIO_nPIN)(enSW2Pin));
+    /*GPIO__vEnDMATrigger(GPIO_enPORT_F,(GPIO_nPIN)(enSW2Pin));*/
     GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|enSW1Pin));
     GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
-    //GPIO__vDisInterruptSource(GPIO_enPORT_F,(GPIO_nPIN)(enSW2Pin|enSW1Pin));
+    /*GPIO__vDisInterruptSource(GPIO_enPORT_F,(GPIO_nPIN)(enSW2Pin|enSW1Pin));*/
 
 }
 
@@ -137,14 +136,14 @@ void MAIN_SW1_vIRQSourceHandler(void)
 }
 void MAIN_DMA_CH15_vIRQSourceHandler(void)
 {
-    //DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);
-    //DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);
+    /*DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);*/
+    /*DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);*/
 }
 
 void MAIN_DMA_CH30_vIRQSourceHandler(void)
 {
-    //DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);
-    //DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);
+    /*DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);*/
+    /*DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);*/
 }
 
 void MAIN_SW2_vIRQSourceHandler(void)

@@ -27,7 +27,6 @@
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Write.h>
 
 void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECISR enVector)
 {

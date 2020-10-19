@@ -24,7 +24,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Vector_NMI.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Source.h>
-#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Dependencies.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
 void WDT_NMI__vIRQVectorHandler_Dummy(void)

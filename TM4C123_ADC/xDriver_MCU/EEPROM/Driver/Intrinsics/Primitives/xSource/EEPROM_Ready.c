@@ -23,7 +23,7 @@
  */
 
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Primitives/xHeader/EEPROM_Ready.h>
-#include <xDriver_MCU/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/EEPROM/Peripheral/xHeader/EEPROM_Dependencies.h>
 
 void EEPROM__vSetReady(void)
 {

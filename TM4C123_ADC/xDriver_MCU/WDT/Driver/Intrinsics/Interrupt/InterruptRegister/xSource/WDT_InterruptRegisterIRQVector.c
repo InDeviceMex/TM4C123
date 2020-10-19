@@ -23,7 +23,7 @@
  */
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Dependencies.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/WDT_InterruptRegisterIRQVector.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>

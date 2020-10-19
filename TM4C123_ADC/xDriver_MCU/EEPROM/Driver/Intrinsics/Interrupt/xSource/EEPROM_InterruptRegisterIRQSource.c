@@ -24,7 +24,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Interrupt/xHeader/EEPROM_InterruptRegisterIRQSource.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
-#include <xDriver_MCU/FLASH/FLASH.h>
+#include <xDriver_MCU/EEPROM/Peripheral/xHeader/EEPROM_Dependencies.h>
 
 void EEPROM__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void))
 {

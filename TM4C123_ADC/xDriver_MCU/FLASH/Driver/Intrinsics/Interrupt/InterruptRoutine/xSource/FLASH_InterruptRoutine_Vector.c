@@ -25,9 +25,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Vector.h>
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Source.h>
-#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
-#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 void FLASH__vIRQVectorHandler(void)
 {

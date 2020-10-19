@@ -24,6 +24,14 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_DEPENDENCIES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_DEPENDENCIES_H_
 
+#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/Core/SCB/SCB.h>
+
+#include <xDriver_MCU/SYSCTL/SYSCTL.h>
+
+#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
+#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Source.h>
 
 
 

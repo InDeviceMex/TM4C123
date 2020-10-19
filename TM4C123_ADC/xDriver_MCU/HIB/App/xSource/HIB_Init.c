@@ -21,13 +21,13 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Dependencies.h>
 #include <xDriver_MCU/HIB/App/xHeader/HIB_Init.h>
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalCountStatus.h>
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalStatus.h>
 #include <xDriver_MCU/HIB/Driver/HIB_Driver.h>
 #include <xUtils/Standard/Standard.h>
 
-#include <xDriver_MCU/GPIO/GPIO.h>
 
 #define HIB_TIMEOUT_MAX (1200000u)
 

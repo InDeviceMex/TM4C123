@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 23 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/Core/NVIC/NVIC.h>
+#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Dependencies.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptVector.h>
 
 void WDT__vEnInterruptSourceVector(WDT_nPRIORITY enWDTPriority)

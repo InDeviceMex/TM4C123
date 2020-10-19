@@ -21,8 +21,8 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Dependencies.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/xHeader/HIB_InterruptVector.h>
-#include <xDriver_MCU/Core/NVIC/NVIC.h>
 
 void HIB__vEnInterruptVector(HIB_nPRIORITY enPriority)
 {

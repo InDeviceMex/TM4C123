@@ -22,7 +22,7 @@
  * 1 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/xHeader/DMA_Ready.h>
-#include <xDriver_MCU/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
 void DMA__vSetReady(DMA_nMODULE enModule)
 {

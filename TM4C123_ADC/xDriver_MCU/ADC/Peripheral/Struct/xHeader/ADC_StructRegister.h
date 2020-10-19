@@ -191,44 +191,6 @@ typedef volatile struct
     const uint32_t reserved: 28;
 }ADCCC_TypeDef;
 
-/**
- *  Global Struct Definitions for ADC Digital Comparators
- */
-
-typedef volatile struct
-{
-    volatile uint32_t DCINT0: 1;
-    volatile uint32_t DCINT1: 1;
-    volatile uint32_t DCINT2: 1;
-    volatile uint32_t DCINT3: 1;
-    volatile uint32_t DCINT4: 1;
-    volatile uint32_t DCINT5: 1;
-    volatile uint32_t DCINT6: 1;
-    volatile uint32_t DCINT7: 1;
-    const uint32_t reserved: 24;
-}ADCDCISC_TypeDef;
-
-typedef volatile struct
-{
-    volatile uint32_t DCINT0   : 1;
-    volatile uint32_t DCINT1   : 1;
-    volatile uint32_t DCINT2   : 1;
-    volatile uint32_t DCINT3   : 1;
-    volatile uint32_t DCINT4   : 1;
-    volatile uint32_t DCINT5   : 1;
-    volatile uint32_t DCINT6   : 1;
-    volatile uint32_t DCINT7   : 1;
-    const    uint32_t reserved : 8;
-    volatile uint32_t DCTRIG0  : 1;
-    volatile uint32_t DCTRIG1  : 1;
-    volatile uint32_t DCTRIG2  : 1;
-    volatile uint32_t DCTRIG3  : 1;
-    volatile uint32_t DCTRIG4  : 1;
-    volatile uint32_t DCTRIG5  : 1;
-    volatile uint32_t DCTRIG6  : 1;
-    volatile uint32_t DCTRIG7  : 1;
-    const    uint32_t reserved1: 8;
-}ADCDCRIC_TypeDef;
 
 /**
  * ADC Sequences inputs configurations
@@ -408,8 +370,57 @@ typedef volatile struct
     const uint32_t reserved: 28;
 }ADCSSDC1_TypeDef;
 
+
+/**
+ *  Global Struct Definitions for ADC Digital Comparators
+ */
+
+typedef volatile struct
+{
+    volatile uint32_t DCINT0: 1;
+    volatile uint32_t DCINT1: 1;
+    volatile uint32_t DCINT2: 1;
+    volatile uint32_t DCINT3: 1;
+    volatile uint32_t DCINT4: 1;
+    volatile uint32_t DCINT5: 1;
+    volatile uint32_t DCINT6: 1;
+    volatile uint32_t DCINT7: 1;
+    const uint32_t reserved: 24;
+}ADCDCISC_TypeDef;
+
+typedef volatile struct
+{
+    volatile uint32_t DCINT0   : 1;
+    volatile uint32_t DCINT1   : 1;
+    volatile uint32_t DCINT2   : 1;
+    volatile uint32_t DCINT3   : 1;
+    volatile uint32_t DCINT4   : 1;
+    volatile uint32_t DCINT5   : 1;
+    volatile uint32_t DCINT6   : 1;
+    volatile uint32_t DCINT7   : 1;
+    const    uint32_t reserved : 8;
+    volatile uint32_t DCTRIG0  : 1;
+    volatile uint32_t DCTRIG1  : 1;
+    volatile uint32_t DCTRIG2  : 1;
+    volatile uint32_t DCTRIG3  : 1;
+    volatile uint32_t DCTRIG4  : 1;
+    volatile uint32_t DCTRIG5  : 1;
+    volatile uint32_t DCTRIG6  : 1;
+    volatile uint32_t DCTRIG7  : 1;
+    const    uint32_t reserved1: 8;
+}ADCDCRIC_TypeDef;
+
 /**
  * ADC Sequence Digital Comparator configurations
+ */
+
+/**
+ *
+ *  @startuml
+ *      class A
+ *      {
+ *      }
+ *  @enduml
  */
 
 typedef volatile struct

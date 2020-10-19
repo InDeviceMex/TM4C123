@@ -26,11 +26,6 @@
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
 
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceAddress.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
-
 void DMA_CH__vSetPrimarySourceEndAddress(DMA_nCH_MODULE enChannel, uint32_t u32SourceAddress)
 {
     uint32_t u32Channel=(uint32_t)enChannel;

@@ -1,6 +1,6 @@
 /**
  *
- * @file DMA_CH_BurstSizeSize.c
+ * @file DMA_CH_BurstSize.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

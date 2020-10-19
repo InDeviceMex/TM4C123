@@ -25,7 +25,7 @@
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Source.h>
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
+#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
 volatile uint32_t* DMA_ChannelAssig[(uint32_t)DMA_enCH_MODULE_MAX+1u] =
 {

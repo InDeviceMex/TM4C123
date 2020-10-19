@@ -24,7 +24,6 @@
 
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_VectorOffset.h>
 
-#include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteMulti.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
 #if defined ( __TI_ARM__ )
