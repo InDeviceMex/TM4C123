@@ -305,6 +305,10 @@ typedef volatile struct
     const uint32_t reserved1: 19;
 }ADCSSFSTAT_TypeDef;
 
+/**
+ * ADC Sequences Comparator configurations
+ */
+
 typedef volatile struct
 {
     volatile uint32_t S0DCOP: 1;
@@ -412,15 +416,6 @@ typedef volatile struct
 
 /**
  * ADC Sequence Digital Comparator configurations
- */
-
-/**
- *
- *  @startuml
- *      class A
- *      {
- *      }
- *  @enduml
  */
 
 typedef volatile struct

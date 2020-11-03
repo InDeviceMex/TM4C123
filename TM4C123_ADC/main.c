@@ -7,7 +7,7 @@
 /*Standard Libraries*/
 #include <xUtils/Standard/Standard.h>
 #include "stdlib.h"
-
+#include "stdarg.h"
 /*MCU Drivers*/
 #include <xDriver_MCU.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
@@ -31,21 +31,21 @@ void MAIN_DMA_CH30_vIRQSourceHandler(void);
 void MAIN_DMA_CH15_vIRQSourceHandler(void);
 
 /*Global Variables*/
-
-uint8_t pu8DMASourceBufferCh0[100u] = {0u};
-uint8_t pu8DMADestBufferCh0[100u] = {0u};
+#define DMA_CH_TRANFERSIZE (100u)
+uint8_t pu8DMASourceBufferCh0[DMA_CH_TRANFERSIZE] = {0u};
+uint16_t pu16DMADestBufferCh0[DMA_CH_TRANFERSIZE] = {0u};
 
 DMACHCTL_TypeDef enDMACh0Control =
 {
-     1u,
-     0,
-     100u-1u,
-     7u,
-     0,
-     0,
-     0,
-     0,
-     0,
+     (uint32_t)DMA_enCH_MODE_BASIC,
+     (uint32_t)DMA_enCH_REQTYPE_BOTH,
+     DMA_CH_TRANFERSIZE-1u,
+     (uint32_t)DMA_enCH_BURST_SIZE_128,
+     0u,
+     (uint32_t)DMA_enCH_SRC_SIZE_BYTE,
+     (uint32_t)DMA_enCH_SRC_INC_BYTE,
+     (uint32_t)DMA_enCH_DST_SIZE_HALF_WORD,
+     (uint32_t)DMA_enCH_DST_INC_HALF_WORD,
 };
 
 int32_t main(void)
@@ -73,7 +73,7 @@ int32_t main(void)
     /*WDT__vInit(0xFFFFFFFFu);*/
     SysTick__enInitUs(100.0f,SCB_enSHPR0);
 
-    for(u32Pos =0u; u32Pos<100u; u32Pos++)
+    for(u32Pos =0u; u32Pos<DMA_CH_TRANFERSIZE; u32Pos++)
     {
         pu8DMASourceBufferCh0[u32Pos] =(uint8_t)u32Pos;
     }
@@ -81,8 +81,8 @@ int32_t main(void)
     DMA__vEnInterruptSourceVector(DMA_enVECTOR_SW,DMA_enPRI3);
     DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH30_vIRQSourceHandler,DMA_enCH_MODULE_15, DMA_enCH_ENCODER_4 );
     DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH15_vIRQSourceHandler,DMA_enCH_MODULE_15, DMA_enCH_ENCODER_3);
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &pu8DMADestBufferCh0[100-1]);
-    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) &pu8DMASourceBufferCh0[100-1]);
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &pu16DMADestBufferCh0[DMA_CH_TRANFERSIZE-1u]);
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) &pu8DMASourceBufferCh0[DMA_CH_TRANFERSIZE-1u]);
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_15, enDMACh0Config);
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);
     DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);
