@@ -26,8 +26,7 @@
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
-
-HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch);
+HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch,void (*pfIrqrRTCALTHandler) (void));
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_INIT_H_ */

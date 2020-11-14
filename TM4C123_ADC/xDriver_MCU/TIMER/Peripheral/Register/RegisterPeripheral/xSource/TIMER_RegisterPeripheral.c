@@ -23,12 +23,12 @@
  */
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/TIMER_RegisterPeripheral.h>
 
-GPTM_TypeDef *TIMER_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]={
+GPTM_TypeDef *TIMER_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]={
                                      {GPTM0,GPTM1,GPTM2,GPTM3,GPTM4,GPTM5},
                                      {GPWTM0,GPWTM1,GPWTM2,GPWTM3,GPWTM4,GPWTM5},
                                   };
 
-volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnMR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnMR_OFFSET)},
@@ -40,7 +40,7 @@ volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_
  }
 };
 
-volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnILR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnILR_OFFSET)},
@@ -52,7 +52,7 @@ volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32
  }
 };
 
-volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnPR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnPR_OFFSET)},
@@ -64,7 +64,7 @@ volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_
  }
 };
 
-volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnMATCHR_OFFSET)},
@@ -76,7 +76,7 @@ volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uin
  }
 };
 
-volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnPMR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnPMR_OFFSET)},
@@ -88,7 +88,7 @@ volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32
  }
 };
 
-volatile uint32_t * TIMER_TnR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnR_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnR_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnR_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnR_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnR_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnR_OFFSET)},
@@ -100,7 +100,7 @@ volatile uint32_t * TIMER_TnR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t
  }
 };
 
-volatile uint32_t * TIMER_TnPS_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnPS_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnPS_OFFSET)},
@@ -111,7 +111,7 @@ volatile uint32_t * TIMER_TnPS_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_
      {(volatile uint32_t *)(GPWTM0_BASE + GPWTM_TB_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPWTM1_BASE + GPWTM_TB_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPWTM2_BASE + GPWTM_TB_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPWTM3_BASE + GPWTM_TB_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPWTM4_BASE + GPWTM_TB_GPTMTnPS_OFFSET),(volatile uint32_t *)(GPWTM5_BASE + GPWTM_TB_GPTMTnPS_OFFSET)},
  }
 };
-volatile uint32_t * TIMER_TnV_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnV_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnV_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnV_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnV_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnV_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnV_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnV_OFFSET)},
@@ -123,7 +123,7 @@ volatile uint32_t * TIMER_TnV_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t
  }
 };
 
-volatile uint32_t * TIMER_TnPV_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]=
+volatile uint32_t * TIMER_TnPV_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]=
 {
  {
      {(volatile uint32_t *)(GPTM0_BASE + GPTM_TA_GPTMTnPV_OFFSET),(volatile uint32_t *)(GPTM1_BASE + GPTM_TA_GPTMTnPV_OFFSET),(volatile uint32_t *)(GPTM2_BASE + GPTM_TA_GPTMTnPV_OFFSET),(volatile uint32_t *)(GPTM3_BASE + GPTM_TA_GPTMTnPV_OFFSET),(volatile uint32_t *)(GPTM4_BASE + GPTM_TA_GPTMTnPV_OFFSET),(volatile uint32_t *)(GPTM5_BASE + GPTM_TA_GPTMTnPV_OFFSET)},

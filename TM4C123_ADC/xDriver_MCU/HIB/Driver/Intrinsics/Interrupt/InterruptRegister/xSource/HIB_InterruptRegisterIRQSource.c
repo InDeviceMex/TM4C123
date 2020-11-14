@@ -32,7 +32,7 @@ void HIB__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),HIB_nINTER
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
-        if(HIB_enINTERRUPT_MAX>=u32Interrupt)
+        if((uint32_t)HIB_enINTERRUPT_MAX>=u32Interrupt)
         {
             u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
             HIB__vIRQSourceHandler[u32Interrupt]=(void (*) (void))u32IrqSourceHandler;

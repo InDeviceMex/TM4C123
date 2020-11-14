@@ -57,37 +57,37 @@ SYSCTL_nRESET SYSCTL__enGetResetCause(void)
 void SYSCTL__vClearResetCause(SYSCTL_nRESET enReset)
 {
 
-    if(SYSCTL_enRESET_EXT == (enReset&SYSCTL_enRESET_EXT))
+    if((uint32_t)SYSCTL_enRESET_EXT == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_EXT))
     {
         SYSCTL_BITBANDING_RESC_EXT=0u;
     }
 
-    if(SYSCTL_enRESET_POR == (enReset&SYSCTL_enRESET_POR))
+    if((uint32_t)SYSCTL_enRESET_POR == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_POR))
     {
         SYSCTL_BITBANDING_RESC_POR=0u;
     }
 
-    if(SYSCTL_enRESET_BOR == (enReset&SYSCTL_enRESET_BOR))
+    if((uint32_t)SYSCTL_enRESET_BOR == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_BOR))
     {
         SYSCTL_BITBANDING_RESC_BOR=0u;
     }
 
-    if(SYSCTL_enRESET_WDT0 == (enReset&SYSCTL_enRESET_WDT0))
+    if((uint32_t)SYSCTL_enRESET_WDT0 == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_WDT0))
     {
         SYSCTL_BITBANDING_RESC_WDT0=0u;
     }
 
-    if(SYSCTL_enRESET_SW == (enReset&SYSCTL_enRESET_SW))
+    if((uint32_t)SYSCTL_enRESET_SW == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_SW))
     {
         SYSCTL_BITBANDING_RESC_SW=0u;
     }
 
-    if(SYSCTL_enRESET_WDT1 == (enReset&SYSCTL_enRESET_WDT1))
+    if((uint32_t)SYSCTL_enRESET_WDT1 == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_WDT1))
     {
         SYSCTL_BITBANDING_RESC_WDT1=0u;
     }
 
-    if(SYSCTL_enRESET_MOSCFAIL== (enReset&SYSCTL_enRESET_MOSCFAIL))
+    if((uint32_t)SYSCTL_enRESET_MOSCFAIL== ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_MOSCFAIL))
     {
         SYSCTL_BITBANDING_RESC_MOSCFAIL=0u;
     }

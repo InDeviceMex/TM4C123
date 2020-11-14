@@ -27,39 +27,10 @@ void MAIN_vInitGPIO(void);
 /*ISR Functions*/
 void MAIN_SW1_vIRQSourceHandler(void);
 void MAIN_SW2_vIRQSourceHandler(void);
-void MAIN_DMA_CH30_vIRQSourceHandler(void);
-void MAIN_DMA_CH15_vIRQSourceHandler(void);
-
-/*Global Variables*/
-#define DMA_CH_TRANFERSIZE (100u)
-uint8_t pu8DMASourceBufferCh0[DMA_CH_TRANFERSIZE] = {0u};
-uint16_t pu16DMADestBufferCh0[DMA_CH_TRANFERSIZE] = {0u};
-
-DMACHCTL_TypeDef enDMACh0Control =
-{
-     (uint32_t)DMA_enCH_MODE_BASIC,
-     (uint32_t)DMA_enCH_REQTYPE_BOTH,
-     DMA_CH_TRANFERSIZE-1u,
-     (uint32_t)DMA_enCH_BURST_SIZE_128,
-     0u,
-     (uint32_t)DMA_enCH_SRC_SIZE_BYTE,
-     (uint32_t)DMA_enCH_SRC_INC_BYTE,
-     (uint32_t)DMA_enCH_DST_SIZE_HALF_WORD,
-     (uint32_t)DMA_enCH_DST_INC_HALF_WORD,
-};
+void MAIN_vHIB_RTCALTSourceHandler(void);
 
 int32_t main(void)
 {
-    uint32_t u32Pos= 0u;
-
-    DMA_CONFIG_Typedef enDMACh0Config=
-    {
-       DMA_enCH_REQTYPE_BOTH,
-       DMA_enCH_PERIPHERAL_ENA,
-       DMA_enCH_CTL_PRIMARY ,
-       DMA_enCH_PRIO_DEFAULT ,
-       DMA_enCH_ENCODER_3
-    };
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -69,33 +40,10 @@ int32_t main(void)
           (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
     MAIN_vInitGPIO();
-    HIB__enInit(5u, 0u);
+    HIB__enInit(5u, 0u,&MAIN_vHIB_RTCALTSourceHandler);
     /*WDT__vInit(0xFFFFFFFFu);*/
     SysTick__enInitUs(100.0f,SCB_enSHPR0);
 
-    for(u32Pos =0u; u32Pos<DMA_CH_TRANFERSIZE; u32Pos++)
-    {
-        pu8DMASourceBufferCh0[u32Pos] =(uint8_t)u32Pos;
-    }
-    DMA__vInit();
-    DMA__vEnInterruptSourceVector(DMA_enVECTOR_SW,DMA_enPRI3);
-    DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH30_vIRQSourceHandler,DMA_enCH_MODULE_15, DMA_enCH_ENCODER_4 );
-    DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH15_vIRQSourceHandler,DMA_enCH_MODULE_15, DMA_enCH_ENCODER_3);
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &pu16DMADestBufferCh0[DMA_CH_TRANFERSIZE-1u]);
-    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) &pu8DMASourceBufferCh0[DMA_CH_TRANFERSIZE-1u]);
-    DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_15, enDMACh0Config);
-    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);
-    DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);
-    DMA_CH__vSetSoftwareRequest(DMA_enCH_MODULE_15);
-
-/*
-    DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH30_vIRQSourceHandler,DMA_enCH_MODULE_5, DMA_enCH_ENCODER_4 );
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_5, (uint32_t) &pu8DMASourceBufferCh0[100-1]);
-    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_5, (uint32_t) &pu8DMADestBufferCh0[100-1]);
-    DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_5, enDMACh0Config);
-    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_5, enDMACh0Control);
-    DMA_CH__vSetEnable(DMA_enCH_MODULE_5,DMA_enCH_ENA_ENA);
-*/
     while(1u)
     {
     }
@@ -122,28 +70,23 @@ void MAIN_vInitGPIO(void)
 
     GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin|enLedBluePin), 0u);
 
-    /*GPIO__vEnDMATrigger(GPIO_enPORT_F,(GPIO_nPIN)(enSW2Pin));*/
     GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|enSW1Pin));
     GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
-    /*GPIO__vDisInterruptSource(GPIO_enPORT_F,(GPIO_nPIN)(enSW2Pin|enSW1Pin));*/
-
 }
 
+
+void MAIN_vHIB_RTCALTSourceHandler(void)
+{
+    static uint32_t u32Value=GPIO_enPIN_2;
+    HIB__enSetLoad(0u);
+    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_2), u32Value);
+    u32Value^=GPIO_enPIN_2;
+
+}
 
 void MAIN_SW1_vIRQSourceHandler(void)
 {
     GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, GPIO_enPIN_1);
-}
-void MAIN_DMA_CH15_vIRQSourceHandler(void)
-{
-    /*DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);*/
-    /*DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);*/
-}
-
-void MAIN_DMA_CH30_vIRQSourceHandler(void)
-{
-    /*DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMACh0Control);*/
-    /*DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);*/
 }
 
 void MAIN_SW2_vIRQSourceHandler(void)

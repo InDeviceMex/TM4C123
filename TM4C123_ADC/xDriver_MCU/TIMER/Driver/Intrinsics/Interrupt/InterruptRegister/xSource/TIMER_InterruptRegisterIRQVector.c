@@ -26,7 +26,7 @@
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Dependencies.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/TIMER_InterruptRoutine.h>
 
-const SCB_nVECISR SCB_enVECISR_TIMER[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)]={
+const SCB_nVECISR SCB_enVECISR_TIMER[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]={
                                     {
                                      {SCB_enVECISR_TIMER0A,SCB_enVECISR_TIMER1A,SCB_enVECISR_TIMER2A,SCB_enVECISR_TIMER3A,SCB_enVECISR_TIMER4A,SCB_enVECISR_TIMER5A},
                                      {SCB_enVECISR_TIMER0B,SCB_enVECISR_TIMER1B,SCB_enVECISR_TIMER2B,SCB_enVECISR_TIMER3B,SCB_enVECISR_TIMER4B,SCB_enVECISR_TIMER5B}
@@ -46,9 +46,9 @@ void TIMER__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),TIMER_nM
     uint32_t u32IrqVectorHandler=0;
     if(0u != (uint32_t)pfIrqVectorHandler)
     {
-        if(TIMER_enMISC_MAX<u32Number)
+        if((uint32_t)TIMER_enMISC_MAX<u32Number)
         {
-            u32Number=TIMER_enMISC_MAX;
+            u32Number=(uint32_t)TIMER_enMISC_MAX;
         }
         enVector=SCB_enVECISR_TIMER[u32Wide][u32Letter][u32Number];
         u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|1u);

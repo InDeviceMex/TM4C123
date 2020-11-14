@@ -52,9 +52,9 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     volatile uint32_t* pu32TimerMATCHRLow=0;
     volatile uint32_t* pu32TimerMATCHRHigh=0;
     volatile uint32_t* pu32TimerPMR=0;
-    if(TIMER_enMISC_MAX<u32Number)
+    if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_enMISC_MAX;
+        u32Number=(uint32_t)TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 
@@ -63,7 +63,7 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     switch (enConfigVar)
     {
     case TIMER_enCONFIG_WIDE:
-        if(TIMER_en64 == (uint32_t)u32Wide)
+        if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
         {
             pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
             pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
@@ -145,9 +145,9 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
     volatile uint32_t* pu32TimerMATCHRHigh=0u;
     volatile uint32_t* pu32TimerPMR=0u;
 
-    if(TIMER_enMISC_MAX<u32Number)
+    if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_enMISC_MAX;
+        u32Number=(uint32_t)TIMER_enMISC_MAX;
     }
     enReady = TIMER__enIsReady(enModule);
     if((TIMER_enREADY == enReady) && (0u != (uint32_t)pu64Match))
@@ -158,7 +158,7 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
         switch (enConfigVar)
         {
         case TIMER_enCONFIG_WIDE:
-            if(TIMER_en64 == (uint32_t)u32Wide)
+            if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
             {
                 pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
                 pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];

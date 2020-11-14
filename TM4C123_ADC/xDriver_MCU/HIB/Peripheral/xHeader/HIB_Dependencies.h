@@ -11,7 +11,6 @@
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
 #include <xDriver_MCU/Core/SCB/SCB.h>
 
-#include <xDriver_MCU/GPIO/GPIO.h>
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
 

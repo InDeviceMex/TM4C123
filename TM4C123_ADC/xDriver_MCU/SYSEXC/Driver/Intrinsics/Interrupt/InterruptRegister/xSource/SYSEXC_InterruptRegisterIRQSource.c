@@ -32,7 +32,7 @@ void SYSEXC__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),SYSEXC_
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
-        if(SYSEXC_enINTERRUPT_MAX<=u32Interrupt)
+        if((uint32_t)SYSEXC_enINTERRUPT_MAX<=u32Interrupt)
         {
             u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
             SYSEXC__vIRQSourceHandler[u32Interrupt]=(void (*) (void))u32IrqSourceHandler;

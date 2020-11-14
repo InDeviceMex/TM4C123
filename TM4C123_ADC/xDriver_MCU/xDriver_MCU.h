@@ -35,7 +35,7 @@
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/TIMER/TIMER.h>
 #include <xDriver_MCU/WDT/WDT.h>
-#include <xDriver_MCU/WDT/ADC.h>
+#include <xDriver_MCU/ADC/ADC.h>
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

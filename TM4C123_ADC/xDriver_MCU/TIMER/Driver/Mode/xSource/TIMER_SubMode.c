@@ -29,13 +29,13 @@
 void TIMER__vSetSubMode(TIMER_nMODULE enModule, TIMER_nSUB_MODE enSubModeParam)
 {
     uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
-    if(TIMER_enW != u32Letter)
+    if((uint32_t)TIMER_enW != u32Letter)
     {
         TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
     }
     else
     {
-        if(TIMER_enSUB_MODE_CAPTURE>enSubModeParam)
+        if((uint32_t)TIMER_enSUB_MODE_CAPTURE>(uint32_t)enSubModeParam)
         {
             TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
         }

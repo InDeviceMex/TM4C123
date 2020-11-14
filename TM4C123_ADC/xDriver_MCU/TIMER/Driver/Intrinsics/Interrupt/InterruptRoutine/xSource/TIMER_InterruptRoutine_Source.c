@@ -25,7 +25,7 @@
 
 void TIMER_vIRQSourceHandler_Dummy(void);
 
-void (*TIMER__vIRQSourceHandler[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)][6]) (void)={
+void (*TIMER__vIRQSourceHandler[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u][6]) (void)={
 {
     {
         {&TIMER_vIRQSourceHandler_Dummy,&TIMER_vIRQSourceHandler_Dummy,&TIMER_vIRQSourceHandler_Dummy,&TIMER_vIRQSourceHandler_Dummy,&TIMER_vIRQSourceHandler_Dummy,&TIMER_vIRQSourceHandler_Dummy},

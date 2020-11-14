@@ -57,9 +57,9 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
     volatile uint32_t* pu32TimerCOUNTFREE=0u;
     volatile uint32_t* pu32TimerPS=0u;
 
-    if(TIMER_enMISC_MAX<u32Number)
+    if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_enMISC_MAX;
+        u32Number=(uint32_t)TIMER_enMISC_MAX;
     }
     enReady = TIMER__enIsReady(enModule);
     if((TIMER_enREADY == enReady) && (0u != (uint32_t)pu64Count))
@@ -70,7 +70,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
         switch (enConfigVar)
         {
         case TIMER_enCONFIG_WIDE:
-            if(TIMER_en64 == (uint32_t)u32Wide)
+            if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
             {
                 pu32TimerCOUNTHigh=TIMER_TnR_BLOCK[u32Wide][1][u32Number];
                 pu32TimerCOUNTLow=TIMER_TnR_BLOCK[u32Wide][0][u32Number];
@@ -120,7 +120,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
             if((TIMER_enALT_MODE_CC==enAltModeVar)&& (TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
             {
 
-                if(TIMER_en64 == (uint32_t)u32Wide)
+                if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
                 {
                     u32Reg  = *pu32TimerCOUNTLow;
                     u32Reg &= pu32SizeMask[u32Wide];
@@ -155,7 +155,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
             else
             {
 
-                if(TIMER_en64 == (uint32_t)u32Wide)
+                if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
                 {
                     u32RegPrescaler = *pu32TimerPS;
                     u32RegPrescaler&= pu32PrescalerMask[u32Wide];
@@ -170,7 +170,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
                 }
                 else
                 {
-                    if( TIMER_enSUB_MODE_CAPTURE==enSubModeVar )
+                    if( (uint32_t)TIMER_enSUB_MODE_CAPTURE==enSubModeVar )
                     {
                         u32Reg  = *pu32TimerCOUNTLow;
                         u64Reg  = (uint64_t)u32Reg;

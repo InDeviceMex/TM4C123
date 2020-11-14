@@ -53,9 +53,9 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
     volatile uint32_t* pu32TimerCOUNTHigh=0u;
     volatile uint32_t* pu32TimerPV=0u;
 
-    if(TIMER_enMISC_MAX<u32Number)
+    if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_enMISC_MAX;
+        u32Number=(uint32_t)TIMER_enMISC_MAX;
     }
     TIMER__vSetReady(enModule);
 
@@ -63,7 +63,7 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
     switch (enConfigVar)
     {
     case TIMER_enCONFIG_WIDE:
-        if(TIMER_en64 == (uint32_t)u32Wide)
+        if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
         {
             pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
             pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
@@ -117,7 +117,7 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
         if((TIMER_enALT_MODE_CC==enAltModeVar)&& (TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
         {
 
-            if(TIMER_en64 == (uint32_t)u32Wide)
+            if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
             {
                 u64Reg=u64Count;
                 u64Reg>>=pu32PrescalerShift[u32Wide];
@@ -150,7 +150,7 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
         else
         {
 
-            if(TIMER_en64 == (uint32_t)u32Wide)
+            if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
             {
                 u64Reg=u64Count;
                 u32Reg= (uint32_t)u64Reg;
@@ -203,9 +203,9 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
     volatile uint32_t* pu32TimerCOUNTHigh=0u;
     volatile uint32_t* pu32TimerPV=0u;
 
-    if(TIMER_enMISC_MAX<u32Number)
+    if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
-        u32Number=TIMER_enMISC_MAX;
+        u32Number=(uint32_t)TIMER_enMISC_MAX;
     }
     enReady = TIMER__enIsReady(enModule);
     if((TIMER_enREADY == enReady) && (0u != (uint32_t)pu64Count))
@@ -216,7 +216,7 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
         switch (enConfigVar)
         {
         case TIMER_enCONFIG_WIDE:
-            if(TIMER_en64 == (uint32_t)u32Wide)
+            if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
             {
                 pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
                 pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
@@ -265,7 +265,7 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
             if((TIMER_enALT_MODE_CC==enAltModeVar)&& (TIMER_enSUB_MODE_CAPTURE!=enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN==enDirectionVar))
             {
 
-                if(TIMER_en64 == (uint32_t)u32Wide)
+                if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
                 {
                     u32Reg  = *pu32TimerCOUNTLow;
                     u32Reg &= pu32SizeMask[u32Wide];
@@ -300,7 +300,7 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
             else
             {
 
-                if(TIMER_en64 == (uint32_t)u32Wide)
+                if((uint32_t)TIMER_en64 == (uint32_t)u32Wide)
                 {
                     u32RegPrescaler = *pu32TimerPV;
                     u32RegPrescaler&= pu32PrescalerMask[u32Wide];

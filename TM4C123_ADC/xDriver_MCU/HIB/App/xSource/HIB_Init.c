@@ -33,12 +33,12 @@
 
 void HIB_vRTCALTSourceHandler(void);
 
-HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
+HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch,void (*pfIrqrRTCALTHandler) (void))
 {
     volatile HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
     HIB__vClearReady();
     HIB__vRegisterIRQVectorHandler(&HIB__vIRQVectorHandler);
-    HIB__vRegisterIRQSourceHandler(&HIB_vRTCALTSourceHandler,HIB_enINTERRUPT_RTCALT);
+    HIB__vRegisterIRQSourceHandler(pfIrqrRTCALTHandler,HIB_enINTERRUPT_RTCALT);
 
     HIB__vSetReady();
     HIB__enDisInterruptSource(HIB_enINT_ALL);
@@ -63,12 +63,4 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch)
 }
 
 
-void HIB_vRTCALTSourceHandler(void)
-{
-    static uint32_t u32Value=GPIO_enPIN_2;
-    HIB__enSetLoad(0u);
-    GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (GPIO_enPIN_2), u32Value);
-    u32Value^=GPIO_enPIN_2;
-
-}
 

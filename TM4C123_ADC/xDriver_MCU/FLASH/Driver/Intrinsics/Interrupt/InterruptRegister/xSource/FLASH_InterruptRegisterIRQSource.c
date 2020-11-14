@@ -32,7 +32,7 @@ void FLASH__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),FLASH_nI
     uint32_t u32IrqSourceHandler=0;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
-        if(FLASH_enINTERRUPT_MAX<=u32Interrupt)
+        if((uint32_t)FLASH_enINTERRUPT_MAX<=u32Interrupt)
         {
             u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
             FLASH__vIRQSourceHandler[u32Interrupt]=(void (*) (void))u32IrqSourceHandler;

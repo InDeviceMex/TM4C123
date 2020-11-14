@@ -39,13 +39,13 @@ void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nM
 
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
-        if(TIMER_enMISC_MAX<u32Number)
+        if((uint32_t)TIMER_enMISC_MAX<u32Number)
         {
-            u32Number=TIMER_enMISC_MAX;
+            u32Number=(uint32_t)TIMER_enMISC_MAX;
         }
-        if(TIMER_enMISC_INT<u32Interrupt)
+        if((uint32_t)TIMER_enMISC_INT<u32Interrupt)
         {
-            u32Interrupt=TIMER_enMISC_INT;
+            u32Interrupt=(uint32_t)TIMER_enMISC_INT;
         }
 
         u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|1u);

@@ -83,10 +83,10 @@ LCD1602_nSTATUS LCD1602__enInit(void)
 
 
     /*M8BIT o M4BIT,M2LINE o M1LINE, M5_8_Font o M5_11_Font */
-    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enM4BIT|LCD1602_enM2LINE|LCD1602_enM5_8_Font));
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)((uint32_t)LCD1602_enM4BIT|(uint32_t)LCD1602_enM2LINE|(uint32_t)LCD1602_enM5_8_Font));
 
     /*ONDisp o OFFDisp, ONCursor o OFFCursor,ONBlink o OFFBLink*/
-    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)(LCD1602_enONDisp|LCD1602_enOFFCursor|LCD1602_enOFFBlink) );
+    enStatus=LCD1602_enWriteCommand((LCD1602_nCommands)((uint32_t)LCD1602_enONDisp|(uint32_t)LCD1602_enOFFCursor|(uint32_t)LCD1602_enOFFBlink) );
 
     enStatus=LCD1602__enClearScreenDirect();
 

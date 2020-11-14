@@ -45,17 +45,17 @@
 #define GPWTM                     (((GPWTMS_TypeDef*)(GPWTM_BASE)))
 #define GPWTM_UNION               (((GPWTM_UNION_TypeDef*)(GPWTM_BASE)))
 
-extern GPTM_TypeDef *TIMER_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
+extern GPTM_TypeDef *TIMER_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
 
-extern volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnR_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnPS_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnV_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
-extern volatile uint32_t * TIMER_TnPV_BLOCK[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)(TIMER_enMODULE_NUM_MAX+1u)];
+extern volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnPS_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnV_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
+extern volatile uint32_t * TIMER_TnPV_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u];
 
 extern volatile uint32_t * TIMER_RTCPD_BLOCK[6];
 

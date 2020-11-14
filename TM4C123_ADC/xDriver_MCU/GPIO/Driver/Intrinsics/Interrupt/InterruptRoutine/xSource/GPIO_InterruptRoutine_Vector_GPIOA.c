@@ -48,7 +48,7 @@ void GPIOA__vIRQVectorHandler(void)
         }
     }
 
-    if(GPIO_enBUS_APB ==u32RegBUS)
+    if((uint32_t)GPIO_enBUS_APB ==u32RegBUS)
     {
         u32Reg=GPIOA_APB_GPIOMIS_R;
         if(u32Reg & GPIO_enPIN_0)

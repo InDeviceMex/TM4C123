@@ -29,8 +29,8 @@
 #define ADC0_BASE         (0x40038000)
 #define ADC1_BASE         (0x40039000)
 
-#define ADC1_OFFSET       (0x00039000)
 #define ADC0_OFFSET       (0x00038000)
+#define ADC1_OFFSET       (0x00039000)
 
 #define ADC_BITBANDING_BASE        ((uint32_t)0x42000000u)
 
