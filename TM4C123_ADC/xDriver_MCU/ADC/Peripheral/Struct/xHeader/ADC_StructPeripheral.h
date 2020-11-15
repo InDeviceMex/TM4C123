@@ -160,6 +160,7 @@ typedef volatile struct
         volatile uint32_t        ADCDCCMP[8];
         ADCDCCMP_TypeDef ADCDCCMP_Bit[8];
     };
+
     const uint32_t reserved8[88];
     union
     {
