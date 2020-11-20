@@ -30,7 +30,9 @@
 void ADC1_SS3__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg=0u;
-    volatile uint32_t u32RegComp=0u;
+    volatile uint32_t u32RegCompInterrupt=0u;
+    volatile uint32_t u32RegCompSelect=0u;
+    volatile uint32_t u32RegCompMux=0u;
     if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
     {
         if(DMA_DMACHIS_R_CHIS27_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS27_MASK))
@@ -46,56 +48,27 @@ void ADC1_SS3__vIRQVectorHandler(void)
         }
     }
     u32Reg=ADC1_ADCISC_R;
-    u32RegComp = ADC1_ADCDCRIC_R;
+    u32RegCompInterrupt = ADC1_ADCDCISC_R;
+    u32RegCompSelect = ADC1_ADCSSOP3_R;
     if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_SAMPLE<<(uint32_t)ADC_enSEQ_3))
     {
         ADC1_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_SAMPLE<<(uint32_t)ADC_enSEQ_3);
         ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3]();
     }
     if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_3))
-    {
-        ADC1_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_3);
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_0))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_0);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_0]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_1))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_1);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_1]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_2))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_2);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_2]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_3))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_3);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_3]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_4))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_4);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_4]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_5))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_5);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_5]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_6))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_6);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_6]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_7))
-        {
-            ADC1_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_7);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][(uint32_t)ADC_en_COMPARATOR_7]();
-        }
-    }
+     {
+         ADC1_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_3);
+         if(u32RegCompSelect & ((uint32_t)0x1u<<(ADC_en_MUX_0*0x4u)))
+         {
+             u32RegCompMux = ADC1_ADCSSDC3_R>>(ADC_en_MUX_0*0x4u);
+             u32RegCompMux&= 0xFu;
+             if(u32RegCompInterrupt & ((uint32_t)1u<<u32RegCompMux))
+             {
+                 ADC1_ADCDCISC_R = ((uint32_t)1u<<u32RegCompMux);
+                 ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_3][u32RegCompMux]();
+             }
+         }
+     }
 }
 
 

@@ -30,7 +30,10 @@
 void ADC0_SS1__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg=0u;
-    volatile uint32_t u32RegComp=0u;
+    volatile uint32_t u32RegCompInterrupt=0u;
+    volatile uint32_t u32RegCompSelect=0u;
+    volatile uint32_t u32RegCompMux=0u;
+    uint32_t u32Pos=0u;
     if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
     {
         if(DMA_DMACHIS_R_CHIS15_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS15_MASK))
@@ -46,56 +49,30 @@ void ADC0_SS1__vIRQVectorHandler(void)
         }
     }
     u32Reg=ADC0_ADCISC_R;
-    u32RegComp = ADC0_ADCDCRIC_R;
+    u32RegCompInterrupt = ADC0_ADCDCISC_R;
+    u32RegCompSelect = ADC0_ADCSSOP0_R;
     if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_SAMPLE<<(uint32_t)ADC_enSEQ_1))
     {
         ADC0_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_SAMPLE<<(uint32_t)ADC_enSEQ_1);
         ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1]();
     }
     if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_1))
-    {
-        ADC0_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_1);
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_0))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_0);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_0]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_1))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_1);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_1]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_2))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_2);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_2]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_3))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_3);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_3]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_4))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_4);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_4]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_5))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_5);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_5]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_6))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_6);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_6]();
-        }
-        if(u32RegComp & ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_7))
-        {
-            ADC0_ADCDCRIC_R = ((uint32_t)1u<<(uint32_t)ADC_en_COMPARATOR_7);
-            ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][(uint32_t)ADC_en_COMPARATOR_7]();
-        }
-    }
+     {
+         ADC0_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_1);
+         for(u32Pos = 0u; u32Pos<=(uint32_t)ADC_en_MUX_3;u32Pos++)
+         {
+             if(u32RegCompSelect & ((uint32_t)0x1u<<(u32Pos*0x4u)))
+             {
+                 u32RegCompMux = ADC0_ADCSSDC1_R>>(u32Pos*0x4u);
+                 u32RegCompMux&= 0xFu;
+                 if(u32RegCompInterrupt & ((uint32_t)1u<<u32RegCompMux))
+                 {
+                     ADC0_ADCDCISC_R = ((uint32_t)1u<<u32RegCompMux);
+                     ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_0][(uint32_t)ADC_enSEQ_1][u32RegCompMux]();
+                 }
+             }
+         }
+     }
 }
 
 

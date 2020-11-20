@@ -193,6 +193,19 @@ typedef enum
     ADC_enAVERAGE_64= 6u,
     ADC_enAVERAGE_UNDEF = 0xFFFFFFFFu,
 }ADC_nAVERAGE;
+typedef enum
+{
+    ADC_en_MUX_0 = 0u,
+    ADC_en_MUX_1 = 1u,
+    ADC_en_MUX_2 = 2u,
+    ADC_en_MUX_3 = 3u,
+    ADC_en_MUX_4 = 4u,
+    ADC_en_MUX_5 = 5u,
+    ADC_en_MUX_6 = 6u,
+    ADC_en_MUX_7 = 7u,
+    ADC_en_MUX_MAX = 7u,
+    ADC_en_MUX_UNDEF = 0xFFFFFFFFu,
+}ADC_nMUX;
 
 typedef enum
 {

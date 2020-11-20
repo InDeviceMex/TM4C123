@@ -58,6 +58,7 @@ int32_t main(void)
     ADC0_ADCSSCTL3->TS0= 0u;
     ADC0_ADCACTSS->ASEN3=1u;
     ADC0_ADCSAC->AVG=6u;
+    ADC0_ADCCTL->DITHER=1u;
     while(1u)
     {
         ADC0_ADCPSSI->SS3= 1u;

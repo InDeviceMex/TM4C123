@@ -481,6 +481,8 @@ encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine
 encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_Module1/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
