@@ -73,7 +73,8 @@ typedef enum
     GPIO_enPIN_5=0x20u,
     GPIO_enPIN_6=0x40u,
     GPIO_enPIN_7=0x80u,
-    GPIO_enPIN_ALL=0xFFFFFFFFu,
+    GPIO_enPIN_ALL=0xFFu,
+    GPIO_enPIN_UNDEF=0xFFFFFFFFu,
 }GPIO_nPIN;
 
 typedef enum

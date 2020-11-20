@@ -67,102 +67,27 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_0 = 1u,
-    ADC_enSEQ_1 = 0x2u,
-    ADC_enSEQ_2 = 0x4u,
-    ADC_enSEQ_3 = 0x8u,
-    ADC_enSEQ_ALL = 0xFu,
+    ADC_enSEQ_0 = 0u,
+    ADC_enSEQ_1 = 1u,
+    ADC_enSEQ_2 = 2u,
+    ADC_enSEQ_3 = 3u,
+    ADC_enSEQ_MAX = 3u,
     ADC_enSEQ_UNDEF = 0xFFFFFFFFu,
-}ADC_nSEQ;
+}ADC_nSEQUENCER;
 
 typedef enum
 {
-    ADC_enCOMP_0 = 0x01u,
-    ADC_enCOMP_1 = 0x02u,
-    ADC_enCOMP_2 = 0x04u,
-    ADC_enCOMP_3 = 0x08u,
-    ADC_enCOMP_4 = 0x10u,
-    ADC_enCOMP_5 = 0x20u,
-    ADC_enCOMP_6 = 0x40u,
-    ADC_enCOMP_7 = 0x80u,
-    ADC_enCOMP_ALL = 0xFFu,
-    ADC_enCOMP_UNDEF = 0xFFFFFFFFu,
-}ADC_nCOMP;
+    ADC_enSEQ_SOURCE_SAMPLE= 0x1u,
+    ADC_enSEQ_SOURCE_COMP = 0x10000u,
+    ADC_enSEQ_SOURCE_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_SOURCE;
 
 typedef enum
 {
-    ADC_enINT_NOOCCUR        =0u,
-    ADC_enINT_OCCUR          =1u,
-    ADC_enINT_CLEAR          =1u,
-    ADC_enINT_STATUS_UNDEF   =0xFFFFFFFFu,
-}ADC_nINT_STATUS;
-
-typedef enum
-{
-    ADC_enINT_SEQ0 = 0x01u,
-    ADC_enINT_SEQ1 = 0x02u,
-    ADC_enINT_SEQ2 = 0x04u,
-    ADC_enINT_SEQ3 = 0x08u,
-
-    ADC_enINT_COMP0 = 0x00010000u,
-    ADC_enINT_COMP1 = 0x00020000u,
-    ADC_enINT_COMP2 = 0x0004000u,
-    ADC_enINT_COMP4 = 0x0008000u,
-}ADC_nINT;
-
-typedef enum
-{
-    ADC_enPHASE_0 = 0u,
-    ADC_enPHASE_22_5 = 1u,
-    ADC_enPHASE_45 = 2u,
-    ADC_enPHASE_67_5= 3u,
-    ADC_enPHASE_90= 4u,
-    ADC_enPHASE_112_5 = 5u,
-    ADC_enPHASE_135= 6u,
-    ADC_enPHASE_157_5= 7u,
-    ADC_enPHASE_180= 8u,
-    ADC_enPHASE_202_5 = 9u,
-    ADC_enPHASE_225 = 10u,
-    ADC_enPHASE_247_5= 11u,
-    ADC_enPHASE_270= 12u,
-    ADC_enPHASE_292_5 = 13u,
-    ADC_enPHASE_315= 14u,
-    ADC_enPHASE_337_5= 15u,
-    ADC_enPHASE_UNDEF = 0xFFFFFFFFu,
-}ADC_nPHASE;
-
-typedef enum
-{
-    ADC_enSYNC_DISABLE        =0u,
-    ADC_enSYNC_ENABLE          =1u,
-    ADC_enSYNC_UNDEF   =0xFFFFFFFFu,
-}ADC_nSYNC;
-
-typedef enum
-{
-    ADC_enGLOBAL_SYNC_NOEFFECT        =0u,
-    ADC_enGLOBAL_SYNC_START       =1u,
-    ADC_enGLOBAL_SYNC_UNDEF   =0xFFFFFFFFu,
-}ADC_nGLOBAL_SYNC;
-
-typedef enum
-{
-    ADC_enAVERAGE_DIS = 0u,
-    ADC_enAVERAGE_2 = 1u,
-    ADC_enAVERAGE_4 = 2u,
-    ADC_enAVERAGE_8= 3u,
-    ADC_enAVERAGE_16= 4u,
-    ADC_enAVERAGE_32 = 5u,
-    ADC_enAVERAGE_64= 6u,
-    ADC_enAVERAGE_UNDEF = 0xFFFFFFFFu,
-}ADC_nAVERAGE;
-
-typedef enum
-{
-    ADC_enDITHER_DIS = 0u,
-    ADC_enDITHER_EN = 1u,
-    ADC_enDITHER_UNDEF = 0xFFFFFFFFu,
-}ADC_nDITHER;
+    ADC_enINT_SOURCE_SAMPLE= 0x0u,
+    ADC_enINT_SOURCE_COMP = 0x1u,
+    ADC_en_SOURCE_UNDEF = 0xFFFFFFFFu,
+}ADC_nINT_SOURCE;
 
 typedef enum
 {
@@ -173,23 +98,29 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_INT_CONV_DIS = 0u,
-    ADC_enSEQ_INT_CONV_ENA = 1u,
-    ADC_enSEQ_INT_CONV_UNDEF = 0xFFFFFFFFu,
-}ADC_nSEQ_INT_CONV;
+    ADC_enSEQ_INT_SAMPLE_NOOCCUR        =0u,
+    ADC_enSEQ_INT_SAMPLE_OCCUR          =1u,
+    ADC_enSEQ_INT_SAMPLE_CLEAR          =1u,
+    ADC_enSEQ_INT_COMP_NOOCCUR        =0x0000u,
+    ADC_enSEQ_INT_COMP_OCCUR          =0x10000u,
+    ADC_enSEQ_INT_COMP_CLEAR          =0x10000u,
+    ADC_enSEQ_INT_STATUS_UNDEF   =0xFFFFFFFFu,
+}ADC_nSEQ_INT_STATUS;
 
 typedef enum
 {
-    ADC_enSEQ_INT_COMP_DIS = 0u,
-    ADC_enSEQ_INT_COMP_ENA = 1u,
-    ADC_enSEQ_INT_COMP_UNDEF = 0xFFFFFFFFu,
-}ADC_nSEQ_INT_COMP;
+    ADC_enSEQ_INT_SAMPLE_DIS = 0x0u,
+    ADC_enSEQ_INT_SAMPLE_ENA = 0x1u,
+    ADC_enSEQ_INT_COMP_DIS = 0x00000u,
+    ADC_enSEQ_INT_COMP_ENA = 0x10000u,
+    ADC_enSEQ_INT_SOURCE_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_INT_SOURCE;
 
 typedef enum
 {
-    ADC_enSEQ_OV_NOOCCUR = 0u,
-    ADC_enSEQ_OV_OCCUR = 1u,
-    ADC_enSEQ_OV_UNDEF = 0xFFFFFFFFu,
+    ADC_enSEQ_OV_SAMPLE_NOOCCUR = 0u,
+    ADC_enSEQ_OV_SAMPLE_OCCUR = 1u,
+    ADC_enSEQ_OV_SAMPLE_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_OV;
 
 typedef enum
@@ -209,9 +140,9 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_UV_NOOCCUR = 0u,
-    ADC_enSEQ_UV_OCCUR = 1u,
-    ADC_enSEQ_UV_UNDEF = 0xFFFFFFFFu,
+    ADC_enSEQ_UV_SAMPLE_NOOCCUR = 0u,
+    ADC_enSEQ_UV_SAMPLE_OCCUR = 1u,
+    ADC_enSEQ_UV_SAMPLE_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_UV;
 
 typedef enum
@@ -223,12 +154,26 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_PRIO_HIGH = 0u,
-    ADC_enSEQ_PRIO_MEDIUM = 1u,
-    ADC_enSEQ_PRIO_LOW = 2u,
-    ADC_enSEQ_PRIO_VERY_LOW = 3u,
-    ADC_enSEQ_PRIO_UNDEF = 0xFFFFFFFFu,
-}ADC_nSEQ_PRIO;
+    ADC_enSEQ_PRIORITY_HIGH = 0u,
+    ADC_enSEQ_PRIORITY_MEDIUM = 1u,
+    ADC_enSEQ_PRIORITY_LOW = 2u,
+    ADC_enSEQ_PRIORITY_VERY_LOW = 3u,
+    ADC_enSEQ_PRIORITY_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_PRIORITY;
+
+typedef enum
+{
+    ADC_enGLOBAL_SYNC_NOEFFECT        =0u,
+    ADC_enGLOBAL_SYNC_INIT       =1u,
+    ADC_enGLOBAL_SYNC_UNDEF   =0xFFFFFFFFu,
+}ADC_nGLOBAL_SYNC;
+
+typedef enum
+{
+    ADC_enSYNC_DISABLE        =0u,
+    ADC_enSYNC_ENABLE          =1u,
+    ADC_enSYNC_UNDEF   =0xFFFFFFFFu,
+}ADC_nSYNC;
 
 typedef enum
 {
@@ -236,6 +181,60 @@ typedef enum
     ADC_enSEQ_SAMPLE_START = 1u,
     ADC_enSEQ_SAMPLE_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_SAMPLE;
+
+typedef enum
+{
+    ADC_enAVERAGE_DIS = 0u,
+    ADC_enAVERAGE_2 = 1u,
+    ADC_enAVERAGE_4 = 2u,
+    ADC_enAVERAGE_8= 3u,
+    ADC_enAVERAGE_16= 4u,
+    ADC_enAVERAGE_32 = 5u,
+    ADC_enAVERAGE_64= 6u,
+    ADC_enAVERAGE_UNDEF = 0xFFFFFFFFu,
+}ADC_nAVERAGE;
+
+typedef enum
+{
+    ADC_en_COMPARATOR_0 = 0u,
+    ADC_en_COMPARATOR_1 = 1u,
+    ADC_en_COMPARATOR_2 = 2u,
+    ADC_en_COMPARATOR_3 = 3u,
+    ADC_en_COMPARATOR_4 = 4u,
+    ADC_en_COMPARATOR_5 = 5u,
+    ADC_en_COMPARATOR_6 = 6u,
+    ADC_en_COMPARATOR_7 = 7u,
+    ADC_en_COMPARATOR_MAX = 7u,
+    ADC_en_COMPARATOR_UNDEF = 0xFFFFFFFFu,
+}ADC_nCOMPARATOR;
+
+typedef enum
+{
+    ADC_enCOMP_INT_NOOCCUR        =0u,
+    ADC_enCOMP_INT_OCCUR          =1u,
+    ADC_enCOMP_INT_CLEAR          =1u,
+    ADC_enCOMP_INT_STATUS_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_INT_STATUS;
+
+typedef enum
+{
+    ADC_enDITHER_DIS = 0u,
+    ADC_enDITHER_EN = 1u,
+    ADC_enDITHER_UNDEF = 0xFFFFFFFFu,
+}ADC_nDITHER;
+
+typedef enum
+{
+    ADC_enSEQ_SAMPLE_INPUT_0 = 0u,
+    ADC_enSEQ_SAMPLE_INPUT_1 = 1u,
+    ADC_enSEQ_SAMPLE_INPUT_2 = 2u,
+    ADC_enSEQ_SAMPLE_INPUT_3 = 3u,
+    ADC_enSEQ_SAMPLE_INPUT_4 = 4u,
+    ADC_enSEQ_SAMPLE_INPUT_5 = 5u,
+    ADC_enSEQ_SAMPLE_INPUT_6 = 6u,
+    ADC_enSEQ_SAMPLE_INPUT_7 = 7u,
+    ADC_enSEQ_SAMPLE_INPUT_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_SAMPLE_INPUT;
 
 typedef enum
 {
@@ -294,10 +293,79 @@ typedef enum
 
 typedef enum
 {
+    ADC_enSEQ_INPUT_TEMP_DIS = 0u,
+    ADC_enSEQ_INPUT_TEMP_EN = 1u,
+    ADC_enSEQ_INPUT_TEMP_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_INPUT_TEMP;
+
+typedef enum
+{
     ADC_enSEQ_FIFO_FULL = 0u,
     ADC_enSEQ_FIFO_EMPTY = 1u,
     ADC_enSEQ_FIFO_INT_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_FIFO;
 
+typedef enum
+{
+    ADC_enSEQ_INPUT_DIR_SAMPLE = 0u,
+    ADC_enSEQ_INPUT_DIR_COMP = 1u,
+    ADC_enSEQ_INPUT_DIR_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_INPUT_DIR;
+
+typedef enum
+{
+    ADC_enCOMP_RESET_NA         =0u,
+    ADC_enCOMP_RESET_TRIGGER    =1u,
+    ADC_enCOMP_RESET_INTERRUPT    =1u,
+    ADC_enCOMP_RESET_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_RESET;
+
+typedef enum
+{
+    ADC_enCOMP_TRIGGER_DIS         =0u,
+    ADC_enCOMP_TRIGGER_ENA    =1u,
+    ADC_enCOMP_TRIGGER_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_TRIGGER;
+
+typedef enum
+{
+    ADC_enCOMP_TRIGGER_COMP_LOW         =0u,
+    ADC_enCOMP_TRIGGER_COMP_MID    =1u,
+    ADC_enCOMP_TRIGGER_COMP_HIGH    =3u,
+    ADC_enCOMP_TRIGGER_COMP_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_TRIGGER_COMP;
+
+typedef enum
+{
+    ADC_enCOMP_TRIGGER_MODE_ALWAYS         =0u,
+    ADC_enCOMP_TRIGGER_MODE_ONCE   =1u,
+    ADC_enCOMP_TRIGGER_MODE_HYST_ONCE    =2u,
+    ADC_enCOMP_TRIGGER_MODE_HYST_ALWAYS    =3u,
+    ADC_enCOMP_TRIGGER_MODE_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_TRIGGER_MODE;
+
+typedef enum
+{
+    ADC_enCOMP_INT_DIS         =0u,
+    ADC_enCOMP_INT_ENA    =1u,
+    ADC_enCOMP_INT_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_INT;
+
+typedef enum
+{
+    ADC_enCOMP_INT_COMP_LOW         =0u,
+    ADC_enCOMP_INT_COMP_MID    =1u,
+    ADC_enCOMP_INT_COMP_HIGH    =3u,
+    ADC_enCOMP_INT_COMP_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_INT_COMP;
+
+typedef enum
+{
+    ADC_enCOMP_INT_MODE_ALWAYS         =0u,
+    ADC_enCOMP_INT_MODE_ONCE   =1u,
+    ADC_enCOMP_INT_MODE_HYST_ONCE    =2u,
+    ADC_enCOMP_INT_MODE_HYST_ALWAYS    =3u,
+    ADC_enCOMP_INT_MODE_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_INT_MODE;
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_XHEADER_ADC_ENUM_H_ */

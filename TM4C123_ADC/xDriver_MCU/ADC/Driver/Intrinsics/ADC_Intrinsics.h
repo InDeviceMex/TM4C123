@@ -1,6 +1,6 @@
 /**
  *
- * @file ADC_Driver.h
+ * @file ADC_Intrinsics.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 26 sep. 2020 @endverbatim
+ * @verbatim 19 nov. 2020 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,14 +19,13 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 26 sep. 2020     vyldram    1.0         initial Version@endverbatim
+ * 19 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_ADC_DRIVER_ADC_DRIVER_H_
-#define XDRIVER_MCU_ADC_DRIVER_ADC_DRIVER_H_
-
-#include <xDriver_MCU/ADC/Driver/Intrinsics/ADC_Intrinsics.h>
+#ifndef XDRIVER_MCU_ADC_DRIVER_INTRINSICS_ADC_INTRINSICS_H_
+#define XDRIVER_MCU_ADC_DRIVER_INTRINSICS_ADC_INTRINSICS_H_
 
 
 
 
-#endif /* XDRIVER_MCU_ADC_DRIVER_ADC_DRIVER_H_ */
+
+#endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_ADC_INTRINSICS_H_ */

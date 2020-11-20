@@ -30,13 +30,14 @@
 
 void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
 {
-    uint32_t u32Port =(enFunction>>8u)&0xFFu;
-    uint32_t u32Pin =(enFunction);
+    uint32_t u32Port =((uint32_t)enFunction>>8u)&0xFFu;
+    uint32_t u32PinNumber =((uint32_t)enFunction)&(uint32_t)GPIO_enPIN_ALL;
+    uint32_t u32Pin =0u;
     if(u32Port>(uint32_t)GPIO_enPORT_MAX)
     {
         u32Port=(uint32_t)GPIO_enPORT_MAX;
     }
-    u32Pin&=GPIO_enPIN_ALL;
+    u32Pin = (uint32_t)0x1u<<u32PinNumber;
 
     GPIO__vSetReady((GPIO_nPORT)u32Port);
     GPIO__enSetConfig((GPIO_nPORT)u32Port,(GPIO_nPIN)u32Pin,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);

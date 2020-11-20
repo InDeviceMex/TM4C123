@@ -11,6 +11,7 @@
 /*MCU Drivers*/
 #include <xDriver_MCU.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
+#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
 /*Applications Drivers*/
 #include <LCD1602/Generic/LCD1602_Generic.h>
@@ -29,6 +30,7 @@ void MAIN_SW1_vIRQSourceHandler(void);
 void MAIN_SW2_vIRQSourceHandler(void);
 void MAIN_vHIB_RTCALTSourceHandler(void);
 
+uint32_t u32ADCValue = 0u;
 int32_t main(void)
 {
     __asm(" cpsie i");
@@ -44,8 +46,32 @@ int32_t main(void)
     /*WDT__vInit(0xFFFFFFFFu);*/
     SysTick__enInitUs(100.0f,SCB_enSHPR0);
 
+    /*Configure ADC IN0 in polling MODE*/
+    SYSCTL__vSetReady(SYSCTL_enADC0);
+    ADC0_ADCCC->CS = 1u;
+    ADC0_ADCACTSS->ASEN3=0u;
+    ADC0_ADCEMUX->EM3=0u;
+    ADC0_ADCSSMUX3->MUX0 = 0u;
+    ADC0_ADCSSCTL3->D0= 0u;
+    ADC0_ADCSSCTL3->END0= 1u;
+    ADC0_ADCSSCTL3->IE0= 0u;
+    ADC0_ADCSSCTL3->TS0= 0u;
+    ADC0_ADCACTSS->ASEN3=1u;
+    ADC0_ADCSAC->AVG=6u;
     while(1u)
     {
+        ADC0_ADCPSSI->SS3= 1u;
+        while(ADC0_ADCACTSS->BUSY){};
+        u32ADCValue = ADC0_ADCSSFIFO3_R;
+        if(u32ADCValue > 3000u)
+        {
+            GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, GPIO_enPIN_1);
+        }
+        else if(u32ADCValue < 1000u)
+        {
+            GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, 0u);
+        }
+        else{}
     }
 }
 
@@ -67,6 +93,9 @@ void MAIN_vInitGPIO(void)
     /*SW1 SW0*/
     GPIO__enSetDigitalConfig(GPIO_enGPIOF0,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
     GPIO__enSetDigitalConfig(GPIO_enGPIOF4,GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
+
+    /*Enable ADC IN0*/
+    GPIO__vSetAnalogFunction(GPIO_enAIN0);
 
     GPIO__vSetData(GPIO_enPORT_F,(GPIO_nPIN) (enLedRedPin|enLedBluePin), 0u);
 
