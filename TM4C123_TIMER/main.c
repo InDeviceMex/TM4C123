@@ -221,8 +221,8 @@ void MAIN_vInitTIMER(void)
 
     TIMER__vInit();
 
-    TIMER__vEnInterruptSourceVector(TIMER_enT3A,TIMER_enPRI1);
-    TIMER__vEnInterruptSourceVector(TIMER_enT3B,TIMER_enPRI1);
+    TIMER__vEnInterruptVector(TIMER_enT3A,TIMER_enPRI1);
+    TIMER__vEnInterruptVector(TIMER_enT3B,TIMER_enPRI1);
 
     TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER3A_vIRQSourceHandler,TIMER_enT3A,TIMER_enINTERRUPT_TIMEOUT);
     TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER3B_vIRQSourceHandler,TIMER_enT3B,TIMER_enINTERRUPT_CAPTURE_EVENT);

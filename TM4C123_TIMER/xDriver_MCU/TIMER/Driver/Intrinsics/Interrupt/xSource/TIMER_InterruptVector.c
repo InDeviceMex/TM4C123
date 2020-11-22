@@ -38,7 +38,7 @@ static NVIC_nSTIR NVIC_VECTOR_TIMER[(uint32_t)(TIMER_enLETTER_MAX+1u)][(uint32_t
                               };
 
 
-void TIMER__vEnInterruptSourceVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTimerPriority)
+void TIMER__vEnInterruptVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTimerPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
@@ -53,7 +53,7 @@ void TIMER__vEnInterruptSourceVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTi
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enTimerPriority);
 }
 
-void TIMER__vDisInterruptSourceVector(TIMER_nMODULE enModule)
+void TIMER__vDisInterruptVector(TIMER_nMODULE enModule)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     uint32_t u32Number= (uint32_t) enModule & 0x7u;
