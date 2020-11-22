@@ -77,6 +77,16 @@ typedef enum
 
 typedef enum
 {
+    ADC_enSEQMASK_0 = 0x1u,
+    ADC_enSEQMASK_1 = 0x2u,
+    ADC_enSEQMASK_2 = 0x4u,
+    ADC_enSEQMASK_3 = 0x8u,
+    ADC_enSEQMASK_MAX = 0xFu,
+    ADC_enSEQMASK_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQMASK;
+
+typedef enum
+{
     ADC_enSEQ_SOURCE_SAMPLE= 0x1u,
     ADC_enSEQ_SOURCE_COMP = 0x10000u,
     ADC_enSEQ_SOURCE_UNDEF = 0xFFFFFFFFu,
@@ -98,10 +108,9 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_INT_SAMPLE_NOOCCUR        =0u,
+    ADC_enSEQ_INT_STATUS_NOOCCUR        =0u,
     ADC_enSEQ_INT_SAMPLE_OCCUR          =1u,
     ADC_enSEQ_INT_SAMPLE_CLEAR          =1u,
-    ADC_enSEQ_INT_COMP_NOOCCUR        =0x0000u,
     ADC_enSEQ_INT_COMP_OCCUR          =0x10000u,
     ADC_enSEQ_INT_COMP_CLEAR          =0x10000u,
     ADC_enSEQ_INT_STATUS_UNDEF   =0xFFFFFFFFu,
@@ -220,6 +229,20 @@ typedef enum
     ADC_en_COMPARATOR_MAX = 7u,
     ADC_en_COMPARATOR_UNDEF = 0xFFFFFFFFu,
 }ADC_nCOMPARATOR;
+
+typedef enum
+{
+    ADC_en_COMPMASK_0 = 0x1u,
+    ADC_en_COMPMASK_1 = 0x2u,
+    ADC_en_COMPMASK_2 = 0x4u,
+    ADC_en_COMPMASK_3 = 0x8u,
+    ADC_en_COMPMASK_4 = 0x10u,
+    ADC_en_COMPMASK_5 = 0x20u,
+    ADC_en_COMPMASK_6 = 0x40u,
+    ADC_en_COMPMASK_7 = 0x80u,
+    ADC_en_COMPMASK_MAX = 0xFFu,
+    ADC_en_COMPMASK_UNDEF = 0xFFFFFFFFu,
+}ADC_nCOMPMASK;
 
 typedef enum
 {

@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_ADC_DRIVER_INTRINSICS_ADC_INTRINSICS_H_
 #define XDRIVER_MCU_ADC_DRIVER_INTRINSICS_ADC_INTRINSICS_H_
 
-
-
-
+#include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/ADC_Interrupt.h>
+#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_ADC_INTRINSICS_H_ */

@@ -25,7 +25,7 @@
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/ADC_InterruptRegisterIRQSource.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ADC_InterruptRoutine_Source.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-void ADC_SAMPLE__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence)
+void ADC_Sample__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence)
 {
     uint32_t u32IrqSourceHandler=0u;
     uint32_t u32Module=(uint32_t)enModule;
@@ -45,7 +45,7 @@ void ADC_SAMPLE__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC
     }
 }
 
-void ADC_COMP__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enComparator)
+void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enComparator)
 {
     uint32_t u32IrqSourceHandler=0u;
     uint32_t u32Module=(uint32_t)enModule;

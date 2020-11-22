@@ -152,7 +152,7 @@ typedef volatile struct
     union
     {
         volatile uint32_t      ADCDCCTL[8];
-        ADCDCCTL_TypeDef ADCDCCTL0_Bit[8];
+        ADCDCCTL_TypeDef ADCDCCTL_Bit[8];
     };
     const uint32_t reserved7[8];
     union
