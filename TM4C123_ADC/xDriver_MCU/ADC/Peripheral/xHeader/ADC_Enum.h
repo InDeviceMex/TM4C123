@@ -127,9 +127,9 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_OV_SAMPLE_NOOCCUR = 0u,
-    ADC_enSEQ_OV_SAMPLE_OCCUR = 1u,
-    ADC_enSEQ_OV_SAMPLE_UNDEF = 0xFFFFFFFFu,
+    ADC_enSEQ_OV_NOOCCUR = 0u,
+    ADC_enSEQ_OV_OCCUR = 1u,
+    ADC_enSEQ_OV_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_OV;
 
 typedef enum
@@ -149,9 +149,9 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_UV_SAMPLE_NOOCCUR = 0u,
-    ADC_enSEQ_UV_SAMPLE_OCCUR = 1u,
-    ADC_enSEQ_UV_SAMPLE_UNDEF = 0xFFFFFFFFu,
+    ADC_enSEQ_UV_NOOCCUR = 0u,
+    ADC_enSEQ_UV_OCCUR = 1u,
+    ADC_enSEQ_UV_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_UV;
 
 typedef enum
@@ -179,6 +179,27 @@ typedef enum
 
 typedef enum
 {
+    ADC_enPHASE_0 = 0u,
+    ADC_enPHASE_22_5 = 1u,
+    ADC_enPHASE_45 = 2u,
+    ADC_enPHASE_67_5 = 3u,
+    ADC_enPHASE_90 = 4u,
+    ADC_enPHASE_112_5 = 5u,
+    ADC_enPHASE_135 = 6u,
+    ADC_enPHASE_157_5 = 7u,
+    ADC_enPHASE_180 = 8u,
+    ADC_enPHASE_202_5 = 9u,
+    ADC_enPHASE_225 = 10u,
+    ADC_enPHASE_247_5 = 11u,
+    ADC_enPHASE_270 = 12u,
+    ADC_enPHASE_292_5 = 13u,
+    ADC_enPHASE_315 = 14u,
+    ADC_enPHASE_337_5 = 15u,
+    ADC_enPHASE_UNDEF = 0xFFFFFFFFu,
+}ADC_nPHASE;
+
+typedef enum
+{
     ADC_enSYNC_DISABLE        =0u,
     ADC_enSYNC_ENABLE          =1u,
     ADC_enSYNC_UNDEF   =0xFFFFFFFFu,
@@ -202,6 +223,23 @@ typedef enum
     ADC_enAVERAGE_64= 6u,
     ADC_enAVERAGE_UNDEF = 0xFFFFFFFFu,
 }ADC_nAVERAGE;
+
+typedef enum
+{
+    ADC_enSAMPLE_RATE_125KSPS= 1u,
+    ADC_enSAMPLE_RATE_250KSPS = 3u,
+    ADC_enSAMPLE_RATE_500KSPS = 5u,
+    ADC_enSAMPLE_RATE_1MSPS = 7u,
+    ADC_enSAMPLE_RATE_UNDEF = 0xFFFFFFFFu,
+}ADC_nSAMPLE_RATE;
+
+typedef enum
+{
+    ADC_enCLOCK_PLL= 0u,
+    ADC_enCLOCK_PIOSC = 1u,
+    ADC_enCLOCK_UNDEF = 0xFFFFFFFFu,
+}ADC_nCLOCK;
+
 typedef enum
 {
     ADC_en_MUX_0 = 0u,
@@ -286,6 +324,7 @@ typedef enum
     ADC_enSEQ_INPUT_9 = 9u,
     ADC_enSEQ_INPUT_10 = 10u,
     ADC_enSEQ_INPUT_11 = 11u,
+    ADC_enSEQ_INPUT_MAX = 11u,
     ADC_enSEQ_INPUT_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_INPUT;
 

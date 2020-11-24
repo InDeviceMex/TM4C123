@@ -10,7 +10,6 @@
 #include "stdarg.h"
 /*MCU Drivers*/
 #include <xDriver_MCU.h>
-#include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
 /*Applications Drivers*/
@@ -29,10 +28,14 @@ void MAIN_vInitGPIO(void);
 void MAIN_SW1_vIRQSourceHandler(void);
 void MAIN_SW2_vIRQSourceHandler(void);
 void MAIN_vHIB_RTCALTSourceHandler(void);
-
+void MAIN_vADC0_COMP0_SourceHandler(void);
+void MAIN_vADC0_COMP1_SourceHandler(void);
+void MAIN_vADC0_COMP2_SourceHandler(void);
 uint32_t u32ADCValue = 0u;
+
 int32_t main(void)
 {
+    ADC_nSTATE enADC0State = ADC_enSTATE_UNDEF;
     __asm(" cpsie i");
     MPU__vInit();
     SCB__vInit();
@@ -47,32 +50,88 @@ int32_t main(void)
     SysTick__enInitUs(100.0f,SCB_enSHPR0);
 
     /*Configure ADC IN0 in polling MODE*/
-    SYSCTL__vSetReady(SYSCTL_enADC0);
-    ADC0_ADCCC->CS = 1u;
-    ADC0_ADCACTSS->ASEN3=0u;
-    ADC0_ADCEMUX->EM3=0u;
-    ADC0_ADCSSMUX3->MUX0 = 0u;
-    ADC0_ADCSSCTL3->D0= 0u;
-    ADC0_ADCSSCTL3->END0= 1u;
-    ADC0_ADCSSCTL3->IE0= 0u;
-    ADC0_ADCSSCTL3->TS0= 0u;
-    ADC0_ADCACTSS->ASEN3=1u;
-    ADC0_ADCSAC->AVG=6u;
-    ADC0_ADCCTL->DITHER=1u;
+
+    ADC__vRegisterIRQVectorHandler(&ADC0_SS2__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_2);
+    ADC_Comp__vRegisterIRQSourceHandler(&MAIN_vADC0_COMP0_SourceHandler, ADC_enMODULE_0, ADC_enSEQ_2,ADC_en_COMPARATOR_0);
+    ADC_Comp__vRegisterIRQSourceHandler(&MAIN_vADC0_COMP1_SourceHandler, ADC_enMODULE_0, ADC_enSEQ_2,ADC_en_COMPARATOR_1);
+    ADC_Comp__vRegisterIRQSourceHandler(&MAIN_vADC0_COMP2_SourceHandler, ADC_enMODULE_0, ADC_enSEQ_2,ADC_en_COMPARATOR_2);
+
+    ADC__vSetSampleRate(ADC_enMODULE_0, ADC_enSAMPLE_RATE_125KSPS);
+    ADC__vSetClockConfig(ADC_enMODULE_0, ADC_enCLOCK_PIOSC);
+    ADC__vSetAverage(ADC_enMODULE_0, ADC_enAVERAGE_64);
+    ADC__vSetDither(ADC_enMODULE_0, ADC_enDITHER_EN);
+
+    ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_2,ADC_enSEQ_ENABLE_DIS);
+    ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enSEQ_TRIGGER_SOFTWARE);
+    /*Low Band*/
+    ADC__vSetSampleInputSelection(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_0, ADC_enSEQ_INPUT_0);
+    ADC__vSetSampleInputSelection(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_1, ADC_enSEQ_INPUT_0);
+    ADC__vSetSampleInputSelection(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_2, ADC_enSEQ_INPUT_0);
+    ADC__vSetSampleInputSelection(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_3, ADC_enSEQ_INPUT_0);
+    ADC0_ADCSSMUX2->MUX0 = 0u;
+    ADC0_ADCSSCTL2->D0= 0u;
+    ADC0_ADCSSCTL2->END0= 0u;
+    ADC0_ADCSSCTL2->IE0= 0u;
+    ADC0_ADCSSCTL2->TS0= 0u;
+    ADC0_ADCSSOP2->S0DCOP=1u;
+    ADC0_ADCSSDC2->S0DCSEL=0u;
+    /*High Band*/
+    ADC0_ADCSSMUX2->MUX1 = 0u;
+    ADC0_ADCSSCTL2->D1= 0u;
+    ADC0_ADCSSCTL2->END1= 0u;
+    ADC0_ADCSSCTL2->IE1= 0u;
+    ADC0_ADCSSCTL2->TS1= 0u;
+    ADC0_ADCSSOP2->S1DCOP=1u;
+    ADC0_ADCSSDC2->S1DCSEL=0u;
+    /*Dummy*/
+    ADC0_ADCSSMUX2->MUX2 = 0u;
+    ADC0_ADCSSCTL2->D2= 0u;
+    ADC0_ADCSSCTL2->END2= 0u;
+    ADC0_ADCSSCTL2->IE2= 0u;
+    ADC0_ADCSSCTL2->TS2= 0u;
+    ADC0_ADCSSOP2->S2DCOP=1u;
+    ADC0_ADCSSDC2->S2DCSEL=1u;
+
+    /*Dummy*/
+    ADC0_ADCSSMUX2->MUX3 = 0u;
+    ADC0_ADCSSCTL2->D3= 0u;
+    ADC0_ADCSSCTL2->END3= 1u;
+    ADC0_ADCSSCTL2->IE3= 0u;
+    ADC0_ADCSSCTL2->TS3= 0u;
+    ADC0_ADCSSOP2->S3DCOP=1u;
+    ADC0_ADCSSDC2->S3DCSEL=2u;
+
+    ADC0_ADCDCCTL0->CIC=0u;
+    ADC0_ADCDCCTL0->CIM=1u;
+
+    ADC0_ADCDCCMP0->COMP0 =1000u;
+    ADC0_ADCDCCMP0->COMP1 =1000u;
+
+    ADC0_ADCDCCTL1->CIC=3u;
+    ADC0_ADCDCCTL1->CIM=1u;
+
+    ADC0_ADCDCCMP1->COMP0 =1800u;
+    ADC0_ADCDCCMP1->COMP1 =1800u;
+
+    ADC0_ADCDCCTL2->CIC=3u;
+    ADC0_ADCDCCTL2->CIM=1u;
+
+    ADC0_ADCDCCMP2->COMP0 =3500u;
+    ADC0_ADCDCCMP2->COMP1 =3500u;
+
+    ADC__vEnInterruptVector(ADC_enMODULE_0,ADC_enSEQ_2,ADC_enPRI7);
+    ADC__vEnInterruptComp(ADC_enMODULE_0,ADC_en_COMPARATOR_0);
+    ADC__vEnInterruptComp(ADC_enMODULE_0,ADC_en_COMPARATOR_1);
+    ADC__vEnInterruptComp(ADC_enMODULE_0,ADC_en_COMPARATOR_2);
+    ADC__vEnSeqInterruptSource(ADC_enMODULE_0,ADC_enSEQMASK_2,ADC_enINT_SOURCE_COMP);
+    ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_2,ADC_enSEQ_ENABLE_ENA);
     while(1u)
     {
-        ADC0_ADCPSSI->SS3= 1u;
-        while(ADC0_ADCACTSS->BUSY){};
-        u32ADCValue = ADC0_ADCSSFIFO3_R;
-        if(u32ADCValue > 3000u)
-        {
-            GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, GPIO_enPIN_1);
-        }
-        else if(u32ADCValue < 1000u)
-        {
-            GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, 0u);
-        }
-        else{}
+        ADC__vSetSequencerInitConv(ADC_enMODULE_0, ADC_enSEQMASK_2);
+        do{
+            enADC0State = ADC__enGetState(ADC_enMODULE_0);
+        }while(ADC_enSTATE_BUSY == enADC0State);
+        u32ADCValue = ADC0_ADCSSFIFO2_R;
     }
 }
 
@@ -104,7 +163,20 @@ void MAIN_vInitGPIO(void)
     GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
 }
 
+void MAIN_vADC0_COMP0_SourceHandler(void)
+{
+    GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, 0u);
+}
 
+void MAIN_vADC0_COMP1_SourceHandler(void)
+{
+    GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, GPIO_enPIN_1);
+}
+
+void MAIN_vADC0_COMP2_SourceHandler(void)
+{
+    GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_1, 0u);
+}
 void MAIN_vHIB_RTCALTSourceHandler(void)
 {
     static uint32_t u32Value=GPIO_enPIN_2;

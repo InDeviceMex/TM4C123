@@ -26,10 +26,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC_Comp__vEnInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
 {
     uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;
@@ -50,10 +49,9 @@ void ADC_Comp__vEnInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enCompa
     psAdc->ADCDCCTL[u32Comparator]=u32Reg;
 }
 
-void ADC_Comp__vDisInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
 {
     uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;
@@ -74,7 +72,7 @@ void ADC_Comp__vDisInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComp
     psAdc->ADCDCCTL[u32Comparator]=u32Reg;
 }
 
-void ADC_Comp__vClearInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
 {
     uint32_t u32Reg=0u;
     ADC_TypeDef* psAdc=0u;
@@ -96,7 +94,7 @@ void ADC_Comp__vClearInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enCo
     psAdc->ADCDCISC=u32Reg;
 }
 
-ADC_nCOMP_INT_STATUS ADC_Comp__enStatusInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+ADC_nCOMP_INT_STATUS ADC__enStatusInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
 {
     ADC_nCOMP_INT_STATUS enInt=ADC_enCOMP_INT_STATUS_UNDEF;
     uint32_t u32Reg=0u;
@@ -118,7 +116,7 @@ ADC_nCOMP_INT_STATUS ADC_Comp__enStatusInterruptSource(ADC_nMODULE enModule, ADC
     if(ADC_enREADY == enReady)
     {
         psAdc=ADC_BLOCK[enModule];
-        u32SeqBit=ADC_enCOMP_INT_OCCUR<<u32Comparator;
+        u32SeqBit=(uint32_t)ADC_enCOMP_INT_OCCUR<<u32Comparator;
 
         u32Reg=psAdc->ADCDCISC;
         u32Reg&=u32SeqBit;

@@ -41,10 +41,10 @@
 /*--------*/
 
 /*--------*/
-#define ADC_ADCTSSEL_R_PS0_MASK           ((uint32_t)0x30303030u)
+#define ADC_ADCTSSEL_R_PS0_MASK           ((uint32_t)0x00000030u)
 #define ADC_ADCTSSEL_R_PS0_BIT               ((uint32_t)4u)
 #define ADC_ADCTSSEL_R_PS0_PWM0          ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_R_PS0_PWM1          ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_R_PS0_PWM1          ((uint32_t)0x00000010u)
 
 #define ADC_ADCTSSEL_PS0_MASK                 ((uint32_t)0x00000003u)
 #define ADC_ADCTSSEL_PS0_PWM0                ((uint32_t)0x00000000u)

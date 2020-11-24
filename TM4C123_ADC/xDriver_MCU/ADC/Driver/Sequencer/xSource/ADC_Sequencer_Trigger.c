@@ -1,0 +1,38 @@
+/**
+ *
+ * @file ADC_Sequencer_Trigger.c
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 22 nov. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
+ */
+#include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Generic.h>
+#include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Trigger.h>
+#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
+#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
+
+void ADC__vSetSequencerTrigger(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, ADC_nSEQ_TRIGGER enSeqTrigger)
+{
+    ADC__vSetSequencerGenericBit((uint32_t)enModule, ADC_ADCEMUX_OFFSET, (uint32_t)enSequence, (uint32_t)enSeqTrigger, ADC_ADCEMUX_EM0_MASK, (ADC_ADCEMUX_EM0_MASK - ADC_ADCEMUX_R_EM0_BIT), ADC_ADCEMUX_R_EM0_BIT);
+}
+
+ADC_nSEQ_TRIGGER ADC__enGetSequencerTrigger(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
+{
+    return (ADC_nSEQ_TRIGGER) (ADC__u32GetSequencerGenericBit((uint32_t) enModule,ADC_ADCEMUX_OFFSET, (uint32_t) enSequence, ADC_ADCEMUX_EM0_MASK,  (ADC_ADCEMUX_EM0_MASK - ADC_ADCEMUX_R_EM0_BIT), ADC_ADCEMUX_R_EM0_BIT));
+}

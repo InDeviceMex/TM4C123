@@ -25,6 +25,10 @@
 #define XDRIVER_MCU_ADC_DRIVER_ADC_DRIVER_H_
 
 #include <xDriver_MCU/ADC/Driver/Intrinsics/ADC_Intrinsics.h>
+#include <xDriver_MCU/ADC/Driver/General/ADC_General.h>
+#include <xDriver_MCU/ADC/Driver/Sequencer/ADC_Sequencer.h>
+#include <xDriver_MCU/ADC/Driver/Sample/ADC_Sample.h>
+#include <xDriver_MCU/ADC/Driver/Comparator/ADC_Comparator.h>
 
 
 

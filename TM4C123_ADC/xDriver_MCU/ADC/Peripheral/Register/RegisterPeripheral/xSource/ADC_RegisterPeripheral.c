@@ -25,5 +25,6 @@
 #include <xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral/ADC_RegisterPeripheral.h>
 
 ADC_TypeDef* ADC_BLOCK[(uint32_t)ADC_enMODULE_MAX+1u]={ADC0,ADC1};
+uint32_t ADC_BLOCK_ADDRESS[(uint32_t)ADC_enMODULE_MAX+1u]={ADC0_BASE,ADC1_BASE};
 
 

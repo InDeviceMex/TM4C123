@@ -28,10 +28,9 @@
 
 static const uint32_t ADC_u32MuxMax[(uint32_t)ADC_enSEQ_MAX+0x1u] = {(uint32_t)ADC_en_MUX_7, (uint32_t)ADC_en_MUX_3,(uint32_t) ADC_en_MUX_3,(uint32_t)ADC_en_MUX_0};
 
-void ADC_Sample__vEnInterruptSource(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
+void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
 {
     uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;
@@ -59,10 +58,9 @@ void ADC_Sample__vEnInterruptSource(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequ
     psAdc->ADCINPUT[u32Sequencer].ADCSSMUX=u32Reg;
 }
 
-void ADC_Sample__vDisInterruptSource(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
+void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
 {
     uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;

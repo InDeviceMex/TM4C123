@@ -26,9 +26,9 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC_Comp__vEnInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
-void ADC_Comp__vDisInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
-void ADC_Comp__vClearInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
-ADC_nCOMP_INT_STATUS ADC_Comp__enStatusInterruptSource(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
+void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
+void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
+void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
+ADC_nCOMP_INT_STATUS ADC__enStatusInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator);
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_INTERRUPT_XHEADER_ADC_INTERRUPTSOURCE_SEQCOMP_H_ */

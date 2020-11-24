@@ -26,9 +26,9 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC_Sequencer__vEnInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
-void ADC_Sequencer__vDisInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
-void ADC_Sequencer__vClearInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
-ADC_nSEQ_INT_STATUS ADC_Sequencer__enStatusInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
+void ADC__vEnSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
+void ADC__vDisSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
+void ADC__vClearSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
+ADC_nSEQ_INT_STATUS ADC__enStatusSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt);
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_INTERRUPT_XHEADER_ADC_INTERRUPTSOURCE_SEQUENCER_H_ */

@@ -52,6 +52,14 @@
 #define ADC_ADCSAC_OFFSET           ((uint32_t)0x0030u)
 #define ADC_ADCDCISC_OFFSET         ((uint32_t)0x0034u)
 #define ADC_ADCCTL_OFFSET           ((uint32_t)0x0038u)
+
+#define ADC_ADCSSMUX_OFFSET    ((uint32_t)0x0000u)
+#define ADC_ADCSSCTL_OFFSET    ((uint32_t)0x0004u)
+#define ADC_ADCSSFIFO_OFFSET   ((uint32_t)0x0008u)
+#define ADC_ADCSSFSTAT_OFFSET  ((uint32_t)0x000Cu)
+#define ADC_ADCSSOP_OFFSET     ((uint32_t)0x0010u)
+#define ADC_ADCSSDC_OFFSET     ((uint32_t)0x0014u)
+
 #define ADC_ADCSSMUX0_OFFSET    ((uint32_t)0x0040u)
 #define ADC_ADCSSCTL0_OFFSET    ((uint32_t)0x0044u)
 #define ADC_ADCSSFIFO0_OFFSET   ((uint32_t)0x0048u)

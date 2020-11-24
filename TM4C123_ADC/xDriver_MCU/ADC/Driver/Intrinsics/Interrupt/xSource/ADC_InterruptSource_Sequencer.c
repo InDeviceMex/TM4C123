@@ -26,7 +26,7 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC_Sequencer__vEnInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
+void ADC__vEnSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
     uint32_t u32Reg=0u;
     uint32_t u32SeqBit=0u;
@@ -50,13 +50,13 @@ void ADC_Sequencer__vEnInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequ
     u32Reg=psAdcIM->ADCIM;
     if((uint32_t)ADC_enSEQ_SOURCE_COMP  == u32SourceInt)
     {
-        u32Reg&=~(ADC_enSEQMASK_MAX<<16u);
+        u32Reg&=~((uint32_t)ADC_enSEQMASK_MAX<<16u);
     }
     u32Reg|=u32SeqBit;
     psAdcIM->ADCIM=u32Reg;
 }
 
-void ADC_Sequencer__vDisInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
+void ADC__vDisSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
     uint32_t u32Reg=0u;
     uint32_t u32SeqBit=0u;
@@ -82,9 +82,8 @@ void ADC_Sequencer__vDisInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSeq
     psAdcIM->ADCIM=u32Reg;
 }
 
-void ADC_Sequencer__vClearInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
+void ADC__vClearSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
-    uint32_t u32Reg=0u;
     uint32_t u32SeqBit=0u;
     ADC_TypeDef* psAdcISC=0u;
 
@@ -106,7 +105,7 @@ void ADC_Sequencer__vClearInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enS
     psAdcISC->ADCISC=u32SeqBit;
 }
 
-ADC_nSEQ_INT_STATUS ADC_Sequencer__enStatusInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
+ADC_nSEQ_INT_STATUS ADC__enStatusSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
     ADC_nSEQ_INT_STATUS enInt=ADC_enSEQ_INT_STATUS_UNDEF;
     uint32_t u32Reg=0u;
@@ -114,7 +113,6 @@ ADC_nSEQ_INT_STATUS ADC_Sequencer__enStatusInterruptSource(ADC_nMODULE enModule,
     ADC_nREADY enReady=ADC_enNOREADY;
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequence= (uint32_t) enSequence;
-    uint32_t u32SourceInt= 16u*(uint32_t)enSourceInt;
     ADC_TypeDef* psAdcRIS=0u;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
@@ -129,14 +127,25 @@ ADC_nSEQ_INT_STATUS ADC_Sequencer__enStatusInterruptSource(ADC_nMODULE enModule,
     if(ADC_enREADY == enReady)
     {
         psAdcRIS=ADC_BLOCK[enModule];
-        u32SeqBit=u32Sequence<<u32SourceInt;
+        if(ADC_enINT_SOURCE_COMP  == enSourceInt)
+        {
+            u32SeqBit=ADC_enSEQ_SOURCE_COMP;
+        }
+        else
+        {
+            u32SeqBit=u32Sequence;
+        }
 
         u32Reg=psAdcRIS->ADCRIS;
         u32Reg&=u32SeqBit;
 
-        if(0u!=u32Reg)
+        if((uint32_t)ADC_enSEQ_SOURCE_COMP == u32Reg)
         {
-            enInt=(ADC_nSEQ_INT_STATUS)u32SourceInt;
+            enInt=ADC_enSEQ_INT_COMP_OCCUR;
+        }
+        else if( 0u != u32Reg)
+        {
+            enInt=ADC_enSEQ_INT_SAMPLE_OCCUR;
         }
         else
         {
