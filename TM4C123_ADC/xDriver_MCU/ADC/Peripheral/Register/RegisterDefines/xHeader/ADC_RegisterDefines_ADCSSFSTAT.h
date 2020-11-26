@@ -88,10 +88,10 @@
 /*--------*/
 
 /*--------*/
-#define ADC_ADCSSFSTAT_R_FULL_MASK       ((uint32_t)0x00000100u)
-#define ADC_ADCSSFSTAT_R_FULL_BIT        ((uint32_t)8u)
+#define ADC_ADCSSFSTAT_R_FULL_MASK       ((uint32_t)0x00001000u)
+#define ADC_ADCSSFSTAT_R_FULL_BIT        ((uint32_t)12u)
 #define ADC_ADCSSFSTAT_R_FULL_NOFULL     ((uint32_t)0x00000000u)
-#define ADC_ADCSSFSTAT_R_FULL_FULL       ((uint32_t)0x00000100u)
+#define ADC_ADCSSFSTAT_R_FULL_FULL       ((uint32_t)0x00001000u)
 
 #define ADC_ADCSSFSTAT_FULL_MASK        ((uint32_t)0x00000001u)
 #define ADC_ADCSSFSTAT_FULL_NOFULL      ((uint32_t)0x00000000u)

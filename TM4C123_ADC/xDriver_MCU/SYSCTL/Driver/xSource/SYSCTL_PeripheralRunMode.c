@@ -44,13 +44,17 @@ void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 
     if(0u==(uint32_t)(SYSCTL->RCGC[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)))
     {
-        u32PeripheralValue = ((uint32_t)1u<<u32NoPeripheral);
-        SYSCTL->RCGC[u32NoRegister]|=u32PeripheralValue;
+        u32PeripheralValue = SYSCTL->RCGC[u32NoRegister];
+        u32PeripheralValue |= ((uint32_t)1u<<u32NoPeripheral);
+        SYSCTL->RCGC[u32NoRegister]=u32PeripheralValue;
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
-        while(0u==(uint32_t)(SYSCTL->PR[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral))){}
+        do{
+            u32PeripheralValue =(uint32_t)SYSCTL->PR[u32NoRegister];
+            u32PeripheralValue&=(uint32_t)((uint32_t)1u<<u32NoPeripheral);
+        }while(0u==(uint32_t)u32PeripheralValue);
     }
 }
 
@@ -65,7 +69,9 @@ void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     if(u32PeripheralValue==(SYSCTL->RCGC[u32NoRegister]&u32PeripheralValue))
     {
         SYSCTL__vResetPeripheral(enPeripheral);
-        SYSCTL->RCGC[u32NoRegister]&=~u32PeripheralValue;
+        u32PeripheralValue = SYSCTL->RCGC[u32NoRegister];
+        u32PeripheralValue&=~((uint32_t)1u<<u32NoPeripheral);
+        SYSCTL->RCGC[u32NoRegister]=u32PeripheralValue;
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();

@@ -26,13 +26,13 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
     uint32_t u32Reg=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;
-    uint32_t u32Comparator= (uint32_t) enComparator;
+    uint32_t u32Comparator= (uint32_t) enSeqComparator;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -49,13 +49,13 @@ void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
     psAdc->ADCDCCTL[u32Comparator]=u32Reg;
 }
 
-void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
     uint32_t u32Reg=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;
-    uint32_t u32Comparator= (uint32_t) enComparator;
+    uint32_t u32Comparator= (uint32_t) enSeqComparator;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -72,13 +72,13 @@ void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
     psAdc->ADCDCCTL[u32Comparator]=u32Reg;
 }
 
-void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
     uint32_t u32Reg=0u;
     ADC_TypeDef* psAdc=0u;
 
     uint32_t u32Module= (uint32_t) enModule;
-    uint32_t u32Comparator= (uint32_t) enComparator;
+    uint32_t u32Comparator= (uint32_t) enSeqComparator;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -94,14 +94,14 @@ void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparato
     psAdc->ADCDCISC=u32Reg;
 }
 
-ADC_nCOMP_INT_STATUS ADC__enStatusInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enComparator)
+ADC_nCOMP_INT_STATUS ADC__enStatusInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
     ADC_nCOMP_INT_STATUS enInt=ADC_enCOMP_INT_STATUS_UNDEF;
     uint32_t u32Reg=0u;
     uint32_t u32SeqBit=0u;
     ADC_nREADY enReady=ADC_enNOREADY;
     uint32_t u32Module= (uint32_t) enModule;
-    uint32_t u32Comparator= (uint32_t) enComparator;
+    uint32_t u32Comparator= (uint32_t) enSeqComparator;
     ADC_TypeDef* psAdc=0u;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {

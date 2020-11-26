@@ -28,6 +28,6 @@
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
 void ADC_Sample__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence);
-void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enComparator);
+void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enSeqComparator);
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTREGISTER_XHEADER_ADC_INTERRUPTREGISTERIRQSOURCE_H_ */

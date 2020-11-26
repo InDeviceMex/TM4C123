@@ -45,12 +45,12 @@ void ADC_Sample__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC
     }
 }
 
-void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enComparator)
+void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule,ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enSeqComparator)
 {
     uint32_t u32IrqSourceHandler=0u;
     uint32_t u32Module=(uint32_t)enModule;
     uint32_t u32Sequencer=(uint32_t)enSequence;
-    uint32_t u32Comparator=(uint32_t)enComparator;
+    uint32_t u32Comparator=(uint32_t)enSeqComparator;
     if((uint32_t)pfIrqSourceHandler !=0u)
     {
         if(u32Module>(uint32_t)ADC_enMODULE_MAX)
@@ -66,7 +66,7 @@ void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_n
             u32Comparator=(uint32_t)ADC_en_COMPARATOR_MAX;
         }
         u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
-        ADC_COMP__vIRQSourceHandler[u32Module][u32Sequencer][enComparator]=(void (*) (void))u32IrqSourceHandler;
+        ADC_COMP__vIRQSourceHandler[u32Module][u32Sequencer][enSeqComparator]=(void (*) (void))u32IrqSourceHandler;
     }
 }
 

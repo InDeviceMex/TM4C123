@@ -25,6 +25,7 @@
 #define XDRIVER_MCU_ADC_PERIPHERAL_XHEADER_ADC_ENUM_H_
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
 typedef enum
 {
@@ -330,18 +331,35 @@ typedef enum
 
 typedef enum
 {
-    ADC_enSEQ_INPUT_GPIO_PE3 = 0u,
-    ADC_enSEQ_INPUT_GPIO_PE2 = 1u,
-    ADC_enSEQ_INPUT_GPIO_PE1 = 2u,
-    ADC_enSEQ_INPUT_GPIO_PE0 = 3u,
-    ADC_enSEQ_INPUT_GPIO_PD3 = 4u,
-    ADC_enSEQ_INPUT_GPIO_PD2 = 5u,
-    ADC_enSEQ_INPUT_GPIO_PD1 = 6u,
-    ADC_enSEQ_INPUT_GPIO_PD0 = 7u,
-    ADC_enSEQ_INPUT_GPIO_PE5 = 8u,
-    ADC_enSEQ_INPUT_GPIO_PE4 = 9u,
-    ADC_enSEQ_INPUT_GPIO_PB4 = 10u,
-    ADC_enSEQ_INPUT_GPIO_PB5 = 11u,
+    ADC_enSEQ_INPUT_GPIO_PE3 = (uint32_t)GPIO_enAIN0,
+    ADC_enSEQ_INPUT_GPIO_PE2 = (uint32_t)GPIO_enAIN1,
+    ADC_enSEQ_INPUT_GPIO_PE1 = (uint32_t)GPIO_enAIN2,
+    ADC_enSEQ_INPUT_GPIO_PE0 = (uint32_t)GPIO_enAIN3,
+    ADC_enSEQ_INPUT_GPIO_PD3 = (uint32_t)GPIO_enAIN4,
+    ADC_enSEQ_INPUT_GPIO_PD2 = (uint32_t)GPIO_enAIN5,
+    ADC_enSEQ_INPUT_GPIO_PD1 = (uint32_t)GPIO_enAIN6,
+    ADC_enSEQ_INPUT_GPIO_PD0 = (uint32_t)GPIO_enAIN7,
+    ADC_enSEQ_INPUT_GPIO_PE5 = (uint32_t)GPIO_enAIN8,
+    ADC_enSEQ_INPUT_GPIO_PE4 = (uint32_t)GPIO_enAIN9,
+    ADC_enSEQ_INPUT_GPIO_PB4 = (uint32_t)GPIO_enAIN10,
+    ADC_enSEQ_INPUT_GPIO_PB5 = (uint32_t)GPIO_enAIN11,
+    ADC_enSEQ_INPUT_GPIO_EXP_UNDEF = 0xFFFFFFFFu,
+}ADC_nSEQ_INPUT_GPIO_EXP;
+
+typedef enum
+{
+    ADC_enSEQ_INPUT_GPIO_0 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PE3,
+    ADC_enSEQ_INPUT_GPIO_1 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PE2,
+    ADC_enSEQ_INPUT_GPIO_2 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PE1,
+    ADC_enSEQ_INPUT_GPIO_3 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PE0,
+    ADC_enSEQ_INPUT_GPIO_4 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PD3,
+    ADC_enSEQ_INPUT_GPIO_5 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PD2,
+    ADC_enSEQ_INPUT_GPIO_6 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PD1,
+    ADC_enSEQ_INPUT_GPIO_7 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PD0,
+    ADC_enSEQ_INPUT_GPIO_8 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PE5,
+    ADC_enSEQ_INPUT_GPIO_9 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PE4,
+    ADC_enSEQ_INPUT_GPIO_10 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PB4,
+    ADC_enSEQ_INPUT_GPIO_11 = (uint32_t)ADC_enSEQ_INPUT_GPIO_PB5,
     ADC_enSEQ_INPUT_GPIO_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_INPUT_GPIO;
 
@@ -377,6 +395,7 @@ typedef enum
 {
     ADC_enSEQ_FIFO_FULL = 0u,
     ADC_enSEQ_FIFO_EMPTY = 1u,
+    ADC_enSEQ_FIFO_VALUES= 2u,
     ADC_enSEQ_FIFO_INT_UNDEF = 0xFFFFFFFFu,
 }ADC_nSEQ_FIFO;
 
@@ -442,5 +461,17 @@ typedef enum
     ADC_enCOMP_INT_MODE_HYST_ALWAYS    =3u,
     ADC_enCOMP_INT_MODE_UNDEF   =0xFFFFFFFFu,
 }ADC_nCOMP_INT_MODE;
+
+
+typedef struct
+{
+    ADC_nSEQ_INPUT enInput;
+    ADC_nSEQ_INPUT_DIFF enDifferential;
+    ADC_nSEQ_INPUT_ENDED enEnded;
+    ADC_nSEQ_INPUT_INT enInterrupt;
+    ADC_nSEQ_INPUT_TEMP enTempSensor;
+    ADC_nSEQ_INPUT_DIR enDirection;
+    ADC_nCOMPARATOR enComparator;
+}ADC_SAMPLE_CONFIG_Typedef;
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_XHEADER_ADC_ENUM_H_ */

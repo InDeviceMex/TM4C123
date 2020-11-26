@@ -105,4 +105,3 @@ uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, ui
     }
     return u32Feature;
 }
-

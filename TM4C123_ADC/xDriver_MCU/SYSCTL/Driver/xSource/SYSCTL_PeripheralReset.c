@@ -39,15 +39,16 @@ void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
     uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
     uint32_t u32PeripheralValue=0;
-
-    u32PeripheralValue = ((uint32_t)1u<<u32NoPeripheral);
-    SYSCTL->SR[u32NoRegister]|=u32PeripheralValue;
+    u32PeripheralValue = SYSCTL->SR[u32NoRegister];
+    u32PeripheralValue |= ((uint32_t)1u<<u32NoPeripheral);
+    SYSCTL->SR[u32NoRegister]=u32PeripheralValue;
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
-    u32PeripheralValue = ((uint32_t)1<<u32NoPeripheral);
-    SYSCTL->SR[u32NoRegister]&=~u32PeripheralValue;
+    u32PeripheralValue = SYSCTL->SR[u32NoRegister];
+    u32PeripheralValue &=~ ((uint32_t)1u<<u32NoPeripheral);
+    SYSCTL->SR[u32NoRegister]=u32PeripheralValue;
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();

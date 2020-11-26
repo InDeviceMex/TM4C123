@@ -30,6 +30,7 @@ static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_ADC[(uint32_t)ADC_enMODULE_MAX+1u]={SYSC
 
 void ADC__vSetReady(ADC_nMODULE enModule)
 {
+    ADC_nREADY enReady=ADC_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enADC0;
     uint32_t u32Module= (uint32_t) enModule;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
@@ -37,7 +38,13 @@ void ADC__vSetReady(ADC_nMODULE enModule)
         u32Module=(uint32_t)ADC_enMODULE_MAX;
     }
     enPeripheral=SYSCTL_VECTOR_ADC[u32Module];
-    SYSCTL__vSetReady(enPeripheral);
+    enReady = ADC__enIsReady(enModule);
+    if(ADC_enNOREADY == enReady)
+    {
+        SYSCTL__vSetReady(enPeripheral);
+        SYSCTL__vReset(SYSCTL_enADC0);
+        SYSCTL__vSetReady(enPeripheral);
+    }
 }
 
 void ADC__vClearReady(ADC_nMODULE enModule)
