@@ -23,7 +23,7 @@
 int32_t main (void);
 
 void MAIN_vInitGPIO(void);
-
+void MAIN_vInitTIMER(void);
 /*ISR Functions*/
 void MAIN_SW1_vIRQSourceHandler(void);
 void MAIN_SW2_vIRQSourceHandler(void);
@@ -32,6 +32,7 @@ void MAIN_vADC1_COMP0_SourceHandler(void);
 void MAIN_vADC1_COMP1_SourceHandler(void);
 void MAIN_vADC1_COMP2_SourceHandler(void);
 void MAIN_DMA_CH24_vIRQSourceHandler(void);
+void MAIN_TIMER3W_vIRQSourceHandler(void);
 uint32_t u32ADCValue = 0u;
 
 uint32_t ADCbuffer[8u]={0};
@@ -39,8 +40,8 @@ DMACHCTL_TypeDef enDMAChControl =
 {
      DMA_enCH_MODE_PING_PONG,
      DMA_enCH_BURST_OFF,
-     2u-1u,
-     DMA_enCH_BURST_SIZE_2,
+     8u-1u,
+     DMA_enCH_BURST_SIZE_4,
      0,
      DMA_enCH_SRC_SIZE_WORD,
      DMA_enCH_SRC_INC_NO,
@@ -85,10 +86,10 @@ int32_t main(void)
 
     DMA__vInit();
     DMA__vRegisterIRQSourceHandler(&MAIN_DMA_CH24_vIRQSourceHandler,DMA_enCH_MODULE_24, DMA_enCH_ENCODER_1 );
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_24, (uint32_t) &ADCbuffer[4u-1u]);
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_24, (uint32_t) &ADCbuffer[8u-1u]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_24, (uint32_t) (ADC1_BASE + ADC_ADCSSFIFO0_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_24, enDMAChControl);
-    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_24, (uint32_t) &ADCbuffer[4u-1u]);
+    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_24, (uint32_t) &ADCbuffer[8u-1u]);
     DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_24, (uint32_t) (ADC1_BASE + ADC_ADCSSFIFO0_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_24, enDMAChControl);
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_24, enDMAChConfig);
@@ -108,31 +109,15 @@ int32_t main(void)
     ADC__vSetAverage(ADC_enMODULE_1, ADC_enAVERAGE_64);
 
     ADC__vSetSequencerEnable(ADC_enMODULE_1,ADC_enSEQMASK_0,ADC_enSEQ_ENABLE_DIS);
-    ADC__vSetSequencerTrigger(ADC_enMODULE_1, ADC_enSEQ_0, ADC_enSEQ_TRIGGER_SOFTWARE);
+    ADC__vSetSequencerTrigger(ADC_enMODULE_1, ADC_enSEQ_0, ADC_enSEQ_TRIGGER_TIMER);
 
-    /*Low Band*/
+    /*Dummy*/
+    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_DIS;
+    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_DIS;
+    sADC0SampleConfig.enDirection = ADC_enSEQ_INPUT_DIR_SAMPLE;
     sADC0SampleConfig.enComparator = ADC_en_COMPARATOR_0;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_1, ADC_enSEQ_0, ADC_en_MUX_0,&sADC0SampleConfig);
-    /*High Band*/
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_1, ADC_enSEQ_0, ADC_en_MUX_1,&sADC0SampleConfig);
-    /*Dummy*/
-    sADC0SampleConfig.enComparator = ADC_en_COMPARATOR_1;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_1, ADC_enSEQ_0, ADC_en_MUX_2,&sADC0SampleConfig);
 
-    /*Dummy*/
-    sADC0SampleConfig.enComparator = ADC_en_COMPARATOR_2;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_1, ADC_enSEQ_0, ADC_en_MUX_3,&sADC0SampleConfig);
-
-    /*Dummy*/
-    sADC0SampleConfig.enDirection = ADC_enSEQ_INPUT_DIR_SAMPLE;
-    sADC0SampleConfig.enComparator = ADC_en_COMPARATOR_0;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_1, ADC_enSEQ_0, ADC_en_MUX_4,&sADC0SampleConfig);
-
-    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
-    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_EN;
-    sADC0SampleConfig.enDirection = ADC_enSEQ_INPUT_DIR_SAMPLE;
-    sADC0SampleConfig.enComparator = ADC_en_COMPARATOR_0;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_1, ADC_enSEQ_0, ADC_en_MUX_5,&sADC0SampleConfig);
 
     ADC1_ADCDCCTL0->CIC=0u;
     ADC1_ADCDCCTL0->CIM=1u;
@@ -162,13 +147,38 @@ int32_t main(void)
     /*ADC__vEnSeqInterruptSource(ADC_enMODULE_1,ADC_enSEQMASK_0,ADC_enINT_SOURCE_SAMPLE);*/
     ADC__vSetSequencerEnable(ADC_enMODULE_1,ADC_enSEQMASK_0,ADC_enSEQ_ENABLE_ENA);
 
+    MAIN_vInitTIMER();
+
     while(1u)
     {
-        ADC__vSetSequencerInitConv(ADC_enMODULE_1, ADC_enSEQMASK_0);
-        do{
-            enADCState = ADC__enGetState(ADC_enMODULE_1);
-        }while(ADC_enSTATE_BUSY == enADCState);
     }
+}
+
+void MAIN_vInitTIMER(void)
+{
+    TIMER_EXTRAMODE_Typedef psExtraMode;
+
+    TIMER__vInit();
+
+    TIMER__vEnInterruptVector(TIMER_enWT3W,TIMER_enPRI1);
+
+    TIMER__vRegisterIRQSourceHandler(&MAIN_TIMER3W_vIRQSourceHandler,TIMER_enWT3W,TIMER_enINTERRUPT_TIMEOUT);
+
+    psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
+    psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
+    psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
+    psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
+    psExtraMode.enStall=TIMER_enSTALL_FREEZE;
+    psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
+    psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_EN;
+
+    TIMER__enSetExtraModeStruct(TIMER_enWT3W,&psExtraMode);
+
+    TIMER__enSetMode_Reload(TIMER_enWT3W,TIMER_enMODE_PERIODIC_INDIVIDUAL_UP,0u,80000000u-1u);
+
+    TIMER__vEnInterruptSource(TIMER_enWT3W,(TIMER_nINT)(TIMER_enINT_TIMEOUT));
+
+    TIMER__vSetEnable(TIMER_enWT3W,TIMER_enENABLE_START);
 }
 
 void MAIN_vInitGPIO(void)
@@ -196,6 +206,12 @@ void MAIN_vInitGPIO(void)
     GPIO__vClearInterruptSource(GPIO_enPORT_F,  (GPIO_nPIN)(enSW2Pin|enSW1Pin));
     GPIO__vEnInterruptConfig(GPIO_enPORT_F, (GPIO_nPIN)(enSW2Pin|enSW1Pin), GPIO_enINT_CONFIG_EDGE_BOTH);
 }
+volatile uint32_t u32Count =0u;
+void MAIN_TIMER3W_vIRQSourceHandler(void)
+{
+    u32Count=0u;
+}
+
 
 void MAIN_DMA_CH24_vIRQSourceHandler(void)
 {
@@ -209,6 +225,7 @@ void MAIN_DMA_CH24_vIRQSourceHandler(void)
     {
         DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_24, enDMAChControl);
     }
+    u32Count++;
 }
 
 void MAIN_vADC1_COMP0_SourceHandler(void)
