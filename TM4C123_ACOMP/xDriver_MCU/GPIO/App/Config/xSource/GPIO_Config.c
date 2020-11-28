@@ -1,0 +1,119 @@
+/**
+ *
+ * @file GPIO_Config.c
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 3 jul. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ */
+#include <stdlib.h>
+#include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/GPIO/App/Config/GPIO_Config.h>
+#include <xDriver_MCU/GPIO/App/Config/xHeader/GPIO_ConfigStruct.h>
+#include <xDriver_MCU/GPIO/Driver/GPIO_Driver.h>
+
+GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,
+                               GPIO_nCONFIG enConfigParam)
+{
+
+    GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
+    GPIO_CONFIG_Typedef *psConfig = GPIO__psCreateConfigStruct(enConfigParam);
+
+    if(psConfig != 0)
+    {
+        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
+        GPIO__vDeleteConfigStruct(psConfig);
+        enReturn = GPIO_enSTATUS_OK;
+    }
+    return enReturn;
+
+}
+
+GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin,
+                                     const GPIO_CONFIG_Typedef *psConfig)
+{
+
+    GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
+    if(psConfig != 0)
+    {
+        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
+        enReturn = GPIO_enSTATUS_OK;
+    }
+    return enReturn;
+
+}
+
+GPIO_nCONFIG GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
+{
+    GPIO_nCONFIG enConfig = GPIO_enCONFIG_UNDEF;
+
+    GPIO_nRESMODE enResistorModeVar = GPIO_enRESMODE_UNDEF;
+    GPIO_nOUTMODE enOutputModeVar = GPIO_enOUTMODE_UNDEF;
+    GPIO_nDIR enDirectionVar = GPIO_enDIR_UNDEF;
+    GPIO_nDRIVE enDriveVar = GPIO_enDRIVE_UNDEF;
+
+    uint32_t u32Reg = 0;
+
+    enResistorModeVar = GPIO__enGetResistorMode(enPort, enPin);
+    enOutputModeVar = GPIO__enGetOutputMode(enPort, enPin);
+    enDirectionVar = GPIO__enGetDirection(enPort, enPin);
+    enDriveVar = GPIO__enGetDrive(enPort, enPin);
+
+    u32Reg = ((uint32_t) enResistorModeVar << 0);
+    u32Reg |= ((uint32_t) enOutputModeVar << 4);
+    u32Reg |= ((uint32_t) enDirectionVar << 8);
+    u32Reg |= ((uint32_t) enDriveVar << 16);
+
+    enConfig = (GPIO_nCONFIG) u32Reg;
+    return enConfig;
+}
+
+void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,
+                      GPIO_CONFIG_Typedef *psConfig)
+{
+    psConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
+    psConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
+    psConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
+    psConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
+}
+
+GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
+{
+    GPIO_CONFIG_Typedef *psConfig = 0;
+#if defined ( __TI_ARM__ )
+    psConfig = (GPIO_CONFIG_Typedef*) memalign(
+            (size_t) 4,
+            (size_t) (sizeof(GPIO_CONFIG_Typedef) * sizeof(uint32_t)));
+#elif defined ( __GNUC__ )
+    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef)*sizeof(uint32_t));
+    #endif
+
+    psConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
+    psConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
+    psConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
+    psConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
+
+    return psConfig;
+}
+
