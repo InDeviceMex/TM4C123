@@ -538,7 +538,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t ACMP    ;
+    volatile uint32_t ACOMP    ;
     const    uint32_t reserved[31];
 }BITBANDING_PERIPHERAL_ACMP_TypeDef;
 

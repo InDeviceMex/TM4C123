@@ -38,6 +38,21 @@ typedef enum
     ACMP_enREADY = 1u,
 }ACMP_nREADY;
 
+
+typedef enum
+{
+    ACMP_enPRI0=0u,
+    ACMP_enPRI1=1u,
+    ACMP_enPRI2=2u,
+    ACMP_enPRI3=3u,
+    ACMP_enPRI4=4u,
+    ACMP_enPRI5=5u,
+    ACMP_enPRI6=6u,
+    ACMP_enPRI7=7u,
+    ACMP_enPRIMAX=7u,
+    ACMP_enDEFAULT=0xFFFFFFFFu,
+}ACMP_nPRIORITY;
+
 typedef enum
 {
     ACMP_enMODULE_0 = 0u,
@@ -48,9 +63,18 @@ typedef enum
 
 typedef enum
 {
-    ACMP_enMODULEMASK_0 = 0u,
-    ACMP_enMODULEMASK_1 = 1u,
-    ACMP_enMODULEMASK_UNDEF = 0xFFFFFFFFu,
+    ACMP_enMODULEMASK_0 = 0x1u,
+    ACMP_enMODULEMASK_1 = 0x2u,
+    ACMP_enMODULEMASK_ALL = 0x3u,
+    ACMP_enMODULEMASK_MAX = 0x2u,
+    ACMP_enMODULEMASK_UNDEF= 0xFFFFFFFFu,
 }ACMP_nMODULEMASK;
+
+typedef enum
+{
+    ACMP_enINT_NOOCCUR = 0u,
+    ACMP_enINT_OCCUR = 1u,
+    ACMP_enINT_STATUS_UNDEF = 0xFFFFFFFFu,
+} ACMP_nINT_STATUS;
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_XHEADER_ACMP_ENUM_H_ */

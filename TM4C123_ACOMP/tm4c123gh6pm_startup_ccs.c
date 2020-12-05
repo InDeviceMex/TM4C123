@@ -244,11 +244,6 @@ ResetISR(void)
     SYSCTL__vDeInitClockGates();
     {__asm(" cpsie i");}
     FPU__vInit();
-    MPU__vInit();
-    SCB__vInit();
-    FLASH__enInit();
-    SYSEXC__vInit((SYSEXC_nINT)((uint32_t)SYSEXC_enINT_INVALID|(uint32_t)SYSEXC_enINT_DIV0|
-          (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     {__asm("    .global _c_int00\n"
           "    b.w     _c_int00");};
 }

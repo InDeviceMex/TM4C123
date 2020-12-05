@@ -61,7 +61,7 @@ typedef volatile struct
         volatile uint32_t    ACCTL0[32U];
         BITBANDING_ACCTL_TypeDef ACCTL0_Bit;
     };
-    const uint32_t reserved1[6U*32U];
+    const uint32_t reserved2[6U*32U];
     union
     {
         volatile uint32_t    ACSTAT1[32U];
@@ -72,13 +72,13 @@ typedef volatile struct
         volatile uint32_t    ACCTL1[32U];
         BITBANDING_ACCTL_TypeDef ACCTL1_Bit;
     };
-    const uint32_t reserved2[990U*32U];
+    const uint32_t reserved3[990U*32U];
     union
     {
         volatile uint32_t ACMPPP[32U];
         BITBANDING_ACMPPP_TypeDef  ACMPPP_Bit;
     };
-    const uint32_t reserved3[15U*32U];
+    const uint32_t reserved4[15U*32U];
 }ACMP_BITBANDING_TypeDef;
 
 
