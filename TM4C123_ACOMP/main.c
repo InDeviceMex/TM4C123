@@ -11,10 +11,10 @@
 /*MCU Drivers*/
 #include <xDriver_MCU.h>
 
-
 /*Utils Libraries*/
 #include <xUtils/Conversion/Conversion.h>
 
+uint8_t NokiaBuffer[64*(48/8)] ={0u};
 /*Local functions*/
 void MAIN_vIrqCOMP1_INT1(void);
 int32_t main (void);

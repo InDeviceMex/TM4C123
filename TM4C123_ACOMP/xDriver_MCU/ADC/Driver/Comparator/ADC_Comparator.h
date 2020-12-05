@@ -26,5 +26,6 @@
 
 #include <xDriver_MCU/ADC/Driver/Comparator/Control/ADC_Comparator_Control.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Range/ADC_Comparator_Range.h>
+#include <xDriver_MCU/ADC/Driver/Comparator/Reset/ADC_Comparator_Reset.h>
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_COMPARATOR_ADC_COMPARATOR_H_ */
