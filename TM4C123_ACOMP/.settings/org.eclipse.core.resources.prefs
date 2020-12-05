@@ -507,6 +507,8 @@ encoding//Debug__TI/xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/xSource/subdir
 encoding//Debug__TI/xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/App/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/App/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/ADC/Driver/Comparator/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/ADC/Driver/Comparator/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Driver/General/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Driver/General/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRegister/xSource/subdir_rules.mk=UTF-8

@@ -423,11 +423,11 @@ typedef enum
 
 typedef enum
 {
-    ADC_enCOMP_TRIGGER_COMP_LOW         =0u,
-    ADC_enCOMP_TRIGGER_COMP_MID    =1u,
-    ADC_enCOMP_TRIGGER_COMP_HIGH    =3u,
-    ADC_enCOMP_TRIGGER_COMP_UNDEF   =0xFFFFFFFFu,
-}ADC_nCOMP_TRIGGER_COMP;
+    ADC_enCOMP_TRIGGER_COND_LOW         =0u,
+    ADC_enCOMP_TRIGGER_COND_MID    =1u,
+    ADC_enCOMP_TRIGGER_COND_HIGH    =3u,
+    ADC_enCOMP_TRIGGER_COND_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_TRIGGER_COND;
 
 typedef enum
 {
@@ -447,11 +447,11 @@ typedef enum
 
 typedef enum
 {
-    ADC_enCOMP_INT_COMP_LOW         =0u,
-    ADC_enCOMP_INT_COMP_MID    =1u,
-    ADC_enCOMP_INT_COMP_HIGH    =3u,
-    ADC_enCOMP_INT_COMP_UNDEF   =0xFFFFFFFFu,
-}ADC_nCOMP_INT_COMP;
+    ADC_enCOMP_INT_COND_LOW         =0u,
+    ADC_enCOMP_INT_COND_MID    =1u,
+    ADC_enCOMP_INT_COND_HIGH    =3u,
+    ADC_enCOMP_INT_COND_UNDEF   =0xFFFFFFFFu,
+}ADC_nCOMP_INT_COND;
 
 typedef enum
 {

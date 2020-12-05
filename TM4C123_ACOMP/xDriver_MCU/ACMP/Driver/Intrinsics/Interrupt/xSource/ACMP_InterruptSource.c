@@ -42,7 +42,7 @@ void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
     ACMP->ACINTEN=u32Reg;
 }
 
-void ACMP__vDisSeqInterruptSource(ACMP_nMODULEMASK enModuleMask)
+void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
     uint32_t u32Reg=0u;
 
@@ -58,7 +58,7 @@ void ACMP__vDisSeqInterruptSource(ACMP_nMODULEMASK enModuleMask)
     ACMP->ACINTEN=u32Reg;
 }
 
-void ACMP__vClearSeqInterruptSource(ACMP_nMODULEMASK enModuleMask)
+void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
     uint32_t u32ModuleMask= (uint32_t) enModuleMask;
     if((uint32_t)ACMP_enMODULEMASK_ALL<u32ModuleMask)
