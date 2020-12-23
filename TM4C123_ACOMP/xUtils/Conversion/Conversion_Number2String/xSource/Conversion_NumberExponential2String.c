@@ -69,7 +69,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
     if(((uint32_t)0U != pvfOut) && ((uint32_t)0U != pcBufferOut)  && ((uint32_t)0U != pu32BufOutLenght))
     {
         /* check for NaN and special dValues*/
-        if ((dValue != dValue) || (dValue > DBL_MAX) || (dValue < -DBL_MAX))
+        if ((dValue > DBL_MAX) || (dValue < -DBL_MAX))
         {
             enConvStatus = Conv__enNumber2String_Float(pvfOut, pcBufferOut, dValue, u32Index, u32MaxLenght,pu32BufOutLenght, u32Width, u32flags,  u32Prec);
         }

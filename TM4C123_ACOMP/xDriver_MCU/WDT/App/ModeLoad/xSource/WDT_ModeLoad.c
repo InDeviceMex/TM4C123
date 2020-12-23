@@ -29,17 +29,17 @@
 
 WDT_nSTATUS WDT__enSetMode_Load(WDT_nMODULE enModule, WDT_nMODE enMode, uint32_t u32Load)
 {
-    WDT_nSTATUS enReturn= WDT_enERROR;
-    WDT__vSetLoad(enModule,u32Load);
-    enReturn =WDT__enSetMode(enModule,enMode);
+    WDT_nSTATUS enReturn = WDT_enERROR;
+    WDT__vSetLoad(enModule, u32Load);
+    enReturn = WDT__enSetMode(enModule, enMode);
     return enReturn;
 }
 
 WDT_nSTATUS WDT__enSetModeStruct_Load(WDT_nMODULE enModule, const WDT_MODE_Typedef* psMode, uint32_t u32Load)
 {
-    WDT_nSTATUS enReturn= WDT_enERROR;
-    WDT__vSetLoad(enModule,u32Load);
-    enReturn =WDT__enSetModeStruct(enModule,psMode);
+    WDT_nSTATUS enReturn = WDT_enERROR;
+    WDT__vSetLoad(enModule, u32Load);
+    enReturn = WDT__enSetModeStruct(enModule, psMode);
     return enReturn;
 }
 

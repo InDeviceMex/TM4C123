@@ -28,6 +28,6 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Vector_NMI.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Vector_Standard.h>
 
-extern void (*WDT__vIRQVectorHandler[(uint32_t)WDT_enINT_TYPE_NMI+1u]) (void);
+extern void (*WDT__vIRQVectorHandler[ (uint32_t) WDT_enINT_TYPE_NMI + 1U ]) (void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTROUTINE_WDT_INTERRUPTROUTINE_H_ */

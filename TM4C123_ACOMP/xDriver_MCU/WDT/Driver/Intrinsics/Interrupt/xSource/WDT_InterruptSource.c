@@ -30,20 +30,20 @@
 
 WDT_nINTERRUPT WDT__enGetInterruptSource(WDT_nMODULE enModule)
 {
-    WDT_nINTERRUPT enStatus= WDT_enINTERRUPT_UNDEF;
-    WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0u;
-    if(enModule>WDT_enMODULE_MAX)
+    WDT_nINTERRUPT enStatus = WDT_enINTERRUPT_UNDEF;
+    WDT_nREADY enReady = WDT_enNOREADY;
+    uint32_t u32Reg = 0U;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
     enReady = WDT__enIsReady(enModule);
-    if((WDT_enREADY == enReady) )
+    if( WDT_enREADY == enReady )
     {
-        u32Reg =  WDT->W[enModule].WDTCTL;
+        u32Reg =  WDT->W[ enModule ].WDTCTL;
         u32Reg &= WDT_WDTCTL_R_INTEN_MASK;
         u32Reg >>= WDT_WDTCTL_R_INTEN_BIT;
-        enStatus = (WDT_nINTERRUPT)u32Reg;
+        enStatus = (WDT_nINTERRUPT) u32Reg;
     }
     return enStatus;
 }
@@ -51,14 +51,15 @@ WDT_nINTERRUPT WDT__enGetInterruptSource(WDT_nMODULE enModule)
 
 void WDT__vEnInterruptSource(WDT_nMODULE enModule)
 {
-    uint32_t u32Reg=0u;
-    if(enModule>WDT_enMODULE_MAX)
+    uint32_t u32Reg = 0U;
+    if( WDT_enMODULE_MAX < enModule )
     {
         enModule = WDT_enMODULE_MAX;
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    u32Reg  = WDT->W[enModule].WDTCTL;
+
+    u32Reg  = WDT->W[ enModule ].WDTCTL;
     u32Reg |= WDT_enINTERRUPT_ENABLE;
     WDT->W[enModule].WDTCTL = u32Reg;
     WDT__vWaitWrite(enModule);
@@ -67,7 +68,7 @@ void WDT__vEnInterruptSource(WDT_nMODULE enModule)
 
 void WDT__vDisInterruptSource(WDT_nMODULE enModule)
 {
-    if(enModule>WDT_enMODULE_MAX)
+    if( WDT_enMODULE_MAX < enModule )
     {
         enModule = WDT_enMODULE_MAX;
     }
@@ -77,32 +78,32 @@ void WDT__vDisInterruptSource(WDT_nMODULE enModule)
 
 void WDT__vClearInterruptSource(WDT_nMODULE enModule)
 {
-    if(enModule>WDT_enMODULE_MAX)
+    if( WDT_enMODULE_MAX < enModule )
     {
         enModule = WDT_enMODULE_MAX;
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    WDT->W[enModule].WDTICR = 0u;
+    WDT->W[enModule].WDTICR = 0U;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
 
 WDT_nINT_STATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule)
 {
-    WDT_nINT_STATUS enStatus= WDT_enINT_STATUS_UNDEF;
-    WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0u;
-    if(enModule>WDT_enMODULE_MAX)
+    WDT_nINT_STATUS enStatus = WDT_enINT_STATUS_UNDEF;
+    WDT_nREADY enReady = WDT_enNOREADY;
+    uint32_t u32Reg = 0U;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
     enReady = WDT__enIsReady(enModule);
-    if((WDT_enREADY == enReady) )
+    if( WDT_enREADY == enReady )
     {
-        u32Reg =  WDT->W[enModule].WDTRIS;
+        u32Reg =  WDT->W[ enModule ].WDTRIS;
         u32Reg &= WDT_enINT_STATUS_OCCUR;
-        enStatus = (WDT_nINT_STATUS)u32Reg;
+        enStatus = (WDT_nINT_STATUS) u32Reg;
     }
     return enStatus;
 }

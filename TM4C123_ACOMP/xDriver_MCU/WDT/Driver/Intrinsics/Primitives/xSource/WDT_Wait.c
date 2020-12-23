@@ -26,20 +26,20 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/xHeader/WDT_Wait.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-#define WDT_TIMEOUT (10000u)
+#define WDT_TIMEOUT ( 10000U )
 
 void WDT__vWaitWrite(WDT_nMODULE enModule)
 {
-    uint32_t u32Timeout=WDT_TIMEOUT;
-    uint32_t u32RegWrite1=WDT_WDTCTL_R_WRC_DONE;
+    uint32_t u32Timeout = WDT_TIMEOUT;
+    uint32_t u32RegWrite1 = WDT_WDTCTL_R_WRC_DONE;
     if(WDT_enMODULE_1 == enModule)
     {
         WDT__vSetReady(enModule);
         do
         {
             u32RegWrite1 = WDT->W[enModule].WDTCTL;
-            u32RegWrite1&= WDT_WDTCTL_R_WRC_MASK;
+            u32RegWrite1 &= WDT_WDTCTL_R_WRC_MASK;
             u32Timeout--;
-        }while((WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1) && (0u != u32Timeout));
+        }while((WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1) && (0U != u32Timeout));
     }
 }

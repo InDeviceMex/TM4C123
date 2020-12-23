@@ -28,36 +28,38 @@
 
 WDT_nLOCK WDT__enGetLock(WDT_nMODULE enModule)
 {
-    WDT_nLOCK enLock= WDT_enLOCK_UNDEF;
-    WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0;
-    if(enModule>WDT_enMODULE_MAX)
+    WDT_nLOCK enLock = WDT_enLOCK_UNDEF;
+    WDT_nREADY enReady = WDT_enNOREADY;
+    uint32_t u32Reg = 0U;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
+
     enReady = WDT__enIsReady(enModule);
-    if((WDT_enREADY == enReady) )
+
+    if( WDT_enREADY == enReady )
     {
-        u32Reg=WDT->W[enModule].WDTLOCK;
-        u32Reg>>=WDT_WDTLOCK_R_WDTLOCK_BIT;
-        u32Reg&=WDT_WDTLOCK_WDTLOCK_LOCK;
-        enLock= (WDT_nLOCK)u32Reg;
+        u32Reg = WDT->W[ enModule ].WDTLOCK;
+        u32Reg >>= WDT_WDTLOCK_R_WDTLOCK_BIT;
+        u32Reg &= WDT_WDTLOCK_WDTLOCK_LOCK;
+        enLock= (WDT_nLOCK) u32Reg;
     }
     return enLock;
 }
 
 void WDT__vUnlock(WDT_nMODULE enModule)
 {
-    WDT_nLOCK enLock= WDT_enLOCK_UNDEF;
-    if(enModule>WDT_enMODULE_MAX)
+    WDT_nLOCK enLock = WDT_enLOCK_UNDEF;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
     WDT__vSetReady(enModule);
-    enLock=WDT__enGetLock(enModule);
-    if((uint32_t)WDT_enLOCK_LOCKED == enLock)
+    enLock = WDT__enGetLock(enModule);
+    if( (uint32_t) WDT_enLOCK_LOCKED == enLock )
     {
-        WDT->W[enModule].WDTLOCK = (uint32_t)WDT_enKEY_UNLOCK;
+        WDT->W[ enModule ].WDTLOCK = (uint32_t) WDT_enKEY_UNLOCK;
         WDT__vWaitWrite(enModule);
     }
 }
@@ -71,9 +73,9 @@ void WDT__vLock(WDT_nMODULE enModule)
     }
     WDT__vSetReady(enModule);
     enLock=WDT__enGetLock(enModule);
-    if((uint32_t)WDT_enLOCK_UNLOCKED == enLock)
+    if( (uint32_t) WDT_enLOCK_UNLOCKED == enLock )
     {
-        WDT->W[enModule].WDTLOCK=(uint32_t)WDT_enKEY_LOCK;
+        WDT->W[ enModule ].WDTLOCK = (uint32_t) WDT_enKEY_LOCK;
         WDT__vWaitWrite(enModule);
     }
 }

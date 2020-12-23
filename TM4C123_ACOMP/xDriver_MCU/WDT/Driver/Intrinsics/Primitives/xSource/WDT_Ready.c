@@ -27,44 +27,47 @@
 
 void WDT__vSetReady(WDT_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enWDT0;
-    if(enModule>WDT_enMODULE_MAX)
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
+    if( WDT_enMODULE_MAX < enModule )
     {
         enModule = WDT_enMODULE_MAX;
     }
-    enPeripheral|= enModule;
+    enPeripheral |= enModule;
     SYSCTL__vSetReady(enPeripheral);
 }
+
 void WDT__vReset(WDT_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enWDT0;
-    if(enModule>WDT_enMODULE_MAX)
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
-    enPeripheral|=enModule;
+    enPeripheral |= enModule;
     SYSCTL__vReset(enPeripheral);
 }
+
 void WDT__vClearReady(WDT_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enWDT0;
-    if(enModule>WDT_enMODULE_MAX)
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
-    enPeripheral|=enModule;
+    enPeripheral |= enModule;
     SYSCTL__vClearReady(enPeripheral);
 }
+
 WDT_nREADY WDT__enIsReady(WDT_nMODULE enModule)
 {
-    WDT_nREADY enReady=WDT_enNOREADY;
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enWDT0;
-    if(enModule>WDT_enMODULE_MAX)
+    WDT_nREADY enReady = WDT_enNOREADY;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
+    if( WDT_enMODULE_MAX < enModule )
     {
-        enModule=WDT_enMODULE_MAX;
+        enModule = WDT_enMODULE_MAX;
     }
-    enPeripheral|=enModule;
-    enReady=(WDT_nREADY)SYSCTL__enIsReady(enPeripheral);
+    enPeripheral |= enModule;
+    enReady = (WDT_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
 

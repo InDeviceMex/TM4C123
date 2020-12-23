@@ -27,19 +27,19 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Source.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void WDT__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),WDT_nINT_TYPE enIntTypeParam,WDT_nMODULE enModule)
+void WDT__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), WDT_nINT_TYPE enIntTypeParam, WDT_nMODULE enModule)
 {
-    uint32_t u32IntType= (uint32_t)enIntTypeParam;
-    uint32_t u32IrqSourceHandler=0u;
-    if((uint32_t)pfIrqSourceHandler !=0u)
+    uint32_t u32IntType = (uint32_t) enIntTypeParam;
+    uint32_t u32IrqSourceHandler = 0U;
+    if(0U != (uint32_t) pfIrqSourceHandler )
     {
-        u32IntType&=(uint32_t)WDT_enINT_TYPE_MAX;
-        if(enModule>WDT_enMODULE_MAX)
+        u32IntType &= (uint32_t) WDT_enINT_TYPE_MAX;
+        if(WDT_enMODULE_MAX < enModule)
         {
-            enModule=WDT_enMODULE_MAX;
+            enModule = WDT_enMODULE_MAX;
         }
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
-        WDT__vIRQSourceHandler[u32IntType][(uint32_t)enModule]=(void (*) (void))u32IrqSourceHandler;
+        u32IrqSourceHandler = ( (uint32_t) pfIrqSourceHandler | (uint32_t) 1U );
+        WDT__vIRQSourceHandler[u32IntType][(uint32_t) enModule] = (void (*) (void)) u32IrqSourceHandler;
     }
 }
 
