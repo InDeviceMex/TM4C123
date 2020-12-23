@@ -26,6 +26,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-uint8_t CONV__u8Bin2String(uint64_t u64Number, char* pcConv);
+uint8_t Conv__u8Bin2String(uint64_t u64Number, char* pcConv);
 
 #endif /* XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_BINARY2STRING_H_ */

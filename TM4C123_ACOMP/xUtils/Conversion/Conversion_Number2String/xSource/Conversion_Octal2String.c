@@ -30,20 +30,20 @@
 
 const char CONV_pc8Octal[8]={'0','1','2','3','4','5','6','7'};
 
-uint8_t CONV__u8Oct2String(uint64_t u64Number, char* pcConv)
+uint8_t Conv__u8Oct2String(uint64_t u64Number, char* pcConv)
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     char  pcConvTemp[OCT2STRINGMAX]={0};/*longitud maxima de long 16 digitos*/
     char  *pcPointerActual=&pcConvTemp[OCT2STRINGMAX - 1u];
     uint8_t u8Length =0u;
 
-    enStatus =CONV__enConversion(pcPointerActual, u64Number,&u8Length, 8u,CONV_pc8Octal);
+    enStatus =Conv__enConversion(pcPointerActual, u64Number,&u8Length, 8u,CONV_pc8Octal);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;
         pcPointerActual-= u8Length;
         *pcPointerActual = '0';
-        enStatus=CONV__enInversion(pcPointerActual,pcConv,u8Length);
+        enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
             u8Length=0u;

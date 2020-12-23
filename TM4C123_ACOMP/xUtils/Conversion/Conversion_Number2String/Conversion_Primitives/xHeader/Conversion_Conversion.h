@@ -27,7 +27,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 
-CONV_nSTATUS CONV__enConversion(char* pcPointer, uint64_t u64Number,uint8_t* u8Length, uint8_t u8Base ,const char* pcLookUpTable);
+CONV_nSTATUS Conv__enConversion(char* pcPointer, uint64_t u64Number,uint8_t* u8Length, uint8_t u8Base ,const char* pcLookUpTable);
 
 
 

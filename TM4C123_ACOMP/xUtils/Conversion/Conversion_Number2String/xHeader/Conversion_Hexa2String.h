@@ -26,7 +26,7 @@
 
 #include <xUtils/Standard/Standard.h>
 
-uint8_t CONV__u8Hex2String(uint64_t u64Number, char* pcConv);
-uint8_t CONV__u8HEX2String(uint64_t u64Number, char* pcConv);
+uint8_t Conv__u8Hex2String(uint64_t u64Number, char* pcConv);
+uint8_t Conv__u8HEX2String(uint64_t u64Number, char* pcConv);
 
 #endif /* XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_HEXA2STRING_H_ */

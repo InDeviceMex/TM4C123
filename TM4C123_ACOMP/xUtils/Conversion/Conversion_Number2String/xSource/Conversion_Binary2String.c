@@ -30,20 +30,20 @@
 
 const char pc8Bin[2]={'0','1'};
 
-uint8_t CONV__u8Bin2String(uint64_t u64Number, char* pcConv)
+uint8_t Conv__u8Bin2String(uint64_t u64Number, char* pcConv)
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     char  pcConvTemp[BIN2STRINGMAX]={0};/*longitud maxima de long 16 digitos*/
     char  *pcPointerActual=&pcConvTemp[BIN2STRINGMAX - 1u];
     uint8_t u8Length =0u;
 
-    enStatus =CONV__enConversion(pcPointerActual,u64Number,&u8Length,2u,pc8Bin);
+    enStatus =Conv__enConversion(pcPointerActual,u64Number,&u8Length,2u,pc8Bin);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;
         pcPointerActual-= u8Length;
         *pcPointerActual = 'b';
-        enStatus=CONV__enInversion(pcPointerActual,pcConv,u8Length);
+        enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
             u8Length=0u;

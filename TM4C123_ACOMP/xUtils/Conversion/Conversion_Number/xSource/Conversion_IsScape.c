@@ -24,7 +24,7 @@
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsScape.h>
 
-CONV_nSCAPE CONV__enIsScape(char cCharacter)
+CONV_nSCAPE Conv__enIsScape(char cCharacter)
 {
     CONV_nSCAPE enStatus= CONV_enSCAPE_NO;
     if(cCharacter == (char) 0x1Bu)

@@ -24,7 +24,7 @@
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsReturn.h>
 
-CONV_nRETURN CONV__enIsReturn(char cCharacter)
+CONV_nRETURN Conv__enIsReturn(char cCharacter)
 {
     CONV_nRETURN enStatus= CONV_enRETURN_NO;
     if(cCharacter == '\r')

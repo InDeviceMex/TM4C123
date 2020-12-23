@@ -24,7 +24,7 @@
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsNull.h>
 
-CONV_nNULL CONV__enIsNull(char cCharacter)
+CONV_nNULL Conv__enIsNull(char cCharacter)
 {
     CONV_nNULL enStatus= CONV_enNULL_NO;
     if(cCharacter == '\0')

@@ -26,6 +26,7 @@
 
 #include <float.h>
 #include <stdint.h>
+#include <stddef.h>
 /*Float standard typedef defines*/
 typedef float float32_t;
 typedef double float64_t;

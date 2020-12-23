@@ -26,7 +26,7 @@
 
 #include <xUtils/Standard/Standard.h>
 
-uint8_t CONV__u8UInt2String(uint64_t u64Number, char* pcConv);
+uint8_t Conv__u8UInt2String(uint64_t u64Number, char* pcConv);
 
 
 

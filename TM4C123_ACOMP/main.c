@@ -50,6 +50,19 @@ int32_t main(void)
     ACMP__vEnInterruptVector(ACMP_enMODULE_1, ACMP_enPRI7);
     ACMP__vEnInterruptSource(ACMP_enMODULEMASK_1);
     SysTick__vDelayUs(1000.0f);
+
+
+   u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
+   if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
+   {
+       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, GPIO_enPIN_3);
+       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0u);
+   }
+   else/*Falling*/
+   {
+       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, 0U);
+       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, GPIO_enPIN_2);
+   }
     while(1u)
     {
   /*      u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;

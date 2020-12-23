@@ -26,9 +26,11 @@
 
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsBackSpace.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsDigit.h>
+#include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsNegativeSign.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsNewLine.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsNewLineReturn.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsNull.h>
+#include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsPositiveSign.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsReturn.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsScape.h>
 

@@ -51,6 +51,18 @@ typedef enum
 
 typedef enum
 {
+    CONV_enNEGATIVE_SIGN_OK = 0u,
+    CONV_enNEGATIVE_SIGN_NO = 1u,
+}CONV_nNEGATIVE_SIGN;
+
+typedef enum
+{
+    CONV_enPOSITIVE_SIGN_OK = 0u,
+    CONV_enPOSITIVE_SIGN_NO = 1u,
+}CONV_nPOSITIVE_SIGN;
+
+typedef enum
+{
     CONV_enNEWLINE_OK = 0u,
     CONV_enNEWLINE_NO = 1u,
 }CONV_nNEWLINE;

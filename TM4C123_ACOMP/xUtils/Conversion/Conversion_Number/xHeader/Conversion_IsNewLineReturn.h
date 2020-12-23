@@ -26,6 +26,6 @@
 
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 
-CONV_nNEWLINERETURN CONV__enIsNewLineReturn(char cCharacter);
+CONV_nNEWLINERETURN Conv__enIsNewLineReturn(char cCharacter);
 
 #endif /* XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER_CONVERSION_ISNEWLINERETURN_H_ */

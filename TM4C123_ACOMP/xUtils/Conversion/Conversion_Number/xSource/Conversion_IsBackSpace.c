@@ -24,7 +24,7 @@
 #include <xUtils/Conversion/xHeader/Conversion_Enum.h>
 #include <xUtils/Conversion/Conversion_Number/xHeader/Conversion_IsBackSpace.h>
 
-CONV_nBACKSPACE CONV__enIsBackSpace(char cCharacter)
+CONV_nBACKSPACE Conv__enIsBackSpace(char cCharacter)
 {
     CONV_nBACKSPACE enStatus= CONV_enBACKSPACE_NO;
     if(cCharacter == '\b')

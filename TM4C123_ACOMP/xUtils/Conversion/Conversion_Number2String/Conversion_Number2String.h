@@ -29,6 +29,11 @@
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Float2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Hexa2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Integer2String.h>
+#include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_NumberExponential2String.h>
+#include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_NumberFloat2String.h>
+#include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_NumberFormat.h>
+#include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_NumberLong2String.h>
+#include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_NumberLongLong2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Octal2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Pointer2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_UInteger2String.h>

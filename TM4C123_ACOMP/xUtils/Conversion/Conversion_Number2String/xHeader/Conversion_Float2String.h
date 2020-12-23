@@ -26,6 +26,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-uint8_t CONV__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padding0,int32_t s32Enteros,int32_t s32Decimals,char* pcConv);
+uint8_t Conv__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padding0,int32_t s32Enteros,int32_t s32Decimals,char* pcConv);
 
 #endif /* XUTILS_CONVERSION_XHEADER_CONVERSION_NUMBER2STRING_CONVERSION_FLOAT2STRING_H_ */
