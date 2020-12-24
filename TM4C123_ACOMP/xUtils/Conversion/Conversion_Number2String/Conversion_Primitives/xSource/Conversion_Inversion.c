@@ -61,7 +61,7 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
         if ((0U == (u32flags & (uint32_t)CONV_enFLAGS_LEFT)) &&
              (0U == (u32flags & (uint32_t)CONV_enFLAGS_ZEROPAD)))
         {
-            for (u32Pos = u32BufInLenght; u32Pos<=u32Width; u32Pos++) /*hace un ciclo burbuja optimizado*/
+            for (u32Pos = u32BufInLenght; u32Pos<u32Width; u32Pos++) /*hace un ciclo burbuja optimizado*/
             {
                 pvfOut(' ',pvBufferOut,u32Index,u32MaxLenght);
                 u32Index++;
@@ -71,6 +71,7 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
         pcBufferTemp +=u32BufInLenght;
         while(0U != u32BufInLenght)
         {
+            u32BufInLenght--;
             pcBufferTemp-= 1U;
             pvfOut(*pcBufferTemp,pvBufferOut,u32Index,u32MaxLenght);
             u32Index++;

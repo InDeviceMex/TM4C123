@@ -8,13 +8,18 @@
 #include <xUtils/Standard/Standard.h>
 #include "stdlib.h"
 #include "stdarg.h"
+#include "math.h"
+#include <string.h>
+
 /*MCU Drivers*/
 #include <xDriver_MCU.h>
 
 /*Utils Libraries*/
 #include <xUtils/Conversion/Conversion.h>
+#include <xApplication/Printf/Generic/xHeader/Printf.h>
 
 uint8_t NokiaBuffer[64*(48/8)] ={0u};
+char cNokiaBuffer[64*(48/8)] ={0u};
 /*Local functions*/
 void MAIN_vIrqCOMP1_INT1(void);
 int32_t main (void);
@@ -22,6 +27,7 @@ int32_t main (void);
 int32_t main(void)
 {
     volatile uint32_t u32CompState = 0u;
+    volatile uint32_t u32Lenght = 0u;
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
@@ -51,6 +57,7 @@ int32_t main(void)
     ACMP__vEnInterruptSource(ACMP_enMODULEMASK_1);
     SysTick__vDelayUs(1000.0f);
 
+    u32Lenght = sprintf__u32User(cNokiaBuffer, "%s%-d%s%f","Esta es la prueba de fuego: \n\rInteger: ", 42,"\n\rFloat: ",33.456f);
 
    u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
    if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/

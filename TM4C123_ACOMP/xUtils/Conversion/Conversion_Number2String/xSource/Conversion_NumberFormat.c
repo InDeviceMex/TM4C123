@@ -104,21 +104,36 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
                     if( (uint32_t)0U == (u32flags & (uint32_t)CONV_enFLAGS_UPPERCASE))
                     {
                         cCharTemp =  'x';
+                        pcBufferTemp = pcBufferIn;
+                        pcBufferTemp +=u32BufInLenght;
+                        *pcBufferTemp = cCharTemp;
+                        u32BufInLenght++;
                     }
                     /*( (uint32_t)CONV_enFLAGS_UPPERCASE== (u32flags & (uint32_t)CONV_enFLAGS_UPPERCASE))*/
                     else
                     {
                         cCharTemp = 'X';
+                        pcBufferTemp = pcBufferIn;
+                        pcBufferTemp +=u32BufInLenght;
+                        *pcBufferTemp = cCharTemp;
+                        u32BufInLenght++;
                     }
                 }
                 else if((uint32_t)2U == u32Base)
                 {
                     cCharTemp = 'b';
+                    pcBufferTemp = pcBufferIn;
+                    pcBufferTemp +=u32BufInLenght;
+                    *pcBufferTemp = cCharTemp;
+                    u32BufInLenght++;
                 }
-                else
-                {
-                    cCharTemp = '0';
-                }
+                else{}
+            }
+            else{}
+
+            if ((uint32_t)CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
+            {
+                cCharTemp = '0';
                 pcBufferTemp = pcBufferIn;
                 pcBufferTemp +=u32BufInLenght;
                 *pcBufferTemp = cCharTemp;
