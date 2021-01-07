@@ -16,6 +16,7 @@
 
 /*Utils Libraries*/
 #include <xUtils/Conversion/Conversion.h>
+#include <xUtils/DataStructure/DataStructure.h>
 #include <xApplication/Printf/Generic/xHeader/Printf.h>
 
 uint8_t NokiaBuffer[64*(48/8)] ={0u};
@@ -26,8 +27,11 @@ int32_t main (void);
 
 int32_t main(void)
 {
-    volatile uint32_t u32CompState = 0u;
-    volatile uint32_t u32Lenght = 0u;
+    SingleLinkList_TypeDef* psLinkList1 = (SingleLinkList_TypeDef*)0UL;
+    SingleLinkListElement_TypeDef* psNewElement = (SingleLinkListElement_TypeDef*) 0UL;
+    uint32_t u32CompState = 0u;
+    uint32_t u32Lenght = 0u;
+    uint32_t *pu32Lenght = 0u;
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
@@ -37,6 +41,26 @@ int32_t main(void)
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
     SysTick__enInitUs(1000.0f,SCB_enSHPR0);
+
+    psLinkList1 = SingleLinkList__psInit((void  (*)(void *DataContainer))0UL);
+
+/*SingleLinkList__psAddBegin(psLinkList1, (void*)&u32CompState);
+    SingleLinkList__psAddEnd(psLinkList1,(void*)&u32Lenght);
+    psNewElement = SingleLinkList__psAddBegin(psLinkList1,(void*)&NokiaBuffer);
+    SingleLinkList__psAddNext(psLinkList1, psNewElement, (void*)&NokiaBuffer);
+*/
+    SingleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState);
+    SingleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState);
+    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);
+    SingleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState);
+    SingleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState);
+    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);
+    SingleLinkList__enRemoveEnd(psLinkList1,(void**)&pu32Lenght);
+    SingleLinkList__enRemoveBegin(psLinkList1, (void**)&pu32Lenght);
+    SingleLinkList__enRemovePos(psLinkList1, 2UL,(void**)&pu32Lenght);
+    SingleLinkList__enRemovePos(psLinkList1, 1UL,(void**)&pu32Lenght);
+
+
 
     ACMP__vSetReady();
     GPIO__vSetAnalogFunction(GPIO_enC1P);
@@ -58,7 +82,6 @@ int32_t main(void)
     SysTick__vDelayUs(1000.0f);
 
     u32Lenght = sprintf__u32User(cNokiaBuffer, "%s%-d%s%f","Esta es la prueba de fuego: \n\rInteger: ", 42,"\n\rFloat: ",33.456f);
-
    u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
    if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
    {

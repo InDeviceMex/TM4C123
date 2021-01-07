@@ -33,7 +33,7 @@ CONV_nSTATUS Conv__enNumber2String_LongLong(CONV_OUT_TypeDef pvfOut, char* pcBuf
     uint8_t u8DigitTemp = 0;
     uint32_t  u32Length = 0U;
     CONV_nSTATUS enConvStatus = CONV_enSTATUS_ERROR;
-    if(((uint32_t)0U != pvfOut) && ((uint32_t)0U != pcBufferOut) )
+    if(((uint32_t)0U != (uint32_t)pvfOut) && ((uint32_t)0U != (uint32_t)pcBufferOut) )
     {
         /* no hash for 0 values*/
         if ((uint64_t)0U == u64Value) {

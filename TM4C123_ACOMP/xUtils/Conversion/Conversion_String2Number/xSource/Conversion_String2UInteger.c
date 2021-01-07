@@ -36,7 +36,7 @@ int32_t Conv__s32String2UInteger(const char** pcString,uint64_t* pu64NumUnsigned
     CONV_nDIGIT enDigit =CONV_enDIGIT_NO;
     uint8_t  u8ValueAux=0;
 
-    if(((uint32_t)0U != pcString)&& ((uint32_t)0U != pu64NumUnsigned))
+    if(((uint32_t)0U != (uint32_t)pcString)&& ((uint32_t)0U != (uint32_t)pu64NumUnsigned))
     {
         s32Length = 0;
         enDigit = Conv__enIsDigit(**pcString);

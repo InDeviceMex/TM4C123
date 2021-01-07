@@ -96,9 +96,9 @@ DMA_CONTROL_Typedef* DMA_CH__psGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_C
 {
     DMA_CONTROL_Typedef* psControl=0;
     #if defined ( __TI_ARM__ )
-    psControl = (DMA_CONTROL_Typedef*) memalign((size_t)4,(size_t)sizeof(DMA_CONTROL_Typedef)*sizeof(uint32_t));
+    psControl = (DMA_CONTROL_Typedef*) memalign((size_t)4,(size_t)sizeof(DMA_CONTROL_Typedef));
     #elif defined ( __GNUC__ )
-    psControl = (DMA_CONTROL_Typedef*) malloc(sizeof(DMA_CONTROL_Typedef)*sizeof(uint32_t));
+    psControl = (DMA_CONTROL_Typedef*) malloc(sizeof(DMA_CONTROL_Typedef));
     #endif
     DMA_CH__enGetControl(enDMAChannel, enChannelStructure, psControl);
     return psControl;

@@ -67,7 +67,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
 
     size_t szStartIndex = 0U;
 
-    if(((uint32_t)0U != pvfOut) && ((uint32_t)0U != pcBufferOut)  && ((uint32_t)0U != pu32BufOutLenght))
+    if(((uint32_t)0U != (uint32_t)pvfOut) && ((uint32_t)0U != (uint32_t)pcBufferOut)  && ((uint32_t)0U != (uint32_t)pu32BufOutLenght))
     {
         /* check for NaN and special dValues*/
         if ((dValue > DBL_MAX) || (dValue < -DBL_MAX))
@@ -97,7 +97,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
             u64Temp = (uint64_t) uFloatConversion.UNSIGNED >> (uint64_t)52ULL;
             u64Temp &= (uint64_t) 0x07FFULL;
             u64TempLong =  u64Temp;
-            s64Exponential2 = u64TempLong;
+            s64Exponential2 = (int64_t)u64TempLong;
             s64Exponential2 -= 1023;           /* effectively log2*/
 
             u64Temp = uFloatConversion.UNSIGNED;

@@ -42,7 +42,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
   uint8_t  u8ValueArgument = 0U;
   int8_t  s8ValueArgument = 0;
   char  cValueArgument = '\0';
-  if ((uint32_t) 0U == pcBuffer) {
+  if ((uint32_t) 0U == (uint32_t)pcBuffer) {
     /*use null output function*/
     pvfOut = &Conv__vOutNull;
   }

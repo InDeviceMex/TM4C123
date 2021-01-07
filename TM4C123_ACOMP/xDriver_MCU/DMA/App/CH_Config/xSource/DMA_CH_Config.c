@@ -55,9 +55,9 @@ DMA_CONFIG_Typedef* DMA_CH__psGetConfig(DMA_nCH_MODULE enDMAChannel)
 {
     DMA_CONFIG_Typedef* psConfig=0;
     #if defined ( __TI_ARM__ )
-    psConfig = (DMA_CONFIG_Typedef*) memalign((size_t)4,(size_t)sizeof(DMA_CONFIG_Typedef)*sizeof(uint32_t));
+    psConfig = (DMA_CONFIG_Typedef*) memalign((size_t)4,(size_t)sizeof(DMA_CONFIG_Typedef));
     #elif defined ( __GNUC__ )
-    psConfig = (DMA_CONFIG_Typedef*) malloc(sizeof(DMA_CONFIG_Typedef)*sizeof(uint32_t));
+    psConfig = (DMA_CONFIG_Typedef*) malloc(sizeof(DMA_CONFIG_Typedef));
     #endif
     if(0!= psConfig)
     {

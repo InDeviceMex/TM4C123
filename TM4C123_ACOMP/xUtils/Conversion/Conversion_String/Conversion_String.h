@@ -26,6 +26,9 @@
 
 
 #include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringLength.h>
+#include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringCopy.h>
+#include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringConcat.h>
+#include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringCompare.h>
 
 
 
