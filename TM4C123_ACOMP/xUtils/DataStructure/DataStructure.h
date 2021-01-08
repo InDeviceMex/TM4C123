@@ -25,6 +25,7 @@
 #define XUTILS_DATASTRUCTURE_DATASTRUCTURE_H_
 
 #include <xUtils/DataStructure/SingleLinkList/SingleLinkList.h>
+#include <xUtils/DataStructure/DoubleLinkList/DoubleLinkList.h>
 
 
 #endif /* XUTILS_DATASTRUCTURE_DATASTRUCTURE_H_ */

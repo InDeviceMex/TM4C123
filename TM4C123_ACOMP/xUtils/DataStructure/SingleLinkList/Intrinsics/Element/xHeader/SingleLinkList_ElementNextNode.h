@@ -31,7 +31,4 @@ SingleLinkListElement_TypeDef* SingleLinkList__psGetElementNextNode(const Single
 void SingleLinkList__vSetElementNextNode( SingleLinkListElement_TypeDef* psElement,  SingleLinkListElement_TypeDef* psNextElement);
 
 
-
-
-
 #endif /* XUTILS_DATASTRUCTURE_SINGLELINKLIST_INTRINSICS_ELEMENT_XHEADER_SINGLELINKLIST_ELEMENTNEXTNODE_H_ */

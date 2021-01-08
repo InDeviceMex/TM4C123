@@ -29,9 +29,11 @@ int32_t main(void)
 {
     SingleLinkList_TypeDef* psLinkList1 = (SingleLinkList_TypeDef*)0UL;
     SingleLinkListElement_TypeDef* psNewElement = (SingleLinkListElement_TypeDef*) 0UL;
-    uint32_t u32CompState = 0u;
+    uint32_t u32CompState1= 0UL ;
+    uint32_t u32CompState[10] = {0u};
     uint32_t u32Lenght = 0u;
-    uint32_t *pu32Lenght = 0u;
+    uint32_t *pu32Lenght = &u32CompState[8];
+    uint32_t **ppu32Lenght = &pu32Lenght ;
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
@@ -49,14 +51,22 @@ int32_t main(void)
     psNewElement = SingleLinkList__psAddBegin(psLinkList1,(void*)&NokiaBuffer);
     SingleLinkList__psAddNext(psLinkList1, psNewElement, (void*)&NokiaBuffer);
 */
-    SingleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState); /*28*/
-    SingleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState);/*38*/
-    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);/*48*/
-    SingleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState);/*58*/
-    SingleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState);/*68*/
-    SingleLinkList__psAddPos(psLinkList1,5UL,  (void*)&u32CompState);/*78*/
-    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);/*88*/
-    SingleLinkList__psAddPos(psLinkList1,6UL,  (void*)&u32CompState);/*98*/
+
+    for (u32Lenght =0; u32Lenght<10; u32Lenght++)
+    {
+        u32CompState[u32Lenght] = u32Lenght;
+    }
+    SingleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState[0]); /*28*/
+    SingleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState[1]);/*38*/
+    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState[2]);/*48*/
+    SingleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState[3]);/*58*/
+    SingleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState[4]);/*68*/
+    SingleLinkList__psAddPos(psLinkList1,5UL,  (void*)&u32CompState[5]);/*78*/
+    psNewElement = SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState[6]);/*88*/
+    SingleLinkList__psAddPos(psLinkList1,6UL,  (void*)&u32CompState[7]);/*98*/
+
+    SingleLinkList__enRemoveNext(psLinkList1,psNewElement,  (void**)ppu32Lenght);
+    SingleLinkList__enRemove(psLinkList1,psNewElement,  (void**)ppu32Lenght);
 
     SingleLinkList__enReverse(psLinkList1);
 
@@ -81,8 +91,8 @@ int32_t main(void)
     SysTick__vDelayUs(1000.0f);
 
     u32Lenght = sprintf__u32User(cNokiaBuffer, "%s%-d%s%f","Esta es la prueba de fuego: \n\rInteger: ", 42,"\n\rFloat: ",33.456f);
-   u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
-   if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
+    u32CompState1= ACMP_BITBANDING_ACSTAT1_OVAL;
+   if(u32CompState1 == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
    {
        GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, GPIO_enPIN_3);
        GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0u);
