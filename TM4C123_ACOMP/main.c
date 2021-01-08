@@ -49,17 +49,16 @@ int32_t main(void)
     psNewElement = SingleLinkList__psAddBegin(psLinkList1,(void*)&NokiaBuffer);
     SingleLinkList__psAddNext(psLinkList1, psNewElement, (void*)&NokiaBuffer);
 */
-    SingleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState);
-    SingleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState);
-    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);
-    SingleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState);
-    SingleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState);
-    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);
-    SingleLinkList__enRemoveEnd(psLinkList1,(void**)&pu32Lenght);
-    SingleLinkList__enRemoveBegin(psLinkList1, (void**)&pu32Lenght);
-    SingleLinkList__enRemovePos(psLinkList1, 2UL,(void**)&pu32Lenght);
-    SingleLinkList__enRemovePos(psLinkList1, 1UL,(void**)&pu32Lenght);
+    SingleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState); /*28*/
+    SingleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState);/*38*/
+    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);/*48*/
+    SingleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState);/*58*/
+    SingleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState);/*68*/
+    SingleLinkList__psAddPos(psLinkList1,5UL,  (void*)&u32CompState);/*78*/
+    SingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState);/*88*/
+    SingleLinkList__psAddPos(psLinkList1,6UL,  (void*)&u32CompState);/*98*/
 
+    SingleLinkList__enReverse(psLinkList1);
 
 
     ACMP__vSetReady();

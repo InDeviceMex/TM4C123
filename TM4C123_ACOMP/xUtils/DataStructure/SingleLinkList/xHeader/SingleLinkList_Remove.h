@@ -27,6 +27,7 @@
 #include <xUtils/DataStructure/SingleLinkList/Intrinsics/xHeader/SingleLinkList_Struct.h>
 
  SingleLinkList_nSTATUS SingleLinkList__enRemoveNext(SingleLinkList_TypeDef* psList,SingleLinkListElement_TypeDef* psElement, void** pvData);
+ SingleLinkList_nSTATUS SingleLinkList__enRemove(SingleLinkList_TypeDef* psList,SingleLinkListElement_TypeDef* psElement, void** pvData);
  SingleLinkList_nSTATUS SingleLinkList__enRemoveBegin(SingleLinkList_TypeDef* psList, void** pvData);
  SingleLinkList_nSTATUS SingleLinkList__enRemoveEnd(SingleLinkList_TypeDef* psList, void** pvData);
  SingleLinkList_nSTATUS  SingleLinkList__enRemovePos(SingleLinkList_TypeDef* psList,uint32_t u32Position, void** pvData);

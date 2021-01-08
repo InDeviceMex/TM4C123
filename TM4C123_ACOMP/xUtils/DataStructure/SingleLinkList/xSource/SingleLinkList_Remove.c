@@ -23,7 +23,6 @@
  */
 
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Remove.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Init.h>
 
 #include <xUtils/DataStructure/SingleLinkList/Intrinsics/List/SingleLinkList_List.h>
 #include <xUtils/DataStructure/SingleLinkList/Intrinsics/Element/SingleLinkList_Element.h>
@@ -73,8 +72,9 @@
 
                      psElementNextNextNode = SingleLinkList__psGetElementNextNode(psElementNextNode);
                      SingleLinkList__vSetElementNextNode(psElement,psElementNextNextNode);
-                     psElementNextNode = SingleLinkList__psGetElementNextNode(psElement);
 
+
+                     psElementNextNode = SingleLinkList__psGetElementNextNode(psElement);
                      if( (uint32_t)0UL == (uint32_t)psElementNextNode)
                      {
                          SingleLinkList__vSetTail(psList,(SingleLinkListElement_TypeDef*)psElement);
@@ -91,6 +91,69 @@
      return enStatus;
  }
 
+ SingleLinkList_nSTATUS SingleLinkList__enRemove(SingleLinkList_TypeDef* psList,SingleLinkListElement_TypeDef* psElement, void** pvData)
+ {
+     SingleLinkList_nSTATUS enStatus = SingleLinkList_enSTATUS_ERROR;
+     SingleLinkListElement_TypeDef* psOldElement = (SingleLinkListElement_TypeDef*) 0UL ;
+     SingleLinkListElement_TypeDef* psHeadNextNode= (SingleLinkListElement_TypeDef*) 0UL ;
+     SingleLinkListElement_TypeDef* psHeadData = (SingleLinkListElement_TypeDef*) 0UL ;
+     SingleLinkListElement_TypeDef* psElementNextNode= (SingleLinkListElement_TypeDef*) 0UL ;
+     SingleLinkListElement_TypeDef* psElementNextNextNode= (SingleLinkListElement_TypeDef*) 0UL ;
+     void* psElementNextNodeData= (void*) 0UL ;
+     void* psElementNodeData= (void*) 0UL ;
+     uint32_t u32SizeReg = 0UL;
+
+     if( ((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     {
+         u32SizeReg = SingleLinkList__u32GetSize(psList);
+         if(0UL != u32SizeReg)
+         {
+             if((uint32_t)0UL == (uint32_t)psElement)
+             {
+                 enStatus = SingleLinkList_enSTATUS_OK;
+                 psHeadData = SingleLinkList__psGetHead(psList);
+                 *pvData = SingleLinkList__pvGetElementData(psHeadData);
+                 psOldElement = psHeadData;
+                 psHeadNextNode = SingleLinkList__psGetElementNextNode(psHeadData);
+                 SingleLinkList__vSetHead(psList, psHeadNextNode);
+                 if(1UL == u32SizeReg)
+                 {
+                     SingleLinkList__vSetTail(psList,(SingleLinkListElement_TypeDef*)0UL);
+                 }
+             }
+             else
+             {
+                 if((uint32_t)0UL != (uint32_t)psElement->psNextNode)
+                 {
+                     enStatus = SingleLinkList_enSTATUS_OK;
+
+                     psElementNextNode = SingleLinkList__psGetElementNextNode(psElement);
+                     psElementNextNodeData = SingleLinkList__pvGetElementData(psElementNextNode);
+                     psElementNodeData = SingleLinkList__pvGetElementData(psElement);
+                     *pvData = psElementNodeData;
+                     psOldElement = psElementNextNode;
+
+                     psElementNextNextNode = SingleLinkList__psGetElementNextNode(psElementNextNode);
+                     SingleLinkList__vSetElementNextNode(psElement,psElementNextNextNode);
+                     SingleLinkList__vSetElementData(psElement,psElementNextNodeData);
+
+
+                     psElementNextNode = SingleLinkList__psGetElementNextNode(psElement);
+                     if( (uint32_t)0UL == (uint32_t)psElementNextNode)
+                     {
+                         SingleLinkList__vSetTail(psList,(SingleLinkListElement_TypeDef*)psElement);
+                     }
+                 }
+             }
+
+             free(psOldElement);
+
+             u32SizeReg--;
+             SingleLinkList__vSetSize(psList,u32SizeReg);
+         }
+     }
+     return enStatus;
+ }
 
  SingleLinkList_nSTATUS  SingleLinkList__enRemoveEnd(SingleLinkList_TypeDef* psList, void** pvData)
  {

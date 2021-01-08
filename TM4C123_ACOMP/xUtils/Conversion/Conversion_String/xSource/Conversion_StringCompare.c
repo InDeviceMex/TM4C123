@@ -22,7 +22,7 @@
  * 5 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/Standard/Standard.h>
-#include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringCopy.h>
+#include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringCompare.h>
 
 int32_t CONV_s32StringCompare(const char*  pcString1, const char* pcString2, uint32_t u32MaxSize)
 {
@@ -31,12 +31,12 @@ int32_t CONV_s32StringCompare(const char*  pcString1, const char* pcString2, uin
     {
         while(((char)0!=(char) *pcString1) && ((char)0!=(char) *pcString2) && ((uint32_t)0!=(uint32_t)u32MaxSize))
         {
-            if ( (char)*pcString1 > (char)*pcString2)
+            if ( (uint8_t)*pcString1 > (uint8_t)*pcString2)
             {
                 s32Result = 1;
                 break;
             }
-            else if ( (char)*pcString1 < (char)*pcString2)
+            else if ( (uint8_t)*pcString1 < (uint8_t)*pcString2)
             {
                 s32Result = -1;
                 break;

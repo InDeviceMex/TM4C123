@@ -27,6 +27,8 @@
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Add.h>
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Destroy.h>
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Init.h>
+#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Node.h>
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Remove.h>
+#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Reverse.h>
 
 #endif /* XUTILS_DATASTRUCTURE_SINGLELINKLIST_SINGLELINKLIST_H_ */
