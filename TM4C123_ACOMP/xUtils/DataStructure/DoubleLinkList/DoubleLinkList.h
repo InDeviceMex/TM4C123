@@ -25,7 +25,12 @@
 #define XUTILS_DATASTRUCTURE_DOUBLELINKLIST_DOUBLELINKLIST_H_
 
 
-
-
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Add.h>
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Data.h>
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Destroy.h>
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Init.h>
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Node.h>
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Remove.h>
+#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Reverse.h>
 
 #endif /* XUTILS_DATASTRUCTURE_DOUBLELINKLIST_DOUBLELINKLIST_H_ */

@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/SingleLinkList/Intrinsics/xHeader/SingleLinkList_Struct.h>
 
- void*  SingleLinkList__pvGetNodeDataPos(SingleLinkList_TypeDef* psList, uint32_t u32Position);
- void*  SingleLinkList__pvGetNodeDataEnd(SingleLinkList_TypeDef* psList);
- void*  SingleLinkList__pvGetNodeDataBegin(SingleLinkList_TypeDef* psList);
+ void*  SingleLinkList__pvGetNodeDataPos(const SingleLinkList_TypeDef* psList, uint32_t u32Position);
+ void*  SingleLinkList__pvGetNodeDataEnd(const SingleLinkList_TypeDef* psList);
+ void*  SingleLinkList__pvGetNodeDataBegin(const SingleLinkList_TypeDef* psList);
 
 
 

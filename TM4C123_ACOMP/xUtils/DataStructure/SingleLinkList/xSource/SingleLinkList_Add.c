@@ -81,7 +81,7 @@
  {
      SingleLinkListElement_TypeDef* psNewElement = (SingleLinkListElement_TypeDef*) 0UL ;
      SingleLinkListElement_TypeDef* psEndElement =(SingleLinkListElement_TypeDef*) 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          psEndElement =  SingleLinkList__psGetTail(psList);
          psNewElement = SingleLinkList__psAddNext(psList, psEndElement, pvData);
@@ -92,7 +92,7 @@
  SingleLinkListElement_TypeDef*  SingleLinkList__psAddBegin(SingleLinkList_TypeDef* psList, void* pvData)
  {
      SingleLinkListElement_TypeDef* psNewElement = (SingleLinkListElement_TypeDef*) 0UL ;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          psNewElement = SingleLinkList__psAddNext(psList, (SingleLinkListElement_TypeDef*) 0UL, pvData);
      }
@@ -104,7 +104,7 @@
      SingleLinkListElement_TypeDef* psNewElement = (SingleLinkListElement_TypeDef*) 0UL ;
      SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          u32SizeList = SingleLinkList__u32GetSize(psList);
          if(u32Position <= u32SizeList)

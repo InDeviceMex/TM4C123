@@ -160,7 +160,7 @@
      SingleLinkList_nSTATUS enStatus = SingleLinkList_enSTATUS_ERROR;
      SingleLinkListElement_TypeDef* psEndElement =(SingleLinkListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          u32SizeList = SingleLinkList__u32GetSize(psList);
          if(1UL <  u32SizeList)
@@ -182,7 +182,7 @@
  SingleLinkList_nSTATUS  SingleLinkList__enRemoveBegin(SingleLinkList_TypeDef* psList, void** pvData)
  {
      SingleLinkList_nSTATUS enStatus = SingleLinkList_enSTATUS_ERROR;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          enStatus = SingleLinkList__enRemoveNext(psList, (SingleLinkListElement_TypeDef*) 0UL, pvData);
      }
@@ -194,10 +194,10 @@
      SingleLinkList_nSTATUS enStatus = SingleLinkList_enSTATUS_ERROR;
      SingleLinkListElement_TypeDef* psElement =(SingleLinkListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          u32SizeList = SingleLinkList__u32GetSize(psList);
-         if(u32Position <= u32SizeList)
+         if(u32Position < u32SizeList)
          {
              if(0UL !=  u32Position)
              {
@@ -214,3 +214,4 @@
      }
      return enStatus;
  }
+

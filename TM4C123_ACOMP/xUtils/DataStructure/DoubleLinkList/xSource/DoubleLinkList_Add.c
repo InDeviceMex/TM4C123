@@ -32,7 +32,6 @@
  DoubleLinkListElement_TypeDef* DoubleLinkList__psAddNext(DoubleLinkList_TypeDef* psList, DoubleLinkListElement_TypeDef* psElement, void* pvData)
 {
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
-     DoubleLinkListElement_TypeDef* psListHeadNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psElementNextNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
      if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
@@ -88,7 +87,6 @@
  DoubleLinkListElement_TypeDef* DoubleLinkList__psAddPrevious(DoubleLinkList_TypeDef* psList, DoubleLinkListElement_TypeDef* psElement, void* pvData)
 {
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
-     DoubleLinkListElement_TypeDef* psListHeadNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psElementPreviousNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
      if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
@@ -145,7 +143,7 @@
  {
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psEndElement =(DoubleLinkListElement_TypeDef*) 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          psEndElement =  DoubleLinkList__psGetTail(psList);
          psNewElement = DoubleLinkList__psAddNext(psList, psEndElement, pvData);
@@ -157,7 +155,7 @@
  {
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psBeginElement =(DoubleLinkListElement_TypeDef*) 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          psBeginElement =  DoubleLinkList__psGetHead(psList);
          psNewElement = DoubleLinkList__psAddPrevious(psList, psBeginElement, pvData);
@@ -174,18 +172,18 @@
      uint32_t u32SizeBackward= 0UL;
      uint32_t u32SizeOptimum= 0UL;
      uint32_t u32Direction= 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
      {
          u32SizeList = DoubleLinkList__u32GetSize(psList);
          if(u32Position <= u32SizeList)
          {
              if(0UL ==u32Position) /*Add Head*/
              {
-                 DoubleLinkList__psAddBegin(psList,pvData);
+                 psNewElement = DoubleLinkList__psAddBegin(psList,pvData);
              }
              else if(u32Position == u32SizeList) /*Add Tail*/
              {
-                 DoubleLinkList__psAddEnd(psList,pvData);
+                 psNewElement = DoubleLinkList__psAddEnd(psList,pvData);
              }
              else
              {

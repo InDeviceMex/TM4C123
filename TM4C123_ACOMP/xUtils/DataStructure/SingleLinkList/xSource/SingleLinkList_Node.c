@@ -28,7 +28,7 @@
 
 
 
- SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodePos(SingleLinkList_TypeDef* psList, uint32_t u32Position)
+ SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodePos(const SingleLinkList_TypeDef* psList, uint32_t u32Position)
  {
      SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
@@ -52,7 +52,7 @@
  }
 
 
- SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodeEnd(SingleLinkList_TypeDef* psList)
+ SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodeEnd(const SingleLinkList_TypeDef* psList)
  {
      SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeList = 0UL;
@@ -68,7 +68,7 @@
      return psElement;
  }
 
- SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodeBegin(SingleLinkList_TypeDef* psList)
+ SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodeBegin(const SingleLinkList_TypeDef* psList)
  {
      SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeList = 0UL;
