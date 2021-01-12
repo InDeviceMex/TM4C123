@@ -146,10 +146,16 @@
                  }
              }
 
-             free(psOldElement);
+             if( SingleLinkList_enSTATUS_OK  == enStatus)
+             {
+                 free(psOldElement);
 
-             u32SizeReg--;
-             SingleLinkList__vSetSize(psList,u32SizeReg);
+                 psOldElement->psNextNode = (SingleLinkListElement_TypeDef *) 0UL;
+                 psOldElement->pvDataContainer = (void *) 0UL;
+
+                 u32SizeReg--;
+                 SingleLinkList__vSetSize(psList,u32SizeReg);
+             }
          }
      }
      return enStatus;

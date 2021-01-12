@@ -27,11 +27,12 @@ int32_t main (void);
 
 int32_t main(void)
 {
-    DoubleLinkList_TypeDef* psLinkList1 = (DoubleLinkList_TypeDef*)0UL;
-    DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL;
+    CircularSingleLinkList_TypeDef* psLinkList1 = (CircularSingleLinkList_TypeDef*)0UL;
+    CircularSingleLinkListElement_TypeDef* psNewElement = (CircularSingleLinkListElement_TypeDef*) 0UL;
     uint32_t u32CompState1= 0UL ;
     uint32_t u32CompState[10] = {0u};
     uint32_t u32Lenght = 0u;
+    uint32_t u32Lenght1 = 0u;
     uint32_t *pu32Lenght = &u32CompState[8];
     uint32_t **ppu32Lenght = &pu32Lenght ;
     MPU__vInit();
@@ -44,31 +45,63 @@ int32_t main(void)
     EEPROM__enInit();
     SysTick__enInitUs(1000.0f,SCB_enSHPR0);
 
-    psLinkList1 = DoubleLinkList__psInit((void  (*)(void *DataContainer))0UL);
+    psLinkList1 = CircularSingleLinkList__psInit((void  (*)(void *DataContainer))0UL);
 
-/*DoubleLinkList__psAddBegin(psLinkList1, (void*)&u32CompState);
-    DoubleLinkList__psAddEnd(psLinkList1,(void*)&u32Lenght);
-    psNewElement = DoubleLinkList__psAddBegin(psLinkList1,(void*)&NokiaBuffer);
-    DoubleLinkList__psAddNext(psLinkList1, psNewElement, (void*)&NokiaBuffer);
+/*CircularSingleLinkList__psAddBegin(psLinkList1, (void*)&u32CompState);
+    CircularSingleLinkList__psAddEnd(psLinkList1,(void*)&u32Lenght);
+    psNewElement = CircularSingleLinkList__psAddBegin(psLinkList1,(void*)&NokiaBuffer);
+    CircularSingleLinkList__psAddNext(psLinkList1, psNewElement, (void*)&NokiaBuffer);
 */
 
     for (u32Lenght =0UL; u32Lenght<10UL; u32Lenght++)
     {
         u32CompState[u32Lenght] = u32Lenght;
     }
-    psNewElement = DoubleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState[0]); /*28*/
-    DoubleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState[1]);/*38*/
-    DoubleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState[2]);/*48*/
-    DoubleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState[3]);/*58*/
-    DoubleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState[4]);/*68*/
-    DoubleLinkList__psAddPos(psLinkList1,5UL,  (void*)&u32CompState[5]);/*78*/
-   DoubleLinkList__psAddPos(psLinkList1,6UL,  (void*)&u32CompState[6]);/*88*/
-    DoubleLinkList__psAddPos(psLinkList1,7UL,  (void*)&u32CompState[7]);/*98*/
+
+
+    psNewElement = CircularSingleLinkList__psAddNext(psLinkList1,0UL, (void*)&u32CompState[0]);
+    psNewElement = CircularSingleLinkList__psAddNext(psLinkList1,psNewElement, (void*)&u32CompState[0]);
+    psNewElement = CircularSingleLinkList__psAddNext(psLinkList1,psNewElement, (void*)&u32CompState[0]);
+    psNewElement = CircularSingleLinkList__psAddNext(psLinkList1,psNewElement, (void*)&u32CompState[0]);
+    CircularSingleLinkList__psAddNext(psLinkList1,psNewElement, (void*)&u32CompState[0]);
 
 
 
-    DoubleLinkList__enReverse(psLinkList1);
+    psNewElement =CircularSingleLinkList__psGetHead(psLinkList1);
+    u32Lenght =0u;
+    u32Lenght1 = sprintf__u32User(cNokiaBuffer,"Node (%d): %p \n\r",u32Lenght,psNewElement);
+    for (u32Lenght =1UL; u32Lenght<=CircularSingleLinkList__u32GetSize(psLinkList1); u32Lenght++)
+    {
+        psNewElement = CircularSingleLinkList__psGetElementNextNode(psNewElement);
+        u32Lenght1 += sprintf__u32User(&cNokiaBuffer[u32Lenght1],"Node (%d): %p \n\r",u32Lenght,psNewElement);
+    }
 
+    CircularSingleLinkList__enRemove(psLinkList1, 0UL, (void**)ppu32Lenght); /*Head*/
+    u32Lenght =0u;
+    psNewElement =CircularSingleLinkList__psGetHead(psLinkList1);
+    u32Lenght1 = sprintf__u32User(cNokiaBuffer,"Node (%d): %p \n\r",u32Lenght,psNewElement);
+    for (u32Lenght =1UL; u32Lenght<=CircularSingleLinkList__u32GetSize(psLinkList1); u32Lenght++)
+    {
+        psNewElement = CircularSingleLinkList__psGetElementNextNode(psNewElement);
+        u32Lenght1 +=sprintf__u32User(&cNokiaBuffer[u32Lenght1],"Node (%d): %p \n\r",u32Lenght,psNewElement);
+    }
+
+
+
+/*
+    psNewElement = CircularSingleLinkList__psAddPos(psLinkList1,0UL, (void*)&u32CompState[0]);
+    CircularSingleLinkList__psAddPos(psLinkList1,1UL, (void*)&u32CompState[1])
+    CircularSingleLinkList__psAddPos(psLinkList1,2UL,  (void*)&u32CompState[2]);
+    CircularSingleLinkList__psAddPos(psLinkList1,3UL,  (void*)&u32CompState[3]);
+    CircularSingleLinkList__psAddPos(psLinkList1,4UL,  (void*)&u32CompState[4]);
+    CircularSingleLinkList__psAddPos(psLinkList1,5UL,  (void*)&u32CompState[5]);
+   CircularSingleLinkList__psAddPos(psLinkList1,6UL,  (void*)&u32CompState[6]);
+    CircularSingleLinkList__psAddPos(psLinkList1,7UL,  (void*)&u32CompState[7]);
+
+
+
+    CircularSingleLinkList__enReverse(psLinkList1);
+*/
 
     ACMP__vSetReady();
     GPIO__vSetAnalogFunction(GPIO_enC1P);

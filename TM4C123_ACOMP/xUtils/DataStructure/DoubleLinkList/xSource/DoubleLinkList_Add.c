@@ -76,9 +76,9 @@
                     DoubleLinkList__vSetElementNextNode(psElement, psNewElement);
                 }
 
-                }
                 u32SizeReg++;
                 DoubleLinkList__vSetSize(psList,u32SizeReg);
+            }
         }
     }
     return psNewElement;

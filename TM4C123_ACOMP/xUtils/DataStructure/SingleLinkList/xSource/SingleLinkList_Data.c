@@ -47,14 +47,14 @@
 
  void* SingleLinkList__pvGetNodeDataEnd(const SingleLinkList_TypeDef* psList)
  {
+     SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     uint32_t u32SizeList = 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         u32SizeList = SingleLinkList__u32GetSize(psList);
-         if(u32SizeList != 0UL)
+         psElement = SingleLinkList__psGetNodeEnd(psList);
+         if(psElement != 0UL)
          {
-             pvElementData = SingleLinkList__pvGetNodeDataPos(psList, u32SizeList - 1UL);
+             pvElementData = SingleLinkList__pvGetElementData(psElement);
          }
      }
      return pvElementData;
@@ -62,14 +62,14 @@
 
  void* SingleLinkList__pvGetNodeDataBegin(const SingleLinkList_TypeDef* psList)
  {
+     SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     uint32_t u32SizeList = 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         u32SizeList = SingleLinkList__u32GetSize(psList);
-         if(u32SizeList != 0UL)
+         psElement = SingleLinkList__psGetNodeBegin(psList);
+         if(psElement != 0UL)
          {
-             pvElementData = SingleLinkList__pvGetNodeDataPos(psList, 0UL);
+             pvElementData = SingleLinkList__pvGetElementData(psElement);
          }
      }
      return pvElementData;

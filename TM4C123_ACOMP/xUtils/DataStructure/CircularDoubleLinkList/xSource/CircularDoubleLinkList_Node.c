@@ -1,6 +1,6 @@
 /**
  *
- * @file DoubleLinkList_Node.c
+ * @file CircularDoubleLinkList_Node.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 8 ene. 2021 @endverbatim
+ * @verbatim 11 ene. 2021 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,18 +19,18 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 8 ene. 2021     vyldram    1.0         initial Version@endverbatim
+ * 11 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Node.h>
+#include <xUtils/DataStructure/CircularDoubleLinkList/xHeader/CircularDoubleLinkList_Node.h>
 
-#include <xUtils/DataStructure/DoubleLinkList/Intrinsics/List/DoubleLinkList_List.h>
-#include <xUtils/DataStructure/DoubleLinkList/Intrinsics/Element/DoubleLinkList_Element.h>
+#include <xUtils/DataStructure/CircularDoubleLinkList/Intrinsics/List/CircularDoubleLinkList_List.h>
+#include <xUtils/DataStructure/CircularDoubleLinkList/Intrinsics/Element/CircularDoubleLinkList_Element.h>
 
 
 
- DoubleLinkListElement_TypeDef*  DoubleLinkList__psGetNodePos(const DoubleLinkList_TypeDef* psList, uint32_t u32Position)
+ CircularDoubleLinkListElement_TypeDef*  CircularDoubleLinkList__psGetNodePos(const CircularDoubleLinkList_TypeDef* psList, uint32_t u32Position)
  {
-     DoubleLinkListElement_TypeDef* psElement = (DoubleLinkListElement_TypeDef*) 0UL;
+     CircularDoubleLinkListElement_TypeDef* psElement = (CircularDoubleLinkListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
      uint32_t u32SizeForward = 0UL;
      uint32_t u32SizeBackward= 0UL;
@@ -38,16 +38,16 @@
      uint32_t u32Direction= 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         u32SizeList = DoubleLinkList__u32GetSize(psList);
+         u32SizeList = CircularDoubleLinkList__u32GetSize(psList);
           if(u32Position < u32SizeList)
           {
               if(0UL ==u32Position)
               {
-                  psElement = DoubleLinkList__psGetHead(psList);
+                  psElement = CircularDoubleLinkList__psGetHead(psList);
               }
               else if(u32Position == (u32SizeList - 1UL))
               {
-                  psElement = DoubleLinkList__psGetTail(psList);
+                  psElement = CircularDoubleLinkList__psGetTail(psList);
               }
               else
               {
@@ -68,19 +68,19 @@
 
                   if( u32Direction == 0UL) /*Forward*/
                   {
-                      psElement = DoubleLinkList__psGetHead(psList);
+                      psElement = CircularDoubleLinkList__psGetHead(psList);
                       while(0UL != u32SizeOptimum)
                       {
-                          psElement = DoubleLinkList__psGetElementNextNode(psElement);
+                          psElement = CircularDoubleLinkList__psGetElementNextNode(psElement);
                           u32SizeOptimum--;
                       }
                   }
                   else /*Backward*/
                   {
-                      psElement = DoubleLinkList__psGetTail(psList);
+                      psElement = CircularDoubleLinkList__psGetTail(psList);
                       while(0UL != u32SizeOptimum)
                       {
-                          psElement = DoubleLinkList__psGetElementPreviousNode(psElement);
+                          psElement = CircularDoubleLinkList__psGetElementPreviousNode(psElement);
                           u32SizeOptimum--;
                       }
                   }
@@ -91,22 +91,22 @@
  }
 
 
- DoubleLinkListElement_TypeDef*  DoubleLinkList__psGetNodeEnd(const DoubleLinkList_TypeDef* psList)
+ CircularDoubleLinkListElement_TypeDef*  CircularDoubleLinkList__psGetNodeEnd(const CircularDoubleLinkList_TypeDef* psList)
  {
-     DoubleLinkListElement_TypeDef* psElement = (DoubleLinkListElement_TypeDef*) 0UL ;
+     CircularDoubleLinkListElement_TypeDef* psElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         psElement = DoubleLinkList__psGetTail(psList);
+         psElement = CircularDoubleLinkList__psGetTail(psList);
      }
      return psElement;
  }
 
- DoubleLinkListElement_TypeDef*  DoubleLinkList__psGetNodeBegin(const DoubleLinkList_TypeDef* psList)
+ CircularDoubleLinkListElement_TypeDef*  CircularDoubleLinkList__psGetNodeBegin(const CircularDoubleLinkList_TypeDef* psList)
  {
-     DoubleLinkListElement_TypeDef* psElement = (DoubleLinkListElement_TypeDef*) 0UL ;
+     CircularDoubleLinkListElement_TypeDef* psElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         psElement = DoubleLinkList__psGetHead(psList);
+         psElement = CircularDoubleLinkList__psGetHead(psList);
      }
      return psElement;
  }

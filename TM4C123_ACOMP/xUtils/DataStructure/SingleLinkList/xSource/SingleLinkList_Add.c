@@ -109,7 +109,15 @@
          u32SizeList = SingleLinkList__u32GetSize(psList);
          if(u32Position <= u32SizeList)
          {
-             if(0UL != u32Position)
+             if(0UL == u32Position)
+             {
+                 psElement = (SingleLinkListElement_TypeDef*) 0UL;
+             }
+             else if((u32SizeList) == u32Position)
+             {
+                 psElement = SingleLinkList__psGetTail(psList);
+             }
+             else
              {
                  psElement = SingleLinkList__psGetHead(psList);
                  u32Position--;

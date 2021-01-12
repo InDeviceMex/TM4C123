@@ -37,9 +37,17 @@
          u32SizeList = SingleLinkList__u32GetSize(psList);
          if(u32Position < u32SizeList)
          {
-             psElement = SingleLinkList__psGetHead(psList);
-             if(0UL != u32Position)
+             if(0UL == u32Position)
              {
+                 psElement = SingleLinkList__psGetHead(psList);
+             }
+             else if((u32SizeList -1UL) == u32Position)
+             {
+                 psElement = SingleLinkList__psGetTail(psList);
+             }
+             else
+             {
+                 psElement = SingleLinkList__psGetHead(psList);
                  while(0UL != u32Position)
                  {
                      psElement = SingleLinkList__psGetElementNextNode(psElement);
@@ -58,12 +66,7 @@
      uint32_t u32SizeList = 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         u32SizeList = SingleLinkList__u32GetSize(psList);
-         if(0UL != u32SizeList)
-         {
-             u32SizeList --;
-             psElement = SingleLinkList__psGetNodePos(psList, u32SizeList);
-         }
+         psElement = SingleLinkList__psGetTail(psList);
      }
      return psElement;
  }
@@ -74,11 +77,7 @@
      uint32_t u32SizeList = 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
-         u32SizeList = SingleLinkList__u32GetSize(psList);
-         if(0UL != u32SizeList)
-         {
-             psElement = SingleLinkList__psGetNodePos(psList, 0UL );
-         }
+         psElement = SingleLinkList__psGetHead(psList);
      }
      return psElement;
  }

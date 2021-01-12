@@ -78,6 +78,8 @@
 
              free(psElement);
 
+             psElement->psNextNode = (DoubleLinkListElement_TypeDef *) 0UL;
+             psElement->pvDataContainer = (void *) 0UL;
              u32SizeReg--;
              DoubleLinkList__vSetSize(psList,u32SizeReg);
          }

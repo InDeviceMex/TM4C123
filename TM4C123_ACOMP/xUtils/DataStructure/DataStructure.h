@@ -26,6 +26,8 @@
 
 #include <xUtils/DataStructure/SingleLinkList/SingleLinkList.h>
 #include <xUtils/DataStructure/DoubleLinkList/DoubleLinkList.h>
+#include <xUtils/DataStructure/CircularSingleLinkList/CircularSingleLinkList.h>
+#include <xUtils/DataStructure/CircularDoubleLinkList/CircularDoubleLinkList.h>
 
 
 #endif /* XUTILS_DATASTRUCTURE_DATASTRUCTURE_H_ */
