@@ -76,10 +76,11 @@
                  }
              }
 
+             DoubleLinkList__vSetElementNextNode(psElement,  (DoubleLinkListElement_TypeDef *) 0UL);
+             DoubleLinkList__vSetElementPreviousNode(psElement,  (DoubleLinkListElement_TypeDef *) 0UL);
+             DoubleLinkList__vSetElementData(psElement,  (void *) 0UL);
              free(psElement);
 
-             psElement->psNextNode = (DoubleLinkListElement_TypeDef *) 0UL;
-             psElement->pvDataContainer = (void *) 0UL;
              u32SizeReg--;
              DoubleLinkList__vSetSize(psList,u32SizeReg);
          }

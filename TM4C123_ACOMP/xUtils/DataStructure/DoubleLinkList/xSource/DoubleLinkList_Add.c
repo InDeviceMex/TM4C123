@@ -34,6 +34,7 @@
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psElementNextNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
+
      if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
      {
          u32SizeReg = DoubleLinkList__u32GetSize(psList);
@@ -130,10 +131,10 @@
                     }
                     DoubleLinkList__vSetElementPreviousNode(psElement, psNewElement);
                 }
-
-                }
                 u32SizeReg++;
                 DoubleLinkList__vSetSize(psList,u32SizeReg);
+
+                }
         }
     }
     return psNewElement;

@@ -24,6 +24,11 @@
 #ifndef XUTILS_DATASTRUCTURE_CIRCULARDOUBLELINKLIST_XHEADER_CIRCULARDOUBLELINKLIST_DESTROY_H_
 #define XUTILS_DATASTRUCTURE_CIRCULARDOUBLELINKLIST_XHEADER_CIRCULARDOUBLELINKLIST_DESTROY_H_
 
+#include <xUtils/DataStructure/CircularDoubleLinkList/Intrinsics/xHeader/CircularDoubleLinkList_Struct.h>
+
+void CircularDoubleLinkList__vDestroy( CircularDoubleLinkList_TypeDef* psList);
+
+
 
 
 

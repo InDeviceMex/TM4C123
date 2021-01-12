@@ -25,6 +25,8 @@
 #define XUTILS_DATASTRUCTURE_DOUBLELINKLIST_DOUBLELINKLIST_H_
 
 
+#include <xUtils/DataStructure/DoubleLinkList/Intrinsics/DoubleLinkList_Intrinsics.h>
+
 #include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Add.h>
 #include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Data.h>
 #include <xUtils/DataStructure/DoubleLinkList/xHeader/DoubleLinkList_Destroy.h>

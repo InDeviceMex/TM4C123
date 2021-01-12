@@ -78,9 +78,9 @@
                  }
              }
 
+             CircularSingleLinkList__vSetElementNextNode(psOldElement,  (CircularSingleLinkListElement_TypeDef *) 0UL);
+             CircularSingleLinkList__vSetElementData(psOldElement,  (void *) 0UL);
              free(psOldElement);
-             psOldElement->psNextNode = (CircularSingleLinkListElement_TypeDef *) 0UL;
-             psOldElement->pvDataContainer = (void *) 0UL;
 
              u32SizeReg--;
              CircularSingleLinkList__vSetSize(psList,u32SizeReg);
@@ -166,9 +166,9 @@
 
              if( CircularSingleLinkList_enSTATUS_OK == enStatus)
              {
+                 CircularSingleLinkList__vSetElementNextNode(psOldElement,  (CircularSingleLinkListElement_TypeDef *) 0UL);
+                 CircularSingleLinkList__vSetElementData(psOldElement,  (void *) 0UL);
                  free(psOldElement);
-                 psOldElement->psNextNode = (CircularSingleLinkListElement_TypeDef *) 0UL;
-                 psOldElement->pvDataContainer = (void *) 0UL;
 
                  u32SizeReg--;
                  CircularSingleLinkList__vSetSize(psList,u32SizeReg);

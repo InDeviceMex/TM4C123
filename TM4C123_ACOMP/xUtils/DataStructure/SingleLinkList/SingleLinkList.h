@@ -24,6 +24,8 @@
 #ifndef XUTILS_DATASTRUCTURE_SINGLELINKLIST_SINGLELINKLIST_H_
 #define XUTILS_DATASTRUCTURE_SINGLELINKLIST_SINGLELINKLIST_H_
 
+#include <xUtils/DataStructure/SingleLinkList/Intrinsics/SingleLinkList_Intrinsics.h>
+
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Add.h>
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Data.h>
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Destroy.h>

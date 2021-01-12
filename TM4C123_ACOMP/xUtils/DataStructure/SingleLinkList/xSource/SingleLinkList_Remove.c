@@ -82,10 +82,15 @@
                  }
              }
 
-             free(psOldElement);
+             if(SingleLinkList_enSTATUS_OK == enStatus)
+             {
+                 SingleLinkList__vSetElementNextNode(psOldElement,  (SingleLinkListElement_TypeDef *) 0UL);
+                 SingleLinkList__vSetElementData(psOldElement,  (void *) 0UL);
+                 free(psOldElement);
 
-             u32SizeReg--;
-             SingleLinkList__vSetSize(psList,u32SizeReg);
+                 u32SizeReg--;
+                 SingleLinkList__vSetSize(psList,u32SizeReg);
+             }
          }
      }
      return enStatus;
@@ -148,10 +153,9 @@
 
              if( SingleLinkList_enSTATUS_OK  == enStatus)
              {
+                 SingleLinkList__vSetElementNextNode(psOldElement,  (SingleLinkListElement_TypeDef *) 0UL);
+                 SingleLinkList__vSetElementData(psOldElement,  (void *) 0UL);
                  free(psOldElement);
-
-                 psOldElement->psNextNode = (SingleLinkListElement_TypeDef *) 0UL;
-                 psOldElement->pvDataContainer = (void *) 0UL;
 
                  u32SizeReg--;
                  SingleLinkList__vSetSize(psList,u32SizeReg);

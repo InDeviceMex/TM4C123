@@ -24,6 +24,8 @@
 #ifndef XUTILS_DATASTRUCTURE_CIRCULARDOUBLELINKLIST_CIRCULARDOUBLELINKLIST_H_
 #define XUTILS_DATASTRUCTURE_CIRCULARDOUBLELINKLIST_CIRCULARDOUBLELINKLIST_H_
 
+#include <xUtils/DataStructure/CircularDoubleLinkList/Intrinsics/CircularDoubleLinkList_Intrinsics.h>
+
 #include <xUtils/DataStructure/CircularDoubleLinkList/xHeader/CircularDoubleLinkList_Add.h>
 #include <xUtils/DataStructure/CircularDoubleLinkList/xHeader/CircularDoubleLinkList_Data.h>
 #include <xUtils/DataStructure/CircularDoubleLinkList/xHeader/CircularDoubleLinkList_Destroy.h>
