@@ -61,7 +61,7 @@
      CircularSingleLinkListElement_TypeDef* psListHeadNode= (CircularSingleLinkListElement_TypeDef*) 0UL ;
      CircularSingleLinkListElement_TypeDef* psListTailNode= (CircularSingleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
-     if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
         #if defined ( __TI_ARM__ )
          psNewElement = (CircularSingleLinkListElement_TypeDef*) memalign((size_t)4,(size_t)sizeof(CircularSingleLinkListElement_TypeDef));
@@ -113,7 +113,7 @@
  {
      CircularSingleLinkListElement_TypeDef* psNewElement = (CircularSingleLinkListElement_TypeDef*) 0UL ;
      CircularSingleLinkListElement_TypeDef* psEndElement =(CircularSingleLinkListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          psEndElement =  CircularSingleLinkList__psGetTail(psList);
          psNewElement = CircularSingleLinkList__psAddNext(psList, psEndElement, pvData);
@@ -124,7 +124,7 @@
  CircularSingleLinkListElement_TypeDef*  CircularSingleLinkList__psAddBegin(CircularSingleLinkList_TypeDef* psList, void* pvData)
  {
      CircularSingleLinkListElement_TypeDef* psNewElement = (CircularSingleLinkListElement_TypeDef*) 0UL ;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          psNewElement = CircularSingleLinkList__psAddNext(psList, (CircularSingleLinkListElement_TypeDef*) 0UL, pvData);
      }
@@ -136,7 +136,7 @@
      CircularSingleLinkListElement_TypeDef* psNewElement = (CircularSingleLinkListElement_TypeDef*) 0UL ;
      CircularSingleLinkListElement_TypeDef* psElement = (CircularSingleLinkListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          u32SizeList = CircularSingleLinkList__u32GetSize(psList);
          if(u32Position <= u32SizeList)

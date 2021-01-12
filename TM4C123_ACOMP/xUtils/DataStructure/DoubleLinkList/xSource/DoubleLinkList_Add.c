@@ -35,7 +35,7 @@
      DoubleLinkListElement_TypeDef* psElementNextNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
 
-     if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          u32SizeReg = DoubleLinkList__u32GetSize(psList);
          if(((uint32_t)0UL != (uint32_t)psElement) || (0UL == u32SizeReg))
@@ -90,7 +90,7 @@
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psElementPreviousNode= (DoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
-     if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          u32SizeReg = DoubleLinkList__u32GetSize(psList);
          if(((uint32_t)0UL != (uint32_t)psElement) || (0UL == u32SizeReg))
@@ -144,7 +144,7 @@
  {
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psEndElement =(DoubleLinkListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          psEndElement =  DoubleLinkList__psGetTail(psList);
          psNewElement = DoubleLinkList__psAddNext(psList, psEndElement, pvData);
@@ -156,7 +156,7 @@
  {
      DoubleLinkListElement_TypeDef* psNewElement = (DoubleLinkListElement_TypeDef*) 0UL ;
      DoubleLinkListElement_TypeDef* psBeginElement =(DoubleLinkListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          psBeginElement =  DoubleLinkList__psGetHead(psList);
          psNewElement = DoubleLinkList__psAddPrevious(psList, psBeginElement, pvData);
@@ -173,7 +173,7 @@
      uint32_t u32SizeBackward= 0UL;
      uint32_t u32SizeOptimum= 0UL;
      uint32_t u32Direction= 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          u32SizeList = DoubleLinkList__u32GetSize(psList);
          if(u32Position <= u32SizeList)

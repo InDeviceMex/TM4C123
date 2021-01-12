@@ -35,7 +35,7 @@
      CircularDoubleLinkListElement_TypeDef* psElementNextNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psHeadNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
-     if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          u32SizeReg = CircularDoubleLinkList__u32GetSize(psList);
          if(((uint32_t)0UL != (uint32_t)psElement) || (0UL == u32SizeReg))
@@ -89,7 +89,7 @@
       CircularDoubleLinkListElement_TypeDef* psElementPreviousNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
       CircularDoubleLinkListElement_TypeDef* psTailNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
       uint32_t u32SizeReg = 0U;
-      if(((uint32_t)0UL != (uint32_t)psList)  &&((uint32_t)0UL != (uint32_t)pvData))
+      if(((uint32_t)0UL != (uint32_t)psList))
       {
           u32SizeReg = CircularDoubleLinkList__u32GetSize(psList);
           if(((uint32_t)0UL != (uint32_t)psElement) || (0UL == u32SizeReg))
@@ -142,7 +142,7 @@
  {
      CircularDoubleLinkListElement_TypeDef* psNewElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psEndElement =(CircularDoubleLinkListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          psEndElement =  CircularDoubleLinkList__psGetTail(psList);
          psNewElement = CircularDoubleLinkList__psAddNext(psList, psEndElement, pvData);
@@ -154,7 +154,7 @@
  {
      CircularDoubleLinkListElement_TypeDef* psNewElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psBeginElement =(CircularDoubleLinkListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          psBeginElement =  CircularDoubleLinkList__psGetHead(psList);
          psNewElement = CircularDoubleLinkList__psAddPrevious(psList, psBeginElement, pvData);
@@ -171,7 +171,7 @@
      uint32_t u32SizeBackward= 0UL;
      uint32_t u32SizeOptimum= 0UL;
      uint32_t u32Direction= 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t)0UL != (uint32_t)psList))
      {
          u32SizeList = CircularDoubleLinkList__u32GetSize(psList);
          if(u32Position <= u32SizeList)
