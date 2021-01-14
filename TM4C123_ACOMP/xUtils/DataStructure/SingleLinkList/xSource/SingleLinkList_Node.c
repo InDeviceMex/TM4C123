@@ -63,7 +63,6 @@
  SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodeEnd(const SingleLinkList_TypeDef* psList)
  {
      SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL ;
-     uint32_t u32SizeList = 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
          psElement = SingleLinkList__psGetTail(psList);
@@ -74,7 +73,6 @@
  SingleLinkListElement_TypeDef*  SingleLinkList__psGetNodeBegin(const SingleLinkList_TypeDef* psList)
  {
      SingleLinkListElement_TypeDef* psElement = (SingleLinkListElement_TypeDef*) 0UL ;
-     uint32_t u32SizeList = 0UL;
      if((uint32_t)0UL != (uint32_t)psList)
      {
          psElement = SingleLinkList__psGetHead(psList);

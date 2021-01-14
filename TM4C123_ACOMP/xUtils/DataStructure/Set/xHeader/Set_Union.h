@@ -1,6 +1,6 @@
 /**
  *
- * @file Queue_Peek.c
+ * @file Set_Union.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,13 +21,12 @@
  * Date           Author     Version     Description
  * 13 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/DataStructure/Queue/xHeader/Queue_Peek.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Data.h>
+#ifndef XUTILS_DATASTRUCTURE_SET_XHEADER_SET_UNION_H_
+#define XUTILS_DATASTRUCTURE_SET_XHEADER_SET_UNION_H_
 
-void * Queue__pvPeek(const Queue_TypeDef* psQueue)
-{
-    return SingleLinkList__pvGetNodeDataBegin((const SingleLinkList_TypeDef*)psQueue);
-}
+#include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
+Set_nSTATUS Set__enUnion(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
+Set_TypeDef* Set__psUnion(Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
 
-
+#endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_UNION_H_ */

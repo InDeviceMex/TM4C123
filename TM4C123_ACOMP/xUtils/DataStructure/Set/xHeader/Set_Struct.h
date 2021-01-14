@@ -1,6 +1,6 @@
 /**
  *
- * @file Queue_Enqueue.h
+ * @file Set_Struct.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,15 +21,21 @@
  * Date           Author     Version     Description
  * 13 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_DATASTRUCTURE_QUEUE_XHEADER_QUEUE_ENQUEUE_H_
-#define XUTILS_DATASTRUCTURE_QUEUE_XHEADER_QUEUE_ENQUEUE_H_
+#ifndef XUTILS_DATASTRUCTURE_SET_XHEADER_SET_STRUCT_H_
+#define XUTILS_DATASTRUCTURE_SET_XHEADER_SET_STRUCT_H_
 
-#include <xUtils/DataStructure/Queue/xHeader/Queue_Struct.h>
+#include <xUtils/DataStructure/SingleLinkList/Intrinsics/xHeader/SingleLinkList_Struct.h>
 
-Queue_nSTATUS Queue__enEnqueue(Queue_TypeDef* psQueue, void* pvData);
+typedef enum
+{
+    Set_enSTATUS_OK,
+    Set_enSTATUS_ERROR,
+}Set_nSTATUS;
+
+typedef SingleLinkList_TypeDef Set_TypeDef;
+typedef SingleLinkListElement_TypeDef SetMember_TypeDef;
 
 
 
 
-
-#endif /* XUTILS_DATASTRUCTURE_QUEUE_XHEADER_QUEUE_ENQUEUE_H_ */
+#endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_STRUCT_H_ */

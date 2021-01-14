@@ -25,7 +25,7 @@
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Push.h>
 #include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Add.h>
 
-Stack_nSTATUS Stack__enPush(const Stack_TypeDef* const psStack, void* pvData)
+Stack_nSTATUS Stack__enPush(Stack_TypeDef* psStack, void* pvData)
 {
     Stack_nSTATUS enStatus = Stack_enSTATUS_ERROR;
     SingleLinkListElement_TypeDef* psNewElement = (SingleLinkListElement_TypeDef*) 0UL ;

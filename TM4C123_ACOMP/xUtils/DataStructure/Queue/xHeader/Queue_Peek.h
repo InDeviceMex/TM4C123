@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Struct.h>
 
-void * Queue__pvPeek(const Queue_TypeDef* const psQueue);
+void * Queue__pvPeek(const Queue_TypeDef* psQueue);
 
 #endif /* XUTILS_DATASTRUCTURE_QUEUE_XHEADER_QUEUE_PEEK_H_ */

@@ -33,7 +33,6 @@
  CircularDoubleLinkList_nSTATUS CircularDoubleLinkList__enRemove(CircularDoubleLinkList_TypeDef* psList,CircularDoubleLinkListElement_TypeDef* psElement, void** pvData)
  {
      CircularDoubleLinkList_nSTATUS enStatus = CircularDoubleLinkList_enSTATUS_ERROR;
-     CircularDoubleLinkListElement_TypeDef* psHeadElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psElementNextNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psElementPreviousNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psHeadNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;

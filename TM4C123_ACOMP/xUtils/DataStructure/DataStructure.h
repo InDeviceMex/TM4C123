@@ -29,6 +29,7 @@
  * Create Circular Queues based on Array and Linked List
  * Create Deques based on Array and Linked List
  * create Stack based on Array
+ * Create Set base on Hash
  * */
 
 #include <xUtils/DataStructure/SingleLinkList/SingleLinkList.h>
@@ -39,6 +40,7 @@
 
 #include <xUtils/DataStructure/Stack/Stack.h>
 #include <xUtils/DataStructure/Queue/Queue.h>
+#include <xUtils/DataStructure/Set/Set.h>
 
 
 #endif /* XUTILS_DATASTRUCTURE_DATASTRUCTURE_H_ */

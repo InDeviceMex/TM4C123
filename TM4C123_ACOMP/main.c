@@ -32,8 +32,8 @@ int32_t main(void)
     uint32_t u32CompState1= 0UL ;
     uint32_t u32CompState[10] = {0u};
     uint32_t u32Lenght = 0UL;
-    volatile void *pvData = (void*)0UL;
-    volatile void **ppvData = (void**)u32CompState;
+    void *pvData = (void*)0UL;
+    void **ppvData = (void**)u32CompState;
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();

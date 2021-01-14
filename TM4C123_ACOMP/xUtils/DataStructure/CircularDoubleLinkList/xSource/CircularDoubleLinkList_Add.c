@@ -32,6 +32,7 @@
  CircularDoubleLinkListElement_TypeDef* CircularDoubleLinkList__psAddNext(CircularDoubleLinkList_TypeDef* psList, CircularDoubleLinkListElement_TypeDef* psElement, void* pvData)
 {
      CircularDoubleLinkListElement_TypeDef* psNewElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
+     CircularDoubleLinkListElement_TypeDef* psElementTemp = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psElementNextNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      CircularDoubleLinkListElement_TypeDef* psHeadNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
@@ -53,9 +54,9 @@
                 if( 0UL == u32SizeReg)
                 {
                     CircularDoubleLinkList__vSetHead(psList,psNewElement);
-
-                    CircularDoubleLinkList__vSetElementNextNode(psNewElement, psNewElement );
-                    CircularDoubleLinkList__vSetElementPreviousNode(psNewElement,psNewElement );
+                    psElementTemp = psNewElement;
+                    CircularDoubleLinkList__vSetElementNextNode(psNewElement, psElementTemp );
+                    CircularDoubleLinkList__vSetElementPreviousNode(psNewElement,psElementTemp );
 
                     CircularDoubleLinkList__vSetTail(psList,psNewElement);
                 }
@@ -86,6 +87,7 @@
  CircularDoubleLinkListElement_TypeDef* CircularDoubleLinkList__psAddPrevious(CircularDoubleLinkList_TypeDef* psList, CircularDoubleLinkListElement_TypeDef* psElement, void* pvData)
  {
       CircularDoubleLinkListElement_TypeDef* psNewElement = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
+      CircularDoubleLinkListElement_TypeDef* psElementTemp = (CircularDoubleLinkListElement_TypeDef*) 0UL ;
       CircularDoubleLinkListElement_TypeDef* psElementPreviousNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
       CircularDoubleLinkListElement_TypeDef* psTailNode= (CircularDoubleLinkListElement_TypeDef*) 0UL ;
       uint32_t u32SizeReg = 0U;
@@ -107,9 +109,9 @@
                  if( 0UL == u32SizeReg)
                  {
                      CircularDoubleLinkList__vSetHead(psList,psNewElement);
-
-                     CircularDoubleLinkList__vSetElementNextNode(psNewElement, psNewElement );
-                     CircularDoubleLinkList__vSetElementPreviousNode(psNewElement,psNewElement );
+                     psElementTemp = psNewElement;
+                     CircularDoubleLinkList__vSetElementNextNode(psNewElement, psElementTemp );
+                     CircularDoubleLinkList__vSetElementPreviousNode(psNewElement,psElementTemp );
 
                      CircularDoubleLinkList__vSetTail(psList,psNewElement);
                  }

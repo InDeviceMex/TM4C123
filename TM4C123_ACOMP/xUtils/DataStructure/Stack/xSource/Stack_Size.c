@@ -26,16 +26,16 @@
 
 uint32_t Stack__u32GetSize(const Stack_TypeDef* const psStack)
 {
-    return SingleLinkList__u32GetSize((const SingleLinkList_TypeDef* const) psStack);
+    return SingleLinkList__u32GetSize((const SingleLinkList_TypeDef*) psStack);
 }
 
 Stack_nSTATUS Stack__enIsEmpty(const Stack_TypeDef* const psStack)
 {
     Stack_nSTATUS enStatus = Stack_enSTATUS_ERROR;
-    uint32_t u32Size = 0UL;
-    u32Size = SingleLinkList__u32GetSize((const SingleLinkList_TypeDef* const) psStack);
+    uint32_t u32SizeReg = 0UL;
+    u32SizeReg = SingleLinkList__u32GetSize((const SingleLinkList_TypeDef*) psStack);
 
-    if(u32Size == 0UL)
+    if(u32SizeReg == 0UL)
     {
         enStatus = Stack_enSTATUS_OK;
     }

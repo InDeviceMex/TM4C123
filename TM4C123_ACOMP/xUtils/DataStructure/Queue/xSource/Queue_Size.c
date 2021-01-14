@@ -26,16 +26,16 @@
 
 uint32_t Queue__u32GetSize(const Queue_TypeDef* const psQueue)
 {
-    return SingleLinkList__u32GetSize((const SingleLinkList_TypeDef* const) psQueue);
+    return SingleLinkList__u32GetSize((const SingleLinkList_TypeDef*) psQueue);
 }
 
 Queue_nSTATUS Queue__enIsEmpty(const Queue_TypeDef* const psQueue)
 {
     Queue_nSTATUS enStatus = Queue_enSTATUS_ERROR;
-    uint32_t u32Size = 0UL;
-    u32Size = SingleLinkList__u32GetSize((const SingleLinkList_TypeDef* const) psQueue);
+    uint32_t u32SizeReg = 0UL;
+    u32SizeReg = SingleLinkList__u32GetSize((const SingleLinkList_TypeDef*) psQueue);
 
-    if(u32Size == 0UL)
+    if(u32SizeReg == 0UL)
     {
         enStatus = Queue_enSTATUS_OK;
     }
