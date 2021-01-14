@@ -1,6 +1,6 @@
 /**
  *
- * @file Stack.h
+ * @file Stack_Pop.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,17 +21,12 @@
  * Date           Author     Version     Description
  * 12 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_DATASTRUCTURE_STACK_STACK_H_
-#define XUTILS_DATASTRUCTURE_STACK_STACK_H_
-
-
-#include <xUtils/DataStructure/Stack/xHeader/Stack_Destroy.h>
-#include <xUtils/DataStructure/Stack/xHeader/Stack_Init.h>
-#include <xUtils/DataStructure/Stack/xHeader/Stack_Size.h>
-#include <xUtils/DataStructure/Stack/xHeader/Stack_Peek.h>
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Pop.h>
-#include <xUtils/DataStructure/Stack/xHeader/Stack_Push.h>
+#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Remove.h>
+
+Stack_nSTATUS Stack__enPop(Stack_TypeDef* psStack, void** pvData)
+{
+    return (Stack_nSTATUS ) SingleLinkList__enRemoveBegin((SingleLinkList_TypeDef*) psStack, pvData);
+}
 
 
-
-#endif /* XUTILS_DATASTRUCTURE_STACK_STACK_H_ */

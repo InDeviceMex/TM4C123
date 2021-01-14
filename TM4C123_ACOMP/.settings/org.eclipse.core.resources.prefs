@@ -817,12 +817,16 @@ encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/Intrinsics/List/xSource/
 encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/Intrinsics/List/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/Queue/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/Queue/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/SingleLinkList/Intrinsics/Element/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/SingleLinkList/Intrinsics/Element/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/SingleLinkList/Intrinsics/List/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/SingleLinkList/Intrinsics/List/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/SingleLinkList/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/SingleLinkList/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/Stack/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/Stack/xSource/subdir_vars.mk=UTF-8
 encoding//Release/makefile=UTF-8
 encoding//Release/objects.mk=UTF-8
 encoding//Release/sources.mk=UTF-8

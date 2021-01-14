@@ -44,7 +44,6 @@ SingleLinkList_TypeDef* SingleLinkList__psInit( void  (*pfvDestroyElementDataArg
     return psList;
 }
 
-
 SingleLinkList_nSTATUS SingleLinkList__enInit( SingleLinkList_TypeDef* psList ,void  (*pfvDestroyElementDataArg)(void *DataContainer))
 {
     SingleLinkList_nSTATUS enStatus = SingleLinkList_enSTATUS_ERROR;

@@ -54,18 +54,18 @@
              psElementNextNode = CircularDoubleLinkList__psGetElementNextNode(psElement);
              psElementPreviousNode = CircularDoubleLinkList__psGetElementPreviousNode(psElement);
 
-             if((uint32_t)psHeadNode == psTailNode)/*Last Element*/
+             if((uint32_t)psHeadNode == (uint32_t)psTailNode)/*Last Element*/
              {
                  CircularDoubleLinkList__vSetTail(psList, (CircularDoubleLinkListElement_TypeDef*) 0UL);
                  CircularDoubleLinkList__vSetHead(psList, (CircularDoubleLinkListElement_TypeDef*) 0UL);
              }
              else
              {
-                 if((uint32_t)psHeadNode == psElement)
+                 if((uint32_t)psHeadNode == (uint32_t)psElement)
                  {
                      CircularDoubleLinkList__vSetHead(psList,psElementNextNode);
                  }
-                 if((uint32_t)psTailNode == psElement)
+                 if((uint32_t)psTailNode == (uint32_t)psElement)
                  {
                      CircularDoubleLinkList__vSetTail(psList,psElementPreviousNode);
                  }
