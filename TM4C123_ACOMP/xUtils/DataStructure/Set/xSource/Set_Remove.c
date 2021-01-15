@@ -42,7 +42,7 @@ Set_nSTATUS Set__enRemove(Set_TypeDef* psSet, void** pvData)
         while((uint32_t)0UL != (uint32_t)psMember)
         {
             pvDataMember = SingleLinkList__pvGetElementData((const SingleLinkListElement_TypeDef*)psMember);
-            if(psSet->pfu32Match(*pvData,pvDataMember))
+            if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(*pvData,pvDataMember))
             {
                 break;
             }

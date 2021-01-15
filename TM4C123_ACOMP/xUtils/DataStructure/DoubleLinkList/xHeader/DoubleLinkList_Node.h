@@ -26,6 +26,11 @@
 
 #include <xUtils/DataStructure/DoubleLinkList/Intrinsics/xHeader/DoubleLinkList_Struct.h>
 
+ uint32_t DoubleLinkList__u32GetAllNode(const DoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength);
+ uint32_t DoubleLinkList__u32GetAllNodeBackward(const DoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength);
+ uint32_t DoubleLinkList__u32GetNNodeBackward(const DoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength);
+ uint32_t DoubleLinkList__u32GetNNode(const DoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength);
+
  DoubleLinkListElement_TypeDef*  DoubleLinkList__psGetNodePos(const DoubleLinkList_TypeDef* psList, uint32_t u32Position);
  DoubleLinkListElement_TypeDef*  DoubleLinkList__psGetNodeEnd(const DoubleLinkList_TypeDef* psList);
  DoubleLinkListElement_TypeDef*  DoubleLinkList__psGetNodeBegin(const DoubleLinkList_TypeDef* psList);

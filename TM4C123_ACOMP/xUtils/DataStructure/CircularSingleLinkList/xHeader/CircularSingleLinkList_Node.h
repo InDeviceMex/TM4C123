@@ -30,6 +30,8 @@
  CircularSingleLinkListElement_TypeDef*  CircularSingleLinkList__psGetNodeEnd(const CircularSingleLinkList_TypeDef* psList);
  CircularSingleLinkListElement_TypeDef*  CircularSingleLinkList__psGetNodeBegin(const CircularSingleLinkList_TypeDef* psList);
 
+ uint32_t CircularSingleLinkList__u32GetNNode(const CircularSingleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength);
+ uint32_t CircularSingleLinkList__u32GetAllNode(const CircularSingleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength);
 
 
 

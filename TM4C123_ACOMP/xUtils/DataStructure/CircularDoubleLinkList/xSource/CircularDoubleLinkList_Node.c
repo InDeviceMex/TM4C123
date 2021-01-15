@@ -112,4 +112,112 @@
  }
 
 
+ uint32_t CircularDoubleLinkList__u32GetAllNode(const CircularDoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength)
+ {
+     CircularDoubleLinkListElement_TypeDef *psMember = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     CircularDoubleLinkListElement_TypeDef *psMemberTemp = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+     uint32_t u32SizeList = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength))
+     {
+         psMember = CircularDoubleLinkList__psGetHead(psList);
+         u32SizeList = CircularDoubleLinkList__u32GetSize(psList);
+          while((0UL != MaxLength) && (u32SizeReg != u32SizeList))
+          {
+              pvDataMember=CircularDoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              psMemberTemp = CircularDoubleLinkList__psGetElementNextNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t CircularDoubleLinkList__u32GetAllNodeBackward(const CircularDoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength)
+ {
+     CircularDoubleLinkListElement_TypeDef *psMember = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     CircularDoubleLinkListElement_TypeDef *psMemberTemp = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+     uint32_t u32SizeList = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength))
+     {
+         psMember = CircularDoubleLinkList__psGetTail(psList);
+         u32SizeList = CircularDoubleLinkList__u32GetSize(psList);
+          while((0UL != MaxLength) && (u32SizeReg != u32SizeList))
+          {
+              pvDataMember=CircularDoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              psMemberTemp = CircularDoubleLinkList__psGetElementPreviousNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t CircularDoubleLinkList__u32GetNNode(const CircularDoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength)
+ {
+     CircularDoubleLinkListElement_TypeDef *psMember = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     CircularDoubleLinkListElement_TypeDef *psMemberTemp = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+     uint32_t u32SizeList = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength)&& (0UL != u32Nodes))
+     {
+         psMember = CircularDoubleLinkList__psGetHead(psList);
+         u32SizeList = CircularDoubleLinkList__u32GetSize(psList);
+          while((0UL != MaxLength) && (u32SizeReg != u32SizeList)&& (0UL != u32Nodes))
+          {
+              pvDataMember=CircularDoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              u32Nodes--;
+              psMemberTemp = CircularDoubleLinkList__psGetElementNextNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t CircularDoubleLinkList__u32GetNNodeBackward(const CircularDoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength)
+ {
+     CircularDoubleLinkListElement_TypeDef *psMember = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     CircularDoubleLinkListElement_TypeDef *psMemberTemp = (CircularDoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+     uint32_t u32SizeList = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength)&& (0UL != u32Nodes))
+     {
+         psMember = CircularDoubleLinkList__psGetTail(psList);
+         u32SizeList = CircularDoubleLinkList__u32GetSize(psList);
+          while((0UL != MaxLength) && (u32SizeReg != u32SizeList)&& (0UL != u32Nodes))
+          while(((uint32_t)0UL != (uint32_t)psMember) && ((0UL != MaxLength) && (0UL != u32Nodes)))
+          {
+              pvDataMember=CircularDoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              u32Nodes--;
+              psMemberTemp = CircularDoubleLinkList__psGetElementPreviousNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+
 

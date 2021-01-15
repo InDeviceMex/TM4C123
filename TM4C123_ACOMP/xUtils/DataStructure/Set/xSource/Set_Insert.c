@@ -33,7 +33,7 @@ Set_nSTATUS Set__enInsert(Set_TypeDef* psSet, void* pvData)
     if((uint32_t)0UL != (uint32_t)psSet)
     {
         psMemberSet = Set__psIsMember(psSet, pvData);
-        if((uint32_t)0UL != (uint32_t)psMemberSet)
+        if((uint32_t)0UL == (uint32_t)psMemberSet)
         {
             psMember = SingleLinkList__psAddEnd((SingleLinkList_TypeDef*)psSet,pvData);
             if((uint32_t)0UL != (uint32_t)psMember)

@@ -26,6 +26,12 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
+uint32_t Set__u32GetNMember(const Set_TypeDef* psSet, const void** pvData, uint32_t u32Members, uint32_t u32MaxSize);
+uint32_t Set__u32GetAllMember(const Set_TypeDef* psSet, const void** pvData, uint32_t u32MaxSize);
+SetMember_TypeDef* Set__psGetMember(const Set_TypeDef* psSet, uint32_t u32Position, const void** pvData);
+SetMember_TypeDef* Set__psGetMemberHead(const Set_TypeDef* psSet, const void** pvData);
+SetMember_TypeDef* Set__psGetMemberNext(const SetMember_TypeDef* psMember, const void** pvData);
+
 Set_nSTATUS Set__enIsMember(const Set_TypeDef* psSet, const void* pvData);
 SetMember_TypeDef* Set__psIsMember(const Set_TypeDef* psSet, const void* pvData);
 

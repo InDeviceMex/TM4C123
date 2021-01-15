@@ -27,6 +27,11 @@
 
 #include <xUtils/DataStructure/CircularDoubleLinkList/Intrinsics/xHeader/CircularDoubleLinkList_Struct.h>
 
+ uint32_t CircularDoubleLinkList__u32GetAllNode(const CircularDoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength);
+ uint32_t CircularDoubleLinkList__u32GetAllNodeBackward(const CircularDoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength);
+ uint32_t CircularDoubleLinkList__u32GetNNode(const CircularDoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength);
+ uint32_t CircularDoubleLinkList__u32GetNNodeBackward(const CircularDoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength);
+
  CircularDoubleLinkListElement_TypeDef*  CircularDoubleLinkList__psGetNodePos(const CircularDoubleLinkList_TypeDef* psList, uint32_t u32Position);
  CircularDoubleLinkListElement_TypeDef*  CircularDoubleLinkList__psGetNodeEnd(const CircularDoubleLinkList_TypeDef* psList);
  CircularDoubleLinkListElement_TypeDef*  CircularDoubleLinkList__psGetNodeBegin(const CircularDoubleLinkList_TypeDef* psList);

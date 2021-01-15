@@ -80,4 +80,52 @@
      return psElement;
  }
 
+ uint32_t SingleLinkList__u32GetAllNode(const SingleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength)
+ {
+     SingleLinkListElement_TypeDef *psMember = (SingleLinkListElement_TypeDef*) 0UL;
+     SingleLinkListElement_TypeDef *psMemberTemp = (SingleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength))
+     {
+         psMember = SingleLinkList__psGetHead(psList);
+          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != MaxLength))
+          {
+              pvDataMember=SingleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              psMemberTemp = SingleLinkList__psGetElementNextNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t SingleLinkList__u32GetNNode(const SingleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength)
+ {
+     SingleLinkListElement_TypeDef *psMember = (SingleLinkListElement_TypeDef*) 0UL;
+     SingleLinkListElement_TypeDef *psMemberTemp = (SingleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength)&& (0UL != u32Nodes))
+     {
+         psMember = SingleLinkList__psGetHead(psList);
+          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != MaxLength) && (0UL != u32Nodes))
+          {
+              pvDataMember=SingleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              u32Nodes--;
+              psMemberTemp = SingleLinkList__psGetElementNextNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
 

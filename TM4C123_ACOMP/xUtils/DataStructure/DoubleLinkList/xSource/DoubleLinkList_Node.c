@@ -111,5 +111,101 @@
      return psElement;
  }
 
+ uint32_t DoubleLinkList__u32GetAllNode(const DoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength)
+ {
+     DoubleLinkListElement_TypeDef *psMember = (DoubleLinkListElement_TypeDef*) 0UL;
+     DoubleLinkListElement_TypeDef *psMemberTemp = (DoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
 
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength))
+     {
+         psMember = DoubleLinkList__psGetHead(psList);
+          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != MaxLength))
+          {
+              pvDataMember=DoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              psMemberTemp = DoubleLinkList__psGetElementNextNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t DoubleLinkList__u32GetAllNodeBackward(const DoubleLinkList_TypeDef* psList, const void** pvData, uint32_t MaxLength)
+ {
+     DoubleLinkListElement_TypeDef *psMember = (DoubleLinkListElement_TypeDef*) 0UL;
+     DoubleLinkListElement_TypeDef *psMemberTemp = (DoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength))
+     {
+         psMember = DoubleLinkList__psGetTail(psList);
+          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != MaxLength))
+          {
+              pvDataMember=DoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              psMemberTemp = DoubleLinkList__psGetElementPreviousNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t DoubleLinkList__u32GetNNode(const DoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength)
+ {
+     DoubleLinkListElement_TypeDef *psMember = (DoubleLinkListElement_TypeDef*) 0UL;
+     DoubleLinkListElement_TypeDef *psMemberTemp = (DoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength)&& (0UL != u32Nodes))
+     {
+         psMember = DoubleLinkList__psGetHead(psList);
+          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != MaxLength) && (0UL != u32Nodes))
+          {
+              pvDataMember=DoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              u32Nodes--;
+              psMemberTemp = DoubleLinkList__psGetElementNextNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
+
+ uint32_t DoubleLinkList__u32GetNNodeBackward(const DoubleLinkList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t MaxLength)
+ {
+     DoubleLinkListElement_TypeDef *psMember = (DoubleLinkListElement_TypeDef*) 0UL;
+     DoubleLinkListElement_TypeDef *psMemberTemp = (DoubleLinkListElement_TypeDef*) 0UL;
+     void* pvDataMember = (void*)0UL;
+     uint32_t u32SizeReg = 0UL;
+
+     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != pvData ) && (0UL != MaxLength)&& (0UL != u32Nodes))
+     {
+         psMember = DoubleLinkList__psGetTail(psList);
+          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != MaxLength) && (0UL != u32Nodes))
+          {
+              pvDataMember=DoubleLinkList__pvGetElementData(psMember);
+              *pvData = pvDataMember;
+              u32SizeReg++;
+              pvData += 1U;
+              MaxLength--;
+              u32Nodes--;
+              psMemberTemp = DoubleLinkList__psGetElementPreviousNode(psMember);
+              psMember = psMemberTemp;
+          }
+     }
+     return u32SizeReg;
+ }
 
