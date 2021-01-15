@@ -24,7 +24,7 @@
 #ifndef XUTILS_DATASTRUCTURE_STACK_XHEADER_STACK_STRUCT_H_
 #define XUTILS_DATASTRUCTURE_STACK_XHEADER_STACK_STRUCT_H_
 
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/xHeader/SingleLinkList_Struct.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
 typedef enum
 {
@@ -34,7 +34,7 @@ typedef enum
     Stack_enSTATUS_EMPTY,
 }Stack_nSTATUS;
 
-typedef SingleLinkList_TypeDef Stack_TypeDef;
+typedef SLinkedList_TypeDef Stack_TypeDef;
 
 
 #endif /* XUTILS_DATASTRUCTURE_STACK_XHEADER_STACK_STRUCT_H_ */

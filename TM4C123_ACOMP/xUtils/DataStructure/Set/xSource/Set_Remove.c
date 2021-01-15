@@ -23,37 +23,37 @@
  */
 #include <xUtils/DataStructure/Set/xHeader/Set_Remove.h>
 
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Remove.h>
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/Element/SingleLinkList_Element.h>
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/List/SingleLinkList_List.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Remove.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/SLinkedList_Element.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/SLinkedList_List.h>
 
 Set_nSTATUS Set__enRemove(Set_TypeDef* psSet, void** pvData)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SingleLinkListElement_TypeDef* psMember = (SingleLinkListElement_TypeDef*) 0UL;
-    SingleLinkListElement_TypeDef* psMemberTemp = (SingleLinkListElement_TypeDef*) 0UL;
-    SingleLinkListElement_TypeDef* psPreviousMember = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* psMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* psPreviousMember = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
     if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != (uint32_t)pvData))
     {
 
-        psMember = SingleLinkList__psGetHead((const SingleLinkList_TypeDef*)psSet);
+        psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
         while((uint32_t)0UL != (uint32_t)psMember)
         {
-            pvDataMember = SingleLinkList__pvGetElementData((const SingleLinkListElement_TypeDef*)psMember);
+            pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
             if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(*pvData,pvDataMember))
             {
                 break;
             }
             psPreviousMember = psMember;
-            psMemberTemp = SingleLinkList__psGetElementNextNode((const SingleLinkListElement_TypeDef*)psMember);
+            psMemberTemp = SLinkedList__psGetElementNextNode((const SLinkedListElement_TypeDef*)psMember);
             psMember = psMemberTemp;
         }
 
         if((uint32_t)0UL != psMember)
         {
-            enStatus = (Set_nSTATUS) SingleLinkList__enRemoveNext((SingleLinkList_TypeDef*) psSet, psPreviousMember, pvData);
+            enStatus = (Set_nSTATUS) SLinkedList__enRemoveNext((SLinkedList_TypeDef*) psSet, psPreviousMember, pvData);
         }
     }
 

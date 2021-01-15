@@ -23,35 +23,35 @@
  */
 #include <xUtils/DataStructure/Set/xHeader/Set_Member.h>
 #include <xUtils/DataStructure/Set/xHeader/Set_Size.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Node.h>
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/Element/SingleLinkList_Element.h>
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/List/SingleLinkList_List.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Node.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/SLinkedList_Element.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/SLinkedList_List.h>
 
 SetMember_TypeDef* Set__psIsMember(const Set_TypeDef* psSet, const void* pvData)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SingleLinkListElement_TypeDef *psMember = (SingleLinkListElement_TypeDef*) 0UL;
-    SingleLinkListElement_TypeDef *psMemberTemp = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
     if((uint32_t)0UL != (uint32_t)psSet)
     {
-        psMember = SingleLinkList__psGetHead((const SingleLinkList_TypeDef*)psSet);
+        psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
         while((uint32_t)0UL != (uint32_t)psMember)
         {
-            pvDataMember=SingleLinkList__pvGetElementData(psMember);
+            pvDataMember=SLinkedList__pvGetElementData(psMember);
             if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(pvData,pvDataMember))
             {
                 enStatus = Set_enSTATUS_OK;
                 break;
             }
-            psMemberTemp = SingleLinkList__psGetElementNextNode(psMember);
+            psMemberTemp = SLinkedList__psGetElementNextNode(psMember);
             psMember = psMemberTemp;
         }
 
         if(Set_enSTATUS_OK != enStatus)
         {
-            psMember = (SingleLinkListElement_TypeDef*) 0UL;
+            psMember = (SLinkedListElement_TypeDef*) 0UL;
         }
     }
     return psMember;
@@ -63,7 +63,7 @@ uint32_t Set__u32GetNMember(const Set_TypeDef* psSet, const void** pvData, uint3
 
     if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != pvData )&& ((uint32_t)0UL != u32Members )&& ((uint32_t)0UL != u32MaxSize ))
     {
-        u32SizeReg = SingleLinkList__u32GetNNode((const SingleLinkList_TypeDef*)psSet, pvData, u32Members, u32MaxSize);
+        u32SizeReg = SLinkedList__u32GetNNode((const SLinkedList_TypeDef*)psSet, pvData, u32Members, u32MaxSize);
     }
     return u32SizeReg;
 }
@@ -74,23 +74,23 @@ uint32_t Set__u32GetAllMember(const Set_TypeDef* psSet, const void** pvData, uin
 
     if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != (uint32_t)pvData ) && ((uint32_t)0UL != u32MaxSize ))
     {
-        u32SizeReg = SingleLinkList__u32GetAllNode((const SingleLinkList_TypeDef*)psSet, pvData, u32MaxSize);
+        u32SizeReg = SLinkedList__u32GetAllNode((const SLinkedList_TypeDef*)psSet, pvData, u32MaxSize);
     }
     return u32SizeReg;
 }
 
 SetMember_TypeDef* Set__psGetMember(const Set_TypeDef* psSet, uint32_t u32Position, const void** pvData)
 {
-    SingleLinkListElement_TypeDef *psMember = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
 
     if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != pvData ))
     {
 
-        psMember = SingleLinkList__psGetNodePos((const SingleLinkList_TypeDef*) psSet, u32Position);
+        psMember = SLinkedList__psGetNodePos((const SLinkedList_TypeDef*) psSet, u32Position);
 
         if((uint32_t)0UL != (uint32_t)psMember)
         {
-            *pvData = SingleLinkList__pvGetElementData(psMember);
+            *pvData = SLinkedList__pvGetElementData(psMember);
         }
     }
     return (SetMember_TypeDef*) psMember;
@@ -98,16 +98,16 @@ SetMember_TypeDef* Set__psGetMember(const Set_TypeDef* psSet, uint32_t u32Positi
 
 SetMember_TypeDef* Set__psGetMemberHead(const Set_TypeDef* psSet, const void** pvData)
 {
-    SingleLinkListElement_TypeDef *psMember = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
 
     if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != pvData ))
     {
 
-        psMember = SingleLinkList__psGetNodePos((const SingleLinkList_TypeDef*) psSet, 0UL);
+        psMember = SLinkedList__psGetNodePos((const SLinkedList_TypeDef*) psSet, 0UL);
 
         if((uint32_t)0UL != (uint32_t)psMember)
         {
-            *pvData = SingleLinkList__pvGetElementData(psMember);
+            *pvData = SLinkedList__pvGetElementData(psMember);
         }
     }
     return (SetMember_TypeDef*) psMember;
@@ -115,16 +115,16 @@ SetMember_TypeDef* Set__psGetMemberHead(const Set_TypeDef* psSet, const void** p
 
 SetMember_TypeDef* Set__psGetMemberNext(const SetMember_TypeDef* psMember, const void** pvData)
 {
-    SingleLinkListElement_TypeDef *psMemberReg = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMemberReg = (SLinkedListElement_TypeDef*) 0UL;
 
     if(((uint32_t)0UL != (uint32_t)psMember) && ((uint32_t)0UL != pvData ))
     {
 
-        psMemberReg = SingleLinkList__psGetElementNextNode(psMember);
+        psMemberReg = SLinkedList__psGetElementNextNode(psMember);
 
         if((uint32_t)0UL != (uint32_t)psMemberReg)
         {
-            *pvData = SingleLinkList__pvGetElementData(psMemberReg);
+            *pvData = SLinkedList__pvGetElementData(psMemberReg);
         }
     }
     return (SetMember_TypeDef*) psMemberReg;
@@ -133,28 +133,28 @@ SetMember_TypeDef* Set__psGetMemberNext(const SetMember_TypeDef* psMember, const
 Set_nSTATUS Set__enIsMember(const Set_TypeDef* psSet, const void* pvData)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SingleLinkListElement_TypeDef *psMember = (SingleLinkListElement_TypeDef*) 0UL;
-    SingleLinkListElement_TypeDef *psMemberTemp = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
     if((uint32_t)0UL != (uint32_t)psSet)
     {
-        psMember = SingleLinkList__psGetHead((const SingleLinkList_TypeDef*)psSet);
+        psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
         while((uint32_t)0UL != (uint32_t)psMember)
         {
-            pvDataMember=SingleLinkList__pvGetElementData(psMember);
+            pvDataMember=SLinkedList__pvGetElementData(psMember);
             if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(pvData,pvDataMember))
             {
                 enStatus = Set_enSTATUS_OK;
                 break;
             }
-            psMemberTemp = SingleLinkList__psGetElementNextNode(psMember);
+            psMemberTemp = SLinkedList__psGetElementNextNode(psMember);
             psMember = psMemberTemp;
         }
 
         if(Set_enSTATUS_OK != enStatus)
         {
-            psMember = (SingleLinkListElement_TypeDef*) 0UL;
+            psMember = (SLinkedListElement_TypeDef*) 0UL;
         }
     }
     return enStatus;

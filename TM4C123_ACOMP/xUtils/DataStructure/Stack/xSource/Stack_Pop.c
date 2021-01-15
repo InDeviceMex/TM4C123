@@ -22,11 +22,11 @@
  * 12 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Pop.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Remove.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Remove.h>
 
 Stack_nSTATUS Stack__enPop(Stack_TypeDef* psStack, void** pvData)
 {
-    return (Stack_nSTATUS ) SingleLinkList__enRemoveBegin((SingleLinkList_TypeDef*) psStack, pvData);
+    return (Stack_nSTATUS ) SLinkedList__enRemoveBegin((SLinkedList_TypeDef*) psStack, pvData);
 }
 
 

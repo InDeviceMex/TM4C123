@@ -22,11 +22,11 @@
  * 13 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Dequeue.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Remove.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Remove.h>
 
 Queue_nSTATUS Queue__enDequeue(Queue_TypeDef* psQueue, void** pvData)
 {
-    return (Queue_nSTATUS ) SingleLinkList__enRemoveBegin((SingleLinkList_TypeDef*) psQueue, pvData);
+    return (Queue_nSTATUS ) SLinkedList__enRemoveBegin((SLinkedList_TypeDef*) psQueue, pvData);
 }
 
 

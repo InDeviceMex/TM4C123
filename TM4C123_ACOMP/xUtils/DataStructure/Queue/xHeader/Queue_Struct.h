@@ -24,7 +24,7 @@
 #ifndef XUTILS_DATASTRUCTURE_QUEUE_XHEADER_QUEUE_STRUCT_H_
 #define XUTILS_DATASTRUCTURE_QUEUE_XHEADER_QUEUE_STRUCT_H_
 
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/xHeader/SingleLinkList_Struct.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
 typedef enum
 {
@@ -34,7 +34,7 @@ typedef enum
     Queue_enSTATUS_EMPTY,
 }Queue_nSTATUS;
 
-typedef SingleLinkList_TypeDef Queue_TypeDef;
+typedef SLinkedList_TypeDef Queue_TypeDef;
 
 
 

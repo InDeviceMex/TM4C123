@@ -24,7 +24,7 @@
 #ifndef XUTILS_DATASTRUCTURE_SET_XHEADER_SET_STRUCT_H_
 #define XUTILS_DATASTRUCTURE_SET_XHEADER_SET_STRUCT_H_
 
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/xHeader/SingleLinkList_Struct.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
 typedef enum
 {
@@ -32,8 +32,8 @@ typedef enum
     Set_enSTATUS_ERROR,
 }Set_nSTATUS;
 
-typedef SingleLinkList_TypeDef Set_TypeDef;
-typedef SingleLinkListElement_TypeDef SetMember_TypeDef;
+typedef SLinkedList_TypeDef Set_TypeDef;
+typedef SLinkedListElement_TypeDef SetMember_TypeDef;
 
 
 

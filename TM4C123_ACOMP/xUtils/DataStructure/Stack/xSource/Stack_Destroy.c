@@ -22,9 +22,9 @@
  * 12 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Destroy.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Destroy.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 
 void Stack__vDestroy( Stack_TypeDef* psStack)
 {
-    SingleLinkList__vDestroy( (SingleLinkList_TypeDef*) psStack);
+    SLinkedList__vDestroy( (SLinkedList_TypeDef*) psStack);
 }

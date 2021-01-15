@@ -25,15 +25,15 @@
 #include <xUtils/DataStructure/Set/xHeader/Set_Size.h>
 #include <xUtils/DataStructure/Set/xHeader/Set_Member.h>
 
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/Element/SingleLinkList_Element.h>
-#include <xUtils/DataStructure/SingleLinkList/Intrinsics/List/SingleLinkList_List.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/SLinkedList_Element.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/SLinkedList_List.h>
 
 Set_nSTATUS Set__enIsSubset(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SingleLinkListElement_TypeDef* psMember = (SingleLinkListElement_TypeDef*) 0UL;
-    SingleLinkListElement_TypeDef* psMemberTemp = (SingleLinkListElement_TypeDef*) 0UL;
-    SingleLinkListElement_TypeDef* psMemberSet = (SingleLinkListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* psMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* psMemberSet = (SLinkedListElement_TypeDef*) 0UL;
     uint32_t u32Size1 = 0UL;
     uint32_t u32Size2 = 0UL;
     void* pvDataMember = (void*)0UL;
@@ -45,17 +45,17 @@ Set_nSTATUS Set__enIsSubset(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2
         if(u32Size1 <= u32Size2)
         {
             enStatus = Set_enSTATUS_OK;
-            psMember = SingleLinkList__psGetHead((const SingleLinkList_TypeDef*)psSet1);
+            psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet1);
             while((uint32_t)0UL != (uint32_t)psMember)
             {
-                pvDataMember = SingleLinkList__pvGetElementData((const SingleLinkListElement_TypeDef*)psMember);
+                pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
                 if((uint32_t)0UL == psMemberSet)
                 {
                     enStatus = Set_enSTATUS_ERROR;
                     break;
                 }
-                psMemberTemp = SingleLinkList__psGetElementNextNode((const SingleLinkListElement_TypeDef*)psMember);
+                psMemberTemp = SLinkedList__psGetElementNextNode((const SLinkedListElement_TypeDef*)psMember);
                 psMember = psMemberTemp;
             }
         }

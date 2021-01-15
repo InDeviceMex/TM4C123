@@ -23,14 +23,14 @@
  */
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Init.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Init.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Init.h>
 
 Stack_TypeDef* Stack__psInit( void  (*pfvDestroyElementDataArg)(void *DataContainer))
 {
-    return (Stack_TypeDef*)SingleLinkList__psInit(  pfvDestroyElementDataArg);
+    return (Stack_TypeDef*)SLinkedList__psInit(  pfvDestroyElementDataArg);
 }
 
 Stack_nSTATUS Stack__enInit( Stack_TypeDef* psStack ,void  (*pfvDestroyElementDataArg)(void *DataContainer))
 {
-    return (Stack_nSTATUS) SingleLinkList__enInit( (SingleLinkList_TypeDef*) psStack ,pfvDestroyElementDataArg);
+    return (Stack_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psStack ,pfvDestroyElementDataArg);
 }

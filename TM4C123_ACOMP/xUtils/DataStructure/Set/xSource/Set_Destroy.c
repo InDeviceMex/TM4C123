@@ -22,11 +22,11 @@
  * 14 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/DataStructure/Set/xHeader/Set_Destroy.h>
-#include <xUtils/DataStructure/SingleLinkList/xHeader/SingleLinkList_Destroy.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 
 void Set__vDestroy( Set_TypeDef* psSet)
 {
-    SingleLinkList__vDestroy( (SingleLinkList_TypeDef*) psSet);
+    SLinkedList__vDestroy( (SLinkedList_TypeDef*) psSet);
 }
 
 
