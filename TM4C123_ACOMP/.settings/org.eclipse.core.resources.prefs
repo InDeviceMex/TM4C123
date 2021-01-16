@@ -817,6 +817,8 @@ encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/Intrinsics/List/xSource/
 encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/Intrinsics/List/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/DoubleLinkList/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/HashTable/ChainedHashTable/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/HashTable/ChainedHashTable/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/Element/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/Element/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/List/xSource/subdir_rules.mk=UTF-8

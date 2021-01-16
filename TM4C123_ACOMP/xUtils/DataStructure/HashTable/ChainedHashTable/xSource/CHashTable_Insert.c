@@ -1,6 +1,6 @@
 /**
  *
- * @file HashTable.h
+ * @file CHashTable_Insert.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,12 +21,6 @@
  * Date           Author     Version     Description
  * 15 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_
-#define XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_
-
-
-#include <xUtils/DataStructure/HashTable/ChainedHashTable/ChainedHashTable.h>
 
 
 
-#endif /* XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_ */

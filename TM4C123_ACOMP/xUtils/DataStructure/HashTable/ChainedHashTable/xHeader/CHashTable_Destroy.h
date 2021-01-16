@@ -1,6 +1,6 @@
 /**
  *
- * @file HashTable.h
+ * @file CHashTable_Destroy.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,12 +21,14 @@
  * Date           Author     Version     Description
  * 15 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_
-#define XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_
+#ifndef XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_DESTROY_H_
+#define XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_DESTROY_H_
+
+#include <xUtils/DataStructure/HashTable/ChainedHashTable/xHeader/CHashTable_Struct.h>
+
+void CHashTable__vDestroy( CHashTable_TypeDef* psCHashTable);
 
 
-#include <xUtils/DataStructure/HashTable/ChainedHashTable/ChainedHashTable.h>
 
 
-
-#endif /* XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_ */
+#endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_DESTROY_H_ */
