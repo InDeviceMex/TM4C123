@@ -76,6 +76,7 @@
              CDLinkedList__vSetElementPreviousNode(psElement,  (CDLinkedListElement_TypeDef *) 0UL);
              CDLinkedList__vSetElementData(psElement,  (void *) 0UL);
              free(psElement);
+             psElement = (CDLinkedListElement_TypeDef*) 0UL;
 
              u32SizeReg--;
              CDLinkedList__vSetSize(psList,u32SizeReg);

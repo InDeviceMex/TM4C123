@@ -58,6 +58,7 @@ WDT_MODE_Typedef* WDT__psCreateModeStruct(WDT_nMODE enMode)
 void WDT__vDeleteModeStruct(WDT_MODE_Typedef* psMode)
 {
     free(psMode);
+    psMode = (WDT_MODE_Typedef*) 0UL;
 }
 
 

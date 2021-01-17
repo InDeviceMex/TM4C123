@@ -26,6 +26,7 @@
 
 #include <xUtils/DataStructure/HashTable/ChainedHashTable/xHeader/CHashTable_Struct.h>
 
-CHashTable_nSTATUS CHashTable__enLookup(const CHashTable_TypeDef* psCHashTable, uint32_t u32Position, const void** pvData);
+CHashTable_nSTATUS CHashTable__enLookup(const CHashTable_TypeDef* psCHashTable, void** pvData);
+void* CHashTable__pvLookup(const CHashTable_TypeDef* psCHashTable, const void* const* pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_LOOKUP_H_ */

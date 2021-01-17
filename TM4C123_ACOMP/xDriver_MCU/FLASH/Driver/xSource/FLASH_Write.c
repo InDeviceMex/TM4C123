@@ -72,6 +72,7 @@ FLASH_nSTATUS FLASH__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
                     pu32PageData += 32;
                 }
                 free(pu32PageDataInitial);
+                pu32PageDataInitial = (uint32_t*) 0UL;
             }
         }
     }
@@ -150,6 +151,7 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
                     pu32PageData += 32;
                 }
                 free(pu32PageDataInitial);
+                pu32PageDataInitial = (uint32_t*) 0UL;
             }
 
         }
@@ -230,6 +232,7 @@ FLASH_nSTATUS FLASH__enWriteByte (uint8_t u8Data, uint32_t u32Address)
                     pu32PageData+=(uint32_t)32u;
                 }
                 free(pu32PageDataInitial);
+                pu32PageDataInitial = (uint32_t*) 0UL;
             }
 
         }

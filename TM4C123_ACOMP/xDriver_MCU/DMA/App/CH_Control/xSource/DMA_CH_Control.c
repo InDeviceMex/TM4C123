@@ -108,5 +108,6 @@ DMA_CONTROL_Typedef* DMA_CH__psGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_C
 void DMA_CH__vDeleteControlStruct(DMA_CONTROL_Typedef* psControl)
 {
     free(psControl);
+    psControl = (DMA_CONTROL_Typedef*) 0UL;
 }
 

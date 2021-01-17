@@ -80,6 +80,7 @@
              DLinkedList__vSetElementPreviousNode(psElement,  (DLinkedListElement_TypeDef *) 0UL);
              DLinkedList__vSetElementData(psElement,  (void *) 0UL);
              free(psElement);
+             psElement = (DLinkedListElement_TypeDef*) 0UL;
 
              u32SizeReg--;
              DLinkedList__vSetSize(psList,u32SizeReg);

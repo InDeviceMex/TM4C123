@@ -75,4 +75,5 @@ DMA_CONFIG_Typedef* DMA_CH__psGetConfig(DMA_nCH_MODULE enDMAChannel)
 void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* psConfig)
 {
     free(psConfig);
+    psConfig = (DMA_CONFIG_Typedef*) 0UL;
 }

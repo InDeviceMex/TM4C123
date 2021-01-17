@@ -38,9 +38,9 @@ typedef struct CHashTable {
     uint32_t (*pfu32HashFunction)(const void *pcvKey);
     uint32_t  (*pfu32Match)(const void *pcvKey1, const void *pcvKey2);
     void  (*pfvDestroyElementData)(void *DataContainer);
-    void  (*pfvDestroy)(void* List);
+    void  (*pfvDestroy)(void* Hash);
     uint32_t u32Size;
-    SLinkedList_TypeDef *table;
+    SLinkedList_TypeDef *psTable;
 } CHashTable_TypeDef;
 
 #endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_STRUCT_H_ */

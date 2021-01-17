@@ -56,17 +56,18 @@ void CSLinkedList__vDestroy( CSLinkedList_TypeDef* psList)
              u32SizeReg = CSLinkedList__u32GetSize(psList);
          }
 
-         if((CSLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t)pfvListDestroy))
-         {
-             pfvListDestroy(psList);
-         }
-
          psList->pfu32Match = (uint32_t  (*)(const void *pcvKey1, const void *pcvKey2)) 0UL;
          psList->pfvDestroy = (void  (*)(void* List)) 0UL;
          psList->pfvDestroyElementData = (void  (*)(void* DataContainer)) 0UL;
          psList->psHead = (CSLinkedListElement_TypeDef *) 0UL;
          psList->psTail = (CSLinkedListElement_TypeDef *) 0UL;
          psList->u32Size = 0UL;
+
+         if((CSLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t)pfvListDestroy))
+         {
+             pfvListDestroy(psList);
+             psList = (CSLinkedList_TypeDef*)0UL;
+         }
      }
  }
 

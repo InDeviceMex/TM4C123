@@ -69,6 +69,7 @@ TIMER_MODE_Typedef* TIMER__psCreateModeStruct(TIMER_nMODE enMode)
 void TIMER__vDeleteModeStruct(TIMER_MODE_Typedef* psMode)
 {
     free(psMode);
+    psMode = (TIMER_MODE_Typedef*) 0UL;
 }
 
 

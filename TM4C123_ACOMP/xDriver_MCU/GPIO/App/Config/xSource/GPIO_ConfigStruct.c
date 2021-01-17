@@ -68,5 +68,6 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
 void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef *psConfig)
 {
     free(psConfig);
+    psConfig = (GPIO_CONFIG_Typedef*) 0UL;
 }
 

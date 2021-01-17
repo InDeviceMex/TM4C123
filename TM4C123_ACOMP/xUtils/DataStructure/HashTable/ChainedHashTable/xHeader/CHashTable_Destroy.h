@@ -28,7 +28,4 @@
 
 void CHashTable__vDestroy( CHashTable_TypeDef* psCHashTable);
 
-
-
-
 #endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_DESTROY_H_ */

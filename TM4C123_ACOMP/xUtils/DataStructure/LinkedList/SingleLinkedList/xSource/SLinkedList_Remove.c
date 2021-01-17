@@ -87,6 +87,7 @@
                  SLinkedList__vSetElementNextNode(psOldElement,  (SLinkedListElement_TypeDef *) 0UL);
                  SLinkedList__vSetElementData(psOldElement,  (void *) 0UL);
                  free(psOldElement);
+                 psOldElement = (SLinkedListElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
                  SLinkedList__vSetSize(psList,u32SizeReg);
@@ -156,6 +157,7 @@
                  SLinkedList__vSetElementNextNode(psOldElement,  (SLinkedListElement_TypeDef *) 0UL);
                  SLinkedList__vSetElementData(psOldElement,  (void *) 0UL);
                  free(psOldElement);
+                 psOldElement = (SLinkedListElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
                  SLinkedList__vSetSize(psList,u32SizeReg);
