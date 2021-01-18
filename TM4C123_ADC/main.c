@@ -149,6 +149,7 @@ int32_t main(void)
 
     MAIN_vInitTIMER();
 
+
     while(1u)
     {
     }

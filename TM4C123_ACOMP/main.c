@@ -19,29 +19,32 @@
 #include <xUtils/DataStructure/DataStructure.h>
 #include <xApplication/Printf/Generic/xHeader/Printf.h>
 
+/*Applications*/
+#include <xApplication/EDUMKII/EDUMKII.h>
+
 uint8_t NokiaBuffer[64*(48/8)] ={0u};
 char cNokiaBuffer[64*(48/8)] ={0u};
-/*Local functions*/
 
+/*Local functions*/
+EDUMKII_nBUTTON_STATE enButton1State = EDUMKII_enBUTTON_STATE_NOPRESS;
+EDUMKII_nBUTTON_STATE enButton2State = EDUMKII_enBUTTON_STATE_NOPRESS;
+int32_t s32AccelerometerXValue =0UL;
+int32_t s32AccelerometerYValue =0UL;
+int32_t s32AccelerometerZValue =0UL;
+uint32_t u32MicrophoneValue =0UL;
+int32_t s32JoystickXValue =0UL;
+int32_t s32JoystickYValue =0UL;
+EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK)0UL;
 uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2);
 void MAIN_vIrqCOMP1_INT1(void);
 int32_t main (void);
 
 int32_t main(void)
 {
-    Queue_TypeDef* psQueue = (Queue_TypeDef*)0UL;
-    Set_TypeDef* psSet1 = (Set_TypeDef*)0UL;
-    Set_TypeDef* psSet2 = (Set_TypeDef*)0UL;
-    Set_TypeDef* psSetNew = (Set_TypeDef*)0UL;
-    SetMember_TypeDef* psSetMember = (SetMember_TypeDef*)0UL;
-    volatile Queue_nSTATUS enStatus =Queue_enSTATUS_ERROR;
-    uint32_t u32CompState1= 0UL ;
-    uint32_t u32CompState[10] = {0u};
-    uint32_t u32LenghtMember = 0UL;
-    uint32_t u32Lenght = 0UL;
-    uint32_t u32Iteration = 0UL;
-    void *pvData = (void*)0UL;
-    void **ppvData = (void**)u32CompState;
+    uint32_t u32PWMRed = 0UL;
+    uint32_t u32PWMGreen = 0UL;
+    EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
+
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
@@ -51,105 +54,57 @@ int32_t main(void)
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
     SysTick__enInitUs(1000.0f,SCB_enSHPR0);
+    GPIO__vInit();
+    TIMER__vInit();
+    DMA__vInit();
+    ADC__vRegisterIRQVectorHandler(&ADC0_SS0__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_0);
+    ADC__vRegisterIRQVectorHandler(&ADC0_SS1__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_1);
+    ADC__vRegisterIRQVectorHandler(&ADC0_SS2__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_2);
 
-    psQueue = Queue__psInit((void  (*)(void *DataContainer))0UL);
+    EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
+    EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
+    EDUMKII_Joystick_vInit();
+    EDUMKII_Buzzer_vInit();
+    EDUMKII_Accelerometer_vInit();
+    EDUMKII_Microphone_vInit();
 
-    pvData = Queue__pvPeek(psQueue);
-    u32Lenght = Queue__u32GetSize(psQueue);
-    enStatus = Queue__enDequeue(psQueue, ppvData);
-    enStatus = Queue__enEnqueue(psQueue, (void*)1);
-    enStatus = Queue__enEnqueue(psQueue, (void*)4);
-    enStatus = Queue__enEnqueue(psQueue, (void*)5);
-    pvData = Queue__pvPeek(psQueue);
-    enStatus = Queue__enDequeue(psQueue, ppvData);
-    enStatus = Queue__enDequeue(psQueue, ppvData);
-    enStatus = Queue__enDequeue(psQueue, ppvData);
-    enStatus = Queue__enDequeue(psQueue, ppvData);
-
-    psSet1 = Set__psInit(&MAIN_u32MatchSet, (void  (*)(void *DataContainer))0UL);
-    psSet2 = Set__psInit(&MAIN_u32MatchSet, (void  (*)(void *DataContainer))0UL);
-
-    Set__enInsert(psSet1, (void*)1);
-    Set__enInsert(psSet1, (void*)1);
-    Set__enInsert(psSet1, (void*)2);
-    Set__enInsert(psSet1, (void*)2);
-    Set__enInsert(psSet1, (void*)4);
-
-    Set__enInsert(psSet2, (void*)4);
-    Set__enInsert(psSet2, (void*)5);
-    Set__enInsert(psSet2, (void*)3);
-    Set__enInsert(psSet2, (void*)2);
-    Set__enInsert(psSet2, (void*)6);
-
-    psSetNew = Set__psDifference(psSet1, psSet2);
-    u32Lenght= 0UL;
-    u32LenghtMember = Set__u32GetAllMember((const Set_TypeDef* )psSet1,  (const void**)ppvData, 10);
-    u32Lenght +=sprintf__u32User(&cNokiaBuffer[u32Lenght],"Data: ");
-    for(u32Iteration = 0UL; u32Iteration < u32LenghtMember; u32Iteration++)
-    {
-        u32Lenght += sprintf__u32User(&cNokiaBuffer[u32Lenght],"%u ", *ppvData);
-        ppvData+= 1UL;
-    }
-
-    u32LenghtMember = Set__u32GetAllMember((const Set_TypeDef* )psSet2,  (const void**)ppvData, 10);
-    u32Lenght +=sprintf__u32User(&cNokiaBuffer[u32Lenght],"Data: ");
-    for(u32Iteration = 0UL; u32Iteration < u32LenghtMember; u32Iteration++)
-    {
-        u32Lenght += sprintf__u32User(&cNokiaBuffer[u32Lenght],"%u ", *ppvData);
-        ppvData+= 1UL;
-    }
-
-
-    u32LenghtMember = Set__u32GetAllMember((const Set_TypeDef* )psSetNew,  (const void**)ppvData, 10);
-    u32Lenght +=sprintf__u32User(&cNokiaBuffer[u32Lenght],"Data: ");
-    for(u32Iteration = 0UL; u32Iteration < u32LenghtMember; u32Iteration++)
-    {
-        u32Lenght += sprintf__u32User(&cNokiaBuffer[u32Lenght],"%u ", *ppvData);
-        ppvData+= 1UL;
-    }
-
-    ACMP__vSetReady();
-    GPIO__vSetAnalogFunction(GPIO_enC1P);
-    GPIO__vSetAnalogFunction(GPIO_enC1M);
-
-    GPIO__enSetDigitalConfig(GPIO_enGPIOF1,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetDigitalConfig(GPIO_enGPIOF2,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetDigitalConfig(GPIO_enGPIOF3,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-
-
-    ACMP__vRegisterIRQVectorHandler(&ACMP1__vIRQVectorHandler, ACMP_enMODULE_1);
-    ACMP__vRegisterIRQSourceHandler(&MAIN_vIrqCOMP1_INT1, ACMP_enMODULE_1);
-
-    ACMP->ACCTL1 =0x00000000U;
-    ACMP->ACCTL1_Bit.ISEN = ACMP_ACCTL_ISEN_EITHER;
-
-    ACMP__vEnInterruptVector(ACMP_enMODULE_1, ACMP_enPRI7);
-    ACMP__vEnInterruptSource(ACMP_enMODULEMASK_1);
-    SysTick__vDelayUs(1000.0f);
-
-    u32CompState1= ACMP_BITBANDING_ACSTAT1_OVAL;
-   if(u32CompState1 == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
-   {
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, GPIO_enPIN_3);
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0u);
-   }
-   else/*Falling*/
-   {
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, 0U);
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, GPIO_enPIN_2);
-   }
     while(1u)
     {
-  /*      u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
-        if(u32CompState == ACMP_ACSTAT_OVAL_HIGH)
+        enButtonState =  EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
+        enButton1State =(EDUMKII_nBUTTON_STATE)((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_1);
+        enButton2State =(EDUMKII_nBUTTON_STATE)(((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_2)>>1UL);
+        if(  EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
         {
-            GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0u);
+            if(u32PWMRed<1023UL)
+            {
+                u32PWMRed++;
+            }
+            else
+            {
+                u32PWMRed=0UL;
+            }
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t)u32PWMRed);
+            EDUMKII_Buzzer_vSet(u32PWMRed);
         }
-        else
+
+        if( EDUMKII_enBUTTON_STATE_PRESS ==enButton2State)
         {
-            GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, GPIO_enPIN_2);
+            if(u32PWMGreen<1023UL)
+            {
+                u32PWMGreen++;
+            }
+            else
+            {
+                u32PWMGreen=0UL;
+            }
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN,(uint32_t)u32PWMGreen);
+            EDUMKII_Buzzer_vSet(0UL);
         }
-    */
+
+        SysTick__vDelayUs(50000.0f);
+        EDUMKII_Joystick_vSample(&s32JoystickXValue,&s32JoystickYValue,&enJoystickSelectValue);
+        EDUMKII_Accelerometer_vSample(&s32AccelerometerXValue,&s32AccelerometerYValue,&s32AccelerometerZValue);
+        EDUMKII_Microphone_vSample(&u32MicrophoneValue);
     }
 }
 
