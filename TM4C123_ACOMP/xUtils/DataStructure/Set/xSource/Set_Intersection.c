@@ -49,7 +49,7 @@ Set_nSTATUS Set__enIntersection(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, cons
             {
                 pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
-                if((uint32_t)0UL != psMemberSet)
+                if((uint32_t)0UL != (uint32_t)psMemberSet)
                 {
                     psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet,  pvDataMember);
                     if( (uint32_t)0UL == (uint32_t)psNewMember)
@@ -87,7 +87,7 @@ Set_TypeDef* Set__psIntersection(Set_TypeDef* psSet1, const Set_TypeDef* psSet2)
             {
                 pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
-                if((uint32_t)0UL != psMemberSet)
+                if((uint32_t)0UL != (uint32_t)psMemberSet)
                 {
                     psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet,  pvDataMember);
                     if( (uint32_t)0UL == (uint32_t)psNewMember)

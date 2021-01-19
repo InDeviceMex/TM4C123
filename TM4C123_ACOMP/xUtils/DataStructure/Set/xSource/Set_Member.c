@@ -61,7 +61,7 @@ uint32_t Set__u32GetNMember(const Set_TypeDef* psSet, const void** pvData, uint3
 {
     uint32_t u32SizeReg = 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != pvData )&& ((uint32_t)0UL != u32Members )&& ((uint32_t)0UL != u32MaxSize ))
+    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != (uint32_t)pvData )&& (0UL != u32Members )&& (0UL != u32MaxSize ))
     {
         u32SizeReg = SLinkedList__u32GetNNode((const SLinkedList_TypeDef*)psSet, pvData, u32Members, u32MaxSize);
     }
@@ -83,7 +83,7 @@ SetMember_TypeDef* Set__psGetMember(const Set_TypeDef* psSet, uint32_t u32Positi
 {
     SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != pvData ))
+    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != (uint32_t)pvData ))
     {
 
         psMember = SLinkedList__psGetNodePos((const SLinkedList_TypeDef*) psSet, u32Position);
@@ -100,7 +100,7 @@ SetMember_TypeDef* Set__psGetMemberHead(const Set_TypeDef* psSet, const void** p
 {
     SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != pvData ))
+    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != (uint32_t)pvData ))
     {
 
         psMember = SLinkedList__psGetNodePos((const SLinkedList_TypeDef*) psSet, 0UL);
@@ -117,7 +117,7 @@ SetMember_TypeDef* Set__psGetMemberNext(const SetMember_TypeDef* psMember, const
 {
     SLinkedListElement_TypeDef *psMemberReg = (SLinkedListElement_TypeDef*) 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psMember) && ((uint32_t)0UL != pvData ))
+    if(((uint32_t)0UL != (uint32_t)psMember) && ((uint32_t)0UL != (uint32_t)pvData ))
     {
 
         psMemberReg = SLinkedList__psGetElementNextNode(psMember);

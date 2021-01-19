@@ -48,8 +48,6 @@ void EDUMKII_Led_vInitDigital(EDUMKII_nLED enLedSelect)
 void EDUMKII_Led_vInitPWM(EDUMKII_nLED enLedSelect)
 {
     TIMER_EXTRAMODE_Typedef psExtraMode;
-    volatile TIMER_MODE_Typedef psMode;
-    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
 
     psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
     psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;

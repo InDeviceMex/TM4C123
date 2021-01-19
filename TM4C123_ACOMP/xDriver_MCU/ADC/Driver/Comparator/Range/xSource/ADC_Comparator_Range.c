@@ -1,6 +1,6 @@
 /**
  *
- * @file ADC_Comparator_RangeBoth.c
+ * @file ADC_Comparator_Range.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

@@ -49,7 +49,7 @@
                  DLinkedList__vSetElementNextNode(psElement, (DLinkedListElement_TypeDef*)0UL);
                  DLinkedList__vSetElementPreviousNode(psElement,psNextElement);
 
-                 while((uint32_t)0UL != psNextElement)
+                 while((uint32_t)0UL != (uint32_t)psNextElement)
                  {
                      psNextNextElement =DLinkedList__psGetElementNextNode(psNextElement);
                      DLinkedList__vSetElementPreviousNode(psNextElement,psNextNextElement);

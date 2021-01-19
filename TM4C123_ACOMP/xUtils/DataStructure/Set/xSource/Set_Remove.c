@@ -51,7 +51,7 @@ Set_nSTATUS Set__enRemove(Set_TypeDef* psSet, void** pvData)
             psMember = psMemberTemp;
         }
 
-        if((uint32_t)0UL != psMember)
+        if((uint32_t)0UL != (uint32_t)psMember)
         {
             enStatus = (Set_nSTATUS) SLinkedList__enRemoveNext((SLinkedList_TypeDef*) psSet, psPreviousMember, pvData);
         }

@@ -39,7 +39,7 @@
      {
          psHeadElement = SLinkedList__psGetHead(psList);
          SLinkedList__vSetTail(psList, psHeadElement);
-         while((uint32_t)0UL != psHeadElement)
+         while((uint32_t)0UL != (uint32_t)psHeadElement)
          {
              psNextElement = SLinkedList__psGetElementNextNode(psHeadElement);
              SLinkedList__vSetElementNextNode(psHeadElement,psPreviousElement);

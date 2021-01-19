@@ -28,7 +28,7 @@ Set_TypeDef* Set__psInit( uint32_t  (*pfu32MatchArg)(const void *pcvKey1, const 
 {
     Set_TypeDef* psSet = (Set_TypeDef*) 0UL;
     psSet = (Set_TypeDef*)SLinkedList__psInit(  pfvDestroyElementDataArg);
-    if((uint32_t)0UL !=  psSet)
+    if((uint32_t)0UL !=  (uint32_t)psSet)
     {
         psSet->pfu32Match = pfu32MatchArg;
     }

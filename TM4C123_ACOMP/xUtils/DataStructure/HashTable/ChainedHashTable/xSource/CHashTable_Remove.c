@@ -53,7 +53,7 @@ CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void**
         psList = psCHashTable->psTable;
         psList += u32BucketNum;
         psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t)0UL != psElement)
+        while((uint32_t)0UL != (uint32_t)psElement)
         {
             pvElementData = SLinkedList__pvGetElementData(psElement);
             enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData,(const void*)pvElementData);

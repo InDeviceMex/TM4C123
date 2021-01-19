@@ -52,7 +52,7 @@
      if((uint32_t)0UL != (uint32_t)psList)
      {
          psElement = CSLinkedList__psGetNodeEnd(psList);
-         if(psElement != 0UL)
+         if((uint32_t)0UL != (uint32_t)psElement)
          {
              pvElementData = CSLinkedList__pvGetElementData(psElement);
          }
@@ -67,7 +67,7 @@
      if((uint32_t)0UL != (uint32_t)psList)
      {
          psElement = CSLinkedList__psGetNodeBegin(psList);
-         if(psElement != 0UL)
+         if((uint32_t)0UL != (uint32_t)psElement)
          {
              pvElementData = CSLinkedList__pvGetElementData(psElement);
          }

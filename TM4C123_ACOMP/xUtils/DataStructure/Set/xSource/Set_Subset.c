@@ -50,7 +50,7 @@ Set_nSTATUS Set__enIsSubset(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2
             {
                 pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
-                if((uint32_t)0UL == psMemberSet)
+                if((uint32_t)0UL == (uint32_t)psMemberSet)
                 {
                     enStatus = Set_enSTATUS_ERROR;
                     break;

@@ -50,7 +50,7 @@
                  psElementNextNode = DLinkedList__psGetElementNextNode(psElement);
                  DLinkedList__vSetHead(psList, psElementNextNode);
 
-                 if((uint32_t)0UL == psElementNextNode)
+                 if((uint32_t)0UL == (uint32_t)psElementNextNode)
                  {
                      DLinkedList__vSetTail(psList, (DLinkedListElement_TypeDef*) 0UL);
                  }
@@ -66,7 +66,7 @@
 
                  DLinkedList__vSetElementNextNode(psElementPreviousNode, psElementNextNode);
 
-                 if((uint32_t)0UL == psElementNextNode)
+                 if((uint32_t)0UL == (uint32_t)psElementNextNode)
                  {
                      DLinkedList__vSetTail(psList,psElementPreviousNode);
                  }

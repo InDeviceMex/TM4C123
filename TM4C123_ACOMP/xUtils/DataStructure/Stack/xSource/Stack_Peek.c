@@ -34,7 +34,7 @@ uint32_t Stack__u32GetNMember(const Stack_TypeDef* psStack, const void** pvData,
 {
     uint32_t u32SizeReg = 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psStack) && ((uint32_t)0UL != pvData )&& ((uint32_t)0UL != u32Members )&& ((uint32_t)0UL != u32MaxSize ))
+    if(((uint32_t)0UL != (uint32_t)psStack) && ((uint32_t)0UL != (uint32_t)pvData )&& (0UL != u32Members )&& (0UL != u32MaxSize ))
     {
         u32SizeReg = SLinkedList__u32GetNNode((const SLinkedList_TypeDef*)psStack, pvData, u32Members, u32MaxSize);
     }

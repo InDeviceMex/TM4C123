@@ -30,8 +30,6 @@
 void EDUMKII_Buzzer_vInit(void)
 {
     TIMER_EXTRAMODE_Typedef psExtraMode;
-    volatile TIMER_MODE_Typedef psMode;
-    volatile TIMER_nMODE enCurrentMode =TIMER_enMODE_UNDEF;
 
     psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
     psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;

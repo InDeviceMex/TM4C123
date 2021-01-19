@@ -49,7 +49,7 @@ CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* psCHashTable, void* 
             psList = psCHashTable->psTable;
             psList += u32BucketNum;
             psElement = SLinkedList__psAddBegin(psList, pvData);
-            if((uint32_t)0UL != psElement)
+            if((uint32_t)0UL != (uint32_t)psElement)
             {
                 u32SizeReg = CHashTable__u32GetSize(psCHashTable);
                 u32SizeReg++;
