@@ -36,6 +36,12 @@ CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_
 
     if((uint32_t)0UL != (uint32_t)psCHashTable)
     {
+        psCHashTable->u32Size= 0UL;
+        psCHashTable->pfu32HashFunction = pfu32FunctionArg;
+        psCHashTable->pfu32Match = pfu32MatchArg;
+        psCHashTable->pfvDestroy = (void  (*)(void* List))0UL;
+        psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
+
     #if defined ( __TI_ARM__ )
         psCHashTable->psTable = (SLinkedList_TypeDef*) memalign((size_t)4,(size_t)(u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #elif defined ( __GNUC__ )
@@ -56,11 +62,6 @@ CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_
                 psList += 1UL;
             }
             psCHashTable->u32Buckets = u32Position;
-            psCHashTable->u32Size= 0UL;
-            psCHashTable->pfu32HashFunction = pfu32FunctionArg;
-            psCHashTable->pfu32Match = pfu32MatchArg;
-            psCHashTable->pfvDestroy = (void  (*)(void* List))0UL;
-            psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
             if(SLinkedList_enSTATUS_OK != enLinkedStatus)
             {
                 CHashTable__vDestroy(psCHashTable);
@@ -85,6 +86,12 @@ CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t  (*pfu32F
 #endif
     if((uint32_t)0UL != (uint32_t)psCHashTable)
     {
+        psCHashTable->u32Size= 0UL;
+        psCHashTable->pfu32HashFunction = pfu32FunctionArg;
+        psCHashTable->pfu32Match = pfu32MatchArg;
+        psCHashTable->pfvDestroy = (void  (*)(void* List))0UL;
+        psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
+
     #if defined ( __TI_ARM__ )
         psCHashTable->psTable = (SLinkedList_TypeDef*) memalign((size_t)4,(size_t)(u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #elif defined ( __GNUC__ )
@@ -104,16 +111,14 @@ CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t  (*pfu32F
                 psList += 1UL;
             }
             psCHashTable->u32Buckets = u32Position;
-            psCHashTable->u32Size= 0UL;
-            psCHashTable->pfu32HashFunction = pfu32FunctionArg;
-            psCHashTable->pfu32Match = pfu32MatchArg;
-            psCHashTable->pfvDestroy = &free;
-            psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
-
             if(SLinkedList_enSTATUS_OK != enLinkedStatus)
             {
                 CHashTable__vDestroy(psCHashTable);
             }
+        }
+        else
+        {
+            CHashTable__vDestroy(psCHashTable);
         }
     }
     return psCHashTable;

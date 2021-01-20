@@ -29,6 +29,7 @@
 typedef enum
 {
     CHashTable_enSTATUS_OK,
+    CHashTable_enSTATUS_EXIST,
     CHashTable_enSTATUS_ERROR,
 }CHashTable_nSTATUS;
 

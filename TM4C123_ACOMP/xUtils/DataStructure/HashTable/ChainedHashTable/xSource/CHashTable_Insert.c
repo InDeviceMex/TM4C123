@@ -57,6 +57,10 @@ CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* psCHashTable, void* 
                 enMatchResult = CHashTable_enSTATUS_OK;
             }
         }
+        else
+        {
+            enMatchResult = CHashTable_enSTATUS_EXIST;
+        }
     }
     return enMatchResult;
 }

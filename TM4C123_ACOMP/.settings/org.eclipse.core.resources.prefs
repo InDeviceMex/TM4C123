@@ -326,6 +326,10 @@ encoding//Debug/xUtils/Conversion/Conversion_String2Number/xSource/subdir_rules.
 encoding//Debug/xUtils/Conversion/Conversion_String2Number/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xUtils/DataStructure/HashTable/ChainedHashTable/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xUtils/DataStructure/HashTable/ChainedHashTable/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xUtils/DataStructure/HashTable/OpenAddressedHashTable/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xUtils/DataStructure/HashTable/OpenAddressedHashTable/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xUtils/DataStructure/HashTable/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xUtils/DataStructure/HashTable/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/Element/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/Element/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/List/xSource/subdir_rules.mk=UTF-8
@@ -857,6 +861,10 @@ encoding//Debug__TI/xUtils/Conversion/Conversion_String2Number/xSource/subdir_ru
 encoding//Debug__TI/xUtils/Conversion/Conversion_String2Number/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/HashTable/ChainedHashTable/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/HashTable/ChainedHashTable/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/HashTable/OpenAddressedHashTable/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/HashTable/OpenAddressedHashTable/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/HashTable/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/DataStructure/HashTable/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/Element/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/Element/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/List/xSource/subdir_rules.mk=UTF-8

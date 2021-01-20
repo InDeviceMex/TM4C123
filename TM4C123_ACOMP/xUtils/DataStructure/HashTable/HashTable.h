@@ -25,7 +25,9 @@
 #define XUTILS_DATASTRUCTURE_HASHTABLE_HASHTABLE_H_
 
 
+#include <xUtils/DataStructure/HashTable/xHeader/HashTable_String.h>
 #include <xUtils/DataStructure/HashTable/ChainedHashTable/ChainedHashTable.h>
+#include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/OpenAddressedHashTable.h>
 
 
 

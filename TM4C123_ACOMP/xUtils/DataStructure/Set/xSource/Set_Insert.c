@@ -41,6 +41,10 @@ Set_nSTATUS Set__enInsert(Set_TypeDef* psSet, void* pvData)
                 enStatus = Set_enSTATUS_OK;
             }
         }
+        else
+        {
+            enStatus = Set_enSTATUS_EXIST;
+        }
     }
     return enStatus;
 }

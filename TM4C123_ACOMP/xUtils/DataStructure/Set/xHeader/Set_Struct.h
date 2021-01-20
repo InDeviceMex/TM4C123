@@ -29,6 +29,7 @@
 typedef enum
 {
     Set_enSTATUS_OK,
+    Set_enSTATUS_EXIST,
     Set_enSTATUS_ERROR,
 }Set_nSTATUS;
 
