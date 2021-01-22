@@ -29,9 +29,6 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/List/xHeader/DLinkedList_Tail.h>
 #include <stdlib.h>
 
-
-#include <stdlib.h>
-
 void DLinkedList__vDestroy( DLinkedList_TypeDef* psList)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;

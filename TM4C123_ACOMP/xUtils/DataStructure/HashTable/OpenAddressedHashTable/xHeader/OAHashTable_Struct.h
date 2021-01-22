@@ -29,8 +29,8 @@
 typedef enum
 {
     OAHashTable_enSTATUS_OK,
-    OAHashTable_enSTATUS_EXIST,
     OAHashTable_enSTATUS_ERROR,
+    OAHashTable_enSTATUS_EXIST,
 }OAHashTable_nSTATUS;
 
 typedef struct OAHashTable {

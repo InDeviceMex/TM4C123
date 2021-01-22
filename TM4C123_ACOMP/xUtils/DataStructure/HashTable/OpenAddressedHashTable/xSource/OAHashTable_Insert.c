@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 19 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Remove.h>
+#include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Insert.h>
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Lookup.h>
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Size.h>
 

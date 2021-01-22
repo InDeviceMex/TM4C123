@@ -25,5 +25,6 @@
 #define XDRIVER_MCU_ADC_APP_ADC_APP_H_
 
 #include <xDriver_MCU/ADC/App/xHeader/ADC_Sample_Config.h>
+#include <xDriver_MCU/ADC/App/xHeader/ADC_Init.h>
 
 #endif /* XDRIVER_MCU_ADC_APP_ADC_APP_H_ */

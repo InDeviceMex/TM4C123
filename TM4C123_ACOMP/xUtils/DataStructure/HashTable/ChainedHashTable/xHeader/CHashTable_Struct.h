@@ -29,8 +29,8 @@
 typedef enum
 {
     CHashTable_enSTATUS_OK,
-    CHashTable_enSTATUS_EXIST,
     CHashTable_enSTATUS_ERROR,
+    CHashTable_enSTATUS_EXIST,
 }CHashTable_nSTATUS;
 
 typedef struct CHashTable {

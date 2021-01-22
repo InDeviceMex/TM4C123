@@ -57,9 +57,7 @@ int32_t main(void)
     GPIO__vInit();
     TIMER__vInit();
     DMA__vInit();
-    ADC__vRegisterIRQVectorHandler(&ADC0_SS0__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_0);
-    ADC__vRegisterIRQVectorHandler(&ADC0_SS1__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_1);
-    ADC__vRegisterIRQVectorHandler(&ADC0_SS2__vIRQVectorHandler,ADC_enMODULE_0,ADC_enSEQ_2);
+    ADC__vInit();
 
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
