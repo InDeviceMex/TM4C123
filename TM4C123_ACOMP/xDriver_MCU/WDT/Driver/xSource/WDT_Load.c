@@ -37,7 +37,7 @@ void WDT__vSetLoad(WDT_nMODULE enModule, uint32_t u32LoadValue)
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    WDT->W[enModule].WDTLOAD = u32LoadValue;
+    WDT->MODULE[enModule].WDTLOAD = u32LoadValue;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 
@@ -54,7 +54,7 @@ uint32_t WDT__u32GetLoad(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if((WDT_enREADY == enReady) )
     {
-        u32Reg = WDT->W[enModule].WDTLOAD;
+        u32Reg = WDT->MODULE[enModule].WDTLOAD;
     }
     return u32Reg;
 }

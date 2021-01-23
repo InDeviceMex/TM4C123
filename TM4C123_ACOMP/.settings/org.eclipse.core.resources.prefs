@@ -296,6 +296,10 @@ encoding//Debug/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitband
 encoding//Debug/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_Standard_64/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/WDT/App/Mode/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/WDT/App/Mode/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/WDT/App/ModeLoad/xSource/subdir_rules.mk=UTF-8
@@ -837,6 +841,10 @@ encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bit
 encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_Standard_64/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/WDT/App/Mode/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/WDT/App/Mode/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/WDT/App/ModeLoad/xSource/subdir_rules.mk=UTF-8

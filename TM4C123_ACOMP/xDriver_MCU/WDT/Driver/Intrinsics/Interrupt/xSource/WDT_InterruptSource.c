@@ -40,7 +40,7 @@ WDT_nINTERRUPT WDT__enGetInterruptSource(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if( WDT_enREADY == enReady )
     {
-        u32Reg =  WDT->W[ enModule ].WDTCTL;
+        u32Reg =  WDT->MODULE[ enModule ].WDTCTL;
         u32Reg &= WDT_WDTCTL_R_INTEN_MASK;
         u32Reg >>= WDT_WDTCTL_R_INTEN_BIT;
         enStatus = (WDT_nINTERRUPT) u32Reg;
@@ -59,9 +59,9 @@ void WDT__vEnInterruptSource(WDT_nMODULE enModule)
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
 
-    u32Reg  = WDT->W[ enModule ].WDTCTL;
+    u32Reg  = WDT->MODULE[ enModule ].WDTCTL;
     u32Reg |= WDT_enINTERRUPT_ENABLE;
-    WDT->W[enModule].WDTCTL = u32Reg;
+    WDT->MODULE[enModule].WDTCTL = u32Reg;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
@@ -84,7 +84,7 @@ void WDT__vClearInterruptSource(WDT_nMODULE enModule)
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    WDT->W[enModule].WDTICR = 0U;
+    WDT->MODULE[enModule].WDTICR = 0U;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
@@ -101,7 +101,7 @@ WDT_nINT_STATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if( WDT_enREADY == enReady )
     {
-        u32Reg =  WDT->W[ enModule ].WDTRIS;
+        u32Reg =  WDT->MODULE[ enModule ].WDTRIS;
         u32Reg &= WDT_enINT_STATUS_OCCUR;
         enStatus = (WDT_nINT_STATUS) u32Reg;
     }

@@ -37,9 +37,9 @@ void WDT__vEnResetOutput(WDT_nMODULE enModule)
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    u32RegReset=WDT->W[enModule].WDTCTL;
+    u32RegReset=WDT->MODULE[enModule].WDTCTL;
     u32RegReset|= WDT_WDTCTL_R_RESEN_MASK;
-    WDT->W[enModule].WDTCTL=u32RegReset;
+    WDT->MODULE[enModule].WDTCTL=u32RegReset;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
@@ -53,9 +53,9 @@ void WDT__vDisResetOutput(WDT_nMODULE enModule)
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    u32RegReset=WDT->W[enModule].WDTCTL;
+    u32RegReset=WDT->MODULE[enModule].WDTCTL;
     u32RegReset&= ~WDT_WDTCTL_R_RESEN_MASK;
-    WDT->W[enModule].WDTCTL=u32RegReset;
+    WDT->MODULE[enModule].WDTCTL=u32RegReset;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
@@ -71,11 +71,11 @@ void WDT__vSetResetOutput(WDT_nMODULE enModule, WDT_nRESET enResetOutputValue)
     }
     WDT__vSetReady(enModule);
     WDT__vUnlock(enModule);
-    u32Reg = WDT->W[enModule].WDTCTL;
+    u32Reg = WDT->MODULE[enModule].WDTCTL;
     u32ResetOutput<<=WDT_WDTCTL_R_RESEN_BIT;
     u32Reg&=~ WDT_WDTCTL_R_RESEN_MASK;
     u32Reg|=u32ResetOutput;
-    WDT->W[enModule].WDTCTL = u32Reg;
+    WDT->MODULE[enModule].WDTCTL = u32Reg;
     WDT__vWaitWrite(enModule);
     WDT__vLock(enModule);
 }
@@ -93,7 +93,7 @@ WDT_nRESET WDT__enGetResetOutput(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if((WDT_enREADY == enReady) )
     {
-        u32Reg=WDT->W[enModule].WDTCTL;
+        u32Reg=WDT->MODULE[enModule].WDTCTL;
         u32Reg>>=WDT_WDTCTL_R_RESEN_BIT;
         u32Reg&=WDT_WDTCTL_RESEN_MASK;
         enReset= (WDT_nRESET)u32Reg;

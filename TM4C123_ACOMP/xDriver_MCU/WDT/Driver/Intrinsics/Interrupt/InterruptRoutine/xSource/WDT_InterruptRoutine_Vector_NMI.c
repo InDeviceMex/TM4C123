@@ -41,7 +41,7 @@ void WDT_NMI__vIRQVectorHandler(void)
 
     if( (uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )
     {
-        u32RegType = WDT->W[(uint32_t) WDT_enMODULE_0].WDTCTL;
+        u32RegType = WDT->MODULE[(uint32_t) WDT_enMODULE_0].WDTCTL;
         u32RegType &= WDT_WDTCTL_R_INTTYPE_MASK;
         if(WDT_WDTCTL_R_INTTYPE_NMI == u32RegType)
         {
@@ -58,7 +58,7 @@ void WDT_NMI__vIRQVectorHandler(void)
 
     if( (uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT1_MASK ) )
     {
-        u32RegType = WDT->W[(uint32_t) WDT_enMODULE_1].WDTCTL;
+        u32RegType = WDT->MODULE[(uint32_t) WDT_enMODULE_1].WDTCTL;
         u32RegType &= WDT_WDTCTL_R_INTTYPE_MASK;
 
         if( WDT_WDTCTL_R_INTTYPE_NMI == u32RegType )

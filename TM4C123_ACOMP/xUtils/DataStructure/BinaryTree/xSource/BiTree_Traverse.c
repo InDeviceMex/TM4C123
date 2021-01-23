@@ -28,13 +28,13 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Tree/BiTree_Tree.h>
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Element/BiTree_Element.h>
 
- BiTree_nSTATUS BiTree__enTraversePreOrder(BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered )
+ BiTree_nSTATUS BiTree__enTraversePreOrder(const BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered )
  {
      BiTree_nSTATUS enStatusReturn = BiTree_enSTATUS_ERROR;
      BiTree_nSTATUS enEndOfBranch = BiTree_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
-     BiTreeElement_TypeDef* psLeftNode =(BiTreeElement_TypeDef*)0UL;
-     BiTreeElement_TypeDef* psRightNode =(BiTreeElement_TypeDef*)0UL;
+     BiTreeElement_TypeDef* psLeftNodeReg =(BiTreeElement_TypeDef*)0UL;
+     BiTreeElement_TypeDef* psRightNodeReg =(BiTreeElement_TypeDef*)0UL;
      void* pvData = (void*) 0UL;
 
      if((uint32_t)0UL != (uint32_t)psListOrdered)
@@ -45,26 +45,26 @@
          {
              pvData = BiTree__pvGetElementData(psNode);
              psElement = SLinkedList__psAddEnd(psListOrdered, pvData);
-             if((uint32_t)0UL == psElement)
+             if((uint32_t)0UL == (uint32_t)psElement)
              {
                  enStatusReturn = BiTree_enSTATUS_ERROR;
              }
              else
              {
-                 psLeftNode = BiTree__psGetElementLeftNode(psNode);
-                 enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNode);
+                 psLeftNodeReg = BiTree__psGetElementLeftNode(psNode);
+                 enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNodeReg);
                  if(BiTree_enSTATUS_OK != enEndOfBranch)
                  {
-                     enStatusReturn = BiTree__enTraversePreOrder(psLeftNode,psListOrdered);
+                     enStatusReturn = BiTree__enTraversePreOrder(psLeftNodeReg,psListOrdered);
                  }
 
                  if(BiTree_enSTATUS_OK == enStatusReturn)
                  {
-                     psRightNode = BiTree__psGetElementRightNode(psNode);
-                     enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNode);
+                     psRightNodeReg = BiTree__psGetElementRightNode(psNode);
+                     enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNodeReg);
                      if(BiTree_enSTATUS_OK != enEndOfBranch)
                      {
-                         enStatusReturn = BiTree__enTraversePreOrder(psLeftNode,psListOrdered);
+                         enStatusReturn = BiTree__enTraversePreOrder(psLeftNodeReg,psListOrdered);
                      }
                  }
              }
@@ -73,13 +73,13 @@
      return enStatusReturn;
  }
 
- BiTree_nSTATUS BiTree__enTraverseInOrder(BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered )
+ BiTree_nSTATUS BiTree__enTraverseInOrder(const BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered )
  {
      BiTree_nSTATUS enStatusReturn = BiTree_enSTATUS_ERROR;
      BiTree_nSTATUS enEndOfBranch = BiTree_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
-     BiTreeElement_TypeDef* psLeftNode =(BiTreeElement_TypeDef*)0UL;
-     BiTreeElement_TypeDef* psRightNode =(BiTreeElement_TypeDef*)0UL;
+     BiTreeElement_TypeDef* psLeftNodeReg =(BiTreeElement_TypeDef*)0UL;
+     BiTreeElement_TypeDef* psRightNodeReg =(BiTreeElement_TypeDef*)0UL;
      void* pvData = (void*) 0UL;
 
      if((uint32_t)0UL != (uint32_t)psListOrdered)
@@ -88,28 +88,28 @@
          enEndOfBranch = BiTree__enIsElementEndOfBranch(psNode);
          if(BiTree_enSTATUS_OK != enEndOfBranch)
          {
-             psLeftNode = BiTree__psGetElementLeftNode(psNode);
-             enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNode);
+             psLeftNodeReg = BiTree__psGetElementLeftNode(psNode);
+             enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNodeReg);
              if(BiTree_enSTATUS_OK != enEndOfBranch)
              {
-                 enStatusReturn = BiTree__enTraverseInOrder(psLeftNode,psListOrdered);
+                 enStatusReturn = BiTree__enTraverseInOrder(psLeftNodeReg,psListOrdered);
              }
 
              if(BiTree_enSTATUS_OK == enStatusReturn)
              {
                  pvData = BiTree__pvGetElementData(psNode);
                  psElement = SLinkedList__psAddEnd(psListOrdered, pvData);
-                 if((uint32_t)0UL == psElement)
+                 if((uint32_t)0UL == (uint32_t)psElement)
                  {
                      enStatusReturn = BiTree_enSTATUS_ERROR;
                  }
                  else
                  {
-                     psRightNode = BiTree__psGetElementRightNode(psNode);
-                     enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNode);
+                     psRightNodeReg = BiTree__psGetElementRightNode(psNode);
+                     enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNodeReg);
                      if(BiTree_enSTATUS_OK != enEndOfBranch)
                      {
-                         enStatusReturn = BiTree__enTraverseInOrder(psLeftNode,psListOrdered);
+                         enStatusReturn = BiTree__enTraverseInOrder(psLeftNodeReg,psListOrdered);
                      }
                  }
              }
@@ -118,13 +118,13 @@
      return enStatusReturn;
  }
 
- BiTree_nSTATUS BiTree__enTraversePostOrder(BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered )
+ BiTree_nSTATUS BiTree__enTraversePostOrder(const BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered )
  {
      BiTree_nSTATUS enStatusReturn = BiTree_enSTATUS_ERROR;
      BiTree_nSTATUS enEndOfBranch = BiTree_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
-     BiTreeElement_TypeDef* psLeftNode =(BiTreeElement_TypeDef*)0UL;
-     BiTreeElement_TypeDef* psRightNode =(BiTreeElement_TypeDef*)0UL;
+     BiTreeElement_TypeDef* psLeftNodeReg =(BiTreeElement_TypeDef*)0UL;
+     BiTreeElement_TypeDef* psRightNodeReg =(BiTreeElement_TypeDef*)0UL;
      void* pvData = (void*) 0UL;
 
      if((uint32_t)0UL != (uint32_t)psListOrdered)
@@ -133,27 +133,27 @@
          enEndOfBranch = BiTree__enIsElementEndOfBranch(psNode);
          if(BiTree_enSTATUS_OK != enEndOfBranch)
          {
-             psLeftNode = BiTree__psGetElementLeftNode(psNode);
-             enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNode);
+             psLeftNodeReg = BiTree__psGetElementLeftNode(psNode);
+             enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNodeReg);
              if(BiTree_enSTATUS_OK != enEndOfBranch)
              {
-                 enStatusReturn = BiTree__enTraversePostOrder(psLeftNode,psListOrdered);
+                 enStatusReturn = BiTree__enTraversePostOrder(psLeftNodeReg,psListOrdered);
              }
 
              if(BiTree_enSTATUS_OK == enStatusReturn)
              {
-                 psRightNode = BiTree__psGetElementRightNode(psNode);
-                 enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNode);
+                 psRightNodeReg = BiTree__psGetElementRightNode(psNode);
+                 enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNodeReg);
                  if(BiTree_enSTATUS_OK != enEndOfBranch)
                  {
-                     enStatusReturn = BiTree__enTraversePostOrder(psLeftNode,psListOrdered);
+                     enStatusReturn = BiTree__enTraversePostOrder(psLeftNodeReg,psListOrdered);
                  }
 
                  if(BiTree_enSTATUS_OK == enStatusReturn)
                  {
                      pvData = BiTree__pvGetElementData(psNode);
                      psElement = SLinkedList__psAddEnd(psListOrdered, pvData);
-                     if((uint32_t)0UL == psElement)
+                     if((uint32_t)0UL == (uint32_t)psElement)
                      {
                          enStatusReturn = BiTree_enSTATUS_ERROR;
                      }

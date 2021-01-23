@@ -136,7 +136,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-     WDT_BITBANDING_TypeDef W[2];
+     WDT_BITBANDING_TypeDef MODULE[2];
 }WDTS_BITBANDING_TypeDef;
 
 

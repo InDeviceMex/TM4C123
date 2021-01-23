@@ -36,7 +36,7 @@
 
 typedef volatile struct
 {
-    GPTM_BITBANDING_TypeDef                 T[6];
+    GPTM_BITBANDING_TypeDef                 MODULE[6];
 }GPTMS_BITBANDING_TypeDef;
 
 typedef volatile struct
@@ -46,7 +46,7 @@ typedef volatile struct
         GPTM_BITBANDING_CTL_TypeDef         CTL[6];
         GPTM_BITBANDING_TA_TypeDef          TA[6];
         GPTM_BITBANDING_TB_TypeDef          TB[6];
-        GPTM_BITBANDING_TW_TypeDef          TW[6];
+        GPTM_BITBANDING_TW_TypeDef          TMODULE[6];
     };
 }GPTM_BITBANDING_UNION_TypeDef;
 

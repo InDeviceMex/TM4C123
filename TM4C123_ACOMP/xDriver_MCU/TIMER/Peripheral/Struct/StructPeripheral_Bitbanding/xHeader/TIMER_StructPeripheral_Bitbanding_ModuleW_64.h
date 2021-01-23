@@ -65,7 +65,7 @@ typedef volatile struct
     };
     union
     {
-        volatile uint32_t                   GPTMTnILR_LOW[32];
+        volatile uint32_t                   GPTMTnILR_LOMODULE[32];
         BITBANDING_TW_GPWTMILR_LOW_TypeDef  GPTMTnILR_LOW_Bit;
     };
     union
@@ -76,7 +76,7 @@ typedef volatile struct
     const uint32_t                          reserved4[1*32];
     union
     {
-        volatile uint32_t                   GPTMTnMATCHR_LOW[32];
+        volatile uint32_t                   GPTMTnMATCHR_LOMODULE[32];
         BITBANDING_TW_GPWTMMATCHR_LOW_TypeDef GPTMTnMATCHR_LOW_Bit;
     };
     union
@@ -87,7 +87,7 @@ typedef volatile struct
     const uint32_t                          reserved5[4*32];
     union
     {
-        volatile const uint32_t             GPTMTnR_LOW[32];
+        volatile const uint32_t             GPTMTnR_LOMODULE[32];
         BITBANDING_TW_GPWTMR_LOW_TypeDef    GPTMTnR_LOW_Bit;
     };
     union
@@ -97,7 +97,7 @@ typedef volatile struct
     };
     union
     {
-        volatile uint32_t                   GPTMTnV_LOW[32];
+        volatile uint32_t                   GPTMTnV_LOMODULE[32];
         BITBANDING_TW_GPWTMV_LOW_TypeDef    GPTMTnV_LOW_Bit;
     };
     union

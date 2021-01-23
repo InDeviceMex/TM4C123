@@ -37,7 +37,7 @@ void WDT__vWaitWrite(WDT_nMODULE enModule)
         WDT__vSetReady(enModule);
         do
         {
-            u32RegWrite1 = WDT->W[enModule].WDTCTL;
+            u32RegWrite1 = WDT->MODULE[enModule].WDTCTL;
             u32RegWrite1 &= WDT_WDTCTL_R_WRC_MASK;
             u32Timeout--;
         }while((WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1) && (0U != u32Timeout));

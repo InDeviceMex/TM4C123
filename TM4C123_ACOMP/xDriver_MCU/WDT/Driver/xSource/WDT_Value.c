@@ -39,7 +39,7 @@ uint32_t WDT__u32GetValue(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if((WDT_enREADY == enReady) )
     {
-        u32Reg=WDT->W[enModule].WDTVALUE;
+        u32Reg=WDT->MODULE[enModule].WDTVALUE;
     }
     return u32Reg;
 }

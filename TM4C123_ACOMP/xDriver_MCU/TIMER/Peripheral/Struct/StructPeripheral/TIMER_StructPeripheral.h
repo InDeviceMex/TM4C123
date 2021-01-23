@@ -36,7 +36,7 @@
 
 typedef volatile struct
 {
-    GPTM_TypeDef                            T[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
+    GPTM_TypeDef                            MODULE[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
 }GPTMS_TypeDef;
 
 typedef volatile struct
@@ -46,7 +46,7 @@ typedef volatile struct
         GPTM_CTL_TypeDef                    CTL[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
         GPTM_TA_TypeDef                     TA[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
         GPTM_TB_TypeDef                     TB[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
-        GPTM_TW_TypeDef                     TW[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
+        GPTM_TW_TypeDef                     TMODULE[(uint32_t) TIMER_enMODULE_NUM_MAX +1u];
     };
 }GPTM_UNION_TypeDef;
 

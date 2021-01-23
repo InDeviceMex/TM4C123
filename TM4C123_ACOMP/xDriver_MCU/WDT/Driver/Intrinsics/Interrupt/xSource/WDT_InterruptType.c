@@ -38,7 +38,7 @@ void WDT__vSetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE enType)
     }
     WDT__vSetReady(enModule);
 
-    u32RegType = WDT->W[ enModule ].WDTCTL;
+    u32RegType = WDT->MODULE[ enModule ].WDTCTL;
     u32RegAux  = u32RegType;
     u32RegAux &= WDT_WDTCTL_R_INTTYPE_MASK;
 
@@ -50,7 +50,7 @@ void WDT__vSetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE enType)
         u32RegType &= ~WDT_WDTCTL_R_INTTYPE_MASK;
         u32RegType |= u32Reg;
         WDT__vUnlock(enModule);
-        WDT->W[ enModule ].WDTCTL = u32RegType;
+        WDT->MODULE[ enModule ].WDTCTL = u32RegType;
         WDT__vWaitWrite(enModule);
         WDT__vLock(enModule);
     }
@@ -68,7 +68,7 @@ WDT_nINT_TYPE WDT__enGetInterruptSourceType(WDT_nMODULE enModule)
     enReady = WDT__enIsReady(enModule);
     if( WDT_enREADY == enReady )
     {
-        u32Reg = WDT->W[ enModule ].WDTCTL;
+        u32Reg = WDT->MODULE[ enModule ].WDTCTL;
         u32Reg >>= WDT_WDTCTL_R_INTTYPE_BIT;
         u32Reg &= WDT_WDTCTL_INTTYPE_MASK;
         enStatus = (WDT_nINT_TYPE) u32Reg;

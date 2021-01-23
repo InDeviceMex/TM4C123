@@ -40,7 +40,7 @@ WDT_nLOCK WDT__enGetLock(WDT_nMODULE enModule)
 
     if( WDT_enREADY == enReady )
     {
-        u32Reg = WDT->W[ enModule ].WDTLOCK;
+        u32Reg = WDT->MODULE[ enModule ].WDTLOCK;
         u32Reg >>= WDT_WDTLOCK_R_WDTLOCK_BIT;
         u32Reg &= WDT_WDTLOCK_WDTLOCK_LOCK;
         enLock= (WDT_nLOCK) u32Reg;
@@ -59,7 +59,7 @@ void WDT__vUnlock(WDT_nMODULE enModule)
     enLock = WDT__enGetLock(enModule);
     if( (uint32_t) WDT_enLOCK_LOCKED == enLock )
     {
-        WDT->W[ enModule ].WDTLOCK = (uint32_t) WDT_enKEY_UNLOCK;
+        WDT->MODULE[ enModule ].WDTLOCK = (uint32_t) WDT_enKEY_UNLOCK;
         WDT__vWaitWrite(enModule);
     }
 }
@@ -75,7 +75,7 @@ void WDT__vLock(WDT_nMODULE enModule)
     enLock=WDT__enGetLock(enModule);
     if( (uint32_t) WDT_enLOCK_UNLOCKED == enLock )
     {
-        WDT->W[ enModule ].WDTLOCK = (uint32_t) WDT_enKEY_LOCK;
+        WDT->MODULE[ enModule ].WDTLOCK = (uint32_t) WDT_enKEY_LOCK;
         WDT__vWaitWrite(enModule);
     }
 }

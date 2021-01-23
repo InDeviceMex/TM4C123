@@ -24,6 +24,7 @@
 
 uint8_t NokiaBuffer[64*(48/8)] ={0u};
 char cNokiaBuffer[64*(48/8)] ={0u};
+char* cNokiaBufferPointer ={0u};
 
 /*Local functions*/
 EDUMKII_nBUTTON_STATE enButton1State = EDUMKII_enBUTTON_STATE_NOPRESS;
@@ -59,6 +60,23 @@ int32_t main(void)
     DMA__vInit();
     ADC__vInit();
 
+    SYSCTL__vSetReady(SYSCTL_enUART0);
+    SYSCTL__vSetReady(SYSCTL_enUART1);
+    SYSCTL__vSetReady(SYSCTL_enUART2);
+    SYSCTL__vSetReady(SYSCTL_enUART3);
+    SYSCTL__vSetReady(SYSCTL_enUART4);
+    SYSCTL__vSetReady(SYSCTL_enUART5);
+    SYSCTL__vSetReady(SYSCTL_enUART6);
+    SYSCTL__vSetReady(SYSCTL_enUART7);
+
+    GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
+    GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
+    UART0->UARTCTL &= ~UART_UARTCTL_R_UARTEN_MASK;
+    UART0->UARTIBRD = 43;
+    UART0->UARTFBRD = 26;
+    UART0->UARTLCRH |= UART_UARTLCRH_R_WLEN_8BITS;
+    UART0->UARTCC &= ~UART_UARTCC_R_CS_MASK;
+    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_MASK;
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
     EDUMKII_Joystick_vInit();
@@ -68,6 +86,7 @@ int32_t main(void)
 
     while(1u)
     {
+
         enButtonState =  EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         enButton1State =(EDUMKII_nBUTTON_STATE)((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_1);
         enButton2State =(EDUMKII_nBUTTON_STATE)(((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_2)>>1UL);
@@ -99,10 +118,20 @@ int32_t main(void)
             EDUMKII_Buzzer_vSet(0UL);
         }
 
-        SysTick__vDelayUs(50000.0f);
         EDUMKII_Joystick_vSample(&s32JoystickXValue,&s32JoystickYValue,&enJoystickSelectValue);
         EDUMKII_Accelerometer_vSample(&s32AccelerometerXValue,&s32AccelerometerYValue,&s32AccelerometerZValue);
         EDUMKII_Microphone_vSample(&u32MicrophoneValue);
+        SysTick__vDelayUs(100000.0f);
+        sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\r JoystickX: %d, JoystickY: %d, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\r Microphone %u\n\r\n\r",
+                         enButton1State,enButton2State,s32JoystickXValue,s32JoystickYValue,enJoystickSelectValue,s32AccelerometerXValue,s32AccelerometerYValue,s32AccelerometerZValue,
+                         u32MicrophoneValue);
+        cNokiaBufferPointer = cNokiaBuffer;
+        while('\0' != *cNokiaBufferPointer)
+        {
+            while(UART0->UARTFR_Bit.BUSY);
+            UART0->UARTDR = *cNokiaBufferPointer;
+            cNokiaBufferPointer+= 1U;
+        }
     }
 }
 
