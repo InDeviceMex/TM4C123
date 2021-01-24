@@ -25,6 +25,7 @@
 #define XDRIVER_MCU_UART_UART_H_
 
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
+#include <xDriver_MCU/UART/Driver/UART_Driver.h>
 
 
 #endif /* XDRIVER_MCU_UART_UART_H_ */

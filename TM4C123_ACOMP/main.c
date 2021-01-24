@@ -35,9 +35,18 @@ int32_t s32AccelerometerZValue =0UL;
 uint32_t u32MicrophoneValue =0UL;
 int32_t s32JoystickXValue =0UL;
 int32_t s32JoystickYValue =0UL;
+
+volatile uint32_t u32InterruptUart=0UL;
+volatile uint32_t u32InterruptRUart=0UL;
+volatile uint32_t u32Lengtht=0UL;
+volatile uint32_t u32State=0UL;
+volatile char cCharacterReceive=0UL;
+
 EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK)0UL;
 uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2);
 void MAIN_vIrqCOMP1_INT1(void);
+void MAIN_vTransmiterCount(void);
+void MAIN_vReceiverCount(void);
 int32_t main (void);
 
 int32_t main(void)
@@ -45,6 +54,16 @@ int32_t main(void)
     uint32_t u32PWMRed = 0UL;
     uint32_t u32PWMGreen = 0UL;
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
+    UART_nFIFO_FULL enTransmitFullState = UART_enFIFO_FULL_NO;
+    UART_LINE_CONTROL_TypeDef sUARTControlLine  =
+    {
+        UART_enFIFO_ENA,
+        UART_enSTOP_ONE,
+        UART_enPARITY_DIS,
+        UART_enPARITY_TYPE_ODD,
+        UART_enPARITY_STICK_DIS,
+        UART_enLENGTH_8BITS,
+    };
 
     MPU__vInit();
     SCB__vInit();
@@ -60,23 +79,27 @@ int32_t main(void)
     DMA__vInit();
     ADC__vInit();
 
-    SYSCTL__vSetReady(SYSCTL_enUART0);
-    SYSCTL__vSetReady(SYSCTL_enUART1);
-    SYSCTL__vSetReady(SYSCTL_enUART2);
-    SYSCTL__vSetReady(SYSCTL_enUART3);
-    SYSCTL__vSetReady(SYSCTL_enUART4);
-    SYSCTL__vSetReady(SYSCTL_enUART5);
-    SYSCTL__vSetReady(SYSCTL_enUART6);
-    SYSCTL__vSetReady(SYSCTL_enUART7);
+    UART__vSetReady(UART_enMODULE_0);
+
+    UART__vRegisterIRQVectorHandler(&UART0__vIRQVectorHandler, UART_enMODULE_0);
+    UART__vRegisterIRQSourceHandler(&MAIN_vTransmiterCount, UART_enMODULE_0, UART_enINTERRUPT_TRANSMIT);
+    UART__vRegisterIRQSourceHandler(&MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
+
 
     GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
+
     UART0->UARTCTL &= ~UART_UARTCTL_R_UARTEN_MASK;
-    UART0->UARTIBRD = 43;
-    UART0->UARTFBRD = 26;
-    UART0->UARTLCRH |= UART_UARTLCRH_R_WLEN_8BITS;
+    UART0->UARTIBRD = 10;
+    UART0->UARTFBRD = 55;
+    UART__vSetLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine);
     UART0->UARTCC &= ~UART_UARTCC_R_CS_MASK;
-    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_MASK;
+    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA |UART_UARTCTL_R_HSE_DIV8;
+
+    UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
+    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_TRANSMIT);
+    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_RECEIVE);
+
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
     EDUMKII_Joystick_vInit();
@@ -122,18 +145,42 @@ int32_t main(void)
         EDUMKII_Accelerometer_vSample(&s32AccelerometerXValue,&s32AccelerometerYValue,&s32AccelerometerZValue);
         EDUMKII_Microphone_vSample(&u32MicrophoneValue);
         SysTick__vDelayUs(100000.0f);
-        sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\r JoystickX: %d, JoystickY: %d, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\r Microphone %u\n\r\n\r",
+        u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %d, JoystickY: %d, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
                          enButton1State,enButton2State,s32JoystickXValue,s32JoystickYValue,enJoystickSelectValue,s32AccelerometerXValue,s32AccelerometerYValue,s32AccelerometerZValue,
                          u32MicrophoneValue);
         cNokiaBufferPointer = cNokiaBuffer;
         while('\0' != *cNokiaBufferPointer)
         {
-            while(UART0->UARTFR_Bit.BUSY);
-            UART0->UARTDR = *cNokiaBufferPointer;
-            cNokiaBufferPointer+= 1U;
+            enTransmitFullState = UART__enIsFifoTransmitFull(UART_enMODULE_0);
+            if( UART_enFIFO_FULL_NO == enTransmitFullState)
+            {
+                UART__vSetData(UART_enMODULE_0, *cNokiaBufferPointer);
+                cNokiaBufferPointer+= 1U;
+            }
         }
+        if(u32Lengtht == u32InterruptUart)
+        {
+            u32State = 1UL;
+        }
+        else
+        {
+            u32State = 0UL;
+        }
+        u32InterruptUart =0UL;
     }
 }
+
+void MAIN_vTransmiterCount(void)
+{
+    u32InterruptUart++;
+}
+
+void MAIN_vReceiverCount(void)
+{
+    u32InterruptRUart++;
+    cCharacterReceive = UART__u32GetData(UART_enMODULE_0);
+}
+
 
 uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2)
 {
