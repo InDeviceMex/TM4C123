@@ -41,8 +41,8 @@ HIB_nSTATUS HIB__enSetModuleClock(HIB_nCLOCK enClock)
     return HIB__enSetControlGeneric((uint32_t) enClock,HIB_HIBCTL_CLK32EN_MASK, HIB_HIBCTL_R_CLK32EN_BIT);
 }
 
-HIB_nCLOCK  HIB__enGetModuleClock(void)
+HIB_nSTATUS HIB__enGetModuleClock(HIB_nCLOCK* enFeatureValue)
 {
-    return (HIB_nCLOCK) HIB__u32GetControlGeneric(HIB_HIBCTL_CLK32EN_MASK, HIB_HIBCTL_R_CLK32EN_BIT);
+    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_CLK32EN_MASK, HIB_HIBCTL_R_CLK32EN_BIT);
 }
 

@@ -41,7 +41,7 @@ HIB_nSTATUS HIB__enSetPinWakeUp(HIB_nPINWAKE enPinWake)
     return HIB__enSetControlGeneric((uint32_t) enPinWake,HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
 }
 
-HIB_nPINWAKE HIB__enGetPinWakeUp(void)
+HIB_nSTATUS HIB__enGetPinWakeUp(HIB_nPINWAKE* enFeatureValue)
 {
-    return (HIB_nPINWAKE) HIB__u32GetControlGeneric(HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
+    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
 }

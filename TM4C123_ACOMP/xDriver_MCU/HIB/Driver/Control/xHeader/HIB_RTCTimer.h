@@ -29,7 +29,7 @@
 HIB_nSTATUS HIB__enEnRTCTimer(void);
 HIB_nSTATUS HIB__enDisRTCTimer(void);
 HIB_nSTATUS HIB__enSetRTCTimer(HIB_nRTC enRTC);
-HIB_nRTC HIB__enGetRTCTimer(void);
+HIB_nSTATUS HIB__enGetPowerCut(HIB_nRTC* enFeatureValue);
 
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_RTCTIMER_H_ */

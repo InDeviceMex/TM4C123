@@ -28,32 +28,18 @@
 HIB_nSTATUS HIB__enGetTrim(uint32_t* pu32Trim)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_UNDEF;
-    HIB_nREADY enReady = HIB_enNOREADY;
-    enReady = HIB__enIsReady();
-    if(HIB_enREADY == enReady)
-    {
-        enReturn=HIB_enSTATUS_OK;
-        *pu32Trim =HIB_HIBRTCT_R;
-        *pu32Trim &=HIB_HIBRTCT_R_TRIM_MASK;
-        *pu32Trim >>=HIB_HIBRTCT_R_TRIM_BIT;
 
-    }
+    enReturn = HIB__enReadRegister(HIB_HIBRTCT_OFFSET,pu32Trim,HIB_HIBRTCT_TRIM_MASK, HIB_HIBRTCT_R_TRIM_BIT);
+
     return (HIB_nSTATUS) enReturn;
 }
-
 
 HIB_nSTATUS HIB__enSetTrim(uint32_t u32Trim)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
-    HIB__vSetReady();
 
-    enReturn =HIB__enWait();
-    if(HIB_enSTATUS_OK == enReturn)
-    {
-        u32Trim&=HIB_HIBRTCT_TRIM_MASK;
-        u32Trim<<=HIB_HIBRTCT_R_TRIM_BIT;
-        HIB_HIBRTCT_R=u32Trim;
-    }
+    enReturn = HIB__enWriteRegister(HIB_HIBRTCT_OFFSET, u32Trim, HIB_HIBRTCT_TRIM_MASK, HIB_HIBRTCT_R_TRIM_BIT);
+
     return (HIB_nSTATUS) enReturn;
 }
 

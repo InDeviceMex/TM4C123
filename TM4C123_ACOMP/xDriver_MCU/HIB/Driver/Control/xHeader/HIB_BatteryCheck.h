@@ -27,7 +27,7 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enInitBatteryStatus(void);
-HIB_nBATCHECK_STATUS HIB__enGetBatteryStatus(void);
+HIB_nSTATUS HIB__enGetBatteryStatus(HIB_nBATCHECK_STATUS* enFeatureValue);
 
 
 

@@ -21,9 +21,11 @@
  * Date           Author     Version     Description
  * 23 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Ready.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Wait.h>
+
+#include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Ready.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
 #define HIB_TIMEOUT_MAX (9000000U)
@@ -32,11 +34,13 @@ HIB_nSTATUS HIB__enGetStatus (void)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
     HIB_nREADY enReady= HIB_enNOREADY;
+    uint32_t u32Reg = 0UL;
     enReady = HIB__enIsReady();
     if(HIB_enREADY == enReady)
     {
         enReturn = HIB_enSTATUS_OK;
-        if(HIB_HIBCTL_R_WRC_BUSY == (HIB_HIBCTL_R & HIB_HIBCTL_R_WRC_MASK))
+        u32Reg = MCU__u32ReadRegister(HIB_BASE, HIB_HIBCTL_OFFSET, HIB_HIBCTL_WRC_MASK, HIB_HIBCTL_R_WRC_BIT);
+        if(HIB_HIBCTL_WRC_BUSY == u32Reg)
         {
             enReturn = HIB_enSTATUS_BUSY;
         }

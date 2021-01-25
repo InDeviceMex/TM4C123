@@ -24,7 +24,9 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_INTRINSICS_HIB_PRIMITIVES_HIB_PRIMITIVES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_INTRINSICS_HIB_PRIMITIVES_HIB_PRIMITIVES_H_
 
+#include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_ReadReg.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Ready.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Wait.h>
+#include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_WriteReg.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_INTRINSICS_HIB_PRIMITIVES_HIB_PRIMITIVES_H_ */

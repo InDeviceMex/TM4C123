@@ -21,77 +21,39 @@
  * Date           Author     Version     Description
  * 11 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/HIB/Driver/Intrinsics/xHeader/HIB_ControlGeneric.h>
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/HIB/Driver/Intrinsics/xHeader/HIB_ControlGeneric.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/HIB_Primitives.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
 HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask)
 {
-    HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
-    uint32_t u32Reg =0U;
-
-    HIB__vSetReady();
-    enReturn = HIB__enWait();
-    if(HIB_enSTATUS_OK == enReturn)
-    {
-        u32Reg=HIB_HIBCTL_R;
-        u32Reg|=u32Mask;
-        HIB_HIBCTL_R=u32Reg;
-    }
+    HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
+    enReturn = HIB__enWriteRegister(HIB_HIBCTL_OFFSET, u32Mask, u32Mask, 0UL);
     return (HIB_nSTATUS) enReturn;
 }
 
 HIB_nSTATUS HIB__enDisControlGeneric(uint32_t u32Mask)
 {
-    HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
-    uint32_t u32Reg =0U;
-    HIB__vSetReady();
-    enReturn = HIB__enWait();
-    if(HIB_enSTATUS_OK == enReturn)
-    {
-        u32Reg=HIB_HIBCTL_R;
-        u32Reg&=~u32Mask;
-        HIB_HIBCTL_R=u32Reg;
-    }
+    HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
+    enReturn = HIB__enWriteRegister(HIB_HIBCTL_OFFSET, 0UL, u32Mask, 0UL);
     return (HIB_nSTATUS) enReturn;
 }
-
 
 HIB_nSTATUS HIB__enSetControlGeneric(uint32_t u32ControlGeneric,uint32_t u32Mask, uint32_t u32Bit)
 {
-    HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
-    uint32_t u32Reg=0;
-    uint32_t u32RegAux=0;
-    HIB__vSetReady();
-    enReturn = HIB__enWait();
-    if(HIB_enSTATUS_OK == enReturn)
-    {
-        u32Reg=HIB_HIBCTL_R;
-        u32Reg&=~(u32Mask<<u32Bit);
-        u32RegAux =((uint32_t)u32ControlGeneric&u32Mask) ;
-        u32RegAux<<=(u32Bit);
-        u32Reg|=u32RegAux;
-        HIB_HIBCTL_R=u32Reg;
-    }
+    HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
+    enReturn = HIB__enWriteRegister(HIB_HIBCTL_OFFSET, u32ControlGeneric, u32Mask, u32Bit);
     return (HIB_nSTATUS) enReturn;
 }
 
-uint32_t HIB__u32GetControlGeneric(uint32_t u32Mask, uint32_t u32Bit)
+HIB_nSTATUS HIB__enGetControlGeneric(uint32_t* pu32ControlGeneric, uint32_t u32Mask, uint32_t u32Bit)
 {
-    uint32_t u32Reg=0;
-    uint32_t u32ControlGeneric=0xFF;
-    HIB_nREADY enReady= HIB_enNOREADY;
-    enReady=HIB__enIsReady();
-    if(HIB_enREADY == enReady)
-    {
-        u32Reg=HIB_HIBCTL_R;
-        u32Reg>>=u32Bit;
-        u32Reg&=(u32Mask);
-        u32ControlGeneric=(uint32_t)(u32Reg);
-    }
-    return u32ControlGeneric;
+    HIB_nSTATUS enStatusRead= HIB_enSTATUS_UNDEF;
+
+    enStatusRead = HIB__enReadRegister(HIB_HIBCTL_OFFSET, pu32ControlGeneric, u32Mask, u32Bit);
+    return enStatusRead;
 }
 
 

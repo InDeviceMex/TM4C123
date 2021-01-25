@@ -27,6 +27,6 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetOscillatorBypass(HIB_nOSCBYP enOscByp);
-HIB_nOSCBYP HIB__enGetOscillatorBypass(void);
+HIB_nSTATUS HIB__enGetOscillatorBypass(HIB_nOSCBYP* enFeatureValue);
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_OSCILLATORBYPASS_H_ */

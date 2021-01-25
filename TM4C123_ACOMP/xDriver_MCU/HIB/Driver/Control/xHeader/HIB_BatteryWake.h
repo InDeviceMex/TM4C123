@@ -30,7 +30,7 @@ HIB_nSTATUS HIB__enEnLowBatteryWakeUp(void);
 HIB_nSTATUS HIB__enDisLowBatteryWakeUp(void);
 
 HIB_nSTATUS HIB__enSetLowBatteryWakeUp(HIB_nBATWAKE enBatWake);
-HIB_nBATWAKE HIB__enGetLowBatteryWakeUp(void);
+HIB_nSTATUS HIB__enGetLowBatteryWakeUp(HIB_nBATWAKE* enFeatureValue);
 
 
 

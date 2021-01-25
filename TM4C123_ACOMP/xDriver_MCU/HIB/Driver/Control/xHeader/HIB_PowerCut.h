@@ -27,7 +27,7 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetPowerCut(HIB_nVABORT enVAbort);
-HIB_nVABORT HIB__enGetPowerCut(void);
+HIB_nSTATUS HIB__enGetPowerCut(HIB_nVABORT* enFeatureValue);
 
 
 

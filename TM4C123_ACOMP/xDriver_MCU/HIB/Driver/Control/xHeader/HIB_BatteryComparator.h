@@ -27,6 +27,6 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetBatteryComparator(HIB_nBATCOMP enBatComp);
-HIB_nBATCOMP HIB__enGetBatteryComparator(void);
+HIB_nSTATUS HIB__enGetBatteryComparator(HIB_nBATCOMP* enFeatureValue);
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYCOMPARATOR_H_ */

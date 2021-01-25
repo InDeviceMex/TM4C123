@@ -31,7 +31,8 @@ HIB_nSTATUS HIB__enSetVDDRegulator(HIB_nVDD3ON enVDDReg)
     return HIB__enSetControlGeneric((uint32_t) enVDDReg,HIB_HIBCTL_VDD3ON_MASK, HIB_HIBCTL_R_VDD3ON_BIT);
 }
 
-HIB_nVDD3ON HIB__enGetVDDRegulator(void)
+HIB_nSTATUS HIB__enGetVDDRegulator(HIB_nVDD3ON* enFeatureValue)
 {
-    return (HIB_nVDD3ON) HIB__u32GetControlGeneric(HIB_HIBCTL_VDD3ON_MASK, HIB_HIBCTL_R_VDD3ON_BIT);
+    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_VDD3ON_MASK, HIB_HIBCTL_R_VDD3ON_BIT);
 }
+

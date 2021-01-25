@@ -31,9 +31,9 @@ HIB_nSTATUS HIB__enInitBatteryStatus(void)
     return HIB__enSetControlGeneric((uint32_t) HIB_enBATCHECK_INIT,HIB_HIBCTL_BATCHK_MASK, HIB_HIBCTL_R_BATCHK_BIT);
 }
 
-HIB_nBATCHECK_STATUS HIB__enGetBatteryStatus(void)
+HIB_nSTATUS HIB__enGetBatteryStatus(HIB_nBATCHECK_STATUS* enFeatureValue)
 {
-    return (HIB_nBATCHECK_STATUS) HIB__u32GetControlGeneric(HIB_HIBCTL_BATCHK_MASK, HIB_HIBCTL_R_BATCHK_BIT);
+    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_BATCHK_MASK, HIB_HIBCTL_R_BATCHK_BIT);
 }
 
 

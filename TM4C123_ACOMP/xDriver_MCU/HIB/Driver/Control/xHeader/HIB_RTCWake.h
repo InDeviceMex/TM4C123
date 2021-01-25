@@ -30,7 +30,7 @@ HIB_nSTATUS HIB__enEnRTCWakeUp(void);
 HIB_nSTATUS HIB__enDisRTCWakeUp(void);
 
 HIB_nSTATUS HIB__enSetRTCWakeUp(HIB_nRTCWAKE enRTCWake);
-HIB_nRTCWAKE HIB__enGetRTCWakeUp(void);
+HIB_nSTATUS HIB__enGetRTCWakeUp(HIB_nRTCWAKE* enFeatureValue);
 
 
 

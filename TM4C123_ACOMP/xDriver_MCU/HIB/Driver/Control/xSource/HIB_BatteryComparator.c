@@ -31,7 +31,7 @@ HIB_nSTATUS HIB__enSetBatteryComparator(HIB_nBATCOMP enBatComp)
     return HIB__enSetControlGeneric((uint32_t) enBatComp,HIB_HIBCTL_VBATSEL_MASK, HIB_HIBCTL_R_VBATSEL_BIT);
 }
 
-HIB_nBATCOMP HIB__enGetBatteryComparator(void)
+HIB_nSTATUS HIB__enGetBatteryComparator(HIB_nBATCOMP* enFeatureValue)
 {
-    return (HIB_nBATCOMP) HIB__u32GetControlGeneric(HIB_HIBCTL_VBATSEL_MASK, HIB_HIBCTL_R_VBATSEL_BIT);
+    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_VBATSEL_MASK, HIB_HIBCTL_R_VBATSEL_BIT);
 }

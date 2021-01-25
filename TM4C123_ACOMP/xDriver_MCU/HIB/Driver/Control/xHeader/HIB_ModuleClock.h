@@ -30,7 +30,7 @@ HIB_nSTATUS HIB__enEnModuleClock(void);
 HIB_nSTATUS HIB__enDisModuleClock(void);
 
 HIB_nSTATUS HIB__enSetModuleClock(HIB_nCLOCK enClock);
-HIB_nCLOCK  HIB__enGetModuleClock(void);
+HIB_nSTATUS HIB__enGetModuleClock(HIB_nCLOCK* enFeatureValue);
 
 
 

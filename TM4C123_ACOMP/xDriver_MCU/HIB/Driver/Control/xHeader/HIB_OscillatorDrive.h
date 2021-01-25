@@ -27,7 +27,7 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetOscillatorDrive(HIB_nOSCDRIVE enOscDrive);
-HIB_nOSCDRIVE HIB__enGetOscillatorDrive(void);
+HIB_nSTATUS HIB__enGetOscillatorDrive(HIB_nOSCDRIVE* enFeatureValue);
 
 
 

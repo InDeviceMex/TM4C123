@@ -27,7 +27,7 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetVDDRegulator(HIB_nVDD3ON enVDDReg);
-HIB_nVDD3ON HIB__enGetVDDRegulator(void);
+HIB_nSTATUS HIB__enGetVDDRegulator(HIB_nVDD3ON* enFeatureValue);
 
 
 

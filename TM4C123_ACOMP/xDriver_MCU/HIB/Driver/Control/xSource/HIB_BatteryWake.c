@@ -25,8 +25,6 @@
 #include <xDriver_MCU/HIB/Driver/Intrinsics/HIB_Intrinsics.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
-
-
 HIB_nSTATUS HIB__enEnLowBatteryWakeUp(void)
 {
     return HIB__enSetControlGeneric((uint32_t) HIB_enBATWAKE_EN,HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
@@ -42,7 +40,7 @@ HIB_nSTATUS HIB__enSetLowBatteryWakeUp(HIB_nBATWAKE enBatWake)
     return HIB__enSetControlGeneric((uint32_t) enBatWake,HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
 }
 
-HIB_nBATWAKE HIB__enGetLowBatteryWakeUp(void)
+HIB_nSTATUS HIB__enGetLowBatteryWakeUp(HIB_nBATWAKE* enFeatureValue)
 {
-    return (HIB_nBATWAKE) HIB__u32GetControlGeneric(HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
+    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
 }

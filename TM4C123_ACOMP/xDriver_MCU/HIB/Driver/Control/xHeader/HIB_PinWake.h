@@ -30,7 +30,7 @@ HIB_nSTATUS HIB__enEnPinWakeUp(void);
 HIB_nSTATUS HIB__enDisPinWakeUp(void);
 
 HIB_nSTATUS HIB__enSetPinWakeUp(HIB_nPINWAKE enPinWake);
-HIB_nPINWAKE HIB__enGetPinWakeUp(void);
+HIB_nSTATUS HIB__enGetPinWakeUp(HIB_nPINWAKE* enFeatureValue);
 
 
 

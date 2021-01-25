@@ -28,7 +28,7 @@
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 HIB_nSTATUS HIB__enSetControlGeneric(uint32_t u32ControlGeneric,uint32_t u32Mask, uint32_t u32Bit);
-uint32_t HIB__u32GetControlGeneric(uint32_t u32Mask, uint32_t u32Bit);
+HIB_nSTATUS HIB__enGetControlGeneric(uint32_t* pu32ControlGeneric, uint32_t u32Mask, uint32_t u32Bit);
 
 HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask);
 HIB_nSTATUS HIB__enDisControlGeneric(uint32_t u32Mask);
