@@ -41,7 +41,7 @@ HIB_nSTATUS HIB__enSetRTCTimer(HIB_nRTC enRTC)
     return HIB__enSetControlGeneric((uint32_t) enRTC,HIB_HIBCTL_RTCEN_MASK, HIB_HIBCTL_R_RTCEN_BIT);
 }
 
-HIB_nSTATUS HIB__enGetPowerCut(HIB_nRTC* enFeatureValue)
+HIB_nSTATUS HIB__enGetRTCTimer(HIB_nRTC* enFeatureValue)
 {
     return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_RTCEN_MASK, HIB_HIBCTL_R_RTCEN_BIT);
 }

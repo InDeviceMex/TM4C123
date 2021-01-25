@@ -36,8 +36,3 @@ HIB_nSTATUS HIB__enGetPowerCut(HIB_nVABORT* enFeatureValue)
 {
     return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
 }
-
-HIB_nVABORT HIB__enGetPowerCut(void)
-{
-    return (HIB_nVABORT) HIB__u32GetControlGeneric(HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
-}

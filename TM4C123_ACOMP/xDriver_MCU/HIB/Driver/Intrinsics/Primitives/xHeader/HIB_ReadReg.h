@@ -24,7 +24,8 @@
 #ifndef XDRIVER_MCU_HIB_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_HIB_READREG_H_
 #define XDRIVER_MCU_HIB_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_HIB_READREG_H_
 
-#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
+#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
+#include <xUtils/Standard/Standard.h>
 
 HIB_nSTATUS HIB__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
 
