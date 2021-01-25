@@ -27,32 +27,32 @@
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_Traps.h>
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-
 
 inline void SCB__vEnDIV0Trap(void)
 {
-    SCB_CCR_R|=SCB_CCR_R_DIV_0_TRP_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_DIV_0_TRP_TRAP, SCB_CCR_DIV_0_TRP_MASK, SCB_CCR_R_DIV_0_TRP_BIT);
 }
 inline void SCB__vDisDIV0Trap(void)
 {
-    SCB_CCR_R&=~SCB_CCR_R_DIV_0_TRP_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_DIV_0_TRP_NOTRAP, SCB_CCR_DIV_0_TRP_MASK, SCB_CCR_R_DIV_0_TRP_BIT);
 }
 inline void SCB__vEnUnAlignTrap(void)
 {
-    SCB_CCR_R|=SCB_CCR_R_UNALIGN_TRP_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_UNALIGN_TRP_TRAP, SCB_CCR_UNALIGN_TRP_MASK, SCB_CCR_R_UNALIGN_TRP_BIT);
 }
 inline void SCB__vDisUnAlignTrap(void)
 {
-    SCB_CCR_R&=~SCB_CCR_R_UNALIGN_TRP_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_UNALIGN_TRP_NOTRAP, SCB_CCR_UNALIGN_TRP_MASK, SCB_CCR_R_UNALIGN_TRP_BIT);
 }
 inline void SCB__vEnUnprivilegedSWTRIGGER(void)
 {
-    SCB_CCR_R|=SCB_CCR_R_USERSETMPEND_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_USERSETMPEND_EN, SCB_CCR_USERSETMPEND_MASK, SCB_CCR_R_USERSETMPEND_BIT);
 }
 inline void SCB__vDisUnprivilegedSWTRIGGER(void)
 {
-    SCB_CCR_R&=~SCB_CCR_R_USERSETMPEND_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_USERSETMPEND_DIS, SCB_CCR_USERSETMPEND_MASK, SCB_CCR_R_USERSETMPEND_BIT);
 }
 
 

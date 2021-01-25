@@ -24,61 +24,38 @@
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_SleepMode.h>
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-SCB_nSTATUS SCB__enSetSleepMode(SCB_nSleepDeep enSleepMode)
+void SCB__vSetSleepMode(SCB_nSleepDeep enSleepMode)
 {
-    SCB_nSTATUS enReturn=SCB_enERROR;
-    switch(enSleepMode)
-    {
-        case SCB_enSleepDeep_Sleep:
-            SCB_SCR_R&=~SCB_SCR_R_SLEEPDEEP_MASK;
-            enReturn=SCB_enOK;
-            break;
-        case SCB_enSleepDeep_DeepSleep:
-            SCB_SCR_R|=SCB_SCR_R_SLEEPDEEP_MASK;
-            enReturn=SCB_enOK;
-            break;
-        default:
-            break;
-    }
+    MCU__vWriteRegister(SCB_BASE, SCB_SCR_OFFSET, (uint32_t)enSleepMode, SCB_SCR_SLEEPDEEP_MASK, SCB_SCR_R_SLEEPDEEP_BIT);
 
-    return enReturn;
 }
+
 SCB_nSleepDeep SCB__enGetSleepMode(void)
 {
     SCB_nSleepDeep enReturn=SCB_enSleepDeep_ERROR;
-    uint32_t u32Reg=SCB_SCR_R;
-    u32Reg&=SCB_SCR_R_SLEEPDEEP_MASK;
-    u32Reg>>=SCB_SCR_R_SLEEPDEEP_BIT;
-    enReturn=(SCB_nSleepDeep)u32Reg;
-    return enReturn;
-}
-SCB_nSTATUS SCB__enSetSLEEPONEXIT(SCB_nSLEEPONEXIT enSleepMode)
-{
-    SCB_nSTATUS enReturn=SCB_enERROR;
-    switch(enSleepMode)
-    {
-        case SCB_enSLEEPONEXIT_NOSLEEP:
-            SCB_SCR_R&=~SCB_SCR_R_SLEEPONEXIT_MASK;
-            enReturn=SCB_enOK;
-            break;
-        case SCB_enSLEEPONEXIT_SLEEP:
-            SCB_SCR_R|=SCB_SCR_R_SLEEPONEXIT_MASK;
-            enReturn=SCB_enOK;
-            break;
-        default:
-            break;
-    }
+    uint32_t u32Reg= 0UL;
+
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SCR_OFFSET, SCB_SCR_SLEEPDEEP_MASK, SCB_SCR_R_SLEEPDEEP_BIT);
+    enReturn=(SCB_nSleepDeep)(u32Reg);
 
     return enReturn;
 }
+
+void SCB__vSetSLEEPONEXIT(SCB_nSLEEPONEXIT enSleepMode)
+{
+    MCU__vWriteRegister(SCB_BASE, SCB_SCR_OFFSET, (uint32_t)enSleepMode, SCB_SCR_SLEEPONEXIT_MASK, SCB_SCR_R_SLEEPONEXIT_BIT);
+}
+
 SCB_nSLEEPONEXIT SCB__enGetSLEEPONEXIT(void)
 {
     SCB_nSLEEPONEXIT enReturn=SCB_enSLEEPONEXIT_ERROR;
-    uint32_t u32Reg=SCB_SCR_R;
-    u32Reg&=SCB_SCR_R_SLEEPONEXIT_MASK;
-    u32Reg>>=SCB_SCR_R_SLEEPONEXIT_BIT;
-    enReturn=(SCB_nSLEEPONEXIT)u32Reg;
+    uint32_t u32Reg= 0UL;
+
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SCR_OFFSET, SCB_SCR_SLEEPONEXIT_MASK, SCB_SCR_R_SLEEPONEXIT_BIT);
+    enReturn=(SCB_nSLEEPONEXIT)(u32Reg);
+
     return enReturn;
 }

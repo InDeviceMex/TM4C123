@@ -24,7 +24,9 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_PRIMITIVES_WDT_PRIMITIVES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_PRIMITIVES_WDT_PRIMITIVES_H_
 
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/xHeader/WDT_ReadReg.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/xHeader/WDT_Ready.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/xHeader/WDT_Wait.h>
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/xHeader/WDT_WriteReg.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_PRIMITIVES_WDT_PRIMITIVES_H_ */

@@ -25,6 +25,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCTPERIPHERAL_H_
 
 #include <xDriver_MCU/WDT/Peripheral/Struct/xHeader/WDT_StructRegister.h>
+#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
 typedef volatile struct
 {

@@ -24,6 +24,7 @@
 
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_VectorOffset.h>
 
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
 #if defined ( __TI_ARM__ )
@@ -43,18 +44,17 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
     uint32_t u32Count=0;
 
     u32Offset&=~(uint32_t)0x3FFu;
+    u32FlashTemp = MCU__u32ReadRegister(SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
     if(u32Offset<0x00010000u)
     {
-        u32FlashTemp=(uint32_t)SCB_VTOR_R;
         FLASH__enWriteMultiWorld((uint32_t*)u32FlashTemp,u32Offset,(uint32_t)0x100u);
         __asm(" cpsid i");
-        SCB_VTOR_R= u32Offset;
+        MCU__vWriteRegister(SCB_BASE, SCB_VTOR_OFFSET, u32Offset, SCB_VTOR_R_TBLOFF_MASK, 0UL);
         SCB_vBarrier();
         __asm(" cpsie i");
     }
     else if((u32Offset>=(uint32_t)&SCB__pfnVectors))
     {
-        u32FlashTemp=(uint32_t)SCB_VTOR_R;
         pu32Flash=(const uint32_t*)u32FlashTemp;
         pu32Ram=(uint32_t*)&SCB__pfnVectors;
         for(u32Count=0u; u32Count<0x100u;u32Count++ )
@@ -64,7 +64,7 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
             pu32Flash+=1u;
         }
         __asm(" cpsid i");
-        SCB_VTOR_R= (uint32_t)&SCB__pfnVectors;
+        MCU__vWriteRegister(SCB_BASE, SCB_VTOR_OFFSET, (uint32_t)&SCB__pfnVectors, SCB_VTOR_R_TBLOFF_MASK, 0UL);
         SCB_vBarrier();
         __asm(" cpsie i");
     }

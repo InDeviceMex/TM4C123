@@ -52,5 +52,5 @@ inline void SCB__vInit(void)
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup(SCB_enPRIGROUP_XXX);
-    SCB__enSetStackAligment(SCB_enALIGN_4BYTE);
+    SCB__vSetStackAligment(SCB_enALIGN_4BYTE);
 }

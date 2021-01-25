@@ -299,7 +299,7 @@
 
 /*----------*/
 #define SCB_AIRCR_R_VECTKEY_MASK      ((uint32_t)0xFFFF0000u)
-#define SCB_AIRCR_R_VECTKEY_BIT       (15u)
+#define SCB_AIRCR_R_VECTKEY_BIT       (16u)
 #define SCB_AIRCR_R_VECTKEY_READ      ((uint32_t)0xFA050000u)
 #define SCB_AIRCR_R_VECTKEY_WRITE     ((uint32_t)0x05FA0000u)
 

@@ -21,64 +21,65 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_MemoryFault.h>
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_MemoryFault.h>
 
 inline void SCB_MemoryFault__vSetPriority(SCB_nSHPR enMemoryPriority)
 {
-    uint32_t u32Reg=SCB_SHPR1_R;
-    uint32_t u32RegAux=0;
-
-    u32Reg&=~SCB_SHPR1_R_MEM_MASK;
-    u32RegAux = ((uint32_t)enMemoryPriority &SCB_SHPR1_MEM_MASK);
-    u32RegAux <<=SCB_SHPR1_R_MEM_BIT;
-    u32Reg|=u32RegAux;
     SCB_vBarrier();
-    SCB_SHPR1_R=u32Reg;
+    MCU__vWriteRegister(SCB_BASE, SCB_SHPR1_OFFSET, (uint32_t)enMemoryPriority, SCB_SHPR1_MEM_MASK, SCB_SHPR1_R_MEM_BIT);
     SCB_vBarrier();
 }
 SCB_nSHPR SCB_MemoryFault__enGetPriority(void)
 {
     SCB_nSHPR enReturn= SCB_enSHPR0;
-    uint32_t u32Reg=SCB_SHPR1_R;
-    u32Reg&=SCB_SHPR1_R_MEM_MASK;
-    u32Reg>>=SCB_SHPR1_R_MEM_BIT;
+    uint32_t u32Reg= 0UL;
+
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SHPR1_OFFSET, SCB_SHPR1_MEM_MASK, SCB_SHPR1_R_MEM_BIT);
     enReturn=(SCB_nSHPR)(u32Reg);
+
     return enReturn;
 }
 
 inline void SCB_MemoryFault__vEnable(void)
 {
-    SCB_SHCSR_R|=SCB_SHCSR_R_MEMFAULTENA_MASK;
-}
-inline void SCB_MemoryFault__vDisable(void)
-{
-    SCB_SHCSR_R&=~SCB_SHCSR_R_MEMFAULTENA_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, (uint32_t)SCB_SHCSR_MEMFAULTENA_EN, SCB_SHCSR_MEMFAULTENA_MASK, SCB_SHCSR_R_MEMFAULTENA_BIT);
 }
 
+inline void SCB_MemoryFault__vDisable(void)
+{
+    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, (uint32_t)SCB_SHCSR_MEMFAULTENA_DIS, SCB_SHCSR_MEMFAULTENA_MASK, SCB_SHCSR_R_MEMFAULTENA_BIT);
+}
 
 inline void SCB_MemoryFault__vSetPending(void)
 {
-    SCB_SHCSR_R|=SCB_SHCSR_R_MEMFAULTPENDED_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, (uint32_t)SCB_SHCSR_MEMFAULTPENDED_PEND, SCB_SHCSR_MEMFAULTPENDED_MASK, SCB_SHCSR_R_MEMFAULTPENDED_BIT);
 }
 inline void SCB_MemoryFault__vClearPending(void)
 {
-    SCB_SHCSR_R&=~SCB_SHCSR_R_MEMFAULTPENDED_MASK;
+    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, (uint32_t)SCB_SHCSR_MEMFAULTPENDED_NOPEND, SCB_SHCSR_MEMFAULTPENDED_MASK, SCB_SHCSR_R_MEMFAULTPENDED_BIT);
 }
+
 SCB_nPENDSTATE SCB_MemoryFault__enGetPending(void)
 {
     SCB_nPENDSTATE enReturn=SCB_enNOPENDING;
-    uint32_t u32Reg= SCB_SHCSR_R;
-    u32Reg&=SCB_SHCSR_R_MEMFAULTPENDED_MASK;
-    u32Reg>>=SCB_SHCSR_R_MEMFAULTPENDED_BIT;
-    enReturn=(SCB_nPENDSTATE) u32Reg;
+    uint32_t u32Reg= 0UL;
+
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_MEMFAULTPENDED_MASK, SCB_SHCSR_R_MEMFAULTPENDED_BIT);
+    enReturn=(SCB_nPENDSTATE)(u32Reg);
+
     return enReturn;
 }
 
 
 inline uint32_t SCB_MemoryFault_u32GetAddress(void)
 {
-    return SCB_MMFAR_R;
+    uint32_t u32Reg= 0UL;
+
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_MMFAR_OFFSET, SCB_MMFAR_ADDRESS_MASK, SCB_MMFAR_R_ADDRESS_BIT);
+
+    return u32Reg;
 }

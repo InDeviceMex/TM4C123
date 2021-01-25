@@ -25,6 +25,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/WDT_InterruptRegisterIRQSource.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Source.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
 void WDT__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), WDT_nINT_TYPE enIntTypeParam, WDT_nMODULE enModule)
@@ -34,10 +35,7 @@ void WDT__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), WDT_nINT_
     if(0U != (uint32_t) pfIrqSourceHandler )
     {
         u32IntType &= (uint32_t) WDT_enINT_TYPE_MAX;
-        if(WDT_enMODULE_MAX < enModule)
-        {
-            enModule = WDT_enMODULE_MAX;
-        }
+        enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t)enModule, (uint32_t)WDT_enMODULE_MAX);
         u32IrqSourceHandler = ( (uint32_t) pfIrqSourceHandler | (uint32_t) 1U );
         WDT__vIRQSourceHandler[u32IntType][(uint32_t) enModule] = (void (*) (void)) u32IrqSourceHandler;
     }

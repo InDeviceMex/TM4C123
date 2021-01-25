@@ -21,41 +21,24 @@
  * Date           Author     Version     Description
  * 23 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/WDT/Driver/xHeader/WDT_Load.h>
+
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/WDT_Primitives.h>
-#include <xDriver_MCU/WDT/Driver/Intrinsics/xHeader/WDT_Lock.h>
-#include <xDriver_MCU/WDT/Driver/xHeader/WDT_Load.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
 
 void WDT__vSetLoad(WDT_nMODULE enModule, uint32_t u32LoadValue)
 {
-
-    if(enModule>WDT_enMODULE_MAX)
-    {
-        enModule=WDT_enMODULE_MAX;
-    }
-    WDT__vSetReady(enModule);
-    WDT__vUnlock(enModule);
-    WDT->MODULE[enModule].WDTLOAD = u32LoadValue;
-    WDT__vWaitWrite(enModule);
-    WDT__vLock(enModule);
-
+    WDT__vWriteRegister(enModule, WDT_WDTLOAD_OFFSET, (uint32_t) u32LoadValue, WDT_WDTLOAD_WDTLOAD_MASK, WDT_WDTLOAD_R_WDTLOAD_BIT);
 }
 
 uint32_t WDT__u32GetLoad(WDT_nMODULE enModule)
 {
-    WDT_nREADY enReady= WDT_enNOREADY;
-    uint32_t u32Reg=0u;
-    if(enModule>WDT_enMODULE_MAX)
-    {
-        enModule=WDT_enMODULE_MAX;
-    }
-    enReady = WDT__enIsReady(enModule);
-    if((WDT_enREADY == enReady) )
-    {
-        u32Reg = WDT->MODULE[enModule].WDTLOAD;
-    }
+    uint32_t u32Reg = 0U;
+
+    u32Reg = WDT__u32ReadRegister(enModule,WDT_WDTLOAD_OFFSET, WDT_WDTLOAD_WDTLOAD_MASK, WDT_WDTLOAD_R_WDTLOAD_BIT);
+
     return u32Reg;
 }
 

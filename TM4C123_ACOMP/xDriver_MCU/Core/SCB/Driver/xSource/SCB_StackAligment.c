@@ -25,34 +25,22 @@
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_StackAligment.h>
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-SCB_nSTATUS SCB__enSetStackAligment(SCB_nAlignment enAlign)
+void SCB__vSetStackAligment(SCB_nAlignment enAlign)
 {
-    SCB_nSTATUS enReturn=SCB_enERROR;
-    switch(enAlign)
-    {
-        case SCB_enALIGN_4BYTE:
-            SCB_CCR_R&=~SCB_CCR_R_STKALIGN_MASK;
-            enReturn=SCB_enOK;
-            break;
-        case SCB_enALIGN_8BYTE:
-            SCB_CCR_R|=SCB_CCR_R_STKALIGN_MASK;
-            enReturn=SCB_enOK;
-            break;
-        default:
-            break;
-    }
-
-    return enReturn;
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, (uint32_t)enAlign, SCB_CCR_STKALIGN_MASK, SCB_CCR_R_STKALIGN_BIT);
 }
+
 SCB_nAlignment SCB__enGetStackAligment(void)
 {
     SCB_nAlignment enReturn=SCB_enALIGN_ERROR;
-    uint32_t u32Reg=SCB_CCR_R;
-    u32Reg&=SCB_CCR_R_STKALIGN_MASK;
-    u32Reg>>=SCB_CCR_R_STKALIGN_BIT;
-    enReturn=(SCB_nAlignment)u32Reg;
+    uint32_t u32Reg= 0UL;
+
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_STKALIGN_MASK, SCB_CCR_R_STKALIGN_BIT);
+    enReturn=(SCB_nAlignment)(u32Reg);
+
     return enReturn;
 }
 

@@ -34,7 +34,6 @@
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_SysTick.h>
 #include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_UsageFault.h>
 
-
 void SCB__vEnableExceptions(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_EXCEPTION_SCB_EXCEPTION_H_ */

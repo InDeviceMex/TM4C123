@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 
-SCB_nSTATUS SCB__enSetStackAligment(SCB_nAlignment enAlign);
+void SCB__vSetStackAligment(SCB_nAlignment enAlign);
 SCB_nAlignment SCB__enGetStackAligment(void);
 
 

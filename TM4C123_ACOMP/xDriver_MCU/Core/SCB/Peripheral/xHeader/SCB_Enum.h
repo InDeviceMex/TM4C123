@@ -38,6 +38,7 @@ typedef enum
     SCB_enPRIGROUP_XXY =1u,
     SCB_enPRIGROUP_XYY =2u,
     SCB_enPRIGROUP_YYY =3u,
+    SCB_enPRIGROUP_MAX =3u,
     SCB_enPRIGROUP_ERROR =0xFFFFFFFFu,
 }SCB_nPRIGROUP;
 
