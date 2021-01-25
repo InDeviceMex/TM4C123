@@ -23,27 +23,17 @@
  */
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Active.h>
+#include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_ReadReg.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
 inline NVIC_nACTIVE NVIC__enGetActiveIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nACTIVE enStatus= NVIC_enNOACTIVE;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
-    uint32_t u32IsrBitAux=0;
+    uint32_t u32Reg=0UL;
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
-    {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
-        if((NVICw->IABR[u32IsrIndex]&u32IsrBitAux) ==u32IsrBitAux)
-        {
-            enStatus= NVIC_enACTIVE;
-        }
-    }
+    u32Reg = NVIC__u32ReadRegister(enIRQ, NVIC_IABR0_OFFSET);
+    enStatus= (NVIC_nACTIVE )u32Reg;
 
     return enStatus;
 }

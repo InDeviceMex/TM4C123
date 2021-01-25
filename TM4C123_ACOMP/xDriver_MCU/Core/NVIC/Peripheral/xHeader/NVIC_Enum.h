@@ -31,21 +31,23 @@ typedef enum
     NVIC_enOK =0u,
     NVIC_enERROR=1
 }NVIC_nSTATUS;
+
 typedef enum
 {
-    NVIC_enENABLE =0u,
-    NVIC_enDISABLE=1
+    NVIC_enDISABLE=0UL,
+    NVIC_enENABLE =1UL,
 }NVIC_nENABLE;
 
 typedef enum
 {
-    NVIC_enPENDING =0u,
-    NVIC_enNOPENDING=1
+    NVIC_enNOPENDING=0UL,
+    NVIC_enPENDING =1UL,
 }NVIC_nPENDING;
+
 typedef enum
 {
-    NVIC_enACTIVE =0u,
-    NVIC_enNOACTIVE=1
+    NVIC_enNOACTIVE=0UL,
+    NVIC_enACTIVE =1UL,
 }NVIC_nACTIVE;
 
 

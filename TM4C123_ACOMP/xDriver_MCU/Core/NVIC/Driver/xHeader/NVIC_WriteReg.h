@@ -1,6 +1,6 @@
 /**
  *
- * @file MCU_CheckParams.c
+ * @file NVIC_WriteReg.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,14 +21,14 @@
  * Date           Author     Version     Description
  * 24 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
+#ifndef XDRIVER_MCU_CORE_NVIC_DRIVER_XHEADER_NVIC_WRITEREG_H_
+#define XDRIVER_MCU_CORE_NVIC_DRIVER_XHEADER_NVIC_WRITEREG_H_
 
-uint32_t MCU__u32CheckPatams(uint32_t u32Module,uint32_t u32ModuleMax)
-{
-    if((uint32_t)u32ModuleMax<u32Module)
-    {
-        u32Module=(uint32_t)u32ModuleMax;
-    }
-    return u32Module;
-}
+#include <xDriver_MCU/Core/NVIC/Peripheral/xHeader/NVIC_Enum.h>
+#include <xUtils/Standard/Standard.h>
 
+ NVIC_nSTATUS NVIC__enWriteRegister(NVIC_nSTIR enIRQ, uint32_t u32RegisterOffset, uint32_t u32Value);
+
+
+
+#endif /* XDRIVER_MCU_CORE_NVIC_DRIVER_XHEADER_NVIC_WRITEREG_H_ */

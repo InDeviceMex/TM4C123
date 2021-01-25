@@ -24,29 +24,19 @@
 
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Enable.h>
+#include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_ReadReg.h>
+#include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_WriteReg.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Priority.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
-
-
-
 
 inline NVIC_nENABLE NVIC__enGetEnableIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nENABLE enStatus= NVIC_enDISABLE;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
+    uint32_t u32Reg=0UL;
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
-    {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        if((NVICw->ISER[u32IsrIndex]&((uint32_t)1u<<u32IsrBit)) == ((uint32_t)1u<<u32IsrBit))
-        {
-            enStatus= NVIC_enENABLE;
-        }
-    }
+    u32Reg = NVIC__u32ReadRegister(enIRQ, NVIC_ISER0_OFFSET);
+    enStatus= (NVIC_nENABLE)u32Reg;
 
     return enStatus;
 }
@@ -54,18 +44,11 @@ inline NVIC_nENABLE NVIC__enGetEnableIRQ(NVIC_nSTIR enIRQ)
 inline NVIC_nSTATUS NVIC__enSetEnableIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
 {
     NVIC_nSTATUS enStatus= NVIC_enERROR;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
+    enStatus = NVIC__enSetPriorityIRQ(enIRQ,enPriority);
+    if(enStatus == NVIC_enOK)
     {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        enStatus = NVIC__enSetPriorityIRQ(enIRQ,enPriority);
-        if(enStatus == NVIC_enOK)
-        {
-            NVICw->ISER[u32IsrIndex]|=((uint32_t)1u<<u32IsrBit);
-        }
+        enStatus = NVIC__enWriteRegister(enIRQ,NVIC_ISER0_OFFSET, (uint32_t)NVIC_enENABLE);
     }
     return enStatus;
 
@@ -74,18 +57,9 @@ inline NVIC_nSTATUS NVIC__enSetEnableIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPrio
 inline NVIC_nSTATUS NVIC__enClearEnableIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nSTATUS enStatus= NVIC_enERROR;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
-    uint32_t u32IsrBitAux=0;
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
-    {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
-        NVICw->ICER[u32IsrIndex]|=u32IsrBitAux;
-        enStatus = NVIC_enOK;
-    }
+    enStatus = NVIC__enWriteRegister(enIRQ,NVIC_ICER0_OFFSET, (uint32_t)NVIC_enENABLE);
+
     return enStatus;
 }
 

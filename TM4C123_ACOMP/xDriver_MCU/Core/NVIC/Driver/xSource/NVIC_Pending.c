@@ -22,27 +22,18 @@
  * 20 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Pending.h>
+#include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_ReadReg.h>
+#include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_WriteReg.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
 inline NVIC_nPENDING NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nPENDING enStatus= NVIC_enNOPENDING;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
-    uint32_t u32IsrBitAux=0;
+    uint32_t u32Reg=0UL;
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
-    {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
-        if((NVICw->ISPR[u32IsrIndex]&u32IsrBitAux) == (u32IsrBitAux))
-        {
-            enStatus= NVIC_enPENDING;
-        }
-    }
+    u32Reg = NVIC__u32ReadRegister(enIRQ, NVIC_ISPR0_OFFSET);
+    enStatus= (NVIC_nPENDING)u32Reg;
 
     return enStatus;
 }
@@ -51,18 +42,8 @@ inline NVIC_nPENDING NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ)
 inline NVIC_nSTATUS NVIC__enSetPendingIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nSTATUS enStatus= NVIC_enERROR;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
-    uint32_t u32IsrBitAux=0;
+    enStatus = NVIC__enWriteRegister(enIRQ,NVIC_ISPR0_OFFSET, (uint32_t)NVIC_enENABLE);
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
-    {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
-        NVICw->ISPR[u32IsrIndex]|=u32IsrBitAux;
-        enStatus= NVIC_enOK;
-    }
     return enStatus;
 }
 
@@ -71,17 +52,7 @@ inline NVIC_nSTATUS NVIC__enSetPendingIRQ(NVIC_nSTIR enIRQ)
 inline NVIC_nSTATUS NVIC__enClearPendingIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nSTATUS enStatus= NVIC_enERROR;
-    uint32_t u32IsrIndex=0;
-    uint32_t u32IsrBit=0;
-    uint32_t u32IsrBitAux=0;
+    enStatus = NVIC__enWriteRegister(enIRQ,NVIC_ICPR0_OFFSET, (uint32_t)NVIC_enENABLE);
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
-    {
-        u32IsrBit=(uint32_t)enIRQ%32u;
-        u32IsrIndex=(uint32_t)enIRQ/32u;
-        u32IsrBitAux =((uint32_t)1u<<u32IsrBit);
-        NVICw->ICPR[u32IsrIndex]|=u32IsrBitAux;
-        enStatus= NVIC_enOK;
-    }
     return enStatus;
 }

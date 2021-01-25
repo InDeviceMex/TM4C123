@@ -24,21 +24,29 @@
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Priority.h>
 
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
 inline NVIC_nSTATUS NVIC__enSetPriorityIRQ(NVIC_nSTIR enIRQ,NVIC_nPRIORITY enPriority)
 {
     NVIC_nSTATUS enStatus= NVIC_enERROR;
-
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
+    uint32_t u32RegisterOffset = NVIC_STIR_OFFSET;
+    uint32_t u32IsrIndex=0UL;
+    uint32_t u32IsrBit=0UL;
+    if((uint8_t)enPriority <=NVIC_PRI_MAX)
     {
-        if((uint8_t)enPriority <=NVIC_PRI_MAX)
+        if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
         {
-            NVIC_IPRb->IPR[(uint8_t) enIRQ].IP=(uint8_t)enPriority & NVIC_PRI_MASK;
+            enStatus = NVIC_enOK;
+            u32IsrBit=(uint32_t)enIRQ%4UL;
+            u32IsrBit*= 8UL;
+            u32IsrIndex=(uint32_t)enIRQ/4UL;
+            u32IsrIndex*=4UL;
+            u32RegisterOffset += u32IsrIndex;
+            MCU__vWriteRegister(NVIC_BASE, u32RegisterOffset, (uint32_t)enPriority, NVIC_PRI_MASK, u32IsrBit);
             enStatus= NVIC_enOK;
         }
-
     }
     return enStatus;
 

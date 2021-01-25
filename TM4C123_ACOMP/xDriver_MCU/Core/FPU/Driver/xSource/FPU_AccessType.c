@@ -15,8 +15,8 @@
 FPU_nACCESS FPU__enGetAccessType(void)
 {
     FPU_nACCESS enReturn= FPU_enDENIED;
-    uint32_t u32RegCP10= 0;
-    uint32_t u32RegCP11= 0;
+    uint32_t u32RegCP10= 0UL;
+    uint32_t u32RegCP11= 0UL;
 
     u32RegCP10 = MCU__u32ReadRegister(FPU_BASE, FPU_CPACR_OFFSET, FPU_CPACR_CP10_MASK, FPU_CPACR_R_CP10_BIT);
     u32RegCP11 = MCU__u32ReadRegister(FPU_BASE, FPU_CPACR_OFFSET, FPU_CPACR_CP11_MASK, FPU_CPACR_R_CP11_BIT);

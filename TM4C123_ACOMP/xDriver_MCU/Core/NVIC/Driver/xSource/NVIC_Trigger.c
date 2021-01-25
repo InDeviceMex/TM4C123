@@ -24,6 +24,7 @@
 
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Trigger.h>
 
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
@@ -33,7 +34,7 @@ NVIC_nSTATUS    NVIC__enTriggerIRQ(NVIC_nSTIR enIRQ)
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {
-        NVIC_STIR_R=(uint32_t)enIRQ;
+        MCU__vWriteRegister(NVIC_BASE, NVIC_STIR_OFFSET, (uint32_t)enIRQ, NVIC_STIR_R_INTID_MASK, NVIC_STIR_R_INTID_BIT);
         enStatus= NVIC_enOK;
     }
     return enStatus;
