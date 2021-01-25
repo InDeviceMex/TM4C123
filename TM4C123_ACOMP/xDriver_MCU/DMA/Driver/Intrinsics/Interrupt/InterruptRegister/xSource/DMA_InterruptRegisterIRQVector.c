@@ -26,7 +26,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
-const SCB_nVECISR SCB_enVECISR_DMA[(uint32_t)DMA_enVECTOR_MAX+1u]={SCB_enVECISR_UDMASOFT,SCB_enVECISR_UDMAERROR};
+const SCB_nVECISR SCB_enVECISR_DMA[(uint32_t)DMA_enVECTOR_MAX+1U]={SCB_enVECISR_UDMASOFT,SCB_enVECISR_UDMAERROR};
 
 void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nVECTOR enVector)
 {

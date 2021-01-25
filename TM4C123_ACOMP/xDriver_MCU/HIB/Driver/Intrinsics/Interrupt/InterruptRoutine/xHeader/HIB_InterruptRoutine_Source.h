@@ -27,7 +27,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
-extern void (*HIB__vIRQSourceHandler[(uint32_t)HIB_enINTERRUPT_MAX+1u]) (void);
+extern void (*HIB__vIRQSourceHandler[(uint32_t)HIB_enINTERRUPT_MAX+1U]) (void);
 
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_HIB_INTERRUPTROUTINE_SOURCE_H_ */

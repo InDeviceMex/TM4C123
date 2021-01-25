@@ -30,10 +30,10 @@
 #if defined ( __TI_ARM__ )
 
 #pragma DATA_SECTION(SCB__pfnVectors, ".vtable")
-void (*SCB__pfnVectors[0x100u])(void) = {0};
+void (*SCB__pfnVectors[0x100U])(void) = {0};
 
 #elif defined ( __GNUC__ )
-__attribute__((section(".vtable"))) void (*SCB__pfnVectors[0x100u])(void) = {0};
+__attribute__((section(".vtable"))) void (*SCB__pfnVectors[0x100U])(void) = {0};
 #endif
 
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)

@@ -27,13 +27,13 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/WDT_Primitives.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-uint32_t WDT__u32GetValue(WDT_nMODULE enModule)
+WDT_nSTATUS WDT__enGetValue(WDT_nMODULE enModule, uint32_t* pu32ValueArg)
 {
-    uint32_t u32Reg = 0U;
+    WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    u32Reg = WDT__u32ReadRegister(enModule, WDT_WDTVALUE_OFFSET, WDT_WDTVALUE_WDTVALUE_MASK, WDT_WDTVALUE_R_WDTVALUE_BIT);
+    enStatusRead = WDT__enReadRegister(enModule,pu32ValueArg, WDT_WDTVALUE_OFFSET, WDT_WDTVALUE_WDTVALUE_MASK, WDT_WDTVALUE_R_WDTVALUE_BIT);
 
-    return u32Reg;
+    return enStatusRead;
 }
 
 

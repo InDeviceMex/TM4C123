@@ -28,7 +28,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
-extern void (*ACMP__pvIRQVectorHandler[(uint32_t)ACMP_enMODULE_MAX+1u]) (void);
+extern void (*ACMP__pvIRQVectorHandler[(uint32_t)ACMP_enMODULE_MAX+1U]) (void);
 
 
 

@@ -29,6 +29,6 @@
 void WDT__vEnStall(WDT_nMODULE enModule);
 void WDT__vDisStall(WDT_nMODULE enModule);
 void WDT__vSetStall(WDT_nMODULE enModule, WDT_nSTALL enStallValue);
-WDT_nSTALL WDT__enGetStall(WDT_nMODULE enModule);
+WDT_nSTATUS WDT__enGetStall(WDT_nMODULE enModule, WDT_nSTALL* penFeatureArg);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_STALL_H_ */

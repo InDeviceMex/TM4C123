@@ -33,8 +33,8 @@
 
 typedef enum
 {
-    CONV_enBUFFER_SIZE_NUMBER= 32u,
-    CONV_enBUFFER_SIZE_FLOAT = 32u,
+    CONV_enBUFFER_SIZE_NUMBER= 32U,
+    CONV_enBUFFER_SIZE_FLOAT = 32U,
 }CONV_nBUFFER_SIZE;
 
 typedef enum

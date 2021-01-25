@@ -51,15 +51,15 @@ typedef enum
 
 typedef enum
 {
-    UART_enPRI0=0u,
-    UART_enPRI1=1u,
-    UART_enPRI2=2u,
-    UART_enPRI3=3u,
-    UART_enPRI4=4u,
-    UART_enPRI5=5u,
-    UART_enPRI6=6u,
-    UART_enPRI7=7u,
-    UART_enDEFAULT=0xFFFFFFFFu,
+    UART_enPRI0=0U,
+    UART_enPRI1=1U,
+    UART_enPRI2=2U,
+    UART_enPRI3=3U,
+    UART_enPRI4=4U,
+    UART_enPRI5=5U,
+    UART_enPRI6=6U,
+    UART_enPRI7=7U,
+    UART_enDEFAULT=0xFFFFFFFFU,
 }UART_nPRIORITY;
 
 typedef enum
@@ -92,95 +92,95 @@ typedef enum
 
 typedef enum
 {
-    UART_enINT_NOOCCUR = 0u,
-    UART_enINT_OCCUR = 1u,
-    UART_enINT_STATUS_UNDEF = 0xFFFFFFFFu,
+    UART_enINT_NOOCCUR = 0U,
+    UART_enINT_OCCUR = 1U,
+    UART_enINT_STATUS_UNDEF = 0xFFFFFFFFU,
 } UART_nINT_STATUS;
 
 typedef enum
 {
-    UART_enERROR_NOOCCUR = 0u,
-    UART_enERROR_OCCUR = 1u,
-    UART_enERROR_UNDEF = 0xFFFFFFFFu,
+    UART_enERROR_NOOCCUR = 0U,
+    UART_enERROR_OCCUR = 1U,
+    UART_enERROR_UNDEF = 0xFFFFFFFFU,
 }UART_nERROR;
 
 typedef enum
 {
-    UART_enBUSY_IDLE = 0u,
-    UART_enBUSY_BUSY = 1u,
-    UART_enBUSY_UNDEF = 0xFFFFFFFFu,
+    UART_enBUSY_IDLE = 0U,
+    UART_enBUSY_BUSY = 1U,
+    UART_enBUSY_UNDEF = 0xFFFFFFFFU,
 }UART_nBUSY;
 
 typedef enum
 {
-    UART_enCTS_NOASSERT = 0u,
-    UART_enCTS_ASSERT = 1u,
-    UART_enCTS_UNDEF = 0xFFFFFFFFu,
+    UART_enCTS_NOASSERT = 0U,
+    UART_enCTS_ASSERT = 1U,
+    UART_enCTS_UNDEF = 0xFFFFFFFFU,
 }UART_nCTS;
 
 typedef enum
 {
-    UART_enFIFO_DIS = 0u,
-    UART_enFIFO_ENA = 1u,
-    UART_enFIFO_UNDEF = 0xFFFFFFFFu,
+    UART_enFIFO_DIS = 0U,
+    UART_enFIFO_ENA = 1U,
+    UART_enFIFO_UNDEF = 0xFFFFFFFFU,
 }UART_nFIFO;
 
 typedef enum
 {
-    UART_enFIFO_EMPTY_NO = 0u,
-    UART_enFIFO_EMPTY_YES = 1u,
-    UART_enFIFO_EMPTY_UNDEF = 0xFFFFFFFFu,
+    UART_enFIFO_EMPTY_NO = 0U,
+    UART_enFIFO_EMPTY_YES = 1U,
+    UART_enFIFO_EMPTY_UNDEF = 0xFFFFFFFFU,
 }UART_nFIFO_EMPTY;
 
 typedef enum
 {
-    UART_enFIFO_FULL_NO = 0u,
-    UART_enFIFO_FULL_YES = 1u,
-    UART_enFIFO_FULL_UNDEF = 0xFFFFFFFFu,
+    UART_enFIFO_FULL_NO = 0U,
+    UART_enFIFO_FULL_YES = 1U,
+    UART_enFIFO_FULL_UNDEF = 0xFFFFFFFFU,
 }UART_nFIFO_FULL;
 
 typedef enum
 {
-    UART_enBREAK_DIS = 0u,
-    UART_enBREAK_ACTIVE = 1u,
-    UART_enBREAK_UNDEF = 0xFFFFFFFFu,
+    UART_enBREAK_DIS = 0U,
+    UART_enBREAK_ACTIVE = 1U,
+    UART_enBREAK_UNDEF = 0xFFFFFFFFU,
 }UART_nBREAK;
 
 typedef enum
 {
-    UART_enPARITY_DIS = 0u,
-    UART_enPARITY_ENA = 1u,
-    UART_enPARITY_UNDEF = 0xFFFFFFFFu,
+    UART_enPARITY_DIS = 0U,
+    UART_enPARITY_ENA = 1U,
+    UART_enPARITY_UNDEF = 0xFFFFFFFFU,
 }UART_nPARITY;
 
 typedef enum
 {
-    UART_enPARITY_STICK_DIS = 0u,
-    UART_enPARITY_STICK_ENA = 1u,
-    UART_enPARITY_STICK_UNDEF = 0xFFFFFFFFu,
+    UART_enPARITY_STICK_DIS = 0U,
+    UART_enPARITY_STICK_ENA = 1U,
+    UART_enPARITY_STICK_UNDEF = 0xFFFFFFFFU,
 }UART_nPARITY_STICK;
 
 typedef enum
 {
-    UART_enPARITY_TYPE_ODD = 0u,
-    UART_enPARITY_TYPE_EVEN = 1u,
-    UART_enPARITY_TYPE_UNDEF = 0xFFFFFFFFu,
+    UART_enPARITY_TYPE_ODD = 0U,
+    UART_enPARITY_TYPE_EVEN = 1U,
+    UART_enPARITY_TYPE_UNDEF = 0xFFFFFFFFU,
 }UART_nPARITY_TYPE;
 
 typedef enum
 {
-    UART_enSTOP_ONE = 0u,
-    UART_enSTOP_TWO = 1u,
-    UART_enSTOP_UNDEF = 0xFFFFFFFFu,
+    UART_enSTOP_ONE = 0U,
+    UART_enSTOP_TWO = 1U,
+    UART_enSTOP_UNDEF = 0xFFFFFFFFU,
 }UART_nSTOP;
 
 typedef enum
 {
-    UART_enLENGTH_5BITS = 0u,
-    UART_enLENGTH_6BITS = 1u,
-    UART_enLENGTH_7BITS = 2u,
-    UART_enLENGTH_8BITS = 3u,
-    UART_enLENGTH_UNDEF = 0xFFFFFFFFu,
+    UART_enLENGTH_5BITS = 0U,
+    UART_enLENGTH_6BITS = 1U,
+    UART_enLENGTH_7BITS = 2U,
+    UART_enLENGTH_8BITS = 3U,
+    UART_enLENGTH_UNDEF = 0xFFFFFFFFU,
 }UART_nLENGTH;
 
 typedef struct

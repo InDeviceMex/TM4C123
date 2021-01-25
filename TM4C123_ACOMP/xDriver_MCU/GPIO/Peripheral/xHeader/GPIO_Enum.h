@@ -28,114 +28,114 @@
 
 typedef enum
 {
-    GPIO_enSTATUS_OK = 0u,
-    GPIO_enSTATUS_ERROR = 1u,
-    GPIO_enSTATUS_UNDEF = 0xFFFFFFFFu,
+    GPIO_enSTATUS_OK = 0U,
+    GPIO_enSTATUS_ERROR = 1U,
+    GPIO_enSTATUS_UNDEF = 0xFFFFFFFFU,
 } GPIO_nSTATUS;
 
 typedef enum
 {
-    GPIO_enINT_NOOCCUR = 0u,
-    GPIO_enINT_OCCUR = 1u,
-    GPIO_enINT_STATUS_UNDEF = 0xFFFFFFFFu,
+    GPIO_enINT_NOOCCUR = 0U,
+    GPIO_enINT_OCCUR = 1U,
+    GPIO_enINT_STATUS_UNDEF = 0xFFFFFFFFU,
 } GPIO_nINT_STATUS;
 
 typedef enum
 {
-    GPIO_enNOREADY = 0u, GPIO_enREADY = 1u,
+    GPIO_enNOREADY = 0U, GPIO_enREADY = 1U,
 } GPIO_nREADY;
 
 typedef enum
 {
-    GPIO_enBUS_APB = 0u, GPIO_enBUS_AHB = 1u, GPIO_enBUS_MAX = 1u,
+    GPIO_enBUS_APB = 0U, GPIO_enBUS_AHB = 1U, GPIO_enBUS_MAX = 1U,
 } GPIO_nBUS;
 typedef enum
 {
-    GPIO_enPORT_A = 0u,
-    GPIO_enPORT_B = 1u,
-    GPIO_enPORT_C = 2u,
-    GPIO_enPORT_D = 3u,
-    GPIO_enPORT_E = 4u,
-    GPIO_enPORT_F = 5u,
-    GPIO_enPORT_MAX = 5u,
+    GPIO_enPORT_A = 0U,
+    GPIO_enPORT_B = 1U,
+    GPIO_enPORT_C = 2U,
+    GPIO_enPORT_D = 3U,
+    GPIO_enPORT_E = 4U,
+    GPIO_enPORT_F = 5U,
+    GPIO_enPORT_MAX = 5U,
 } GPIO_nPORT;
 typedef enum
 {
-    GPIO_enPIN_0 = 0x1u,
-    GPIO_enPIN_1 = 0x2u,
-    GPIO_enPIN_2 = 0x4u,
-    GPIO_enPIN_3 = 0x8u,
-    GPIO_enPIN_4 = 0x10u,
-    GPIO_enPIN_5 = 0x20u,
-    GPIO_enPIN_6 = 0x40u,
-    GPIO_enPIN_7 = 0x80u,
-    GPIO_enPIN_ALL = 0xFFu,
-    GPIO_enPIN_UNDEF = 0xFFFFFFFFu,
+    GPIO_enPIN_0 = 0x1U,
+    GPIO_enPIN_1 = 0x2U,
+    GPIO_enPIN_2 = 0x4U,
+    GPIO_enPIN_3 = 0x8U,
+    GPIO_enPIN_4 = 0x10U,
+    GPIO_enPIN_5 = 0x20U,
+    GPIO_enPIN_6 = 0x40U,
+    GPIO_enPIN_7 = 0x80U,
+    GPIO_enPIN_ALL = 0xFFU,
+    GPIO_enPIN_UNDEF = 0xFFFFFFFFU,
 } GPIO_nPIN;
 
 typedef enum
 {
-    GPIO_enPIN_NUMBER0 = 0x0u,
-    GPIO_enPIN_NUMBER1 = 0x1u,
-    GPIO_enPIN_NUMBER2 = 0x2u,
-    GPIO_enPIN_NUMBER3 = 0x3u,
-    GPIO_enPIN_NUMBER4 = 0x4u,
-    GPIO_enPIN_NUMBER5 = 0x5u,
-    GPIO_enPIN_NUMBER6 = 0x6u,
-    GPIO_enPIN_NUMBER7 = 0x7u,
-    GPIO_enPIN_NUMBER_MAX = 0x7u,
+    GPIO_enPIN_NUMBER0 = 0x0U,
+    GPIO_enPIN_NUMBER1 = 0x1U,
+    GPIO_enPIN_NUMBER2 = 0x2U,
+    GPIO_enPIN_NUMBER3 = 0x3U,
+    GPIO_enPIN_NUMBER4 = 0x4U,
+    GPIO_enPIN_NUMBER5 = 0x5U,
+    GPIO_enPIN_NUMBER6 = 0x6U,
+    GPIO_enPIN_NUMBER7 = 0x7U,
+    GPIO_enPIN_NUMBER_MAX = 0x7U,
 } GPIO_nPIN_NUMBER;
 
 typedef enum
 {
-    GPIO_enDIR_INPUT = 0u,
-    GPIO_enDIR_OUTPUT = 1u,
-    GPIO_enDIR_UNDEF = 0xFFFFFFFFu,
+    GPIO_enDIR_INPUT = 0U,
+    GPIO_enDIR_OUTPUT = 1U,
+    GPIO_enDIR_UNDEF = 0xFFFFFFFFU,
 } GPIO_nDIR;
 
 typedef enum
 {
-    GPIO_enSENSE_EDGE = 0u,
-    GPIO_enSENSE_LEVEL = 1u,
-    GPIO_enSENSE_UNDEF = 0xFFFFFFFFu,
+    GPIO_enSENSE_EDGE = 0U,
+    GPIO_enSENSE_LEVEL = 1U,
+    GPIO_enSENSE_UNDEF = 0xFFFFFFFFU,
 } GPIO_nSENSE;
 
 typedef enum
 {
-    GPIO_enEDGE_FALLING = 0u,
-    GPIO_enEDGE_RISING = 1u,
-    GPIO_enEDGE_BOTH = 2u,
-    GPIO_enEDGE_UNDEF = 0xFFFFFFFFu,
+    GPIO_enEDGE_FALLING = 0U,
+    GPIO_enEDGE_RISING = 1U,
+    GPIO_enEDGE_BOTH = 2U,
+    GPIO_enEDGE_UNDEF = 0xFFFFFFFFU,
 } GPIO_nEDGE;
 
 typedef enum
 {
-    GPIO_enDRIVE_2mA = 0u,
-    GPIO_enDRIVE_4mA = 1u,
-    GPIO_enDRIVE_8mA = 2u,
+    GPIO_enDRIVE_2mA = 0U,
+    GPIO_enDRIVE_4mA = 1U,
+    GPIO_enDRIVE_8mA = 2U,
     GPIO_enDRIVE_8mA_SLR = (((uint32_t) 1u << 8U) | 2U),
-    GPIO_enDRIVE_UNDEF = 0xFFFFFFFFu,
+    GPIO_enDRIVE_UNDEF = 0xFFFFFFFFU,
 } GPIO_nDRIVE;
 
 typedef enum
 {
-    GPIO_enLEVEL_LOW = 0u,
-    GPIO_enLEVEL_HIGH = 1u,
-    GPIO_enLEVEL_UNDEF = 0xFFFFFFFFu,
+    GPIO_enLEVEL_LOW = 0U,
+    GPIO_enLEVEL_HIGH = 1U,
+    GPIO_enLEVEL_UNDEF = 0xFFFFFFFFU,
 } GPIO_nLEVEL;
 
 typedef enum
 {
-    GPIO_enOUTMODE_PP = 0u,
-    GPIO_enOUTMODE_OD = 1u,
-    GPIO_enOUTMODE_UNDEF = 0xFFFFFFFFu,
+    GPIO_enOUTMODE_PP = 0U,
+    GPIO_enOUTMODE_OD = 1U,
+    GPIO_enOUTMODE_UNDEF = 0xFFFFFFFFU,
 } GPIO_nOUTMODE;
 typedef enum
 {
-    GPIO_enRESMODE_INACTIVE = 0u,
-    GPIO_enRESMODE_PULLUP = 1u,
-    GPIO_enRESMODE_PULLDOWN = 2u,
-    GPIO_enRESMODE_UNDEF = 0xFFFFFFFFu,
+    GPIO_enRESMODE_INACTIVE = 0U,
+    GPIO_enRESMODE_PULLUP = 1U,
+    GPIO_enRESMODE_PULLDOWN = 2U,
+    GPIO_enRESMODE_UNDEF = 0xFFFFFFFFU,
 } GPIO_nRESMODE;
 
 /*PORT PIN VALUE*/
@@ -590,15 +590,15 @@ typedef enum
 
 typedef enum
 {
-    GPIO_enPRI0 = 0u,
-    GPIO_enPRI1 = 1u,
-    GPIO_enPRI2 = 2u,
-    GPIO_enPRI3 = 3u,
-    GPIO_enPRI4 = 4u,
-    GPIO_enPRI5 = 5u,
-    GPIO_enPRI6 = 6u,
-    GPIO_enPRI7 = 7u,
-    GPIO_enDEFAULT = 0xFFFFFFFFu,
+    GPIO_enPRI0 = 0U,
+    GPIO_enPRI1 = 1U,
+    GPIO_enPRI2 = 2U,
+    GPIO_enPRI3 = 3U,
+    GPIO_enPRI4 = 4U,
+    GPIO_enPRI5 = 5U,
+    GPIO_enPRI6 = 6U,
+    GPIO_enPRI7 = 7U,
+    GPIO_enDEFAULT = 0xFFFFFFFFU,
 } GPIO_nPRIORITY;
 
 typedef enum
@@ -795,7 +795,7 @@ typedef enum
             << 16) | ((uint32_t) GPIO_enDIR_OUTPUT << 8)
             | ((uint32_t) GPIO_enOUTMODE_OD << 4)
             | ((uint32_t) GPIO_enRESMODE_PULLDOWN << 0),
-    GPIO_enCONFIG_UNDEF = 0xFFFFFFFFu,
+    GPIO_enCONFIG_UNDEF = 0xFFFFFFFFU,
 } GPIO_nCONFIG;
 
 typedef enum
@@ -810,7 +810,7 @@ typedef enum
             | ((uint32_t) GPIO_enLEVEL_LOW << 0),
     GPIO_enINT_CONFIG_LEVEL_HIGH = ((uint32_t) GPIO_enSENSE_LEVEL << 8)
             | ((uint32_t) GPIO_enLEVEL_HIGH << 0),
-    GPIO_enINT_CONFIG_UNDEF = 0xFFFFu,
+    GPIO_enINT_CONFIG_UNDEF = 0xFFFFU,
 } GPIO_nINT_CONFIG;
 
 typedef struct

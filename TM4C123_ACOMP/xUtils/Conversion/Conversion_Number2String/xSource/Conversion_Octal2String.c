@@ -34,10 +34,10 @@ uint8_t Conv__u8Oct2String(uint64_t u64Number, char* pcConv)
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     char  pcConvTemp[OCT2STRINGMAX]={0};/*longitud maxima de long 16 digitos*/
-    char  *pcPointerActual=&pcConvTemp[OCT2STRINGMAX - 1u];
+    char  *pcPointerActual=&pcConvTemp[OCT2STRINGMAX - 1U];
     uint8_t u8Length =0U;
 
-    enStatus =Conv__enConversion(pcPointerActual, u64Number,&u8Length, 8u,CONV_pc8Octal);
+    enStatus =Conv__enConversion(pcPointerActual, u64Number,&u8Length, 8U,CONV_pc8Octal);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;

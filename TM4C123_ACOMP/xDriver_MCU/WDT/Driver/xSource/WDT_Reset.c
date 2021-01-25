@@ -42,14 +42,12 @@ void WDT__vSetResetOutput(WDT_nMODULE enModule, WDT_nRESET enResetOutputValue)
     WDT__vWriteRegister(enModule, WDT_WDTCTL_OFFSET, (uint32_t) enResetOutputValue, WDT_WDTCTL_RESEN_MASK, WDT_WDTCTL_R_RESEN_BIT);
 }
 
-WDT_nRESET WDT__enGetResetOutput(WDT_nMODULE enModule)
+WDT_nSTATUS WDT__enGetResetOutput(WDT_nMODULE enModule, WDT_nRESET* penFeatureArg)
 {
-    WDT_nRESET enReset= WDT_enRESET_UNDEF;
-    uint32_t u32Reg = 0U;
+    WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    u32Reg = WDT__u32ReadRegister(enModule, WDT_WDTCTL_OFFSET, WDT_WDTCTL_RESEN_MASK, WDT_WDTCTL_R_RESEN_BIT);
-    enReset = (WDT_nRESET)u32Reg;
+    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTCTL_OFFSET, WDT_WDTCTL_RESEN_MASK, WDT_WDTCTL_R_RESEN_BIT);
 
-    return enReset;
+    return enStatusRead;
 }
 

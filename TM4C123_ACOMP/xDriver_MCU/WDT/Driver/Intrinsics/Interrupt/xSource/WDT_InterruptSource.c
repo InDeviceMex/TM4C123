@@ -29,15 +29,13 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/xHeader/WDT_Lock.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-WDT_nINTERRUPT WDT__enGetInterruptSource(WDT_nMODULE enModule)
+WDT_nSTATUS WDT__enGetInterruptSource(WDT_nMODULE enModule, WDT_nINTERRUPT* penFeatureArg)
 {
-    WDT_nINTERRUPT enStatus = WDT_enINTERRUPT_UNDEF;
-    uint32_t u32Reg = 0U;
+    WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    u32Reg = WDT__u32ReadRegister(enModule, WDT_WDTCTL_OFFSET, WDT_WDTCTL_INTEN_MASK, WDT_WDTCTL_R_INTEN_BIT);
-    enStatus = (WDT_nINTERRUPT)u32Reg;
+    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTCTL_OFFSET, WDT_WDTCTL_INTEN_MASK, WDT_WDTCTL_R_INTEN_BIT);
 
-    return enStatus;
+    return enStatusRead;
 }
 
 void WDT__vEnInterruptSource(WDT_nMODULE enModule)
@@ -56,14 +54,12 @@ void WDT__vClearInterruptSource(WDT_nMODULE enModule)
     WDT__vWriteRegister(enModule, WDT_WDTICR_OFFSET, (uint32_t)0UL, WDT_WDTICR_WDTINTCLR_MASK, WDT_WDTICR_R_WDTINTCLR_BIT);
 }
 
-WDT_nINT_STATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule)
+WDT_nSTATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule, WDT_nINT_STATUS* penFeatureArg)
 {
-    WDT_nINT_STATUS enStatus = WDT_enINT_STATUS_UNDEF;
-    uint32_t u32Reg = 0U;
+    WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    u32Reg = WDT__u32ReadRegister(enModule, WDT_WDTRIS_OFFSET, WDT_WDTRIS_WDTRIS_MASK, WDT_WDTRIS_R_WDTRIS_BIT);
-    enStatus = (WDT_nINT_STATUS)u32Reg;
+    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTRIS_OFFSET, WDT_WDTRIS_WDTRIS_MASK, WDT_WDTRIS_R_WDTRIS_BIT);
 
-    return enStatus;
+    return enStatusRead;
 }
 

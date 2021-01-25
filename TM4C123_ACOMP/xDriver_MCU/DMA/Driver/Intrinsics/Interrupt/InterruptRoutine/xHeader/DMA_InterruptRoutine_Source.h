@@ -27,6 +27,6 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
-extern void (*DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_MAX+1u][(uint32_t)DMA_enCH_MODULE_MAX+1u]) (void);
+extern void (*DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_MAX+1U][(uint32_t)DMA_enCH_MODULE_MAX+1U]) (void);
 
 #endif /* XDRIVER_MCU_DMA_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_DMA_INTERRUPTROUTINE_SOURCE_H_ */

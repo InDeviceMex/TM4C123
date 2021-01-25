@@ -44,7 +44,7 @@ void GPIOE__vIRQVectorHandler(void)
                 if(DMA_DMACHMAP1_R_CH14SEL_GPIOE
                         == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH14SEL_MASK))
                 {
-                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][14u]();
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][14U]();
                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS14_CLEAR;
                 }
             }

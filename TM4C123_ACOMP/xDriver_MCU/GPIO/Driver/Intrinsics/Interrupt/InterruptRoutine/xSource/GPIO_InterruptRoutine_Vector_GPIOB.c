@@ -44,7 +44,7 @@ void GPIOB__vIRQVectorHandler(void)
                 if(DMA_DMACHMAP0_R_CH5SEL_GPIOB
                         == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH5SEL_MASK))
                 {
-                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][5u]();
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][5U]();
                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS5_CLEAR;
                 }
             }
@@ -58,7 +58,7 @@ void GPIOB__vIRQVectorHandler(void)
                 if(DMA_DMACHMAP2_R_CH18SEL_GPIOB
                         == (DMA_DMACHMAP2_R & DMA_DMACHMAP2_R_CH18SEL_MASK))
                 {
-                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][18u]();
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][18U]();
                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS18_CLEAR;
                 }
             }

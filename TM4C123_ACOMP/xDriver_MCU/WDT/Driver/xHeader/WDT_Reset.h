@@ -30,8 +30,7 @@
 void WDT__vEnResetOutput(WDT_nMODULE enModule);
 void WDT__vDisResetOutput(WDT_nMODULE enModule);
 void WDT__vSetResetOutput(WDT_nMODULE enModule, WDT_nRESET enResetOutputValue);
-WDT_nRESET WDT__enGetResetOutput(WDT_nMODULE enModule);
-
+WDT_nSTATUS WDT__enGetResetOutput(WDT_nMODULE enModule, WDT_nRESET* penFeatureArg);
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_RESET_H_ */

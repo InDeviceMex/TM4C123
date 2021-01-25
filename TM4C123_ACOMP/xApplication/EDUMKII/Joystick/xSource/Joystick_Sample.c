@@ -45,7 +45,7 @@ void EDUMKII_Joystick_vIRQSourceHandler(void)
     {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         2u-1u,
+         2u-1U,
          DMA_enCH_BURST_SIZE_2,
          0,
          DMA_enCH_SRC_SIZE_WORD,

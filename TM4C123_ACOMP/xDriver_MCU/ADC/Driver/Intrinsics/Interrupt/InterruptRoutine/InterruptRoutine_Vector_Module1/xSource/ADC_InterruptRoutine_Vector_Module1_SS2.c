@@ -42,7 +42,7 @@ void ADC1_SS2__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP3_R_CH26SEL_ADC1_SS2 == (DMA_DMACHMAP3_R & DMA_DMACHMAP3_R_CH26SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][26u]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][26U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS26_CLEAR;
                 }
             }

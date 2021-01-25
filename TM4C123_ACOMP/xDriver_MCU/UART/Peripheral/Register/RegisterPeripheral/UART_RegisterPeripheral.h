@@ -35,8 +35,8 @@
 
 #define UART               (((UARTS_TypeDef*)(UART_BASE)))
 
-extern UART_TypeDef* UART_BLOCK[(uint32_t)UART_enMODULE_MAX+1u];
-extern uint32_t UART_BLOCK_ADDRESS[(uint32_t)UART_enMODULE_MAX+1u];
+extern UART_TypeDef* UART_BLOCK[(uint32_t)UART_enMODULE_MAX+1U];
+extern uint32_t UART_BLOCK_ADDRESS[(uint32_t)UART_enMODULE_MAX+1U];
 
 
 

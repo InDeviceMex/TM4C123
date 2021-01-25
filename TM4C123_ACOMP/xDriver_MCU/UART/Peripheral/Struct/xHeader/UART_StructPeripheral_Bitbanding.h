@@ -193,7 +193,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-        UART_BITBANDING_TypeDef MODULE[(uint32_t) UART_enMODULE_MAX + 1u];
+        UART_BITBANDING_TypeDef MODULE[(uint32_t) UART_enMODULE_MAX + 1U];
 } UARTS_BITBANDING_TypeDef;
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTPERIPHERAL_BITBANDING_H_ */

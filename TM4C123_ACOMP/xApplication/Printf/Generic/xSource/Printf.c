@@ -226,7 +226,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
           u32Flags |= (uint32_t) CONV_enFLAGS_UPPERCASE;
         }
 
-        /* no plus or space flag for u, x, X, o, b*/
+        /* no plus or space flag for U, x, X, o, b*/
         if (('i' != *pcFormat ) && ('d' != *pcFormat))
         {
           u32Flags &= ~((uint32_t) CONV_enFLAGS_PLUS | (uint32_t) CONV_enFLAGS_SPACE);

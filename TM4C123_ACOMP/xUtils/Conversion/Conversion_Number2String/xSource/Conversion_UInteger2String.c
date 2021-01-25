@@ -35,9 +35,9 @@ uint8_t Conv__u8UInt2String(uint64_t u64Number, char* pcConv)
     char       pcConvTemp[INT2STRINGMAX]={0};/*longitud maxima de long 12 digitos con signo*/
     uint8_t u8Length =0U;
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
-    char *pcPointerActual = &pcConvTemp[INT2STRINGMAX - 1u];/*empezamos llenando desde la ultima posicion*/
+    char *pcPointerActual = &pcConvTemp[INT2STRINGMAX - 1U];/*empezamos llenando desde la ultima posicion*/
 
-    enStatus =Conv__enConversion(pcPointerActual, u64Number,&u8Length, 10u,CONV_pc8Decimal);
+    enStatus =Conv__enConversion(pcPointerActual, u64Number,&u8Length, 10U,CONV_pc8Decimal);
     if(CONV_enSTATUS_OK == enStatus)
     {
         pcPointerActual-= u8Length;

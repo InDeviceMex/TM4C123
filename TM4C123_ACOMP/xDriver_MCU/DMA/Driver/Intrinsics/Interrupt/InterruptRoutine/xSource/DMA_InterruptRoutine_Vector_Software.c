@@ -27,14 +27,14 @@
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
-volatile uint32_t* DMA_ChannelAssig[(uint32_t)DMA_enCH_MODULE_MAX+1u] =
+volatile uint32_t* DMA_ChannelAssig[(uint32_t)DMA_enCH_MODULE_MAX+1U] =
 {
  (volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP0_OFFSET),
  (volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP1_OFFSET),
  (volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP2_OFFSET),
  (volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),(volatile uint32_t*) (DMA_BASE+DMA_DMACHMAP3_OFFSET),
 };
-uint32_t DMA_ChannelAssigBit[(uint32_t)DMA_enCH_MODULE_MAX+1u] = {0u, 4u, 8u, 12u, 16u, 20u, 24u, 28u, 0u, 4u, 8u, 12u, 16u, 20u, 24u, 28u, 0u, 4u, 8u, 12u, 16u, 20u, 24u, 28u, 0u, 4u, 8u, 12u, 16u, 20u, 24u, 28u};
+uint32_t DMA_ChannelAssigBit[(uint32_t)DMA_enCH_MODULE_MAX+1U] = {0U, 4U, 8U, 12U, 16U, 20U, 24U, 28U, 0U, 4U, 8U, 12U, 16U, 20U, 24U, 28U, 0U, 4U, 8U, 12U, 16U, 20U, 24U, 28U, 0U, 4U, 8U, 12U, 16U, 20U, 24U, 28u};
 
 void DMA_SW__vIRQVectorHandler(void)
 {

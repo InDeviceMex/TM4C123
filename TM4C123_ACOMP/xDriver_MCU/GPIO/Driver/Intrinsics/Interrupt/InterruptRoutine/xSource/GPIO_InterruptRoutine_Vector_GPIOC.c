@@ -44,7 +44,7 @@ void GPIOC__vIRQVectorHandler(void)
                 if(DMA_DMACHMAP0_R_CH6SEL_GPIOC
                         == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH6SEL_MASK))
                 {
-                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][6u]();
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_3][6U]();
                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS6_CLEAR;
                 }
             }

@@ -58,7 +58,7 @@ void EDUMKII_Joystick_vInit(void)
     {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         2u-1u,
+         2u-1U,
          DMA_enCH_BURST_SIZE_2,
          0,
          DMA_enCH_SRC_SIZE_WORD,
@@ -74,11 +74,11 @@ void EDUMKII_Joystick_vInit(void)
     GPIO__vEnInterruptConfig(EDUMKII_SELECT_PORT,EDUMKII_SELECT_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
 
     DMA__vRegisterIRQSourceHandler(&EDUMKII_Joystick_vIRQSourceHandler,DMA_enCH_MODULE_15, DMA_enCH_ENCODER_0 );
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2u-1u]);
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2u-1U]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO1_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMAChControl);
 
-    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2u-1u]);
+    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2u-1U]);
     DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO1_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_15, enDMAChControl);
 

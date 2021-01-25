@@ -157,7 +157,7 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
 
 uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
 {
-    char    *pcPointerActual = &CONV_pcConvTemp[INT2STRINGMAX-1u];/*empezamos llenando desde la ultima posicion;*/
+    char    *pcPointerActual = &CONV_pcConvTemp[INT2STRINGMAX-1U];/*empezamos llenando desde la ultima posicion;*/
     char    *pcPointerActualAux=0U;
     char*  pcConvAux=0U;
     uint8_t u8Num=0;
@@ -215,7 +215,7 @@ uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
 
 uint8_t Conv__u8Int2StringZeros(int64_t s64Number,int8_t s8CerosLeft, char* pcConv)
 {
-    char    *pcPointerActual = &CONV_pcConvTemp[INT2STRINGMAX - 1u];/*empezamos llenando desde la ultima posicion*/
+    char    *pcPointerActual = &CONV_pcConvTemp[INT2STRINGMAX - 1U];/*empezamos llenando desde la ultima posicion*/
     char *pcPointerActualAux=0U;
     char* pcConvAux=0U;
     uint8_t u8Num=0;

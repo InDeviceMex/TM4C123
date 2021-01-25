@@ -27,9 +27,9 @@
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_AHB/GPIO_RegisterPeripheral_AHB.h>
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_APB/GPIO_RegisterPeripheral_APB.h>
 
-extern GPIO_TypeDef *GPIO_BLOCK[(uint32_t) GPIO_enBUS_MAX + 1u][(uint32_t) GPIO_enPORT_MAX
-        + 1u];
-extern GPIO_AUX_TypeDef *GPIO_AUX_BLOCK[(uint32_t) GPIO_enBUS_MAX + 1u][(uint32_t) GPIO_enPORT_MAX
-        + 1u];
+extern GPIO_TypeDef *GPIO_BLOCK[(uint32_t) GPIO_enBUS_MAX + 1U][(uint32_t) GPIO_enPORT_MAX
+        + 1U];
+extern GPIO_AUX_TypeDef *GPIO_AUX_BLOCK[(uint32_t) GPIO_enBUS_MAX + 1U][(uint32_t) GPIO_enPORT_MAX
+        + 1U];
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERPERIPHERAL_GPIO_REGISTERPERIPHERAL_H_ */

@@ -27,7 +27,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-extern void (*ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX +1u][(uint32_t)ADC_enSEQ_MAX + 1u])(void);
-extern void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX + 1u][(uint32_t)ADC_enSEQ_MAX +1u][(uint32_t)ADC_en_COMPARATOR_MAX +1u])(void) ;
+extern void (*ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX +1U][(uint32_t)ADC_enSEQ_MAX + 1U])(void);
+extern void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX + 1U][(uint32_t)ADC_enSEQ_MAX +1U][(uint32_t)ADC_en_COMPARATOR_MAX +1U])(void) ;
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_ADC_INTERRUPTROUTINE_SOURCE_H_ */

@@ -145,7 +145,7 @@ int32_t main(void)
         EDUMKII_Accelerometer_vSample(&s32AccelerometerXValue,&s32AccelerometerYValue,&s32AccelerometerZValue);
         EDUMKII_Microphone_vSample(&u32MicrophoneValue);
         SysTick__vDelayUs(100000.0f);
-        u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %d, JoystickY: %d, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
+        u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %U, Button2: %u\n\rJoystickX: %d, JoystickY: %d, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
                          enButton1State,enButton2State,s32JoystickXValue,s32JoystickYValue,enJoystickSelectValue,s32AccelerometerXValue,s32AccelerometerYValue,s32AccelerometerZValue,
                          u32MicrophoneValue);
         cNokiaBufferPointer = cNokiaBuffer;

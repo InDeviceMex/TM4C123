@@ -17,53 +17,53 @@
 
 typedef enum
 {
-    LCD1602_enOK=0u,
-    LCD1602_enBUSY=1u,
+    LCD1602_enOK=0U,
+    LCD1602_enBUSY=1U,
 }LCD1602_nBUSY;
 
 typedef enum
 {
-    LCD1602_enCONITNUE=0u,
-    LCD1602_enFINISH=1u,
+    LCD1602_enCONITNUE=0U,
+    LCD1602_enFINISH=1U,
 }LCD1602_nFINISH;
 
 typedef enum
 {
-    LCD1602_enSTATUS_OK=0u,
-    LCD1602_enSTATUS_ERROR=1u,
+    LCD1602_enSTATUS_OK=0U,
+    LCD1602_enSTATUS_ERROR=1U,
 }LCD1602_nSTATUS;
 
 typedef enum
 {
-    LCD1602_enCLEAR     =0x01u, /*Clear Screen*/
-    LCD1602_enHOME      =0x02u, /*Cursor to Home 0,0*/
+    LCD1602_enCLEAR     =0x01U, /*Clear Screen*/
+    LCD1602_enHOME      =0x02U, /*Cursor to Home 0,0*/
     /*Next commands could be combined*/
-    LCD1602_ebDecAdd    =0x04u, /*Decrement Direction in each write*/
-    LCD1602_enNSDisp    =0x04u, /*Cursor does not move*/
-    LCD1602_enSDisp     =0x05u, /*move cursor 1 position*/
-    LCD1602_enIncAdd    =0x06u, /*Increment Direction in each write*/
+    LCD1602_ebDecAdd    =0x04U, /*Decrement Direction in each write*/
+    LCD1602_enNSDisp    =0x04U, /*Cursor does not move*/
+    LCD1602_enSDisp     =0x05U, /*move cursor 1 position*/
+    LCD1602_enIncAdd    =0x06U, /*Increment Direction in each write*/
     /*Next commands could be combined*/
-    LCD1602_enOFFDisp   =0x08u, /*Screen OFF*/
-    LCD1602_enOFFCursor =0x08u, /*Cursor OFF*/
-    LCD1602_enOFFBlink  =0x08u, /*Blinking OFF*/
-    LCD1602_enONBlink   =0x09u, /*Blinking ON*/
-    LCD1602_enONCursor  =0x0Au, /*Cursor ON*/
-    LCD1602_enONDisp    =0x0Cu, /*Screen ON*/
+    LCD1602_enOFFDisp   =0x08U, /*Screen OFF*/
+    LCD1602_enOFFCursor =0x08U, /*Cursor OFF*/
+    LCD1602_enOFFBlink  =0x08U, /*Blinking OFF*/
+    LCD1602_enONBlink   =0x09U, /*Blinking ON*/
+    LCD1602_enONCursor  =0x0AU, /*Cursor ON*/
+    LCD1602_enONDisp    =0x0CU, /*Screen ON*/
     /*Next commands could be combined*/
-    LCD1602_enCLDisp    =0x10u, /*Move the cursor to Left, Direction increase 1*/
-    LCD1602_enCRDisp    =0x14u, /*Move the cursor to Right, Direction decrease 1*/
-    LCD1602_enSLDisp    =0x18u, /*Move all Screen to the Left, Direction not change*/
-    LCD1602_enSRDisp    =0x1Cu, /*Move all Screen to the Right, Direction not change*/
+    LCD1602_enCLDisp    =0x10U, /*Move the cursor to Left, Direction increase 1*/
+    LCD1602_enCRDisp    =0x14U, /*Move the cursor to Right, Direction decrease 1*/
+    LCD1602_enSLDisp    =0x18U, /*Move all Screen to the Left, Direction not change*/
+    LCD1602_enSRDisp    =0x1CU, /*Move all Screen to the Right, Direction not change*/
     /*Next commands could be combined*/
-    LCD1602_enM1LINE    =0x20u, /*1 Line Mode*/
-    LCD1602_enM4BIT     =0x20u, /*4 bit Mode*/
-    LCD1602_enM5_8_Font =0x20u, /*5x8 Font*/
-    LCD1602_enM5_11_Font=0x24u, /*5x11 Font*/
-    LCD1602_enM2LINE    =0x28u, /*2 Line Mode*/
-    LCD1602_enM8BIT     =0x30u, /*8 bit Mode*/
+    LCD1602_enM1LINE    =0x20U, /*1 Line Mode*/
+    LCD1602_enM4BIT     =0x20U, /*4 bit Mode*/
+    LCD1602_enM5_8_Font =0x20U, /*5x8 Font*/
+    LCD1602_enM5_11_Font=0x24U, /*5x11 Font*/
+    LCD1602_enM2LINE    =0x28U, /*2 Line Mode*/
+    LCD1602_enM8BIT     =0x30U, /*8 bit Mode*/
 
 
-    LCD1602_enGCRAM     =0x40u, /*Write to GC Ram*/
+    LCD1602_enGCRAM     =0x40U, /*Write to GC Ram*/
 
 
 }LCD1602_nCommands;

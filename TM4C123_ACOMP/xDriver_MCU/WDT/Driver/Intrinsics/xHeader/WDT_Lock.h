@@ -26,8 +26,7 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-WDT_nLOCK WDT__enGetLock(WDT_nMODULE enModule);
-
+WDT_nSTATUS WDT__enGetLock(WDT_nMODULE enModule, WDT_nLOCK* penFeatureArg);
 void WDT__vLock(WDT_nMODULE enModule);
 void WDT__vUnlock(WDT_nMODULE enModule);
 

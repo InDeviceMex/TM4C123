@@ -30,16 +30,17 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/xHeader/WDT_Wait.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-uint32_t WDT__u32ReadRegister(WDT_nMODULE enModule, uint32_t u32OffsetRegister, uint32_t u32MaskFeature, uint32_t u32BitFeature)
+WDT_nSTATUS WDT__enReadRegister(WDT_nMODULE enModule, uint32_t* u32FeatureValue, uint32_t u32OffsetRegister, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    uint32_t u32FeatureValue = 0xFFFFFFFF;
+    WDT_nSTATUS enStatus = WDT_enSTATUS_UNDEF;
     WDT_nREADY enReady = WDT_enNOREADY;
     enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t)enModule, (uint32_t)WDT_enMODULE_MAX);
     enReady = WDT__enIsReady(enModule);
 
     if( WDT_enREADY == enReady )
     {
-        u32FeatureValue = MCU__u32ReadRegister(WDT_BLOCK_ADDRESS[(uint32_t)enModule], u32OffsetRegister, u32MaskFeature, u32BitFeature);
+        enStatus = WDT_enSTATUS_OK;
+        *u32FeatureValue = MCU__u32ReadRegister(WDT_BLOCK_ADDRESS[(uint32_t)enModule], u32OffsetRegister, u32MaskFeature, u32BitFeature);
     }
-    return u32FeatureValue;
+    return enStatus;
 }

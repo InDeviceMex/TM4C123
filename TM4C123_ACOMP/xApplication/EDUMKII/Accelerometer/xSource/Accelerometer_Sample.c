@@ -42,7 +42,7 @@ void EDUMKII_Accelerometer_vIRQSourceHandler(void)
     {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         4u-1u,
+         4u-1U,
          DMA_enCH_BURST_SIZE_4,
          0,
          DMA_enCH_SRC_SIZE_WORD,

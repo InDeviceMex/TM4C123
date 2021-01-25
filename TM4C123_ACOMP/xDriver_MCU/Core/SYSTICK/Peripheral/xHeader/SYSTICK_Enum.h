@@ -10,14 +10,14 @@
 
 typedef enum
 {
-    SysTick_enOK=0u,
-    SysTick_enERROR=1u,
+    SysTick_enOK=0U,
+    SysTick_enERROR=1U,
 }SysTick_nSTATUS;
 
 typedef enum
 {
-    SysTick_enPIOSC4=0u,
-    SysTick_enSYSCLK=1u,
+    SysTick_enPIOSC4=0U,
+    SysTick_enSYSCLK=1U,
 }SysTick_nCLKSOURCE;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_ENUM_H_ */

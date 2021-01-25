@@ -26,7 +26,7 @@
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/ADC_InterruptRoutine.h>
 
-const SCB_nVECISR SCB_enVECISR_ADC[(uint32_t)ADC_enMODULE_MAX+ 1u][(uint32_t)ADC_enSEQ_MAX + 1u]=
+const SCB_nVECISR SCB_enVECISR_ADC[(uint32_t)ADC_enMODULE_MAX+ 1U][(uint32_t)ADC_enSEQ_MAX + 1U]=
 {
     {SCB_enVECISR_ADC0SEQ0,SCB_enVECISR_ADC0SEQ1,SCB_enVECISR_ADC0SEQ2,SCB_enVECISR_ADC0SEQ3},
     {SCB_enVECISR_ADC1SEQ0,SCB_enVECISR_ADC1SEQ1,SCB_enVECISR_ADC1SEQ2,SCB_enVECISR_ADC1SEQ3}

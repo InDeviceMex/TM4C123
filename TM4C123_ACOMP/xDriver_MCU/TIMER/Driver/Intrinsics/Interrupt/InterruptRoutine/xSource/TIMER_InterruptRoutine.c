@@ -25,7 +25,7 @@
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/TIMER_InterruptRoutine.h>
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
-void (*TIMER__pvIRQVectorHandler[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1u]) (void)={
+void (*TIMER__pvIRQVectorHandler[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U]) (void)={
 {
  {&TIMER0A__vIRQVectorHandler,&TIMER1A__vIRQVectorHandler,&TIMER2A__vIRQVectorHandler,&TIMER3A__vIRQVectorHandler,&TIMER4A__vIRQVectorHandler,&TIMER5A__vIRQVectorHandler},
  {&TIMER0B__vIRQVectorHandler,&TIMER1B__vIRQVectorHandler,&TIMER2B__vIRQVectorHandler,&TIMER3B__vIRQVectorHandler,&TIMER4B__vIRQVectorHandler,&TIMER5B__vIRQVectorHandler}

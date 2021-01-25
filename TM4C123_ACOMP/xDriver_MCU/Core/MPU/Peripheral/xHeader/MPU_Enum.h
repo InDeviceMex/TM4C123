@@ -27,8 +27,8 @@
 
 typedef enum
 {
-    MPU_enOK = 0u,
-    MPU_enERROR = 1u,
+    MPU_enOK = 0U,
+    MPU_enERROR = 1U,
 }MPU_nSTATUS;
 
 

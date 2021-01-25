@@ -26,7 +26,7 @@
 void DMA_CH_vIRQSourceHandler_Dummy(void);
 
 
-void (*DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_MAX+1u][(uint32_t)DMA_enCH_MODULE_MAX+1u]) (void)=
+void (*DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_MAX+1U][(uint32_t)DMA_enCH_MODULE_MAX+1U]) (void)=
 {
     {
          &DMA_CH_vIRQSourceHandler_Dummy,&DMA_CH_vIRQSourceHandler_Dummy,&DMA_CH_vIRQSourceHandler_Dummy,&DMA_CH_vIRQSourceHandler_Dummy,&DMA_CH_vIRQSourceHandler_Dummy,

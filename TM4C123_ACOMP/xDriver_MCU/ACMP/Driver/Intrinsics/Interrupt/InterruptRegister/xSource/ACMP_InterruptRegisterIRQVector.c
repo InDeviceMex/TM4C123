@@ -26,7 +26,7 @@
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Dependencies.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/ACMP_InterruptRoutine.h>
 
-const SCB_nVECISR SCB_enVECISR_ACMP[(uint32_t)ACMP_enMODULE_MAX+ 1u]=
+const SCB_nVECISR SCB_enVECISR_ACMP[(uint32_t)ACMP_enMODULE_MAX+ 1U]=
 {
     SCB_enVECISR_ACOMP0,SCB_enVECISR_ACOMP1
 };

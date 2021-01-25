@@ -39,7 +39,7 @@ void WTIMER5A__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP3_R_CH28SEL_WTIMER5A == (DMA_DMACHMAP3_R & DMA_DMACHMAP3_R_CH28SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_3][28u]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_3][28U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS28_CLEAR;
                 }
             }

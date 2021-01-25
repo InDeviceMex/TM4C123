@@ -28,8 +28,8 @@
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_APB_Bitbanding/GPIO_RegisterPeripheral_APB_Bitbanding.h>
 
 extern GPIO_BITBANDING_TypeDef *GPIO_BITBANDING_BLOCK[(uint32_t) GPIO_enBUS_MAX
-        + 1u][(uint32_t) GPIO_enPORT_MAX + 1u];
+        + 1U][(uint32_t) GPIO_enPORT_MAX + 1U];
 extern GPIO_AUX_BITBANDING_TypeDef *GPIO_AUX_BITBANDING_BLOCK[(uint32_t) GPIO_enBUS_MAX
-        + 1u][(uint32_t) GPIO_enPORT_MAX + 1u];
+        + 1U][(uint32_t) GPIO_enPORT_MAX + 1U];
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERPERIPHERAL_BITBANDING_GPIO_REGISTERPERIPHERAL_BITBANDING_H_ */

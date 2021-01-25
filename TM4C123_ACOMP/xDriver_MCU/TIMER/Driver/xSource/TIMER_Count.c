@@ -32,11 +32,11 @@
 
 TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
 {
-    uint32_t pu32PrescalerMask[2]={0xFFu,0xFFFFu};
-    uint32_t pu32PrescalerShift[2]={8u,16u};
-    uint32_t pu32SizeMask[2]={0xFFFFu,0xFFFFFFFFu};
-    uint32_t pu32SizeShift[2]={16u,32u};
-    uint64_t pu64TimerSize[2]={0xFFFFFFu,0xFFFFFFFFFFFFu};
+    uint32_t pu32PrescalerMask[2]={0xFFU,0xFFFFu};
+    uint32_t pu32PrescalerShift[2]={8U,16u};
+    uint32_t pu32SizeMask[2]={0xFFFFU,0xFFFFFFFFu};
+    uint32_t pu32SizeShift[2]={16U,32u};
+    uint64_t pu64TimerSize[2]={0xFFFFFFU,0xFFFFFFFFFFFFu};
 
     TIMER_nSTATUS enStatus = TIMER_enERROR;
     TIMER_nREADY enReady = TIMER_enNOREADY;

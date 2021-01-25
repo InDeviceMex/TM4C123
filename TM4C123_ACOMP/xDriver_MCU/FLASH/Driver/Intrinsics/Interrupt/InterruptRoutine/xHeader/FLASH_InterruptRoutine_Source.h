@@ -27,6 +27,6 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-extern void (*FLASH__vIRQSourceHandler[(uint32_t)FLASH_enINTERRUPT_MAX+1u]) (void);
+extern void (*FLASH__vIRQSourceHandler[(uint32_t)FLASH_enINTERRUPT_MAX+1U]) (void);
 
 #endif /* XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_FLASH_INTERRUPTROUTINE_SOURCE_H_ */

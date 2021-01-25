@@ -33,13 +33,13 @@ void WDT__vSetLoad(WDT_nMODULE enModule, uint32_t u32LoadValue)
     WDT__vWriteRegister(enModule, WDT_WDTLOAD_OFFSET, (uint32_t) u32LoadValue, WDT_WDTLOAD_WDTLOAD_MASK, WDT_WDTLOAD_R_WDTLOAD_BIT);
 }
 
-uint32_t WDT__u32GetLoad(WDT_nMODULE enModule)
+WDT_nSTATUS WDT__enGetLoad(WDT_nMODULE enModule, uint32_t* pu32LoadValue )
 {
-    uint32_t u32Reg = 0U;
+    WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    u32Reg = WDT__u32ReadRegister(enModule,WDT_WDTLOAD_OFFSET, WDT_WDTLOAD_WDTLOAD_MASK, WDT_WDTLOAD_R_WDTLOAD_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, pu32LoadValue, WDT_WDTLOAD_OFFSET, WDT_WDTLOAD_WDTLOAD_MASK, WDT_WDTLOAD_R_WDTLOAD_BIT);
 
-    return u32Reg;
+    return enStatusRead;
 }
 
 

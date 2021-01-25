@@ -34,7 +34,7 @@ FLASH_nSTATUS FLASH__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
         else
         {
 #if defined ( __TI_ARM__ )
-            pu32PageDataInitial = (uint32_t*) memalign((size_t)4u, (size_t)(sizeof(uint8_t) * FLASH_PAGE_SIZE));
+            pu32PageDataInitial = (uint32_t*) memalign((size_t)4U, (size_t)(sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #elif defined ( __GNUC__ )
             pu32PageDataInitial = (uint32_t*) malloc((size_t)(sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #endif

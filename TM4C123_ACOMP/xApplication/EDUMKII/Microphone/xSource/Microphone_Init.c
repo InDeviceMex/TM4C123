@@ -59,7 +59,7 @@ void EDUMKII_Microphone_vInit(void)
     {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         1u-1u,
+         1u-1U,
          DMA_enCH_BURST_SIZE_1,
          0,
          DMA_enCH_SRC_SIZE_WORD,
@@ -70,11 +70,11 @@ void EDUMKII_Microphone_vInit(void)
 
 
     DMA__vRegisterIRQSourceHandler(&EDUMKII_Microphone_vIRQSourceHandler,DMA_enCH_MODULE_14, DMA_enCH_ENCODER_0 );
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1u-1u]);
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1u-1U]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO0_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_14, enDMAChControl);
 
-    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1u-1u]);
+    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1u-1U]);
     DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO0_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_14, enDMAChControl);
 

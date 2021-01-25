@@ -38,7 +38,7 @@ void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECIS
         if(u32BaseVector<=0x00010000U)
         {
             __asm(" cpsid i");
-            FLASH__enWriteWorld((uint32_t)pfIrqVectorHandler|1u,u32BaseVector+((uint32_t)enVector*4U));
+            FLASH__enWriteWorld((uint32_t)pfIrqVectorHandler|1U,u32BaseVector+((uint32_t)enVector*4U));
             __asm(" cpsie i");
         }
         else if((u32BaseVector>=(uint32_t)&SCB__pfnVectors[0]) && (u32BaseVector<=(uint32_t)&SCB__pfnVectors[0x100]) )

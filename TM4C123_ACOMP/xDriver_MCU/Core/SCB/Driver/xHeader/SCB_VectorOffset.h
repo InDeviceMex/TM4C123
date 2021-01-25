@@ -28,7 +28,7 @@
 
 void SCB__vSetVectorOffset(uint32_t u32Offset);
 
-extern void (*SCB__pfnVectors[0x100u])(void) ;
+extern void (*SCB__pfnVectors[0x100U])(void) ;
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_ */

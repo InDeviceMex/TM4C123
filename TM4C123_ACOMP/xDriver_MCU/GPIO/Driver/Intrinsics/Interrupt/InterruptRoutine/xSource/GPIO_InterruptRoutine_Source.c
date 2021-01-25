@@ -26,8 +26,8 @@
 
 static void GPIO_vIRQSourceHandler_Dummy(void);
 
-void (*GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_MAX + 1u][(uint32_t) GPIO_enPIN_NUMBER_MAX
-        + 1u])(
+void (*GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_MAX + 1U][(uint32_t) GPIO_enPIN_NUMBER_MAX
+        + 1U])(
         void)=
         {
             {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},

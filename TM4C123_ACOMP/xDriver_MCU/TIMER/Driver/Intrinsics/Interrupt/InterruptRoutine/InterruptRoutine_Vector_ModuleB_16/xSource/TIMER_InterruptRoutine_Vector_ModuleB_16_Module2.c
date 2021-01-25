@@ -39,7 +39,7 @@ void TIMER2B__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP0_R_CH5SEL_TIMER2B == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH5SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][5u]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][5U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS5_CLEAR;
                 }
             }
@@ -50,7 +50,7 @@ void TIMER2B__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP0_R_CH7SEL_TIMER2B == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH7SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][7u]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][7U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS7_CLEAR;
                 }
             }
@@ -61,7 +61,7 @@ void TIMER2B__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP1_R_CH15SEL_TIMER2B == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH15SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][15u]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][15U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS15_CLEAR;
                 }
             }

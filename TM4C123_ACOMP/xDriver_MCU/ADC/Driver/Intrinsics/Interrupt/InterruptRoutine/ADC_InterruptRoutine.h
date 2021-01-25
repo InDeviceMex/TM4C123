@@ -31,6 +31,6 @@
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ADC_InterruptRoutine_Source.h>
 
 
-extern void (*ADC__pvIRQVectorHandler[(uint32_t)ADC_enMODULE_MAX+1u][(uint32_t)ADC_enSEQ_MAX +1u]) (void);
+extern void (*ADC__pvIRQVectorHandler[(uint32_t)ADC_enMODULE_MAX+1U][(uint32_t)ADC_enSEQ_MAX +1U]) (void);
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_ADC_INTERRUPTROUTINE_H_ */

@@ -26,7 +26,7 @@
 #include <xDriver_MCU/UART/Driver/Intrinsics/Primitives/xHeader/UART_Ready.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
-static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_UART[(uint32_t)UART_enMODULE_MAX+1u]={SYSCTL_enUART0, SYSCTL_enUART1,SYSCTL_enUART2,SYSCTL_enUART3,SYSCTL_enUART4,
+static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_UART[(uint32_t)UART_enMODULE_MAX+1U]={SYSCTL_enUART0, SYSCTL_enUART1,SYSCTL_enUART2,SYSCTL_enUART3,SYSCTL_enUART4,
                                                                               SYSCTL_enUART5,SYSCTL_enUART6,SYSCTL_enUART7};
 
 void UART__vSetReady(UART_nMODULE enModule)

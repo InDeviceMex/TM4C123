@@ -29,6 +29,6 @@
 
 #define ADC               (((ADCS_TypeDef*)(ADC_BASE)))
 
-extern ADC_TypeDef* ADC_BLOCK[(uint32_t)ADC_enMODULE_MAX+1u];
-extern uint32_t ADC_BLOCK_ADDRESS[(uint32_t)ADC_enMODULE_MAX+1u];
+extern ADC_TypeDef* ADC_BLOCK[(uint32_t)ADC_enMODULE_MAX+1U];
+extern uint32_t ADC_BLOCK_ADDRESS[(uint32_t)ADC_enMODULE_MAX+1U];
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_ADC_REGISTERPERIPHERAL_H_ */

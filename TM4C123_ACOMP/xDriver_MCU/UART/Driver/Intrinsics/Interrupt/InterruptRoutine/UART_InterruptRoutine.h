@@ -36,7 +36,7 @@
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Vector_Module7.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Source.h>
 
-extern void (*UART__pvIRQVectorHandler[(uint32_t)UART_enMODULE_MAX+1u]) (void);
+extern void (*UART__pvIRQVectorHandler[(uint32_t)UART_enMODULE_MAX+1U]) (void);
 
 
 

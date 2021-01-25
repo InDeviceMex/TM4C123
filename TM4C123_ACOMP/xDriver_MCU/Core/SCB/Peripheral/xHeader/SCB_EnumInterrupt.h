@@ -29,7 +29,7 @@
  */
 typedef enum
 {
-    ISR_enR0=0u,
+    ISR_enR0=0U,
     ISR_enR1,
     ISR_enR2,
     ISR_enR3,

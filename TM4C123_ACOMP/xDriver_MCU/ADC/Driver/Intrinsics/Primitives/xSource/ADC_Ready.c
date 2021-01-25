@@ -26,7 +26,7 @@
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/xHeader/ADC_Ready.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
-static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_ADC[(uint32_t)ADC_enMODULE_MAX+1u]={SYSCTL_enADC0, SYSCTL_enADC1};
+static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_ADC[(uint32_t)ADC_enMODULE_MAX+1U]={SYSCTL_enADC0, SYSCTL_enADC1};
 
 void ADC__vSetReady(ADC_nMODULE enModule)
 {

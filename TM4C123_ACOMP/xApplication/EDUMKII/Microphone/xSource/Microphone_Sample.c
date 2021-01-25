@@ -40,7 +40,7 @@ void EDUMKII_Microphone_vIRQSourceHandler(void)
     {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         1u-1u,
+         1u-1U,
          DMA_enCH_BURST_SIZE_1,
          0,
          DMA_enCH_SRC_SIZE_WORD,

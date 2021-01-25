@@ -26,11 +26,11 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-WDT_nINTERRUPT WDT__enGetInterruptSource(WDT_nMODULE enModule);
+WDT_nSTATUS WDT__enGetInterruptSource(WDT_nMODULE enModule, WDT_nINTERRUPT* penFeatureArg);
 void WDT__vEnInterruptSource(WDT_nMODULE enModule);
 void WDT__vDisInterruptSource(WDT_nMODULE enModule);
 void WDT__vClearInterruptSource(WDT_nMODULE enModule);
-WDT_nINT_STATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule);
+WDT_nSTATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule, WDT_nINT_STATUS* penFeatureArg);
 
 
 

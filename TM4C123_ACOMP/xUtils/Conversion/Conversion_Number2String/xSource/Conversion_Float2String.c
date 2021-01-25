@@ -70,6 +70,6 @@ uint8_t Conv__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padd
     u8Values++;/*aumenta a la siguiente posicion*/
     pcConvAux = pcConv;
     pcConvAux+=u8Values;
-    u8Values+=Conv__u8DInt2String((int64_t)CONV_s64Deci,0u,1u,(uint8_t)s32Decimals, (char*)pcConvAux);/*pcConvierte la parte dDecimal despues del punto*/
+    u8Values+=Conv__u8DInt2String((int64_t)CONV_s64Deci,0U,1U,(uint8_t)s32Decimals, (char*)pcConvAux);/*pcConvierte la parte dDecimal despues del punto*/
     return u8Values;/*regresa la cantidad de digitos pcConvertidos*/
 }

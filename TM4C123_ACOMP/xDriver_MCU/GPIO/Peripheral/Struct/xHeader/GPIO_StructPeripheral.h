@@ -402,12 +402,12 @@ typedef volatile struct
 
 typedef volatile struct
 {
-        GPIO_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX + 1u];
+        GPIO_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX + 1U];
 } GPIO_AHB_TypeDef;
 
 typedef volatile struct
 {
-        GPIO_AUX_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX + 1u];
+        GPIO_AUX_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX + 1U];
 } GPIO_AHB_AUX_TypeDef;
 
 typedef volatile struct
