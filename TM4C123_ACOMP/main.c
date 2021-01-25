@@ -107,7 +107,7 @@ int32_t main(void)
     EDUMKII_Accelerometer_vInit();
     EDUMKII_Microphone_vInit();
 
-    while(1u)
+    while(1U)
     {
 
         enButtonState =  EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
@@ -198,13 +198,13 @@ uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2)
 
 void MAIN_vIrqCOMP1_INT1(void)
 {
-    uint32_t u32CompState = 0u;
+    uint32_t u32CompState = 0U;
 
    u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
    if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
    {
        GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, GPIO_enPIN_3);
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0u);
+       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0U);
    }
    else/*Falling*/
    {

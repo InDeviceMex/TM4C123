@@ -30,102 +30,102 @@
  ************************************ 10 GPIOAFSEL *********************************************
  ******************************************************************************************/
 /*----------*/
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL_MASK        ((uint32_t)0x000000FFu)
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL_BIT         (0u)
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_GPIO       ((uint32_t)0x00000000u)
-#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_ALT        ((uint32_t)0x000000FFu)
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL_MASK        ((uint32_t)0x000000FFU)
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL_BIT         (0U)
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_GPIO       ((uint32_t)0x00000000U)
+#define GPIOF_APB_GPIOAFSEL_R_AFSEL0_ALT        ((uint32_t)0x000000FFU)
 
-#define GPIO_GPIOAFSEL_AFSEL_MASK               ((uint32_t)0x000000FFu)
-#define GPIO_GPIOAFSEL_AFSEL_GPIO               ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL_ALT                ((uint32_t)0x000000FFu)
+#define GPIO_GPIOAFSEL_AFSEL_MASK               ((uint32_t)0x000000FFU)
+#define GPIO_GPIOAFSEL_AFSEL_GPIO               ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL_ALT                ((uint32_t)0x000000FFU)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL0_MASK            ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_R_AFSEL0_BIT             (0u)
-#define GPIO_GPIOAFSEL_R_AFSEL0_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL0_ALT             ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_R_AFSEL0_MASK            ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_R_AFSEL0_BIT             (0U)
+#define GPIO_GPIOAFSEL_R_AFSEL0_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL0_ALT             ((uint32_t)0x00000001U)
 
-#define GPIO_GPIOAFSEL_AFSEL0_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL0_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL0_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL0_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL0_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL0_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL1_MASK            ((uint32_t)0x00000002u)
-#define GPIO_GPIOAFSEL_R_AFSEL1_BIT             (1u)
-#define GPIO_GPIOAFSEL_R_AFSEL1_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL1_ALT             ((uint32_t)0x00000002u)
+#define GPIO_GPIOAFSEL_R_AFSEL1_MASK            ((uint32_t)0x00000002U)
+#define GPIO_GPIOAFSEL_R_AFSEL1_BIT             (1U)
+#define GPIO_GPIOAFSEL_R_AFSEL1_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL1_ALT             ((uint32_t)0x00000002U)
 
-#define GPIO_GPIOAFSEL_AFSEL1_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL1_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL1_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL1_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL1_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL1_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL2_MASK            ((uint32_t)0x00000004u)
-#define GPIO_GPIOAFSEL_R_AFSEL2_BIT             (2u)
-#define GPIO_GPIOAFSEL_R_AFSEL2_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL2_ALT             ((uint32_t)0x00000004u)
+#define GPIO_GPIOAFSEL_R_AFSEL2_MASK            ((uint32_t)0x00000004U)
+#define GPIO_GPIOAFSEL_R_AFSEL2_BIT             (2U)
+#define GPIO_GPIOAFSEL_R_AFSEL2_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL2_ALT             ((uint32_t)0x00000004U)
 
-#define GPIO_GPIOAFSEL_AFSEL2_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL2_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL2_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL2_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL2_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL2_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL3_MASK            ((uint32_t)0x00000008u)
-#define GPIO_GPIOAFSEL_R_AFSEL3_BIT             (3u)
-#define GPIO_GPIOAFSEL_R_AFSEL3_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL3_ALT             ((uint32_t)0x00000008u)
+#define GPIO_GPIOAFSEL_R_AFSEL3_MASK            ((uint32_t)0x00000008U)
+#define GPIO_GPIOAFSEL_R_AFSEL3_BIT             (3U)
+#define GPIO_GPIOAFSEL_R_AFSEL3_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL3_ALT             ((uint32_t)0x00000008U)
 
-#define GPIO_GPIOAFSEL_AFSEL3_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL3_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL3_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL3_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL3_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL3_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL4_MASK            ((uint32_t)0x00000010u)
-#define GPIO_GPIOAFSEL_R_AFSEL4_BIT             (4u)
-#define GPIO_GPIOAFSEL_R_AFSEL4_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL4_ALT             ((uint32_t)0x00000010u)
+#define GPIO_GPIOAFSEL_R_AFSEL4_MASK            ((uint32_t)0x00000010U)
+#define GPIO_GPIOAFSEL_R_AFSEL4_BIT             (4U)
+#define GPIO_GPIOAFSEL_R_AFSEL4_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL4_ALT             ((uint32_t)0x00000010U)
 
-#define GPIO_GPIOAFSEL_AFSEL4_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL4_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL4_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL4_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL4_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL4_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL5_MASK            ((uint32_t)0x00000020u)
-#define GPIO_GPIOAFSEL_R_AFSEL5_BIT             (5u)
-#define GPIO_GPIOAFSEL_R_AFSEL5_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL5_ALT             ((uint32_t)0x00000020u)
+#define GPIO_GPIOAFSEL_R_AFSEL5_MASK            ((uint32_t)0x00000020U)
+#define GPIO_GPIOAFSEL_R_AFSEL5_BIT             (5U)
+#define GPIO_GPIOAFSEL_R_AFSEL5_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL5_ALT             ((uint32_t)0x00000020U)
 
-#define GPIO_GPIOAFSEL_AFSEL5_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL5_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL5_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL5_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL5_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL5_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL6_MASK            ((uint32_t)0x00000040u)
-#define GPIO_GPIOAFSEL_R_AFSEL6_BIT             (6u)
-#define GPIO_GPIOAFSEL_R_AFSEL6_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL6_ALT             ((uint32_t)0x00000040u)
+#define GPIO_GPIOAFSEL_R_AFSEL6_MASK            ((uint32_t)0x00000040U)
+#define GPIO_GPIOAFSEL_R_AFSEL6_BIT             (6U)
+#define GPIO_GPIOAFSEL_R_AFSEL6_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL6_ALT             ((uint32_t)0x00000040U)
 
-#define GPIO_GPIOAFSEL_AFSEL6_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL6_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL6_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL6_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL6_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL6_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPIO_GPIOAFSEL_R_AFSEL7_MASK            ((uint32_t)0x00000080u)
-#define GPIO_GPIOAFSEL_R_AFSEL7_BIT             (7u)
-#define GPIO_GPIOAFSEL_R_AFSEL7_GPIO            ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_R_AFSEL7_ALT             ((uint32_t)0x00000080u)
+#define GPIO_GPIOAFSEL_R_AFSEL7_MASK            ((uint32_t)0x00000080U)
+#define GPIO_GPIOAFSEL_R_AFSEL7_BIT             (7U)
+#define GPIO_GPIOAFSEL_R_AFSEL7_GPIO            ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_R_AFSEL7_ALT             ((uint32_t)0x00000080U)
 
-#define GPIO_GPIOAFSEL_AFSEL7_MASK              ((uint32_t)0x00000001u)
-#define GPIO_GPIOAFSEL_AFSEL7_GPIO              ((uint32_t)0x00000000u)
-#define GPIO_GPIOAFSEL_AFSEL7_ALT               ((uint32_t)0x00000001u)
+#define GPIO_GPIOAFSEL_AFSEL7_MASK              ((uint32_t)0x00000001U)
+#define GPIO_GPIOAFSEL_AFSEL7_GPIO              ((uint32_t)0x00000000U)
+#define GPIO_GPIOAFSEL_AFSEL7_ALT               ((uint32_t)0x00000001U)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_AFSEL_H_ */

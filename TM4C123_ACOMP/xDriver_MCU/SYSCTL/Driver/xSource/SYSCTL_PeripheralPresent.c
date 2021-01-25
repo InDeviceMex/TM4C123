@@ -28,14 +28,14 @@
 
 SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8u)& 0x1Fu;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1Fu;
-    uint32_t u32Reg=0u;
+    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8U)& 0x1FU;
+    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1FU;
+    uint32_t u32Reg=0U;
     SYSCTL_nPERIPHERAL_PRESENT enReturn = SYSCTL_enNOPRESENT;
 
     u32Reg= SYSCTL->PP[u32NoRegister];
     u32Reg>>=u32NoPeripheral;
-    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32Reg&1u);
+    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32Reg&1U);
 
     return enReturn;
 

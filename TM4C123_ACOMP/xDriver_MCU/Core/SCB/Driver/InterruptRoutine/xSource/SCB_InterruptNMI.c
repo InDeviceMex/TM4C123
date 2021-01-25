@@ -30,5 +30,5 @@ void NMI__vIRQVectorHandler(void)
 {
     WDT__vIRQVectorHandler[(uint32_t)WDT_enINT_TYPE_NMI]();
     /*use for GPIO activation*/
-    while(1u){}
+    while(1U){}
 }

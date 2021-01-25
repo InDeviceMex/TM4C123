@@ -30,7 +30,7 @@
 
 void LCD1602__vPrepareReadEnable(void)
 {
-    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0u);
+    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0U);
     LCD1602__vDelay(0.1f);
     GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, LCD1602_E);
     LCD1602__vDelay(0.3f);
@@ -39,7 +39,7 @@ void LCD1602__vPrepareReadEnable(void)
 void LCD1602__vPulseReadEnable(void)
 {
     LCD1602__vDelay(0.3f);
-    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0u);
+    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0U);
     LCD1602__vDelay(0.6f);
 }
 

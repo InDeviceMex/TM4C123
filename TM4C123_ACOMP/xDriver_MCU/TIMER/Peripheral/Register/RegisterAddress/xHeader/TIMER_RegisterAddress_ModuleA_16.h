@@ -24,19 +24,19 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERADDRESS_TIMER_REGISTERADDRESS_MODULEA_16_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERADDRESS_TIMER_REGISTERADDRESS_MODULEA_16_H_
 
-#define GPTM_TA_GPTMTnMR_OFFSET             ((uint32_t)0x0004u)
-#define GPTM_TA_GPTMTnCTL_OFFSET            ((uint32_t)0x000Cu)
-#define GPTM_TA_GPTMTnIMR_OFFSET            ((uint32_t)0x0018u)
-#define GPTM_TA_GPTMTnRIS_OFFSET            ((uint32_t)0x001Cu)
-#define GPTM_TA_GPTMTnMIS_OFFSET            ((uint32_t)0x0020u)
-#define GPTM_TA_GPTMTnICR_OFFSET            ((uint32_t)0x0024u)
-#define GPTM_TA_GPTMTnILR_OFFSET            ((uint32_t)0x0028u)
-#define GPTM_TA_GPTMTnMATCHR_OFFSET         ((uint32_t)0x0030u)
-#define GPTM_TA_GPTMTnPR_OFFSET             ((uint32_t)0x0038u)
-#define GPTM_TA_GPTMTnPMR_OFFSET            ((uint32_t)0x0040u)
-#define GPTM_TA_GPTMTnR_OFFSET              ((uint32_t)0x0048u)
-#define GPTM_TA_GPTMTnV_OFFSET              ((uint32_t)0x0050u)
-#define GPTM_TA_GPTMTnPS_OFFSET             ((uint32_t)0x005Cu)
-#define GPTM_TA_GPTMTnPV_OFFSET             ((uint32_t)0x0064u)
+#define GPTM_TA_GPTMTnMR_OFFSET             ((uint32_t)0x0004U)
+#define GPTM_TA_GPTMTnCTL_OFFSET            ((uint32_t)0x000CU)
+#define GPTM_TA_GPTMTnIMR_OFFSET            ((uint32_t)0x0018U)
+#define GPTM_TA_GPTMTnRIS_OFFSET            ((uint32_t)0x001CU)
+#define GPTM_TA_GPTMTnMIS_OFFSET            ((uint32_t)0x0020U)
+#define GPTM_TA_GPTMTnICR_OFFSET            ((uint32_t)0x0024U)
+#define GPTM_TA_GPTMTnILR_OFFSET            ((uint32_t)0x0028U)
+#define GPTM_TA_GPTMTnMATCHR_OFFSET         ((uint32_t)0x0030U)
+#define GPTM_TA_GPTMTnPR_OFFSET             ((uint32_t)0x0038U)
+#define GPTM_TA_GPTMTnPMR_OFFSET            ((uint32_t)0x0040U)
+#define GPTM_TA_GPTMTnR_OFFSET              ((uint32_t)0x0048U)
+#define GPTM_TA_GPTMTnV_OFFSET              ((uint32_t)0x0050U)
+#define GPTM_TA_GPTMTnPS_OFFSET             ((uint32_t)0x005CU)
+#define GPTM_TA_GPTMTnPV_OFFSET             ((uint32_t)0x0064U)
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERADDRESS_TIMER_REGISTERADDRESS_MODULEA_16_H_ */

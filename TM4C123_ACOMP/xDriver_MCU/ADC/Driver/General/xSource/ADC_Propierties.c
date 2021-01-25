@@ -29,12 +29,12 @@
 
 ADC_nSEQ_INPUT ADC__enGetMaxInputNumber(ADC_nMODULE enModule)
 {
-    return (ADC_nSEQ_INPUT) (ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPP_OFFSET, ADC_ADCPP_CH_MASK, ADC_ADCPP_R_CH_BIT) - 1u);
+    return (ADC_nSEQ_INPUT) (ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPP_OFFSET, ADC_ADCPP_CH_MASK, ADC_ADCPP_R_CH_BIT) - 1U);
 }
 
 ADC_nCOMPARATOR ADC__enGetMaxCompNumber(ADC_nMODULE enModule)
 {
-    return (ADC_nCOMPARATOR) (ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPP_OFFSET, ADC_ADCPP_DC_MASK, ADC_ADCPP_R_DC_BIT) - 1u);
+    return (ADC_nCOMPARATOR) (ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPP_OFFSET, ADC_ADCPP_DC_MASK, ADC_ADCPP_R_DC_BIT) - 1U);
 }
 
 

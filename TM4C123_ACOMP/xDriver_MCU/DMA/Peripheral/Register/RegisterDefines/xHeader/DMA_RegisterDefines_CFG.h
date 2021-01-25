@@ -31,14 +31,14 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMACFG_R_MASTEN_MASK     ((uint32_t)0x00000001u)
-#define DMA_DMACFG_R_MASTEN_BIT      ((uint32_t)0u)
-#define DMA_DMACFG_R_MASTEN_DIS      ((uint32_t)0x00000000u)
-#define DMA_DMACFG_R_MASTEN_EN       ((uint32_t)0x00000001u)
+#define DMA_DMACFG_R_MASTEN_MASK     ((uint32_t)0x00000001U)
+#define DMA_DMACFG_R_MASTEN_BIT      ((uint32_t)0U)
+#define DMA_DMACFG_R_MASTEN_DIS      ((uint32_t)0x00000000U)
+#define DMA_DMACFG_R_MASTEN_EN       ((uint32_t)0x00000001U)
 
-#define DMA_DMACFG_MASTEN_MASK       ((uint32_t)0x00000001u)
-#define DMA_DMACFG_MASTEN_DIS        ((uint32_t)0x00000000u)
-#define DMA_DMACFG_MASTEN_EN         ((uint32_t)0x00000001u)
+#define DMA_DMACFG_MASTEN_MASK       ((uint32_t)0x00000001U)
+#define DMA_DMACFG_MASTEN_DIS        ((uint32_t)0x00000000U)
+#define DMA_DMACFG_MASTEN_EN         ((uint32_t)0x00000001U)
 /*--------*/
 
 

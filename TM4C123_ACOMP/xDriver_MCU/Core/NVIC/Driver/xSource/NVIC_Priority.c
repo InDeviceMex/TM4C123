@@ -56,7 +56,7 @@ inline NVIC_nSTATUS NVIC__enSetPriorityIRQ(NVIC_nSTIR enIRQ,NVIC_nPRIORITY enPri
 inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nPRIORITY enPriority= NVIC_enDEFAULT;
-    uint8_t u8Priority = 0u;
+    uint8_t u8Priority = 0U;
 
     if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
     {

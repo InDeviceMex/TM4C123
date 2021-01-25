@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TA_GPTMTnPR_R_TnPSR_MASK          ((uint32_t)0x0000FFFFu)
-#define GPWTM_TA_GPTMTnPR_R_TnPSR_BIT           (0u)
+#define GPWTM_TA_GPTMTnPR_R_TnPSR_MASK          ((uint32_t)0x0000FFFFU)
+#define GPWTM_TA_GPTMTnPR_R_TnPSR_BIT           (0U)
 
-#define GPWTM_TA_GPTMTnPR_TnPSR_MASK            ((uint32_t)0x0000FFFFu)
+#define GPWTM_TA_GPTMTnPR_TnPSR_MASK            ((uint32_t)0x0000FFFFU)
 /*----------*/
 
 

@@ -31,8 +31,8 @@
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_AHB_Bitbanding/xHeader/GPIO_RegisterPeripheral_AHB_Bitbanding_ModuleE.h>
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_AHB_Bitbanding/xHeader/GPIO_RegisterPeripheral_AHB_Bitbanding_ModuleF.h>
 
-#define GPIO_AHB_BITBANDING        (((GPIO_AHB_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOA_AHB_OFFSET*32u))))
-#define GPIO_AHB_AUX_BITBANDING    (((GPIO_AHB_AUX_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOA_AHB_OFFSET*32u))))
+#define GPIO_AHB_BITBANDING        (((GPIO_AHB_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOA_AHB_OFFSET*32U))))
+#define GPIO_AHB_AUX_BITBANDING    (((GPIO_AHB_AUX_BITBANDING_TypeDef*)(GPIO_BITBANDING_BASE+(GPIOA_AHB_OFFSET*32U))))
 
 extern GPIO_BITBANDING_TypeDef *GPIO_AHB_BITBANDING_BLOCK[6];
 extern GPIO_AUX_BITBANDING_TypeDef *GPIO_AHB_AUX_BITBANDING_BLOCK[6];

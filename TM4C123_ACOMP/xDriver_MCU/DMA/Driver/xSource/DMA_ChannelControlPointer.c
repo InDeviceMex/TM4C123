@@ -28,7 +28,7 @@
 
 void DMA__vSetChannelControlPointer(uint32_t u32ControlAddress)
 {
-    uint32_t u32ControlAddressReg=0u;
+    uint32_t u32ControlAddressReg=0U;
     DMA__vSetReady(DMA_enMODULE_0);
     u32ControlAddressReg = u32ControlAddress & DMA_DMACTLBASE_R_ADDR_MASK;
     DMA_DMACTLBASE_R=u32ControlAddressReg;
@@ -36,7 +36,7 @@ void DMA__vSetChannelControlPointer(uint32_t u32ControlAddress)
 
 uint32_t DMA__u32GetChannelControlPointer(void)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     DMA_nREADY enReady= DMA_enNOREADY;
     enReady=DMA__enIsReady(DMA_enMODULE_0);
 

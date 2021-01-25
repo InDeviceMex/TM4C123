@@ -31,10 +31,10 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAALTBASE_R_ADDR_MASK     ((uint32_t)0xFFFFFFFFu)
-#define DMA_DMAALTBASE_R_ADDR_BIT      ((uint32_t)0u)
+#define DMA_DMAALTBASE_R_ADDR_MASK     ((uint32_t)0xFFFFFFFFU)
+#define DMA_DMAALTBASE_R_ADDR_BIT      ((uint32_t)0U)
 
-#define DMA_DMAALTBASE_ADDR_MASK       ((uint32_t)0xFFFFFFFFu)
+#define DMA_DMAALTBASE_ADDR_MASK       ((uint32_t)0xFFFFFFFFU)
 /*--------*/
 
 

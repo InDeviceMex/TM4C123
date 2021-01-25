@@ -31,8 +31,8 @@ void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf)
     uint32_t u32En=0;
     uint32_t u32Reg=0;
     uint32_t u32Conf=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
 
     GPTM_TypeDef* psTimer=0;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
@@ -59,8 +59,8 @@ TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
     uint32_t u32Reg=0;
     TIMER_nCONFIG enConf=TIMER_enCONFIG_UNDEF;
     TIMER_nREADY enReady= TIMER_enNOREADY;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
 
     GPTM_TypeDef* psTimer=0;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)

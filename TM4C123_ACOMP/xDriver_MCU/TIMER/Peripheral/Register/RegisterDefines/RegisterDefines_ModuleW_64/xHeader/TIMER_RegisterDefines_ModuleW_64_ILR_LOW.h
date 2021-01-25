@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TW_GPTMTnILR_LOW_R_TnILR_MASK ((uint32_t)0xFFFFFFFFu)
-#define GPWTM_TW_GPTMTnILR_LOW_R_TnILR_BIT  (0u)
+#define GPWTM_TW_GPTMTnILR_LOW_R_TnILR_MASK ((uint32_t)0xFFFFFFFFU)
+#define GPWTM_TW_GPTMTnILR_LOW_R_TnILR_BIT  (0U)
 
-#define GPWTM_TW_GPTMTnILR_LOW_TnILR_MASK   ((uint32_t)0xFFFFFFFFu)
+#define GPWTM_TW_GPTMTnILR_LOW_TnILR_MASK   ((uint32_t)0xFFFFFFFFU)
 /*----------*/
 
 

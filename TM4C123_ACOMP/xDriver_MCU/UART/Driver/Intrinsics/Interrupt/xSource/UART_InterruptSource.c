@@ -92,7 +92,7 @@ UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule,
         gpio = UART_BLOCK[(uint32_t) enModule];
         u32Reg = gpio->UARTRIS;
         u32Reg &= enIntSource;
-        if(u32Reg != 0u)
+        if(u32Reg != 0U)
         {
             enStatus = UART_enINT_OCCUR;
         }

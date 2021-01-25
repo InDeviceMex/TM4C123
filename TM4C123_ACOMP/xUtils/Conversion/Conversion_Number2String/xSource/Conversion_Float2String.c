@@ -38,7 +38,7 @@ uint8_t Conv__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padd
     float64_t dDecimal=0;/*contiene el valor de dDecimales en version float64_t*/
     uint8_t u8Values=0;/*cuantos digitos se imprimen*/
     uint8_t u8NegativeNumber=0;/*cuantos digitos se imprimen*/
-    char* pcConvAux=0u;
+    char* pcConvAux=0U;
     if(s32Decimals>15)
     {
         s32Decimals=15;

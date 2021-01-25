@@ -76,5 +76,5 @@ void BusFault__vIRQVectorHandler(void)
         default:
             break;
     }
-    while(1u){}
+    while(1U){}
 }

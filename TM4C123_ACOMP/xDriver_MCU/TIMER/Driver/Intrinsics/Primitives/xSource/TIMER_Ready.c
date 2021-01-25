@@ -33,8 +33,8 @@ static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_TIMER[(uint32_t)TIMER_enLETTER_MAX+1u][(
 void TIMER__vSetReady(TIMER_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enTIMER0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+     uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
         u32Number=(uint32_t)TIMER_enMISC_MAX;
@@ -46,8 +46,8 @@ void TIMER__vSetReady(TIMER_nMODULE enModule)
 void TIMER__vClearReady(TIMER_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enTIMER0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-     uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+     uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
         u32Number=(uint32_t)TIMER_enMISC_MAX;
@@ -60,8 +60,8 @@ TIMER_nREADY TIMER__enIsReady(TIMER_nMODULE enModule)
 {
     TIMER_nREADY enReady=TIMER_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enTIMER0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
         u32Number=(uint32_t)TIMER_enMISC_MAX;

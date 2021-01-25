@@ -90,15 +90,15 @@ GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
         u32RegPU &= enPin;
         u32RegPD &= enPin;
 
-        if((u32RegPU == 0u) && (u32RegPD == 0u))
+        if((u32RegPU == 0U) && (u32RegPD == 0U))
         {
             enRes = GPIO_enRESMODE_INACTIVE;
         }
-        else if((u32RegPU != 0u))
+        else if((u32RegPU != 0U))
         {
             enRes = GPIO_enRESMODE_PULLUP;
         }
-        else if((u32RegPD != 0u))
+        else if((u32RegPD != 0U))
         {
             enRes = GPIO_enRESMODE_PULLDOWN;
         }

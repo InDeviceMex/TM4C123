@@ -28,9 +28,9 @@ void MCU__vWriteRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister,
 {
     uint32_t u32FeatureReg=u32FeatureValue;
     uint32_t u32FeatureClear=u32MaskFeature;
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     uint32_t u32RegAddress= u32PeripheralBase;
-    volatile uint32_t* pu32Peripheral=0u;
+    volatile uint32_t* pu32Peripheral=0U;
 
     /*Get Value in bit position*/
     u32FeatureReg &= u32MaskFeature;

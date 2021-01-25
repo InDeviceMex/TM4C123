@@ -28,8 +28,8 @@
 
 void DMA__vSetModuleEnable(DMA_nENABLE enModuleEnable)
 {
-    uint32_t u32Reg=0u;
-    uint32_t u32ModuleEnable=0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32ModuleEnable=0U;
     DMA__vSetReady(DMA_enMODULE_0);
     u32ModuleEnable=(uint32_t)enModuleEnable & DMA_DMACFG_MASTEN_MASK;
     u32ModuleEnable<<=DMA_DMACFG_R_MASTEN_BIT;
@@ -41,7 +41,7 @@ void DMA__vSetModuleEnable(DMA_nENABLE enModuleEnable)
 
 DMA_nENABLE DMA__enGetModuleEnable(void)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     DMA_nENABLE enModuleEnable = DMA_enENABLE_UNDEF;
     DMA_nREADY enReady= DMA_enNOREADY;
     enReady=DMA__enIsReady(DMA_enMODULE_0);

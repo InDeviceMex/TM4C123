@@ -27,9 +27,9 @@
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 
 
-#define SERVO_FREC (50u) /*20 ms*/
-#define SERVO_MAXFREC (1111u) /*900 us*/
-#define SERVO_MINFREC (500u) /*2000 us*/
+#define SERVO_FREC (50U) /*20 ms*/
+#define SERVO_MAXFREC (1111U) /*900 us*/
+#define SERVO_MINFREC (500U) /*2000 us*/
 
 ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor,TIMER_nMODULE enTimerModuleParam,GPIO_nDIGITAL_FUNCTION enGpioDigitalParam,uint32_t u32MinTime, uint32_t u32MaxTime)
 {
@@ -37,15 +37,15 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     GPIO_nSTATUS enGPIOStatus= GPIO_enSTATUS_ERROR;
     TIMER_nSTATUS enTIMERStatus= TIMER_enERROR;
     TIMER_EXTRAMODE_Typedef psExtraMode;
-    uint32_t u32SysFreq=0u;
-    uint32_t u32ServoFreq=0u;
-    uint32_t u32ServoMaxPulse=0u;
-    uint32_t u32ServoMinPulse=0u;
-    uint32_t u32ServoMinCount=0u;
-    uint32_t u32DegreeCountVar=0u;
-    uint32_t u32Reg=0u;
-    uint32_t u32MinFrec=1000000u;
-    uint32_t u32MaxFrec=1000000u;
+    uint32_t u32SysFreq=0U;
+    uint32_t u32ServoFreq=0U;
+    uint32_t u32ServoMaxPulse=0U;
+    uint32_t u32ServoMinPulse=0U;
+    uint32_t u32ServoMinCount=0U;
+    uint32_t u32DegreeCountVar=0U;
+    uint32_t u32Reg=0U;
+    uint32_t u32MinFrec=1000000U;
+    uint32_t u32MaxFrec=1000000U;
     float32_t fDegreeCountVar=0.0f;
 
     if((0u != psServoMotor) && (0u!=u32MinTime) && (0u!=u32MaxTime))
@@ -72,7 +72,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         u32DegreeCountVar = psServoMotor->u32DeltaCount;
         fDegreeCountVar= (float32_t)u32DegreeCountVar;
         psServoMotor->fDegreeCount=fDegreeCountVar;
-        psServoMotor->u32DegreeCount/=180u;
+        psServoMotor->u32DegreeCount/=180U;
         psServoMotor->fDegreeCount/=180.0f;
 
         enGPIOStatus = GPIO__enSetDigitalConfig(enGpioDigitalParam,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);

@@ -51,22 +51,22 @@ static uint32_t SYSCTL_enGetPLLFreq_RCC2(void)
      if(SYSCTL_RCC2_R_PWRDN2_ON==u32RCC2)
      {
          /*Initial Frequencyof PLL*/
-         u32Frequency=200000000u;
+         u32Frequency=200000000U;
 
          /*If PLL 400MHz is enabled, SYSDIV2LSB needs to be considered*/
          if(SYSCTL_RCC2_R_DIV400_400MHZ==u32RCC2Div400)
          {
-             u32Frequency*=2u;
+             u32Frequency*=2U;
 
              u32RegAux = (u32RegSYSDIV2<<1);
              u32RegAux += u32RegSYSDIVLSB2;
-             u32RegAux += 1u;
+             u32RegAux += 1U;
 
              u32Frequency/= u32RegAux;
          }
          else
          {
-             u32RegAux=u32RegSYSDIV2+1u;
+             u32RegAux=u32RegSYSDIV2+1U;
              u32Frequency/= u32RegAux;
          }
      }
@@ -131,12 +131,12 @@ uint32_t SYSCTL__u32GetClock_RCC2(void)
       }
       else
       {
-          u32Frequency = 0u; /*Invalid configuration*/
+          u32Frequency = 0U; /*Invalid configuration*/
       }
       break;
 
     case SYSCTL_RCC2_R_OSCSRC2_PIOSC:
-      u32Frequency= 16000000u;
+      u32Frequency= 16000000U;
       /*OSC source*/
       enBypass = SYSCTL_enGetOSCSourceFreq_RCC2(&u32Frequency);
       if(SYSCTL_enPLL == enBypass)
@@ -145,17 +145,17 @@ uint32_t SYSCTL__u32GetClock_RCC2(void)
       }
       break;
     case SYSCTL_RCC2_R_OSCSRC2_PIOSC4:
-      u32Frequency= 4000000u;
+      u32Frequency= 4000000U;
       /*OSC source*/
       (void)SYSCTL_enGetOSCSourceFreq_RCC2(&u32Frequency);
       break;
     case SYSCTL_RCC2_R_OSCSRC2_LFIOSC:
-      u32Frequency= 33000u;
+      u32Frequency= 33000U;
       /*OSC source*/
       (void)SYSCTL_enGetOSCSourceFreq_RCC2(&u32Frequency);
       break;
     case SYSCTL_RCC2_R_OSCSRC2_32_768KHZ:
-      u32Frequency= 32768u;
+      u32Frequency= 32768U;
       /*OSC source*/
       (void)SYSCTL_enGetOSCSourceFreq_RCC2(&u32Frequency);
       break;

@@ -28,9 +28,9 @@
 
 void ADC__vEnSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
-    uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
-    ADC_TypeDef* psAdcIM=0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32SeqBit=0U;
+    ADC_TypeDef* psAdcIM=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequence= (uint32_t) enSequence;
@@ -50,7 +50,7 @@ void ADC__vEnSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, A
     u32Reg=psAdcIM->ADCIM;
     if((uint32_t)ADC_enSEQ_SOURCE_COMP  == u32SourceInt)
     {
-        u32Reg&=~((uint32_t)ADC_enSEQMASK_MAX<<16u);
+        u32Reg&=~((uint32_t)ADC_enSEQMASK_MAX<<16U);
     }
     u32Reg|=u32SeqBit;
     psAdcIM->ADCIM=u32Reg;
@@ -58,9 +58,9 @@ void ADC__vEnSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, A
 
 void ADC__vDisSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
-    uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
-    ADC_TypeDef* psAdcIM=0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32SeqBit=0U;
+    ADC_TypeDef* psAdcIM=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequence= (uint32_t) enSequence;
@@ -84,8 +84,8 @@ void ADC__vDisSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, 
 
 void ADC__vClearSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
-    uint32_t u32SeqBit=0u;
-    ADC_TypeDef* psAdcISC=0u;
+    uint32_t u32SeqBit=0U;
+    ADC_TypeDef* psAdcISC=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequence= (uint32_t) enSequence;
@@ -108,12 +108,12 @@ void ADC__vClearSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence
 ADC_nSEQ_INT_STATUS ADC__enStatusSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nINT_SOURCE enSourceInt)
 {
     ADC_nSEQ_INT_STATUS enInt=ADC_enSEQ_INT_STATUS_UNDEF;
-    uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32SeqBit=0U;
     ADC_nREADY enReady=ADC_enNOREADY;
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequence= (uint32_t) enSequence;
-    ADC_TypeDef* psAdcRIS=0u;
+    ADC_TypeDef* psAdcRIS=0U;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;

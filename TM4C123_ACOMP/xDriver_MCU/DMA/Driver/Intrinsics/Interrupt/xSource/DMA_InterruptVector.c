@@ -40,7 +40,7 @@ void DMA__vEnInterruptVector(DMA_nVECTOR enVector,DMA_nPRIORITY enDmaPriority)
         enVector=DMA_enVECTOR_MAX;
     }
     u32VectorNvic=(uint32_t)NVIC_VECTOR_DMA[(uint32_t)enVector];
-    enDmaPriority&=0x7u;
+    enDmaPriority&=0x7U;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)u32VectorNvic,(NVIC_nPRIORITY)enDmaPriority);
 }
 

@@ -28,17 +28,17 @@
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterDefines/TIMER_RegisterDefines.h>
 #include <xDriver_MCU/TIMER/Peripheral/Struct/StructPeripheral_Bitbanding/xHeader/TIMER_StructPeripheral_Bitbanding_Control_64.h>
 
-#define GPWTM3_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BITBANDING_BASE+(GPWTM3_OFFSET*32u))))
+#define GPWTM3_BITBANDING_CTL     (((GPWTM_BITBANDING_CTL_TypeDef*) (GPWTM_BITBANDING_BASE+(GPWTM3_OFFSET*32U))))
 
 /******************************************************************************************
 ************************************ 1 GPTMCFG *********************************************
 ******************************************************************************************/
-#define GPWTM3_BITBANDING_CTL_GPTMCFG   (((BITBANDING_GPTMCFG_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_CTL_GPTMCFG_OFFSET)*32u))))
+#define GPWTM3_BITBANDING_CTL_GPTMCFG   (((BITBANDING_GPTMCFG_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_CTL_GPTMCFG_OFFSET)*32U))))
 
 /******************************************************************************************
 ************************************ 27 GPTMPP *********************************************
 ******************************************************************************************/
-#define GPWTM3_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32u))))
+#define GPWTM3_BITBANDING_CTL_GPTMPP   (((BITBANDING_GPTMPP_TypeDef*)(GPWTM_BITBANDING_BASE+((GPWTM3_OFFSET+GPWTM_CTL_GPTMPP_OFFSET)*32U))))
 
 
 

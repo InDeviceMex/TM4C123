@@ -23,7 +23,7 @@ FLASH_nSTATUS FLASH__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
     uint32_t u32AddressCurrent = 0;
     uint32_t u32AddressPage = 0;
 
-    u32AddressCurrent = u32Address & ~(uint32_t)0x3u;
+    u32AddressCurrent = u32Address & ~(uint32_t)0x3U;
     if(u32AddressCurrent < FLASH_ADDRESS_MAX)
     {
         if(FLASH_ERASEWORLD == *((uint32_t*)u32AddressCurrent))
@@ -41,19 +41,19 @@ FLASH_nSTATUS FLASH__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
             if(0 != pu32PageDataInitial)
             {
                 /*Inicio de la pagina de 1KB actual*/
-                u32AddressPage = u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1u);
+                u32AddressPage = u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1U);
                 /*Offset en 32bit world de mi direccion actual*/
-                u32OffsetWorld = (u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1u))>>(uint32_t)2u;
+                u32OffsetWorld = (u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1U))>>(uint32_t)2U;
                 /*Bufferactual = Buffer Incial*/
                 pu32PageData = pu32PageDataInitial;
                 /*Puntero al inico de la page actual de 1KB*/
                 pu32Address = (uint32_t*) u32AddressPage;
                 /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
-                for(u32Pos = (uint32_t)0; u32Pos < (FLASH_PAGE_SIZE >> (uint32_t)2u); u32Pos++)
+                for(u32Pos = (uint32_t)0; u32Pos < (FLASH_PAGE_SIZE >> (uint32_t)2U); u32Pos++)
                 {
                     *pu32PageData = *pu32Address;
-                    pu32PageData+=1u;
-                    pu32Address+=1u;
+                    pu32PageData+=1U;
+                    pu32Address+=1U;
                 }
                 pu32PageData = pu32PageDataInitial;
                 pu32PageData+=u32OffsetWorld;
@@ -63,12 +63,12 @@ FLASH_nSTATUS FLASH__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
                 pu32PageData = pu32PageDataInitial;
                 for(u32Pos =(uint32_t) 0; u32Pos <(uint32_t) 8; u32Pos++)
                 {
-                    enReturn = FLASH__enWriteBuf(pu32PageData, u32AddressPage, (uint32_t)32u);
+                    enReturn = FLASH__enWriteBuf(pu32PageData, u32AddressPage, (uint32_t)32U);
                     if(FLASH_enERROR == enReturn)
                     {
                         break;
                     }
-                    u32AddressPage +=(uint32_t) 0x80u;/*32World = 4Bytes*32 =0x80=128*/
+                    u32AddressPage +=(uint32_t) 0x80U;/*32World = 4Bytes*32 =0x80=128*/
                     pu32PageData += 32;
                 }
                 free(pu32PageDataInitial);
@@ -89,12 +89,12 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
     uint32_t *pu32Address = 0;
     uint32_t u32Pos = 0;
     uint32_t u32OffsetWorld = 0;
-    uint32_t u32HalfWorld = (u32Address & (uint32_t)2u) >> (uint32_t)1u;
+    uint32_t u32HalfWorld = (u32Address & (uint32_t)2U) >> (uint32_t)1U;
     uint32_t u32AddressCurrent = 0;
     uint32_t u32AddressPage = 0;
     static uint32_t u32DataAux = 0;
 
-    u32AddressCurrent = u32Address & ~(uint32_t)0x3u;
+    u32AddressCurrent = u32Address & ~(uint32_t)0x3U;
     if(u32AddressCurrent < FLASH_ADDRESS_MAX)
     {
       pu16PageDataAux=(uint16_t*) u32AddressCurrent;
@@ -118,19 +118,19 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
             if( 0 != pu32PageDataInitial)
             {
                 /*Inicio de la pagina de 1KB actual*/
-                u32AddressPage = u32AddressCurrent & ~(FLASH_PAGE_SIZE - (uint32_t)1u);
+                u32AddressPage = u32AddressCurrent & ~(FLASH_PAGE_SIZE - (uint32_t)1U);
                 /*Offset en 32bit world de mi direccion actual*/
-                u32OffsetWorld = (u32AddressCurrent & (FLASH_PAGE_SIZE - (uint32_t)1u)) >> (uint32_t)2u;
+                u32OffsetWorld = (u32AddressCurrent & (FLASH_PAGE_SIZE - (uint32_t)1U)) >> (uint32_t)2U;
                 /*Bufferactual = Buffer Incial*/
                 pu32PageData = pu32PageDataInitial;
                 /*Puntero al inico de la page actual de 1KB*/
                 pu32Address = (uint32_t*) u32AddressPage;
                 /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
-                for(u32Pos = (uint32_t)0; u32Pos < (FLASH_PAGE_SIZE >> (uint32_t)2u); u32Pos++)
+                for(u32Pos = (uint32_t)0; u32Pos < (FLASH_PAGE_SIZE >> (uint32_t)2U); u32Pos++)
                 {
                     *pu32PageData = *pu32Address;
-                    pu32PageData+=1u;
-                    pu32Address+=1u;
+                    pu32PageData+=1U;
+                    pu32Address+=1U;
                 }
                 pu32PageData = pu32PageDataInitial;
                 pu32PageData+= u32OffsetWorld;
@@ -142,12 +142,12 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
                 pu32PageData = pu32PageDataInitial;
                 for(u32Pos = (uint32_t)0; u32Pos <(uint32_t) 8; u32Pos++)
                 {
-                    enReturn = FLASH__enWriteBuf(pu32PageData, u32AddressPage, (uint32_t)32u);
+                    enReturn = FLASH__enWriteBuf(pu32PageData, u32AddressPage, (uint32_t)32U);
                     if( FLASH_enERROR == enReturn)
                     {
                         break;
                     }
-                    u32AddressPage += (uint32_t)0x80u;/*32World = 4Bytes*32 =0x80=128*/
+                    u32AddressPage += (uint32_t)0x80U;/*32World = 4Bytes*32 =0x80=128*/
                     pu32PageData += 32;
                 }
                 free(pu32PageDataInitial);
@@ -162,19 +162,19 @@ FLASH_nSTATUS FLASH__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
 FLASH_nSTATUS FLASH__enWriteByte (uint8_t u8Data, uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
-    uint32_t *pu32PageDataInitial = 0u;
-    uint32_t *pu32PageData = 0u;
-    uint32_t *pu32PageDataAux = 0u;
-    uint8_t *pu8PageDataAux = 0u;
+    uint32_t *pu32PageDataInitial = 0U;
+    uint32_t *pu32PageData = 0U;
+    uint32_t *pu32PageDataAux = 0U;
+    uint8_t *pu8PageDataAux = 0U;
     uint32_t *pu32Address = 0;
     uint32_t u32Pos = 0;
     uint32_t u32OffsetWorld = 0;
-    uint32_t u32Byte = (u32Address & (uint32_t)3u);
+    uint32_t u32Byte = (u32Address & (uint32_t)3U);
     uint32_t u32AddressCurrent = 0;
     uint32_t u32AddressPage = 0;
     static uint32_t u32DataAux = 0;
 
-    u32AddressCurrent = u32Address & (~(uint32_t)0x3u);
+    u32AddressCurrent = u32Address & (~(uint32_t)0x3U);
     if( u32AddressCurrent < FLASH_ADDRESS_MAX)
     {
         pu8PageDataAux = (uint8_t*) u32AddressCurrent;
@@ -198,19 +198,19 @@ FLASH_nSTATUS FLASH__enWriteByte (uint8_t u8Data, uint32_t u32Address)
             if( 0 != pu32PageDataInitial)
             {
                 /*Inicio de la pagina de 1KB actual*/
-                u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1u);
+                u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1U);
                 /*Offset en 32bit world de mi direccion actual*/
-                u32OffsetWorld=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1u))>>(uint32_t)2u;
+                u32OffsetWorld=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1U))>>(uint32_t)2U;
                 /*Bufferactual = Buffer Incial*/
                 pu32PageData=pu32PageDataInitial;
                 /*Puntero al inico de la page actual de 1KB*/
                 pu32Address=(uint32_t*)u32AddressPage;
                 /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
-                for(u32Pos=(uint32_t)0;u32Pos<((uint32_t)FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
+                for(u32Pos=(uint32_t)0;u32Pos<((uint32_t)FLASH_PAGE_SIZE>>(uint32_t)2U);u32Pos++)
                 {
                     *pu32PageData =*pu32Address;
-                    pu32PageData+=1u;
-                    pu32Address+=1u;
+                    pu32PageData+=1U;
+                    pu32Address+=1U;
                 }
                 pu32PageDataAux=pu32PageDataInitial;
                 pu32PageDataAux+=u32OffsetWorld;
@@ -223,13 +223,13 @@ FLASH_nSTATUS FLASH__enWriteByte (uint8_t u8Data, uint32_t u32Address)
                 pu32PageData=pu32PageDataInitial;
                 for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)8;u32Pos++)
                 {
-                    enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32u);
+                    enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32U);
                     if( FLASH_enERROR == enReturn)
                     {
                         break;
                     }
-                    u32AddressPage+=(uint32_t)0x80u;/*32World = 4Bytes*32 =0x80=128*/
-                    pu32PageData+=(uint32_t)32u;
+                    u32AddressPage+=(uint32_t)0x80U;/*32World = 4Bytes*32 =0x80=128*/
+                    pu32PageData+=(uint32_t)32U;
                 }
                 free(pu32PageDataInitial);
                 pu32PageDataInitial = (uint32_t*) 0UL;

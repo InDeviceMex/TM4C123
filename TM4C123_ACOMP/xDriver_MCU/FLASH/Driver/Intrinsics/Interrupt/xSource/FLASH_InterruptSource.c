@@ -60,7 +60,7 @@ FLASH_nINT_STATUS FLASH__enStatusInterruptSource(FLASH_nINT enInterruptParam)
 
     u32Reg=FLASH_FCRIS_R;
     u32Reg&=(uint32_t)enInterruptParam;
-    if(u32Reg!=0u)
+    if(u32Reg!=0U)
     {
         enStatus= FLASH_enINT_OCCUR;
     }

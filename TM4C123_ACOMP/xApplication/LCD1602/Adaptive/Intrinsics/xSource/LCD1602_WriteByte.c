@@ -36,7 +36,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, 0u);
+        GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, 0U);
     }
 
     if(u8Data&GPIO_enPIN_2)
@@ -45,7 +45,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, 0u);
+        GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, 0U);
     }
 
     if(u8Data&GPIO_enPIN_1)
@@ -54,7 +54,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, 0u);
+        GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, 0U);
     }
 
     if(u8Data&GPIO_enPIN_0)
@@ -63,7 +63,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D4, LCD1602_D4, 0u);
+        GPIO__vSetData(LCD1602_PORT_D4, LCD1602_D4, 0U);
     }
 
 }
@@ -76,7 +76,7 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, 0u);
+        GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, 0U);
     }
 
     if(u8Data&GPIO_enPIN_6)
@@ -85,7 +85,7 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, 0u);
+        GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, 0U);
     }
 
     if(u8Data&GPIO_enPIN_5)
@@ -94,7 +94,7 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, 0u);
+        GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, 0U);
     }
 
     if(u8Data&GPIO_enPIN_4)
@@ -103,6 +103,6 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
     }
     else
     {
-        GPIO__vSetData(LCD1602_PORT_D4, LCD1602_D4, 0u);
+        GPIO__vSetData(LCD1602_PORT_D4, LCD1602_D4, 0U);
     }
 }

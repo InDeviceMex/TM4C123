@@ -30,58 +30,58 @@
 ************************************ 8 ADCTSSEL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ADC_ADCTSSEL_R_PS_MASK           ((uint32_t)0x30303030u)
-#define ADC_ADCTSSEL_R_PS_BIT               ((uint32_t)4u)
-#define ADC_ADCTSSEL_R_PS_PWM0          ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_R_PS_PWM1          ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_R_PS_MASK           ((uint32_t)0x30303030U)
+#define ADC_ADCTSSEL_R_PS_BIT               ((uint32_t)4U)
+#define ADC_ADCTSSEL_R_PS_PWM0          ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_R_PS_PWM1          ((uint32_t)0x00000001U)
 
-#define ADC_ADCTSSEL_PS_MASK                 ((uint32_t)0x00000003u)
-#define ADC_ADCTSSEL_PS_PWM0                ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_PS_PWM1                ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_PS_MASK                 ((uint32_t)0x00000003U)
+#define ADC_ADCTSSEL_PS_PWM0                ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_PS_PWM1                ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCTSSEL_R_PS0_MASK           ((uint32_t)0x00000030u)
-#define ADC_ADCTSSEL_R_PS0_BIT               ((uint32_t)4u)
-#define ADC_ADCTSSEL_R_PS0_PWM0          ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_R_PS0_PWM1          ((uint32_t)0x00000010u)
+#define ADC_ADCTSSEL_R_PS0_MASK           ((uint32_t)0x00000030U)
+#define ADC_ADCTSSEL_R_PS0_BIT               ((uint32_t)4U)
+#define ADC_ADCTSSEL_R_PS0_PWM0          ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_R_PS0_PWM1          ((uint32_t)0x00000010U)
 
-#define ADC_ADCTSSEL_PS0_MASK                 ((uint32_t)0x00000003u)
-#define ADC_ADCTSSEL_PS0_PWM0                ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_PS0_PWM1                ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_PS0_MASK                 ((uint32_t)0x00000003U)
+#define ADC_ADCTSSEL_PS0_PWM0                ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_PS0_PWM1                ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCTSSEL_R_PS1_MASK              ((uint32_t)0x00003000u)
-#define ADC_ADCTSSEL_R_PS1_BIT                   ((uint32_t)12u)
-#define ADC_ADCTSSEL_R_PS1_PWM0             ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_R_PS1_PWM1             ((uint32_t)0x00001000u)
+#define ADC_ADCTSSEL_R_PS1_MASK              ((uint32_t)0x00003000U)
+#define ADC_ADCTSSEL_R_PS1_BIT                   ((uint32_t)12U)
+#define ADC_ADCTSSEL_R_PS1_PWM0             ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_R_PS1_PWM1             ((uint32_t)0x00001000U)
 
-#define ADC_ADCTSSEL_PS1_MASK                ((uint32_t)0x00000003u)
-#define ADC_ADCTSSEL_PS1_PWM0               ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_PS1_PWM1               ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_PS1_MASK                ((uint32_t)0x00000003U)
+#define ADC_ADCTSSEL_PS1_PWM0               ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_PS1_PWM1               ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCTSSEL_R_PS2_MASK              ((uint32_t)0x00300000u)
-#define ADC_ADCTSSEL_R_PS2_BIT                   ((uint32_t)20u)
-#define ADC_ADCTSSEL_R_PS2_PWM0             ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_R_PS2_PWM1             ((uint32_t)0x00100000u)
+#define ADC_ADCTSSEL_R_PS2_MASK              ((uint32_t)0x00300000U)
+#define ADC_ADCTSSEL_R_PS2_BIT                   ((uint32_t)20U)
+#define ADC_ADCTSSEL_R_PS2_PWM0             ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_R_PS2_PWM1             ((uint32_t)0x00100000U)
 
-#define ADC_ADCTSSEL_PS2_MASK                ((uint32_t)0x00000003u)
-#define ADC_ADCTSSEL_PS2_PWM0               ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_PS2_PWM1              ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_PS2_MASK                ((uint32_t)0x00000003U)
+#define ADC_ADCTSSEL_PS2_PWM0               ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_PS2_PWM1              ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCTSSEL_R_PS3_MASK              ((uint32_t)0x30000000u)
-#define ADC_ADCTSSEL_R_PS3_BIT                   ((uint32_t)28u)
-#define ADC_ADCTSSEL_R_PS3_PWM0       ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_R_PS3_PWM1            ((uint32_t)0x10000000u)
+#define ADC_ADCTSSEL_R_PS3_MASK              ((uint32_t)0x30000000U)
+#define ADC_ADCTSSEL_R_PS3_BIT                   ((uint32_t)28U)
+#define ADC_ADCTSSEL_R_PS3_PWM0       ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_R_PS3_PWM1            ((uint32_t)0x10000000U)
 
-#define ADC_ADCTSSEL_PS3_MASK                ((uint32_t)0x00000003u)
-#define ADC_ADCTSSEL_PS3_PWM0               ((uint32_t)0x00000000u)
-#define ADC_ADCTSSEL_PS3_PWM1               ((uint32_t)0x00000001u)
+#define ADC_ADCTSSEL_PS3_MASK                ((uint32_t)0x00000003U)
+#define ADC_ADCTSSEL_PS3_PWM0               ((uint32_t)0x00000000U)
+#define ADC_ADCTSSEL_PS3_PWM1               ((uint32_t)0x00000001U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCTSSEL_H_ */

@@ -39,7 +39,7 @@ void (*GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_MAX + 1u][(uint32_t) GPIO_
 
 static void GPIO_vIRQSourceHandler_Dummy(void)
 {
-    while(1u)
+    while(1U)
     {
 
     }

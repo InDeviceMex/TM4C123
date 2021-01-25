@@ -56,7 +56,7 @@ void ADC__vEnInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, AD
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_ADC0SEQ0;
     enVector= ADC__enGetInterruptVector(enModule,enSequence);
-    enADCPriority&=0x7u;
+    enADCPriority&=0x7U;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enADCPriority);
 }
 

@@ -28,8 +28,8 @@
 
 void ADC__vResetCompTriggerConditions(ADC_nMODULE enModule, ADC_nCOMPMASK  enActCompMask)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Comparator= (uint32_t) enActCompMask;

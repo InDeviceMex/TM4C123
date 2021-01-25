@@ -31,15 +31,15 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_GPTMPP_R_SIZE_MASK         ((uint32_t)0x0000000Fu)
-#define GPTM_GPTMPP_R_SIZE_BIT          (0u)
-#define GPTM_GPTMPP_R_SIZE_16b          ((uint32_t)0x00000000u)
-#define GPTM_GPTMPP_R_SIZE_32b          ((uint32_t)0x00000001u)
+#define GPTM_GPTMPP_R_SIZE_MASK         ((uint32_t)0x0000000FU)
+#define GPTM_GPTMPP_R_SIZE_BIT          (0U)
+#define GPTM_GPTMPP_R_SIZE_16b          ((uint32_t)0x00000000U)
+#define GPTM_GPTMPP_R_SIZE_32b          ((uint32_t)0x00000001U)
 
-#define GPTM_GPTMPP_SIZE_MASK           ((uint32_t)0x0000000Fu)
-#define GPTM_GPTMPP_SIZE_BOTH           ((uint32_t)0x00000000u)
-#define GPTM_GPTMPP_SIZE_16b          ((uint32_t)0x00000000u)
-#define GPTM_GPTMPP_SIZE_32b          ((uint32_t)0x00000001u)
+#define GPTM_GPTMPP_SIZE_MASK           ((uint32_t)0x0000000FU)
+#define GPTM_GPTMPP_SIZE_BOTH           ((uint32_t)0x00000000U)
+#define GPTM_GPTMPP_SIZE_16b          ((uint32_t)0x00000000U)
+#define GPTM_GPTMPP_SIZE_32b          ((uint32_t)0x00000001U)
 /*----------*/
 
 

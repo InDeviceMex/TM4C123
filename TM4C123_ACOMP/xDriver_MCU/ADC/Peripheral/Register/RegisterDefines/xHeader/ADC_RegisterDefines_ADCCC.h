@@ -30,14 +30,14 @@
 ************************************ 26 ADCCC *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ADC_ADCCC_R_CS_MASK      ((uint32_t)0x0000000Fu)
-#define ADC_ADCCC_R_CS_BIT       ((uint32_t)0u)
-#define ADC_ADCCC_R_CS_PLL       ((uint32_t)0x00000000u)
-#define ADC_ADCCC_R_CS_PIOSC     ((uint32_t)0x00000001u)
+#define ADC_ADCCC_R_CS_MASK      ((uint32_t)0x0000000FU)
+#define ADC_ADCCC_R_CS_BIT       ((uint32_t)0U)
+#define ADC_ADCCC_R_CS_PLL       ((uint32_t)0x00000000U)
+#define ADC_ADCCC_R_CS_PIOSC     ((uint32_t)0x00000001U)
 
-#define ADC_ADCCC_CS_MASK        ((uint32_t)0x0000000Fu)
-#define ADC_ADCCC_CS_PLL         ((uint32_t)0x00000000u)
-#define ADC_ADCCC_CS_PIOSC       ((uint32_t)0x00000001u)
+#define ADC_ADCCC_CS_MASK        ((uint32_t)0x0000000FU)
+#define ADC_ADCCC_CS_PLL         ((uint32_t)0x00000000U)
+#define ADC_ADCCC_CS_PIOSC       ((uint32_t)0x00000001U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCCC_H_ */

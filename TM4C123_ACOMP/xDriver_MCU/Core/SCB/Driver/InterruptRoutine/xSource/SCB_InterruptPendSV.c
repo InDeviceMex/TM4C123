@@ -29,5 +29,5 @@
 void PendSV__vIRQVectorHandler(void)
 {
     /*context switch, lower priority*/
-    while(1u){}
+    while(1U){}
 }

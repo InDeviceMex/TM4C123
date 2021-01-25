@@ -28,10 +28,10 @@
 
 void UART__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),UART_nMODULE enModule,UART_nINTERRUPT enInterruptSource)
 {
-    uint32_t u32IrqSourceHandler=0u;
+    uint32_t u32IrqSourceHandler=0U;
     uint32_t u32Module=(uint32_t)enModule;
     uint32_t u32InterruptSource=(uint32_t)enInterruptSource;
-    if((uint32_t)pfIrqSourceHandler !=0u)
+    if((uint32_t)pfIrqSourceHandler !=0U)
     {
         if(u32Module>(uint32_t)UART_enMODULE_MAX)
         {
@@ -41,7 +41,7 @@ void UART__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),UART_nMOD
         {
             u32InterruptSource=(uint32_t)UART_enINTERRUPT_MAX;
         }
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
+        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1U);
         UART__vIRQSourceHandler[u32Module][u32InterruptSource]=(void (*) (void))u32IrqSourceHandler;
     }
 }

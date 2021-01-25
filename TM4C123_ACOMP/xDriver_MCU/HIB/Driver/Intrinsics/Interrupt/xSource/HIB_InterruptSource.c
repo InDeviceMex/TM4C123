@@ -105,7 +105,7 @@ HIB_nINT_STATUS HIB__enStatusInterruptSource(HIB_nINT enInterruptParam)
     {
         u32Reg=HIB_HIBRIS_R;
         u32Reg&=(uint32_t)enInterruptParam;
-        if(u32Reg!=0u)
+        if(u32Reg!=0U)
         {
             enStatus= HIB_enINT_OCCUR;
         }

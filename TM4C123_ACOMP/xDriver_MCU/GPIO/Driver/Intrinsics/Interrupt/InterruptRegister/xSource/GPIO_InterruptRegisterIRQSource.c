@@ -33,7 +33,7 @@ void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler)(void),
     uint32_t u32Count = 0;
     uint32_t u32Pin = (uint32_t) enPin;
     uint32_t u32IrqSourceHandler = 0;
-    if((uint32_t) pfIrqSourceHandler != 0u)
+    if((uint32_t) pfIrqSourceHandler != 0U)
     {
         if(enPort > GPIO_enPORT_MAX)
         {
@@ -41,12 +41,12 @@ void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler)(void),
         }
 
         enPin &= GPIO_enPIN_ALL;
-        while((u32Pin & 0x1u) == 0u)
+        while((u32Pin & 0x1U) == 0U)
         {
             u32Count++;
             u32Pin >>= 1;
         }
-        u32IrqSourceHandler = ((uint32_t) pfIrqSourceHandler | (uint32_t) 1u);
+        u32IrqSourceHandler = ((uint32_t) pfIrqSourceHandler | (uint32_t) 1U);
         GPIO__vIRQSourceHandler[(uint32_t) enPort][u32Count] =
                 (void (*)(void)) u32IrqSourceHandler;
     }

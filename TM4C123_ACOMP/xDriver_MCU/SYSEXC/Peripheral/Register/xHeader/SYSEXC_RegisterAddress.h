@@ -26,13 +26,13 @@
 
 #include <xUtils/Standard/Standard.h>
 
-#define SYSEXC_BASE            ((uint32_t)0x400F9000u)
-#define SYSEXC_BITBANDING_BASE ((uint32_t)0x42000000u)
-#define SYSEXC_OFFSET          ((uint32_t)0x000F9000u)
+#define SYSEXC_BASE            ((uint32_t)0x400F9000U)
+#define SYSEXC_BITBANDING_BASE ((uint32_t)0x42000000U)
+#define SYSEXC_OFFSET          ((uint32_t)0x000F9000U)
 
-#define SYSEXC_SYSEXCRIS_OFFSET    ((uint32_t)0x0000u)
-#define SYSEXC_SYSEXCIM_OFFSET     ((uint32_t)0x0004u)
-#define SYSEXC_SYSEXCMIS_OFFSET    ((uint32_t)0x0008u)
-#define SYSEXC_SYSEXCIC_OFFSET     ((uint32_t)0x000Cu)
+#define SYSEXC_SYSEXCRIS_OFFSET    ((uint32_t)0x0000U)
+#define SYSEXC_SYSEXCIM_OFFSET     ((uint32_t)0x0004U)
+#define SYSEXC_SYSEXCMIS_OFFSET    ((uint32_t)0x0008U)
+#define SYSEXC_SYSEXCIC_OFFSET     ((uint32_t)0x000CU)
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_REGISTER_SYSEXC_REGISTERADDRESS_H_ */

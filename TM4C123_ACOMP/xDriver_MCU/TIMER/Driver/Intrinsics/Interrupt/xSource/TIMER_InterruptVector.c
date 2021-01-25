@@ -42,9 +42,9 @@ static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule)
         }
     };
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
         u32Number=(uint32_t)TIMER_enMISC_MAX;
@@ -57,7 +57,7 @@ void TIMER__vEnInterruptVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTimerPri
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     enVector= TIMER__enGetInterruptVector(enModule);
-    enTimerPriority&=0x7u;
+    enTimerPriority&=0x7U;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enTimerPriority);
 }
 

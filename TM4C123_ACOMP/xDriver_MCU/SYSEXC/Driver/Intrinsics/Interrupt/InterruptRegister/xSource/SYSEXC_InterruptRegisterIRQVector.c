@@ -32,7 +32,7 @@ void SYSEXC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))
     uint32_t u32IrqVectorHandler=0;
     if(0u != (uint32_t)pfIrqVectorHandler)
     {
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1u);
+        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
         SYSEXC__pvIRQVectorHandler=(void (*) (void))u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(SYSEXC__pvIRQVectorHandler,enVector);
     }

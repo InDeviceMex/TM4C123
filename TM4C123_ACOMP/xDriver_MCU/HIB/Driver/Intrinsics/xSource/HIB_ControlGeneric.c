@@ -30,7 +30,7 @@
 HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
-    uint32_t u32Reg =0u;
+    uint32_t u32Reg =0U;
 
     HIB__vSetReady();
     enReturn = HIB__enWait();
@@ -46,7 +46,7 @@ HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask)
 HIB_nSTATUS HIB__enDisControlGeneric(uint32_t u32Mask)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
-    uint32_t u32Reg =0u;
+    uint32_t u32Reg =0U;
     HIB__vSetReady();
     enReturn = HIB__enWait();
     if(HIB_enSTATUS_OK == enReturn)

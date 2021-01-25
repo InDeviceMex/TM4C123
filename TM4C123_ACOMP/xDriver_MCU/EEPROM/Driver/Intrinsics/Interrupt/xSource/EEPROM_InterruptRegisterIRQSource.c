@@ -29,9 +29,9 @@
 void EEPROM__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void))
 {
     uint32_t u32IrqSourceHandler=0;
-    if((uint32_t)pfIrqSourceHandler !=0u)
+    if((uint32_t)pfIrqSourceHandler !=0U)
     {
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1u);
+        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1U);
         FLASH__vRegisterIRQSourceHandler((void (*) (void))u32IrqSourceHandler, FLASH_enINTERRUPT_EEPROM);
     }
 }

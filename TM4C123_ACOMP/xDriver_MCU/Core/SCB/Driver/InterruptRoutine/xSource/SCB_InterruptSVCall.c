@@ -26,5 +26,5 @@
 
 void SVCall__vIRQVectorHandler(void)
 {
-    while(1u){}
+    while(1U){}
 }

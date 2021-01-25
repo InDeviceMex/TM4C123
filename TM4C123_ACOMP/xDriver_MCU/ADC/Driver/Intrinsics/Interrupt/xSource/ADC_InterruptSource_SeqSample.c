@@ -30,13 +30,13 @@ static const uint32_t ADC_u32MuxMax[(uint32_t)ADC_enSEQ_MAX+0x1u] = {(uint32_t)A
 
 void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequencer= (uint32_t) enSequencer;
     uint32_t u32MuxInput= (uint32_t) enMuxInput;
-    uint32_t u32MuxMax= 0u;
+    uint32_t u32MuxMax= 0U;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -54,19 +54,19 @@ void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequence
     psAdc=ADC_BLOCK[u32Module];
 
     u32Reg=psAdc->ADCINPUT[u32Sequencer].ADCSSCTL;
-    u32Reg|=(ADC_ADCSSCTL_R_IE0_EN<<(u32MuxInput*4u));
+    u32Reg|=(ADC_ADCSSCTL_R_IE0_EN<<(u32MuxInput*4U));
     psAdc->ADCINPUT[u32Sequencer].ADCSSCTL=u32Reg;
 }
 
 void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequencer= (uint32_t) enSequencer;
     uint32_t u32MuxInput= (uint32_t) enMuxInput;
-    uint32_t u32MuxMax= 0u;
+    uint32_t u32MuxMax= 0U;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -84,20 +84,20 @@ void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequenc
     psAdc=ADC_BLOCK[u32Module];
 
     u32Reg=psAdc->ADCINPUT[u32Sequencer].ADCSSCTL;
-    u32Reg&=~(ADC_ADCSSCTL_R_IE0_EN<<(u32MuxInput*4u));
+    u32Reg&=~(ADC_ADCSSCTL_R_IE0_EN<<(u32MuxInput*4U));
     psAdc->ADCINPUT[u32Sequencer].ADCSSCTL=u32Reg;
 }
 
 ADC_nSEQ_INPUT_INT ADC__enGetSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
     ADC_nSEQ_INPUT_INT enIntInputState = ADC_enSEQ_INPUT_INT_UNDEF;
     ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Sequencer= (uint32_t) enSequencer;
     uint32_t u32MuxInput= (uint32_t) enMuxInput;
-    uint32_t u32MuxMax= 0u;
+    uint32_t u32MuxMax= 0U;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -116,7 +116,7 @@ ADC_nSEQ_INPUT_INT ADC__enGetSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUE
     {
         psAdc=ADC_BLOCK[u32Module];
         u32Reg=psAdc->ADCINPUT[u32Sequencer].ADCSSCTL;
-        u32Reg>>=(u32MuxInput*4u);
+        u32Reg>>=(u32MuxInput*4U);
         u32Reg&=(ADC_ADCSSCTL_IE0_MASK);
         enIntInputState = (ADC_nSEQ_INPUT_INT)u32Reg;
     }

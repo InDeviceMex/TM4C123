@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_GPTMTAPV_R_PSV_MASK             ((uint32_t)0x0000FFFFu)
-#define GPWTM_GPTMTAPV_R_PSV_BIT              (0u)
+#define GPWTM_GPTMTAPV_R_PSV_MASK             ((uint32_t)0x0000FFFFU)
+#define GPWTM_GPTMTAPV_R_PSV_BIT              (0U)
 
-#define GPWTM_GPTMTAPV_PSV_MASK               ((uint32_t)0x0000FFFFu)
+#define GPWTM_GPTMTAPV_PSV_MASK               ((uint32_t)0x0000FFFFU)
 /*----------*/
 
 

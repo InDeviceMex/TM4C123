@@ -47,7 +47,7 @@ inline void SCB__vReqSysReset(void)
         MCU__vWriteRegister(SCB_BASE, SCB_AIRCR_OFFSET, (SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_VECTRESET_NOUSE), (SCB_AIRCR_R_VECTKEY_MASK|SCB_AIRCR_R_VECTRESET_MASK), 0UL);
         SCB_vBarrier();
 
-        while(1u)
+        while(1U)
         {
           SCB_vNoOperation();
         }
@@ -65,7 +65,7 @@ inline void SCB__vReqSysReset_Peripheral(void)
         MCU__vWriteRegister(SCB_BASE, SCB_AIRCR_OFFSET, (SCB_AIRCR_R_VECTKEY_WRITE|SCB_AIRCR_R_SYSRESETREQ_RESET), (SCB_AIRCR_R_VECTKEY_MASK|SCB_AIRCR_R_SYSRESETREQ_MASK), 0UL);
         SCB_vBarrier();
 
-        while(1u)
+        while(1U)
         {
             __asm(" NOP");
         }

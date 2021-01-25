@@ -26,14 +26,14 @@
 
 #include <xUtils/Standard/Standard.h>
 
-#define SysTick_BASE            ((uint32_t)0xE000E000u)
-#define SysTick_VALUEMAX        ((uint32_t)0xFFFFFFu)
-#define SysTick_PIOSC4          ((uint32_t)4000000u)
-#define SysTick_PIOSC           ((uint32_t)16000000u)
+#define SysTick_BASE            ((uint32_t)0xE000E000U)
+#define SysTick_VALUEMAX        ((uint32_t)0xFFFFFFU)
+#define SysTick_PIOSC4          ((uint32_t)4000000U)
+#define SysTick_PIOSC           ((uint32_t)16000000U)
 
-#define SysTick_CSR_OFFSET      ((uint32_t)0x010u)
-#define SysTick_RVR_OFFSET      ((uint32_t)0x014u)
-#define SysTick_CVR_OFFSET      ((uint32_t)0x018u)
-#define SysTick_CR_OFFSET       ((uint32_t)0x01Cu)
+#define SysTick_CSR_OFFSET      ((uint32_t)0x010U)
+#define SysTick_RVR_OFFSET      ((uint32_t)0x014U)
+#define SysTick_CVR_OFFSET      ((uint32_t)0x018U)
+#define SysTick_CR_OFFSET       ((uint32_t)0x01CU)
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_SYSTICK_REGISTERADDRESS_H_ */

@@ -43,15 +43,15 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
     TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
     TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
-    uint64_t u64Reg=0u;
-    uint32_t u32Reg=0u;
-    uint32_t u32RegPrescaler=0u;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
-    volatile uint32_t* pu32TimerCOUNTLow=0u;
-    volatile uint32_t* pu32TimerCOUNTHigh=0u;
-    volatile uint32_t* pu32TimerPV=0u;
+    uint64_t u64Reg=0U;
+    uint32_t u32Reg=0U;
+    uint32_t u32RegPrescaler=0U;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
+    volatile uint32_t* pu32TimerCOUNTLow=0U;
+    volatile uint32_t* pu32TimerCOUNTHigh=0U;
+    volatile uint32_t* pu32TimerPV=0U;
 
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
@@ -69,13 +69,13 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
             pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
 
             u64Reg=u64Count;
-            u64Reg>>=32u;
-            u64Reg&=0xFFFFFFFFu;
+            u64Reg>>=32U;
+            u64Reg&=0xFFFFFFFFU;
             u32Reg= (uint32_t)u64Reg;
             *pu32TimerCOUNTHigh = u32Reg;
 
             u64Reg= u64Count;
-            u64Reg&=0xFFFFFFFFu;
+            u64Reg&=0xFFFFFFFFU;
             u32Reg= (uint32_t)u64Reg;
             *pu32TimerCOUNTLow =u32Reg;
         }
@@ -84,7 +84,7 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
             pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
 
             u64Reg=u64Count;
-            u64Reg&=0xFFFFFFFFu;
+            u64Reg&=0xFFFFFFFFU;
             u32Reg= (uint32_t)u64Reg;
             *pu32TimerCOUNTLow= u32Reg;
         }
@@ -94,13 +94,13 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
         pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
 
         u64Reg=u64Count;
-        u64Reg>>=32u;
-        u64Reg&=0xFFFFFFFFu;
+        u64Reg>>=32U;
+        u64Reg&=0xFFFFFFFFU;
         u32Reg= (uint32_t)u64Reg;
         *pu32TimerCOUNTHigh = u32Reg;
 
         u64Reg= u64Count;
-        u64Reg&=0xFFFFFFFFu;
+        u64Reg&=0xFFFFFFFFU;
         u32Reg= (uint32_t)u64Reg;
         *pu32TimerCOUNTLow =u32Reg;
 
@@ -193,15 +193,15 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
     TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
     TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
-    uint64_t u64Reg=0u;
-    uint32_t u32Reg=0u;
-    uint32_t u32RegPrescaler=0u;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
-    volatile uint32_t* pu32TimerCOUNTLow=0u;
-    volatile uint32_t* pu32TimerCOUNTHigh=0u;
-    volatile uint32_t* pu32TimerPV=0u;
+    uint64_t u64Reg=0U;
+    uint32_t u32Reg=0U;
+    uint32_t u32RegPrescaler=0U;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
+    volatile uint32_t* pu32TimerCOUNTLow=0U;
+    volatile uint32_t* pu32TimerCOUNTHigh=0U;
+    volatile uint32_t* pu32TimerPV=0U;
 
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
@@ -223,7 +223,7 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
 
                 u32Reg = (uint32_t)(*pu32TimerCOUNTHigh);
                 u64Reg = (uint64_t) u32Reg;
-                u64Reg<<=32u;
+                u64Reg<<=32U;
                 u32Reg = (uint32_t)(*pu32TimerCOUNTLow);
                 u64Reg|= (uint64_t)u32Reg;
 
@@ -246,7 +246,7 @@ TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64
 
             u32Reg = (uint32_t)(*pu32TimerCOUNTHigh);
             u64Reg = (uint64_t) u32Reg;
-            u64Reg<<=32u;
+            u64Reg<<=32U;
             u32Reg = (uint32_t)(*pu32TimerCOUNTLow);
             u64Reg|= (uint64_t)u32Reg;
 

@@ -29,8 +29,8 @@
 void GPIO__vEnInterruptConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,
                               GPIO_nINT_CONFIG enIntConfig)
 {
-    uint32_t u32Sense = ((uint32_t) enIntConfig >> 8u) & 1u;
-    uint32_t u32Event = ((uint32_t) enIntConfig) & 3u;
+    uint32_t u32Sense = ((uint32_t) enIntConfig >> 8U) & 1U;
+    uint32_t u32Event = ((uint32_t) enIntConfig) & 3U;
 
     if((uint32_t) GPIO_enSENSE_EDGE == u32Sense)
     {

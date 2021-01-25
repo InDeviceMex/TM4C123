@@ -28,7 +28,7 @@
 
 uint32_t DMA__u32GetChannelControlAltPointer(void)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     DMA_nREADY enReady= DMA_enNOREADY;
     enReady=DMA__enIsReady(DMA_enMODULE_0);
 

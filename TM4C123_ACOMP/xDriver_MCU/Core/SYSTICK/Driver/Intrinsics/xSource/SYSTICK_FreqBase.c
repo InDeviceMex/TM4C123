@@ -14,7 +14,7 @@ static uint32_t SysTick_u32FreqBase=0;
 
 void SysTick__vClearFreqBase(void)
 {
-    SysTick_u32FreqBase=0u;
+    SysTick_u32FreqBase=0U;
 }
 
 void SysTick__vSetFreqBase(uint32_t u32Base)

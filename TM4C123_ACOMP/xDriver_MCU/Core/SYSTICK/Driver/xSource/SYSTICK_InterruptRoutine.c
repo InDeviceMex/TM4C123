@@ -17,7 +17,7 @@ void SysTick__vIRQVectorHandler(void)
     uint32_t u32Count= SysTick__u32GetFreeCount();
     u32Count++;
     SysTick__vSetFreeCount(u32Count);
-    if(u32Count==0u)
+    if(u32Count==0U)
     {
         uint32_t u32CountOv = SysTick__u32GetFreeCountOv();
         u32CountOv++;

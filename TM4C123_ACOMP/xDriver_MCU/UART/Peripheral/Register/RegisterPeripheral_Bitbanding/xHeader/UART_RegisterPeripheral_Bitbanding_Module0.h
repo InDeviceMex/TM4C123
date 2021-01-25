@@ -230,73 +230,73 @@
  ************************************ 19 UARTPeriphID4 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID4*/
-#define UART0_BITBANDING_UARTPeriphID4       (((BITBANDING_UARTPeriphID4_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID4_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID4       (((BITBANDING_UARTPeriphID4_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID4_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 20 UARTPeriphID5 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID5*/
-#define UART0_BITBANDING_UARTPeriphID5       (((BITBANDING_UARTPeriphID5_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID5_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID5       (((BITBANDING_UARTPeriphID5_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID5_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 21 UARTPeriphID6 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID6*/
-#define UART0_BITBANDING_UARTPeriphID6       (((BITBANDING_UARTPeriphID6_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID6_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID6       (((BITBANDING_UARTPeriphID6_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID6_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 22 UARTPeriphID7 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID7*/
-#define UART0_BITBANDING_UARTPeriphID7       (((BITBANDING_UARTPeriphID7_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID7_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID7       (((BITBANDING_UARTPeriphID7_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID7_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 23 UARTPeriphID0 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID0*/
-#define UART0_BITBANDING_UARTPeriphID0       (((BITBANDING_UARTPeriphID0_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID0_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID0       (((BITBANDING_UARTPeriphID0_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID0_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 24 UARTPeriphID1 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID1*/
-#define UART0_BITBANDING_UARTPeriphID1       (((BITBANDING_UARTPeriphID1_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID1_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID1       (((BITBANDING_UARTPeriphID1_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID1_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 25 UARTPeriphID2 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID2*/
-#define UART0_BITBANDING_UARTPeriphID2       (((BITBANDING_UARTPeriphID2_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID2_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID2       (((BITBANDING_UARTPeriphID2_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID2_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 26 UARTPeriphID3 *********************************************
  ******************************************************************************************/
 /* UART0 APB PID3*/
-#define UART0_BITBANDING_UARTPeriphID3       (((BITBANDING_UARTPeriphID3_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID3_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTPeriphID3       (((BITBANDING_UARTPeriphID3_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTPeriphID3_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 27 UARTCellID0 *********************************************
  ******************************************************************************************/
 /* UART0 APB CID0*/
-#define UART0_BITBANDING_UARTCellID0       (((BITBANDING_UARTCellID0_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID0_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTCellID0       (((BITBANDING_UARTCellID0_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID0_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 28 UARTCellID1 *********************************************
  ******************************************************************************************/
 /* UART0 APB CID1*/
-#define UART0_BITBANDING_UARTCellID1       (((BITBANDING_UARTCellID1_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID1_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTCellID1       (((BITBANDING_UARTCellID1_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID1_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 29 UARTCellID2 *********************************************
  ******************************************************************************************/
 /* UART0 APB CID2*/
-#define UART0_BITBANDING_UARTCellID2       (((BITBANDING_UARTCellID2_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID2_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTCellID2       (((BITBANDING_UARTCellID2_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID2_OFFSET)*32U))))
 
 /******************************************************************************************
  ************************************ 30 UARTCellID3 *********************************************
  ******************************************************************************************/
 /* UART0 APB CID3*/
-#define UART0_BITBANDING_UARTCellID3       (((BITBANDING_UARTCellID3_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID3_OFFSET)*32u))))
+#define UART0_BITBANDING_UARTCellID3       (((BITBANDING_UARTCellID3_TypeDef*)(UART_BITBANDING_BASE+((UART0_OFFSET+UART_UARTCellID3_OFFSET)*32U))))
 
 
 

@@ -30,13 +30,13 @@ static const uint32_t ADC_u32MuxMax[(uint32_t)ADC_enSEQ_MAX+0x1u] = {(uint32_t)A
 
 void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t u32OffsetRegister, uint32_t u32MuxInput, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBitAdd)
 {
-    uint32_t u32Reg=0u;
-    uint32_t u32RegAddress=0u;
-    ADC_TypeDef* psAdc=0u;
-    ADCINPUT_Typedef* psAdcSeq=0u;
-    volatile uint32_t* pu32AdcSeq =0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32RegAddress=0U;
+    ADC_TypeDef* psAdc=0U;
+    ADCINPUT_Typedef* psAdcSeq=0U;
+    volatile uint32_t* pu32AdcSeq =0U;
 
-    uint32_t u32MuxMax= 0u;
+    uint32_t u32MuxMax= 0U;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -57,7 +57,7 @@ void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t
     pu32AdcSeq = (volatile uint32_t*)u32RegAddress;
     u32Reg=*pu32AdcSeq;
 
-    u32MuxInput*=4u;
+    u32MuxInput*=4U;
     u32MuxInput+=u32FeatureBitAdd;
     u32Reg&=~(u32FeatureMask<<u32MuxInput);
     u32Reg|=(u32Feature<<u32MuxInput);
@@ -66,15 +66,15 @@ void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t
 
 uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t u32OffsetRegister, uint32_t u32MuxInput, uint32_t u32FeatureMask, uint32_t u32FeatureBitAdd)
 {
-    uint32_t u32Reg=0u;
-    uint32_t u32RegAddress=0u;
-    ADC_TypeDef* psAdc=0u;
-    ADCINPUT_Typedef* psAdcSeq=0u;
-    volatile uint32_t* pu32AdcSeq =0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32RegAddress=0U;
+    ADC_TypeDef* psAdc=0U;
+    ADCINPUT_Typedef* psAdcSeq=0U;
+    volatile uint32_t* pu32AdcSeq =0U;
 
     ADC_nREADY enReady= ADC_enNOREADY;
-    uint32_t u32MuxMax= 0u;
-    uint32_t u32Feature = 0xFFFFFFFFu;
+    uint32_t u32MuxMax= 0U;
+    uint32_t u32Feature = 0xFFFFFFFFU;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;
@@ -97,7 +97,7 @@ uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, ui
         pu32AdcSeq = (volatile uint32_t*)u32RegAddress;
         u32Reg=*pu32AdcSeq;
 
-        u32MuxInput*=4u;
+        u32MuxInput*=4U;
         u32MuxInput+=u32FeatureBitAdd;
         u32Reg>>=u32MuxInput;
         u32Reg&=u32FeatureMask;

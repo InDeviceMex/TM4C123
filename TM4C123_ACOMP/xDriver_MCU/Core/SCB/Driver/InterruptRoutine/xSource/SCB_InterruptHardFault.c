@@ -55,7 +55,7 @@ void HardFault__vIRQVectorHandler(void)
     " str R1, [R2, #0x18]\n"/*SCB_HardFault_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_HardFault_pu32Context[7] PSR*/
-    while(1u){}
+    while(1U){}
 }
 
 

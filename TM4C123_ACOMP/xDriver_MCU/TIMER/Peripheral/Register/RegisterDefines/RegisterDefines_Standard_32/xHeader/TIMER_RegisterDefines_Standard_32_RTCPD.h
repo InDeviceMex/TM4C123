@@ -31,12 +31,12 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_GPTMRTCPD_R_RTCPD_MASK                 ((uint32_t)0x0000FFFFu)
-#define GPTM_GPTMRTCPD_R_RTCPD_BIT                  (0u)
-#define GPTM_GPTMRTCPD_R_RTCPD_DEFAULT             ((uint32_t)0x00007FFFu)
+#define GPTM_GPTMRTCPD_R_RTCPD_MASK                 ((uint32_t)0x0000FFFFU)
+#define GPTM_GPTMRTCPD_R_RTCPD_BIT                  (0U)
+#define GPTM_GPTMRTCPD_R_RTCPD_DEFAULT             ((uint32_t)0x00007FFFU)
 
-#define GPTM_GPTMRTCPD_RTCPD_MASK                   ((uint32_t)0x0000FFFFu)
-#define GPTM_GPTMRTCPD_RTCPD_DEFAULT                ((uint32_t)0x00007FFFu)
+#define GPTM_GPTMRTCPD_RTCPD_MASK                   ((uint32_t)0x0000FFFFU)
+#define GPTM_GPTMRTCPD_RTCPD_DEFAULT                ((uint32_t)0x00007FFFU)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_32_TIMER_REGISTERDEFINES_STANDARD_32_RTCPD_H_ */

@@ -40,9 +40,9 @@ void TIMER__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),TIMER_nM
 {
 
     SCB_nVECISR enVector=SCB_enVECISR_TIMER0A;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     uint32_t u32IrqVectorHandler=0;
     if(0u != (uint32_t)pfIrqVectorHandler)
     {
@@ -51,7 +51,7 @@ void TIMER__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),TIMER_nM
             u32Number=(uint32_t)TIMER_enMISC_MAX;
         }
         enVector=SCB_enVECISR_TIMER[u32Wide][u32Letter][u32Number];
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|1u);
+        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|1U);
         TIMER__pvIRQVectorHandler[u32Wide][u32Letter][u32Number]=(void (*) (void))u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(TIMER__pvIRQVectorHandler[u32Wide][u32Letter][u32Number],enVector);
     }

@@ -74,6 +74,6 @@ void MemoryFault__vIRQVectorHandler(void)
             break;
 
     }
-    while(1u){}
+    while(1U){}
 }
 

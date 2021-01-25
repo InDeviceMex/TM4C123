@@ -29,9 +29,9 @@
 
 void DMA__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),DMA_nCH_MODULE enDMAModule, DMA_nCH_ENCODER enInterruptSourceType)
 {
-    uint32_t u32IrqSourceHandler=0u;
+    uint32_t u32IrqSourceHandler=0U;
 
-    if((uint32_t)pfIrqSourceHandler !=0u)
+    if((uint32_t)pfIrqSourceHandler !=0U)
     {
         if(DMA_enCH_MODULE_MAX<enDMAModule)
         {
@@ -43,7 +43,7 @@ void DMA__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),DMA_nCH_MO
             enInterruptSourceType=DMA_enCH_ENCODER_MAX;
         }
 
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|1u);
+        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|1U);
         DMA_CH__vIRQSourceHandler[(uint32_t)enInterruptSourceType][enDMAModule]= (void (*) (void))u32IrqSourceHandler;
     }
 }

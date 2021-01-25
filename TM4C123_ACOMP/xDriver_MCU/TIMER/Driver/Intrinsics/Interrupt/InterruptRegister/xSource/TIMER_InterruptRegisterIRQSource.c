@@ -31,13 +31,13 @@ void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nM
 {
     uint32_t u32Interrupt =(uint32_t) enInterruptParam;
 
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     uint32_t u32IrqSourceHandler=0;
 
 
-    if((uint32_t)pfIrqSourceHandler !=0u)
+    if((uint32_t)pfIrqSourceHandler !=0U)
     {
         if((uint32_t)TIMER_enMISC_MAX<u32Number)
         {
@@ -48,7 +48,7 @@ void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nM
             u32Interrupt=(uint32_t)TIMER_enMISC_INT;
         }
 
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|1u);
+        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|1U);
         TIMER__vIRQSourceHandler[u32Wide][u32Letter][u32Number][u32Interrupt]= (void (*) (void))u32IrqSourceHandler;
     }
 }

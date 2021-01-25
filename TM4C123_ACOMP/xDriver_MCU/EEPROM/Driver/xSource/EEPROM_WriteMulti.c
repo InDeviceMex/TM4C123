@@ -14,14 +14,14 @@
 EEPROM_nSTATUS EEPROM__enWriteMultiWorld (const uint32_t *pu32Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enOK;
-    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
+    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2U);
     while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
 
         EEPROM__vSetReady();
         enReturn = EEPROM__enWriteWorld(*pu32Data, u32Address);
-        pu32Data+=1u;
-        u32Address += (uint32_t)4u;
+        pu32Data+=1U;
+        u32Address += (uint32_t)4U;
         u16Count--;
     }
 
@@ -32,12 +32,12 @@ EEPROM_nSTATUS EEPROM__enWriteMultiWorld (const uint32_t *pu32Data, uint32_t u32
 EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld (const uint16_t *pu16Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enOK;
-    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
+    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2U);
     while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
         enReturn = EEPROM__enWriteHalfWorld(*pu16Data, u32Address);
-        pu16Data+=1u;
-        u32Address += (uint32_t)2u;
+        pu16Data+=1U;
+        u32Address += (uint32_t)2U;
         u16Count--;
     }
 
@@ -48,12 +48,12 @@ EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld (const uint16_t *pu16Data, uint32_t
 EEPROM_nSTATUS EEPROM__enWriteMultiByte (const uint8_t *pu8Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enOK;
-    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2u);
+    uint32_t u32MaxAddress = (EEPROM__u32GetWorldCount() << (uint32_t)2U);
     while(((u32MaxAddress) > u32Address) && (u16Count > (uint16_t)0) && (EEPROM_enOK == (EEPROM_nSTATUS) enReturn))
     {
         enReturn = EEPROM__enWriteByte(*pu8Data, u32Address);
-        pu8Data+=1u;
-        u32Address += (uint32_t)1u;
+        pu8Data+=1U;
+        u32Address += (uint32_t)1U;
         u16Count--;
     }
 

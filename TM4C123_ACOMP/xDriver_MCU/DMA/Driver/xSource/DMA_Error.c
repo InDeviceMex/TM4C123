@@ -34,7 +34,7 @@ void DMA__vClearModuleError(void)
 
 DMA_nERROR DMA__enGetModuleError(void)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     DMA_nERROR enModuleError = DMA_enERROR_UNDEF;
     DMA_nREADY enReady= DMA_enNOREADY;
     enReady=DMA__enIsReady(DMA_enMODULE_0);

@@ -29,11 +29,11 @@
 
 void ADC0_SS1__vIRQVectorHandler(void)
 {
-    volatile uint32_t u32Reg=0u;
-    volatile uint32_t u32RegCompInterrupt=0u;
-    volatile uint32_t u32RegCompSelect=0u;
-    volatile uint32_t u32RegCompMux=0u;
-    uint32_t u32Pos=0u;
+    volatile uint32_t u32Reg=0U;
+    volatile uint32_t u32RegCompInterrupt=0U;
+    volatile uint32_t u32RegCompSelect=0U;
+    volatile uint32_t u32RegCompMux=0U;
+    uint32_t u32Pos=0U;
     if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
     {
         if(DMA_DMACHIS_R_CHIS15_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS15_MASK))
@@ -59,12 +59,12 @@ void ADC0_SS1__vIRQVectorHandler(void)
     if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_1))
      {
          ADC0_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_1);
-         for(u32Pos = 0u; u32Pos<=(uint32_t)ADC_en_MUX_3;u32Pos++)
+         for(u32Pos = 0U; u32Pos<=(uint32_t)ADC_en_MUX_3;u32Pos++)
          {
-             if(u32RegCompSelect & ((uint32_t)0x1u<<(u32Pos*0x4u)))
+             if(u32RegCompSelect & ((uint32_t)0x1u<<(u32Pos*0x4U)))
              {
-                 u32RegCompMux = ADC0_ADCSSDC1_R>>(u32Pos*0x4u);
-                 u32RegCompMux&= 0xFu;
+                 u32RegCompMux = ADC0_ADCSSDC1_R>>(u32Pos*0x4U);
+                 u32RegCompMux&= 0xFU;
                  if(u32RegCompInterrupt & ((uint32_t)1u<<u32RegCompMux))
                  {
                      ADC0_ADCDCISC_R = ((uint32_t)1u<<u32RegCompMux);

@@ -29,7 +29,7 @@
 
 DMA_nSTATE DMA__enGetModuleState(void)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     DMA_nSTATE enModuleState = DMA_enSTATE_UNDEF;
     DMA_nREADY enReady= DMA_enNOREADY;
     enReady=DMA__enIsReady(DMA_enMODULE_0);
@@ -46,7 +46,7 @@ DMA_nSTATE DMA__enGetModuleState(void)
 
 uint32_t DMA__u32GetModulechannels(void)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     DMA_nCH_MODULE enModuleChannels = DMA_enCH_MODULE_UNDEF;
     DMA_nREADY enReady= DMA_enNOREADY;
     enReady=DMA__enIsReady(DMA_enMODULE_0);

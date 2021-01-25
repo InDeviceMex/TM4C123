@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TB_GPTMTnPMR_R_TnPSMR_MASK           ((uint32_t)0x000000FFu)
-#define GPTM_TB_GPTMTnPMR_R_TnPSMR_BIT            (0u)
+#define GPTM_TB_GPTMTnPMR_R_TnPSMR_MASK           ((uint32_t)0x000000FFU)
+#define GPTM_TB_GPTMTnPMR_R_TnPSMR_BIT            (0U)
 
-#define GPTM_TB_GPTMTnPMR_TnPSMR_MASK             ((uint32_t)0x000000FFu)
+#define GPTM_TB_GPTMTnPMR_TnPSMR_MASK             ((uint32_t)0x000000FFU)
 /*----------*/
 
 

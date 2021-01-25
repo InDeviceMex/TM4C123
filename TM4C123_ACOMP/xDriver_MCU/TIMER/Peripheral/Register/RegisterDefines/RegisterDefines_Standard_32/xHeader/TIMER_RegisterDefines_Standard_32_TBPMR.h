@@ -31,17 +31,17 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_GPTMTBPMR_R_TBPSMR_MASK              ((uint32_t)0x000000FFu)
-#define GPTM_GPTMTBPMR_R_TBPSMR_BIT               (0u)
+#define GPTM_GPTMTBPMR_R_TBPSMR_MASK              ((uint32_t)0x000000FFU)
+#define GPTM_GPTMTBPMR_R_TBPSMR_BIT               (0U)
 
-#define GPTM_GPTMTBPMR_TBPSMR_MASK                ((uint32_t)0x000000FFu)
+#define GPTM_GPTMTBPMR_TBPSMR_MASK                ((uint32_t)0x000000FFU)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTBPMR_R_TBPSMRH_MASK             ((uint32_t)0x0000FF00u)
-#define GPTM_GPTMTBPMR_R_TBPSMRH_BIT              (8u)
+#define GPTM_GPTMTBPMR_R_TBPSMRH_MASK             ((uint32_t)0x0000FF00U)
+#define GPTM_GPTMTBPMR_R_TBPSMRH_BIT              (8U)
 
-#define GPTM_GPTMTBPMR_TBPSMRH_MASK               ((uint32_t)0x000000FFu)
+#define GPTM_GPTMTBPMR_TBPSMRH_MASK               ((uint32_t)0x000000FFU)
 /*----------*/
 
 

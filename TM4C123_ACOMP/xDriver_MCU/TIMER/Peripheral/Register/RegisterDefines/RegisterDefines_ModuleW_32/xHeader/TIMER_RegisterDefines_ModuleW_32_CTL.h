@@ -31,70 +31,70 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TW_GPTMTnCTL_R_TnEN_MASK       ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_R_TnEN_BIT        (0u)
-#define GPTM_TW_GPTMTnCTL_R_TnEN_DIS        ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_R_TnEN_EN         ((uint32_t)0x00000001u)
+#define GPTM_TW_GPTMTnCTL_R_TnEN_MASK       ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_R_TnEN_BIT        (0U)
+#define GPTM_TW_GPTMTnCTL_R_TnEN_DIS        ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_R_TnEN_EN         ((uint32_t)0x00000001U)
 
-#define GPTM_TW_GPTMTnCTL_TnEN_MASK         ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_TnEN_DIS          ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_TnEN_EN           ((uint32_t)0x00000001u)
+#define GPTM_TW_GPTMTnCTL_TnEN_MASK         ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_TnEN_DIS          ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_TnEN_EN           ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnCTL_R_TnSTALL_MASK    ((uint32_t)0x00000002u)
-#define GPTM_TW_GPTMTnCTL_R_TnSTALL_BIT     (1u)
-#define GPTM_TW_GPTMTnCTL_R_TnSTALL_CONTINUE    ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_R_TnSTALL_FREEZE  ((uint32_t)0x00000002u)
+#define GPTM_TW_GPTMTnCTL_R_TnSTALL_MASK    ((uint32_t)0x00000002U)
+#define GPTM_TW_GPTMTnCTL_R_TnSTALL_BIT     (1U)
+#define GPTM_TW_GPTMTnCTL_R_TnSTALL_CONTINUE    ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_R_TnSTALL_FREEZE  ((uint32_t)0x00000002U)
 
-#define GPTM_TW_GPTMTnCTL_TnSTALL_MASK      ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_TnSTALL_CONTINUE  ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_TnSTALL_FREEZE    ((uint32_t)0x00000001u)
+#define GPTM_TW_GPTMTnCTL_TnSTALL_MASK      ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_TnSTALL_CONTINUE  ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_TnSTALL_FREEZE    ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnCTL_R_TnEVENT_MASK    ((uint32_t)0x0000000Cu)
-#define GPTM_TW_GPTMTnCTL_R_TnEVENT_BIT     (2u)
-#define GPTM_TW_GPTMTnCTL_R_TnEVENT_POS     ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_R_TnEVENT_NEG     ((uint32_t)0x00000004u)
-#define GPTM_TW_GPTMTnCTL_R_TnEVENT_BOTH    ((uint32_t)0x0000000Cu)
+#define GPTM_TW_GPTMTnCTL_R_TnEVENT_MASK    ((uint32_t)0x0000000CU)
+#define GPTM_TW_GPTMTnCTL_R_TnEVENT_BIT     (2U)
+#define GPTM_TW_GPTMTnCTL_R_TnEVENT_POS     ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_R_TnEVENT_NEG     ((uint32_t)0x00000004U)
+#define GPTM_TW_GPTMTnCTL_R_TnEVENT_BOTH    ((uint32_t)0x0000000CU)
 
-#define GPTM_TW_GPTMTnCTL_TnEVENT_MASK      ((uint32_t)0x00000003u)
-#define GPTM_TW_GPTMTnCTL_TnEVENT_NEG       ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_TnEVENT_POS       ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_TnEVENT_BOTH      ((uint32_t)0x00000003u)
+#define GPTM_TW_GPTMTnCTL_TnEVENT_MASK      ((uint32_t)0x00000003U)
+#define GPTM_TW_GPTMTnCTL_TnEVENT_NEG       ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_TnEVENT_POS       ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_TnEVENT_BOTH      ((uint32_t)0x00000003U)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnCTL_R_RTCEN_MASK      ((uint32_t)0x00000010u)
-#define GPTM_TW_GPTMTnCTL_R_RTCEN_BIT       (4u)
-#define GPTM_TW_GPTMTnCTL_R_RTCEN_DIS       ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_R_RTCEN_EN        ((uint32_t)0x00000010u)
+#define GPTM_TW_GPTMTnCTL_R_RTCEN_MASK      ((uint32_t)0x00000010U)
+#define GPTM_TW_GPTMTnCTL_R_RTCEN_BIT       (4U)
+#define GPTM_TW_GPTMTnCTL_R_RTCEN_DIS       ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_R_RTCEN_EN        ((uint32_t)0x00000010U)
 
-#define GPTM_TW_GPTMTnCTL_RTCEN_MASK        ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_RTCEN_DIS         ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_RTCEN_EN          ((uint32_t)0x00000001u)
+#define GPTM_TW_GPTMTnCTL_RTCEN_MASK        ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_RTCEN_DIS         ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_RTCEN_EN          ((uint32_t)0x00000001U)
 /*----------*/
 /*----------*/
-#define GPTM_TW_GPTMTnCTL_R_TnOTE_MASK      ((uint32_t)0x00000020u)
-#define GPTM_TW_GPTMTnCTL_R_TnOTE_BIT       (5u)
-#define GPTM_TW_GPTMTnCTL_R_TnOTE_DIS       ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_R_TnOTE_EN        ((uint32_t)0x00000020u)
+#define GPTM_TW_GPTMTnCTL_R_TnOTE_MASK      ((uint32_t)0x00000020U)
+#define GPTM_TW_GPTMTnCTL_R_TnOTE_BIT       (5U)
+#define GPTM_TW_GPTMTnCTL_R_TnOTE_DIS       ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_R_TnOTE_EN        ((uint32_t)0x00000020U)
 
-#define GPTM_TW_GPTMTnCTL_TnOTE_MASK        ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_TnOTE_DIS         ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_TnOTE_EN          ((uint32_t)0x00000001u)
+#define GPTM_TW_GPTMTnCTL_TnOTE_MASK        ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_TnOTE_DIS         ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_TnOTE_EN          ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnCTL_R_TnPWML_MASK     ((uint32_t)0x00000040u)
-#define GPTM_TW_GPTMTnCTL_R_TnPWML_BIT      (6u)
-#define GPTM_TW_GPTMTnCTL_R_TnPWML_NA       ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_R_TnPWML_INV      ((uint32_t)0x00000040u)
+#define GPTM_TW_GPTMTnCTL_R_TnPWML_MASK     ((uint32_t)0x00000040U)
+#define GPTM_TW_GPTMTnCTL_R_TnPWML_BIT      (6U)
+#define GPTM_TW_GPTMTnCTL_R_TnPWML_NA       ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_R_TnPWML_INV      ((uint32_t)0x00000040U)
 
-#define GPTM_TW_GPTMTnCTL_TnPWML_MASK       ((uint32_t)0x00000001u)
-#define GPTM_TW_GPTMTnCTL_TnPWML_NA         ((uint32_t)0x00000000u)
-#define GPTM_TW_GPTMTnCTL_TnPWML_INV        ((uint32_t)0x00000001u)
+#define GPTM_TW_GPTMTnCTL_TnPWML_MASK       ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnCTL_TnPWML_NA         ((uint32_t)0x00000000U)
+#define GPTM_TW_GPTMTnCTL_TnPWML_INV        ((uint32_t)0x00000001U)
 /*----------*/
 
 

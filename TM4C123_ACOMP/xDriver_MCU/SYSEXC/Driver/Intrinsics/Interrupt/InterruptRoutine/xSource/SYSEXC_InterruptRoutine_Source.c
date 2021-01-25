@@ -35,7 +35,7 @@ void (*SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_MAX+1u]) (void)=
 
 static void SYSEXC_vIRQSourceHandler_Dummy(void)
 {
-    while(1u)
+    while(1U)
     {
 
     }

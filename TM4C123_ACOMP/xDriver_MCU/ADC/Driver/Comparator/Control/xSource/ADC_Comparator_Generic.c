@@ -28,8 +28,8 @@
 
 void ADC__vSetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
@@ -51,11 +51,11 @@ void ADC__vSetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, ui
 
 uint32_t ADC__u32GetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     ADC_nREADY enReady= ADC_enNOREADY;
-    uint32_t u32Feature = 0xFFFFFFFFu;
+    uint32_t u32Feature = 0xFFFFFFFFU;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;

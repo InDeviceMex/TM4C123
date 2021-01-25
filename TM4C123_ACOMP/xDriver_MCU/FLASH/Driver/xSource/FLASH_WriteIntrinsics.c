@@ -17,7 +17,7 @@ FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
     FLASH_nSTATUS enReturn =FLASH_enERROR;
     uint32_t u32Key=SYSCTL_BOOTCFG_R&SYSCTL_BOOTCFG_R_KEY_MASK;
     uint32_t u32Value=0;
-    u32Address&=~(uint32_t)0x3u;
+    u32Address&=~(uint32_t)0x3U;
     if( u32Address < FLASH_ADDRESS_MAX)
     {
         u32Value=*((uint32_t*)u32Address);
@@ -50,11 +50,11 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
     uint32_t u32Value=0;
     uint32_t u32CountActual=0;
     uint32_t u32CountMax=0;
-    uint32_t *pu32Address=0u;
+    uint32_t *pu32Address=0U;
 
-    u32CountActual=(u32Address&0x7Fu)>>2;
+    u32CountActual=(u32Address&0x7FU)>>2;
     u32CountMax=(u32CountActual)+u32Count;
-    u32Address &= ~(uint32_t)0x7Fu;
+    u32Address &= ~(uint32_t)0x7FU;
     if( u32Address < FLASH_ADDRESS_MAX)
     {
         if( u32CountMax <= (uint32_t)32)
@@ -71,7 +71,7 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
                     {
                         FLASH_FWBn->FWB[u32CountActual]=*pu32Data;
                     }
-                    pu32Data+=1u;
+                    pu32Data+=1U;
                     u32Count--;
                     u32CountActual++;
                 }

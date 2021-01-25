@@ -31,12 +31,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAPCellID0_R_CID0_MASK     ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID0_R_CID0_BIT      ((uint32_t)0u)
-#define DMA_DMAPCellID0_R_CID0_RESET    ((uint32_t)0x0000000Du)
+#define DMA_DMAPCellID0_R_CID0_MASK     ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID0_R_CID0_BIT      ((uint32_t)0U)
+#define DMA_DMAPCellID0_R_CID0_RESET    ((uint32_t)0x0000000DU)
 
-#define DMA_DMAPCellID0_CID0_MASK       ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID0_CID0_RESET      ((uint32_t)0x0000000Du)
+#define DMA_DMAPCellID0_CID0_MASK       ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID0_CID0_RESET      ((uint32_t)0x0000000DU)
 /*--------*/
 
 /**************************************************************************************
@@ -44,12 +44,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAPCellID1_R_CID1_MASK     ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID1_R_CID1_BIT      ((uint32_t)0u)
-#define DMA_DMAPCellID1_R_CID1_RESET    ((uint32_t)0x000000F0u)
+#define DMA_DMAPCellID1_R_CID1_MASK     ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID1_R_CID1_BIT      ((uint32_t)0U)
+#define DMA_DMAPCellID1_R_CID1_RESET    ((uint32_t)0x000000F0U)
 
-#define DMA_DMAPCellID1_CID1_MASK       ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID1_CID1_RESET      ((uint32_t)0x000000F0u)
+#define DMA_DMAPCellID1_CID1_MASK       ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID1_CID1_RESET      ((uint32_t)0x000000F0U)
 /*--------*/
 
 /**************************************************************************************
@@ -57,12 +57,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAPCellID2_R_CID2_MASK     ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID2_R_CID2_BIT      ((uint32_t)0u)
-#define DMA_DMAPCellID2_R_CID2_RESET    ((uint32_t)0x00000005u)
+#define DMA_DMAPCellID2_R_CID2_MASK     ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID2_R_CID2_BIT      ((uint32_t)0U)
+#define DMA_DMAPCellID2_R_CID2_RESET    ((uint32_t)0x00000005U)
 
-#define DMA_DMAPCellID2_CID2_MASK       ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID2_CID2_RESET      ((uint32_t)0x00000005u)
+#define DMA_DMAPCellID2_CID2_MASK       ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID2_CID2_RESET      ((uint32_t)0x00000005U)
 /*--------*/
 
 /**************************************************************************************
@@ -70,12 +70,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAPCellID3_R_CID3_MASK     ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID3_R_CID3_BIT      ((uint32_t)0u)
-#define DMA_DMAPCellID3_R_CID3_RESET    ((uint32_t)0x000000B1u)
+#define DMA_DMAPCellID3_R_CID3_MASK     ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID3_R_CID3_BIT      ((uint32_t)0U)
+#define DMA_DMAPCellID3_R_CID3_RESET    ((uint32_t)0x000000B1U)
 
-#define DMA_DMAPCellID3_CID3_MASK       ((uint32_t)0x000000FFu)
-#define DMA_DMAPCellID3_CID3_RESET      ((uint32_t)0x000000B1u)
+#define DMA_DMAPCellID3_CID3_MASK       ((uint32_t)0x000000FFU)
+#define DMA_DMAPCellID3_CID3_RESET      ((uint32_t)0x000000B1U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_PCELLID_H_ */

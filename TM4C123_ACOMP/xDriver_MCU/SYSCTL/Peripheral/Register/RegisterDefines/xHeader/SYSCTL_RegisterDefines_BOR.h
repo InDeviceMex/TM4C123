@@ -30,25 +30,25 @@
 ************************************ 3 PBORCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_PBORCTL_R_BOR1_MASK  ((uint32_t)0x00000002u)
-#define SYSCTL_PBORCTL_R_BOR1_BIT   (1u)
-#define SYSCTL_PBORCTL_R_BOR1_INT   ((uint32_t)0x00000000u)
-#define SYSCTL_PBORCTL_R_BOR1_RESET ((uint32_t)0x00000002u)
+#define SYSCTL_PBORCTL_R_BOR1_MASK  ((uint32_t)0x00000002U)
+#define SYSCTL_PBORCTL_R_BOR1_BIT   (1U)
+#define SYSCTL_PBORCTL_R_BOR1_INT   ((uint32_t)0x00000000U)
+#define SYSCTL_PBORCTL_R_BOR1_RESET ((uint32_t)0x00000002U)
 
-#define SYSCTL_PBORCTL_BOR1_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_PBORCTL_BOR1_INT     ((uint32_t)0x00000000u)
-#define SYSCTL_PBORCTL_BOR1_RESET   ((uint32_t)0x00000001u)
+#define SYSCTL_PBORCTL_BOR1_MASK    ((uint32_t)0x00000001U)
+#define SYSCTL_PBORCTL_BOR1_INT     ((uint32_t)0x00000000U)
+#define SYSCTL_PBORCTL_BOR1_RESET   ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_PBORCTL_R_BOR0_MASK  ((uint32_t)0x00000004u)
-#define SYSCTL_PBORCTL_R_BOR0_BIT   (2u)
-#define SYSCTL_PBORCTL_R_BOR0_INT   ((uint32_t)0x00000000u)
-#define SYSCTL_PBORCTL_R_BOR0_RESET ((uint32_t)0x00000004u)
+#define SYSCTL_PBORCTL_R_BOR0_MASK  ((uint32_t)0x00000004U)
+#define SYSCTL_PBORCTL_R_BOR0_BIT   (2U)
+#define SYSCTL_PBORCTL_R_BOR0_INT   ((uint32_t)0x00000000U)
+#define SYSCTL_PBORCTL_R_BOR0_RESET ((uint32_t)0x00000004U)
 
-#define SYSCTL_PBORCTL_BOR0_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_PBORCTL_BOR0_INT     ((uint32_t)0x00000000u)
-#define SYSCTL_PBORCTL_BOR0_RESET   ((uint32_t)0x00000001u)
+#define SYSCTL_PBORCTL_BOR0_MASK    ((uint32_t)0x00000001U)
+#define SYSCTL_PBORCTL_BOR0_INT     ((uint32_t)0x00000000U)
+#define SYSCTL_PBORCTL_BOR0_RESET   ((uint32_t)0x00000001U)
 /*--------*/
 
 

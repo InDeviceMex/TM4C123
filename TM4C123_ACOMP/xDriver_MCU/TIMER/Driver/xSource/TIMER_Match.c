@@ -46,9 +46,9 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     /*Erase*/
     uint32_t u32Reg=0;
     uint32_t u32RegPrescaler=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     volatile uint32_t* pu32TimerMATCHRLow=0;
     volatile uint32_t* pu32TimerMATCHRHigh=0;
     volatile uint32_t* pu32TimerPMR=0;
@@ -68,13 +68,13 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
             pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
             pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
 
-            *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32u)&0xFFFFFFFFu);
-            *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFFu);
+            *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32U)&0xFFFFFFFFU);
+            *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFFU);
         }
         else
         {
             pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
-            u64Match&= 0xFFFFFFFFu;
+            u64Match&= 0xFFFFFFFFU;
             *pu32TimerMATCHRLow =  (uint32_t) (u64Match);
 
         }
@@ -83,8 +83,8 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
         pu32TimerMATCHRLow=TIMER_TnMATCHR_BLOCK[u32Wide][0][u32Number];
         pu32TimerMATCHRHigh=TIMER_TnMATCHR_BLOCK[u32Wide][1][u32Number];
 
-        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFFu);
-        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFFu);
+        *pu32TimerMATCHRHigh = (uint32_t)((u64Match>>32)&0xFFFFFFFFU);
+        *pu32TimerMATCHRLow =  (uint32_t) (u64Match&0xFFFFFFFFU);
         break;
     case TIMER_enCONFIG_INDIVIDUAL:
 
@@ -135,15 +135,15 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
     TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
     TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
-    uint64_t u64Reg=0u;
-    uint32_t u32Reg=0u;
-    uint32_t u32RegPrescaler=0u;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
-    volatile uint32_t* pu32TimerMATCHRLow=0u;
-    volatile uint32_t* pu32TimerMATCHRHigh=0u;
-    volatile uint32_t* pu32TimerPMR=0u;
+    uint64_t u64Reg=0U;
+    uint32_t u32Reg=0U;
+    uint32_t u32RegPrescaler=0U;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
+    volatile uint32_t* pu32TimerMATCHRLow=0U;
+    volatile uint32_t* pu32TimerMATCHRHigh=0U;
+    volatile uint32_t* pu32TimerPMR=0U;
 
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
@@ -165,7 +165,7 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
 
                 u32Reg = (uint32_t)(*pu32TimerMATCHRHigh);
                 u64Reg = (uint64_t) u32Reg;
-                u64Reg<<=32u;
+                u64Reg<<=32U;
                 u32Reg = (uint32_t)(*pu32TimerMATCHRLow);
                 u64Reg|= (uint64_t)u32Reg;
 
@@ -188,7 +188,7 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
 
             u32Reg = (uint32_t)(*pu32TimerMATCHRHigh);
             u64Reg = (uint64_t) u32Reg;
-            u64Reg<<=32u;
+            u64Reg<<=32U;
             u32Reg = (uint32_t)(*pu32TimerMATCHRLow);
             u64Reg|= (uint64_t)u32Reg;
 

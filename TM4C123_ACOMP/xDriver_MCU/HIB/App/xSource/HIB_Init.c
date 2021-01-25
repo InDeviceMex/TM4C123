@@ -29,7 +29,7 @@
 #include <xUtils/Standard/Standard.h>
 
 
-#define HIB_TIMEOUT_MAX (1200000u)
+#define HIB_TIMEOUT_MAX (1200000U)
 
 void HIB_vRTCALTSourceHandler(void);
 
@@ -49,14 +49,14 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch,void (*pfIrqrRTC
 
     /*Enable WC Interrupt*/
     HIB__enSetModuleClock(HIB_enCLOCK_EN);
-    HIB__enSetTrim(0x7FFFu);
+    HIB__enSetTrim(0x7FFFU);
     HIB__enSetBatteryComparator(HIB_enBATCOMP_2_5V);
     HIB__enSetOscillatorBypass(HIB_enOSCBYP_INTERNAL);
     HIB__enSetMatch(u32Match,u32SubMatch);
     HIB__vEnInterruptVector(HIB_enPRI7);
     HIB__enClearInterruptSource(HIB_enINT_ALL);
     HIB__enEnInterruptSource(HIB_enINT_RTCALT);
-    HIB__enSetLoad(0u);
+    HIB__enSetLoad(0U);
     HIB__enEnRTCTimer();
 
     return enReturn;

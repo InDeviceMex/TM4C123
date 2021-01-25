@@ -30,36 +30,36 @@
  ************************************ 2 ACRIS *********************************************
  ******************************************************************************************/
 /*----------*/
-#define ACMP_ACRIS_R_IN_MASK             ((uint32_t)0x00000003Fu)
-#define ACMP_ACRIS_R_IN_BIT              ((uint32_t)0u)
-#define ACMP_ACRIS_R_IN_NOACTIVE         ((uint32_t)0x00000000u)
-#define ACMP_ACRIS_R_IN_ACTIVE           ((uint32_t)0x00000003u)
+#define ACMP_ACRIS_R_IN_MASK             ((uint32_t)0x00000003FU)
+#define ACMP_ACRIS_R_IN_BIT              ((uint32_t)0U)
+#define ACMP_ACRIS_R_IN_NOACTIVE         ((uint32_t)0x00000000U)
+#define ACMP_ACRIS_R_IN_ACTIVE           ((uint32_t)0x00000003U)
 
-#define ACMP_ACRIS_IN_MASK               ((uint32_t)0x00000003u)
-#define ACMP_ACRIS_IN_NOACTIVE           ((uint32_t)0x00000000u)
-#define ACMP_ACRIS_IN_ACTIVE             ((uint32_t)0x00000003u)
+#define ACMP_ACRIS_IN_MASK               ((uint32_t)0x00000003U)
+#define ACMP_ACRIS_IN_NOACTIVE           ((uint32_t)0x00000000U)
+#define ACMP_ACRIS_IN_ACTIVE             ((uint32_t)0x00000003U)
 /*----------*/
 
 /*----------*/
-#define ACMP_ACRIS_R_IN0_MASK             ((uint32_t)0x00000001u)
-#define ACMP_ACRIS_R_IN0_BIT              ((uint32_t)0u)
-#define ACMP_ACRIS_R_IN0_NOACTIVE         ((uint32_t)0x00000000u)
-#define ACMP_ACRIS_R_IN0_ACTIVE           ((uint32_t)0x00000001u)
+#define ACMP_ACRIS_R_IN0_MASK             ((uint32_t)0x00000001U)
+#define ACMP_ACRIS_R_IN0_BIT              ((uint32_t)0U)
+#define ACMP_ACRIS_R_IN0_NOACTIVE         ((uint32_t)0x00000000U)
+#define ACMP_ACRIS_R_IN0_ACTIVE           ((uint32_t)0x00000001U)
 
-#define ACMP_ACRIS_IN0_MASK               ((uint32_t)0x00000001u)
-#define ACMP_ACRIS_IN0_NOACTIVE           ((uint32_t)0x00000000u)
-#define ACMP_ACRIS_IN0_ACTIVE             ((uint32_t)0x00000001u)
+#define ACMP_ACRIS_IN0_MASK               ((uint32_t)0x00000001U)
+#define ACMP_ACRIS_IN0_NOACTIVE           ((uint32_t)0x00000000U)
+#define ACMP_ACRIS_IN0_ACTIVE             ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define ACMP_ACRIS_R_IN1_MASK             ((uint32_t)0x00000002u)
-#define ACMP_ACRIS_R_IN1_BIT                   ((uint32_t)0u)
-#define ACMP_ACRIS_R_IN1_NOACTIVE         ((uint32_t)0x00000000u)
-#define ACMP_ACRIS_R_IN1_ACTIVE           ((uint32_t)0x00000002u)
+#define ACMP_ACRIS_R_IN1_MASK             ((uint32_t)0x00000002U)
+#define ACMP_ACRIS_R_IN1_BIT                   ((uint32_t)0U)
+#define ACMP_ACRIS_R_IN1_NOACTIVE         ((uint32_t)0x00000000U)
+#define ACMP_ACRIS_R_IN1_ACTIVE           ((uint32_t)0x00000002U)
 
-#define ACMP_ACRIS_IN1_MASK               ((uint32_t)0x00000001u)
-#define ACMP_ACRIS_IN1_NOACTIVE           ((uint32_t)0x00000000u)
-#define ACMP_ACRIS_IN1_ACTIVE             ((uint32_t)0x00000001u)
+#define ACMP_ACRIS_IN1_MASK               ((uint32_t)0x00000001U)
+#define ACMP_ACRIS_IN1_NOACTIVE           ((uint32_t)0x00000000U)
+#define ACMP_ACRIS_IN1_ACTIVE             ((uint32_t)0x00000001U)
 /*----------*/
 
 

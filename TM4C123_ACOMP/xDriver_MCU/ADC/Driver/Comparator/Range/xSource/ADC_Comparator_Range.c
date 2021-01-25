@@ -30,7 +30,7 @@
 
 void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  uint32_t u32CompRangeLow, uint32_t u32CompRangeHigh)
 {
-    uint32_t u32CompRangeTemp = 0u;
+    uint32_t u32CompRangeTemp = 0U;
     if(u32CompRangeLow > u32CompRangeHigh)
     {
         u32CompRangeTemp = u32CompRangeHigh;
@@ -44,8 +44,8 @@ void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  uint32
 ADC_nSTATUS ADC__enGetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,uint32_t* pu32CompRangeLow, uint32_t* pu32CompRangeHigh)
 {
     ADC_nSTATUS enStatus= ADC_enERROR;
-    uint32_t u32CompRangeLow = 0u;
-    uint32_t u32CompRangeHigh = 0u;
+    uint32_t u32CompRangeLow = 0U;
+    uint32_t u32CompRangeHigh = 0U;
     if((0U != pu32CompRangeLow) && (0U != pu32CompRangeHigh))
     {
         u32CompRangeLow =  ADC__u32GetCompRangeLow(enModule, enActComp);

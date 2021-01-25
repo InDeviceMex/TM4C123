@@ -66,5 +66,5 @@ void (*TIMER__vIRQSourceHandler[(uint32_t)TIMER_enLETTER_MAX+1u][(uint32_t)TIMER
 
 void TIMER_vIRQSourceHandler_Dummy(void)
 {
-    while(1u){}
+    while(1U){}
 }

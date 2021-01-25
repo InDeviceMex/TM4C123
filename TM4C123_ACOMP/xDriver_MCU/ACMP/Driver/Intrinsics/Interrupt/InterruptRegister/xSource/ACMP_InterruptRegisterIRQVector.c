@@ -33,7 +33,7 @@ const SCB_nVECISR SCB_enVECISR_ACMP[(uint32_t)ACMP_enMODULE_MAX+ 1u]=
 void ACMP__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ACMP_nMODULE enModule)
 {
     SCB_nVECISR enVector=SCB_enVECISR_ACOMP0;
-    uint32_t u32IrqVectorHandler=0u;
+    uint32_t u32IrqVectorHandler=0U;
     uint32_t u32Module=(uint32_t)enModule;
     if(0u != (uint32_t)pfIrqVectorHandler)
     {
@@ -42,7 +42,7 @@ void ACMP__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ACMP_nMOD
             u32Module=(uint32_t)ACMP_enMODULE_MAX;
         }
         enVector=SCB_enVECISR_ACMP[u32Module];
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1u);
+        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
         ACMP__pvIRQVectorHandler[u32Module]=(void (*) (void))u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(ACMP__pvIRQVectorHandler[u32Module],enVector);
     }

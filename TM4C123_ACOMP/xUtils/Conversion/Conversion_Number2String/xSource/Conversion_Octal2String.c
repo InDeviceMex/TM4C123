@@ -26,7 +26,7 @@
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Octal2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/Conversion_Primitives/Conversion_Primitives.h>
 
-#define OCT2STRINGMAX   (24u)
+#define OCT2STRINGMAX   (24U)
 
 const char CONV_pc8Octal[8]={'0','1','2','3','4','5','6','7'};
 
@@ -35,7 +35,7 @@ uint8_t Conv__u8Oct2String(uint64_t u64Number, char* pcConv)
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     char  pcConvTemp[OCT2STRINGMAX]={0};/*longitud maxima de long 16 digitos*/
     char  *pcPointerActual=&pcConvTemp[OCT2STRINGMAX - 1u];
-    uint8_t u8Length =0u;
+    uint8_t u8Length =0U;
 
     enStatus =Conv__enConversion(pcPointerActual, u64Number,&u8Length, 8u,CONV_pc8Octal);
     if(CONV_enSTATUS_OK == enStatus)
@@ -46,7 +46,7 @@ uint8_t Conv__u8Oct2String(uint64_t u64Number, char* pcConv)
         enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
-            u8Length=0u;
+            u8Length=0U;
         }
     }
     return u8Length;

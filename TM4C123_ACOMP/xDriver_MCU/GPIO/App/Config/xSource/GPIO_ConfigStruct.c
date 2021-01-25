@@ -31,13 +31,13 @@ void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,
 {
     if(psConfig != 0)
     {
-        psConfig->enResistorMode = (GPIO_nRESMODE) (((uint32_t) enConfig >> 0u)
-                & 3u);
-        psConfig->enOutputMode = (GPIO_nOUTMODE) (((uint32_t) enConfig >> 4u)
-                & 1u);
-        psConfig->enDirection = (GPIO_nDIR) (((uint32_t) enConfig >> 8u) & 1u);
-        psConfig->enDrive = (GPIO_nDRIVE) (((uint32_t) enConfig >> 16u)
-                & 0x0103u);
+        psConfig->enResistorMode = (GPIO_nRESMODE) (((uint32_t) enConfig >> 0U)
+                & 3U);
+        psConfig->enOutputMode = (GPIO_nOUTMODE) (((uint32_t) enConfig >> 4U)
+                & 1U);
+        psConfig->enDirection = (GPIO_nDIR) (((uint32_t) enConfig >> 8U) & 1U);
+        psConfig->enDrive = (GPIO_nDRIVE) (((uint32_t) enConfig >> 16U)
+                & 0x0103U);
     }
 }
 
@@ -54,13 +54,13 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
 
     if(psConfig != 0)
     {
-        psConfig->enResistorMode = (GPIO_nRESMODE) (((uint32_t) enConfig >> 0u)
-                & 3u);
-        psConfig->enOutputMode = (GPIO_nOUTMODE) (((uint32_t) enConfig >> 4u)
-                & 1u);
-        psConfig->enDirection = (GPIO_nDIR) (((uint32_t) enConfig >> 8u) & 1u);
-        psConfig->enDrive = (GPIO_nDRIVE) (((uint32_t) enConfig >> 16u)
-                & 0x0103u);
+        psConfig->enResistorMode = (GPIO_nRESMODE) (((uint32_t) enConfig >> 0U)
+                & 3U);
+        psConfig->enOutputMode = (GPIO_nOUTMODE) (((uint32_t) enConfig >> 4U)
+                & 1U);
+        psConfig->enDirection = (GPIO_nDIR) (((uint32_t) enConfig >> 8U) & 1U);
+        psConfig->enDrive = (GPIO_nDRIVE) (((uint32_t) enConfig >> 16U)
+                & 0x0103U);
     }
     return psConfig;
 }

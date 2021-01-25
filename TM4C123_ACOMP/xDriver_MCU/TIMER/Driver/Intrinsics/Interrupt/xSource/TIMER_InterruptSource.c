@@ -34,9 +34,9 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPar
 {
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     GPTM_TypeDef* psTimerIMR=0;
 
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
@@ -87,9 +87,9 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
 {
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     GPTM_TypeDef* psTimerIMR=0;
 
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
@@ -137,9 +137,9 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
 void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
     uint32_t u32Reg=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     GPTM_TypeDef* psTimerICR=0;
 
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
@@ -171,9 +171,9 @@ TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_n
     uint32_t u32Reg=0;
     uint32_t u32Int=0;
     TIMER_nREADY enReady=TIMER_enNOREADY;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x3u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     GPTM_TypeDef* psTimerRIS=0;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {

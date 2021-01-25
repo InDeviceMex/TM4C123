@@ -34,7 +34,7 @@ const SCB_nVECISR SCB_enVECISR_ADC[(uint32_t)ADC_enMODULE_MAX+ 1u][(uint32_t)ADC
 void ADC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
     SCB_nVECISR enVector=SCB_enVECISR_ADC0SEQ0;
-    uint32_t u32IrqVectorHandler=0u;
+    uint32_t u32IrqVectorHandler=0U;
     uint32_t u32Module=(uint32_t)enModule;
     uint32_t u32Sequencer=(uint32_t)enSequence;
     if(0u != (uint32_t)pfIrqVectorHandler)
@@ -48,7 +48,7 @@ void ADC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ADC_nMODUL
             u32Sequencer=(uint32_t)ADC_enSEQ_MAX;
         }
         enVector=SCB_enVECISR_ADC[u32Module][u32Sequencer];
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1u);
+        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
         ADC__pvIRQVectorHandler[u32Module][u32Sequencer]=(void (*) (void))u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(ADC__pvIRQVectorHandler[u32Module][u32Sequencer],enVector);
     }

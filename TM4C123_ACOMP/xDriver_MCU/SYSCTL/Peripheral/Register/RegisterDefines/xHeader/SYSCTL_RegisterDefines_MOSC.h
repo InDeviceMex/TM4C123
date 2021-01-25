@@ -30,36 +30,36 @@
 ************************************ 11 MOSCCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_MOSCCTL_R_CVAL_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_MOSCCTL_R_CVAL_BIT     (0u)
-#define SYSCTL_MOSCCTL_R_CVAL_DIS     ((uint32_t)0x00000000u)
-#define SYSCTL_MOSCCTL_R_CVAL_EN      ((uint32_t)0x00000001u)
+#define SYSCTL_MOSCCTL_R_CVAL_MASK    ((uint32_t)0x00000001U)
+#define SYSCTL_MOSCCTL_R_CVAL_BIT     (0U)
+#define SYSCTL_MOSCCTL_R_CVAL_DIS     ((uint32_t)0x00000000U)
+#define SYSCTL_MOSCCTL_R_CVAL_EN      ((uint32_t)0x00000001U)
 
-#define SYSCTL_MOSCCTL_CVAL_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_MOSCCTL_CVAL_DIS       ((uint32_t)0x00000000u)
-#define SYSCTL_MOSCCTL_CVAL_EN        ((uint32_t)0x00000001u)
+#define SYSCTL_MOSCCTL_CVAL_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_MOSCCTL_CVAL_DIS       ((uint32_t)0x00000000U)
+#define SYSCTL_MOSCCTL_CVAL_EN        ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_MOSCCTL_R_MOSCIM_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_MOSCCTL_R_MOSCIM_BIT     (1u)
-#define SYSCTL_MOSCCTL_R_MOSCIM_RESET   ((uint32_t)0x00000000u)
-#define SYSCTL_MOSCCTL_R_MOSCIM_INT     ((uint32_t)0x00000002u)
+#define SYSCTL_MOSCCTL_R_MOSCIM_MASK    ((uint32_t)0x00000002U)
+#define SYSCTL_MOSCCTL_R_MOSCIM_BIT     (1U)
+#define SYSCTL_MOSCCTL_R_MOSCIM_RESET   ((uint32_t)0x00000000U)
+#define SYSCTL_MOSCCTL_R_MOSCIM_INT     ((uint32_t)0x00000002U)
 
-#define SYSCTL_MOSCCTL_MOSCIM_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_MOSCCTL_MOSCIM_RESET     ((uint32_t)0x00000000u)
-#define SYSCTL_MOSCCTL_MOSCIM_INT       ((uint32_t)0x00000001u)
+#define SYSCTL_MOSCCTL_MOSCIM_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_MOSCCTL_MOSCIM_RESET     ((uint32_t)0x00000000U)
+#define SYSCTL_MOSCCTL_MOSCIM_INT       ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_MOSCCTL_R_NOXTAL_MASK        ((uint32_t)0x00000004u)
-#define SYSCTL_MOSCCTL_R_NOXTAL_BIT         (2u)
-#define SYSCTL_MOSCCTL_R_NOXTAL_PRESENT     ((uint32_t)0x00000000u)
-#define SYSCTL_MOSCCTL_R_NOXTAL_NOPRESENT   ((uint32_t)0x00000004u)
+#define SYSCTL_MOSCCTL_R_NOXTAL_MASK        ((uint32_t)0x00000004U)
+#define SYSCTL_MOSCCTL_R_NOXTAL_BIT         (2U)
+#define SYSCTL_MOSCCTL_R_NOXTAL_PRESENT     ((uint32_t)0x00000000U)
+#define SYSCTL_MOSCCTL_R_NOXTAL_NOPRESENT   ((uint32_t)0x00000004U)
 
-#define SYSCTL_MOSCCTL_NOXTAL_MASK          ((uint32_t)0x00000001u)
-#define SYSCTL_MOSCCTL_NOXTAL_PRESENT       ((uint32_t)0x00000000u)
-#define SYSCTL_MOSCCTL_NOXTAL_NOPRESENT     ((uint32_t)0x00000001u)
+#define SYSCTL_MOSCCTL_NOXTAL_MASK          ((uint32_t)0x00000001U)
+#define SYSCTL_MOSCCTL_NOXTAL_PRESENT       ((uint32_t)0x00000000U)
+#define SYSCTL_MOSCCTL_NOXTAL_NOPRESENT     ((uint32_t)0x00000001U)
 /*--------*/
 
 

@@ -26,7 +26,7 @@
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Wait.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
-#define HIB_TIMEOUT_MAX (9000000u)
+#define HIB_TIMEOUT_MAX (9000000U)
 
 HIB_nSTATUS HIB__enGetStatus (void)
 {

@@ -33,22 +33,22 @@ SYSCTL_nRESET SYSCTL__enGetResetCause(void)
     u32BitBanding=(uint32_t)SYSCTL_BITBANDING_RESC_EXT;
     u32Reg=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_POR<<1u;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_POR<<1U;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_BOR<<2u;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_BOR<<2U;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT0<<3u;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT0<<3U;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_SW<<4u;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_SW<<4U;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT1<<5u;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_WDT1<<5U;
     u32Reg|=u32BitBanding;
 
-    u32BitBanding=SYSCTL_BITBANDING_RESC_MOSCFAIL<<6u;
+    u32BitBanding=SYSCTL_BITBANDING_RESC_MOSCFAIL<<6U;
     u32Reg|=u32BitBanding;
 
     return (SYSCTL_nRESET)u32Reg;
@@ -59,37 +59,37 @@ void SYSCTL__vClearResetCause(SYSCTL_nRESET enReset)
 
     if((uint32_t)SYSCTL_enRESET_EXT == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_EXT))
     {
-        SYSCTL_BITBANDING_RESC_EXT=0u;
+        SYSCTL_BITBANDING_RESC_EXT=0U;
     }
 
     if((uint32_t)SYSCTL_enRESET_POR == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_POR))
     {
-        SYSCTL_BITBANDING_RESC_POR=0u;
+        SYSCTL_BITBANDING_RESC_POR=0U;
     }
 
     if((uint32_t)SYSCTL_enRESET_BOR == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_BOR))
     {
-        SYSCTL_BITBANDING_RESC_BOR=0u;
+        SYSCTL_BITBANDING_RESC_BOR=0U;
     }
 
     if((uint32_t)SYSCTL_enRESET_WDT0 == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_WDT0))
     {
-        SYSCTL_BITBANDING_RESC_WDT0=0u;
+        SYSCTL_BITBANDING_RESC_WDT0=0U;
     }
 
     if((uint32_t)SYSCTL_enRESET_SW == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_SW))
     {
-        SYSCTL_BITBANDING_RESC_SW=0u;
+        SYSCTL_BITBANDING_RESC_SW=0U;
     }
 
     if((uint32_t)SYSCTL_enRESET_WDT1 == ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_WDT1))
     {
-        SYSCTL_BITBANDING_RESC_WDT1=0u;
+        SYSCTL_BITBANDING_RESC_WDT1=0U;
     }
 
     if((uint32_t)SYSCTL_enRESET_MOSCFAIL== ((uint32_t)enReset&(uint32_t)SYSCTL_enRESET_MOSCFAIL))
     {
-        SYSCTL_BITBANDING_RESC_MOSCFAIL=0u;
+        SYSCTL_BITBANDING_RESC_MOSCFAIL=0U;
     }
 }
 

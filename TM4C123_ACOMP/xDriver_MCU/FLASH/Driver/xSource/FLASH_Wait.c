@@ -10,7 +10,7 @@
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
-#define FLASH_TIMEOUT_MAX (9000000u)
+#define FLASH_TIMEOUT_MAX (9000000U)
 
 FLASH_nSTATUS FLASH__enWaitWrite (void)
 {

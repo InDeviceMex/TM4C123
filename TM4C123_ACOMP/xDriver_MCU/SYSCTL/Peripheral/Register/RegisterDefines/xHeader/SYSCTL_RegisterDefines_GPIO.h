@@ -30,69 +30,69 @@
 ************************************ 9 GPIOHBCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_GPIOHBCTL_R_PORTA_MASK    ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_R_PORTA_BIT     (0u)
-#define SYSCTL_GPIOHBCTL_R_PORTA_APB      ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_R_PORTA_AHB      ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_R_PORTA_MASK    ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_R_PORTA_BIT     (0U)
+#define SYSCTL_GPIOHBCTL_R_PORTA_APB      ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_R_PORTA_AHB      ((uint32_t)0x00000001U)
 
-#define SYSCTL_GPIOHBCTL_PORTA_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_PORTA_APB        ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_PORTA_AHB       ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_PORTA_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_PORTA_APB        ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_PORTA_AHB       ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_GPIOHBCTL_R_PORTB_MASK    ((uint32_t)0x00000002u)
-#define SYSCTL_GPIOHBCTL_R_PORTB_BIT     (1u)
-#define SYSCTL_GPIOHBCTL_R_PORTB_APB      ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_R_PORTB_AHB     ((uint32_t)0x00000002u)
+#define SYSCTL_GPIOHBCTL_R_PORTB_MASK    ((uint32_t)0x00000002U)
+#define SYSCTL_GPIOHBCTL_R_PORTB_BIT     (1U)
+#define SYSCTL_GPIOHBCTL_R_PORTB_APB      ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_R_PORTB_AHB     ((uint32_t)0x00000002U)
 
-#define SYSCTL_GPIOHBCTL_PORTB_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_PORTB_APB        ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_PORTB_AHB       ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_PORTB_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_PORTB_APB        ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_PORTB_AHB       ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_GPIOHBCTL_R_PORTC_MASK    ((uint32_t)0x00000004u)
-#define SYSCTL_GPIOHBCTL_R_PORTC_BIT     (2u)
-#define SYSCTL_GPIOHBCTL_R_PORTC_APB      ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_R_PORTC_AHB     ((uint32_t)0x00000004u)
+#define SYSCTL_GPIOHBCTL_R_PORTC_MASK    ((uint32_t)0x00000004U)
+#define SYSCTL_GPIOHBCTL_R_PORTC_BIT     (2U)
+#define SYSCTL_GPIOHBCTL_R_PORTC_APB      ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_R_PORTC_AHB     ((uint32_t)0x00000004U)
 
-#define SYSCTL_GPIOHBCTL_PORTC_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_PORTC_APB        ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_PORTC_AHB       ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_PORTC_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_PORTC_APB        ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_PORTC_AHB       ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_GPIOHBCTL_R_PORTD_MASK    ((uint32_t)0x00000008u)
-#define SYSCTL_GPIOHBCTL_R_PORTD_BIT     (3u)
-#define SYSCTL_GPIOHBCTL_R_PORTD_APB      ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_R_PORTD_AHB     ((uint32_t)0x00000008u)
+#define SYSCTL_GPIOHBCTL_R_PORTD_MASK    ((uint32_t)0x00000008U)
+#define SYSCTL_GPIOHBCTL_R_PORTD_BIT     (3U)
+#define SYSCTL_GPIOHBCTL_R_PORTD_APB      ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_R_PORTD_AHB     ((uint32_t)0x00000008U)
 
-#define SYSCTL_GPIOHBCTL_PORTD_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_PORTD_APB        ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_PORTD_AHB       ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_PORTD_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_PORTD_APB        ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_PORTD_AHB       ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_GPIOHBCTL_R_PORTE_MASK    ((uint32_t)0x00000010u)
-#define SYSCTL_GPIOHBCTL_R_PORTE_BIT     (4u)
-#define SYSCTL_GPIOHBCTL_R_PORTE_APB      ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_R_PORTE_AHB     ((uint32_t)0x00000010u)
+#define SYSCTL_GPIOHBCTL_R_PORTE_MASK    ((uint32_t)0x00000010U)
+#define SYSCTL_GPIOHBCTL_R_PORTE_BIT     (4U)
+#define SYSCTL_GPIOHBCTL_R_PORTE_APB      ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_R_PORTE_AHB     ((uint32_t)0x00000010U)
 
-#define SYSCTL_GPIOHBCTL_PORTE_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_PORTE_APB        ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_PORTE_AHB       ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_PORTE_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_PORTE_APB        ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_PORTE_AHB       ((uint32_t)0x00000001U)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_GPIOHBCTL_R_PORTF_MASK    ((uint32_t)0x00000020u)
-#define SYSCTL_GPIOHBCTL_R_PORTF_BIT     (5u)
-#define SYSCTL_GPIOHBCTL_R_PORTF_APB      ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_R_PORTF_AHB     ((uint32_t)0x00000020u)
+#define SYSCTL_GPIOHBCTL_R_PORTF_MASK    ((uint32_t)0x00000020U)
+#define SYSCTL_GPIOHBCTL_R_PORTF_BIT     (5U)
+#define SYSCTL_GPIOHBCTL_R_PORTF_APB      ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_R_PORTF_AHB     ((uint32_t)0x00000020U)
 
-#define SYSCTL_GPIOHBCTL_PORTF_MASK      ((uint32_t)0x00000001u)
-#define SYSCTL_GPIOHBCTL_PORTF_APB        ((uint32_t)0x00000000u)
-#define SYSCTL_GPIOHBCTL_PORTF_AHB       ((uint32_t)0x00000001u)
+#define SYSCTL_GPIOHBCTL_PORTF_MASK      ((uint32_t)0x00000001U)
+#define SYSCTL_GPIOHBCTL_PORTF_APB        ((uint32_t)0x00000000U)
+#define SYSCTL_GPIOHBCTL_PORTF_AHB       ((uint32_t)0x00000001U)
 /*--------*/
 
 

@@ -34,7 +34,7 @@ const SCB_nVECISR SCB_enVECISR_UART[(uint32_t)UART_enMODULE_MAX+ 1u]=
 void UART__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),UART_nMODULE enModule)
 {
     SCB_nVECISR enVector=SCB_enVECISR_UART0;
-    uint32_t u32IrqVectorHandler=0u;
+    uint32_t u32IrqVectorHandler=0U;
     uint32_t u32Module=(uint32_t)enModule;
     if(0u != (uint32_t)pfIrqVectorHandler)
     {
@@ -43,7 +43,7 @@ void UART__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),UART_nMOD
             u32Module=(uint32_t)UART_enMODULE_MAX;
         }
         enVector=SCB_enVECISR_UART[u32Module];
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1u);
+        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
         UART__pvIRQVectorHandler[u32Module]=(void (*) (void))u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(UART__pvIRQVectorHandler[u32Module],enVector);
     }

@@ -31,9 +31,9 @@ void TIMER__vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint
     uint32_t u32En=0;
     uint32_t u32Reg=0;
     uint32_t u32Shift=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     uint32_t u32RegAux=0;
     GPTM_TypeDef* psTimerCTL=0;
     volatile uint32_t* pu32TimerMR=0;
@@ -45,7 +45,7 @@ void TIMER__vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32ModeGeneric,uint
 
     if((uint32_t)TIMER_enB==u32Letter)
     {
-        u32Shift=8u;
+        u32Shift=8U;
     }
     psTimerCTL=TIMER_BLOCK[u32Wide][u32Number];
     pu32TimerMR=TIMER_TnMR_BLOCK[u32Wide][u32Letter][u32Number];
@@ -69,9 +69,9 @@ uint32_t TIMER__u32GetModeGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint3
     uint32_t u32Reg=0;
     uint32_t u32ModeGeneric=0xFF;
     TIMER_nREADY enReady= TIMER_enNOREADY;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     volatile uint32_t* pu32TimerMR=0;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {

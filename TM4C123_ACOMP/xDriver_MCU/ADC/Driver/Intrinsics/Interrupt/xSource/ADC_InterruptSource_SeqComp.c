@@ -28,8 +28,8 @@
 
 void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Comparator= (uint32_t) enSeqComparator;
@@ -51,8 +51,8 @@ void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparato
 
 void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Comparator= (uint32_t) enSeqComparator;
@@ -74,8 +74,8 @@ void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparat
 
 void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
-    uint32_t u32Reg=0u;
-    ADC_TypeDef* psAdc=0u;
+    uint32_t u32Reg=0U;
+    ADC_TypeDef* psAdc=0U;
 
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Comparator= (uint32_t) enSeqComparator;
@@ -97,12 +97,12 @@ void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqCompar
 ADC_nCOMP_INT_STATUS ADC__enStatusInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
     ADC_nCOMP_INT_STATUS enInt=ADC_enCOMP_INT_STATUS_UNDEF;
-    uint32_t u32Reg=0u;
-    uint32_t u32SeqBit=0u;
+    uint32_t u32Reg=0U;
+    uint32_t u32SeqBit=0U;
     ADC_nREADY enReady=ADC_enNOREADY;
     uint32_t u32Module= (uint32_t) enModule;
     uint32_t u32Comparator= (uint32_t) enSeqComparator;
-    ADC_TypeDef* psAdc=0u;
+    ADC_TypeDef* psAdc=0U;
     if((uint32_t)ADC_enMODULE_MAX<u32Module)
     {
         u32Module=(uint32_t)ADC_enMODULE_MAX;

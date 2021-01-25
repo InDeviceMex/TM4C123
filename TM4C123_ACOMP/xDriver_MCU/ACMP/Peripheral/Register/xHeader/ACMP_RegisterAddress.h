@@ -26,20 +26,20 @@
 
 #include <xUtils/Standard/Standard.h>
 
-#define ACMP_BASE            ((uint32_t)0x4003C000u)
+#define ACMP_BASE            ((uint32_t)0x4003C000U)
 
-#define ACMP_OFFSET         ((uint32_t)0x0003C000u)
+#define ACMP_OFFSET         ((uint32_t)0x0003C000U)
 
-#define ACMP_BITBANDING_BASE        ((uint32_t)0x42000000u)
+#define ACMP_BITBANDING_BASE        ((uint32_t)0x42000000U)
 
-#define ACMP_ACMIS_OFFSET                      ((uint32_t)0x0000u)
-#define ACMP_ACRIS_OFFSET                      ((uint32_t)0x0004u)
-#define ACMP_ACINTEN_OFFSET                    ((uint32_t)0x0008u)
-#define ACMP_ACREFCTL_OFFSET               ((uint32_t)0x0010u)
-#define ACMP_ACSTAT0_OFFSET               ((uint32_t)0x0020u)
-#define ACMP_ACCTL0_OFFSET               ((uint32_t)0x0024u)
-#define ACMP_ACSTAT1_OFFSET               ((uint32_t)0x0040u)
-#define ACMP_ACCTL1_OFFSET               ((uint32_t)0x0044u)
-#define ACMP_ACMPPP_OFFSET              ((uint32_t)0x0FC0u)
+#define ACMP_ACMIS_OFFSET                      ((uint32_t)0x0000U)
+#define ACMP_ACRIS_OFFSET                      ((uint32_t)0x0004U)
+#define ACMP_ACINTEN_OFFSET                    ((uint32_t)0x0008U)
+#define ACMP_ACREFCTL_OFFSET               ((uint32_t)0x0010U)
+#define ACMP_ACSTAT0_OFFSET               ((uint32_t)0x0020U)
+#define ACMP_ACCTL0_OFFSET               ((uint32_t)0x0024U)
+#define ACMP_ACSTAT1_OFFSET               ((uint32_t)0x0040U)
+#define ACMP_ACCTL1_OFFSET               ((uint32_t)0x0044U)
+#define ACMP_ACMPPP_OFFSET              ((uint32_t)0x0FC0U)
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_XHEADER_ACMP_REGISTERADDRESS_H_ */

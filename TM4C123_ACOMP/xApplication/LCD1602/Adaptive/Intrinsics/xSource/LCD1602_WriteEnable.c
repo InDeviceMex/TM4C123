@@ -30,7 +30,7 @@
 
 void LCD1602__vPrepareWriteEnable(void)
 {
-    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0u);
+    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0U);
 }
 
 /* Pulse of 2 us */
@@ -38,7 +38,7 @@ void LCD1602__vPulseWriteEnable(void)
 {
     GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, LCD1602_E);
     LCD1602__vDelay(0.6f);
-    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0u);
+    GPIO__vSetData(LCD1602_PORT_E, LCD1602_E, 0U);
     LCD1602__vDelay(0.6f);
 }
 

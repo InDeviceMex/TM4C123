@@ -35,7 +35,7 @@
  *
  * Local Definitions
  */
-#define EEPROM_TIMEOUT_MAX (500000u)
+#define EEPROM_TIMEOUT_MAX (500000U)
 
 
 EEPROM_nSTATUS EEPROM__enGetStatus (void)

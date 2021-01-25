@@ -27,18 +27,18 @@ CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn,char* const pcPoint
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     uint8_t u8I=0;
-    const char* pcPointerInAux=0u;
-    char* pcPointerOutAux=0u;
+    const char* pcPointerInAux=0U;
+    char* pcPointerOutAux=0U;
     if(((uint32_t)0!=(uint32_t)pcPointerIn) && ((uint32_t)0!=(uint32_t)pcPointerOut))
     {
         enStatus= CONV_enSTATUS_OK;
         pcPointerOutAux=pcPointerOut;
         pcPointerInAux=pcPointerIn;
-        for (u8I = 0u; u8I<=u8Length; u8I++) /*hace un ciclo burbuja optimizado*/
+        for (u8I = 0U; u8I<=u8Length; u8I++) /*hace un ciclo burbuja optimizado*/
         {
             *pcPointerOutAux= *pcPointerInAux;
-            pcPointerOutAux+=1u;
-            pcPointerInAux+=1u;
+            pcPointerOutAux+=1U;
+            pcPointerInAux+=1U;
         }
     }
     return enStatus;

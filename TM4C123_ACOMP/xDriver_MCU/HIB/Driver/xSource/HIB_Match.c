@@ -45,7 +45,7 @@ HIB_nSTATUS HIB__enGetMatch(uint32_t* pu32Match, uint32_t *pu32SubMatch)
 HIB_nSTATUS HIB__enSetMatch(uint32_t u32Match, uint32_t u32SubMatch)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     HIB__vSetReady();
 
     enReturn =HIB__enWait();

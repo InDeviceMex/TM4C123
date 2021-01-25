@@ -42,13 +42,13 @@
 #define LCD1602_RS (GPIO_enPIN_5)
 #define LCD1602_RW (GPIO_enPIN_6)
 
-#define LCD1602_D4_POS (0u)
-#define LCD1602_D5_POS (4u)
-#define LCD1602_D6_POS (2u)
-#define LCD1602_D7_POS (4u)
-#define LCD1602_E_POS  (4u)
-#define LCD1602_RS_POS (5u)
-#define LCD1602_RW_POS (6u)
+#define LCD1602_D4_POS (0U)
+#define LCD1602_D5_POS (4U)
+#define LCD1602_D6_POS (2U)
+#define LCD1602_D7_POS (4U)
+#define LCD1602_E_POS  (4U)
+#define LCD1602_RS_POS (5U)
+#define LCD1602_RW_POS (6U)
 
 
 

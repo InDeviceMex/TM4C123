@@ -101,7 +101,7 @@ GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort,
         gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
         u32Reg = gpio->GPIORIS;
         u32Reg &= enPin;
-        if(u32Reg != 0u)
+        if(u32Reg != 0U)
         {
             enStatus = GPIO_enINT_OCCUR;
         }

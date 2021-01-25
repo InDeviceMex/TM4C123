@@ -43,7 +43,7 @@ void GPIO__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler)(void),
             enPort = GPIO_enPORT_MAX;
         }
         enVector = SCB_enVECISR_GPIO[enPort];
-        u32IrqVectorHandler = ((uint32_t) pfIrqVectorHandler | (uint32_t) 1u);
+        u32IrqVectorHandler = ((uint32_t) pfIrqVectorHandler | (uint32_t) 1U);
         GPIO__pvIRQVectorHandler[enPort] = (void (*)(void)) u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(GPIO__pvIRQVectorHandler[enPort],
                                        enVector);

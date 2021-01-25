@@ -29,10 +29,10 @@
 
 void ADC0_SS3__vIRQVectorHandler(void)
 {
-    volatile uint32_t u32Reg=0u;
-    volatile uint32_t u32RegCompInterrupt=0u;
-    volatile uint32_t u32RegCompSelect=0u;
-    volatile uint32_t u32RegCompMux=0u;
+    volatile uint32_t u32Reg=0U;
+    volatile uint32_t u32RegCompInterrupt=0U;
+    volatile uint32_t u32RegCompSelect=0U;
+    volatile uint32_t u32RegCompMux=0U;
     if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
     {
         if(DMA_DMACHIS_R_CHIS17_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS17_MASK))
@@ -58,10 +58,10 @@ void ADC0_SS3__vIRQVectorHandler(void)
     if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_3))
      {
          ADC0_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_3);
-         if(u32RegCompSelect & ((uint32_t)0x1u<<(ADC_en_MUX_0*0x4u)))
+         if(u32RegCompSelect & ((uint32_t)0x1u<<(ADC_en_MUX_0*0x4U)))
          {
-             u32RegCompMux = ADC0_ADCSSDC3_R>>(ADC_en_MUX_0*0x4u);
-             u32RegCompMux&= 0xFu;
+             u32RegCompMux = ADC0_ADCSSDC3_R>>(ADC_en_MUX_0*0x4U);
+             u32RegCompMux&= 0xFU;
              if(u32RegCompInterrupt & ((uint32_t)1u<<u32RegCompMux))
              {
                  ADC0_ADCDCISC_R = ((uint32_t)1u<<u32RegCompMux);

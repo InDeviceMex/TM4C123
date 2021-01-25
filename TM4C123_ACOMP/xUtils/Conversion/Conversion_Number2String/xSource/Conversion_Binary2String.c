@@ -26,7 +26,7 @@
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Binary2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/Conversion_Primitives/Conversion_Primitives.h>
 
-#define BIN2STRINGMAX   (40u)
+#define BIN2STRINGMAX   (40U)
 
 const char pc8Bin[2]={'0','1'};
 
@@ -35,7 +35,7 @@ uint8_t Conv__u8Bin2String(uint64_t u64Number, char* pcConv)
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     char  pcConvTemp[BIN2STRINGMAX]={0};/*longitud maxima de long 16 digitos*/
     char  *pcPointerActual=&pcConvTemp[BIN2STRINGMAX - 1u];
-    uint8_t u8Length =0u;
+    uint8_t u8Length =0U;
 
     enStatus =Conv__enConversion(pcPointerActual,u64Number,&u8Length,2u,pc8Bin);
     if(CONV_enSTATUS_OK == enStatus)
@@ -46,7 +46,7 @@ uint8_t Conv__u8Bin2String(uint64_t u64Number, char* pcConv)
         enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
-            u8Length=0u;
+            u8Length=0U;
         }
     }
     return u8Length;

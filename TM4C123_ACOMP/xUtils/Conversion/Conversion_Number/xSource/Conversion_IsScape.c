@@ -27,7 +27,7 @@
 CONV_nSCAPE Conv__enIsScape(char cCharacter)
 {
     CONV_nSCAPE enStatus= CONV_enSCAPE_NO;
-    if(cCharacter == (char) 0x1Bu)
+    if(cCharacter == (char) 0x1BU)
     {
         enStatus=CONV_enSCAPE_OK;
     }

@@ -31,47 +31,47 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_MASK              ((uint32_t)0x00000100u)
-#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_BIT               (8u)
-#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_DIS               ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_EN                ((uint32_t)0x00000100u)
+#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_MASK              ((uint32_t)0x00000100U)
+#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_BIT               (8U)
+#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_DIS               ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_R_TnTOCINT_EN                ((uint32_t)0x00000100U)
 
-#define GPWTM_TB_GPTMTnICR_TnTOCINT_MASK                ((uint32_t)0x00000001u)
-#define GPWTM_TB_GPTMTnICR_TnTOCINT_DIS                 ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_TnTOCINT_EN                  ((uint32_t)0x00000001u)
+#define GPWTM_TB_GPTMTnICR_TnTOCINT_MASK                ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnICR_TnTOCINT_DIS                 ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_TnTOCINT_EN                  ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnICR_R_CnMCINT_MASK               ((uint32_t)0x00000200u)
-#define GPWTM_TB_GPTMTnICR_R_CnMCINT_BIT                (9u)
-#define GPWTM_TB_GPTMTnICR_R_CnMCINT_DIS                ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_R_CnMCINT_EN                 ((uint32_t)0x00000200u)
+#define GPWTM_TB_GPTMTnICR_R_CnMCINT_MASK               ((uint32_t)0x00000200U)
+#define GPWTM_TB_GPTMTnICR_R_CnMCINT_BIT                (9U)
+#define GPWTM_TB_GPTMTnICR_R_CnMCINT_DIS                ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_R_CnMCINT_EN                 ((uint32_t)0x00000200U)
 
-#define GPWTM_TB_GPTMTnICR_CnMCINT_MASK                 ((uint32_t)0x00000001u)
-#define GPWTM_TB_GPTMTnICR_CnMCINT_DIS                  ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_CnMCINT_EN                   ((uint32_t)0x00000001u)
+#define GPWTM_TB_GPTMTnICR_CnMCINT_MASK                 ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnICR_CnMCINT_DIS                  ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_CnMCINT_EN                   ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnICR_R_CnECINT_MASK               ((uint32_t)0x00000400u)
-#define GPWTM_TB_GPTMTnICR_R_CnECINT_BIT                (10u)
-#define GPWTM_TB_GPTMTnICR_R_CnECINT_DIS                ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_R_CnECINT_EN                 ((uint32_t)0x00000400u)
+#define GPWTM_TB_GPTMTnICR_R_CnECINT_MASK               ((uint32_t)0x00000400U)
+#define GPWTM_TB_GPTMTnICR_R_CnECINT_BIT                (10U)
+#define GPWTM_TB_GPTMTnICR_R_CnECINT_DIS                ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_R_CnECINT_EN                 ((uint32_t)0x00000400U)
 
-#define GPWTM_TB_GPTMTnICR_CnECINT_MASK                 ((uint32_t)0x00000001u)
-#define GPWTM_TB_GPTMTnICR_CnECINT_DIS                  ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_CnECINT_EN                   ((uint32_t)0x00000001u)
+#define GPWTM_TB_GPTMTnICR_CnECINT_MASK                 ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnICR_CnECINT_DIS                  ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_CnECINT_EN                   ((uint32_t)0x00000001U)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnICR_R_TnMCINT_MASK               ((uint32_t)0x00000800u)
-#define GPWTM_TB_GPTMTnICR_R_TnMCINT_BIT                (11u)
-#define GPWTM_TB_GPTMTnICR_R_TnMCINT_DIS                ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_R_TnMCINT_EN                 ((uint32_t)0x00000800u)
+#define GPWTM_TB_GPTMTnICR_R_TnMCINT_MASK               ((uint32_t)0x00000800U)
+#define GPWTM_TB_GPTMTnICR_R_TnMCINT_BIT                (11U)
+#define GPWTM_TB_GPTMTnICR_R_TnMCINT_DIS                ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_R_TnMCINT_EN                 ((uint32_t)0x00000800U)
 
-#define GPWTM_TB_GPTMTnICR_TnMCINT_MASK                 ((uint32_t)0x00000001u)
-#define GPWTM_TB_GPTMTnICR_TnMCINT_DIS                  ((uint32_t)0x00000000u)
-#define GPWTM_TB_GPTMTnICR_TnMCINT_EN                   ((uint32_t)0x00000001u)
+#define GPWTM_TB_GPTMTnICR_TnMCINT_MASK                 ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnICR_TnMCINT_DIS                  ((uint32_t)0x00000000U)
+#define GPWTM_TB_GPTMTnICR_TnMCINT_EN                   ((uint32_t)0x00000001U)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_32_TIMER_REGISTERDEFINES_MODULEB_32_ICR_H_ */

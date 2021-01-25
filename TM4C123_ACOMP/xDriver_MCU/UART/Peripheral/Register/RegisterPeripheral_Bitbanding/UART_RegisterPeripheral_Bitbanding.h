@@ -33,7 +33,7 @@
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/UART_RegisterPeripheral_Bitbanding_Module6.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/UART_RegisterPeripheral_Bitbanding_Module7.h>
 
-#define UART_BITBANDING              (((UARTS_BITBANDING_TypeDef*)(UART_BITBANDING_BASE+(UART_OFFSET*32u))))
+#define UART_BITBANDING              (((UARTS_BITBANDING_TypeDef*)(UART_BITBANDING_BASE+(UART_OFFSET*32U))))
 
 extern UART_BITBANDING_TypeDef* UART_BITBANDING_BLOCK[(uint32_t)UART_enMODULE_MAX+1u];
 

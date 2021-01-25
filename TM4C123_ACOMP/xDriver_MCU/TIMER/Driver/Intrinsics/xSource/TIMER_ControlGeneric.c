@@ -31,9 +31,9 @@ void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneri
 {
     uint32_t u32Reg=0;
     uint32_t u32RegControl=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     uint32_t u32Shift=8u*u32Letter;
     uint32_t u32RegAux=0;
     GPTM_TypeDef* psTimerCTL=0;
@@ -62,9 +62,9 @@ uint32_t TIMER__u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, ui
     uint32_t u32Reg=0;
     uint32_t u32ControlGeneric=0xFF;
     TIMER_nREADY enReady= TIMER_enNOREADY;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     uint32_t u32Shift=8u*u32Letter;
     GPTM_TypeDef* psTimerCTL=0;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)

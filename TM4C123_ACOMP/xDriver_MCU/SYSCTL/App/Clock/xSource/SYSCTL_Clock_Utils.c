@@ -25,7 +25,7 @@
 #include <xDriver_MCU/SYSCTL/App/Clock/xHeader/SYSCTL_Clock_Utils.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
-#define  SYSCTL_FREQXTAL_INDEXMAX ((uint32_t)27u)
+#define  SYSCTL_FREQXTAL_INDEXMAX ((uint32_t)27U)
 
 const uint32_t SYSCTL_u32FreqXtal[SYSCTL_FREQXTAL_INDEXMAX]=
     { 0       ,0       ,0       ,0       ,0       ,0       ,
@@ -60,7 +60,7 @@ uint32_t SYSCTL__u32GetOSCSourceFreq_Div(uint32_t u32Frequency)
     /*OSC source/div*/
     if(SYSCTL_RCC_R_USESYSDIV_SYSDIV==(u32RegRCC&SYSCTL_RCC_R_USESYSDIV_MASK))
     {
-        u32RegAux= u32RegSYSDIV2+1u;
+        u32RegAux= u32RegSYSDIV2+1U;
         u32RegFreq/=u32RegAux;
     }
     else

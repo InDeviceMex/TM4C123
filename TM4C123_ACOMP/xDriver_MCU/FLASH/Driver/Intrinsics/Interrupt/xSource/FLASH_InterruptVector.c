@@ -29,7 +29,7 @@ void FLASH__vEnInterruptVector(FLASH_nPRIORITY enFlashPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_FLASH;
 
-    enFlashPriority&=0x7u;
+    enFlashPriority&=0x7U;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enFlashPriority);
 }
 

@@ -31,7 +31,7 @@
 void GPIOE__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg = 0;
-    uint32_t u32RegBUS = SYSCTL_GPIOHBCTL_R & (uint32_t) ((uint32_t) 1u << 2u);
+    uint32_t u32RegBUS = SYSCTL_GPIOHBCTL_R & (uint32_t) ((uint32_t) 1u << 2U);
     if(SYSCTL_RCGCDMA_R_UDMA_EN
             == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
     {

@@ -19,7 +19,7 @@ float32_t SysTick__fGetFrequency(void)
 {
     float32_t fReg=0.0;
     uint32_t u32FreeCount= SysTick__u32GetFreeCount();
-    if(u32FreeCount!=0u)
+    if(u32FreeCount!=0U)
     {
         float32_t fTickFrec = SysTick__fGetTickFreq();
         fReg=fTickFrec;

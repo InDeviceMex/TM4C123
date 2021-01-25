@@ -30,16 +30,16 @@ const SCB_nVECISR SCB_enVECISR_DMA[(uint32_t)DMA_enVECTOR_MAX+1u]={SCB_enVECISR_
 
 void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nVECTOR enVector)
 {
-    uint32_t u32IrqVectorHandler=0u;
+    uint32_t u32IrqVectorHandler=0U;
     SCB_nVECISR enSCBVector=SCB_enVECISR_UDMASOFT;
-    if((uint32_t)pfIrqVectorHandler !=0u)
+    if((uint32_t)pfIrqVectorHandler !=0U)
     {
         if(enVector>DMA_enVECTOR_MAX)
         {
             enVector=DMA_enVECTOR_MAX;
         }
         enSCBVector=SCB_enVECISR_DMA[enVector];
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1u);
+        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
         DMA__pvIRQVectorHandler[(uint32_t)enVector]=(void (*) (void))u32IrqVectorHandler;
         SCB__vRegisterIRQVectorHandler(DMA__pvIRQVectorHandler[(uint32_t)enVector],enSCBVector);
     }

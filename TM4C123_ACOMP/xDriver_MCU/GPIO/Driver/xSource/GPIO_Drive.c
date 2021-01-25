@@ -35,8 +35,8 @@ void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin,
     uint32_t u32Reg = 0;
     uint32_t u32RegSLR = 0;
     GPIO_AUX_TypeDef *gpio = 0;
-    uint32_t u32Drive = enDriveParam & 0x3u;
-    uint32_t u32SlewRate = (enDriveParam >> 8u) & 0x1u;
+    uint32_t u32Drive = enDriveParam & 0x3U;
+    uint32_t u32SlewRate = (enDriveParam >> 8U) & 0x1U;
     if(enPort > GPIO_enPORT_MAX)
     {
         enPort = GPIO_enPORT_MAX;
@@ -50,7 +50,7 @@ void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin,
     u32RegSLR = gpio->GPIOSLR;
     u32Reg |= enPin;
     gpio->GPIODRR[u32Drive] = u32Reg;
-    if(u32SlewRate == 1u)
+    if(u32SlewRate == 1U)
     {
         u32RegSLR |= enPin;
     }

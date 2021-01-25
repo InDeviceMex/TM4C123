@@ -31,14 +31,14 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAERRCLR_R_ERRCLR_MASK      ((uint32_t)0x00000001u)
-#define DMA_DMAERRCLR_R_ERRCLR_BIT       ((uint32_t)0u)
-#define DMA_DMAERRCLR_R_ERRCLR_NOERROR   ((uint32_t)0x00000000u)
-#define DMA_DMAERRCLR_R_ERRCLR_ERROR     ((uint32_t)0x00000001u)
+#define DMA_DMAERRCLR_R_ERRCLR_MASK      ((uint32_t)0x00000001U)
+#define DMA_DMAERRCLR_R_ERRCLR_BIT       ((uint32_t)0U)
+#define DMA_DMAERRCLR_R_ERRCLR_NOERROR   ((uint32_t)0x00000000U)
+#define DMA_DMAERRCLR_R_ERRCLR_ERROR     ((uint32_t)0x00000001U)
 
-#define DMA_DMAERRCLR_ERRCLR_MASK        ((uint32_t)0x00000001u)
-#define DMA_DMAERRCLR_ERRCLR_NOERROR     ((uint32_t)0x00000000u)
-#define DMA_DMAERRCLR_ERRCLR_ERROR       ((uint32_t)0x00000001u)
+#define DMA_DMAERRCLR_ERRCLR_MASK        ((uint32_t)0x00000001U)
+#define DMA_DMAERRCLR_ERRCLR_NOERROR     ((uint32_t)0x00000000U)
+#define DMA_DMAERRCLR_ERRCLR_ERROR       ((uint32_t)0x00000001U)
 /*--------*/
 
 

@@ -36,9 +36,9 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,
 
     GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
 
-    uint32_t u32Port = (enFunction >> 16u) & 0xFFu;
-    uint32_t u32Bit = (enFunction >> 8u) & 0x1Fu;
-    uint32_t u32Pin = (u32Bit >> 2u) & 0xFFu;
+    uint32_t u32Port = (enFunction >> 16U) & 0xFFU;
+    uint32_t u32Bit = (enFunction >> 8U) & 0x1FU;
+    uint32_t u32Pin = (u32Bit >> 2U) & 0xFFU;
     u32Pin = ((uint32_t) 1u << u32Pin);
     GPIO_nPORT enPort = (GPIO_nPORT) u32Port;
     GPIO_nPIN enPin = (GPIO_nPIN) u32Pin;
@@ -64,9 +64,9 @@ GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(GPIO_nDIGITAL_FUNCTION enFunction,
 
     GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
 
-    uint32_t u32Port = (enFunction >> 16u) & 0xFFu;
-    uint32_t u32Bit = (enFunction >> 8u) & 0x1Fu;
-    uint32_t u32Pin = (u32Bit >> 2u) & 0xFFu;
+    uint32_t u32Port = (enFunction >> 16U) & 0xFFU;
+    uint32_t u32Bit = (enFunction >> 8U) & 0x1FU;
+    uint32_t u32Pin = (u32Bit >> 2U) & 0xFFU;
     u32Pin = ((uint32_t) 1u << u32Pin);
     GPIO_nPORT enPort = (GPIO_nPORT) u32Port;
     GPIO_nPIN enPin = (GPIO_nPIN) u32Pin;
@@ -86,9 +86,9 @@ GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 {
     GPIO_nCONFIG enConfig = GPIO_enCONFIG_UNDEF;
 
-    uint32_t u32Port = (enFunction >> 16u) & 0xFFu;
-    uint32_t u32Bit = (enFunction >> 8u) & 0x1Fu;
-    uint32_t u32Pin = (u32Bit >> 2u) & 0xFFu;
+    uint32_t u32Port = (enFunction >> 16U) & 0xFFU;
+    uint32_t u32Bit = (enFunction >> 8U) & 0x1FU;
+    uint32_t u32Pin = (u32Bit >> 2U) & 0xFFU;
     u32Pin = ((uint32_t) 1u << u32Pin);
     GPIO_nPORT enPort = (GPIO_nPORT) u32Port;
     GPIO_nPIN enPin = (GPIO_nPIN) u32Pin;
@@ -118,9 +118,9 @@ void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,
                              GPIO_CONFIG_Typedef *psConfig)
 {
 
-    uint32_t u32Port = (enFunction >> 16u) & 0xFFu;
-    uint32_t u32Bit = (enFunction >> 8u) & 0x1Fu;
-    uint32_t u32Pin = (u32Bit >> 2u) & 0xFFu;
+    uint32_t u32Port = (enFunction >> 16U) & 0xFFU;
+    uint32_t u32Bit = (enFunction >> 8U) & 0x1FU;
+    uint32_t u32Pin = (u32Bit >> 2U) & 0xFFU;
     u32Pin = ((uint32_t) 1u << u32Pin);
     GPIO_nPORT enPort = (GPIO_nPORT) u32Port;
     GPIO_nPIN enPin = (GPIO_nPIN) u32Pin;
@@ -135,9 +135,9 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
 {
     GPIO_CONFIG_Typedef *psConfig = 0;
 
-    uint32_t u32Port = (enFunction >> 16u) & 0xFFu;
-    uint32_t u32Bit = (enFunction >> 8u) & 0x1Fu;
-    uint32_t u32Pin = (u32Bit >> 2u) & 0xFFu;
+    uint32_t u32Port = (enFunction >> 16U) & 0xFFU;
+    uint32_t u32Bit = (enFunction >> 8U) & 0x1FU;
+    uint32_t u32Pin = (u32Bit >> 2U) & 0xFFU;
     u32Pin = ((uint32_t) 1u << u32Pin);
     GPIO_nPORT enPort = (GPIO_nPORT) u32Port;
     GPIO_nPIN enPin = (GPIO_nPIN) u32Pin;

@@ -28,7 +28,7 @@ void HIB__vEnInterruptVector(HIB_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_HIB;
 
-    enPriority&=0x7u;
+    enPriority&=0x7U;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enPriority);
 }
 

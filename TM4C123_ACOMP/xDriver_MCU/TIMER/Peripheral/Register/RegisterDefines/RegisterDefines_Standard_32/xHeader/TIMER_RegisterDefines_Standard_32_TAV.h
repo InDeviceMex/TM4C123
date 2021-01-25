@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_GPTMTAV_R_TAV_MASK                 ((uint32_t)0xFFFFFFFFu)
-#define GPTM_GPTMTAV_R_TAV_BIT                  (0u)
+#define GPTM_GPTMTAV_R_TAV_MASK                 ((uint32_t)0xFFFFFFFFU)
+#define GPTM_GPTMTAV_R_TAV_BIT                  (0U)
 
-#define GPTM_GPTMTAV_TAV_MASK                   ((uint32_t)0xFFFFFFFFu)
+#define GPTM_GPTMTAV_TAV_MASK                   ((uint32_t)0xFFFFFFFFU)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_32_TIMER_REGISTERDEFINES_STANDARD_32_TAV_H_ */

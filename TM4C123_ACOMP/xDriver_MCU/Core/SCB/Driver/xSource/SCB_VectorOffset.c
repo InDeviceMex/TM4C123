@@ -43,11 +43,11 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
     uint32_t u32FlashTemp=0;
     uint32_t u32Count=0;
 
-    u32Offset&=~(uint32_t)0x3FFu;
+    u32Offset&=~(uint32_t)0x3FFU;
     u32FlashTemp = MCU__u32ReadRegister(SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
-    if(u32Offset<0x00010000u)
+    if(u32Offset<0x00010000U)
     {
-        FLASH__enWriteMultiWorld((uint32_t*)u32FlashTemp,u32Offset,(uint32_t)0x100u);
+        FLASH__enWriteMultiWorld((uint32_t*)u32FlashTemp,u32Offset,(uint32_t)0x100U);
         __asm(" cpsid i");
         MCU__vWriteRegister(SCB_BASE, SCB_VTOR_OFFSET, u32Offset, SCB_VTOR_R_TBLOFF_MASK, 0UL);
         SCB_vBarrier();
@@ -57,11 +57,11 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
     {
         pu32Flash=(const uint32_t*)u32FlashTemp;
         pu32Ram=(uint32_t*)&SCB__pfnVectors;
-        for(u32Count=0u; u32Count<0x100u;u32Count++ )
+        for(u32Count=0U; u32Count<0x100U;u32Count++ )
         {
             *pu32Ram=*pu32Flash;
-            pu32Ram+=1u;
-            pu32Flash+=1u;
+            pu32Ram+=1U;
+            pu32Flash+=1U;
         }
         __asm(" cpsid i");
         MCU__vWriteRegister(SCB_BASE, SCB_VTOR_OFFSET, (uint32_t)&SCB__pfnVectors, SCB_VTOR_R_TBLOFF_MASK, 0UL);

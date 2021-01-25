@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TB_GPTMTnR_R_TnR_MASK              ((uint32_t)0x0000FFFFu)
-#define GPTM_TB_GPTMTnR_R_TnR_BIT               (0u)
+#define GPTM_TB_GPTMTnR_R_TnR_MASK              ((uint32_t)0x0000FFFFU)
+#define GPTM_TB_GPTMTnR_R_TnR_BIT               (0U)
 
-#define GPTM_TB_GPTMTnR_TnR_MASK                ((uint32_t)0x0000FFFFu)
+#define GPTM_TB_GPTMTnR_TnR_MASK                ((uint32_t)0x0000FFFFU)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_16_TIMER_REGISTERDEFINES_MODULEB_16_R_H_ */

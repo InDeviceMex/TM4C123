@@ -29,7 +29,7 @@
 
 void ADC__vSetSequencerInitConv(ADC_nMODULE enModule, ADC_nSEQMASK enSequence)
 {
-    ADC__vSetSequencerGeneric((uint32_t) enModule,ADC_ADCPSSI_OFFSET, (uint32_t) enSequence, (uint32_t) 1u);
+    ADC__vSetSequencerGeneric((uint32_t) enModule,ADC_ADCPSSI_OFFSET, (uint32_t) enSequence, (uint32_t) 1U);
 }
 
 

@@ -29,9 +29,9 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
     uint32_t u32AddressNextPage=0;
 
 
-    u32AddressCurrent=u32Address&~(uint32_t)0x3u;
+    u32AddressCurrent=u32Address&~(uint32_t)0x3U;
 
-    if((u32AddressCurrent+(u32Count*(uint32_t)4u))<=FLASH_ADDRESS_MAX)
+    if((u32AddressCurrent+(u32Count*(uint32_t)4U))<=FLASH_ADDRESS_MAX)
     {
         if( (uint32_t)0 != u32Count)
         {
@@ -45,11 +45,11 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                 do
                 {
                     /*Inicio de la pagina de 1KB actual*/
-                    u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1u);
+                    u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1U);
                     /*Inicio de la pagina sigueinte de 1KB actual*/
                     u32AddressNextPage=u32AddressPage+FLASH_PAGE_SIZE;
                     /*Offset en 32bit world de mi direccion actual*/
-                    u32OffsetWorld=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1u))>>(uint32_t)2u;
+                    u32OffsetWorld=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1U))>>(uint32_t)2U;
                     /*Bufferactual = Buffer Incial*/
                     pu32PageData=pu32PageDataInitial;
                     /*Diferencia de mi final de pagina con mi direccion actual en 32bit Worlds*/
@@ -57,11 +57,11 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                     /*Puntero al inico de la page actual de 1KB*/
                     pu32Address=(uint32_t*)u32AddressPage;
                     /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
-                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
+                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2U);u32Pos++)
                     {
                         *pu32PageData =*pu32Address;
-                        pu32PageData+=1u;
-                        pu32Address+=1u;
+                        pu32PageData+=1U;
+                        pu32Address+=1U;
                     }
                     /*Identificar si el contador actual sigue sienod mayor al limite de mi pagina o se
                      * delimita en la pagina
@@ -80,21 +80,21 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                     for(u32Pos=(uint32_t)0;u32Pos<u32Dif;u32Pos++)
                     {
                         *pu32PageData =*pu32Data;
-                        pu32PageData+=1u;
-                        pu32Data+=1u;
+                        pu32PageData+=1U;
+                        pu32Data+=1U;
                     }
 
                     FLASH__enPageErase(u32AddressPage);
                     pu32PageData=pu32PageDataInitial;
-                    for(u32Pos=(uint32_t)0u;u32Pos<(uint32_t)8u;u32Pos++)
+                    for(u32Pos=(uint32_t)0U;u32Pos<(uint32_t)8U;u32Pos++)
                     {
-                        enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32u);
+                        enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32U);
                         if( FLASH_enERROR == enReturn)
                         {
                             break;
                         }
-                        u32AddressPage+=(uint32_t)0x80u;/*32World = 4Bytes*32 =0x80=128*/
-                        pu32PageData+=(uint32_t)32u;
+                        u32AddressPage+=(uint32_t)0x80U;/*32World = 4Bytes*32 =0x80=128*/
+                        pu32PageData+=(uint32_t)32U;
                     }
                     u32AddressCurrent=u32AddressPage;
                     u32Count-=u32Dif;
@@ -126,9 +126,9 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
     uint32_t u32AddressNextPage=0;
 
 
-    u32AddressCurrent=u32Address&~(uint32_t)0x1u;
+    u32AddressCurrent=u32Address&~(uint32_t)0x1U;
 
-    if((u32AddressCurrent+(u32Count*(uint32_t)2u))<=FLASH_ADDRESS_MAX)
+    if((u32AddressCurrent+(u32Count*(uint32_t)2U))<=FLASH_ADDRESS_MAX)
     {
         if( (uint32_t)0 != u32Count)
         {
@@ -142,11 +142,11 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                 do
                 {
                     /*Inicio de la pagina de 1KB actual*/
-                    u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1u);
+                    u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1U);
                     /*Inicio de la pagina sigueinte de 1KB actual*/
                     u32AddressNextPage=u32AddressPage+FLASH_PAGE_SIZE;
                     /*Offset en 16bit world de mi direccion actual*/
-                    u32OffsetHalfWorld=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1u))>>(uint32_t)1u;
+                    u32OffsetHalfWorld=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1U))>>(uint32_t)1U;
                     /*Bufferactual = Buffer Incial*/
                     pu32PageData=pu32PageDataInitial;
                     /*Diferencia de mi final de pagina con mi direccion actual en 16bit Worlds*/
@@ -154,11 +154,11 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                     /*Puntero al inico de la page actual de 1KB*/
                     pu32Address=(uint32_t*)u32AddressPage;
                     /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
-                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
+                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2U);u32Pos++)
                     {
                         *pu32PageData =*pu32Address;
-                        pu32PageData+=1u;
-                        pu32Address+=1u;
+                        pu32PageData+=1U;
+                        pu32Address+=1U;
                     }
                     /*Identificar si el contador actual sigue sienod mayor al limite de mi pagina o se
                      * delimita en la pagina
@@ -174,24 +174,24 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
 
                     pu16PageData=(uint16_t*)pu32PageDataInitial;
                     pu16PageData+=u32OffsetHalfWorld;
-                    for(u32Pos=(uint32_t)0u;u32Pos<u32Dif;u32Pos++)
+                    for(u32Pos=(uint32_t)0U;u32Pos<u32Dif;u32Pos++)
                     {
                         *pu16PageData =*pu16Data;
-                        pu16PageData+=1u;
-                        pu16Data+=1u;
+                        pu16PageData+=1U;
+                        pu16Data+=1U;
                     }
 
                     FLASH__enPageErase(u32AddressPage);
                     pu32PageData=pu32PageDataInitial;
-                    for(u32Pos=(uint32_t)0u;u32Pos<(uint32_t)8u;u32Pos++)
+                    for(u32Pos=(uint32_t)0U;u32Pos<(uint32_t)8U;u32Pos++)
                     {
-                        enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32u);
+                        enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32U);
                         if(FLASH_enERROR==enReturn)
                         {
                             break;
                         }
-                        u32AddressPage+=(uint32_t)0x80u;/*32World = 4Bytes*32 =0x80=128*/
-                        pu32PageData+=(uint32_t)32u;
+                        u32AddressPage+=(uint32_t)0x80U;/*32World = 4Bytes*32 =0x80=128*/
+                        pu32PageData+=(uint32_t)32U;
                     }
                     u32AddressCurrent=u32AddressPage;
                     u32Count-=u32Dif;
@@ -240,11 +240,11 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                 do
                 {
                     /*Inicio de la pagina de 1KB actual*/
-                    u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1u);
+                    u32AddressPage=u32AddressCurrent&~(FLASH_PAGE_SIZE-(uint32_t)1U);
                     /*Inicio de la pagina sigueinte de 1KB actual*/
                     u32AddressNextPage=u32AddressPage+FLASH_PAGE_SIZE;
                     /*Offset en 16bit world de mi direccion actual*/
-                    u32OffsetByte=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1u));
+                    u32OffsetByte=(u32AddressCurrent&(FLASH_PAGE_SIZE-(uint32_t)1U));
                     /*Bufferactual = Buffer Incial*/
                     pu32PageData=pu32PageDataInitial;
                     /*Diferencia de mi final de pagina con mi direccion actual en 16bit Worlds*/
@@ -252,11 +252,11 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                     /*Puntero al inico de la page actual de 1KB*/
                     pu32Address=(uint32_t*)u32AddressPage;
                     /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
-                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2u);u32Pos++)
+                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)(FLASH_PAGE_SIZE>>(uint32_t)2U);u32Pos++)
                     {
                         *pu32PageData =*pu32Address;
-                        pu32PageData+=1u;
-                        pu32Address+=1u;
+                        pu32PageData+=1U;
+                        pu32Address+=1U;
                     }
                     /*Identificar si el contador actual sigue sienod mayor al limite de mi pagina o se
                      * delimita en la pagina
@@ -275,21 +275,21 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                     for(u32Pos=(uint32_t)0;u32Pos<u32Dif;u32Pos++)
                     {
                         *pu8PageData =*pu8Data;
-                        pu8PageData+=1u;
-                        pu8Data+=1u;
+                        pu8PageData+=1U;
+                        pu8Data+=1U;
                     }
 
                     FLASH__enPageErase(u32AddressPage);
                     pu32PageData=pu32PageDataInitial;
-                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)8u;u32Pos++)
+                    for(u32Pos=(uint32_t)0;u32Pos<(uint32_t)8U;u32Pos++)
                     {
-                        enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32u);
+                        enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage,(uint32_t)32U);
                         if( FLASH_enERROR == enReturn)
                         {
                             break;
                         }
-                        u32AddressPage+=(uint32_t)0x80u;/*32World = 4Bytes*32 =0x80=128*/
-                        pu32PageData+=(uint32_t)32u;
+                        u32AddressPage+=(uint32_t)0x80U;/*32World = 4Bytes*32 =0x80=128*/
+                        pu32PageData+=(uint32_t)32U;
                     }
                     u32AddressCurrent=u32AddressPage;
                     u32Count-=u32Dif;

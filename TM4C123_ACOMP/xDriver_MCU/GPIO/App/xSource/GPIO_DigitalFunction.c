@@ -32,10 +32,10 @@
 void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
 {
     GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32Port = (enFunction >> 16u) & 0xFFu;
-    uint32_t u32Bit = (enFunction >> 8u) & 0x1Fu;
-    uint32_t u32Pin = (u32Bit >> 2u) & 0xFFu;
-    uint32_t u32Value = (enFunction) & 0xFu;
+    uint32_t u32Port = (enFunction >> 16U) & 0xFFU;
+    uint32_t u32Bit = (enFunction >> 8U) & 0x1FU;
+    uint32_t u32Pin = (u32Bit >> 2U) & 0xFFU;
+    uint32_t u32Value = (enFunction) & 0xFU;
     uint32_t u32Reg = 0;
     GPIO_TypeDef *gpio = 0;
     u32Value <<= u32Bit;

@@ -45,9 +45,9 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
     /*Erase*/
     uint32_t u32Reg=0;
     uint32_t u32RegPrescaler=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
     volatile uint32_t* pu32TimerILRLow=0;
     volatile uint32_t* pu32TimerILRHigh=0;
     volatile uint32_t* pu32TimerPR=0;
@@ -67,13 +67,13 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
             pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
             pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
 
-            *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFu);
-            *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFu);
+            *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFU);
+            *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFU);
         }
         else
         {
             pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
-            u64Reload&=0xFFFFFFFFu;
+            u64Reload&=0xFFFFFFFFU;
             *pu32TimerILRLow =  (uint32_t) (u64Reload);
         }
         break;
@@ -82,9 +82,9 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint32_t u32PrescalerRTC, uint64_
         pu32TimerILRHigh=TIMER_TnILR_BLOCK[u32Wide][1][u32Number];
         pu32TimerRTCPD=TIMER_RTCPD_BLOCK[u32Number];
 
-        *pu32TimerRTCPD=u32PrescalerRTC&0xFFFFu;
-        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFu);
-        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFu);
+        *pu32TimerRTCPD=u32PrescalerRTC&0xFFFFU;
+        *pu32TimerILRHigh = (uint32_t)((u64Reload>>32)&0xFFFFFFFFU);
+        *pu32TimerILRLow =  (uint32_t) (u64Reload&0xFFFFFFFFU);
         break;
     case TIMER_enCONFIG_INDIVIDUAL:
 
@@ -135,16 +135,16 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint32_t* pu32Prescaler
     TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
     TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
     /*Erase*/
-    uint64_t u64Reg=0u;
-    uint32_t u32Reg=0u;
-    uint32_t u32RegPrescaler=0u;
-    uint32_t u32Number= (uint32_t) enModule & 0x7u;
-    uint32_t u32Letter= ((uint32_t) enModule>>8u) & 0x1u;
-    uint32_t u32Wide= ((uint32_t) enModule>>16u) & 0x1u;
-    volatile uint32_t* pu32TimerILRLow=0u;
-    volatile uint32_t* pu32TimerILRHigh=0u;
-    volatile uint32_t* pu32TimerPR=0u;
-    volatile uint32_t* pu32TimerRTCPD=0u;
+    uint64_t u64Reg=0U;
+    uint32_t u32Reg=0U;
+    uint32_t u32RegPrescaler=0U;
+    uint32_t u32Number= (uint32_t) enModule & 0x7U;
+    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
+    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
+    volatile uint32_t* pu32TimerILRLow=0U;
+    volatile uint32_t* pu32TimerILRHigh=0U;
+    volatile uint32_t* pu32TimerPR=0U;
+    volatile uint32_t* pu32TimerRTCPD=0U;
     if((uint32_t)TIMER_enMISC_MAX<u32Number)
     {
         u32Number=(uint32_t)TIMER_enMISC_MAX;
@@ -164,7 +164,7 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint32_t* pu32Prescaler
                 pu32TimerILRLow=TIMER_TnILR_BLOCK[u32Wide][0][u32Number];
                 u32Reg = (uint32_t)(*pu32TimerILRHigh);
                 u64Reg = (uint64_t) u32Reg;
-                u64Reg<<=32u;
+                u64Reg<<=32U;
                 u32Reg = (uint32_t)(*pu32TimerILRLow);
                 u64Reg|= (uint64_t)u32Reg;
 
@@ -186,11 +186,11 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint32_t* pu32Prescaler
 
             u32Reg = (uint32_t)(*pu32TimerILRHigh);
             u64Reg = (uint64_t) u32Reg;
-            u64Reg<<=32u;
+            u64Reg<<=32U;
             u32Reg = (uint32_t)(*pu32TimerILRLow);
             u64Reg|= (uint64_t)u32Reg;
 
-            *pu32PrescalerRTC = *pu32TimerRTCPD &0xFFFFu;
+            *pu32PrescalerRTC = *pu32TimerRTCPD &0xFFFFU;
             *pu64Reload= u64Reg;
 
             break;

@@ -31,9 +31,9 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef*
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
 
-    uint32_t u32Count=0u;
-    uint32_t u32ServoMinCount= 0u;
-    uint32_t u32DegreeCountVar=0u;
+    uint32_t u32Count=0U;
+    uint32_t u32ServoMinCount= 0U;
+    uint32_t u32DegreeCountVar=0U;
     int32_t s32AngleAbsolute=90; /*Center*/
     if(0u != psServoMotor)
     {
@@ -58,17 +58,17 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
 
-    uint32_t u32Count=0u;
+    uint32_t u32Count=0U;
     uint32_t u32ServoMinCount= 0;
-    uint32_t u32DegreeCountVar=0u;
-    uint32_t u32AngleAbsolute=0u; /*Lowest*/
+    uint32_t u32DegreeCountVar=0U;
+    uint32_t u32AngleAbsolute=0U; /*Lowest*/
     if(0u != psServoMotor)
     {
         u32ServoMinCount= psServoMotor->u32MinCount;
         enTimerModuleVar = psServoMotor->enTimerModule;
         u32Count =u32ServoMinCount;/*1 ms min value*/
         u32DegreeCountVar=psServoMotor->u32DegreeCount;
-        if(u8Angle <=180u)
+        if(u8Angle <=180U)
         {
             u32AngleAbsolute=(uint32_t)u8Angle;
             u32AngleAbsolute*=(uint32_t)u32DegreeCountVar;
@@ -85,7 +85,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typ
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
 
-    uint32_t u32Count=0u;
+    uint32_t u32Count=0U;
     uint32_t u32ServoMinCount= 0;
     float32_t fDegreeCountVar=0.0f;
     float32_t fAngleAbsolute=90.0f; /*Center*/
@@ -112,8 +112,8 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
 
-    uint32_t u32Count=0u; /*1 ms min value*/
-    uint32_t u32ServoMinCount= 0u;
+    uint32_t u32Count=0U; /*1 ms min value*/
+    uint32_t u32ServoMinCount= 0U;
     float32_t fDegreeCountVar=0.0f;
     float32_t fAngleAbsolute=0.0f; /*Lowest*/
     if(0u != psServoMotor)

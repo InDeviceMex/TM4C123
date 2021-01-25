@@ -301,7 +301,7 @@ ResetISR(void)
     /* Note that this does not use DriverLib since it might not be included in*/
     /* this project.*/
     /**/
-    /*HWREG(0xE000ED88u) = ((HWREG(0xE000ED88u) & ~0x00F00000u) | 0x00F00000u);*/
+    /*HWREG(0xE000ED88U) = ((HWREG(0xE000ED88U) & ~0x00F00000U) | 0x00F00000U);*/
     
     /**/
     /* Call the application's entry point.*/
@@ -327,7 +327,7 @@ NmiSR(void)
     /**/
     /* Enter an infinite loop.*/
     /**/
-    while(1u)
+    while(1U)
     {
     }
 }
@@ -367,7 +367,7 @@ IntDefaultHandler(void)
     /**/
     /* Go into an infinite loop.*/
     /**/
-    while(1u)
+    while(1U)
     {
     }
 }

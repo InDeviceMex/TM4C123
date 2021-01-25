@@ -36,7 +36,7 @@ void (*FLASH__vIRQSourceHandler[(uint32_t)FLASH_enINTERRUPT_MAX+1u]) (void)=
 
 static void FLASH_vIRQSourceHandler_Dummy(void)
 {
-    while(1u)
+    while(1U)
     {
 
     }

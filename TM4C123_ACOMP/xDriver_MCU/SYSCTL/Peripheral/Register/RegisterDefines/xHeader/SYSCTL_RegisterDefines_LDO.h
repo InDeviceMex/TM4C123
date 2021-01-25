@@ -30,68 +30,68 @@
 ************************************21 LDOSPCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDOSPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDOSPCTL_R_VLDO_BIT     (0u)
+#define SYSCTL_LDOSPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFU)
+#define SYSCTL_LDOSPCTL_R_VLDO_BIT     (0U)
 
-#define SYSCTL_LDOSPCTL_VLDO_MASK      ((uint32_t)0x000000FFu)
+#define SYSCTL_LDOSPCTL_VLDO_MASK      ((uint32_t)0x000000FFU)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDOSPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000u)
-#define SYSCTL_LDOSPCTL_R_VADJEN_BIT     (31u)
+#define SYSCTL_LDOSPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000U)
+#define SYSCTL_LDOSPCTL_R_VADJEN_BIT     (31U)
 
-#define SYSCTL_LDOSPCTL_VADJEN_MASK      ((uint32_t)0x000000F01u)
+#define SYSCTL_LDOSPCTL_VADJEN_MASK      ((uint32_t)0x000000F01U)
 /*--------*/
 
 /******************************************************************************************
 ************************************22 LDOSPCAL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDOSPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDOSPCAL_R_NOPLL_BIT     (0u)
+#define SYSCTL_LDOSPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFU)
+#define SYSCTL_LDOSPCAL_R_NOPLL_BIT     (0U)
 
-#define SYSCTL_LDOSPCAL_NOPLL_MASK      ((uint32_t)0x000000FFu)
+#define SYSCTL_LDOSPCAL_NOPLL_MASK      ((uint32_t)0x000000FFU)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDOSPCAL_R_WITHPLL_MASK    ((uint32_t)0x0000FF00u)
-#define SYSCTL_LDOSPCAL_R_WITHPLL_BIT     (8u)
+#define SYSCTL_LDOSPCAL_R_WITHPLL_MASK    ((uint32_t)0x0000FF00U)
+#define SYSCTL_LDOSPCAL_R_WITHPLL_BIT     (8U)
 
-#define SYSCTL_LDOSPCAL_WITHPLL_MASK      ((uint32_t)0x000000FFu)
+#define SYSCTL_LDOSPCAL_WITHPLL_MASK      ((uint32_t)0x000000FFU)
 /*--------*/
 
 /******************************************************************************************
 ************************************23 LDODPCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDODPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDODPCTL_R_VLDO_BIT     (0u)
+#define SYSCTL_LDODPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFU)
+#define SYSCTL_LDODPCTL_R_VLDO_BIT     (0U)
 
-#define SYSCTL_LDODPCTL_VLDO_MASK      ((uint32_t)0x000000FFu)
+#define SYSCTL_LDODPCTL_VLDO_MASK      ((uint32_t)0x000000FFU)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDODPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000u)
-#define SYSCTL_LDODPCTL_R_VADJEN_BIT     (31u)
+#define SYSCTL_LDODPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000U)
+#define SYSCTL_LDODPCTL_R_VADJEN_BIT     (31U)
 
-#define SYSCTL_LDODPCTL_VADJEN_MASK      ((uint32_t)0x000000F01u)
+#define SYSCTL_LDODPCTL_VADJEN_MASK      ((uint32_t)0x000000F01U)
 /*--------*/
 
 /******************************************************************************************
 ************************************24 LDODPCAL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDODPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFu)
-#define SYSCTL_LDODPCAL_R_NOPLL_BIT     (0u)
+#define SYSCTL_LDODPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFU)
+#define SYSCTL_LDODPCAL_R_NOPLL_BIT     (0U)
 
-#define SYSCTL_LDODPCAL_NOPLL_MASK      ((uint32_t)0x000000FFu)
+#define SYSCTL_LDODPCAL_NOPLL_MASK      ((uint32_t)0x000000FFU)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDODPCAL_R_KHZ30_MASK    ((uint32_t)0x0000FF00u)
-#define SYSCTL_LDODPCAL_R_KHZ30_BIT     (8u)
+#define SYSCTL_LDODPCAL_R_KHZ30_MASK    ((uint32_t)0x0000FF00U)
+#define SYSCTL_LDODPCAL_R_KHZ30_BIT     (8U)
 
-#define SYSCTL_LDODPCAL_KHZ30_MASK      ((uint32_t)0x000000FFu)
+#define SYSCTL_LDODPCAL_KHZ30_MASK      ((uint32_t)0x000000FFU)
 /*--------*/
 
 

@@ -72,7 +72,7 @@ void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX + 1u][(uint32_t)AD
 
 static void ADC_vIRQSourceHandler_Dummy(void)
 {
-    while(1u)
+    while(1U)
     {
     }
 }

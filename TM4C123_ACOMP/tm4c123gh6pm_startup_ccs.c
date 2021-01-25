@@ -255,7 +255,7 @@ IntDefaultHandler(void)
     /**/
     /* Go into an infinite loop.*/
     /**/
-    while(1u)
+    while(1U)
     {
     }
 }

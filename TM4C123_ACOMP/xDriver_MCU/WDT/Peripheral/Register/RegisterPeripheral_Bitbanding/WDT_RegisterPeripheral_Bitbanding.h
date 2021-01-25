@@ -28,7 +28,7 @@
 #include <xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/WDT_RegisterPeripheral_Bitbanding_Module1.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-#define WDT_BITBANDING        (((WDT_BITBANDING_TypeDef*)(WDT_BITBANDING_BASE+(WDT_OFFSET*32u))))
+#define WDT_BITBANDING        (((WDT_BITBANDING_TypeDef*)(WDT_BITBANDING_BASE+(WDT_OFFSET*32U))))
 
 extern WDT_BITBANDING_TypeDef* WDT_BITBANDING_BLOCK[(uint32_t)WDT_enMODULE_MAX+1u];
 

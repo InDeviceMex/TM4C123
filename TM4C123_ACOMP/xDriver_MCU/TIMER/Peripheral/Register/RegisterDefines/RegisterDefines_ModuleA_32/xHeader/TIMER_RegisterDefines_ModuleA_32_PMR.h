@@ -31,10 +31,10 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TA_GPTMTnPMR_R_TnPSMR_MASK          ((uint32_t)0x0000FFFFu)
-#define GPWTM_TA_GPTMTnPMR_R_TnPSMR_BIT           (0u)
+#define GPWTM_TA_GPTMTnPMR_R_TnPSMR_MASK          ((uint32_t)0x0000FFFFU)
+#define GPWTM_TA_GPTMTnPMR_R_TnPSMR_BIT           (0U)
 
-#define GPWTM_TA_GPTMTnPMR_TnPSMR_MASK            ((uint32_t)0x0000FFFFu)
+#define GPWTM_TA_GPTMTnPMR_TnPSMR_MASK            ((uint32_t)0x0000FFFFU)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEA_32_TIMER_REGISTERDEFINES_MODULEA_32_PMR_H_ */

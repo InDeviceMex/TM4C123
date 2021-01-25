@@ -31,13 +31,13 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TW_GPTMRTCPD_R_RTCPD_MASK              ((uint32_t)0x0000FFFFu)
-#define GPTM_TW_GPTMRTCPD_R_RTCPD_BIT               (0u)
-#define GPTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT           ((uint32_t)0x00007FFFu)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_MASK              ((uint32_t)0x0000FFFFU)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_BIT               (0U)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT           ((uint32_t)0x00007FFFU)
 
 
-#define GPTM_TW_GPTMRTCPD_RTCPD_MASK                ((uint32_t)0x0000FFFFu)
-#define GPTM_TW_GPTMRTCPD_RTCPD_DEFAULT             ((uint32_t)0x00007FFFu)
+#define GPTM_TW_GPTMRTCPD_RTCPD_MASK                ((uint32_t)0x0000FFFFU)
+#define GPTM_TW_GPTMRTCPD_RTCPD_DEFAULT             ((uint32_t)0x00007FFFU)
 /*----------*/
 
 

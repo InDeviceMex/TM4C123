@@ -59,7 +59,7 @@ void (*UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_MAX +1u][(uint32_t)UART_e
 
 void UART_vIRQSourceHandler_Dummy(void)
 {
-    while(1u){}
+    while(1U){}
 }
 
 

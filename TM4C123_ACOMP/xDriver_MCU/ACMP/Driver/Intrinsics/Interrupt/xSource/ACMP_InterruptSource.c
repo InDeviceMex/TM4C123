@@ -28,7 +28,7 @@
 
 void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
 
     uint32_t u32ModuleMask= (uint32_t) enModuleMask;
     if((uint32_t)ACMP_enMODULEMASK_ALL<u32ModuleMask)
@@ -44,7 +44,7 @@ void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
 
 void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
 
     uint32_t u32ModuleMask= (uint32_t) enModuleMask;
     if((uint32_t)ACMP_enMODULEMASK_ALL<u32ModuleMask)
@@ -73,7 +73,7 @@ void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
 ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
     ACMP_nINT_STATUS enInt=ACMP_enINT_STATUS_UNDEF;
-    uint32_t u32Reg=0u;
+    uint32_t u32Reg=0U;
     ACMP_nREADY enReady=ACMP_enNOREADY;
     uint32_t u32ModuleMask= (uint32_t) enModuleMask;
     if((uint32_t)ACMP_enMODULEMASK_ALL<u32ModuleMask)

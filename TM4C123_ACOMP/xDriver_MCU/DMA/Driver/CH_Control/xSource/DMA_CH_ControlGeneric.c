@@ -29,7 +29,7 @@
 void DMA_CH__vSetPrimaryControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Mask, uint32_t u32bit, uint32_t u32Value)
 {
     uint32_t u32Channel=(uint32_t)enChannel;
-    uint32_t u32Reg = 0u;
+    uint32_t u32Reg = 0U;
     if((uint32_t)DMA_enCH_MODULE_MAX<u32Channel)
     {
         u32Channel = DMA_enCH_MODULE_MAX;
@@ -43,7 +43,7 @@ void DMA_CH__vSetPrimaryControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Mas
 void DMA_CH__vSetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Mask, uint32_t u32bit, uint32_t u32Value)
 {
     uint32_t u32Channel=(uint32_t)enChannel;
-    uint32_t u32Reg = 0u;
+    uint32_t u32Reg = 0U;
     if((uint32_t)DMA_enCH_MODULE_MAX<u32Channel)
     {
         u32Channel = DMA_enCH_MODULE_MAX;
@@ -69,7 +69,7 @@ void DMA_CH__vSetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelS
 uint32_t DMA_CH__u32GetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Mask, uint32_t u32bit)
 {
     uint32_t u32Channel=(uint32_t)enChannel;
-    uint32_t u32Reg = 0u;
+    uint32_t u32Reg = 0U;
     if((uint32_t)DMA_enCH_MODULE_MAX<u32Channel)
     {
         u32Channel = DMA_enCH_MODULE_MAX;
@@ -83,7 +83,7 @@ uint32_t DMA_CH__u32GetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_
 uint32_t DMA_CH__u32GetPrimaryControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Mask, uint32_t u32bit)
 {
     uint32_t u32Channel=(uint32_t)enChannel;
-    uint32_t u32Reg = 0u;
+    uint32_t u32Reg = 0U;
     if((uint32_t)DMA_enCH_MODULE_MAX<u32Channel)
     {
         u32Channel = DMA_enCH_MODULE_MAX;
@@ -96,7 +96,7 @@ uint32_t DMA_CH__u32GetPrimaryControlGeneric(DMA_nCH_MODULE enChannel, uint32_t 
 
 uint32_t DMA_CH__u32GetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32Mask, uint32_t u32bit)
 {
-    uint32_t u32Reg = 0u;
+    uint32_t u32Reg = 0U;
     if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
     {
         u32Reg = DMA_CH__u32GetPrimaryControlGeneric(enChannel,u32Mask,u32bit);
