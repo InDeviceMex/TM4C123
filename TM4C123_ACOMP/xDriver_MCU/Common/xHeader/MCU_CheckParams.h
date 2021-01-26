@@ -26,9 +26,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-uint32_t MCU__u32CheckPatams(uint32_t u32Module,uint32_t u32ModuleMax);
-
-
-
+uint32_t MCU__u32CheckPatams(uint32_t u32Module, uint32_t u32ModuleMax);
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_CHECKPARAMS_H_ */

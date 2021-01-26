@@ -28,6 +28,4 @@
 
 uint32_t MCU__u32ReadRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister, uint32_t u32MaskFeature, uint32_t u32BitFeature);
 
-
-
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_READREG_H_ */

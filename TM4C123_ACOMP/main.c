@@ -156,7 +156,7 @@ int32_t main(void)
             if( UART_enFIFO_FULL_NO == enTransmitFullState)
             {
                 UART__vSetData(UART_enMODULE_0, (uint8_t)(*cNokiaBufferPointer));
-                cNokiaBufferPointer+= 1U;
+                cNokiaBufferPointer += 1U;
             }
         }
         if(u32Lengtht == u32InterruptUart)
