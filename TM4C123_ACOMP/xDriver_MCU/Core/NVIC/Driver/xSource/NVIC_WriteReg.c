@@ -39,7 +39,7 @@ inline NVIC_nSTATUS NVIC__enWriteRegister(NVIC_nSTIR enIRQ, uint32_t u32Register
         u32IsrIndex=(uint32_t)enIRQ/32UL;
         u32IsrIndex *=4UL;
         u32RegisterOffset += u32IsrIndex;
-        MCU__vWriteRegister(NVIC_BASE, u32RegisterOffset, u32Value, 0x1, u32IsrBit);
+        MCU__vWriteRegister(NVIC_BASE, u32RegisterOffset, u32Value, 0x1UL, u32IsrBit);
     }
     return enStatus;
 }

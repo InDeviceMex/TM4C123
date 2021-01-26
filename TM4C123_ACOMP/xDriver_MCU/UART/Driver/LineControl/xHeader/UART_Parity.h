@@ -26,8 +26,8 @@
 
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
 
-void UART__vSetParityConfigStruct(UART_nMODULE enModule, UART_PARITY_TypeDef sParityConfig);
-void UART__vSetParityConfigStructPointer(UART_nMODULE enModule, UART_PARITY_TypeDef* psParityConfig);
+void UART__vSetParityConfigStruct(UART_nMODULE enModule, const UART_PARITY_TypeDef sParityConfig);
+void UART__vSetParityConfigStructPointer(UART_nMODULE enModule, const UART_PARITY_TypeDef* psParityConfig);
 void UART__vSetParityConfig(UART_nMODULE enModule, UART_nPARITY enParityState, UART_nPARITY_TYPE enParityTypeArg, UART_nPARITY_STICK enParityStickArg);
 void UART__vSetParityEnable(UART_nMODULE enModule, UART_nPARITY enParityState);
 UART_nPARITY UART__enGetParityEnable(UART_nMODULE enModule);

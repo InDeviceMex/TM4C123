@@ -24,19 +24,16 @@
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/xHeader/FLASH_InterruptVector.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Dependencies.h>
 
-
 void FLASH__vEnInterruptVector(FLASH_nPRIORITY enFlashPriority)
 {
-    NVIC_nSTIR enVector=NVIC_enSTIR_FLASH;
+    NVIC_nSTIR enVector = NVIC_enSTIR_FLASH;
 
-    enFlashPriority&=0x7U;
+    enFlashPriority &= (uint32_t)NVIC_enMIN;
     NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enFlashPriority);
 }
 
 void FLASH__vDisInterruptVector(void)
 {
-    NVIC_nSTIR enVector=NVIC_enSTIR_FLASH;
+    NVIC_nSTIR enVector = NVIC_enSTIR_FLASH;
     NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
 }
-
-

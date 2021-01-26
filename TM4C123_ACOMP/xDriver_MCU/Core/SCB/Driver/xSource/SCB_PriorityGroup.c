@@ -31,7 +31,7 @@ SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup)
 {
     SCB_nSTATUS enReturn=SCB_enERROR;
     uint32_t u32Reg=SCB_AIRCR_R_VECTKEY_WRITE;
-    u32Reg |= (uint32_t)enGroup << SCB_AIRCR_R_PRIGROUP_BIT;
+    u32Reg |=(uint32_t) ((uint32_t)enGroup << SCB_AIRCR_R_PRIGROUP_BIT);
     if((uint32_t) SCB_enPRIGROUP_MAX >= (uint32_t)enGroup)
     {
         enReturn=SCB_enOK;

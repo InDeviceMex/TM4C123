@@ -31,7 +31,7 @@
 #include <xDriver_MCU/UART/Driver/LineControl/xHeader/UART_Stop.h>
 
 void UART__vSetLineControl(UART_nMODULE enModule, UART_nLENGTH enLengthData, UART_nFIFO enFifoEnable, UART_nSTOP enStopBitsArg, UART_nPARITY enParityState, UART_nPARITY_TYPE enParityTypeArg, UART_nPARITY_STICK enParityStickArg);
-void UART__vSetLineControlStructPointer(UART_nMODULE enModule, UART_LINE_CONTROL_TypeDef* psLineControl);
-void UART__vSetLineControlStruct(UART_nMODULE enModule, UART_LINE_CONTROL_TypeDef sLineControl);
+void UART__vSetLineControlStructPointer(UART_nMODULE enModule, const UART_LINE_CONTROL_TypeDef* psLineControl);
+void UART__vSetLineControlStruct(UART_nMODULE enModule, const UART_LINE_CONTROL_TypeDef sLineControl);
 
 #endif /* XDRIVER_MCU_UART_DRIVER_LINECONTROL_UART_LINECONTROL_H_ */

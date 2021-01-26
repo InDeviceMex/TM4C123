@@ -55,6 +55,10 @@ void (*UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_MAX +1U][(uint32_t)UART_e
          &UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,
          &UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy
     },
+    {
+         &UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,
+         &UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy
+    }
 };
 
 void UART_vIRQSourceHandler_Dummy(void)

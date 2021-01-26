@@ -74,7 +74,7 @@ int32_t main(void)
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
     u32Clock = SYSCTL__u32GetClock();
-    SysTick__enInitUs(u32Clock/80000,SCB_enSHPR0);
+    SysTick__enInitUs(((float32_t)u32Clock/80000.0f),SCB_enSHPR0);
     GPIO__vInit();
     TIMER__vInit();
     DMA__vInit();
@@ -91,8 +91,8 @@ int32_t main(void)
     GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
 
     UART0->UARTCTL &= ~UART_UARTCTL_R_UARTEN_MASK;
-    UART0->UARTIBRD = 10;
-    UART0->UARTFBRD = 55;
+    UART0->UARTIBRD = 10UL;
+    UART0->UARTFBRD = 55UL;
     UART__vSetLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine);
     UART0->UARTCC &= ~UART_UARTCC_R_CS_MASK;
     UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA |UART_UARTCTL_R_HSE_DIV8;
@@ -155,7 +155,7 @@ int32_t main(void)
             enTransmitFullState = UART__enIsFifoTransmitFull(UART_enMODULE_0);
             if( UART_enFIFO_FULL_NO == enTransmitFullState)
             {
-                UART__vSetData(UART_enMODULE_0, *cNokiaBufferPointer);
+                UART__vSetData(UART_enMODULE_0, (uint8_t)(*cNokiaBufferPointer));
                 cNokiaBufferPointer+= 1U;
             }
         }
@@ -179,7 +179,7 @@ void MAIN_vTransmiterCount(void)
 void MAIN_vReceiverCount(void)
 {
     u32InterruptRUart++;
-    cCharacterReceive = UART__u32GetData(UART_enMODULE_0);
+    cCharacterReceive = (char)UART__u32GetData(UART_enMODULE_0);
 }
 
 

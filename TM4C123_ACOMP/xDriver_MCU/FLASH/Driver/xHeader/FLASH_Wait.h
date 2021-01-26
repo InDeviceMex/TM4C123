@@ -15,22 +15,15 @@
 
 #if defined ( __TI_ARM__ )
 
-#pragma  CODE_SECTION(FLASH__enWaitWrite            , ".ramcode")
+#pragma  CODE_SECTION(FLASH__enWaitFMC            , ".ramcode")
 #pragma  CODE_SECTION(FLASH__enWaitBufWrite         , ".ramcode")
-#pragma  CODE_SECTION(FLASH__enWaitPageErase        , ".ramcode")
-#pragma  CODE_SECTION(FLASH__enWaitMassErase        , ".ramcode")
 
-FLASH_nSTATUS FLASH__enWaitWrite(void);
+FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask);
 FLASH_nSTATUS FLASH__enWaitBufWrite(void);
-FLASH_nSTATUS FLASH__enWaitPageErase(void);
-FLASH_nSTATUS FLASH__enWaitMassErase(void);
 
 #elif defined ( __GNUC__ )
-
-FLASH_nSTATUS FLASH__enWaitWrite(void)__attribute__((section(".ramcode")));
+FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask)__attribute__((section(".ramcode")));
 FLASH_nSTATUS FLASH__enWaitBufWrite(void) __attribute__((section(".ramcode")));
-FLASH_nSTATUS FLASH__enWaitPageErase(void) __attribute__((section(".ramcode")));
-FLASH_nSTATUS FLASH__enWaitMassErase(void) __attribute__((section(".ramcode")));
 
 #endif
 

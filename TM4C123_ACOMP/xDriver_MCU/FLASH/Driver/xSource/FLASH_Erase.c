@@ -8,26 +8,27 @@
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Erase.h>
 
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
-#include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Dependencies.h>
 
+static FLASH_nSTATUS FLASH_enInitErase (uint32_t u32Feature, FLASH_nSTATUS (*penCallback)(uint32_t u32RegisterMask));
 
-static FLASH_nSTATUS FLASH_enInitPageErase (uint32_t u32Key);
-
-static FLASH_nSTATUS FLASH_enInitPageErase (uint32_t u32Key)
+static FLASH_nSTATUS FLASH_enInitErase (uint32_t u32Feature, FLASH_nSTATUS (*penCallback)(uint32_t u32RegisterMask))
 {
-
     FLASH_nSTATUS enReturn = FLASH_enERROR;
+    uint32_t u32Key = 0UL;
+
+    u32Key = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
     switch(u32Key)
     {
-    case SYSCTL_BOOTCFG_R_KEY_71D5:
-        FLASH_FMC_R = FLASH_FMC_R_WRKEY_KEY2 | FLASH_FMC_R_ERASE_ERASE;
-        enReturn = FLASH__enWaitPageErase();
+    case SYSCTL_BOOTCFG_KEY_71D5:
+        MCU__vWriteRegister(FLASH_BASE, FLASH_FMC_OFFSET, (FLASH_FMC_R_WRKEY_KEY2 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
+        enReturn = penCallback(u32Feature);
         break;
-    case SYSCTL_BOOTCFG_R_KEY_A442:
-        FLASH_FMC_R = FLASH_FMC_R_WRKEY_KEY1 | FLASH_FMC_R_ERASE_ERASE;
-        enReturn = FLASH__enWaitPageErase();
+    case SYSCTL_BOOTCFG_KEY_A442:
+        MCU__vWriteRegister(FLASH_BASE, FLASH_FMC_OFFSET, (FLASH_FMC_R_WRKEY_KEY1 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
+        enReturn = penCallback(u32Feature);
         break;
     default:
         break;
@@ -35,16 +36,14 @@ static FLASH_nSTATUS FLASH_enInitPageErase (uint32_t u32Key)
     return (FLASH_nSTATUS) enReturn;
 }
 
-
-
 FLASH_nSTATUS FLASH__enPageErase (uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
-    uint32_t u32Key = SYSCTL_BOOTCFG_R & SYSCTL_BOOTCFG_R_KEY_MASK;
+
     if(u32Address < FLASH_ADDRESS_MAX)
     {
-        FLASH_FMA_R = u32Address;
-        enReturn = FLASH_enInitPageErase(u32Key);
+        MCU__vWriteRegister(FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_OFFSET_MASK, FLASH_FMA_R_OFFSET_BIT);
+        enReturn = FLASH_enInitErase(FLASH_FMC_R_ERASE_MASK,&FLASH__enWaitFMC);
     }
     return (FLASH_nSTATUS) enReturn;
 }
@@ -57,24 +56,9 @@ FLASH_nSTATUS FLASH__enPageErasePos (uint32_t u32Page)
     return (FLASH_nSTATUS) enReturn;
 }
 
-
 FLASH_nSTATUS FLASH__enMassErase (void)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
-    uint32_t u32Key = SYSCTL_BOOTCFG_R & SYSCTL_BOOTCFG_R_KEY_MASK;
-    switch(u32Key)
-    {
-    case SYSCTL_BOOTCFG_R_KEY_71D5:
-        FLASH_FMC_R = FLASH_FMC_R_WRKEY_KEY2 | FLASH_FMC_R_MERASE_MERASE;
-        enReturn = FLASH__enWaitMassErase();
-        break;
-    case SYSCTL_BOOTCFG_R_KEY_A442:
-        FLASH_FMC_R = FLASH_FMC_R_WRKEY_KEY1 | FLASH_FMC_R_MERASE_MERASE;
-        enReturn = FLASH__enWaitMassErase();
-        break;
-    default:
-        break;
-    }
+    enReturn = FLASH_enInitErase(FLASH_FMC_R_MERASE_MASK,&FLASH__enWaitFMC);
     return (FLASH_nSTATUS) enReturn;
 }
-
