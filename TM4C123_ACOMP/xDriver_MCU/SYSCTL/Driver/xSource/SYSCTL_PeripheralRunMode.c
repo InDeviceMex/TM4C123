@@ -21,62 +21,20 @@
  * Date           Author     Version     Description
  * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralReset.h>
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralRunMode.h>
+
+#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralGeneric.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
-
-static inline void SYSCTL_vNoOperation(void);
-
-static inline void SYSCTL_vNoOperation(void)
-{
-  {__asm(" NOP");}
-}
 
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8U)& 0x1FU;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1FU;
-    uint32_t u32PeripheralValue=0;
-
-
-
-    if(0u==(uint32_t)(SYSCTL->RCGC[u32NoRegister]&(uint32_t)((uint32_t)1u<<u32NoPeripheral)))
-    {
-        u32PeripheralValue = SYSCTL->RCGC[u32NoRegister];
-        u32PeripheralValue |= ((uint32_t)1u<<u32NoPeripheral);
-        SYSCTL->RCGC[u32NoRegister]=u32PeripheralValue;
-        SYSCTL_vNoOperation();
-        SYSCTL_vNoOperation();
-        SYSCTL_vNoOperation();
-        SYSCTL_vNoOperation();
-        do{
-            u32PeripheralValue =(uint32_t)SYSCTL->PR[u32NoRegister];
-            u32PeripheralValue&=(uint32_t)((uint32_t)1u<<u32NoPeripheral);
-        }while(0u==(uint32_t)u32PeripheralValue);
-    }
+    SYSCTL__vWritePeripheral(enPeripheral,SYSCTL_RCGC_OFFSET, 1UL);
 }
 
 void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8U)& 0x1FU;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1FU;
-    uint32_t u32PeripheralValue=0;
-
-
-    u32PeripheralValue = ((uint32_t)1u<<u32NoPeripheral);
-    if(u32PeripheralValue==(SYSCTL->RCGC[u32NoRegister]&u32PeripheralValue))
-    {
-        SYSCTL__vResetPeripheral(enPeripheral);
-        u32PeripheralValue = SYSCTL->RCGC[u32NoRegister];
-        u32PeripheralValue&=~((uint32_t)1u<<u32NoPeripheral);
-        SYSCTL->RCGC[u32NoRegister]=u32PeripheralValue;
-        SYSCTL_vNoOperation();
-        SYSCTL_vNoOperation();
-        SYSCTL_vNoOperation();
-        SYSCTL_vNoOperation();
-    }
+    SYSCTL__vWritePeripheral(enPeripheral,SYSCTL_RCGC_OFFSET, 0UL);
 }
 
 

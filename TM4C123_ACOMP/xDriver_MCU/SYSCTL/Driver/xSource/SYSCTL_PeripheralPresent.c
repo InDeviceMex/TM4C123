@@ -21,21 +21,19 @@
  * Date           Author     Version     Description
  * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralPresent.h>
+
+#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralGeneric.h>
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8U)& 0x1FU;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1FU;
-    uint32_t u32Reg=0U;
     SYSCTL_nPERIPHERAL_PRESENT enReturn = SYSCTL_enNOPRESENT;
+    uint32_t u32RegisterValue = 0UL;
 
-    u32Reg= SYSCTL->PP[u32NoRegister];
-    u32Reg>>=u32NoPeripheral;
-    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32Reg&1U);
+    u32RegisterValue = SYSCTL__u32ReadPeripheral(enPeripheral,SYSCTL_PP_OFFSET);
+    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32RegisterValue);
 
     return enReturn;
 

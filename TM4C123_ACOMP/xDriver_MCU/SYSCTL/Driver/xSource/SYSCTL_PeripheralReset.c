@@ -21,10 +21,10 @@
  * Date           Author     Version     Description
  * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
+#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralReset.h>
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralReset.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 static inline void SYSCTL_vNoOperation(void);
 
@@ -33,22 +33,31 @@ static inline void SYSCTL_vNoOperation(void)
   {__asm(" NOP");}
 }
 
-
 void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    uint32_t u32NoRegister = ((uint32_t)enPeripheral>>8U)& 0x1FU;
-    uint32_t u32NoPeripheral= ((uint32_t)enPeripheral)& 0x1FU;
-    uint32_t u32PeripheralValue=0;
-    u32PeripheralValue = SYSCTL->SR[u32NoRegister];
-    u32PeripheralValue |= ((uint32_t)1u<<u32NoPeripheral);
-    SYSCTL->SR[u32NoRegister]=u32PeripheralValue;
+    uint32_t u32NoRegister = 0UL;
+    uint32_t u32NoPeripheral =  0UL;
+
+    uint32_t u32RegisterSROffset = SYSCTL_SR_OFFSET;
+
+    u32NoRegister = (uint32_t)enPeripheral;
+    u32NoRegister >>= 8UL;
+    u32NoRegister &= 0xFFUL;
+
+    u32NoPeripheral = (uint32_t)enPeripheral;
+    u32NoPeripheral &= 0xFFUL;
+
+    u32RegisterSROffset += u32NoRegister * 4UL;
+
+    MCU__vWriteRegister(SYSCTL_BASE, u32RegisterSROffset, 1UL, 1UL, u32NoPeripheral);
+
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
-    u32PeripheralValue = SYSCTL->SR[u32NoRegister];
-    u32PeripheralValue &=~ ((uint32_t)1u<<u32NoPeripheral);
-    SYSCTL->SR[u32NoRegister]=u32PeripheralValue;
+
+    MCU__vWriteRegister(SYSCTL_BASE, u32RegisterSROffset, 0UL, 1UL, u32NoPeripheral);
+
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();

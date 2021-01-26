@@ -86,6 +86,7 @@
 #define SYSCTL_FMPRE2_OFFSET        ((uint32_t)0x0208U)
 #define SYSCTL_FMPRE3_OFFSET        ((uint32_t)0x020CU)
 
+#define SYSCTL_PP_OFFSET          ((uint32_t)0x0300U)
 #define SYSCTL_PPWD_OFFSET          ((uint32_t)0x0300U)
 #define SYSCTL_PPTIMER_OFFSET       ((uint32_t)0x0304U)
 #define SYSCTL_PPGPIO_OFFSET        ((uint32_t)0x0308U)
@@ -108,6 +109,7 @@
 #define SYSCTL_FMPPE2_OFFSET        ((uint32_t)0x0408U)
 #define SYSCTL_FMPPE3_OFFSET        ((uint32_t)0x040CU)
 
+#define SYSCTL_SR_OFFSET          ((uint32_t)0x0500U)
 #define SYSCTL_SRWD_OFFSET          ((uint32_t)0x0500U)
 #define SYSCTL_SRTIMER_OFFSET       ((uint32_t)0x0504U)
 #define SYSCTL_SRGPIO_OFFSET        ((uint32_t)0x0508U)
@@ -125,6 +127,7 @@
 #define SYSCTL_SREEPROM_OFFSET      ((uint32_t)0x0558U)
 #define SYSCTL_SRWTIMER_OFFSET      ((uint32_t)0x055CU)
 
+#define SYSCTL_RCGC_OFFSET          ((uint32_t)0x0600U)
 #define SYSCTL_RCGCWD_OFFSET          ((uint32_t)0x0600U)
 #define SYSCTL_RCGCTIMER_OFFSET       ((uint32_t)0x0604U)
 #define SYSCTL_RCGCGPIO_OFFSET        ((uint32_t)0x0608U)
@@ -142,6 +145,7 @@
 #define SYSCTL_RCGCEEPROM_OFFSET      ((uint32_t)0x0658U)
 #define SYSCTL_RCGCWTIMER_OFFSET      ((uint32_t)0x065CU)
 
+#define SYSCTL_SCGC_OFFSET          ((uint32_t)0x0700U)
 #define SYSCTL_SCGCWD_OFFSET          ((uint32_t)0x0700U)
 #define SYSCTL_SCGCTIMER_OFFSET       ((uint32_t)0x0704U)
 #define SYSCTL_SCGCGPIO_OFFSET        ((uint32_t)0x0708U)
@@ -159,6 +163,7 @@
 #define SYSCTL_SCGCEEPROM_OFFSET      ((uint32_t)0x0758U)
 #define SYSCTL_SCGCWTIMER_OFFSET      ((uint32_t)0x075CU)
 
+#define SYSCTL_DCGC_OFFSET          ((uint32_t)0x0800U)
 #define SYSCTL_DCGCWD_OFFSET          ((uint32_t)0x0800U)
 #define SYSCTL_DCGCTIMER_OFFSET       ((uint32_t)0x0804U)
 #define SYSCTL_DCGCGPIO_OFFSET        ((uint32_t)0x0808U)
@@ -176,6 +181,7 @@
 #define SYSCTL_DCGCEEPROM_OFFSET      ((uint32_t)0x0858U)
 #define SYSCTL_DCGCWTIMER_OFFSET      ((uint32_t)0x085CU)
 
+#define SYSCTL_PR_OFFSET          ((uint32_t)0x0A00U)
 #define SYSCTL_PRWD_OFFSET          ((uint32_t)0x0A00U)
 #define SYSCTL_PRTIMER_OFFSET       ((uint32_t)0x0A04U)
 #define SYSCTL_PRGPIO_OFFSET        ((uint32_t)0x0A08U)
