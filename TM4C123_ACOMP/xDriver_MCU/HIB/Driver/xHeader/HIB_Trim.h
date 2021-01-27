@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_TRIM_H_
 #define XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_TRIM_H_
 
@@ -29,6 +30,5 @@
 
 HIB_nSTATUS HIB__enSetTrim(uint32_t u32Trim);
 HIB_nSTATUS HIB__enGetTrim(uint32_t* pu32Trim);
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_TRIM_H_ */

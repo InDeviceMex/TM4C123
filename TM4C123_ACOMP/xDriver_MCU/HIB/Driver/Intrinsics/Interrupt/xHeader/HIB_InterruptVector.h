@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_XHEADER_HIB_INTERRUPTVECTOR_H_
 #define XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_XHEADER_HIB_INTERRUPTVECTOR_H_
 
@@ -28,9 +29,5 @@
 
 void HIB__vEnInterruptVector(HIB_nPRIORITY enPriority);
 void HIB__vDisInterruptVector(void);
-
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_XHEADER_HIB_INTERRUPTVECTOR_H_ */

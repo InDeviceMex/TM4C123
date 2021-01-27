@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYWAKE_H_
 #define XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYWAKE_H_
 
@@ -31,8 +32,5 @@ HIB_nSTATUS HIB__enDisLowBatteryWakeUp(void);
 
 HIB_nSTATUS HIB__enSetLowBatteryWakeUp(HIB_nBATWAKE enBatWake);
 HIB_nSTATUS HIB__enGetLowBatteryWakeUp(HIB_nBATWAKE* enFeatureValue);
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_BATTERYWAKE_H_ */

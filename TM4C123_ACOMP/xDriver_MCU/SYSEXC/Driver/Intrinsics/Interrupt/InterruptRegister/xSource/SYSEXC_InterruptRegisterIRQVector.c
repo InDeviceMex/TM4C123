@@ -32,6 +32,6 @@ void SYSEXC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))
     SCB_nVECISR enVector = SCB_enVECISR_SYSEXC;
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &SYSEXC__pvIRQVectorHandler, enVector);
     }
+        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &SYSEXC__pvIRQVectorHandler, enVector);
 }

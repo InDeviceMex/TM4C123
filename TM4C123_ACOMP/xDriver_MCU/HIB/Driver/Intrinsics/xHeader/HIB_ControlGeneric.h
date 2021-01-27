@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 11 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_INTRINSICS_XHEADER_HIB_CONTROLGENERIC_H_
 #define XDRIVER_MCU_HIB_DRIVER_INTRINSICS_XHEADER_HIB_CONTROLGENERIC_H_
 
@@ -32,6 +33,5 @@ HIB_nSTATUS HIB__enGetControlGeneric(uint32_t* pu32ControlGeneric, uint32_t u32M
 
 HIB_nSTATUS HIB__enEnControlGeneric(uint32_t u32Mask);
 HIB_nSTATUS HIB__enDisControlGeneric(uint32_t u32Mask);
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_XHEADER_HIB_CONTROLGENERIC_H_ */

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 25 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_HIB_READREG_H_
 #define XDRIVER_MCU_HIB_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_HIB_READREG_H_
 
@@ -28,8 +29,5 @@
 #include <xUtils/Standard/Standard.h>
 
 HIB_nSTATUS HIB__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_HIB_READREG_H_ */

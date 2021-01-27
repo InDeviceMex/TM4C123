@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_DRIVER_H_
 
@@ -32,7 +33,5 @@
 #include <xDriver_MCU/HIB/Driver/xHeader/HIB_Match.h>
 
 #include <xDriver_MCU/HIB/Driver/Control/HIB_Control.h>
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_DRIVER_HIB_DRIVER_H_ */

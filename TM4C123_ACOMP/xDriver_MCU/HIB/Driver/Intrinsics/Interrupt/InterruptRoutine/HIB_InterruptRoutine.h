@@ -21,17 +21,12 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_HIB_INTERRUPTROUTINE_H_
 #define XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_HIB_INTERRUPTROUTINE_H_
 
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/HIB_InterruptRoutine_Vector.h>
 
 extern void (*HIB__pvIRQVectorHandler) (void);
-
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_HIB_INTERRUPTROUTINE_H_ */

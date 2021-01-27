@@ -21,19 +21,16 @@
  * Date           Author     Version     Description
  * 11 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/HIB/App/xHeader/HIB_GlobalCountStatus.h>
 
-static HIB_nREADY HIB_enCount=HIB_enNOREADY;
+static HIB_nREADY HIB_enCount = HIB_enNOREADY;
 
 void HIB__enSetGlobalCountStatus(HIB_nREADY enStatus)
 {
-    HIB_enCount=enStatus;
+    HIB_enCount = enStatus;
 }
 
 HIB_nREADY HIB__enGetGlobalCountStatus(void)
 {
-    return (HIB_nREADY) HIB_enCount;
+    return HIB_enCount;
 }
-
-

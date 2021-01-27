@@ -21,13 +21,13 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_HIB_INTERRUPTROUTINE_SOURCE_H_
 #define XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_HIB_INTERRUPTROUTINE_SOURCE_H_
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
-extern void (*HIB__vIRQSourceHandler[(uint32_t)HIB_enINTERRUPT_MAX+1U]) (void);
-
+extern void (*HIB__vIRQSourceHandler[(uint32_t) HIB_enINTERRUPT_MAX + 1UL]) (void);
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_HIB_INTERRUPTROUTINE_SOURCE_H_ */

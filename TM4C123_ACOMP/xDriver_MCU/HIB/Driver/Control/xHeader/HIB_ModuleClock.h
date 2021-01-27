@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_MODULECLOCK_H_
 #define XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_MODULECLOCK_H_
 
@@ -31,8 +32,5 @@ HIB_nSTATUS HIB__enDisModuleClock(void);
 
 HIB_nSTATUS HIB__enSetModuleClock(HIB_nCLOCK enClock);
 HIB_nSTATUS HIB__enGetModuleClock(HIB_nCLOCK* enFeatureValue);
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_MODULECLOCK_H_ */

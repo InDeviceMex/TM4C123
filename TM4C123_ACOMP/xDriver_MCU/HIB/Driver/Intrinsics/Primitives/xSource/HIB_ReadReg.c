@@ -23,7 +23,6 @@
  */
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_ReadReg.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Ready.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Wait.h>
@@ -35,12 +34,10 @@ HIB_nSTATUS HIB__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32Featur
     HIB_nREADY enReady = HIB_enNOREADY;
     enReady = HIB__enIsReady();
 
-    if( HIB_enREADY == enReady )
+    if( (HIB_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))
     {
-        enStatus= HIB_enSTATUS_OK;
-        *pu32FeatureValue = MCU__u32ReadRegister(HIB_BASE, u32OffsetRegister, u32MaskFeature, u32BitFeature);
+        enStatus = HIB_enSTATUS_OK;
+        *pu32FeatureValue = MCU__u32ReadRegister( HIB_BASE, u32OffsetRegister, u32MaskFeature, u32BitFeature);
     }
     return enStatus;
 }
-
-

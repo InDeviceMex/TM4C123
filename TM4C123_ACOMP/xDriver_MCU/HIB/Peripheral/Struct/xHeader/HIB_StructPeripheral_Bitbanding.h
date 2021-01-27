@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 21 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 21 jun. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_STRUCT_HIB_STRUCTPERIPHERAL_BITBANDING_H_
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_STRUCT_HIB_STRUCTPERIPHERAL_BITBANDING_H_
 
@@ -30,60 +31,60 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t             HIBRTCC[32];
-        BITBANDING_HIBRTCC_TypeDef          HIBRTCC_Bit;
+        volatile const uint32_t HIBRTCC [32UL];
+        BITBANDING_HIBRTCC_TypeDef HIBRTCC_Bit;
     };
     union
     {
-        volatile uint32_t                   HIBRTCM0[32];
-        BITBANDING_HIBRTCM0_TypeDef         HIBRTCM0_Bit;
+        volatile uint32_t HIBRTCM0 [32UL];
+        BITBANDING_HIBRTCM0_TypeDef HIBRTCM0_Bit;
     };
-    const uint32_t                          reserved[1*32];
+    const uint32_t reserved[32UL];
     union
     {
-        volatile uint32_t                   HIBRTCLD[32];
-        BITBANDING_HIBRTCLD_TypeDef         HIBRTCLD_Bit;
-    };
-    union
-    {
-        volatile uint32_t                   HIBCTL[32];
-        BITBANDING_HIBCTL_TypeDef           HIBCTL_Bit;
+        volatile uint32_t HIBRTCLD [32UL];
+        BITBANDING_HIBRTCLD_TypeDef HIBRTCLD_Bit;
     };
     union
     {
-        volatile uint32_t                   HIBIM[32];
-        BITBANDING_HIBIM_TypeDef            HIBIM_Bit;
+        volatile uint32_t HIBCTL [32UL];
+        BITBANDING_HIBCTL_TypeDef HIBCTL_Bit;
     };
     union
     {
-        volatile const uint32_t             HIBRIS[32];
-        BITBANDING_HIBRIS_TypeDef           HIBRIS_Bit;
+        volatile uint32_t HIBIM [32UL];
+        BITBANDING_HIBIM_TypeDef HIBIM_Bit;
     };
     union
     {
-        volatile const uint32_t             HIBMIS[32];
-        BITBANDING_HIBMIS_TypeDef           HIBMIS_Bit;
+        volatile const uint32_t HIBRIS [32UL];
+        BITBANDING_HIBRIS_TypeDef HIBRIS_Bit;
     };
     union
     {
-        volatile uint32_t                   HIBIC[32];
-        BITBANDING_HIBIC_TypeDef            HIBIC_Bit;
+        volatile const uint32_t HIBMIS [32UL];
+        BITBANDING_HIBMIS_TypeDef HIBMIS_Bit;
     };
     union
     {
-        volatile uint32_t                   HIBRTCT[32];
-        BITBANDING_HIBRTCT_TypeDef          HIBRTCT_Bit;
+        volatile uint32_t HIBIC [32UL];
+        BITBANDING_HIBIC_TypeDef HIBIC_Bit;
     };
     union
     {
-        volatile uint32_t                   HIBRTCSS[32];
-        BITBANDING_HIBRTCSS_TypeDef         HIBRTCSS_Bit;
+        volatile uint32_t HIBRTCT [32UL];
+        BITBANDING_HIBRTCT_TypeDef HIBRTCT_Bit;
     };
-    const uint32_t                          reserved1[1*32];
     union
     {
-        volatile uint32_t                   HIBDATA[16][32];
-        BITBANDING_HIBDATA_TypeDef          HIBDATA_Bit[16];
+        volatile uint32_t HIBRTCSS [32UL];
+        BITBANDING_HIBRTCSS_TypeDef HIBRTCSS_Bit;
+    };
+    const uint32_t reserved1[32UL];
+    union
+    {
+        volatile uint32_t HIBDATA [16UL][32UL];
+        BITBANDING_HIBDATA_TypeDef HIBDATA_Bit [16UL];
     };
 }HIB_BITBANDING_TypeDef;
 

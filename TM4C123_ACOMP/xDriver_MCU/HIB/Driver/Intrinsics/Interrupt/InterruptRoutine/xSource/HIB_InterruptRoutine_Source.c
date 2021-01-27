@@ -25,7 +25,7 @@
 
 static void HIB_vIRQSourceHandler_Dummy(void);
 
-void (*HIB__vIRQSourceHandler[(uint32_t)HIB_enINTERRUPT_MAX+1U]) (void)=
+void (*HIB__vIRQSourceHandler[(uint32_t) HIB_enINTERRUPT_MAX + 1UL]) (void)=
 {&HIB_vIRQSourceHandler_Dummy,
  &HIB_vIRQSourceHandler_Dummy,
  &HIB_vIRQSourceHandler_Dummy,
@@ -33,10 +33,5 @@ void (*HIB__vIRQSourceHandler[(uint32_t)HIB_enINTERRUPT_MAX+1U]) (void)=
 
 static void HIB_vIRQSourceHandler_Dummy(void)
 {
-    while(1U)
-    {
-
-    }
+    while(1UL){}
 }
-
-

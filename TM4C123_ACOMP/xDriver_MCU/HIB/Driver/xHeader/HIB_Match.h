@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_MATCH_H_
 #define XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_MATCH_H_
 
@@ -29,6 +30,5 @@
 
 HIB_nSTATUS HIB__enSetMatch(uint32_t u32Match, uint32_t u32SubMatch);
 HIB_nSTATUS HIB__enGetMatch(uint32_t* pu32Match, uint32_t *pu32SubMatch);
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_XHEADER_HIB_MATCH_H_ */

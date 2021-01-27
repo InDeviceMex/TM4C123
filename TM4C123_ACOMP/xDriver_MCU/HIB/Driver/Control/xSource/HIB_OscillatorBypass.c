@@ -22,17 +22,21 @@
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_OscillatorBypass.h>
+
 #include <xDriver_MCU/HIB/Driver/Intrinsics/HIB_Intrinsics.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
 HIB_nSTATUS HIB__enSetOscillatorBypass(HIB_nOSCBYP enOscByp)
 {
-    return HIB__enSetControlGeneric((uint32_t) enOscByp,HIB_HIBCTL_OSCBYP_MASK, HIB_HIBCTL_R_OSCBYP_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enOscByp, HIB_HIBCTL_OSCBYP_MASK, HIB_HIBCTL_R_OSCBYP_BIT);
 }
 
 HIB_nSTATUS HIB__enGetOscillatorBypass(HIB_nOSCBYP* enFeatureValue)
 {
-    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_OSCBYP_MASK, HIB_HIBCTL_R_OSCBYP_BIT);
+    HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
+    if(0UL != (uint32_t) enFeatureValue)
+    {
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_OSCBYP_MASK, HIB_HIBCTL_R_OSCBYP_BIT);
+    }
+    return enStatus;
 }
-
-

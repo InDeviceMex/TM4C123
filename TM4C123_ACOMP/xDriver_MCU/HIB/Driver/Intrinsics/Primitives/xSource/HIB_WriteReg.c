@@ -23,12 +23,10 @@
  */
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_WriteReg.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Ready.h>
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Primitives/xHeader/HIB_Wait.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
-
 
 HIB_nSTATUS HIB__enWriteRegister(uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
@@ -37,9 +35,8 @@ HIB_nSTATUS HIB__enWriteRegister(uint32_t u32OffsetRegister, uint32_t u32Feature
     enReturn = HIB__enWait();
     if(HIB_enSTATUS_OK == enReturn)
     {
-        MCU__vWriteRegister(HIB_BASE, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
+        MCU__vWriteRegister( HIB_BASE, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
     }
     return enReturn;
 }
-
 

@@ -22,9 +22,5 @@
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/InterruptRoutine/HIB_InterruptRoutine.h>
-#include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Enum.h>
 
 void (*HIB__pvIRQVectorHandler) (void)={&HIB__vIRQVectorHandler};
-
-
-

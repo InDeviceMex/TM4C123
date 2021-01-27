@@ -30,6 +30,4 @@
 void HIB__enSetGlobalStatus(HIB_nREADY enStatus);
 HIB_nREADY HIB__enGetGlobalStatus(void);
 
-
-
 #endif /* XDRIVER_MCU_HIB_APP_XHEADER_HIB_GLOBALSTATUS_H_ */

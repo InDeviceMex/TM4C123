@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_VDDREGULATOR_H_
 #define XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_VDDREGULATOR_H_
 
@@ -28,8 +29,5 @@
 
 HIB_nSTATUS HIB__enSetVDDRegulator(HIB_nVDD3ON enVDDReg);
 HIB_nSTATUS HIB__enGetVDDRegulator(HIB_nVDD3ON* enFeatureValue);
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_VDDREGULATOR_H_ */

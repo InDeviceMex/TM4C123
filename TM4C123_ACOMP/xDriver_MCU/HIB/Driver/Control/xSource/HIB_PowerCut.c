@@ -22,17 +22,21 @@
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_PowerCut.h>
+
 #include <xDriver_MCU/HIB/Driver/Intrinsics/HIB_Intrinsics.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
 
-
-
 HIB_nSTATUS HIB__enSetPowerCut(HIB_nVABORT enVAbort)
 {
-    return HIB__enSetControlGeneric((uint32_t) enVAbort,HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enVAbort, HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
 }
 
 HIB_nSTATUS HIB__enGetPowerCut(HIB_nVABORT* enFeatureValue)
 {
-    return (HIB_nSTATUS) HIB__enGetControlGeneric((uint32_t*) enFeatureValue, HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
+    HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
+    if(0UL != (uint32_t) enFeatureValue)
+    {
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
+    }
+    return enStatus;
 }

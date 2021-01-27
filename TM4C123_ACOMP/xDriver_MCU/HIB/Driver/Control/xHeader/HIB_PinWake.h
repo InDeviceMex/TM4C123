@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_PINWAKE_H_
 #define XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_PINWAKE_H_
 
@@ -31,8 +32,5 @@ HIB_nSTATUS HIB__enDisPinWakeUp(void);
 
 HIB_nSTATUS HIB__enSetPinWakeUp(HIB_nPINWAKE enPinWake);
 HIB_nSTATUS HIB__enGetPinWakeUp(HIB_nPINWAKE* enFeatureValue);
-
-
-
 
 #endif /* XDRIVER_MCU_HIB_DRIVER_CONTROL_XHEADER_HIB_PINWAKE_H_ */
