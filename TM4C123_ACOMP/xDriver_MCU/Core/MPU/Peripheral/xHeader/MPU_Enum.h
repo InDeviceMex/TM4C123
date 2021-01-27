@@ -21,15 +21,14 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_MPU_PERIPHERAL_MPU_ENUM_H_
 #define XDRIVER_MCU_DRIVER_HEADER_MPU_PERIPHERAL_MPU_ENUM_H_
 
-
 typedef enum
 {
-    MPU_enOK = 0U,
-    MPU_enERROR = 1U,
+    MPU_enOK = 0UL,
+    MPU_enERROR = 1UL,
 }MPU_nSTATUS;
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_MPU_PERIPHERAL_MPU_ENUM_H_ */

@@ -21,13 +21,10 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
-
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptPendSV.h>
 
 void PendSV__vIRQVectorHandler(void)
 {
     /*context switch, lower priority*/
-    while(1U){}
+    while(1UL){}
 }

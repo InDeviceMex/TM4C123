@@ -21,14 +21,15 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 
+#include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 #include <xUtils/Standard/Standard.h>
 
 void SCB__vSetVectorOffset(uint32_t u32Offset);
 
-extern void (*SCB__pfnVectors[0x100U])(void) ;
-
+extern void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE])(void) ;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_ */

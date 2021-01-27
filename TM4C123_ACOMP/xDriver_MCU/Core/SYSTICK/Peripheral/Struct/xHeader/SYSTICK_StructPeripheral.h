@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_STRUCT_SYSTICK_STRUCTPERIPHERAL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_STRUCT_SYSTICK_STRUCTPERIPHERAL_H_
 
@@ -28,26 +29,26 @@
 
 typedef volatile struct
 {
-    uint32_t                reserved[4];
+    uint32_t reserved[4];
     union
     {
-        volatile uint32_t       CSR;
-        SysTick_CSR_TypeDef     CSR_Bit;
+        volatile uint32_t CSR;
+        SysTick_CSR_TypeDef CSR_Bit;
     };
     union
     {
-        volatile uint32_t       RVR;
-        SysTick_RVR_TypeDef     RVR_Bit;
+        volatile uint32_t RVR;
+        SysTick_RVR_TypeDef RVR_Bit;
     };
     union
     {
-        volatile uint32_t       CVR;
-        SysTick_CVR_TypeDef     CVR_Bit;
+        volatile uint32_t CVR;
+        SysTick_CVR_TypeDef CVR_Bit;
     };
     union
     {
-        const uint32_t        CR;
-        SysTick_CR_TypeDef    CR_Bit;
+        const uint32_t CR;
+        SysTick_CR_TypeDef CR_Bit;
     };
 }SysTick_TypeDef;
 

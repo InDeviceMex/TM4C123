@@ -21,33 +21,43 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_RegisterIRQVector.h>
-#include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_VectorOffset.h>
 
-#include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECISR enVector)
-{
-    uint32_t u32BaseVector = SCB_VTOR_R;
-    uint32_t* pu32BaseVector = 0U;
 
-    if((uint32_t)pfIrqVectorHandler !=0U)
+void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), SCB_nVECISR enVector)
+{
+    uint32_t u32Vector = 0UL;
+    uint32_t u32BaseVector = 0UL;
+    uint32_t u32BaseOffsetVector = 0UL;
+    uint32_t* pu32BaseVector = 0UL;
+    uint32_t u32IrqVectorHandler = 0UL;
+
+    if(0UL != (uint32_t)pfIrqVectorHandler)
     {
-        if(u32BaseVector<=0x00010000U)
+        u32IrqVectorHandler = (uint32_t)pfIrqVectorHandler;
+        u32IrqVectorHandler |= 1UL;
+
+        u32BaseVector = MCU__u32ReadRegister( SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
+
+        u32Vector = (uint32_t) enVector;
+        u32Vector *= 4UL;
+        u32BaseOffsetVector = u32BaseVector;
+        u32BaseOffsetVector += u32Vector;
+
+        if(SCB_FLASH_MAX > u32BaseOffsetVector)
         {
-            __asm(" cpsid i");
-            FLASH__enWriteWorld((uint32_t)pfIrqVectorHandler|1U,u32BaseVector+((uint32_t)enVector*4U));
-            __asm(" cpsie i");
+            MCU__vDisGlobalInterrupt();
+            FLASH__enWriteWorld( u32IrqVectorHandler, u32BaseOffsetVector);
+            MCU__vEnGlobalInterrupt();
         }
-        else if((u32BaseVector>=(uint32_t)&SCB__pfnVectors[0]) && (u32BaseVector<=(uint32_t)&SCB__pfnVectors[0x100]) )
+        else
         {
-            pu32BaseVector= (uint32_t*)u32BaseVector;
-            pu32BaseVector+=(uint32_t)enVector;
-            *(pu32BaseVector)=(uint32_t)pfIrqVectorHandler|1U;
+            pu32BaseVector = (uint32_t*) u32BaseOffsetVector;
+            *pu32BaseVector = u32IrqVectorHandler;
         }
-        else{}
     }
 }
 
@@ -58,9 +68,9 @@ void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector)
 
     if(u32BaseVector<=0x00010000U)
     {
-        __asm(" cpsid i");
+        MCU__vDisGlobalInterrupt();
         FLASH__enWrite((uint32_t)IntDefaultHandler|1,u32BaseVector+((uint32_t)enVector*4U));
-        __asm(" cpsie i");
+        MCU__vEnGlobalInterrupt();
     }
     else if((u32BaseVector>=0x20000000U) && (u32BaseVector<=0x20000400U) )
     {

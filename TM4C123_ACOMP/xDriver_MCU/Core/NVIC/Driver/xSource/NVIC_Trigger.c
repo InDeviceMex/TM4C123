@@ -21,21 +21,20 @@
  * Date           Author     Version     Description
  * 20 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Trigger.h>
 
 #include <xDriver_MCU/Common/MCU_Common.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
-NVIC_nSTATUS    NVIC__enTriggerIRQ(NVIC_nSTIR enIRQ)
+NVIC_nSTATUS NVIC__enTriggerIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nSTATUS enStatus= NVIC_enERROR;
+    NVIC_nSTATUS enStatus = NVIC_enERROR;
+    uint32_t u32IRQ = (uint32_t)enIRQ;
 
-    if((uint8_t)enIRQ <=NVIC_IRQ_MAX)
+    if(u32IRQ <= NVIC_IRQ_MAX)
     {
-        MCU__vWriteRegister(NVIC_BASE, NVIC_STIR_OFFSET, (uint32_t)enIRQ, NVIC_STIR_R_INTID_MASK, NVIC_STIR_R_INTID_BIT);
-        enStatus= NVIC_enOK;
+        MCU__vWriteRegister( NVIC_BASE, NVIC_STIR_OFFSET, u32IRQ, NVIC_STIR_R_INTID_MASK, NVIC_STIR_R_INTID_BIT);
+        enStatus = NVIC_enOK;
     }
     return enStatus;
 }

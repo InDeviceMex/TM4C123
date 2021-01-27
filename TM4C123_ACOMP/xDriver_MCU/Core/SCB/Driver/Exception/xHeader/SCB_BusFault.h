@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_BUSFAULT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_BUSFAULT_H_
 
@@ -32,7 +33,6 @@ SCB_nSHPR SCB_BusFault__enGetPriority(void);
 void SCB_BusFault__vSetPending(void);
 void SCB_BusFault__vClearPending(void);
 SCB_nPENDSTATE SCB_BusFault__enGetPending(void);
-
 
 void SCB_BusFault__vEnable(void);
 void SCB_BusFault__vDisable(void);

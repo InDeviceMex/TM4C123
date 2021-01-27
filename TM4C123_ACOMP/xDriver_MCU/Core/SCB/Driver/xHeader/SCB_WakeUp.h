@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_WAKEUP_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_WAKEUP_H_
 
@@ -28,7 +29,5 @@
 
 void SCB__vSetWakeUpSource(SCB_nWAKEUPSOURCE enSource);
 SCB_nWAKEUPSOURCE SCB__enGetWakeUpSource(void);
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_WAKEUP_H_ */

@@ -21,17 +21,18 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
+#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptMemoryFault.h>
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptMemoryFault.h>
-uint32_t SCB_MemoryFault_pu32Context[8];
+
+uint32_t SCB_MemoryFault_pu32Context[8UL] = {0UL};
 
 void MemoryFault__vIRQVectorHandler(void)
 {
-    uint8_t SCB_u8MemFault=0;
-    /*uint32_t SCB_u32MemoryMem=0;*/
+    uint8_t u8MemFault = 0U;
+    uint8_t u8InvalidFault = 0U;
+
     __asm(
     " MRS R0, MSP\n"
 #if defined ( __TI_ARM__ )
@@ -56,14 +57,17 @@ void MemoryFault__vIRQVectorHandler(void)
     " str R1, [R2, #0x18]\n"/*SCB_MemoryFault_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_MemoryFault_pu32Context[7] PSR*/
-    SCB_u8MemFault =SCB_MCFSR_R;
-    if((SCB_u8MemFault & (uint8_t)SCB_enMCFSR_MMARVALID) == (uint8_t)SCB_enMCFSR_MMARVALID)
+
+    u8MemFault = SCB_MCFSR_R;
+    u8InvalidFault = u8MemFault;
+    u8InvalidFault &= (uint8_t) SCB_enMCFSR_MMARVALID;
+
+    if( (uint8_t)0U != u8InvalidFault)
     {
-        /*SCB_u32MemoryMem=SCB_MMFAR_R;*/
-        SCB_u8MemFault&=~(uint32_t)SCB_enMCFSR_MMARVALID;
+        u8MemFault &= ~(uint32_t) SCB_enMCFSR_MMARVALID;
     }
 
-    switch(SCB_u8MemFault)
+    switch(u8MemFault)
     {
         case SCB_enMCFSR_MLSPERR:
         case SCB_enMCFSR_MSTKERR:
@@ -72,8 +76,6 @@ void MemoryFault__vIRQVectorHandler(void)
         case SCB_enMCFSR_IACCVIOL:
         default:
             break;
-
     }
-    while(1U){}
+    while(1UL){}
 }
-

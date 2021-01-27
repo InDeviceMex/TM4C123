@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_STACKALIGMENT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_STACKALIGMENT_H_
 
@@ -28,6 +29,5 @@
 
 void SCB__vSetStackAligment(SCB_nAlignment enAlign);
 SCB_nAlignment SCB__enGetStackAligment(void);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_STACKALIGMENT_H_ */

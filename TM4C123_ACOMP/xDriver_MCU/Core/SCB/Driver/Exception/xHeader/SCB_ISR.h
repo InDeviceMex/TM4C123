@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_ISR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_ISR_H_
 
@@ -29,9 +30,5 @@
 SCB_nPENDSTATE SCB_ISR__enGetPendingState(void);
 SCB_nVECISR SCB_ISR__enGetVectorPending(void);
 SCB_nVECISR SCB_ISR__enGetVectorActive(void);
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_ISR_H_ */

@@ -21,7 +21,6 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/Core/SCB/Driver/xHeader/SCB_VectorOffset.h>
 
 #include <xDriver_MCU/Common/MCU_Common.h>
@@ -30,45 +29,40 @@
 #if defined ( __TI_ARM__ )
 
 #pragma DATA_SECTION(SCB__pfnVectors, ".vtable")
-void (*SCB__pfnVectors[0x100U])(void) = {0};
+void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE])(void) = {0UL};
 
 #elif defined ( __GNUC__ )
-__attribute__((section(".vtable"))) void (*SCB__pfnVectors[0x100U])(void) = {0};
+__attribute__((section(".vtable"))) void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE])(void) = {0UL};
 #endif
 
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)
 {
-    uint32_t* pu32Ram=0;
-    const uint32_t* pu32Flash=0;
-    uint32_t u32FlashTemp=0;
-    uint32_t u32Count=0;
+    uint32_t* pu32Ram = 0UL;
+    const uint32_t* pu32Flash = 0UL;
+    uint32_t u32FlashTemp = 0UL;
+    uint32_t u32Count = 0UL;
 
-    u32Offset&=~(uint32_t)0x3FFU;
-    u32FlashTemp = MCU__u32ReadRegister(SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
-    if(u32Offset<0x00010000U)
+    u32Offset&=~(uint32_t)0x3FFUL;
+    u32FlashTemp = MCU__u32ReadRegister( SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
+    if(SCB_FLASH_MAX > u32Offset)
     {
-        FLASH__enWriteMultiWorld((uint32_t*)u32FlashTemp,u32Offset,(uint32_t)0x100U);
-        __asm(" cpsid i");
-        MCU__vWriteRegister(SCB_BASE, SCB_VTOR_OFFSET, u32Offset, SCB_VTOR_R_TBLOFF_MASK, 0UL);
-        SCB_vBarrier();
-        __asm(" cpsie i");
+        MCU__vDisGlobalInterrupt();
+        FLASH__enWriteMultiWorld( (uint32_t*) u32FlashTemp, u32Offset, SCB_VECTOR_TABLE_SIZE);
+        MCU__vEnGlobalInterrupt();
     }
-    else if((u32Offset>=(uint32_t)&SCB__pfnVectors))
+    else
     {
-        pu32Flash=(const uint32_t*)u32FlashTemp;
-        pu32Ram=(uint32_t*)&SCB__pfnVectors;
-        for(u32Count=0U; u32Count<0x100U;u32Count++ )
+        pu32Flash = (const uint32_t*) u32FlashTemp;
+        pu32Ram = (uint32_t*) &SCB__pfnVectors;
+        for(u32Count = 0UL; u32Count < SCB_VECTOR_TABLE_SIZE; u32Count++ )
         {
-            *pu32Ram=*pu32Flash;
-            pu32Ram+=1U;
-            pu32Flash+=1U;
+            *pu32Ram = *pu32Flash;
+            pu32Ram += 1U;
+            pu32Flash += 1U;
         }
-        __asm(" cpsid i");
-        MCU__vWriteRegister(SCB_BASE, SCB_VTOR_OFFSET, (uint32_t)&SCB__pfnVectors, SCB_VTOR_R_TBLOFF_MASK, 0UL);
-        SCB_vBarrier();
-        __asm(" cpsie i");
     }
-    else{}
-
+    MCU__vDisGlobalInterrupt();
+    MCU__vWriteRegister( SCB_BASE, SCB_VTOR_OFFSET, (uint32_t) &SCB__pfnVectors, SCB_VTOR_R_TBLOFF_MASK, 0UL);
+    SCB_vBarrier();
+    MCU__vEnGlobalInterrupt();
 }
-

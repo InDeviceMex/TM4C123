@@ -21,15 +21,17 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptUsageFault.h>
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptUsageFault.h>
-uint32_t SCB_UsageFault_pu32Context[8];
+
+uint32_t SCB_UsageFault_pu32Context[8UL] ={0UL};
 
 void UsageFault__vIRQVectorHandler(void)
 {
-    uint16_t SCB_u16UsageFault=0;
+    uint16_t u16UsageFault = 0U;
+
     __asm(
     " MRS R0, MSP\n"
 #if defined ( __TI_ARM__ )
@@ -54,18 +56,19 @@ void UsageFault__vIRQVectorHandler(void)
     " str R1, [R2, #0x18]\n"/*SCB_UsageFault_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_UsageFault_pu32Context[7] PSR*/
-    SCB_u16UsageFault =SCB_UCFSR_R;
-    switch(SCB_u16UsageFault)
+
+    u16UsageFault = SCB_UCFSR_R;
+    switch(u16UsageFault)
     {
-        case (uint16_t)SCB_enUCFSR_UNDEFINSTR:
-        case (uint16_t)SCB_enUCFSR_INVSTATE:
-        case (uint16_t)SCB_enUCFSR_INVPC:
-        case (uint16_t)SCB_enUCFSR_NOCP:
-        case (uint16_t)SCB_enUCFSR_UNALIGNED:
-        case (uint16_t)SCB_enUCFSR_DIVBYZERO:
+        case (uint16_t) SCB_enUCFSR_UNDEFINSTR:
+        case (uint16_t) SCB_enUCFSR_INVSTATE:
+        case (uint16_t) SCB_enUCFSR_INVPC:
+        case (uint16_t) SCB_enUCFSR_NOCP:
+        case (uint16_t) SCB_enUCFSR_UNALIGNED:
+        case (uint16_t) SCB_enUCFSR_DIVBYZERO:
         default:
             break;
     }
-    while(1U){}
+    while(1UL){}
 }
 

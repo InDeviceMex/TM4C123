@@ -22,37 +22,34 @@
  * 20 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_Pending.h>
+
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_ReadReg.h>
 #include <xDriver_MCU/Core/NVIC/Driver/xHeader/NVIC_WriteReg.h>
-
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
-inline NVIC_nPENDING NVIC__enGetPendingIRQ(NVIC_nSTIR enIRQ)
+inline NVIC_nPENDING NVIC__enGetPendingIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nPENDING enStatus= NVIC_enNOPENDING;
-    uint32_t u32Reg=0UL;
+    NVIC_nPENDING enStatus = NVIC_enNOPENDING;
+    uint32_t u32Reg = 0UL;
 
-    u32Reg = NVIC__u32ReadRegister(enIRQ, NVIC_ISPR0_OFFSET);
-    enStatus= (NVIC_nPENDING)u32Reg;
+    u32Reg = NVIC__u32ReadRegister( enIRQ, NVIC_ISPR_OFFSET);
+    enStatus = (NVIC_nPENDING) u32Reg;
 
     return enStatus;
 }
 
-
-inline NVIC_nSTATUS NVIC__enSetPendingIRQ(NVIC_nSTIR enIRQ)
+inline NVIC_nSTATUS NVIC__enSetPendingIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nSTATUS enStatus= NVIC_enERROR;
-    enStatus = NVIC__enWriteRegister(enIRQ,NVIC_ISPR0_OFFSET, (uint32_t)NVIC_enENABLE);
+    NVIC_nSTATUS enStatus = NVIC_enERROR;
+    enStatus = NVIC__enWriteRegister( enIRQ, NVIC_ISPR_OFFSET, (uint32_t) NVIC_enENABLE);
 
     return enStatus;
 }
 
-
-
-inline NVIC_nSTATUS NVIC__enClearPendingIRQ(NVIC_nSTIR enIRQ)
+inline NVIC_nSTATUS NVIC__enClearPendingIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nSTATUS enStatus= NVIC_enERROR;
-    enStatus = NVIC__enWriteRegister(enIRQ,NVIC_ICPR0_OFFSET, (uint32_t)NVIC_enENABLE);
+    NVIC_nSTATUS enStatus = NVIC_enERROR;
+    enStatus = NVIC__enWriteRegister( enIRQ, NVIC_ICPR_OFFSET, (uint32_t) NVIC_enENABLE);
 
     return enStatus;
 }

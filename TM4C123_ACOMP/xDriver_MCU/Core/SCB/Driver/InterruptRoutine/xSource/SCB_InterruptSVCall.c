@@ -21,10 +21,9 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptSVCall.h>
 
 void SVCall__vIRQVectorHandler(void)
 {
-    while(1U){}
+    while(1UL){}
 }

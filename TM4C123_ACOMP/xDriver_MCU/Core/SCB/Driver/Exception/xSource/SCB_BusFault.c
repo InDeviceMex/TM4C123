@@ -21,62 +21,61 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_BusFault.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/Core/SCB/Driver/Exception/xHeader/SCB_BusFault.h>
 
 inline void SCB_BusFault__vSetPriority(SCB_nSHPR enSCBPriority)
 {
     SCB_vBarrier();
-    MCU__vWriteRegister(SCB_BASE, SCB_SHPR1_OFFSET, (uint32_t)enSCBPriority, SCB_SHPR1_BUS_MASK, SCB_SHPR1_R_BUS_BIT);
+    MCU__vWriteRegister( SCB_BASE, SCB_SHPR1_OFFSET, (uint32_t) enSCBPriority, SCB_SHPR1_BUS_MASK, SCB_SHPR1_R_BUS_BIT);
     SCB_vBarrier();
 }
 SCB_nSHPR SCB_BusFault__enGetPriority(void)
 {
-    SCB_nSHPR enReturn= SCB_enSHPR0;
-    uint32_t u32Reg= 0UL;
+    SCB_nSHPR enReturn = SCB_enSHPR0;
+    uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SHPR1_OFFSET, SCB_SHPR1_BUS_MASK, SCB_SHPR1_R_BUS_BIT);
-    enReturn=(SCB_nSHPR)(u32Reg);
+    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_SHPR1_OFFSET, SCB_SHPR1_BUS_MASK, SCB_SHPR1_R_BUS_BIT);
+    enReturn = (SCB_nSHPR) u32Reg;
 
     return enReturn;
 }
 
 inline void SCB_BusFault__vSetPending(void)
 {
-    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTPENDED_PEND, SCB_SHCSR_BUSFAULTPENDED_MASK, SCB_SHCSR_R_BUSFAULTPENDED_BIT);
+    MCU__vWriteRegister( SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTPENDED_PEND, SCB_SHCSR_BUSFAULTPENDED_MASK, SCB_SHCSR_R_BUSFAULTPENDED_BIT);
 }
 inline void SCB_BusFault__vClearPending(void)
 {
-    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTPENDED_NOPEND, SCB_SHCSR_BUSFAULTPENDED_MASK, SCB_SHCSR_R_BUSFAULTPENDED_BIT);
+    MCU__vWriteRegister( SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTPENDED_NOPEND, SCB_SHCSR_BUSFAULTPENDED_MASK, SCB_SHCSR_R_BUSFAULTPENDED_BIT);
 }
 SCB_nPENDSTATE SCB_BusFault__enGetPending(void)
 {
-    SCB_nPENDSTATE enReturn=SCB_enNOPENDING;
-    uint32_t u32Reg= 0UL;
+    SCB_nPENDSTATE enReturn = SCB_enNOPENDING;
+    uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTPENDED_MASK, SCB_SHCSR_R_BUSFAULTPENDED_BIT);
-    enReturn=(SCB_nPENDSTATE)(u32Reg);
+    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTPENDED_MASK, SCB_SHCSR_R_BUSFAULTPENDED_BIT);
+    enReturn = (SCB_nPENDSTATE) u32Reg;
 
     return enReturn;
 }
 
 inline void SCB_BusFault__vEnable(void)
 {
-    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTENA_EN, SCB_SHCSR_BUSFAULTENA_MASK, SCB_SHCSR_R_BUSFAULTENA_BIT);
+    MCU__vWriteRegister( SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTENA_EN, SCB_SHCSR_BUSFAULTENA_MASK, SCB_SHCSR_R_BUSFAULTENA_BIT);
 }
 inline void SCB_BusFault__vDisable(void)
 {
-    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTENA_DIS, SCB_SHCSR_BUSFAULTENA_MASK, SCB_SHCSR_R_BUSFAULTENA_BIT);
+    MCU__vWriteRegister( SCB_BASE, SCB_SHCSR_OFFSET, SCB_SHCSR_BUSFAULTENA_DIS, SCB_SHCSR_BUSFAULTENA_MASK, SCB_SHCSR_R_BUSFAULTENA_BIT);
 }
 
 inline uint32_t SCB_BusFault_u32GetAddress(void)
 {
-    uint32_t u32Reg= 0UL;
+    uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_BFAR_OFFSET, SCB_BFAR_ADDRESS_MASK, SCB_BFAR_R_ADDRESS_BIT);
+    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_BFAR_OFFSET, SCB_BFAR_ADDRESS_MASK, SCB_BFAR_R_ADDRESS_BIT);
 
     return u32Reg;
 }

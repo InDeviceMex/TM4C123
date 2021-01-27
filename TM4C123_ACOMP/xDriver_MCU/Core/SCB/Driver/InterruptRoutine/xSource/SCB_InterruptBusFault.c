@@ -21,19 +21,18 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
+#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptBusFault.h>
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptBusFault.h>
 
-uint32_t SCB_BusFault_pu32Context[8];
+uint32_t SCB_BusFault_pu32Context[8UL] = {0UL};
 
 void BusFault__vIRQVectorHandler(void)
 {
+    uint8_t u8BusFault = 0U;
+    uint8_t u8InvalidFault = 0U;
 
-    uint8_t SCB_u8BusFault=0;
-    /*uint32_t SCB_u32MemoryBus=0;*/
     __asm(
     " MRS R0, MSP\n"
 #if defined ( __TI_ARM__ )
@@ -58,14 +57,16 @@ void BusFault__vIRQVectorHandler(void)
     " str R1, [R2, #0x18]\n"/*SCB_BusFault_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_BusFault_pu32Context[7] PSR*/
-    SCB_u8BusFault =SCB_BCFSR_R;
-    if((SCB_u8BusFault & (uint8_t)SCB_enBCFSR_BFARVALID) == (uint8_t)SCB_enBCFSR_BFARVALID)
+
+    u8BusFault = SCB_BCFSR_R;
+    u8InvalidFault = u8BusFault;
+    u8InvalidFault &=  (uint8_t) SCB_enBCFSR_BFARVALID;
+    if( (uint8_t) 0U != u8InvalidFault)
     {
-        /*SCB_u32MemoryBus=SCB_BFAR_R;*/
-        SCB_u8BusFault&=~(uint32_t)SCB_enBCFSR_BFARVALID;
+        u8BusFault &= ~(uint32_t) SCB_enBCFSR_BFARVALID;
     }
 
-    switch(SCB_u8BusFault)
+    switch(u8BusFault)
     {
         case SCB_enBCFSR_LSPERR:
         case SCB_enBCFSR_STKERR:
@@ -76,5 +77,5 @@ void BusFault__vIRQVectorHandler(void)
         default:
             break;
     }
-    while(1U){}
+    while(1UL){}
 }

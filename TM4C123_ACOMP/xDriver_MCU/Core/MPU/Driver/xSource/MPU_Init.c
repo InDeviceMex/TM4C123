@@ -21,14 +21,13 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
 #include <xDriver_MCU/Core/MPU/Driver/xHeader/MPU_Init.h>
-#include <xDriver_MCU/Core/MPU/Peripheral/MPU_Peripheral.h>
-#include <xUtils/Standard/Standard.h>
 
-#define MPU_FLASH_CODE_ADDR (0x00000000U)
-#define MPU_FLASH_CODE_SIZE (18u-1U)
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/Core/MPU/Peripheral/MPU_Peripheral.h>
+
+#define MPU_FLASH_CODE_ADDR    (0x00000000UL)
+#define MPU_FLASH_CODE_SIZE    (18UL-1UL)
 
 inline void MPU_vBlocking(void);
 
@@ -40,15 +39,12 @@ inline void MPU_vBlocking(void)
   }
 }
 
-
 void MPU__vInit(void)
 {
-    uint32_t u32RegRASR=0;
+    uint32_t u32AddressBit = 0UL;
     MPU_vBlocking();
 
-
-    MPU_CTRL_R&=~MPU_CTRL_R_ENABLE_MASK;
-
+    MCU__vWriteRegister( MPU_BASE, MPU_CTRL_OFFSET, 0UL, MPU_CTRL_ENABLE_MASK, MPU_CTRL_R_ENABLE_BIT);
 
     /*all mode only Read  64KB*/
     /*could be executed*/
@@ -56,13 +52,18 @@ void MPU__vInit(void)
     /*normal memory*/
     /*64Kb size*/
     /*enable region*/
-    MPU_RNR_R=0U;
-    MPU_RBAR_R=0x00000000u|MPU_RBAR_R_VALID_MASK|0U;/*FLASH_CODE (size 0x00040000U)*/
-    u32RegRASR =MPU_RASR_R_XN_DIS|
-            MPU_RASR_R_AP_RORO|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|MPU_RASR_R_B_DIS|
-            MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|
-            ((uint32_t)MPU_FLASH_CODE_SIZE<<1U);
-    MPU_RASR_R = u32RegRASR;
+    MCU__vWriteRegister( MPU_BASE, MPU_RNR_OFFSET, 0UL, MPU_RNR_REGION_MASK, MPU_RNR_R_REGION_BIT);
+    MCU__vWriteRegister( MPU_BASE, MPU_RBAR_OFFSET,
+    0x00000000UL                     | MPU_RBAR_R_VALID_EN      | MPU_RBAR_R_REGION_REG0,
+    MPU_RBAR_R_ADDR_MASK |MPU_RBAR_R_VALID_MASK  |MPU_RBAR_R_REGION_MASK, 0UL);/*FLASH_CODE (size 0x00040000UL)*/
+
+    u32AddressBit = MPU_FLASH_CODE_SIZE;
+    u32AddressBit <<= 1U;
+    MCU__vWriteRegister( MPU_BASE, MPU_RASR_OFFSET,
+    MPU_RASR_R_XN_DIS       |MPU_RASR_R_AP_RORO | MPU_RASR_R_S_DIS    |MPU_RASR_R_C_DIS    | MPU_RASR_R_B_DIS    | MPU_RASR_R_TEX_WB_WRA| MPU_RASR_R_ENABLE_EN     |
+    u32AddressBit                  |MPU_RASR_R_SRD_EN,
+    MPU_RASR_R_XN_MASK   |MPU_RASR_R_AP_MASK | MPU_RASR_R_S_MASK| MPU_RASR_R_C_MASK| MPU_RASR_R_B_MASK| MPU_RASR_R_TEX_MASK      | MPU_RASR_R_ENABLE_MASK|
+    MPU_RASR_R_SIZE_MASK |MPU_RASR_R_SRD_MASK, 0UL);
 
 
     /*all mode only Read Only 256KB*/
@@ -72,13 +73,18 @@ void MPU__vInit(void)
     /*256KB size*/
     /*enable region*/
     /*FLASH_CONSTANT (size 0x00010000U)*/
-    MPU_RNR_R=1U;
-    MPU_RBAR_R=0x00030000u|MPU_RBAR_R_VALID_MASK|1U;
-    u32RegRASR =MPU_RASR_R_XN_EN|
-            MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|MPU_RASR_R_B_DIS|
-            MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|
-            ((uint32_t)(16u-1U)<<1U);
-    MPU_RASR_R = u32RegRASR;
+    MCU__vWriteRegister( MPU_BASE, MPU_RNR_OFFSET, 1UL, MPU_RNR_REGION_MASK, MPU_RNR_R_REGION_BIT);
+    MCU__vWriteRegister( MPU_BASE, MPU_RBAR_OFFSET,
+    0x00030000UL                     | MPU_RBAR_R_VALID_EN      | MPU_RBAR_R_REGION_REG1,
+    MPU_RBAR_R_ADDR_MASK |MPU_RBAR_R_VALID_MASK  |MPU_RBAR_R_REGION_MASK, 0UL);/*FLASH_CODE (size 0x00030000UL)*/
+
+    u32AddressBit = 16UL - 1UL;
+    u32AddressBit <<= 1U;
+    MCU__vWriteRegister( MPU_BASE, MPU_RASR_OFFSET,
+    MPU_RASR_R_XN_EN        |MPU_RASR_R_AP_RWRW | MPU_RASR_R_S_DIS    |MPU_RASR_R_C_DIS    | MPU_RASR_R_B_DIS    | MPU_RASR_R_TEX_WB_WRA| MPU_RASR_R_ENABLE_EN     |
+    u32AddressBit                  |MPU_RASR_R_SRD_EN,
+    MPU_RASR_R_XN_MASK   |MPU_RASR_R_AP_MASK | MPU_RASR_R_S_MASK| MPU_RASR_R_C_MASK| MPU_RASR_R_B_MASK| MPU_RASR_R_TEX_MASK      | MPU_RASR_R_ENABLE_MASK|
+    MPU_RASR_R_SIZE_MASK| MPU_RASR_R_SRD_MASK, 0UL);
 
     /*all mode read and write*/
     /*could be not executed*/
@@ -86,13 +92,18 @@ void MPU__vInit(void)
     /*normal memory*/
     /*32Kb size*/
     /*enable region*/
-    MPU_RNR_R=2U;
-    MPU_RBAR_R=0x20000000u|MPU_RBAR_R_VALID_MASK|2U;/*SRAM_VARIABLE (size 0x00007000U)*/
-    u32RegRASR =MPU_RASR_R_XN_EN|MPU_RASR_R_AP_RWRW|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
-            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((uint32_t)(15u-1U)<<1U);
-    MPU_RASR_R = u32RegRASR;
+    MCU__vWriteRegister( MPU_BASE, MPU_RNR_OFFSET, 2UL, MPU_RNR_REGION_MASK, MPU_RNR_R_REGION_BIT);
+    MCU__vWriteRegister( MPU_BASE, MPU_RBAR_OFFSET,
+    0x20000000UL                     | MPU_RBAR_R_VALID_EN      | MPU_RBAR_R_REGION_REG2,
+    MPU_RBAR_R_ADDR_MASK |MPU_RBAR_R_VALID_MASK  |MPU_RBAR_R_REGION_MASK, 0UL);/*SRAM_VARIABLE (size 0x00007000UL)*/
 
-
+    u32AddressBit = 15UL - 1UL;
+    u32AddressBit <<= 1U;
+    MCU__vWriteRegister( MPU_BASE, MPU_RASR_OFFSET,
+    MPU_RASR_R_XN_EN       |MPU_RASR_R_AP_RWRW | MPU_RASR_R_S_DIS    |MPU_RASR_R_C_DIS    | MPU_RASR_R_B_DIS    | MPU_RASR_R_TEX_WB_WRA| MPU_RASR_R_ENABLE_EN     |
+    u32AddressBit                 | MPU_RASR_R_SRD_EN,
+    MPU_RASR_R_XN_MASK  |MPU_RASR_R_AP_MASK | MPU_RASR_R_S_MASK| MPU_RASR_R_C_MASK| MPU_RASR_R_B_MASK| MPU_RASR_R_TEX_MASK      | MPU_RASR_R_ENABLE_MASK|
+    MPU_RASR_R_SIZE_MASK| MPU_RASR_R_SRD_MASK, 0UL);
 
     /*all mode read and write*/
     /*could be executed*/
@@ -100,21 +111,20 @@ void MPU__vInit(void)
     /*normal memory*/
     /*5Kb size*/
     /*enable region*/
-    MPU_RNR_R=3U;
-    MPU_RBAR_R=0x20000000u|MPU_RBAR_R_VALID_MASK|3U;/*SRAM_CODE (size 0x00001400U)*/
-    u32RegRASR =MPU_RASR_R_XN_DIS|MPU_RASR_R_AP_RORO|MPU_RASR_R_S_DIS|MPU_RASR_R_C_DIS|
-            MPU_RASR_R_SRD0_DIS|MPU_RASR_R_SRD6_DIS|MPU_RASR_R_SRD7_DIS|
-            MPU_RASR_R_B_DIS|MPU_RASR_R_TEX_WB_WRA|MPU_RASR_R_ENABLE_EN|((uint32_t)(13u-1U)<<1U);
-    MPU_RASR_R = u32RegRASR;
+    MCU__vWriteRegister( MPU_BASE, MPU_RNR_OFFSET, 3UL, MPU_RNR_REGION_MASK, MPU_RNR_R_REGION_BIT);
+    MCU__vWriteRegister( MPU_BASE, MPU_RBAR_OFFSET,
+    0x20000000UL                     | MPU_RBAR_R_VALID_EN      | MPU_RBAR_R_REGION_REG3,
+    MPU_RBAR_R_ADDR_MASK |MPU_RBAR_R_VALID_MASK  |MPU_RBAR_R_REGION_MASK, 0UL);/*SRAM_CODE (size 0x00001400UL)*/
 
+    u32AddressBit = 13UL - 1UL;
+    u32AddressBit <<= 1U;
+    MCU__vWriteRegister( MPU_BASE, MPU_RASR_OFFSET,
+    MPU_RASR_R_XN_DIS        |MPU_RASR_R_AP_RORO | MPU_RASR_R_S_DIS      |MPU_RASR_R_C_DIS    | MPU_RASR_R_B_DIS    | MPU_RASR_R_TEX_WB_WRA| MPU_RASR_R_ENABLE_EN     |
+    u32AddressBit                   | MPU_RASR_R_SRD0_DIS|MPU_RASR_R_SRD6_DIS|MPU_RASR_R_SRD7_DIS,
+    MPU_RASR_R_XN_MASK    |MPU_RASR_R_AP_MASK | MPU_RASR_R_S_MASK   | MPU_RASR_R_C_MASK| MPU_RASR_R_B_MASK| MPU_RASR_R_TEX_MASK      | MPU_RASR_R_ENABLE_MASK|
+    MPU_RASR_R_SIZE_MASK | MPU_RASR_R_SRD_MASK, 0UL);
 
-
-    MPU_CTRL->PRIVDEFENA=1U;
-    MPU_CTRL->ENABLE=1U;
+    MCU__vWriteRegister( MPU_BASE, MPU_CTRL_OFFSET, MPU_CTRL_R_ENABLE_EN |MPU_CTRL_R_PRIVDEFENA_EN , MPU_CTRL_ENABLE_MASK| MPU_CTRL_R_PRIVDEFENA_MASK, 0UL);
 
     MPU_vBlocking();
-
 }
-
-
-

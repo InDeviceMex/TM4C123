@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SVCALL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SVCALL_H_
 
@@ -30,9 +31,7 @@ void SCB_SVCall__vSetPending(void);
 void SCB_SVCall__vClearPending(void);
 SCB_nPENDSTATE SCB_SVCall__enGetPending(void);
 
-
 void SCB_SVCall__vSetPriority(SCB_nSHPR enSVCallPriority);
 SCB_nSHPR SCB_SVCall__enGetPriority(void);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SVCALL_H_ */

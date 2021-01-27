@@ -4,9 +4,6 @@
  *  Created on: 18 jun. 2020
  *      Author: vyldram
  */
-
-
-
 #include <xDriver_MCU/Core/SYSTICK/Driver/xHeader/SYSTICK_InterruptRoutine.h>
 
 #include <xUtils/Standard/Standard.h>
@@ -14,13 +11,13 @@
 
 void SysTick__vIRQVectorHandler(void)
 {
-    uint32_t u32Count= SysTick__u32GetFreeCount();
+    uint32_t u32Count = SysTick__u32GetFreeCount();
     u32Count++;
     SysTick__vSetFreeCount(u32Count);
-    if(u32Count==0U)
+    if(0U == u32Count)
     {
         uint32_t u32CountOv = SysTick__u32GetFreeCountOv();
         u32CountOv++;
-        SysTick__vSetFreeCountOv(u32CountOv);
+        SysTick__vSetFreeCountOv( u32CountOv);
     }
 }

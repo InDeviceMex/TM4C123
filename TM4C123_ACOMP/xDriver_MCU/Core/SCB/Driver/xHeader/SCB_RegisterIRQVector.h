@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_
 
@@ -28,6 +29,5 @@
 
 void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),SCB_nVECISR enVector);
 void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_ */

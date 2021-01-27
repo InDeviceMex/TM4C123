@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SLEEPMODE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SLEEPMODE_H_
 
@@ -31,9 +32,5 @@ SCB_nSleepDeep SCB__enGetSleepMode(void);
 
 void SCB__vSetSLEEPONEXIT(SCB_nSLEEPONEXIT enSleepMode);
 SCB_nSLEEPONEXIT SCB__enGetSLEEPONEXIT(void);
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SLEEPMODE_H_ */

@@ -21,14 +21,13 @@
  * Date           Author     Version     Description
  * 20 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_PRIORITY_H_
 #define XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_PRIORITY_H_
 
 #include <xDriver_MCU/Core/NVIC/Peripheral/xHeader/NVIC_Enum.h>
 
-NVIC_nSTATUS    NVIC__enSetPriorityIRQ(NVIC_nSTIR enIRQ,NVIC_nPRIORITY enPriority);
-NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ);
-
-
+NVIC_nSTATUS NVIC__enSetPriorityIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority);
+NVIC_nPRIORITY NVIC__enGetPriorityIRQ( NVIC_nSTIR enIRQ);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_PRIORITY_H_ */

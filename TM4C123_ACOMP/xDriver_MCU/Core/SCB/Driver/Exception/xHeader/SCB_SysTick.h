@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SYSTICK_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SYSTICK_H_
 
@@ -32,7 +33,5 @@ SCB_nPENDSTATE SCB_SysTick__enGetPending(void);
 
 void SCB_SysTick__vSetPriority(SCB_nSHPR enSysTickPriority);
 SCB_nSHPR SCB_SysTick__enGetPriority(void);
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SYSTICK_H_ */

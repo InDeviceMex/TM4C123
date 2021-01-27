@@ -21,13 +21,12 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
+#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptHardFault.h>
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
-#include <xDriver_MCU/Core/SCB/Driver/InterruptRoutine/xHeader/SCB_InterruptHardFault.h>
 
-uint32_t SCB_HardFault_pu32Context[8];
+uint32_t SCB_HardFault_pu32Context[8UL];
 
 void HardFault__vIRQVectorHandler(void)
 {
@@ -55,7 +54,5 @@ void HardFault__vIRQVectorHandler(void)
     " str R1, [R2, #0x18]\n"/*SCB_HardFault_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_HardFault_pu32Context[7] PSR*/
-    while(1U){}
+    while(1UL){}
 }
-
-
