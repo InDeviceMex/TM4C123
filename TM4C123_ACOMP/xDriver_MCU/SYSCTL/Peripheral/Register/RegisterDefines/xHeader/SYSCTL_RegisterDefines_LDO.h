@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_PERIPHERAL_SYSCTL_REGISTER_SYSCTL_REGISTERDEFINES_SYSCTL_REGISTERDEFINES_LDO_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_PERIPHERAL_SYSCTL_REGISTER_SYSCTL_REGISTERDEFINES_SYSCTL_REGISTERDEFINES_LDO_H_
 
@@ -30,72 +31,68 @@
 ************************************21 LDOSPCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDOSPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFU)
-#define SYSCTL_LDOSPCTL_R_VLDO_BIT     (0U)
+#define SYSCTL_LDOSPCTL_R_VLDO_MASK    ((uint32_t) 0x000000FFUL)
+#define SYSCTL_LDOSPCTL_R_VLDO_BIT    (0UL)
 
-#define SYSCTL_LDOSPCTL_VLDO_MASK      ((uint32_t)0x000000FFU)
+#define SYSCTL_LDOSPCTL_VLDO_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDOSPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000U)
-#define SYSCTL_LDOSPCTL_R_VADJEN_BIT     (31U)
+#define SYSCTL_LDOSPCTL_R_VADJEN_MASK    ((uint32_t) 0x80000000UL)
+#define SYSCTL_LDOSPCTL_R_VADJEN_BIT    (31UL)
 
-#define SYSCTL_LDOSPCTL_VADJEN_MASK      ((uint32_t)0x000000F01U)
+#define SYSCTL_LDOSPCTL_VADJEN_MASK    ((uint32_t) 0x000000F01UL)
 /*--------*/
 
 /******************************************************************************************
 ************************************22 LDOSPCAL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDOSPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFU)
-#define SYSCTL_LDOSPCAL_R_NOPLL_BIT     (0U)
+#define SYSCTL_LDOSPCAL_R_NOPLL_MASK    ((uint32_t) 0x000000FFUL)
+#define SYSCTL_LDOSPCAL_R_NOPLL_BIT    (0UL)
 
-#define SYSCTL_LDOSPCAL_NOPLL_MASK      ((uint32_t)0x000000FFU)
+#define SYSCTL_LDOSPCAL_NOPLL_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDOSPCAL_R_WITHPLL_MASK    ((uint32_t)0x0000FF00U)
-#define SYSCTL_LDOSPCAL_R_WITHPLL_BIT     (8U)
+#define SYSCTL_LDOSPCAL_R_WITHPLL_MASK    ((uint32_t) 0x0000FF00UL)
+#define SYSCTL_LDOSPCAL_R_WITHPLL_BIT    (8UL)
 
-#define SYSCTL_LDOSPCAL_WITHPLL_MASK      ((uint32_t)0x000000FFU)
+#define SYSCTL_LDOSPCAL_WITHPLL_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
 /******************************************************************************************
 ************************************23 LDODPCTL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDODPCTL_R_VLDO_MASK    ((uint32_t)0x000000FFU)
-#define SYSCTL_LDODPCTL_R_VLDO_BIT     (0U)
+#define SYSCTL_LDODPCTL_R_VLDO_MASK    ((uint32_t) 0x000000FFUL)
+#define SYSCTL_LDODPCTL_R_VLDO_BIT    (0UL)
 
-#define SYSCTL_LDODPCTL_VLDO_MASK      ((uint32_t)0x000000FFU)
+#define SYSCTL_LDODPCTL_VLDO_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDODPCTL_R_VADJEN_MASK    ((uint32_t)0x80000000U)
-#define SYSCTL_LDODPCTL_R_VADJEN_BIT     (31U)
+#define SYSCTL_LDODPCTL_R_VADJEN_MASK    ((uint32_t) 0x80000000UL)
+#define SYSCTL_LDODPCTL_R_VADJEN_BIT    (31UL)
 
-#define SYSCTL_LDODPCTL_VADJEN_MASK      ((uint32_t)0x000000F01U)
+#define SYSCTL_LDODPCTL_VADJEN_MASK    ((uint32_t) 0x000000F01UL)
 /*--------*/
 
 /******************************************************************************************
 ************************************24 LDODPCAL *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SYSCTL_LDODPCAL_R_NOPLL_MASK    ((uint32_t)0x000000FFU)
-#define SYSCTL_LDODPCAL_R_NOPLL_BIT     (0U)
+#define SYSCTL_LDODPCAL_R_NOPLL_MASK    ((uint32_t) 0x000000FFUL)
+#define SYSCTL_LDODPCAL_R_NOPLL_BIT    (0UL)
 
-#define SYSCTL_LDODPCAL_NOPLL_MASK      ((uint32_t)0x000000FFU)
+#define SYSCTL_LDODPCAL_NOPLL_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
 /*--------*/
-#define SYSCTL_LDODPCAL_R_KHZ30_MASK    ((uint32_t)0x0000FF00U)
-#define SYSCTL_LDODPCAL_R_KHZ30_BIT     (8U)
+#define SYSCTL_LDODPCAL_R_KHZ30_MASK    ((uint32_t) 0x0000FF00UL)
+#define SYSCTL_LDODPCAL_R_KHZ30_BIT    (8UL)
 
-#define SYSCTL_LDODPCAL_KHZ30_MASK      ((uint32_t)0x000000FFU)
+#define SYSCTL_LDODPCAL_KHZ30_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_PERIPHERAL_SYSCTL_REGISTER_SYSCTL_REGISTERDEFINES_SYSCTL_REGISTERDEFINES_LDO_H_ */

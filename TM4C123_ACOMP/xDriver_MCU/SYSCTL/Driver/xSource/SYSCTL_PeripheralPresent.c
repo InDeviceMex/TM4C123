@@ -24,7 +24,6 @@
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralPresent.h>
 
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralGeneric.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPeripheral)
@@ -32,10 +31,8 @@ SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPe
     SYSCTL_nPERIPHERAL_PRESENT enReturn = SYSCTL_enNOPRESENT;
     uint32_t u32RegisterValue = 0UL;
 
-    u32RegisterValue = SYSCTL__u32ReadPeripheral(enPeripheral,SYSCTL_PP_OFFSET);
-    enReturn=(SYSCTL_nPERIPHERAL_PRESENT)(u32RegisterValue);
+    u32RegisterValue = SYSCTL__u32ReadPeripheral( enPeripheral, SYSCTL_PP_OFFSET);
+    enReturn = (SYSCTL_nPERIPHERAL_PRESENT) u32RegisterValue;
 
     return enReturn;
-
 }
-

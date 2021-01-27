@@ -24,17 +24,14 @@
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralRunMode.h>
 
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralGeneric.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 void SYSCTL__vEnRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    SYSCTL__vWritePeripheral(enPeripheral,SYSCTL_RCGC_OFFSET, 1UL);
+    SYSCTL__vWritePeripheral( enPeripheral, SYSCTL_RCGC_OFFSET, 1UL);
 }
 
 void SYSCTL__vDisRunModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    SYSCTL__vWritePeripheral(enPeripheral,SYSCTL_RCGC_OFFSET, 0UL);
+    SYSCTL__vWritePeripheral( enPeripheral, SYSCTL_RCGC_OFFSET, 0UL);
 }
-
-

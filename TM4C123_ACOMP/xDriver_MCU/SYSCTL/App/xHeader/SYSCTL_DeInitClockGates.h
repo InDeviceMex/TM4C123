@@ -21,10 +21,10 @@
  * Date           Author     Version     Description
  * 24 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_DEINITCLOCKGATES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_DEINITCLOCKGATES_H_
 
 void SYSCTL__vDeInitClockGates(void);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_APP_SYSCTL_DEINITCLOCKGATES_H_ */

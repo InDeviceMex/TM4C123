@@ -24,7 +24,6 @@
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralReady.h>
 
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralGeneric.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeripheral)
@@ -32,10 +31,8 @@ SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeriph
     SYSCTL_nPERIPHERAL_READY enReturn = SYSCTL_enNOREADY;
     uint32_t u32RegisterValue = 0UL;
 
-    u32RegisterValue = SYSCTL__u32ReadPeripheral(enPeripheral,SYSCTL_PR_OFFSET);
-    enReturn=(SYSCTL_nPERIPHERAL_READY)(u32RegisterValue);
+    u32RegisterValue = SYSCTL__u32ReadPeripheral( enPeripheral, SYSCTL_PR_OFFSET);
+    enReturn = (SYSCTL_nPERIPHERAL_READY) u32RegisterValue;
 
     return enReturn;
 }
-
-

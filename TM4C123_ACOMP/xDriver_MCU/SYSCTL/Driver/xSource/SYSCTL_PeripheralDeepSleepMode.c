@@ -24,18 +24,14 @@
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralDeepSleepMode.h>
 
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralGeneric.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 void SYSCTL__vEnDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    SYSCTL__vWritePeripheral(enPeripheral,SYSCTL_DCGC_OFFSET, 1UL);
+    SYSCTL__vWritePeripheral( enPeripheral, SYSCTL_DCGC_OFFSET, 1UL);
 }
 
 void SYSCTL__vDisDeepSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    SYSCTL__vWritePeripheral(enPeripheral,SYSCTL_DCGC_OFFSET, 0UL);
+    SYSCTL__vWritePeripheral( enPeripheral, SYSCTL_DCGC_OFFSET, 0UL);
 }
-
-
-
