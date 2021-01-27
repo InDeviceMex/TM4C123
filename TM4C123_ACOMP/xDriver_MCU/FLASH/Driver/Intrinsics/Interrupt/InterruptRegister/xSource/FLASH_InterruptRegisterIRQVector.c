@@ -30,15 +30,8 @@
 void FLASH__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))
 {
     SCB_nVECISR enVector = SCB_enVECISR_FLASH;
-    uint32_t u32IrqVectorHandler = 0UL;
-    if(0UL != (uint32_t)pfIrqVectorHandler)
+    if(0UL != (uint32_t) pfIrqVectorHandler)
     {
-        u32IrqVectorHandler = ((uint32_t)pfIrqVectorHandler|(uint32_t)1UL);
-        FLASH__pvIRQVectorHandler=(void (*) (void))u32IrqVectorHandler;
-        SCB__vRegisterIRQVectorHandler(FLASH__pvIRQVectorHandler, enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &FLASH__pvIRQVectorHandler, enVector);
     }
 }
-
-
-
-

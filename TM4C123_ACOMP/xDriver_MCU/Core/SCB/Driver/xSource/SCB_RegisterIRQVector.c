@@ -26,8 +26,7 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-
-void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), SCB_nVECISR enVector)
+void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), void (**pfIrqVectorHandlerExtern) (void), SCB_nVECISR enVector)
 {
     uint32_t u32Vector = 0UL;
     uint32_t u32BaseVector = 0UL;
@@ -57,6 +56,10 @@ void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), SCB_nVEC
         {
             pu32BaseVector = (uint32_t*) u32BaseOffsetVector;
             *pu32BaseVector = u32IrqVectorHandler;
+        }
+        if(0UL != (uint32_t) pfIrqVectorHandlerExtern)
+        {
+            *pfIrqVectorHandlerExtern = (void (*) (void)) u32IrqVectorHandler;
         }
     }
 }

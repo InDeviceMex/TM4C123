@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_SYSEXC_DRIVER_INTRINSICS_INTERRUPT_XHEADER_SYSEXC_INTERRUPTVECTOR_H_
 #define XDRIVER_MCU_SYSEXC_DRIVER_INTRINSICS_INTERRUPT_XHEADER_SYSEXC_INTERRUPTVECTOR_H_
 
@@ -28,9 +29,5 @@
 
 void SYSEXC__vEnInterruptVector(SYSEXC_nPRIORITY enSYSEXCPriority);
 void SYSEXC__vDisInterruptVector(void);
-
-
-
-
 
 #endif /* XDRIVER_MCU_SYSEXC_DRIVER_INTRINSICS_INTERRUPT_XHEADER_SYSEXC_INTERRUPTVECTOR_H_ */

@@ -35,13 +35,13 @@
 inline void SCB__vInit(void)
 {
     SCB__vSetVectorOffset( (uint32_t) &SCB__pfnVectors);
-    SCB__vRegisterIRQVectorHandler( &NMI__vIRQVectorHandler, SCB_enVECISR_NMI);
-    SCB__vRegisterIRQVectorHandler( &PendSV__vIRQVectorHandler, SCB_enVECISR_PENDSV);
-    SCB__vRegisterIRQVectorHandler( &UsageFault__vIRQVectorHandler, SCB_enVECISR_USAGEFAULT);
-    SCB__vRegisterIRQVectorHandler( &BusFault__vIRQVectorHandler, SCB_enVECISR_BUSFAULT);
-    SCB__vRegisterIRQVectorHandler( &MemoryFault__vIRQVectorHandler, SCB_enVECISR_MEMMANAGE);
-    SCB__vRegisterIRQVectorHandler( &HardFault__vIRQVectorHandler, SCB_enVECISR_HARDFAULT);
-    SCB__vRegisterIRQVectorHandler( &SVCall__vIRQVectorHandler,SCB_enVECISR_SVCALL);
+    SCB__vRegisterIRQVectorHandler( &NMI__vIRQVectorHandler, (void (**) (void)) 0UL, SCB_enVECISR_NMI);
+    SCB__vRegisterIRQVectorHandler( &PendSV__vIRQVectorHandler, (void (**) (void)) 0UL, SCB_enVECISR_PENDSV);
+    SCB__vRegisterIRQVectorHandler( &UsageFault__vIRQVectorHandler, (void (**) (void)) 0UL, SCB_enVECISR_USAGEFAULT);
+    SCB__vRegisterIRQVectorHandler( &BusFault__vIRQVectorHandler, (void (**) (void)) 0UL, SCB_enVECISR_BUSFAULT);
+    SCB__vRegisterIRQVectorHandler( &MemoryFault__vIRQVectorHandler, (void (**) (void)) 0UL, SCB_enVECISR_MEMMANAGE);
+    SCB__vRegisterIRQVectorHandler( &HardFault__vIRQVectorHandler, (void (**) (void)) 0UL, SCB_enVECISR_HARDFAULT);
+    SCB__vRegisterIRQVectorHandler( &SVCall__vIRQVectorHandler, (void (**) (void)) 0UL,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
     SCB__enSetPriorityGroup( SCB_enPRIGROUP_XXX);

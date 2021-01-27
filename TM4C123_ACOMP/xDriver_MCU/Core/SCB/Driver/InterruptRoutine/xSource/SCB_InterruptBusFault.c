@@ -30,9 +30,6 @@ uint32_t SCB_BusFault_pu32Context[8UL] = {0UL};
 
 void BusFault__vIRQVectorHandler(void)
 {
-    uint8_t u8BusFault = 0U;
-    uint8_t u8InvalidFault = 0U;
-
     __asm(
     " MRS R0, MSP\n"
 #if defined ( __TI_ARM__ )
@@ -57,6 +54,9 @@ void BusFault__vIRQVectorHandler(void)
     " str R1, [R2, #0x18]\n"/*SCB_BusFault_pu32Context[6] PC*/
     " ldr R1, [R0, #0x1C]\n"
     " str R1, [R2, #0x1C]\n");/*SCB_BusFault_pu32Context[7] PSR*/
+
+    uint8_t u8BusFault = 0U;
+    uint8_t u8InvalidFault = 0U;
 
     u8BusFault = SCB_BCFSR_R;
     u8InvalidFault = u8BusFault;

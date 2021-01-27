@@ -21,13 +21,13 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/SYSEXC_InterruptRoutine_Vector.h>
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/SYSEXC_InterruptRoutine_Vector.h>
 #include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/SYSEXC_InterruptRoutine_Source.h>
 #include <xDriver_MCU/SYSEXC/Peripheral/SYSEXC_Peripheral.h>
 
-uint32_t SYSEXC_pu32Context[8];
+uint32_t SYSEXC_pu32Context[8UL];
 
 void SYSEXC__vIRQVectorHandler(void)
 {
@@ -58,41 +58,37 @@ void SYSEXC__vIRQVectorHandler(void)
         " str R1, [R2, #0x1C]\n");/*SYSEXC_pu32Context[7] PSR*/
     };
 
-    volatile uint32_t u32Reg=0;
+    volatile uint32_t u32Reg = 0UL;
+    u32Reg = SYSEXC_SYSEXCMIS_R;
 
-    u32Reg=SYSEXC_SYSEXCMIS_R;
-    if(u32Reg & (uint32_t)SYSEXC_enINT_DENORMAL)
+    if(0UL != (u32Reg & (uint32_t) SYSEXC_enINT_DENORMAL))
     {
-        SYSEXC_SYSEXCIC_R=(uint32_t)SYSEXC_enINT_DENORMAL;
-        SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_DENORMAL]();
+        SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_DENORMAL;
+        SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_DENORMAL]();
     }
-    if(u32Reg & (uint32_t)SYSEXC_enINT_DIV0)
+    if(0UL != (u32Reg & (uint32_t) SYSEXC_enINT_DIV0))
     {
-        SYSEXC_SYSEXCIC_R=(uint32_t)SYSEXC_enINT_DIV0;
-        SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_DIV0]();
+        SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_DIV0;
+        SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_DIV0]();
     }
-    if(u32Reg & (uint32_t)SYSEXC_enINT_INVALID)
+    if(0UL != (u32Reg & (uint32_t) SYSEXC_enINT_INVALID))
     {
-        SYSEXC_SYSEXCIC_R=(uint32_t)SYSEXC_enINT_INVALID;
-        SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_INVALID]();
+        SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_INVALID;
+        SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_INVALID]();
     }
-    if(u32Reg & (uint32_t)SYSEXC_enINT_UNDERFLOW)
+    if(0UL != (u32Reg & (uint32_t)SYSEXC_enINT_UNDERFLOW))
     {
-        SYSEXC_SYSEXCIC_R=(uint32_t)SYSEXC_enINT_UNDERFLOW;
-        SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_UNDERFLOW]();
+        SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_UNDERFLOW;
+        SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_UNDERFLOW]();
     }
-    if(u32Reg & (uint32_t)SYSEXC_enINT_OVERFLOW)
+    if(0UL != (u32Reg & (uint32_t) SYSEXC_enINT_OVERFLOW))
     {
-        SYSEXC_SYSEXCIC_R=(uint32_t)SYSEXC_enINT_OVERFLOW;
-        SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_OVERFLOW]();
+        SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_OVERFLOW;
+        SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_OVERFLOW]();
     }
-    if(u32Reg & (uint32_t)SYSEXC_enINT_INEXACT)
+    if(0UL != (u32Reg & (uint32_t) SYSEXC_enINT_INEXACT))
     {
-        SYSEXC_SYSEXCIC_R=(uint32_t)SYSEXC_enINT_INEXACT;
-        SYSEXC__vIRQSourceHandler[(uint32_t)SYSEXC_enINTERRUPT_INEXACT]();
+        SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_INEXACT;
+        SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_INEXACT]();
     }
-
 }
-
-
-

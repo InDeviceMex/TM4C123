@@ -22,7 +22,9 @@
  * 19 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <ADC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/ADC_InterruptRegisterIRQVector.h>
+
 #include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/ADC_InterruptRoutine.h>
 
@@ -33,26 +35,15 @@ const SCB_nVECISR SCB_enVECISR_ADC[(uint32_t)ADC_enMODULE_MAX+ 1U][(uint32_t)ADC
 };
 void ADC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
-    SCB_nVECISR enVector=SCB_enVECISR_ADC0SEQ0;
-    uint32_t u32IrqVectorHandler=0U;
-    uint32_t u32Module=(uint32_t)enModule;
-    uint32_t u32Sequencer=(uint32_t)enSequence;
-    if(0u != (uint32_t)pfIrqVectorHandler)
+    SCB_nVECISR enVector = SCB_enVECISR_ADC0SEQ0;
+    uint32_t u32Module = 0UL;
+    uint32_t u32Sequencer = 0UL;
+
+    if(0UL != (uint32_t) pfIrqVectorHandler)
     {
-        if(u32Module>(uint32_t)ADC_enMODULE_MAX)
-        {
-            u32Module=(uint32_t)ADC_enMODULE_MAX;
-        }
-        if(u32Sequencer>(uint32_t)ADC_enSEQ_MAX)
-        {
-            u32Sequencer=(uint32_t)ADC_enSEQ_MAX;
-        }
-        enVector=SCB_enVECISR_ADC[u32Module][u32Sequencer];
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
-        ADC__pvIRQVectorHandler[u32Module][u32Sequencer]=(void (*) (void))u32IrqVectorHandler;
-        SCB__vRegisterIRQVectorHandler(ADC__pvIRQVectorHandler[u32Module][u32Sequencer],enVector);
+        u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+        u32Sequencer = MCU__u32CheckPatams((uint32_t) enSequence, (uint32_t) ADC_enSEQ_MAX);
+        enVector = SCB_enVECISR_ADC[u32Module][u32Sequencer];
+        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &ADC__pvIRQVectorHandler[u32Module][u32Sequencer], enVector);
     }
 }
-
-
-

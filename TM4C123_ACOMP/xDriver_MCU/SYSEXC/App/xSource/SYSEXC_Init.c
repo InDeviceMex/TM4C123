@@ -21,17 +21,16 @@
  * Date           Author     Version     Description
  * 19 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
+#include <xDriver_MCU/SYSEXC/App/xHeader/SYSEXC_Init.h>
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/SYSEXC/App/xHeader/SYSEXC_Init.h>
 #include <xDriver_MCU/SYSEXC/Driver/SYSEXC_Driver.h>
 
-void SYSEXC__vInit(SYSEXC_nINT enInterruptParam,SYSEXC_nPRIORITY enSYSEXCPriority)
+void SYSEXC__vInit(SYSEXC_nINT enInterruptParam, SYSEXC_nPRIORITY enSYSEXCPriority)
 {
-    SYSEXC__vRegisterIRQVectorHandler(&SYSEXC__vIRQVectorHandler);
+    SYSEXC__vRegisterIRQVectorHandler( &SYSEXC__vIRQVectorHandler);
 
-    SYSEXC__vDisInterruptSource(SYSEXC_enINT_ALL);
-    SYSEXC__vEnInterruptSource(enInterruptParam);
-    SYSEXC__vEnInterruptVector(enSYSEXCPriority);
+    SYSEXC__vDisInterruptSource( SYSEXC_enINT_ALL);
+    SYSEXC__vEnInterruptSource( enInterruptParam);
+    SYSEXC__vEnInterruptVector( enSYSEXCPriority);
 }

@@ -51,7 +51,7 @@ SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysT
         SysTick__vSetTickUs(fSysTickUs);
         SysTick__vSetTickCount(u32Tick);
 
-        SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler,SCB_enVECISR_SYSTICK);
+        SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler, (void (**) (void)) 0UL,SCB_enVECISR_SYSTICK);
         SCB_SysTick__vSetPriority(enPriority);
         MCU__vWriteRegister(SysTick_BASE, SysTick_RVR_OFFSET,u32Tick-1U, SysTick_RVR_RELOAD_MASK, SysTick_RVR_R_RELOAD_BIT);
         MCU__vWriteRegister(SysTick_BASE, SysTick_CVR_OFFSET, 0UL , 0xFFFFFFFFUL, 0UL);
@@ -108,7 +108,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float32_t fFrequency, SCB_nSHPR enPrior
             SysTick__vSetTickUs(fSysTickUs);
             SysTick__vSetTickCount(u32CountTick);
 
-            SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler,SCB_enVECISR_SYSTICK);
+            SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler, (void (**) (void)) 0UL,SCB_enVECISR_SYSTICK);
             SCB_SysTick__vSetPriority(enPriority);
             MCU__vWriteRegister(SysTick_BASE, SysTick_RVR_OFFSET,u32CountTick-1U, SysTick_RVR_RELOAD_MASK, SysTick_RVR_R_RELOAD_BIT);
             MCU__vWriteRegister(SysTick_BASE, SysTick_CVR_OFFSET, 0UL , 0xFFFFFFFFUL, 0UL);
@@ -174,7 +174,7 @@ SysTick_nSTATUS SysTick__enInitUs(float32_t fTimeUs, SCB_nSHPR enPriority)
             SysTick__vSetTickUs(fTimeUs);
             SysTick__vSetTickCount(u32CountTick);
 
-            SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler,SCB_enVECISR_SYSTICK);
+            SCB__vRegisterIRQVectorHandler(&SysTick__vIRQVectorHandler, (void (**) (void)) 0UL,SCB_enVECISR_SYSTICK);
             SCB_SysTick__vSetPriority(enPriority);
             MCU__vWriteRegister(SysTick_BASE, SysTick_RVR_OFFSET,u32CountTick-1U, SysTick_RVR_RELOAD_MASK, SysTick_RVR_R_RELOAD_BIT);
             MCU__vWriteRegister(SysTick_BASE, SysTick_CVR_OFFSET, 0UL , 0xFFFFFFFFUL, 0UL);

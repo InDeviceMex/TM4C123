@@ -21,23 +21,17 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <SYSEXC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/SYSEXC_InterruptRegisterIRQVector.h>
+
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Dependencies.h>
 #include <xDriver_MCU/SYSEXC/Driver/Intrinsics/Interrupt/InterruptRoutine/SYSEXC_InterruptRoutine.h>
 
 void SYSEXC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))
 {
-    SCB_nVECISR enVector=SCB_enVECISR_SYSEXC;
-    uint32_t u32IrqVectorHandler=0;
-    if(0u != (uint32_t)pfIrqVectorHandler)
+    SCB_nVECISR enVector = SCB_enVECISR_SYSEXC;
+    if(0UL != (uint32_t) pfIrqVectorHandler)
     {
-        u32IrqVectorHandler=((uint32_t)pfIrqVectorHandler|(uint32_t)1U);
-        SYSEXC__pvIRQVectorHandler=(void (*) (void))u32IrqVectorHandler;
-        SCB__vRegisterIRQVectorHandler(SYSEXC__pvIRQVectorHandler,enVector);
+        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &SYSEXC__pvIRQVectorHandler, enVector);
     }
 }
-
-
-
-

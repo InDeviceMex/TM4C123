@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 22 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 22 jun. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_STRUCT_SYSEXC_STRUCTPERIPHERAL_BITBANDING_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_STRUCT_SYSEXC_STRUCTPERIPHERAL_BITBANDING_H_
 
@@ -30,28 +31,24 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t    SYSEXCRIS[32];
-        BITBANDING_SYSEXCRIS_TypeDef               SYSEXCRIS_Bit;
+        volatile const uint32_t SYSEXCRIS [32UL];
+        BITBANDING_SYSEXCRIS_TypeDef SYSEXCRIS_Bit;
     };
     union
     {
-        volatile uint32_t          SYSEXCIM[32];
-        BITBANDING_SYSEXCIM_TypeDef                SYSEXCIM_Bit;
+        volatile uint32_t SYSEXCIM [32UL];
+        BITBANDING_SYSEXCIM_TypeDef SYSEXCIM_Bit;
     };
     union
     {
-        volatile const uint32_t    SYSEXCMIS[32];
-        BITBANDING_SYSEXCMIS_TypeDef               SYSEXCMIS_Bit;
+        volatile const uint32_t SYSEXCMIS [32UL];
+        BITBANDING_SYSEXCMIS_TypeDef SYSEXCMIS_Bit;
     };
     union
     {
-        volatile uint32_t          SYSEXCIC[32];
-        BITBANDING_SYSEXCIC_TypeDef                SYSEXCIC_Bit;
+        volatile uint32_t SYSEXCIC [32UL];
+        BITBANDING_SYSEXCIC_TypeDef SYSEXCIC_Bit;
     };
 }SYSEXC_BITBANDING_TypeDef;
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_STRUCT_SYSEXC_STRUCTPERIPHERAL_BITBANDING_H_ */
