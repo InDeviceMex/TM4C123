@@ -30,7 +30,7 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
     uint32_t u32TempValue= 0UL;
 
     u32AddressCurrent = u32Address;
-    u32AddressCurrent&= ~(uint32_t)0x3UL;
+    u32AddressCurrent&= ~(uint32_t) 0x3UL;
 
     u32Offset = u32Count;
     u32Offset *= 4UL;
@@ -40,11 +40,11 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
     if((u32AddressTotal <= FLASH_ADDRESS_MAX) && (0UL != u32Count))
     {
 #if defined ( __TI_ARM__ )
-        pu32PageDataInitial = (uint32_t*) memalign((size_t)4UL,(size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
+        pu32PageDataInitial = (uint32_t*) memalign( (size_t) 4UL, (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #elif defined ( __GNUC__ )
-        pu32PageDataInitial = (uint32_t*) malloc((size_t)sizeof(uint8_t)*FLASH_PAGE_SIZE);
+        pu32PageDataInitial = (uint32_t*) malloc( (size_t) sizeof(uint8_t) * FLASH_PAGE_SIZE);
 #endif
-        if(0UL != (uint32_t)pu32PageDataInitial)
+        if(0UL != (uint32_t) pu32PageDataInitial)
         {
             do
             {
@@ -68,7 +68,7 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                 u32DifPage -= u32AddressCurrent;
                 u32DifPage >>= 2UL;
                 /*Puntero al inico de la page actual de 1KB*/
-                pu32Address = (uint32_t*)u32AddressPage;
+                pu32Address = (uint32_t*) u32AddressPage;
                 /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
                 u32TempValue = FLASH_PAGE_SIZE;
                 u32TempValue >>= 2UL;
@@ -99,11 +99,11 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                     pu32Data += 1UL;
                 }
 
-                FLASH__enPageErase(u32AddressPage);
+                FLASH__enPageErase( u32AddressPage);
                 pu32PageData = pu32PageDataInitial;
                 for(u32Pos = 0UL; u32Pos < 8UL; u32Pos++)
                 {
-                    enReturn=FLASH__enWriteBuf(pu32PageData, u32AddressPage, 32UL);
+                    enReturn = FLASH__enWriteBuf( pu32PageData, u32AddressPage, 32UL);
                     if( FLASH_enERROR == enReturn)
                     {
                         break;
@@ -115,11 +115,11 @@ FLASH_nSTATUS FLASH__enWriteMultiWorld(const uint32_t* pu32Data, uint32_t u32Add
                 u32Count -= u32Dif;
             }while(0UL != u32Count);
 
-            free(pu32PageDataInitial);
+            free( pu32PageDataInitial);
             pu32PageDataInitial = (uint32_t*) 0UL;
         }
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }
 
 FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u32Address, uint32_t u32Count)
@@ -141,7 +141,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
     uint32_t u32TempValue= 0UL;
 
     u32AddressCurrent = u32Address;
-    u32AddressCurrent &= ~(uint32_t)0x1UL;
+    u32AddressCurrent &= ~(uint32_t) 0x1UL;
 
     u32Offset = u32Count;
     u32Offset *= 4UL;
@@ -151,11 +151,11 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
     if((u32AddressTotal <= FLASH_ADDRESS_MAX) && (0UL != u32Count))
     {
 #if defined ( __TI_ARM__ )
-        pu32PageDataInitial = (uint32_t*) memalign((size_t)4UL,(size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
+        pu32PageDataInitial = (uint32_t*) memalign( (size_t) 4UL, (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #elif defined ( __GNUC__ )
-        pu32PageDataInitial = (uint32_t*) malloc((size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
+        pu32PageDataInitial = (uint32_t*) malloc( (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #endif
-        if(0UL != (uint32_t)pu32PageDataInitial)
+        if(0UL != (uint32_t) pu32PageDataInitial)
         {
             do
             {
@@ -179,7 +179,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                 u32DifPage -= u32AddressCurrent;
                 u32DifPage >>= 1UL;
                 /*Puntero al inico de la page actual de 1KB*/
-                pu32Address = (uint32_t*)u32AddressPage;
+                pu32Address = (uint32_t*) u32AddressPage;
                 /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
                 u32TempValue = FLASH_PAGE_SIZE;
                 u32TempValue >>= 2UL;
@@ -201,7 +201,7 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                     u32Dif = u32Count;
                 }
 
-                pu16PageData = (uint16_t*)pu32PageDataInitial;
+                pu16PageData = (uint16_t*) pu32PageDataInitial;
                 pu16PageData += u32OffsetHalfWorld;
                 for(u32Pos = 0UL; u32Pos < u32Dif; u32Pos++)
                 {
@@ -210,11 +210,11 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                     pu16Data += 1UL;
                 }
 
-                FLASH__enPageErase(u32AddressPage);
+                FLASH__enPageErase( u32AddressPage);
                 pu32PageData = pu32PageDataInitial;
                 for(u32Pos = 0UL; u32Pos < 8UL; u32Pos++)
                 {
-                    enReturn=FLASH__enWriteBuf(pu32PageData,u32AddressPage, 32UL);
+                    enReturn = FLASH__enWriteBuf( pu32PageData, u32AddressPage, 32UL);
                     if(FLASH_enERROR == enReturn)
                     {
                         break;
@@ -225,11 +225,11 @@ FLASH_nSTATUS FLASH__enWriteMultiHalfWorld(const uint16_t* pu16Data, uint32_t u3
                 u32AddressCurrent = u32AddressPage;
                 u32Count -= u32Dif;
             }while(0UL != u32Count);
-            free(pu32PageDataInitial);
+            free( pu32PageDataInitial);
             pu32PageDataInitial = (uint32_t*) 0UL;
         }
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }
 
 FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Address, uint32_t u32Count)
@@ -256,11 +256,11 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
     if((u32AddressTotal <= FLASH_ADDRESS_MAX) && (0UL != u32Count))
     {
 #if defined ( __TI_ARM__ )
-        pu32PageDataInitial = (uint32_t*) memalign((size_t)4UL,(size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
+        pu32PageDataInitial = (uint32_t*) memalign( (size_t) 4UL, (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #elif defined ( __GNUC__ )
-        pu32PageDataInitial = (uint32_t*) malloc((size_t)(sizeof(uint8_t)*FLASH_PAGE_SIZE));
+        pu32PageDataInitial = (uint32_t*) malloc( (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #endif
-        if( 0UL != (uint32_t)pu32PageDataInitial)
+        if( 0UL != (uint32_t) pu32PageDataInitial)
         {
             do
             {
@@ -282,7 +282,7 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                 u32DifPage = u32AddressNextPage;
                 u32DifPage -= u32AddressCurrent;
                 /*Puntero al inico de la page actual de 1KB*/
-                pu32Address = (uint32_t*)u32AddressPage;
+                pu32Address = (uint32_t*) u32AddressPage;
                 /*LLenado de mi buffer auxiliar con la informacion de la page de 1KB actual*/
                 u32TempValue = FLASH_PAGE_SIZE;
                 u32TempValue >>= 2UL;
@@ -304,7 +304,7 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                     u32Dif = u32Count;
                 }
 
-                pu8PageData = (uint8_t*)pu32PageDataInitial;
+                pu8PageData = (uint8_t*) pu32PageDataInitial;
                 pu8PageData += u32OffsetByte;
                 for(u32Pos = 0UL ;u32Pos < u32Dif; u32Pos++)
                 {
@@ -313,11 +313,11 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                     pu8Data += 1U;
                 }
 
-                FLASH__enPageErase(u32AddressPage);
+                FLASH__enPageErase( u32AddressPage);
                 pu32PageData = pu32PageDataInitial;
                 for(u32Pos = 0UL; u32Pos < 8UL; u32Pos++)
                 {
-                    enReturn=FLASH__enWriteBuf(pu32PageData, u32AddressPage, 32UL);
+                    enReturn = FLASH__enWriteBuf( pu32PageData, u32AddressPage, 32UL);
                     if( FLASH_enERROR == enReturn)
                     {
                         break;
@@ -329,9 +329,9 @@ FLASH_nSTATUS FLASH__enWriteMultiByte(const uint8_t* pu8Data, uint32_t u32Addres
                 u32Count -= u32Dif;
             }while(0UL != u32Count);
 
-            free(pu32PageDataInitial);
+            free( pu32PageDataInitial);
             pu32PageDataInitial = (uint32_t*) 0UL;
         }
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }

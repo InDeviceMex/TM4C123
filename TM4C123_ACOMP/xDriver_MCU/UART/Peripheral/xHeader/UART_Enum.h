@@ -46,7 +46,7 @@ typedef enum
     UART_enMODULE_5 = 5U,
     UART_enMODULE_6 = 6U,
     UART_enMODULE_7 = 7U,
-    UART_enMODULE_MAX = 7U,
+    UART_enMODULE_MAX = 8U,
 }UART_nMODULE;
 
 typedef enum
@@ -73,7 +73,7 @@ typedef enum
     UART_enINTERRUPT_BREAK_ERROR=6U,
     UART_enINTERRUPT_OVERRUN_ERROR=7U,
     UART_enINTERRUPT_BIT9_MODE=8U,
-    UART_enINTERRUPT_MAX=8U,
+    UART_enINTERRUPT_MAX=9U,
 }UART_nINTERRUPT;
 
 typedef enum

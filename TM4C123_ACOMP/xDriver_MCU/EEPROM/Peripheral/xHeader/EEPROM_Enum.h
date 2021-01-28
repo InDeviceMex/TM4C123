@@ -39,9 +39,9 @@
  */
 typedef enum
 {
-    EEPROM_enOK = 0U,  /*!<  Result is OK*/
-    EEPROM_enBUSY,    /*!<  Operation Ongoing*/
-    EEPROM_enERROR,   /*!<  Result has an error*/
+    EEPROM_enOK = 0UL,  /*!<  Result is OK*/
+    EEPROM_enERROR = 1UL,   /*!<  Result has an error*/
+    EEPROM_enBUSY = 2UL,    /*!<  Operation Ongoing*/
 }EEPROM_nSTATUS;
 
 /**
@@ -50,16 +50,15 @@ typedef enum
  */
 typedef enum
 {
-    EEPROM_enNOREADY=0U,
-    EEPROM_enREADY=1U,
+    EEPROM_enNOREADY = 0UL,
+    EEPROM_enREADY = 1UL,
 }EEPROM_nREADY;
-
 
 typedef enum
 {
-    EEPROM_enINT_NOOCCUR=0U,
-    EEPROM_enINT_OCCUR=1U,
-    EEPROM_enINT_STATUS_UNDEF=0xFFFFFFFFU,
+    EEPROM_enINT_NOOCCUR = 0UL,
+    EEPROM_enINT_OCCUR = 1UL,
+    EEPROM_enINT_STATUS_UNDEF = 0xFFFFFFFFUL,
 }EEPROM_nINT_STATUS;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_ENUM_H_ */

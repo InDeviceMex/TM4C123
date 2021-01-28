@@ -41,7 +41,7 @@ void DMA__vEnInterruptVector(DMA_nVECTOR enVector,DMA_nPRIORITY enDmaPriority)
     }
     u32VectorNvic=(uint32_t)NVIC_VECTOR_DMA[(uint32_t)enVector];
     enDmaPriority&=0x7U;
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)u32VectorNvic,(NVIC_nPRIORITY)enDmaPriority);
+    NVIC__vSetEnableIRQ((NVIC_nSTIR)u32VectorNvic,(NVIC_nPRIORITY)enDmaPriority);
 }
 
 void DMA__vDisInterruptVector(DMA_nVECTOR enVector)
@@ -52,7 +52,7 @@ void DMA__vDisInterruptVector(DMA_nVECTOR enVector)
         enVector=DMA_enVECTOR_MAX;
     }
     u32VectorNvic=(uint32_t)NVIC_VECTOR_DMA[(uint32_t)enVector];
-    NVIC__enClearEnableIRQ((NVIC_nSTIR)u32VectorNvic);
+    NVIC__vClearEnableIRQ((NVIC_nSTIR)u32VectorNvic);
 }
 
 

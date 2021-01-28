@@ -38,18 +38,12 @@ inline NVIC_nPENDING NVIC__enGetPendingIRQ( NVIC_nSTIR enIRQ)
     return enStatus;
 }
 
-inline NVIC_nSTATUS NVIC__enSetPendingIRQ( NVIC_nSTIR enIRQ)
+inline void NVIC__vSetPendingIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nSTATUS enStatus = NVIC_enERROR;
-    enStatus = NVIC__enWriteRegister( enIRQ, NVIC_ISPR_OFFSET, (uint32_t) NVIC_enENABLE);
-
-    return enStatus;
+    NVIC__vWriteRegister( enIRQ, NVIC_ISPR_OFFSET, (uint32_t) NVIC_enENABLE);
 }
 
-inline NVIC_nSTATUS NVIC__enClearPendingIRQ( NVIC_nSTIR enIRQ)
+inline void NVIC__vClearPendingIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nSTATUS enStatus = NVIC_enERROR;
-    enStatus = NVIC__enWriteRegister( enIRQ, NVIC_ICPR_OFFSET, (uint32_t) NVIC_enENABLE);
-
-    return enStatus;
+    NVIC__vWriteRegister( enIRQ, NVIC_ICPR_OFFSET, (uint32_t) NVIC_enENABLE);
 }

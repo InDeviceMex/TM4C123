@@ -25,7 +25,7 @@
 
 static void SYSEXC_vIRQSourceHandler_Dummy(void);
 
-void (*SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_MAX + 1UL]) (void) =
+void (*SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_MAX]) (void) =
 {
     &SYSEXC_vIRQSourceHandler_Dummy,
     &SYSEXC_vIRQSourceHandler_Dummy,

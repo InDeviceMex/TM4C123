@@ -11,7 +11,4 @@
 #include <xDriver_MCU/FLASH/Peripheral/Struct/xHeader/FLASH_StructPeripheral.h>
 #include <xDriver_MCU/FLASH/Peripheral/Struct/xHeader/FLASH_StructPeripheral_Bitbanding.h>
 
-
-
-
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_STRUCT_H_ */

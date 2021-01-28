@@ -22,9 +22,9 @@
  * 21 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/HIB/Driver/Control/xHeader/HIB_PinWake.h>
+
 #include <xDriver_MCU/HIB/Driver/Intrinsics/HIB_Intrinsics.h>
 #include <xDriver_MCU/HIB/Peripheral/HIB_Peripheral.h>
-
 
 HIB_nSTATUS HIB__enEnPinWakeUp(void)
 {

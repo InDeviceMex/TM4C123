@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #include <FLASH/App/xHeader/FLASH_Init.h>
 #include <FLASH/Driver/FLASH_Driver.h>
 
@@ -31,12 +32,12 @@ FLASH_nSTATUS FLASH__enInit (void)
      */
     FLASH_nSTATUS enReturn = FLASH_enERROR;
 
-    FLASH__vRegisterIRQVectorHandler(&FLASH__vIRQVectorHandler);
+    FLASH__vRegisterIRQVectorHandler( &FLASH__vIRQVectorHandler);
     /*
      * To return the final Function status,
      * if FLASH__enWait ends correctly all the process is OK
      */
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 
 }
 
@@ -45,5 +46,3 @@ void FLASH__vDeInit (void)
     FLASH__vDisInterruptSource(FLASH_enINT_ALL);
     FLASH__vDisInterruptVector();
 }
-
-

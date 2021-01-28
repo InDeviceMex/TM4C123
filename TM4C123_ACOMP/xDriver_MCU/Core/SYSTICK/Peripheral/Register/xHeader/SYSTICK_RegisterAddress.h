@@ -28,7 +28,7 @@
 #include <xUtils/Standard/Standard.h>
 
 #define SysTick_BASE    ((uint32_t) 0xE000E000UL)
-#define SysTick_VALUEMAX    ((uint32_t) 0xFFFFFFUL)
+#define SysTick_VALUEMAX    ((uint32_t) 0x1000000UL)
 #define SysTick_PIOSC4    ((uint32_t) 4000000UL)
 #define SysTick_PIOSC    ((uint32_t) 16000000UL)
 

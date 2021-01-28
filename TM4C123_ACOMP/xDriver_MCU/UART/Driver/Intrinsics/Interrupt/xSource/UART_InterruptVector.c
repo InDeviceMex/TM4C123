@@ -32,7 +32,7 @@ static NVIC_nSTIR UART__enGetInterruptVector(UART_nMODULE enModule);
 
 static NVIC_nSTIR UART__enGetInterruptVector(UART_nMODULE enModule)
 {
-    NVIC_nSTIR NVIC_VECTOR_UART[(uint32_t)UART_enMODULE_MAX+1U]=
+    NVIC_nSTIR NVIC_VECTOR_UART[(uint32_t)UART_enMODULE_MAX]=
     {
         NVIC_enSTIR_UART0,NVIC_enSTIR_UART1,NVIC_enSTIR_UART2,NVIC_enSTIR_UART3,
         NVIC_enSTIR_UART4,NVIC_enSTIR_UART5,NVIC_enSTIR_UART6,NVIC_enSTIR_UART7
@@ -52,14 +52,14 @@ void UART__vEnInterruptVector(UART_nMODULE enModule, UART_nPRIORITY enUARTPriori
     NVIC_nSTIR enVector=NVIC_enSTIR_UART0;
     enVector= UART__enGetInterruptVector(enModule);
     enUARTPriority&=0x7U;
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enUARTPriority);
+    NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enUARTPriority);
 }
 
 void UART__vDisInterruptVector(UART_nMODULE enModule)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_UART0;
     enVector= UART__enGetInterruptVector(enModule);
-    NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
+    NVIC__vClearEnableIRQ((NVIC_nSTIR)enVector);
 }
 
 

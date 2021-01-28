@@ -26,29 +26,22 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
-inline NVIC_nSTATUS NVIC__enSetPriorityIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
+inline void NVIC__vSetPriorityIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
 {
-    NVIC_nSTATUS enStatus = NVIC_enERROR;
     uint32_t u32RegisterOffset = NVIC_IPR_OFFSET;
     uint32_t u32IsrIndex = 0UL;
     uint32_t u32IsrBit = 0UL;
-    uint32_t u32Priority = (uint32_t) enPriority;
-    uint32_t u32IRQ = (uint32_t) enIRQ;
+    uint32_t u32Priority = 0UL;
+    uint32_t u32IRQ = 0UL;
 
-    if(u32Priority <= NVIC_PRI_MAX)
-    {
-        if(u32IRQ <= NVIC_IRQ_MAX)
-        {
-            enStatus = NVIC_enOK;
-            u32IsrBit = u32IRQ % 4UL;
-            u32IsrBit *= 8UL;
-            u32IsrIndex = u32IRQ / 4UL;
-            u32IsrIndex *= 4UL;
-            u32RegisterOffset += u32IsrIndex;
-            MCU__vWriteRegister( NVIC_BASE, u32RegisterOffset, u32Priority, NVIC_PRI_MASK, u32IsrBit);
-        }
-    }
-    return enStatus;
+    u32Priority = MCU__u32CheckPatams( (uint32_t) enPriority, NVIC_PRI_MAX);
+    u32IRQ = MCU__u32CheckPatams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
+    u32IsrBit = u32IRQ % 4UL;
+    u32IsrBit *= 8UL;
+    u32IsrIndex = u32IRQ / 4UL;
+    u32IsrIndex *= 4UL;
+    u32RegisterOffset += u32IsrIndex;
+    MCU__vWriteRegister( NVIC_BASE, u32RegisterOffset, u32Priority, NVIC_PRI_MASK, u32IsrBit);
 }
 
 inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ( NVIC_nSTIR enIRQ)
@@ -58,18 +51,17 @@ inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ( NVIC_nSTIR enIRQ)
     uint32_t u32IsrIndex = 0UL;
     uint32_t u32IsrBit = 0UL;
     uint32_t u32Priority = 0UL;
-    uint32_t u32IRQ = (uint32_t) enIRQ;
+    uint32_t u32IRQ = 0UL;
 
-    if(u32IRQ <= NVIC_IRQ_MAX)
-    {
-        u32IsrBit = u32IRQ % 4UL;
-        u32IsrBit *= 8UL;
-        u32IsrIndex = u32IRQ / 4UL;
-        u32IsrIndex *= 4UL;
-        u32RegisterOffset += u32IsrIndex;
+    u32IRQ = MCU__u32CheckPatams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
+    u32IsrBit = u32IRQ % 4UL;
+    u32IsrBit *= 8UL;
+    u32IsrIndex = u32IRQ / 4UL;
+    u32IsrIndex *= 4UL;
+    u32RegisterOffset += u32IsrIndex;
 
-        u32Priority = MCU__u32ReadRegister( NVIC_BASE, u32RegisterOffset, NVIC_PRI_MASK, u32IsrBit);
-        enPriority= (NVIC_nPRIORITY) u32Priority;
-    }
+    u32Priority = MCU__u32ReadRegister( NVIC_BASE, u32RegisterOffset, NVIC_PRI_MASK, u32IsrBit);
+    enPriority= (NVIC_nPRIORITY) u32Priority;
+
     return enPriority;
 }

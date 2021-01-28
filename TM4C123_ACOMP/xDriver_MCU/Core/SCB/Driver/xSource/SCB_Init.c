@@ -44,6 +44,6 @@ inline void SCB__vInit(void)
     SCB__vRegisterIRQVectorHandler( &SVCall__vIRQVectorHandler, (void (**) (void)) 0UL,SCB_enVECISR_SVCALL);
     SCB__vEnableTraps();
     SCB__vEnableExceptions();
-    SCB__enSetPriorityGroup( SCB_enPRIGROUP_XXX);
+    SCB__vSetPriorityGroup( SCB_enPRIGROUP_XXX);
     SCB__vSetStackAligment( SCB_enALIGN_4BYTE);
 }

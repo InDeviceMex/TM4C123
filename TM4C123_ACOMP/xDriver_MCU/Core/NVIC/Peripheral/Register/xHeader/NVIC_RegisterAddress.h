@@ -30,11 +30,11 @@
 #define NVIC_BASE    ((uint32_t) 0xE000E000UL)
 #define NVIC_OFFSET    ((uint32_t) 0x00000100UL)
 
-#define NVIC_IRQ_MAX    (138UL)
-#define NVIC_MAX    (3UL)
-#define NVIC_PRI_MAX    (7UL)
+#define NVIC_IRQ_MAX    (139UL)
+#define NVIC_MAX    (4UL)
+#define NVIC_PRI_MAX    (8UL)
 #define NVIC_PRI_MASK    (7UL)
-#define NVIC_IPR_MAX    (34UL)
+#define NVIC_IPR_MAX    (35UL)
 
 #define NVIC_ISER_OFFSET    ((uint32_t) 0x0100UL)
 #define NVIC_ISER0_OFFSET    ((uint32_t) 0x0100UL)

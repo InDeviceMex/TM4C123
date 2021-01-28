@@ -21,29 +21,24 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
-/**
- * Include Files
- */
 #include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_BlockCount.h>
-#include <xUtils/Standard/Standard.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 /**
  * Max Number of 16 World Blocks (16*32bits) inside the EEPROM peripheral
  */
-static uint32_t EEPROM_u32BlockCount = 0;
-
+static uint32_t EEPROM_u32BlockCount = 0UL;
 
 uint32_t EEPROM__u32GetBlockCount (void)
 {
-    return (uint32_t) EEPROM_u32BlockCount;
+    return EEPROM_u32BlockCount;
 }
 
 void EEPROM__vInitBlockCount(void)
 {
-    EEPROM_u32BlockCount = (EEPROM_EESIZE_R & EEPROM_EESIZE_R_BLKCNT_MASK) >> EEPROM_EESIZE_R_BLKCNT_BIT;
+    EEPROM_u32BlockCount = MCU__u32ReadRegister(EEPROM_BASE, EEPROM_EESIZE_OFFSET, EEPROM_EESIZE_BLKCNT_MASK, EEPROM_EESIZE_R_BLKCNT_BIT);
 }
 
 

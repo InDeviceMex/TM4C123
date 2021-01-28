@@ -49,9 +49,8 @@ HIB_nSTATUS HIB__enSetControlGeneric(uint32_t u32ControlGeneric,uint32_t u32Mask
 
 HIB_nSTATUS HIB__enGetControlGeneric(uint32_t* pu32ControlGeneric, uint32_t u32Mask, uint32_t u32Bit)
 {
-    HIB_nSTATUS enStatusRead= HIB_enSTATUS_UNDEF;
-
-    if(0UL != pu32ControlGeneric)
+    HIB_nSTATUS enStatusRead = HIB_enSTATUS_UNDEF;
+    if(0UL != (uint32_t) pu32ControlGeneric)
     {
         enStatusRead = HIB__enReadRegister( HIB_HIBCTL_OFFSET, pu32ControlGeneric, u32Mask, u32Bit);
     }

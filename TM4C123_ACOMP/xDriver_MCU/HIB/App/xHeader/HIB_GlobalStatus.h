@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 11 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_HIB_APP_XHEADER_HIB_GLOBALSTATUS_H_
 #define XDRIVER_MCU_HIB_APP_XHEADER_HIB_GLOBALSTATUS_H_
 

@@ -27,7 +27,7 @@
 
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 
-SCB_nSTATUS SCB__enSetPriorityGroup(SCB_nPRIGROUP enGroup);
+void SCB__vSetPriorityGroup( SCB_nPRIGROUP enGroup);
 SCB_nPRIGROUP SCB__enGetPriorityGroup(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_PRIORITYGROUP_H_ */

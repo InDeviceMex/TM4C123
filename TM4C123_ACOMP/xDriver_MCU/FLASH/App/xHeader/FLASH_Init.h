@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_FLASH_APP_XHEADER_FLASH_INIT_H_
 #define XDRIVER_MCU_FLASH_APP_XHEADER_FLASH_INIT_H_
 
@@ -29,8 +30,5 @@
 
 FLASH_nSTATUS FLASH__enInit(void);
 void FLASH__vDeInit(void);
-
-
-
 
 #endif /* XDRIVER_MCU_FLASH_APP_XHEADER_FLASH_INIT_H_ */

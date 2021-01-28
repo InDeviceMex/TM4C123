@@ -33,7 +33,6 @@ HIB_nSTATUS HIB__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32Featur
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     HIB_nREADY enReady = HIB_enNOREADY;
     enReady = HIB__enIsReady();
-
     if( (HIB_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))
     {
         enStatus = HIB_enSTATUS_OK;

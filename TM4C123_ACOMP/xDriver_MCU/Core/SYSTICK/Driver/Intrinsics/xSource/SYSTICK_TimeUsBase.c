@@ -20,5 +20,5 @@ void SysTick__vSetTimeUsBase(float32_t fBase)
 
 float32_t SysTick__fGetTimeUsBase(void)
 {
-    return (float32_t) SysTick_fTimeUsBase;
+    return SysTick_fTimeUsBase;
 }

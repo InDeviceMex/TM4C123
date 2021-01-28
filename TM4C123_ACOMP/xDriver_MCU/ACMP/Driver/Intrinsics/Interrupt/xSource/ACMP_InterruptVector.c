@@ -48,14 +48,14 @@ void ACMP__vEnInterruptVector(ACMP_nMODULE enModule, ACMP_nPRIORITY enACMPPriori
     NVIC_nSTIR enVector=NVIC_enSTIR_ACOMP0;
     enVector= ACMP__enGetInterruptVector(enModule);
     enACMPPriority&=ACMP_enPRIMAX;
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enACMPPriority);
+    NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enACMPPriority);
 }
 
 void ACMP__vDisInterruptVector(ACMP_nMODULE enModule)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_ACOMP0;
     enVector= ACMP__enGetInterruptVector(enModule);
-    NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
+    NVIC__vClearEnableIRQ((NVIC_nSTIR)enVector);
 }
 
 

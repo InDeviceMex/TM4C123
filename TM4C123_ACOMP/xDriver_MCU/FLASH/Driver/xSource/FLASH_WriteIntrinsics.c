@@ -6,7 +6,6 @@
  */
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteIntrinsics.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
@@ -19,21 +18,21 @@ static FLASH_nSTATUS FLASH_enInitWrite(uint32_t u32Feature, FLASH_nSTATUS (*penC
     FLASH_nSTATUS enReturn = FLASH_enERROR;
     uint32_t u32Key = 0UL;
 
-    u32Key = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
+    u32Key = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
     switch(u32Key)
     {
     case SYSCTL_BOOTCFG_KEY_71D5:
-        MCU__vWriteRegister(FLASH_BASE, FLASH_FMC_OFFSET, (FLASH_FMC_R_WRKEY_KEY2 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
+        MCU__vWriteRegister( FLASH_BASE, FLASH_FMC_OFFSET, (FLASH_FMC_R_WRKEY_KEY2 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
         enReturn = penCallback(u32Feature);
         break;
     case SYSCTL_BOOTCFG_KEY_A442:
-        MCU__vWriteRegister(FLASH_BASE, FLASH_FMC_OFFSET, (FLASH_FMC_R_WRKEY_KEY1 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
+        MCU__vWriteRegister( FLASH_BASE, FLASH_FMC_OFFSET, (FLASH_FMC_R_WRKEY_KEY1 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
         enReturn = penCallback(u32Feature);
         break;
     default:
         break;
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }
 
 static FLASH_nSTATUS FLASH_enInitBufWrite(void)
@@ -41,21 +40,21 @@ static FLASH_nSTATUS FLASH_enInitBufWrite(void)
     FLASH_nSTATUS enReturn = FLASH_enERROR;
     uint32_t u32Key = 0UL;
 
-    u32Key = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
+    u32Key = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
     switch(u32Key)
     {
     case SYSCTL_BOOTCFG_KEY_71D5:
-        MCU__vWriteRegister(FLASH_BASE, FLASH_FMC2_OFFSET, (FLASH_FMC2_R_WRKEY_KEY2 | FLASH_FMC2_R_WRBUF_WRITE), (FLASH_FMC2_R_WRKEY_MASK | FLASH_FMC2_R_WRBUF_MASK), 0UL);
-        enReturn=FLASH__enWaitBufWrite();
+        MCU__vWriteRegister( FLASH_BASE, FLASH_FMC2_OFFSET, (FLASH_FMC2_R_WRKEY_KEY2 | FLASH_FMC2_R_WRBUF_WRITE), (FLASH_FMC2_R_WRKEY_MASK | FLASH_FMC2_R_WRBUF_MASK), 0UL);
+        enReturn = FLASH__enWaitBufWrite();
         break;
     case SYSCTL_BOOTCFG_KEY_A442:
-        MCU__vWriteRegister(FLASH_BASE, FLASH_FMC2_OFFSET, (FLASH_FMC2_R_WRKEY_KEY1 | FLASH_FMC2_R_WRBUF_WRITE), (FLASH_FMC2_R_WRKEY_MASK | FLASH_FMC2_R_WRBUF_MASK), 0UL);
-        enReturn=FLASH__enWaitBufWrite();
+        MCU__vWriteRegister( FLASH_BASE, FLASH_FMC2_OFFSET, (FLASH_FMC2_R_WRKEY_KEY1 | FLASH_FMC2_R_WRBUF_WRITE), (FLASH_FMC2_R_WRKEY_MASK | FLASH_FMC2_R_WRBUF_MASK), 0UL);
+        enReturn = FLASH__enWaitBufWrite();
         break;
     default:
         break;
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }
 
 FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
@@ -63,18 +62,18 @@ FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
     FLASH_nSTATUS enReturn = FLASH_enERROR;
     uint32_t u32Value = 0UL;
 
-    u32Address &= ~(uint32_t)0x3UL;
-    if( u32Address < FLASH_ADDRESS_MAX)
+    u32Address &= ~(uint32_t) 0x3UL;
+    if(u32Address < FLASH_ADDRESS_MAX)
     {
-        u32Value = *((uint32_t*)u32Address);
+        u32Value = *((uint32_t*) u32Address);
         if(0xFFFFFFFFUL == u32Value)
         {
-            MCU__vWriteRegister(FLASH_BASE, FLASH_FMD_OFFSET, u32Data, FLASH_FMD_R_DATA_MASK, 0UL);
-            MCU__vWriteRegister(FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_R_OFFSET_MASK, 0UL);
-            enReturn = FLASH_enInitWrite(FLASH_FMC_R_WRITE_WRITE, &FLASH__enWaitFMC);
+            MCU__vWriteRegister( FLASH_BASE, FLASH_FMD_OFFSET, u32Data, FLASH_FMD_R_DATA_MASK, 0UL);
+            MCU__vWriteRegister( FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_R_OFFSET_MASK, 0UL);
+            enReturn = FLASH_enInitWrite( FLASH_FMC_R_WRITE_WRITE, &FLASH__enWaitFMC);
         }
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }
 
 FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, uint32_t u32Count)
@@ -87,13 +86,13 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
     uint32_t u32CountMax = 0UL;
     uint32_t *pu32Address = 0UL;
 
-    u32CountActual = (u32Address & 0x7FUL)>>2UL;
+    u32CountActual = (u32Address & 0x7FUL) >> 2UL;
     u32CountMax = u32CountActual + u32Count;
-    u32Address &= ~(uint32_t)0x7FUL;
+    u32Address &= ~(uint32_t) 0x7FUL;
 
-    if( (u32Address < FLASH_ADDRESS_MAX) && ( u32CountMax <= 32UL) && (0UL != u32Count) )
+    if( (u32Address < FLASH_ADDRESS_MAX) && (u32CountMax <= 32UL) && (0UL != u32Count) )
     {
-        MCU__vWriteRegister(FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_R_OFFSET_MASK, 0UL);
+        MCU__vWriteRegister( FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_R_OFFSET_MASK, 0UL);
         u32RegisterOffset = FLASH_FWBn_OFFSET;
         u32Offset = u32CountActual;
         u32Offset *= 4UL;
@@ -105,7 +104,7 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
             u32Value = *pu32Address;
             if(0xFFFFFFFFUL == u32Value)
             {
-                MCU__vWriteRegister(FLASH_BASE, u32RegisterOffset, *pu32Data, 0xFFFFFFFFU, 0UL);
+                MCU__vWriteRegister( FLASH_BASE, u32RegisterOffset, *pu32Data, 0xFFFFFFFFU, 0UL);
             }
             pu32Data += 1U;
             u32Count--;
@@ -114,5 +113,5 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
         }
         enReturn = FLASH_enInitBufWrite();
     }
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }

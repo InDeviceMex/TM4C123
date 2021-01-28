@@ -28,17 +28,17 @@
 
 HIB_nSTATUS HIB__enEnRTCWakeUp(void)
 {
-    return HIB__enSetControlGeneric((uint32_t) HIB_enRTCWAKE_EN, HIB_HIBCTL_RTCWEN_MASK, HIB_HIBCTL_R_RTCWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTCWAKE_EN, HIB_HIBCTL_RTCWEN_MASK, HIB_HIBCTL_R_RTCWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisRTCWakeUp(void)
 {
-    return HIB__enSetControlGeneric((uint32_t) HIB_enRTCWAKE_DIS, HIB_HIBCTL_RTCWEN_MASK, HIB_HIBCTL_R_RTCWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTCWAKE_DIS, HIB_HIBCTL_RTCWEN_MASK, HIB_HIBCTL_R_RTCWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enSetRTCWakeUp(HIB_nRTCWAKE enRTCWake)
 {
-    return HIB__enSetControlGeneric((uint32_t) enRTCWake, HIB_HIBCTL_RTCWEN_MASK, HIB_HIBCTL_R_RTCWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enRTCWake, HIB_HIBCTL_RTCWEN_MASK, HIB_HIBCTL_R_RTCWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enGetRTCWakeUp(HIB_nRTCWAKE* enFeatureValue)

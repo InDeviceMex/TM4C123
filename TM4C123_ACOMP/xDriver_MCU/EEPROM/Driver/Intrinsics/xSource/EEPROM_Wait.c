@@ -25,34 +25,33 @@
  * Include Files
  */
 #include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_Wait.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
-
-
 
 /**
  *
  * Local Definitions
  */
-#define EEPROM_TIMEOUT_MAX (500000U)
-
+#define EEPROM_TIMEOUT_MAX (500000UL)
 
 EEPROM_nSTATUS EEPROM__enGetStatus (void)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     EEPROM_nREADY enReady= EEPROM_enNOREADY;
+    uint32_t u32Reg = 0UL;
     enReady = EEPROM__enIsReady();
     if(EEPROM_enREADY == enReady)
     {
         enReturn = EEPROM_enOK;
-        if(EEPROM_EEDONE_R_WORKING_EN == (EEPROM_EEDONE_R & EEPROM_EEDONE_R_WORKING_MASK))
+        u32Reg = MCU__u32ReadRegister(EEPROM_BASE, EEPROM_EEDONE_OFFSET, EEPROM_EEDONE_WORKING_MASK, EEPROM_EEDONE_R_WORKING_BIT);
+        if(EEPROM_EEDONE_WORKING_EN == u32Reg)
         {
             enReturn = EEPROM_enBUSY;
         }
     }
-    return (EEPROM_nSTATUS) enReturn;
-
+    return enReturn;
 }
 
 EEPROM_nSTATUS EEPROM__enWait (void)
@@ -60,6 +59,7 @@ EEPROM_nSTATUS EEPROM__enWait (void)
     uint32_t u32TimeOut = EEPROM_TIMEOUT_MAX;
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     EEPROM_nREADY enReady= EEPROM_enNOREADY;
+
     enReady = EEPROM__enIsReady();
     if(EEPROM_enREADY == enReady)
     {

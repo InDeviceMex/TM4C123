@@ -40,7 +40,7 @@ void GPIO__vEnInterruptVector(GPIO_nPORT enPort, GPIO_nPRIORITY enGPIOPriority)
     enVector = NVIC_enSTIR_GPIO[enPort];
 
     enGPIOPriority &= 0x7U;
-    NVIC__enSetEnableIRQ((NVIC_nSTIR) enVector,
+    NVIC__vSetEnableIRQ((NVIC_nSTIR) enVector,
                          (NVIC_nPRIORITY) enGPIOPriority);
 }
 
@@ -53,5 +53,5 @@ void GPIO__vDisInterruptVector(GPIO_nPORT enPort)
     }
 
     enVector = NVIC_enSTIR_GPIO[enPort];
-    NVIC__enClearEnableIRQ((NVIC_nSTIR) enVector);
+    NVIC__vClearEnableIRQ((NVIC_nSTIR) enVector);
 }

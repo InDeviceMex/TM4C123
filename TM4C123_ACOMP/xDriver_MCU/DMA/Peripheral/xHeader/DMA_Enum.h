@@ -41,14 +41,14 @@ typedef enum
 typedef enum
 {
     DMA_enMODULE_0      =0U,
-    DMA_enMODULE_MAX    =0U,
+    DMA_enMODULE_MAX    =1U,
 }DMA_nMODULE;
 
 typedef enum
 {
     DMA_enVECTOR_SW      =0U,
     DMA_enVECTOR_ERROR      =1U,
-    DMA_enVECTOR_MAX    =1U,
+    DMA_enVECTOR_MAX    =2U,
 }DMA_nVECTOR;
 
 typedef enum
@@ -68,6 +68,7 @@ typedef enum
     DMA_enPRI5=5U,
     DMA_enPRI6=6U,
     DMA_enPRI7=7U,
+    DMA_enPRI_MIN=7U,
     DMA_enDEFAULT=0xFFFFFFFFU,
 }DMA_nPRIORITY;
 

@@ -22,7 +22,7 @@ typedef enum
     HIB_enINTERRUPT_LOWBAT = 0x1UL,
     HIB_enINTERRUPT_EXTW = 0x2UL,
     HIB_enINTERRUPT_WC = 0x3UL,
-    HIB_enINTERRUPT_MAX = 0x3UL,
+    HIB_enINTERRUPT_MAX = 0x4UL,
 }HIB_nINTERRUPT;
 
 typedef enum

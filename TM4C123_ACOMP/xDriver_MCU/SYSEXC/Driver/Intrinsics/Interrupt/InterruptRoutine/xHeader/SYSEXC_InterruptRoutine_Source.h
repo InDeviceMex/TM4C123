@@ -28,6 +28,6 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/SYSEXC/Peripheral/xHeader/SYSEXC_Enum.h>
 
-extern void (*SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_MAX + 1UL]) (void);
+extern void (*SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_MAX]) (void);
 
 #endif /* XDRIVER_MCU_SYSEXC_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_SYSEXC_INTERRUPTROUTINE_SOURCE_H_ */

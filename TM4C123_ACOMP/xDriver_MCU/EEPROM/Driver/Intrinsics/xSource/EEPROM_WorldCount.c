@@ -26,15 +26,14 @@
  * Include Files
  */
 #include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_WorldCount.h>
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 /**
  * Max Number of World (32bits) inside the EEPROM peripheral
  */
-static uint32_t EEPROM_u32WorldCount = 0;
-
+static uint32_t EEPROM_u32WorldCount = 0UL;
 
 /**
  *  Global Functions
@@ -42,10 +41,10 @@ static uint32_t EEPROM_u32WorldCount = 0;
 
 uint32_t EEPROM__u32GetWorldCount (void)
 {
-    return ((uint32_t) EEPROM_u32WorldCount);
+    return EEPROM_u32WorldCount;
 }
 
 void EEPROM__vInitWorldCount (void)
 {
-    EEPROM_u32WorldCount = EEPROM_EESIZE_R & EEPROM_EESIZE_R_WORDCNT_MASK;
+    EEPROM_u32WorldCount = MCU__u32ReadRegister(EEPROM_BASE, EEPROM_EESIZE_OFFSET, EEPROM_EESIZE_WORDCNT_MASK, EEPROM_EESIZE_R_WORDCNT_BIT);
 }

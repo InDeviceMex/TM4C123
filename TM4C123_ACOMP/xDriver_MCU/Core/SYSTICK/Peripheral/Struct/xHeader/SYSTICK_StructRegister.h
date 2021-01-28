@@ -51,7 +51,8 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t TENMS :24; uint32_t reserved :6;
+    volatile uint32_t TENMS :24;
+    uint32_t reserved :6;
     volatile const uint32_t SKEW :1;
     volatile const uint32_t NOREF :1;
 }SysTick_CR_TypeDef;

@@ -1,8 +1,8 @@
 /**
  * @section Include Files
  */
-
 #include <EEPROM/App/xHeader/EEPROM_Init.h>
+
 #include <EEPROM/Driver/EEPROM_Driver.h>
 
 /**
@@ -20,7 +20,7 @@ EEPROM_nSTATUS EEPROM__enInit (void)
      * To Reinitialize Peripheral Clock
      */
     EEPROM__vSetReady();
-    /*NVIC__enSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);*/
+    /*NVIC__vSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);*/
 
     /*
      * To obtain the EEPROM Max Block and Max World allowed
@@ -37,7 +37,7 @@ EEPROM_nSTATUS EEPROM__enInit (void)
      * To return the final Function status,
      * if EEPROM__enWait ends correctly all the process is OK
      */
-    return (EEPROM_nSTATUS) enReturn;
+    return enReturn;
 
 }
 

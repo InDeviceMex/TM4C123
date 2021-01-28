@@ -28,7 +28,7 @@
 #include <xDriver_MCU/Core/NVIC/Peripheral/xHeader/NVIC_Enum.h>
 
 NVIC_nPENDING NVIC__enGetPendingIRQ( NVIC_nSTIR enIRQ);
-NVIC_nSTATUS NVIC__enSetPendingIRQ( NVIC_nSTIR enIRQ);
-NVIC_nSTATUS NVIC__enClearPendingIRQ( NVIC_nSTIR enIRQ);
+void NVIC__vSetPendingIRQ( NVIC_nSTIR enIRQ);
+void NVIC__vClearPendingIRQ( NVIC_nSTIR enIRQ);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_PENDING_H_ */

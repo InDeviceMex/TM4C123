@@ -39,7 +39,7 @@ typedef volatile struct
         volatile uint32_t HIBRTCM0;
         HIBRTCM0_TypeDef HIBRTCM0_Bit;
     };
-    const uint32_t reserved [1UL];
+    const uint32_t reserved;
     union
     {
         volatile uint32_t HIBRTCLD;
@@ -80,7 +80,7 @@ typedef volatile struct
         volatile uint32_t HIBRTCSS;
         HIBRTCSS_TypeDef HIBRTCSS_Bit;
     };
-    const uint32_t reserved1 [1UL];
+    const uint32_t reserved1;
     union
     {
         volatile uint32_t HIBDATA [16UL];

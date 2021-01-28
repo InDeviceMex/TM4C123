@@ -21,12 +21,12 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WORLDCOUNT_H_
 #define XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WORLDCOUNT_H_
 
 #include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
 #include <xUtils/Standard/Standard.h>
-
 
 /**
  * @brief EEPROM Init World Count Max Function
@@ -48,7 +48,5 @@ void EEPROM__vInitWorldCount(void);
  * @remark This function must be call after the call of @ref  EEPROM__vInitWorldCount to proper initialize the value.
  */
 uint32_t EEPROM__u32GetWorldCount(void);
-
-
 
 #endif /* XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WORLDCOUNT_H_ */

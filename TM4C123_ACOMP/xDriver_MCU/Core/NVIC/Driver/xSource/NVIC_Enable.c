@@ -39,23 +39,14 @@ inline NVIC_nENABLE NVIC__enGetEnableIRQ( NVIC_nSTIR enIRQ)
     return enStatus;
 }
 
-inline NVIC_nSTATUS NVIC__enSetEnableIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
+inline void NVIC__vSetEnableIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
 {
-    NVIC_nSTATUS enStatus = NVIC_enERROR;
+    NVIC__vSetPriorityIRQ(enIRQ, enPriority);
+    NVIC__vWriteRegister( enIRQ, NVIC_ISER_OFFSET, (uint32_t) NVIC_enENABLE);
 
-    enStatus = NVIC__enSetPriorityIRQ(enIRQ, enPriority);
-    if(enStatus == NVIC_enOK)
-    {
-        enStatus = NVIC__enWriteRegister( enIRQ, NVIC_ISER_OFFSET, (uint32_t) NVIC_enENABLE);
-    }
-    return enStatus;
 }
 
-inline NVIC_nSTATUS NVIC__enClearEnableIRQ( NVIC_nSTIR enIRQ)
+inline void NVIC__vClearEnableIRQ( NVIC_nSTIR enIRQ)
 {
-    NVIC_nSTATUS enStatus = NVIC_enERROR;
-
-    enStatus = NVIC__enWriteRegister( enIRQ, NVIC_ICER_OFFSET, (uint32_t) NVIC_enENABLE);
-
-    return enStatus;
+    NVIC__vWriteRegister( enIRQ, NVIC_ICER_OFFSET, (uint32_t) NVIC_enENABLE);
 }

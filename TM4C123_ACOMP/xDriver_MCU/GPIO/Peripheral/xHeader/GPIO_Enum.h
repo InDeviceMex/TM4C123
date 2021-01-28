@@ -57,7 +57,7 @@ typedef enum
     GPIO_enPORT_D = 3U,
     GPIO_enPORT_E = 4U,
     GPIO_enPORT_F = 5U,
-    GPIO_enPORT_MAX = 5U,
+    GPIO_enPORT_MAX = 6U,
 } GPIO_nPORT;
 typedef enum
 {
@@ -83,7 +83,7 @@ typedef enum
     GPIO_enPIN_NUMBER5 = 0x5U,
     GPIO_enPIN_NUMBER6 = 0x6U,
     GPIO_enPIN_NUMBER7 = 0x7U,
-    GPIO_enPIN_NUMBER_MAX = 0x7U,
+    GPIO_enPIN_NUMBER_MAX = 0x8U,
 } GPIO_nPIN_NUMBER;
 
 typedef enum

@@ -43,7 +43,7 @@ typedef enum
 {
     ADC_enMODULE_0 = 0U,
     ADC_enMODULE_1 = 1U,
-    ADC_enMODULE_MAX = 1U,
+    ADC_enMODULE_MAX = 2U,
 }ADC_nMODULE;
 
 typedef enum
@@ -72,7 +72,7 @@ typedef enum
     ADC_enSEQ_1 = 1U,
     ADC_enSEQ_2 = 2U,
     ADC_enSEQ_3 = 3U,
-    ADC_enSEQ_MAX = 3U,
+    ADC_enSEQ_MAX = 4U,
     ADC_enSEQ_UNDEF = 0xFFFFFFFFU,
 }ADC_nSEQUENCER;
 

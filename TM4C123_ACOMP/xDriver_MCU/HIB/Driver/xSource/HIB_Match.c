@@ -32,24 +32,21 @@ HIB_nSTATUS HIB__enGetMatch(uint32_t* pu32Match, uint32_t *pu32SubMatch)
     if((0UL != (uint32_t) pu32Match) && (0UL != (uint32_t) pu32SubMatch))
     {
         enReturn = HIB__enReadRegister( HIB_HIBRTCM0_OFFSET, pu32Match, HIB_HIBRTCM0_RTCM0_MASK, HIB_HIBRTCM0_R_RTCM0_BIT);
-
         if(HIB_enSTATUS_OK == enReturn)
         {
-            enReturn= HIB__enReadRegister( HIB_HIBRTCSS_OFFSET, pu32SubMatch, HIB_HIBRTCSS_RTCSSM_MASK, HIB_HIBRTCSS_R_RTCSSM_BIT);
+            enReturn = HIB__enReadRegister( HIB_HIBRTCSS_OFFSET, pu32SubMatch, HIB_HIBRTCSS_RTCSSM_MASK, HIB_HIBRTCSS_R_RTCSSM_BIT);
         }
     }
-    return (HIB_nSTATUS) enReturn;
+    return enReturn;
 }
 
 HIB_nSTATUS HIB__enSetMatch(uint32_t u32Match, uint32_t u32SubMatch)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
-
     enReturn = HIB__enWriteRegister( HIB_HIBRTCM0_OFFSET, u32Match, HIB_HIBRTCM0_RTCM0_MASK, HIB_HIBRTCM0_R_RTCM0_BIT);
-
     if(HIB_enSTATUS_OK == enReturn)
     {
         enReturn = HIB__enWriteRegister( HIB_HIBRTCSS_OFFSET, u32SubMatch, HIB_HIBRTCSS_RTCSSM_MASK, HIB_HIBRTCSS_R_RTCSSM_BIT);
     }
-    return (HIB_nSTATUS) enReturn;
+    return enReturn;
 }

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WAIT_H_
 #define XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WAIT_H_
 
@@ -52,8 +53,5 @@ EEPROM_nSTATUS EEPROM__enGetStatus(void);
  * @todo To Create same functionality  with non-blocking fashion (interrupts)
  */
 EEPROM_nSTATUS EEPROM__enWait(void);
-
-
-
 
 #endif /* XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WAIT_H_ */

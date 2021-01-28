@@ -56,7 +56,6 @@
  */
 EEPROM_nSTATUS EEPROM__enInit(void);
 
-
 /**
  * @brief EEPROM De-Initialization Function
  * @details This function reset and disable the EEPROM Peripheral.
@@ -69,7 +68,6 @@ EEPROM_nSTATUS EEPROM__enInit(void);
  * @remark This function could be call after EEPROM Initialization @ref EEPROM__enInit
  * @note This function can be call any time when the EEPROM peripheral requires to be de-Initialized
  */
-
 void EEPROM__vDeInit(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_INIT_H_ */

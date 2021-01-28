@@ -4,11 +4,6 @@
  *  Created on: 18 jun. 2020
  *      Author: vyldram
  */
-
-
-
-
-
 #include <xDriver_MCU/Core/SYSTICK/Driver/xHeader/SYSTICK_Frequency.h>
 
 #include <xUtils/Standard/Standard.h>
@@ -17,14 +12,14 @@
 
 float32_t SysTick__fGetFrequency(void)
 {
-    float32_t fReg=0.0;
-    uint32_t u32FreeCount= SysTick__u32GetFreeCount();
-    if(u32FreeCount!=0U)
+    float32_t fReg = 0.0f;
+    uint32_t u32FreeCount = SysTick__u32GetFreeCount();
+    if(0UL != u32FreeCount)
     {
         float32_t fTickFrec = SysTick__fGetTickFreq();
-        fReg=fTickFrec;
-        fReg/=(float32_t)u32FreeCount;
+        fReg = fTickFrec;
+        fReg /= (float32_t) u32FreeCount;
     }
-    return (float32_t)(fReg);
+    return fReg;
 
 }

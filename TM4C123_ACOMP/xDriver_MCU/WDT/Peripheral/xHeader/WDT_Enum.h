@@ -43,7 +43,7 @@ typedef enum
 {
     WDT_enMODULE_0=0U,
     WDT_enMODULE_1=1U,
-    WDT_enMODULE_MAX=1U,
+    WDT_enMODULE_MAX=2U,
 }WDT_nMODULE;
 
 typedef enum

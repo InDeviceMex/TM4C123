@@ -6,7 +6,6 @@
  */
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 
@@ -20,7 +19,7 @@ FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask)
 
     do
     {
-        u32Reg = MCU__u32ReadRegister(FLASH_BASE, FLASH_FMC_OFFSET, u32RegisterMask, 0UL);
+        u32Reg = MCU__u32ReadRegister( FLASH_BASE, FLASH_FMC_OFFSET, u32RegisterMask, 0UL);
         u32TimeOut--;
         if(0UL == u32TimeOut)
         {
@@ -29,7 +28,7 @@ FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask)
         }
     }while((u32RegisterMask == u32Reg) && (0UL != u32TimeOut));
 
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }
 
 FLASH_nSTATUS FLASH__enWaitBufWrite (void)
@@ -40,7 +39,7 @@ FLASH_nSTATUS FLASH__enWaitBufWrite (void)
 
     do
     {
-        u32Reg = MCU__u32ReadRegister(FLASH_BASE, FLASH_FMC2_OFFSET, FLASH_FMC2_R_WRBUF_MASK, 0UL);
+        u32Reg = MCU__u32ReadRegister( FLASH_BASE, FLASH_FMC2_OFFSET, FLASH_FMC2_R_WRBUF_MASK, 0UL);
         u32TimeOut--;
         if(0UL == u32TimeOut)
         {
@@ -49,5 +48,5 @@ FLASH_nSTATUS FLASH__enWaitBufWrite (void)
         }
     }while((FLASH_FMC2_R_WRBUF_NOCOMPLETE == u32Reg) && (0UL != u32TimeOut) );
 
-    return (FLASH_nSTATUS) enReturn;
+    return enReturn;
 }

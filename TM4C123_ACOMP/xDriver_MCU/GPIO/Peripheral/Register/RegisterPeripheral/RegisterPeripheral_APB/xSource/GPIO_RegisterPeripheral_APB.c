@@ -24,13 +24,13 @@
 
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_APB/GPIO_RegisterPeripheral_APB.h>
 
-GPIO_TypeDef *GPIO_APB_BLOCK[(uint32_t) GPIO_enPORT_MAX + 1U] = { GPIOA_APB,
+GPIO_TypeDef *GPIO_APB_BLOCK[(uint32_t) GPIO_enPORT_MAX ] = { GPIOA_APB,
                                                                   GPIOB_APB,
                                                                   GPIOC_APB,
                                                                   GPIOD_APB,
                                                                   GPIOE_APB,
                                                                   GPIOF_APB };
-GPIO_AUX_TypeDef *GPIO_APB_AUX_BLOCK[(uint32_t) GPIO_enPORT_MAX + 1U] = {
+GPIO_AUX_TypeDef *GPIO_APB_AUX_BLOCK[(uint32_t) GPIO_enPORT_MAX] = {
         GPIOA_APB_AUX, GPIOB_APB_AUX, GPIOC_APB_AUX, GPIOD_APB_AUX,
         GPIOE_APB_AUX, GPIOF_APB_AUX };
 

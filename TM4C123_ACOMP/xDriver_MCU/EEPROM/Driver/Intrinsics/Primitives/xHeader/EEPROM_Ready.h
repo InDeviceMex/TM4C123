@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_EEPROM_READY_H_
 #define XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_EEPROM_READY_H_
 
@@ -29,6 +30,5 @@
 void EEPROM__vSetReady(void);
 void EEPROM__vClearReady(void);
 EEPROM_nREADY EEPROM__enIsReady(void);
-
 
 #endif /* XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_EEPROM_READY_H_ */

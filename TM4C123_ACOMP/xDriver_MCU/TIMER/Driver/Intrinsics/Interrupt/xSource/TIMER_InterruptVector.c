@@ -58,13 +58,13 @@ void TIMER__vEnInterruptVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTimerPri
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     enVector= TIMER__enGetInterruptVector(enModule);
     enTimerPriority&=0x7U;
-    NVIC__enSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enTimerPriority);
+    NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enTimerPriority);
 }
 
 void TIMER__vDisInterruptVector(TIMER_nMODULE enModule)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_TIMER0A;
     enVector= TIMER__enGetInterruptVector(enModule);
-    NVIC__enClearEnableIRQ((NVIC_nSTIR)enVector);
+    NVIC__vClearEnableIRQ((NVIC_nSTIR)enVector);
 }
 

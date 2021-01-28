@@ -21,12 +21,10 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_EEPROM_APP_EEPROM_APP_H_
 #define XDRIVER_MCU_EEPROM_APP_EEPROM_APP_H_
 
-
 #include <EEPROM/App/xHeader/EEPROM_Init.h>
-
-
 
 #endif /* XDRIVER_MCU_EEPROM_APP_EEPROM_APP_H_ */

@@ -21,27 +21,25 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/Primitives/xHeader/EEPROM_Ready.h>
+
 #include <xDriver_MCU/EEPROM/Peripheral/xHeader/EEPROM_Dependencies.h>
 
 void EEPROM__vSetReady(void)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enEEPROM;
-    SYSCTL__vSetReady(enPeripheral);
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
+    SYSCTL__vSetReady( enPeripheral);
 }
 
 void EEPROM__vClearReady(void)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enEEPROM;
-    SYSCTL__vClearReady(enPeripheral);
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
+    SYSCTL__vClearReady( enPeripheral);
 }
 EEPROM_nREADY EEPROM__enIsReady(void)
 {
-    EEPROM_nREADY enReady=EEPROM_enNOREADY;
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enEEPROM;
-    enReady=(EEPROM_nREADY)SYSCTL__enIsReady(enPeripheral);
+    EEPROM_nREADY enReady = EEPROM_enNOREADY;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
+    enReady = (EEPROM_nREADY) SYSCTL__enIsReady( enPeripheral);
     return enReady;
 }
-
-

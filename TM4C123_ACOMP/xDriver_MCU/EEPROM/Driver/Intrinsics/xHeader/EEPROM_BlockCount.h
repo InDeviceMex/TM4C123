@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_BLOCKCOUNT_H_
 #define XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_BLOCKCOUNT_H_
 
@@ -46,11 +47,6 @@ void EEPROM__vInitBlockCount(void);
  *
  * @remark This function must be call after the call of @ref  EEPROM__vInitBlockCount to proper initialize the value.
  */
-
 uint32_t EEPROM__u32GetBlockCount(void);
-
-
-
-
 
 #endif /* XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_BLOCKCOUNT_H_ */

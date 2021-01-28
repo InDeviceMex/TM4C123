@@ -28,5 +28,5 @@ HIB_nSTATUS HIB__enGetCounter(uint32_t* pu32Counter, uint32_t *pu32SubCounter)
             }
         }
     }
-    return (HIB_nSTATUS) enReturn;
+    return enReturn;
 }
