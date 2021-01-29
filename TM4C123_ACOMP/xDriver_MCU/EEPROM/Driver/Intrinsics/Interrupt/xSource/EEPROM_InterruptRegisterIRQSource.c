@@ -28,8 +28,8 @@
 
 void EEPROM__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void))
 {
-    if((uint32_t)pfIrqSourceHandler !=0U)
+    if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        FLASH__vRegisterIRQSourceHandler(pfIrqSourceHandler, FLASH_enINTERRUPT_EEPROM);
+        FLASH__vRegisterIRQSourceHandler( pfIrqSourceHandler, FLASH_enINTERRUPT_EEPROM);
     }
 }

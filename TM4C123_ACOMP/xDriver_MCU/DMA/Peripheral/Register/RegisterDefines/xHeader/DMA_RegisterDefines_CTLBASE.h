@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CTLBASE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CTLBASE_H_
 
@@ -31,15 +32,10 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMACTLBASE_R_ADDR_MASK     ((uint32_t)0xFFFFFC00U)
-#define DMA_DMACTLBASE_R_ADDR_BIT      ((uint32_t)10U)
+#define DMA_DMACTLBASE_R_ADDR_MASK    ((uint32_t) 0xFFFFFC00UL)
+#define DMA_DMACTLBASE_R_ADDR_BIT    ((uint32_t) 10UL)
 
-#define DMA_DMACTLBASE_ADDR_MASK       ((uint32_t)0x003FFFFFU)
+#define DMA_DMACTLBASE_ADDR_MASK    ((uint32_t) 0x003FFFFFUL)
 /*--------*/
-
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CTLBASE_H_ */

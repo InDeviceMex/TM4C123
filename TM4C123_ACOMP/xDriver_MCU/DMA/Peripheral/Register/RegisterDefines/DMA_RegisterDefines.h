@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_H_
 
@@ -46,9 +47,5 @@
 #include <xDriver_MCU/DMA/Peripheral/Register/RegisterDefines/xHeader/DMA_RegisterDefines_USEBURSTCLR.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/RegisterDefines/xHeader/DMA_RegisterDefines_USEBURSTSET.h>
 #include <xDriver_MCU/DMA/Peripheral/Register/RegisterDefines/xHeader/DMA_RegisterDefines_WAITSTAT.h>
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_H_ */

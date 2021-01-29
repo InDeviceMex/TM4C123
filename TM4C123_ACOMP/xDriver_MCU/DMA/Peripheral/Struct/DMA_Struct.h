@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_STRUCT_DMA_STRUCT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_STRUCT_DMA_STRUCT_H_
 
@@ -28,9 +29,5 @@
 #include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheral_Bitbanding.h>
 #include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel.h>
 #include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel_Bitbanding.h>
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_STRUCT_DMA_STRUCT_H_ */

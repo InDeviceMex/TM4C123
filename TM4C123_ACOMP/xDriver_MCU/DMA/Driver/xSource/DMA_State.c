@@ -21,11 +21,11 @@
  * Date           Author     Version     Description
  * 20 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Driver/xHeader/DMA_State.h>
+
+#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
-
 
 DMA_nSTATE DMA__enGetModuleState(void)
 {

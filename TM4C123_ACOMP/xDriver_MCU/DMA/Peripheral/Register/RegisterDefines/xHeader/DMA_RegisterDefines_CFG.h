@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CFG_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CFG_H_
 
@@ -31,17 +32,14 @@
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMACFG_R_MASTEN_MASK     ((uint32_t)0x00000001U)
-#define DMA_DMACFG_R_MASTEN_BIT      ((uint32_t)0U)
-#define DMA_DMACFG_R_MASTEN_DIS      ((uint32_t)0x00000000U)
-#define DMA_DMACFG_R_MASTEN_EN       ((uint32_t)0x00000001U)
+#define DMA_DMACFG_R_MASTEN_MASK    ((uint32_t) 0x00000001UL)
+#define DMA_DMACFG_R_MASTEN_BIT    ((uint32_t) 0UL)
+#define DMA_DMACFG_R_MASTEN_DIS    ((uint32_t) 0x00000000UL)
+#define DMA_DMACFG_R_MASTEN_EN    ((uint32_t) 0x00000001UL)
 
-#define DMA_DMACFG_MASTEN_MASK       ((uint32_t)0x00000001U)
-#define DMA_DMACFG_MASTEN_DIS        ((uint32_t)0x00000000U)
-#define DMA_DMACFG_MASTEN_EN         ((uint32_t)0x00000001U)
+#define DMA_DMACFG_MASTEN_MASK    ((uint32_t) 0x00000001UL)
+#define DMA_DMACFG_MASTEN_DIS    ((uint32_t) 0x00000000UL)
+#define DMA_DMACFG_MASTEN_EN    ((uint32_t) 0x00000001UL)
 /*--------*/
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CFG_H_ */

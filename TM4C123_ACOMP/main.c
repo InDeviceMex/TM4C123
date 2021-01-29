@@ -51,6 +51,7 @@ int32_t main (void);
 
 int32_t main(void)
 {
+
     uint32_t u32Clock = 0UL;
     uint32_t u32PWMRed = 0UL;
     uint32_t u32PWMGreen = 0UL;

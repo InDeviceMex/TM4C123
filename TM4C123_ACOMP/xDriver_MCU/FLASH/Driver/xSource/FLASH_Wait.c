@@ -11,7 +11,7 @@
 
 #define FLASH_TIMEOUT_MAX (9000000UL)
 
-FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask)
+FLASH_nSTATUS FLASH__enWait (uint32_t u32FMC, uint32_t u32RegisterMask)
 {
     uint32_t u32Reg = 0UL;
     uint32_t u32TimeOut = FLASH_TIMEOUT_MAX;
@@ -19,7 +19,7 @@ FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask)
 
     do
     {
-        u32Reg = MCU__u32ReadRegister( FLASH_BASE, FLASH_FMC_OFFSET, u32RegisterMask, 0UL);
+        u32Reg = MCU__u32ReadRegister( FLASH_BASE, u32FMC, u32RegisterMask, 0UL);
         u32TimeOut--;
         if(0UL == u32TimeOut)
         {
@@ -27,26 +27,6 @@ FLASH_nSTATUS FLASH__enWaitFMC (uint32_t u32RegisterMask)
             break;
         }
     }while((u32RegisterMask == u32Reg) && (0UL != u32TimeOut));
-
-    return enReturn;
-}
-
-FLASH_nSTATUS FLASH__enWaitBufWrite (void)
-{
-    uint32_t u32Reg = 0UL;
-    uint32_t u32TimeOut = FLASH_TIMEOUT_MAX;
-    FLASH_nSTATUS enReturn = FLASH_enOK;
-
-    do
-    {
-        u32Reg = MCU__u32ReadRegister( FLASH_BASE, FLASH_FMC2_OFFSET, FLASH_FMC2_R_WRBUF_MASK, 0UL);
-        u32TimeOut--;
-        if(0UL == u32TimeOut)
-        {
-            enReturn = FLASH_enERROR;
-            break;
-        }
-    }while((FLASH_FMC2_R_WRBUF_NOCOMPLETE == u32Reg) && (0UL != u32TimeOut) );
 
     return enReturn;
 }

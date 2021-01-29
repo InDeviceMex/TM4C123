@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 28 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 28 jul. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_STRUCT_DMA_STRUCTPERIPHERALCHANNEL_BITBANDING_H_
 #define XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_STRUCT_DMA_STRUCTPERIPHERALCHANNEL_BITBANDING_H_
 
@@ -30,27 +31,25 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t         DMASRCENDP[32];
-        BITBANDING_DMASRCENDP_TypeDef   DMASRCENDP_Bit;
+        volatile const uint32_t DMASRCENDP [32UL];
+        BITBANDING_DMASRCENDP_TypeDef DMASRCENDP_Bit;
     };
     union
     {
-        volatile const uint32_t         DMADSTENDP[32];
-        BITBANDING_DMADSTENDP_TypeDef   DMADSTENDP_Bit;
+        volatile const uint32_t DMADSTENDP [32UL];
+        BITBANDING_DMADSTENDP_TypeDef DMADSTENDP_Bit;
     };
     union
     {
-        volatile const uint32_t         DMACHCTL[32];
-        BITBANDING_DMACHCTL_TypeDef     DMACHCTL_Bit;
+        volatile const uint32_t DMACHCTL [32UL];
+        BITBANDING_DMACHCTL_TypeDef DMACHCTL_Bit;
     };
-    const uint32_t reserved[32];
+    const uint32_t reserved [32UL];
 }DMACHANNEL_BITBANDING_TypeDef;
-
 
 typedef volatile struct
 {
-    DMACHANNEL_BITBANDING_TypeDef CH[32];
+    DMACHANNEL_BITBANDING_TypeDef CH [32UL];
 }DMACH_BITBANDING_TypeDef;
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_STRUCT_DMA_STRUCTPERIPHERALCHANNEL_BITBANDING_H_ */
