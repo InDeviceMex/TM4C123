@@ -21,10 +21,10 @@
  * Date           Author     Version     Description
  * 21 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_XHEADER_DMA_CH_DESTINATIONADDRESS_H_
 #define XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_XHEADER_DMA_CH_DESTINATIONADDRESS_H_
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
 void DMA_CH__vSetAlternateDestEndAddress(DMA_nCH_MODULE enChannel, uint32_t u32DestAddress);

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 20 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_
 #define XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_
 
@@ -37,6 +38,5 @@
 #include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationAddress.h>
 #include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationIncrement.h>
 #include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationSize.h>
-
 
 #endif /* XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_DMA_CH_CONTROL_H_ */

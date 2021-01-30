@@ -33,31 +33,31 @@
 /********************************************************************************************
 ************************************** 4 DMASTAT **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMASTAT    (((BITBANDING_DMASTAT_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASTAT_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMASTAT    ((BITBANDING_DMASTAT_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASTAT_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMASTAT_MASTEN    (*((volatile const uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASTAT_OFFSET) * 32UL) + (DMA_DMASTAT_R_MASTEN_BIT * 4UL))))
 
 /********************************************************************************************
 ************************************** 5 DMACFG **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACFG    (((BITBANDING_DMACFG_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACFG_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACFG    ((BITBANDING_DMACFG_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACFG_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMACFG_MASTEN    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACFG_OFFSET) * 32UL) + (DMA_DMACFG_R_MASTEN_BIT * 4UL))))
 
 /********************************************************************************************
 ************************************** 6 DMACTLBASE **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACTLBASE    (((BITBANDING_DMACTLBASE_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACTLBASE_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACTLBASE    ((BITBANDING_DMACTLBASE_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACTLBASE_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 7 DMAALTBASE **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAALTBASE    (((BITBANDING_DMAALTBASE_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTBASE_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAALTBASE    ((BITBANDING_DMAALTBASE_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTBASE_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 8 DMAWAITSTAT **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAWAITSTAT    (((BITBANDING_DMAWAITSTAT_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAWAITSTAT_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAWAITSTAT    ((BITBANDING_DMAWAITSTAT_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAWAITSTAT_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAWAITSTAT_WAITREQ0    (*((volatile const uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAWAITSTAT_OFFSET) * 32UL) + (DMA_DMAWAITSTAT_R_WAITREQ0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAWAITSTAT_WAITREQ1    (*((volatile const uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAWAITSTAT_OFFSET) * 32UL) + (DMA_DMAWAITSTAT_R_WAITREQ1_BIT * 4UL))))
@@ -95,7 +95,7 @@
 /********************************************************************************************
 ************************************** 9 DMASWREQ **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMASWREQ    (((BITBANDING_DMASWREQ_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASWREQ_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMASWREQ    ((BITBANDING_DMASWREQ_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASWREQ_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMASWREQ_SWREQ0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASWREQ_OFFSET) * 32UL) + (DMA_DMASWREQ_R_SWREQ0_BIT * 4UL))))
 #define DMA_BITBANDING_DMASWREQ_SWREQ1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMASWREQ_OFFSET) * 32UL) + (DMA_DMASWREQ_R_SWREQ1_BIT * 4UL))))
@@ -133,7 +133,7 @@
 /********************************************************************************************
 ************************************** 10 DMAUSEBURSTSET **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAUSEBURSTSET    (((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTSET_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAUSEBURSTSET    ((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTSET_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAUSEBURSTSET_SET0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTSET_OFFSET) * 32UL) + (DMA_DMAUSEBURSTSET_R_SET0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAUSEBURSTSET_SET1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTSET_OFFSET) * 32UL) + (DMA_DMAUSEBURSTSET_R_SET1_BIT * 4UL))))
@@ -171,7 +171,7 @@
 /********************************************************************************************
 ************************************** 11 DMAUSEBURSTCLR **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAUSEBURSTCLR    (((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTCLR_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAUSEBURSTCLR    ((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTCLR_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAUSEBURSTCLR_CLR0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTCLR_OFFSET) * 32UL) + (DMA_DMAUSEBURSTCLR_R_CLR0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAUSEBURSTCLR_CLR1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAUSEBURSTCLR_OFFSET) * 32UL) + (DMA_DMAUSEBURSTCLR_R_CLR1_BIT * 4UL))))
@@ -209,7 +209,7 @@
 /********************************************************************************************
 ************************************** 12 DMAREQMASKSET **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAREQMASKSET    (((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKSET_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAREQMASKSET    ((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKSET_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAREQMASKSET_SET0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKSET_OFFSET) * 32UL) + (DMA_DMAREQMASKSET_R_SET0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAREQMASKSET_SET1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKSET_OFFSET) * 32UL) + (DMA_DMAREQMASKSET_R_SET1_BIT * 4UL))))
@@ -247,7 +247,7 @@
 /********************************************************************************************
 ************************************** 13 DMAREQMASKCLR **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAREQMASKCLR    (((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKCLR_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAREQMASKCLR    ((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKCLR_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAREQMASKCLR_CLR0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKCLR_OFFSET) * 32UL) + (DMA_DMAREQMASKCLR_R_CLR0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAREQMASKCLR_CLR1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAREQMASKCLR_OFFSET) * 32UL) + (DMA_DMAREQMASKCLR_R_CLR1_BIT * 4UL))))
@@ -286,7 +286,7 @@
 /********************************************************************************************
 ************************************** 14 DMAENASET **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAENASET    (((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENASET_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAENASET    ((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENASET_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAENASET_SET0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENASET_OFFSET) * 32UL) + (DMA_DMAENASET_R_SET0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAENASET_SET1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENASET_OFFSET) * 32UL) + (DMA_DMAENASET_R_SET1_BIT * 4UL))))
@@ -324,7 +324,7 @@
 /********************************************************************************************
 ************************************** 15 DMAENACLR **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAENACLR    (((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENACLR_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAENACLR    ((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENACLR_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAENACLR_CLR0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENACLR_OFFSET) * 32UL) + (DMA_DMAENACLR_R_CLR0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAENACLR_CLR1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAENACLR_OFFSET) * 32UL) + (DMA_DMAENACLR_R_CLR1_BIT * 4UL))))
@@ -362,7 +362,7 @@
 /********************************************************************************************
 ************************************** 16 DMAALTSET **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAALTSET    (((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTSET_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAALTSET    ((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTSET_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAALTSET_SET0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTSET_OFFSET) * 32UL) + (DMA_DMAALTSET_R_SET0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAALTSET_SET1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTSET_OFFSET) * 32UL) + (DMA_DMAALTSET_R_SET1_BIT * 4UL))))
@@ -400,7 +400,7 @@
 /********************************************************************************************
 ************************************** 17 DMAALTCLR **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAALTCLR    (((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTCLR_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAALTCLR    ((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTCLR_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAALTCLR_CLR0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTCLR_OFFSET) * 32UL) + (DMA_DMAALTCLR_R_CLR0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAALTCLR_CLR1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAALTCLR_OFFSET) * 32UL) + (DMA_DMAALTCLR_R_CLR1_BIT * 4UL))))
@@ -438,7 +438,7 @@
 /********************************************************************************************
 ************************************* 18 DMAPRIOSET **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPRIOSET    (((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOSET_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPRIOSET    ((BITBANDING_DMASET_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOSET_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAPRIOSET_SET0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOSET_OFFSET) * 32UL) + (DMA_DMAPRIOSET_R_SET0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAPRIOSET_SET1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOSET_OFFSET) * 32UL) + (DMA_DMAPRIOSET_R_SET1_BIT * 4UL))))
@@ -476,7 +476,7 @@
 /********************************************************************************************
 ************************************** 19 DMAPRIOCLR **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPRIOCLR    (((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOCLR_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPRIOCLR    ((BITBANDING_DMACLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOCLR_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAPRIOCLR_CLR0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOCLR_OFFSET) * 32UL) + (DMA_DMAPRIOCLR_R_CLR0_BIT * 4UL))))
 #define DMA_BITBANDING_DMAPRIOCLR_CLR1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPRIOCLR_OFFSET) * 32UL) + (DMA_DMAPRIOCLR_R_CLR1_BIT * 4UL))))
@@ -514,14 +514,14 @@
 /********************************************************************************************
 ************************************** 20 DMAERRCLR **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAERRCLR    (((BITBANDING_DMAERRCLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAERRCLR_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAERRCLR    ((BITBANDING_DMAERRCLR_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAERRCLR_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMAERRCLR_ERRCLR    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAERRCLR_OFFSET) * 32UL) + (DMA_DMAERRCLR_R_ERRCLR_BIT * 4UL))))
 
 /********************************************************************************************
 ************************************** 21 DMACHASGN **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACHASGN    (((BITBANDING_DMACHASGN_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHASGN_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACHASGN    ((BITBANDING_DMACHASGN_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHASGN_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMACHASGN_CHASGN0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHASGN_OFFSET) * 32UL) + (DMA_DMACHASGN_R_CHASGN0_BIT * 4UL))))
 #define DMA_BITBANDING_DMACHASGN_CHASGN1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHASGN_OFFSET) * 32UL) + (DMA_DMACHASGN_R_CHASGN1_BIT * 4UL))))
@@ -559,7 +559,7 @@
 /********************************************************************************************
 ************************************** 22 DMACHIS **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACHIS    (((BITBANDING_DMACHIS_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHIS_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACHIS    ((BITBANDING_DMACHIS_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHIS_OFFSET) * 32UL)))
 
 #define DMA_BITBANDING_DMACHIS_CHIS0    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHIS_OFFSET) * 32UL) + (DMA_DMACHIS_R_CHIS0_BIT * 4UL))))
 #define DMA_BITBANDING_DMACHIS_CHIS1    (*((volatile uint32_t *) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHIS_OFFSET) * 32UL) + (DMA_DMACHIS_R_CHIS1_BIT * 4UL))))
@@ -597,66 +597,66 @@
 /********************************************************************************************
 ************************************** 23 DMACHMAP0 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACHMAP0    (((BITBANDING_DMACHMAP0_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP0_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACHMAP0    ((BITBANDING_DMACHMAP0_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP0_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 24 DMACHMAP1 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACHMAP1    (((BITBANDING_DMACHMAP1_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP1_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACHMAP1    ((BITBANDING_DMACHMAP1_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP1_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 25 DMACHMAP2 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACHMAP2    (((BITBANDING_DMACHMAP2_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP2_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACHMAP2    ((BITBANDING_DMACHMAP2_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP2_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 26 DMACHMAP3 *********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMACHMAP3    (((BITBANDING_DMACHMAP3_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP3_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMACHMAP3    ((BITBANDING_DMACHMAP3_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMACHMAP3_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 27 DMAPeriphID0 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPeriphID0    (((BITBANDING_DMAPeriphID0_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID0_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPeriphID0    ((BITBANDING_DMAPeriphID0_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID0_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 28 DMAPeriphID1 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPeriphID1    (((BITBANDING_DMAPeriphID1_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID1_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPeriphID1    ((BITBANDING_DMAPeriphID1_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID1_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 29 DMAPeriphID2 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPeriphID2    (((BITBANDING_DMAPeriphID2_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID2_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPeriphID2    ((BITBANDING_DMAPeriphID2_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID2_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 30 DMAPeriphID3 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPeriphID3    (((BITBANDING_DMAPeriphID3_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID3_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPeriphID3    ((BITBANDING_DMAPeriphID3_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID3_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 31 DMAPeriphID4 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPeriphID4    (((BITBANDING_DMAPeriphID4_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID4_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPeriphID4    ((BITBANDING_DMAPeriphID4_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPeriphID4_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 32 DMAPCellID0 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPCellID0    (((BITBANDING_DMAPCellID0_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID0_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPCellID0    ((BITBANDING_DMAPCellID0_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID0_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 33 DMAPCellID1 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPCellID1    (((BITBANDING_DMAPCellID1_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID1_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPCellID1    ((BITBANDING_DMAPCellID1_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID1_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 34 DMAPCellID2 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPCellID2    (((BITBANDING_DMAPCellID2_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID2_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPCellID2    ((BITBANDING_DMAPCellID2_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID2_OFFSET) * 32UL)))
 
 /********************************************************************************************
 ************************************** 35 DMAPCellID3 **********************************************
 ********************************************************************************************/
-#define DMA_BITBANDING_DMAPCellID3    (((BITBANDING_DMAPCellID3_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID3_OFFSET) * 32UL))))
+#define DMA_BITBANDING_DMAPCellID3    ((BITBANDING_DMAPCellID3_TypeDef*) (DMA_BITBANDING_BASE + ((DMA_OFFSET + DMA_DMAPCellID3_OFFSET) * 32UL)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERPERIPHERAL_BITBANDING_H_ */

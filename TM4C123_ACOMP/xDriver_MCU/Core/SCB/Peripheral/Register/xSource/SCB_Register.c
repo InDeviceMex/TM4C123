@@ -1,6 +1,6 @@
 /**
  *
- * @file SCB_RegisterPeripheral.c
+ * @file SCB_Register.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 6 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/Core/SCB/Peripheral/Register/xHeader/SCB_RegisterPeripheral.h>
+#include <xDriver_MCU/Core/SCB/Peripheral/Register/SCB_Register.h>
 
 inline void SCB_vBarrier(void)
 {

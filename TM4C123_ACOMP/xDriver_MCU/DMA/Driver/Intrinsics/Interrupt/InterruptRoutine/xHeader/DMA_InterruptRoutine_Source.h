@@ -21,12 +21,13 @@
  * Date           Author     Version     Description
  * 23 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_DMA_INTERRUPTROUTINE_SOURCE_H_
 #define XDRIVER_MCU_DMA_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_DMA_INTERRUPTROUTINE_SOURCE_H_
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
-extern void (*DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_MAX+1U][(uint32_t)DMA_enCH_MODULE_MAX+1U]) (void);
+extern void (*DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_MAX] [(uint32_t) DMA_enCH_MODULE_MAX]) (void);
 
 #endif /* XDRIVER_MCU_DMA_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_DMA_INTERRUPTROUTINE_SOURCE_H_ */

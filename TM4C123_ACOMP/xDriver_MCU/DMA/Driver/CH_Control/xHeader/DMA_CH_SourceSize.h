@@ -21,10 +21,11 @@
  * Date           Author     Version     Description
  * 23 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_XHEADER_DMA_CH_SOURCESIZE_H_
 #define XDRIVER_MCU_DMA_DRIVER_CH_CONTROL_XHEADER_DMA_CH_SOURCESIZE_H_
 
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
+#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
 void DMA_CH__vSetPrimarySourceSize(DMA_nCH_MODULE enChannel, DMA_nCH_SRC_SIZE enChannelSourceSize);
 void DMA_CH__vSetAlternateSourceSize(DMA_nCH_MODULE enChannel, DMA_nCH_SRC_SIZE enChannelSourceSize);

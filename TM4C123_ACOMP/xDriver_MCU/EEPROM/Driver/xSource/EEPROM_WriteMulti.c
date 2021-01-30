@@ -67,21 +67,21 @@ EEPROM_nSTATUS EEPROM__enWriteMultiAlt (void* pvData, uint32_t u32Address, uint1
     return enReturn;
 }
 
-EEPROM_nSTATUS EEPROM__enWriteMultiWorld (const uint32_t *pu32Data, uint32_t u32Address, uint16_t u16Count)
+EEPROM_nSTATUS EEPROM__enWriteMultiWorld (uint32_t *pu32Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     enReturn = EEPROM__enWriteMultiAlt( (void*) pu32Data, u32Address, u16Count, 2UL);
     return enReturn;
 }
 
-EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld (const uint16_t *pu16Data, uint32_t u32Address, uint16_t u16Count)
+EEPROM_nSTATUS EEPROM__enWriteMultiHalfWorld (uint16_t *pu16Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     enReturn = EEPROM__enWriteMultiAlt( (void*) pu16Data, u32Address, u16Count, 1UL);
     return enReturn;
 }
 
-EEPROM_nSTATUS EEPROM__enWriteMultiByte (const uint8_t *pu8Data, uint32_t u32Address, uint16_t u16Count)
+EEPROM_nSTATUS EEPROM__enWriteMultiByte (uint8_t *pu8Data, uint32_t u32Address, uint16_t u16Count)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     enReturn = EEPROM__enWriteMultiAlt( (void*) pu8Data, u32Address, u16Count, 0UL);

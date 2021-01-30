@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 21 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_APP_CH_CONFIG_DMA_CH_CONFIG_H_
 #define XDRIVER_MCU_DMA_APP_CH_CONFIG_DMA_CH_CONFIG_H_
 
@@ -30,7 +31,6 @@ void DMA_CH__vSetConfigStruct(DMA_nCH_MODULE enDMAChannel,  DMA_CONFIG_Typedef p
 
 void DMA_CH__vGetConfig(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef* psConfig);
 DMA_CONFIG_Typedef* DMA_CH__psGetConfig(DMA_nCH_MODULE enDMAChannel);
-
 
 void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* psConfig);
 

@@ -33,8 +33,8 @@ int32_t s32AccelerometerXValue =0UL;
 int32_t s32AccelerometerYValue =0UL;
 int32_t s32AccelerometerZValue =0UL;
 uint32_t u32MicrophoneValue =0UL;
-int32_t s32JoystickXValue =0UL;
-int32_t s32JoystickYValue =0UL;
+uint32_t u32JoystickXValue =0UL;
+uint32_t u32JoystickYValue =0UL;
 
 volatile uint32_t u32InterruptUart=0UL;
 volatile uint32_t u32InterruptRUart=0UL;
@@ -54,6 +54,7 @@ int32_t main(void)
 
     uint32_t u32Clock = 0UL;
     uint32_t u32PWMRed = 0UL;
+    uint32_t u32PWMBlue = 0UL;
     uint32_t u32PWMGreen = 0UL;
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
     UART_nFIFO_FULL enTransmitFullState = UART_enFIFO_FULL_NO;
@@ -117,38 +118,82 @@ int32_t main(void)
         enButton2State =(EDUMKII_nBUTTON_STATE)(((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_2)>>1UL);
         if(  EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
         {
-            if(u32PWMRed<1023UL)
+            u32PWMRed++;
+            if( u32PWMRed > 50UL)
             {
-                u32PWMRed++;
+                u32PWMRed = 0UL;
             }
-            else
-            {
-                u32PWMRed=0UL;
-            }
-            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t)u32PWMRed);
-            EDUMKII_Buzzer_vSet(u32PWMRed);
         }
 
         if( EDUMKII_enBUTTON_STATE_PRESS ==enButton2State)
         {
-            if(u32PWMGreen<1023UL)
-            {
-                u32PWMGreen++;
-            }
-            else
-            {
-                u32PWMGreen=0UL;
-            }
-            EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN,(uint32_t)u32PWMGreen);
-            EDUMKII_Buzzer_vSet(0UL);
+            u32PWMRed = 0UL;
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, 0UL);
         }
 
-        EDUMKII_Joystick_vSample(&s32JoystickXValue,&s32JoystickYValue,&enJoystickSelectValue);
+        EDUMKII_Joystick_vSample(&u32JoystickXValue,&u32JoystickYValue,&enJoystickSelectValue);
         EDUMKII_Accelerometer_vSample(&s32AccelerometerXValue,&s32AccelerometerYValue,&s32AccelerometerZValue);
         EDUMKII_Microphone_vSample(&u32MicrophoneValue);
+
+        if(EDUMKII_enJOYSTICK_PRESS == enJoystickSelectValue)
+        {
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t)u32PWMRed);
+        }
+        else
+        {
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t)0UL);
+        }
+
+        if(u32JoystickXValue<= 1700UL)
+        {
+            u32PWMGreen = u32JoystickXValue;
+            u32PWMGreen -= 0UL;
+            u32PWMGreen*= 50UL;
+            u32PWMGreen/= (1700UL - 0UL);
+            u32PWMGreen = 50UL - u32PWMGreen;
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) u32PWMGreen );
+        }
+        else if((u32JoystickXValue>= 2400UL) && (u32JoystickXValue<= 4096UL))
+        {
+            u32PWMGreen = u32JoystickXValue;
+            u32PWMGreen -= 2400UL;
+            u32PWMGreen*= 50UL;
+            u32PWMGreen/= (4096UL - 2400UL);
+            u32PWMGreen = u32PWMGreen;
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) u32PWMGreen );
+        }
+        else
+        {
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) 0UL );
+        }
+
+        if(u32JoystickYValue<= 1700UL)
+        {
+            u32PWMBlue = u32JoystickYValue;
+            u32PWMBlue -= 0UL;
+            u32PWMBlue*= 50UL;
+            u32PWMBlue/= (1700UL - 0UL);
+            u32PWMBlue = 50UL - u32PWMBlue;
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) u32PWMBlue );
+        }
+        else if((u32JoystickYValue>= 2400UL) && (u32JoystickYValue<= 4096UL))
+        {
+            u32PWMBlue = u32JoystickYValue;
+            u32PWMBlue -= 2400UL;
+            u32PWMBlue*= 50UL;
+            u32PWMBlue/= (4096UL - 2400UL);
+            u32PWMBlue = u32PWMBlue;
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) u32PWMBlue );
+        }
+        else
+        {
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) 0UL );
+        }
+
+
        SysTick__vDelayUs(100000.0f);
-        u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %d, JoystickY: %d, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
-                         enButton1State,enButton2State,s32JoystickXValue,s32JoystickYValue,enJoystickSelectValue,s32AccelerometerXValue,s32AccelerometerYValue,s32AccelerometerZValue,
+        u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %u, JoystickY: %u, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
+                         enButton1State,enButton2State,u32JoystickXValue,u32JoystickYValue,enJoystickSelectValue,s32AccelerometerXValue,s32AccelerometerYValue,s32AccelerometerZValue,
                          u32MicrophoneValue);
         cNokiaBufferPointer = cNokiaBuffer;
         while('\0' != *cNokiaBufferPointer)
@@ -156,7 +201,7 @@ int32_t main(void)
             enTransmitFullState = UART__enIsFifoTransmitFull(UART_enMODULE_0);
             if( UART_enFIFO_FULL_NO == enTransmitFullState)
             {
-                UART__vSetData(UART_enMODULE_0, (uint8_t)(*cNokiaBufferPointer));
+                UART__vSetData(UART_enMODULE_0, (uint32_t)(*cNokiaBufferPointer));
                 cNokiaBufferPointer += 1U;
             }
         }

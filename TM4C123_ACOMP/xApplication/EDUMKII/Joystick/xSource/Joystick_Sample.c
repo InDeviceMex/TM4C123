@@ -30,10 +30,10 @@
 static volatile EDUMKII_nJOYSTICK enSelectStatus = EDUMKII_enJOYSTICK_NOPRESS;
 volatile uint32_t u32JostickFifoArray[2]= {0};
 
-void EDUMKII_Joystick_vSample(int32_t *s32X, int32_t *s32Y, EDUMKII_nJOYSTICK *enSelect)
+void EDUMKII_Joystick_vSample(uint32_t *u32X, uint32_t *u32Y, EDUMKII_nJOYSTICK *enSelect)
 {
-    *s32X = (int32_t)u32JostickFifoArray[0] - 2048;
-    *s32Y = (int32_t)u32JostickFifoArray[1] - 2048;
+    *u32X = (uint32_t)u32JostickFifoArray[0];
+    *u32Y = (uint32_t)u32JostickFifoArray[1];
 
     *enSelect = (EDUMKII_nJOYSTICK)enSelectStatus;
 

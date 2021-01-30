@@ -21,14 +21,12 @@
  * Date           Author     Version     Description
  * 20 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/xHeader/DMA_CH_ConfigGeneric.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_SoftwareRequest.h>
+
+#include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_ConfigGeneric.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
 
 void DMA_CH__vSetSoftwareRequest(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel,&DMA_DMASWREQ_R);
+    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMASWREQ_OFFSET);
 }
-

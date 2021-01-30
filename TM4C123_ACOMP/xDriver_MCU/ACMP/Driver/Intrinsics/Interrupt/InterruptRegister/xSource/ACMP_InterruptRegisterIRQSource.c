@@ -29,15 +29,15 @@
 
 void ACMP__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ACMP_nMODULE enModule)
 {
-    uint32_t u32IrqSourceHandler=0U;
+    uint32_t u32IrqSourceHandler = 0UL;
     uint32_t u32Module=(uint32_t)enModule;
-    if((uint32_t)pfIrqSourceHandler !=0U)
+    if((uint32_t)pfIrqSourceHandler != 0UL)
     {
         if(u32Module>(uint32_t)ACMP_enMODULE_MAX)
         {
             u32Module=(uint32_t)ACMP_enMODULE_MAX;
         }
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1U);
+        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|(uint32_t)1UL);
         ACMP__vIRQSourceHandler[u32Module]=(void (*) (void))u32IrqSourceHandler;
     }
 }

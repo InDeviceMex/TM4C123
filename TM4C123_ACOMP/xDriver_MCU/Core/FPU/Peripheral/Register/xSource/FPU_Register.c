@@ -1,6 +1,6 @@
 /**
  *
- * @file FPU_RegisterPeripheral.c
+ * @file FPU_Register.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 6 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/Core/FPU/Peripheral/Register/xHeader/FPU_RegisterPeripheral.h>
+#include <xDriver_MCU/Core/FPU/Peripheral/Register/FPU_Register.h>
 
 inline void FPU_vBlocking(void)
 {

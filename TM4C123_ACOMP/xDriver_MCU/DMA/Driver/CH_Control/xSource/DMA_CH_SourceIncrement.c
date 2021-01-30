@@ -21,48 +21,43 @@
  * Date           Author     Version     Description
  * 23 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_SourceIncrement.h>
+
 #include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_ControlGeneric.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
-
 
 void DMA_CH__vSetPrimarySourceIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_SRC_INC enChannelSourceIncrement)
 {
-    DMA_CH__vSetPrimaryControlGeneric(enChannel,DMAALTCH_DMACHCTL_SRCINC_MASK,DMAALTCH_DMACHCTL_R_SRCINC_BIT,(uint32_t)enChannelSourceIncrement);
+    DMA_CH__vSetPrimaryControlGeneric( enChannel, (uint32_t) enChannelSourceIncrement, DMACH_DMACHCTL_SRCINC_MASK, DMACH_DMACHCTL_R_SRCINC_BIT);
 }
 
 void DMA_CH__vSetAlternateSourceIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_SRC_INC enChannelSourceIncrement)
 {
-    DMA_CH__vSetAlternateControlGeneric(enChannel,DMAALTCH_DMACHCTL_SRCINC_MASK,DMAALTCH_DMACHCTL_R_SRCINC_BIT,(uint32_t)enChannelSourceIncrement);
+    DMA_CH__vSetAlternateControlGeneric(enChannel, (uint32_t) enChannelSourceIncrement, DMAALTCH_DMACHCTL_SRCINC_MASK, DMAALTCH_DMACHCTL_R_SRCINC_BIT);
 }
 
 void DMA_CH__vSetSourceIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, DMA_nCH_SRC_INC enChannelSourceIncrement)
 {
-    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure,DMAALTCH_DMACHCTL_SRCINC_MASK,DMAALTCH_DMACHCTL_R_SRCINC_BIT, enChannelSourceIncrement);
-}
-
-DMA_nCH_SRC_INC DMA_CH__enGetAlternateSourceIncrement(DMA_nCH_MODULE enChannel)
-{
-    DMA_nCH_SRC_INC enReg = DMA_enCH_SRC_INC_UNDEF;
-    enReg = (DMA_nCH_SRC_INC) DMA_CH__u32GetAlternateControlGeneric(enChannel,DMAALTCH_DMACHCTL_SRCINC_MASK, DMAALTCH_DMACHCTL_R_SRCINC_BIT);
-    return enReg;
+    DMA_CH__vSetControlGeneric( enChannel, enChannelStructure, (uint32_t) enChannelSourceIncrement, DMACH_DMACHCTL_SRCINC_MASK, DMACH_DMACHCTL_R_SRCINC_BIT);
 }
 
 DMA_nCH_SRC_INC DMA_CH__enGetPrimarySourceIncrement(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_SRC_INC enReg = DMA_enCH_SRC_INC_UNDEF;
-    enReg = (DMA_nCH_SRC_INC)DMA_CH__u32GetPrimaryControlGeneric(enChannel,DMAALTCH_DMACHCTL_SRCINC_MASK, DMAALTCH_DMACHCTL_R_SRCINC_BIT);
+    enReg = (DMA_nCH_SRC_INC) DMA_CH__u32GetPrimaryControlGeneric( enChannel, DMACH_DMACHCTL_SRCINC_MASK, DMACH_DMACHCTL_R_SRCINC_BIT);
+    return enReg;
+}
+
+DMA_nCH_SRC_INC DMA_CH__enGetAlternateSourceIncrement(DMA_nCH_MODULE enChannel)
+{
+    DMA_nCH_SRC_INC enReg = DMA_enCH_SRC_INC_UNDEF;
+    enReg = (DMA_nCH_SRC_INC) DMA_CH__u32GetAlternateControlGeneric( enChannel, DMAALTCH_DMACHCTL_SRCINC_MASK, DMAALTCH_DMACHCTL_R_SRCINC_BIT);
     return enReg;
 }
 
 DMA_nCH_SRC_INC DMA_CH__enGetSourceIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
 {
     DMA_nCH_SRC_INC enReg = DMA_enCH_SRC_INC_UNDEF;
-    enReg = (DMA_nCH_SRC_INC) DMA_CH__u32GetControlGeneric(enChannel,enChannelStructure,DMAALTCH_DMACHCTL_SRCINC_MASK,DMAALTCH_DMACHCTL_R_SRCINC_BIT);
+    enReg = (DMA_nCH_SRC_INC) DMA_CH__u32GetControlGeneric( enChannel, enChannelStructure, DMACH_DMACHCTL_SRCINC_MASK, DMACH_DMACHCTL_R_SRCINC_BIT);
     return enReg;
 }
-
-
-

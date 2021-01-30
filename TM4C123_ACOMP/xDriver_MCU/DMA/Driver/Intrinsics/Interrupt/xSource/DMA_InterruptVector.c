@@ -21,38 +21,28 @@
  * Date           Author     Version     Description
  * 23 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/xHeader/DMA_InterruptVector.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 
-static NVIC_nSTIR NVIC_VECTOR_DMA[(uint32_t)DMA_enVECTOR_MAX+1U]=
-    {
-         NVIC_enSTIR_UDMASOFT,NVIC_enSTIR_UDMAERROR,
-    };
+static NVIC_nSTIR NVIC_VECTOR_DMA[(uint32_t) DMA_enVECTOR_MAX] = { NVIC_enSTIR_UDMASOFT, NVIC_enSTIR_UDMAERROR};
 
-
-void DMA__vEnInterruptVector(DMA_nVECTOR enVector,DMA_nPRIORITY enDmaPriority)
+void DMA__vEnInterruptVector(DMA_nVECTOR enVector, DMA_nPRIORITY enDmaPriority)
 {
-    uint32_t u32VectorNvic=(uint32_t)NVIC_enSTIR_UDMASOFT;
-    if((uint32_t)DMA_enVECTOR_MAX<(uint32_t)enVector)
-    {
-        enVector=DMA_enVECTOR_MAX;
-    }
-    u32VectorNvic=(uint32_t)NVIC_VECTOR_DMA[(uint32_t)enVector];
-    enDmaPriority&=0x7U;
-    NVIC__vSetEnableIRQ((NVIC_nSTIR)u32VectorNvic,(NVIC_nPRIORITY)enDmaPriority);
+    NVIC_nSTIR enVectorNvic = NVIC_enSTIR_UDMASOFT;
+    enVector = (DMA_nVECTOR) MCU__u32CheckPatams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
+
+    enVectorNvic = NVIC_VECTOR_DMA[ (uint32_t) enVector];
+    NVIC__vSetEnableIRQ( enVectorNvic, (NVIC_nPRIORITY) enDmaPriority);
 }
 
 void DMA__vDisInterruptVector(DMA_nVECTOR enVector)
 {
-    uint32_t u32VectorNvic=(uint32_t)NVIC_enSTIR_UDMASOFT;
-    if((uint32_t)DMA_enVECTOR_MAX<(uint32_t)enVector)
-    {
-        enVector=DMA_enVECTOR_MAX;
-    }
-    u32VectorNvic=(uint32_t)NVIC_VECTOR_DMA[(uint32_t)enVector];
-    NVIC__vClearEnableIRQ((NVIC_nSTIR)u32VectorNvic);
+    NVIC_nSTIR enVectorNvic = NVIC_enSTIR_UDMASOFT;
+    enVector = (DMA_nVECTOR) MCU__u32CheckPatams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
+
+    enVectorNvic = NVIC_VECTOR_DMA[ (uint32_t) enVector];
+    NVIC__vClearEnableIRQ( enVectorNvic);
 }
-
-

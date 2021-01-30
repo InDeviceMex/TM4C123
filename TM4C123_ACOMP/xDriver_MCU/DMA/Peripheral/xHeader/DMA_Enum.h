@@ -29,8 +29,9 @@
 
 typedef enum
 {
-    DMA_enOK = 0UL,
-    DMA_enERROR = 1UL,
+    DMA_enSTATUS_OK = 0UL,
+    DMA_enSTATUS_ERROR = 1UL,
+    DMA_enSTATUS_UNDEF= 0xFFFFFFFFUL,
 }DMA_nSTATUS;
 
 typedef enum
@@ -139,9 +140,9 @@ typedef enum
 
 typedef enum
 {
-    DMA_enERROR_NOPENDING = 0UL,
-    DMA_enERROR_PENDING = 1UL,
-    DMA_enERROR_UNDEF = 0xFFFFFFFFUL,
+    DMA_enSTATUS_ERROR_NOPENDING = 0UL,
+    DMA_enSTATUS_ERROR_PENDING = 1UL,
+    DMA_enSTATUS_ERROR_UNDEF = 0xFFFFFFFFUL,
 }DMA_nERROR;
 
 typedef enum
@@ -159,7 +160,7 @@ typedef enum
     DMA_enCH_ENCODER_2 = ((uint32_t) 2UL),
     DMA_enCH_ENCODER_3 = ((uint32_t) 3UL),
     DMA_enCH_ENCODER_4 = ((uint32_t) 4UL),
-    DMA_enCH_ENCODER_MAX = ((uint32_t) 4UL),
+    DMA_enCH_ENCODER_MAX = ((uint32_t) 5UL),
     DMA_enCH_ENCODER_UNDEF = 0xFFFFFFFFUL,
 }DMA_nCH_ENCODER;
 

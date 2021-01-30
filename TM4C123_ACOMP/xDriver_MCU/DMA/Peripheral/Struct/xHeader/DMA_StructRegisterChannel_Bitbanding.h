@@ -40,7 +40,7 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile uint32_t XFERMODE [3UL];
-    volatile uint32_t NXTUSEBURST ;
+    volatile uint32_t NXTUSEBURST;
     volatile uint32_t XFERSIZE [10UL];
     volatile uint32_t ARBSIZE [4UL];
     const uint32_t reserved [6UL];

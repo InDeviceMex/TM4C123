@@ -21,11 +21,9 @@
  * Date           Author     Version     Description
  * 19 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_APP_XHEADER_DMA_INIT_H_
 #define XDRIVER_MCU_DMA_APP_XHEADER_DMA_INIT_H_
-
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
 void DMA__vInit(void);
 

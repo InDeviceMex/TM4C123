@@ -22,14 +22,8 @@
  * 17 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Vector_Error.h>
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
-
 
 void DMA_ERROR__vIRQVectorHandler(void)
 {
-    while(1U){}
+    while(1UL){}
 }
-
-

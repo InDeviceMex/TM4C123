@@ -21,39 +21,19 @@
  * Date           Author     Version     Description
  * 19 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Driver/xHeader/DMA_Enable.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
+
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
+#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 
 void DMA__vSetModuleEnable(DMA_nENABLE enModuleEnable)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32ModuleEnable=0U;
-    DMA__vSetReady(DMA_enMODULE_0);
-    u32ModuleEnable=(uint32_t)enModuleEnable & DMA_DMACFG_MASTEN_MASK;
-    u32ModuleEnable<<=DMA_DMACFG_R_MASTEN_BIT;
-    u32Reg=DMA_DMACFG_R;
-    u32Reg&= ~DMA_DMACFG_R_MASTEN_MASK;
-    u32Reg|=u32ModuleEnable;
-    DMA_DMACFG_R=u32Reg;
+    DMA__vWriteRegister(DMA_DMACFG_OFFSET, (uint32_t) enModuleEnable, DMA_DMACFG_MASTEN_MASK, DMA_DMACFG_R_MASTEN_BIT);
 }
 
 DMA_nENABLE DMA__enGetModuleEnable(void)
 {
-    uint32_t u32Reg=0U;
     DMA_nENABLE enModuleEnable = DMA_enENABLE_UNDEF;
-    DMA_nREADY enReady= DMA_enNOREADY;
-    enReady=DMA__enIsReady(DMA_enMODULE_0);
-
-    if(DMA_enREADY == enReady)
-    {
-        u32Reg=DMA_DMASTAT_R;
-        u32Reg>>=DMA_DMASTAT_R_MASTEN_BIT;
-        u32Reg&=DMA_DMASTAT_MASTEN_MASK;
-        enModuleEnable=(DMA_nENABLE)(u32Reg);
-    }
+    DMA__enReadRegister( DMA_DMASTAT_OFFSET, (uint32_t*) &enModuleEnable, DMA_DMASTAT_MASTEN_MASK, DMA_DMASTAT_R_MASTEN_BIT);
     return enModuleEnable;
 }
-
-

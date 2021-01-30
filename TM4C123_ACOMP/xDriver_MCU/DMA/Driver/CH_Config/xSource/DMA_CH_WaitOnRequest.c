@@ -21,12 +21,11 @@
  * Date           Author     Version     Description
  * 20 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/xHeader/DMA_CH_ConfigGeneric.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_WaitOnRequest.h>
+
+#include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_ConfigGeneric.h>
 #include <xDriver_MCU/DMA/Driver/xHeader/DMA_Enable.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
 
 DMA_nCH_WAITING DMA_CH__enGetWaitStatus(DMA_nCH_MODULE enChannel)
 {
@@ -35,7 +34,7 @@ DMA_nCH_WAITING DMA_CH__enGetWaitStatus(DMA_nCH_MODULE enChannel)
     enModuleEnable = DMA__enGetModuleEnable();
     if(DMA_enENABLE_EN == enModuleEnable)
     {
-        enChannelWaiting = (DMA_nCH_WAITING)DMA_CH__u32GetConfigGeneric(enChannel,&DMA_DMAWAITSTAT_R);
+        enChannelWaiting = (DMA_nCH_WAITING) DMA_CH__u32GetConfigGeneric( enChannel, DMA_DMAWAITSTAT_OFFSET);
     }
     return enChannelWaiting;
 }

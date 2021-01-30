@@ -27,7 +27,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xApplication/EDUMKII/Joystick/xHeader/Joystick_Enum.h>
 
-void EDUMKII_Joystick_vSample(int32_t *s32X, int32_t *s32Y, EDUMKII_nJOYSTICK *enSelect);
+void EDUMKII_Joystick_vSample(uint32_t *u32X, uint32_t *u32Y, EDUMKII_nJOYSTICK *enSelect);
 void EDUMKII_Select_vIRQSourceHandler(void);
 void EDUMKII_Joystick_vIRQSourceHandler(void);
 extern volatile uint32_t u32JostickFifoArray[2];

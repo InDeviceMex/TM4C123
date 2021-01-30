@@ -23,41 +23,19 @@
  */
 #include <xDriver_MCU/DMA/Driver/xHeader/DMA_State.h>
 
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
+#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 
 DMA_nSTATE DMA__enGetModuleState(void)
 {
-    uint32_t u32Reg=0U;
     DMA_nSTATE enModuleState = DMA_enSTATE_UNDEF;
-    DMA_nREADY enReady= DMA_enNOREADY;
-    enReady=DMA__enIsReady(DMA_enMODULE_0);
-
-    if(DMA_enREADY == enReady)
-    {
-        u32Reg=DMA_DMASTAT_R;
-        u32Reg>>=DMA_DMASTAT_R_STATE_BIT;
-        u32Reg&=DMA_DMASTAT_STATE_MASK;
-        enModuleState=(DMA_nSTATE)(u32Reg);
-    }
+    DMA__enReadRegister( DMA_DMASTAT_OFFSET, (uint32_t*) &enModuleState, DMA_DMASTAT_STATE_MASK, DMA_DMASTAT_R_STATE_BIT);
     return enModuleState;
 }
 
 uint32_t DMA__u32GetModulechannels(void)
 {
-    uint32_t u32Reg=0U;
     DMA_nCH_MODULE enModuleChannels = DMA_enCH_MODULE_UNDEF;
-    DMA_nREADY enReady= DMA_enNOREADY;
-    enReady=DMA__enIsReady(DMA_enMODULE_0);
-
-    if(DMA_enREADY == enReady)
-    {
-        u32Reg=DMA_DMASTAT_R;
-        u32Reg>>=DMA_DMASTAT_R_DMACHANS_BIT;
-        u32Reg&=DMA_DMASTAT_DMACHANS_MASK;
-        enModuleChannels=(DMA_nCH_MODULE)(u32Reg);
-    }
+    DMA__enReadRegister( DMA_DMASTAT_OFFSET, (uint32_t*) &enModuleChannels, DMA_DMASTAT_DMACHANS_MASK, DMA_DMASTAT_R_DMACHANS_BIT);
     return enModuleChannels;
 }
-

@@ -21,23 +21,22 @@
  * Date           Author     Version     Description
  * 20 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/xHeader/DMA_CH_ConfigGeneric.h>
 #include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_Priority.h>
+
+#include <xDriver_MCU/DMA/Driver/CH_Config/xHeader/DMA_CH_ConfigGeneric.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>
 
 static void DMA_CH__vSetDefaultPriority(DMA_nCH_MODULE enChannel);
 static void DMA_CH__vSetHighPriority(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vSetDefaultPriority(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel,&DMA_DMAPRIOCLR_R);
+    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAPRIOCLR_OFFSET);
 }
 
 static void DMA_CH__vSetHighPriority(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel,&DMA_DMAPRIOSET_R);
+    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAPRIOSET_OFFSET);
 }
 
 void DMA_CH__vSetPriority(DMA_nCH_MODULE enChannel, DMA_nCH_PRIO enDMAChannelPriority)
@@ -55,6 +54,6 @@ void DMA_CH__vSetPriority(DMA_nCH_MODULE enChannel, DMA_nCH_PRIO enDMAChannelPri
 DMA_nCH_PRIO DMA_CH__enGetPriority(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_PRIO enChannelPrio = DMA_enCH_PRIO_UNDEF;
-    enChannelPrio = (DMA_nCH_PRIO)DMA_CH__u32GetConfigGeneric(enChannel,&DMA_DMAPRIOSET_R);
+    enChannelPrio = (DMA_nCH_PRIO) DMA_CH__u32GetConfigGeneric( enChannel, DMA_DMAPRIOSET_OFFSET);
     return enChannelPrio;
 }

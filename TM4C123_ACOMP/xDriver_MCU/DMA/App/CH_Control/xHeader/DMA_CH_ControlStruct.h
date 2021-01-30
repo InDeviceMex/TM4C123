@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 23 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DMA_APP_CH_CONTROL_XHEADER_DMA_CH_CONTROLSTRUCT_H_
 #define XDRIVER_MCU_DMA_APP_CH_CONTROL_XHEADER_DMA_CH_CONTROLSTRUCT_H_
 

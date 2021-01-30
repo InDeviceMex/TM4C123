@@ -27,7 +27,6 @@
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Dependencies.h>
 
-
 void UART1__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg=0U;
