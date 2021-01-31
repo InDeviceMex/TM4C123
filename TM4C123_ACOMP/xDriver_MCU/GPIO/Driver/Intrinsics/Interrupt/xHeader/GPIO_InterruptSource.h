@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTSOURCE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTSOURCE_H_
 
@@ -29,7 +30,6 @@
 void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
-GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort,
-                                               GPIO_nPIN enPin);
+GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTPIN_H_ */

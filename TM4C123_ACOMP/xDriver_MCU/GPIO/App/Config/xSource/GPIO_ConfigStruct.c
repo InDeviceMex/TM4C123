@@ -21,53 +21,76 @@
  * Date           Author     Version     Description
  * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <stdlib.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/App/Config/xHeader/GPIO_ConfigStruct.h>
 
-void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig,
-                                      GPIO_CONFIG_Typedef *psConfig)
+#include <xUtils/Standard/Standard.h>
+#include <stdlib.h>
+
+void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig, GPIO_CONFIG_Typedef *psConfig)
 {
-    if(psConfig != 0)
+    uint32_t u32Reg = 0UL;
+    if(0UL != (uint32_t) psConfig)
     {
-        psConfig->enResistorMode = (GPIO_nRESMODE) (((uint32_t) enConfig >> 0U)
-                & 3U);
-        psConfig->enOutputMode = (GPIO_nOUTMODE) (((uint32_t) enConfig >> 4U)
-                & 1U);
-        psConfig->enDirection = (GPIO_nDIR) (((uint32_t) enConfig >> 8U) & 1U);
-        psConfig->enDrive = (GPIO_nDRIVE) (((uint32_t) enConfig >> 16U)
-                & 0x0103U);
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 0UL;
+        u32Reg &= 0x3UL;
+        psConfig->enResistorMode = (GPIO_nRESMODE) u32Reg;
+
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 4UL;
+        u32Reg &= 0x1UL;
+        psConfig->enOutputMode = (GPIO_nOUTMODE) u32Reg;
+
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 8UL;
+        u32Reg &= 0x1UL;
+        psConfig->enDirection = (GPIO_nDIR) u32Reg;
+
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 16UL;
+        u32Reg &= 0x0103U;
+        psConfig->enDrive = (GPIO_nDRIVE) u32Reg;
     }
 }
 
 GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
 {
-    GPIO_CONFIG_Typedef *psConfig = 0;
+    uint32_t u32Reg = 0UL;
+    GPIO_CONFIG_Typedef *psConfig = 0UL;
 #if defined ( __TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign(
-            (size_t) 4,
-            (size_t) (sizeof(GPIO_CONFIG_Typedef)));
+    psConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef)));
 #elif defined ( __GNUC__ )
     psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t)sizeof(GPIO_CONFIG_Typedef));
     #endif
 
-    if(psConfig != 0)
+    if(0UL != (uint32_t) psConfig)
     {
-        psConfig->enResistorMode = (GPIO_nRESMODE) (((uint32_t) enConfig >> 0U)
-                & 3U);
-        psConfig->enOutputMode = (GPIO_nOUTMODE) (((uint32_t) enConfig >> 4U)
-                & 1U);
-        psConfig->enDirection = (GPIO_nDIR) (((uint32_t) enConfig >> 8U) & 1U);
-        psConfig->enDrive = (GPIO_nDRIVE) (((uint32_t) enConfig >> 16U)
-                & 0x0103U);
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 0UL;
+        u32Reg &= 0x3UL;
+        psConfig->enResistorMode = (GPIO_nRESMODE) u32Reg;
+
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 4UL;
+        u32Reg &= 0x1UL;
+        psConfig->enOutputMode = (GPIO_nOUTMODE) u32Reg;
+
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 8UL;
+        u32Reg &= 0x1UL;
+        psConfig->enDirection = (GPIO_nDIR) u32Reg;
+
+        u32Reg = (uint32_t) enConfig;
+        u32Reg >>= 16UL;
+        u32Reg &= 0x0103U;
+        psConfig->enDrive = (GPIO_nDRIVE) u32Reg;
     }
     return psConfig;
 }
 
 void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef *psConfig)
 {
-    free(psConfig);
+    free( psConfig);
     psConfig = (GPIO_CONFIG_Typedef*) 0UL;
 }
 

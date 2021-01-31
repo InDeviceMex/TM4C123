@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 24 jun. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTREGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTREGISTER_H_
 
@@ -43,8 +44,8 @@ typedef volatile struct
 {
         union
         {
-                volatile uint32_t DATA_MASK[255];
-                GPIODATA_TypeDef DATA_MASK_Bit[255];
+                volatile uint32_t DATA_MASK [255UL];
+                GPIODATA_TypeDef DATA_MASK_Bit [255UL];
         };
         union
         {
@@ -187,8 +188,8 @@ typedef volatile struct
 {
         union
         {
-                volatile uint32_t DRV[3];
-                GPIODRR_TypeDef DRV_bit[3];
+                volatile uint32_t DRV [3UL];
+                GPIODRR_TypeDef DRV_bit [3UL];
         };
 } GPIODRR_ARRAY_TypeDef;
 

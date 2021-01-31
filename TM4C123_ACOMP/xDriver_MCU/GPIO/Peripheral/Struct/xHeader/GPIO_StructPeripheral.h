@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 24 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 24 jun. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTPERIPHERAL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTPERIPHERAL_H_
 
@@ -31,8 +32,8 @@ typedef volatile struct
 {
         union
         {
-                volatile uint32_t GPIODATA_MASK[255];
-                GPIODATA_TypeDef GPIODATA_MASK_Bit[255];
+                volatile uint32_t GPIODATA_MASK [255UL];
+                GPIODATA_TypeDef GPIODATA_MASK_Bit [255UL];
         };
         union
         {
@@ -84,7 +85,7 @@ typedef volatile struct
                 volatile uint32_t GPIOAFSEL;
                 GPIOAFSEL_TypeDef GPIOAFSEL_Bit;
         };
-        const uint32_t reserved[55];
+        const uint32_t reserved [55UL];
         union
         {
                 volatile uint32_t GPIODR2R;
@@ -155,7 +156,7 @@ typedef volatile struct
                 volatile uint32_t GPIODMACTL;
                 GPIODMACTL_TypeDef GPIODMACTL_Bit;
         };
-        const uint32_t reserved1[678];
+        const uint32_t reserved1 [678UL];
         union
         {
                 volatile uint32_t GPIOPeriphID4;
@@ -222,8 +223,8 @@ typedef volatile struct
 {
         union
         {
-                volatile uint32_t GPIODATA_MASK[255];
-                GPIODATA_TypeDef GPIODATA_MASK_Bit[255];
+                volatile uint32_t GPIODATA_MASK [255UL];
+                GPIODATA_TypeDef GPIODATA_MASK_Bit [255UL];
         };
         union
         {
@@ -275,11 +276,11 @@ typedef volatile struct
                 volatile uint32_t GPIOAFSEL;
                 GPIOAFSEL_TypeDef GPIOAFSEL_Bit;
         };
-        const uint32_t reserved[55];
+        const uint32_t reserved [55UL];
         union
         {
-                volatile uint32_t GPIODRR[3];
-                GPIODRR_TypeDef GPIODRR_Bit[3];
+                volatile uint32_t GPIODRR [3UL];
+                GPIODRR_TypeDef GPIODRR_Bit [3UL];
         };
 
         union
@@ -337,7 +338,7 @@ typedef volatile struct
                 volatile uint32_t GPIODMACTL;
                 GPIODMACTL_TypeDef GPIODMACTL_Bit;
         };
-        const uint32_t reserved1[678];
+        const uint32_t reserved1 [678UL];
         union
         {
                 volatile uint32_t GPIOPeriphID4;
@@ -402,12 +403,12 @@ typedef volatile struct
 
 typedef volatile struct
 {
-        GPIO_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX + 1U];
+        GPIO_TypeDef AHB [(uint32_t) GPIO_enPORT_MAX];
 } GPIO_AHB_TypeDef;
 
 typedef volatile struct
 {
-        GPIO_AUX_TypeDef AHB[(uint32_t) GPIO_enPORT_MAX + 1U];
+        GPIO_AUX_TypeDef AHB [(uint32_t) GPIO_enPORT_MAX];
 } GPIO_AHB_AUX_TypeDef;
 
 typedef volatile struct
@@ -416,7 +417,7 @@ typedef volatile struct
         GPIO_TypeDef APB_B;
         GPIO_TypeDef APB_C;
         GPIO_TypeDef APB_D;
-        const GPIO_TypeDef reserved[28];
+        const GPIO_TypeDef reserved [28UL];
         GPIO_TypeDef APB_E;
         GPIO_TypeDef APB_F;
 } GPIO_APB_TypeDef;
@@ -427,7 +428,7 @@ typedef volatile struct
         GPIO_AUX_TypeDef APB_B;
         GPIO_AUX_TypeDef APB_C;
         GPIO_AUX_TypeDef APB_D;
-        const GPIO_AUX_TypeDef reserved[28];
+        const GPIO_AUX_TypeDef reserved [28UL];
         GPIO_AUX_TypeDef APB_E;
         GPIO_AUX_TypeDef APB_F;
 } GPIO_APB_AUX_TypeDef;

@@ -21,34 +21,40 @@
  * Date           Author     Version     Description
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/GPIO_InterruptRegisterIRQSource.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Source.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
-void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler)(void),
-                                     GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler)(void), GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    uint32_t u32Count = 0;
-    uint32_t u32Pin = (uint32_t) enPin;
-    uint32_t u32IrqSourceHandler = 0;
-    if((uint32_t) pfIrqSourceHandler != 0U)
+    uint32_t u32Interrupt = 0UL;
+    uint32_t u32InterruptMax = 0UL;
+
+    uint32_t u32PinNumber = 0UL;
+    uint32_t u32Port = 0UL;
+    uint32_t u32Pin = 0UL;
+
+    if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        if(enPort > GPIO_enPORT_MAX)
+        u32Port = MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t)  GPIO_enPORT_MAX);
+
+        u32Pin = (uint32_t) enPin;
+        u32Pin &= (uint32_t) GPIO_enPIN_ALL;
+        while(0UL == (u32Pin & 0x1UL))
         {
-            enPort = GPIO_enPORT_MAX;
+            u32PinNumber++;
+            u32Pin >>= 1UL;
         }
 
-        enPin &= GPIO_enPIN_ALL;
-        while((u32Pin & 0x1U) == 0U)
-        {
-            u32Count++;
-            u32Pin >>= 1;
-        }
-        u32IrqSourceHandler = ((uint32_t) pfIrqSourceHandler | (uint32_t) 1U);
-        GPIO__vIRQSourceHandler[(uint32_t) enPort][u32Count] =
-                (void (*)(void)) u32IrqSourceHandler;
+        u32InterruptMax = (uint32_t) GPIO_enPORT_MAX;
+        u32InterruptMax *=  (uint32_t) GPIO_enPIN_NUMBER_MAX;
+
+        u32Interrupt = (uint32_t) GPIO_enPIN_NUMBER_MAX;
+        u32Interrupt *= u32Port;
+        u32Interrupt += u32PinNumber;
+
+        MCU__vRegisterIRQSourceHandler( pfIrqSourceHandler, &GPIO__vIRQSourceHandler[0UL][0UL], u32Interrupt, u32InterruptMax);
     }
 }
-

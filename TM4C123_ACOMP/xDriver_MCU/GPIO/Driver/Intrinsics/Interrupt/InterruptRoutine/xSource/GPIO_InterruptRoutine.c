@@ -22,13 +22,15 @@
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine.h>
+
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
-void (*GPIO__pvIRQVectorHandler[(uint32_t) GPIO_enPORT_MAX + 1U])(void)=
-{   &GPIOA__vIRQVectorHandler,
+void (*GPIO__pvIRQVectorHandler[(uint32_t) GPIO_enPORT_MAX])(void)=
+{
+    &GPIOA__vIRQVectorHandler,
     &GPIOB__vIRQVectorHandler,
     &GPIOC__vIRQVectorHandler,
     &GPIOD__vIRQVectorHandler,
     &GPIOE__vIRQVectorHandler,
-    &GPIOF__vIRQVectorHandler};
-
+    &GPIOF__vIRQVectorHandler
+};

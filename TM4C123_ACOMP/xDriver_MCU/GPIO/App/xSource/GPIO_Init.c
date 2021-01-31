@@ -21,7 +21,6 @@
  * Date           Author     Version     Description
  * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/GPIO/App/xHeader/GPIO_Init.h>
 #include <xDriver_MCU/GPIO/Driver/GPIO_Driver.h>
 

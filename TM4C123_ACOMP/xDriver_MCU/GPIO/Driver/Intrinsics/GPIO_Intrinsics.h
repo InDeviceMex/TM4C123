@@ -21,14 +21,16 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTRINSICS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTRINSICS_H_
 
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_ADCTrigger.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Analog.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Commit.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Direction.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_DMATrigger.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_InterruptConfig.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Generic.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Lock.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/GPIO_Interrupt.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>

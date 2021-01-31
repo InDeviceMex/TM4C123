@@ -21,91 +21,56 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/xHeader/GPIO_Resistor.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Lock.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
+
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Commit.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/GPIO_Intrinsics.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
 void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin,
                             GPIO_nRESMODE enMode)
 {
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32RegPUR = 0;
-    uint32_t u32RegPDR = 0;
-    GPIO_TypeDef *gpio = 0;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    GPIO__vSetReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    GPIO__vUnlock(enPort, enPin);
-    gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
-    u32RegPUR = gpio->GPIOPUR;
-    u32RegPDR = gpio->GPIOPDR;
+    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
     switch(enMode)
     {
         case GPIO_enRESMODE_INACTIVE:
-            u32RegPUR &= ~(uint32_t) enPin;
-            u32RegPDR &= ~(uint32_t) enPin;
+            GPIO__vDisGeneric( enPort, GPIO_GPIOPUR_OFFSET, enPin);
+            GPIO__vDisGeneric( enPort, GPIO_GPIOPDR_OFFSET, enPin);
             break;
         case GPIO_enRESMODE_PULLUP:
-            u32RegPUR |= (uint32_t) enPin;
-            u32RegPDR &= ~(uint32_t) enPin;
+            GPIO__vEnGeneric( enPort, GPIO_GPIOPUR_OFFSET, enPin);
+            GPIO__vDisGeneric( enPort, GPIO_GPIOPDR_OFFSET, enPin);
             break;
         case GPIO_enRESMODE_PULLDOWN:
-            u32RegPUR &= ~(uint32_t) enPin;
-            u32RegPDR |= (uint32_t) enPin;
+            GPIO__vDisGeneric( enPort, GPIO_GPIOPUR_OFFSET, enPin);
+            GPIO__vEnGeneric( enPort, GPIO_GPIOPDR_OFFSET, enPin);
             break;
         default:
             break;
     }
-    gpio->GPIOPUR = u32RegPUR;
-    gpio->GPIOPDR = u32RegPDR;
 }
 
 GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nRESMODE enRes = GPIO_enRESMODE_UNDEF;
-    GPIO_nREADY enReady = GPIO_enNOREADY;
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32RegPU = 0;
-    uint32_t u32RegPD = 0;
-    GPIO_TypeDef *gpio = 0;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    enReady = GPIO__enIsReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    if(GPIO_enREADY == enReady)
-    {
-        gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
-        u32RegPU = gpio->GPIOPUR;
-        u32RegPD = gpio->GPIOPDR;
-        u32RegPU &= enPin;
-        u32RegPD &= enPin;
+    GPIO_nRESMODE enResistorType = GPIO_enRESMODE_UNDEF;
+    uint32_t u32PullUp = 0UL;
+    uint32_t u32PullDown = 0UL;
+    u32PullUp = GPIO__u32GetGeneric( enPort, GPIO_GPIOPUR_OFFSET, enPin);
+    u32PullDown = GPIO__u32GetGeneric( enPort, GPIO_GPIOPDR_OFFSET, enPin);
 
-        if((u32RegPU == 0U) && (u32RegPD == 0U))
-        {
-            enRes = GPIO_enRESMODE_INACTIVE;
-        }
-        else if((u32RegPU != 0U))
-        {
-            enRes = GPIO_enRESMODE_PULLUP;
-        }
-        else if((u32RegPD != 0U))
-        {
-            enRes = GPIO_enRESMODE_PULLDOWN;
-        }
-        else
-        {
-        }
+    if((0UL == u32PullUp) && (0UL == u32PullDown))
+    {
+        enResistorType = GPIO_enRESMODE_INACTIVE;
     }
-    return enRes;
+    else if(0UL != u32PullUp)
+    {
+        enResistorType = GPIO_enRESMODE_PULLUP;
+    }
+    else if(0UL != u32PullDown)
+    {
+        enResistorType = GPIO_enRESMODE_PULLDOWN;
+    }
+    else{}
+
+    return enResistorType;
 }
-

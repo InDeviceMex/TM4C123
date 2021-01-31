@@ -21,9 +21,8 @@
  * Date           Author     Version     Description
  * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/xHeader/GPIO_Data_AHB.h>
+
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
@@ -31,49 +30,51 @@ inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin,
                                uint32_t u32Data)
 {
     GPIO_nBUS enBus = GPIO_enBUS_APB;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    GPIO__vSetReady(enPort);
+    uint32_t u32OffsetRegister = 0UL;
+    uint32_t u32Pin = 0UL;
+
     enBus = GPIO__enGetBus(enPort);
     if(GPIO_enBUS_AHB == enBus)
     {
-        GPIO_AHB->AHB[(uint32_t) enPort].GPIODATA_MASK[enPin] = u32Data;
+        u32Pin = (uint32_t) enPin;
+        u32Pin &= (uint32_t) GPIO_enPIN_ALL;
+        u32OffsetRegister = u32Pin;
+        u32OffsetRegister *= 4UL;
+        u32OffsetRegister += GPIO_GPIODATA_MASK_OFFSET;
+
+        GPIO__vWriteRegisterBus( enPort, enBus, u32OffsetRegister, u32Data, 0xFFFFFFFFUL, 0UL);
     }
-}
-inline uint32_t GPIO_AHB__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin)
-{
-    GPIO_nREADY enReady = GPIO_enNOREADY;
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32Reg = 0xFFFFFFFF;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    enReady = GPIO__enIsReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    if(GPIO_enREADY == enReady)
-    {
-        if(GPIO_enBUS_AHB == enBus)
-        {
-            u32Reg = GPIO_AHB->AHB[(uint32_t) enPort].GPIODATA_MASK[enPin];
-        }
-    }
-    return u32Reg;
 }
 
-inline void GPIO_AHB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin,
-                                  uint32_t u32Data)
+inline GPIO_nSTATUS GPIO_AHB__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* u32Feature)
+{
+    GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
+    GPIO_nBUS enBus = GPIO_enBUS_APB;
+    uint32_t u32OffsetRegister = 0UL;
+    uint32_t u32Pin = 0UL;
+
+    enBus = GPIO__enGetBus(enPort);
+    if(GPIO_enBUS_AHB == enBus)
+    {
+        u32Pin = (uint32_t) enPin;
+        u32Pin &= (uint32_t) GPIO_enPIN_ALL;
+        u32OffsetRegister = u32Pin;
+        u32OffsetRegister *= 4UL;
+        u32OffsetRegister += GPIO_GPIODATA_MASK_OFFSET;
+
+        enStatus = GPIO__enReadRegisterBus( enPort, enBus, u32OffsetRegister, u32Feature, 0xFFFFFFFFUL, 0UL);
+    }
+    return enStatus;
+}
+
+inline void GPIO_AHB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
     GPIO_AHB->AHB[(uint32_t) enPort].GPIODATA_MASK[enPin] = u32Data;
 }
+
 inline uint32_t GPIO_AHB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    uint32_t u32Reg = 0;
+    uint32_t u32Reg = 0UL;
     u32Reg = GPIO_AHB->AHB[(uint32_t) enPort].GPIODATA_MASK[enPin];
     return u32Reg;
 }
-

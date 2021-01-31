@@ -21,41 +21,32 @@
  * Date           Author     Version     Description
  * 29 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/xHeader/GPIO_Ready.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
 
 void GPIO__vSetReady(GPIO_nPORT enPort)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enGPIOA;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
+    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enPeripheral |= enPort;
-    SYSCTL__vSetReady(enPeripheral);
+    SYSCTL__vSetReady( enPeripheral);
 }
 
 void GPIO__vClearReady(GPIO_nPORT enPort)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enGPIOA;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
+    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enPeripheral |= enPort;
-    SYSCTL__vClearReady(enPeripheral);
+    SYSCTL__vClearReady( enPeripheral);
 }
 GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 {
     GPIO_nREADY enReady = GPIO_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enGPIOA;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
+    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enPeripheral |= enPort;
-    enReady = (GPIO_nREADY) SYSCTL__enIsReady(enPeripheral);
+    enReady = (GPIO_nREADY) SYSCTL__enIsReady( enPeripheral);
     return enReady;
 }
-

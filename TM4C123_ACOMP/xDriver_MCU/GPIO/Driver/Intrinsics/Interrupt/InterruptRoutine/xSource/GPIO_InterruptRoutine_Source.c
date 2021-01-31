@@ -21,27 +21,21 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Source.h>
 
 static void GPIO_vIRQSourceHandler_Dummy(void);
 
-void (*GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_MAX + 1U][(uint32_t) GPIO_enPIN_NUMBER_MAX
-        + 1U])(
-        void)=
-        {
-            {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
-            {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
-            {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
-            {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
-            {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},
-            {   &GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy,&GPIO_vIRQSourceHandler_Dummy},};
+void (*GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_MAX][(uint32_t) GPIO_enPIN_NUMBER_MAX])(void) =
+{
+    {   &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy},
+    {   &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy},
+    {   &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy},
+    {   &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy},
+    {   &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy},
+    {   &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy, &GPIO_vIRQSourceHandler_Dummy},
+};
 
 static void GPIO_vIRQSourceHandler_Dummy(void)
 {
-    while(1U)
-    {
-
-    }
+    while(1UL){ }
 }
-

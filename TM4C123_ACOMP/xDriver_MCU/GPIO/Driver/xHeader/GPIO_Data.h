@@ -21,12 +21,13 @@
  * Date           Author     Version     Description
  * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DATA_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DATA_H_
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
 void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO__u32GetData(GPIO_nPORT enPort, GPIO_nPIN enPin);
+uint32_t GPIO__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* pu32Feature);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DATA_H_ */

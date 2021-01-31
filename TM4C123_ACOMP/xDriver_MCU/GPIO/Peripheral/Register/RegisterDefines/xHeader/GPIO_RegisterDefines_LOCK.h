@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 25 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_LOCK_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_LOCK_H_
 
@@ -30,16 +31,16 @@
  ************************************ 19 GPIOLOCK *********************************************
  ******************************************************************************************/
 /*----------*/
-#define GPIO_GPIOLOCK_R_LOCK_MASK     ((uint32_t)0xFFFFFFFFU)
-#define GPIO_GPIOLOCK_R_LOCK_BIT      (0U)
-#define GPIO_GPIOLOCK_R_LOCK_KEY      ((uint32_t)0x4C4F434BU)
-#define GPIO_GPIOLOCK_R_LOCK_UNLOCK   ((uint32_t)0x00000000U)
-#define GPIO_GPIOLOCK_R_LOCK_LOCK     ((uint32_t)0x00000001U)
+#define GPIO_GPIOLOCK_R_LOCK_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPIO_GPIOLOCK_R_LOCK_BIT    (0UL)
+#define GPIO_GPIOLOCK_R_LOCK_KEY    ((uint32_t) 0x4C4F434BUL)
+#define GPIO_GPIOLOCK_R_LOCK_UNLOCK    ((uint32_t) 0x00000000UL)
+#define GPIO_GPIOLOCK_R_LOCK_LOCK    ((uint32_t) 0x00000001UL)
 
-#define GPIO_GPIOLOCK_LOCK_MASK       ((uint32_t)0xFFFFFFFFU)
-#define GPIO_GPIOLOCK_LOCK_KEY        ((uint32_t)0x4C4F434BU)
-#define GPIO_GPIOLOCK_LOCK_UNLOCK     ((uint32_t)0x00000000U)
-#define GPIO_GPIOLOCK_LOCK_LOCK       ((uint32_t)0x00000001U)
+#define GPIO_GPIOLOCK_LOCK_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPIO_GPIOLOCK_LOCK_KEY    ((uint32_t) 0x4C4F434BUL)
+#define GPIO_GPIOLOCK_LOCK_UNLOCK    ((uint32_t) 0x00000000UL)
+#define GPIO_GPIOLOCK_LOCK_LOCK    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_LOCK_H_ */

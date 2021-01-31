@@ -21,46 +21,29 @@
  * Date           Author     Version     Description
  * 29 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_DMATrigger.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
+
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Generic.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
 void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32Reg = 0;
-    GPIO_TypeDef *gpio = 0;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    GPIO__vSetReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
-    u32Reg = gpio->GPIODMACTL;
-    u32Reg |= enPin;
-    gpio->GPIODMACTL = u32Reg;
-
+    GPIO__vEnGeneric( enPort, GPIO_GPIODMACTL_OFFSET, enPin);
 }
 
 void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32Reg = 0;
-    GPIO_TypeDef *gpio = 0;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    GPIO__vSetReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
-    u32Reg = gpio->GPIODMACTL;
-    u32Reg &= ~(uint32_t) enPin;
-    gpio->GPIODMACTL = u32Reg;
+    GPIO__vDisGeneric( enPort, GPIO_GPIODMACTL_OFFSET, enPin);
 }
 
+void GPIO__vSetDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDMA_TRIGGER enFeature)
+{
+    GPIO__vSetGeneric( enPort, GPIO_GPIODMACTL_OFFSET, enPin, (uint32_t) enFeature);
+}
+
+GPIO_nDMA_TRIGGER GPIO__enGetDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
+{
+    GPIO_nDMA_TRIGGER enFeature = GPIO_enDMA_TRIGGER_UNDEF;
+    enFeature = (GPIO_nDMA_TRIGGER) GPIO__u32GetGeneric( enPort, GPIO_GPIODMACTL_OFFSET, enPin);
+    return enFeature;
+}

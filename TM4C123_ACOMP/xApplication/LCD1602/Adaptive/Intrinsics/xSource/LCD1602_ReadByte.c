@@ -31,25 +31,25 @@ uint8_t LCD1602__u8ReadLowByte(void)
 {
     uint32_t u32Reg=0U;
     uint8_t  u8DatoRead=0U;
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D7,LCD1602_D7);
+    GPIO__enGetData(LCD1602_PORT_D7,LCD1602_D7, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_3;
     }
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D6,LCD1602_D6);
+    GPIO__enGetData(LCD1602_PORT_D6,LCD1602_D6, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_2;
     }
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D5,LCD1602_D5);
+    GPIO__enGetData(LCD1602_PORT_D5,LCD1602_D5, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_1;
     }
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D4,LCD1602_D4);
+    GPIO__enGetData(LCD1602_PORT_D4,LCD1602_D4, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_0;
@@ -63,25 +63,25 @@ uint8_t LCD1602__u8ReadHighByte(void)
     uint32_t u32Reg=0U;
     uint8_t  u8DatoRead=0U;
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D7,LCD1602_D7);
+    GPIO__enGetData(LCD1602_PORT_D7,LCD1602_D7, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_7;
     }
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D6,LCD1602_D6);
+    GPIO__enGetData(LCD1602_PORT_D6,LCD1602_D6, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_6;
     }
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D5,LCD1602_D5);
+    GPIO__enGetData(LCD1602_PORT_D5,LCD1602_D5, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_5;
     }
 
-    u32Reg= GPIO__u32GetData(LCD1602_PORT_D4,LCD1602_D4);
+    GPIO__enGetData(LCD1602_PORT_D4,LCD1602_D4, &u32Reg);
     if(0u != u32Reg)
     {
         u8DatoRead|=GPIO_enPIN_4;

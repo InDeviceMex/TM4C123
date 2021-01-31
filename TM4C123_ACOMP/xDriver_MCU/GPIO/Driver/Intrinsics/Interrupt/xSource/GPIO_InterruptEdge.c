@@ -21,93 +21,42 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptEdge.h>
+
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptSense.h>
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Generic.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
 void GPIO__vSetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nEDGE enEdge)
 {
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
-    uint32_t u32RegIEV = 0;
-    uint32_t u32RegIBE = 0;
-    GPIO_TypeDef *gpio = 0;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    GPIO__vSetReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    GPIO__vSetIntSense(enPort, enPin, GPIO_enSENSE_EDGE);
-
-    gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
-    u32RegIEV = gpio->GPIOIEV;
-    if(GPIO_enEDGE_RISING == enEdge)
-    {
-        u32RegIEV |= enPin;
-    }
-    else
-    {
-        u32RegIEV &= ~(uint32_t) enPin;
-    }
-    u32RegIBE = gpio->GPIOIBE;
-    gpio->GPIOIEV = u32RegIEV;
+    GPIO__vSetIntSense( enPort, enPin, GPIO_enSENSE_EDGE);
     if(GPIO_enEDGE_BOTH == enEdge)
     {
-        u32RegIBE |= enPin;
+        GPIO__vSetGeneric( enPort, GPIO_GPIOIBE_OFFSET, enPin, 1UL);
+        GPIO__vSetGeneric( enPort, GPIO_GPIOIEV_OFFSET, enPin, (uint32_t) GPIO_enEDGE_FALLING);
     }
     else
     {
-        u32RegIBE &= ~(uint32_t) enPin;
+        GPIO__vSetGeneric( enPort, GPIO_GPIOIBE_OFFSET, enPin, 0UL);
+        GPIO__vSetGeneric( enPort, GPIO_GPIOIEV_OFFSET, enPin, (uint32_t) enEdge);
     }
-    gpio->GPIOIBE = u32RegIBE;
-
 }
 
 GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nEDGE enEdge = GPIO_enEDGE_UNDEF;
-    GPIO_nREADY enReady = GPIO_enNOREADY;
-    GPIO_nBUS enBus = GPIO_enBUS_APB;
     GPIO_nSENSE enSense = GPIO_enSENSE_UNDEF;
-    uint32_t u32RegIEV = 0;
-    uint32_t u32RegIBE = 0;
-    GPIO_TypeDef *gpio = 0;
-    if(enPort > GPIO_enPORT_MAX)
+    GPIO_nEDGE enFeature = GPIO_enEDGE_UNDEF;
+    uint32_t u32Feature = 0UL;
+    enSense = GPIO__enGetIntSense( enPort, enPin);
+    if(GPIO_enSENSE_EDGE == enSense)
     {
-        enPort = GPIO_enPORT_MAX;
-    }
-    enPin &= GPIO_enPIN_ALL;
-    enReady = GPIO__enIsReady(enPort);
-    enBus = GPIO__enGetBus(enPort);
-    enSense = GPIO__enGetIntSense(enPort, enPin);
-    if((GPIO_enREADY == enReady) && (GPIO_enSENSE_EDGE == enSense))
-    {
-        gpio = GPIO_BLOCK[enBus][(uint32_t) enPort];
-        u32RegIEV = gpio->GPIOIEV;
-        u32RegIBE = gpio->GPIOIBE;
-
-        u32RegIEV &= enPin;
-        u32RegIBE &= enPin;
-        if(0u == u32RegIBE)
+        u32Feature = GPIO__u32GetGeneric( enPort, GPIO_GPIOIBE_OFFSET, enPin);
+        u32Feature <<= 1UL;
+        if((uint32_t) GPIO_enEDGE_BOTH != u32Feature)
         {
-            if((uint32_t) GPIO_enEDGE_FALLING == u32RegIEV)
-            {
-                enEdge = GPIO_enEDGE_FALLING;
-            }
-            else
-            {
-                enEdge = GPIO_enEDGE_RISING;
-            }
+            u32Feature = GPIO__u32GetGeneric( enPort, GPIO_GPIOIEV_OFFSET, enPin);
         }
-        else
-        {
-            enEdge = GPIO_enEDGE_BOTH;
-        }
+        enFeature = (GPIO_nEDGE) u32Feature;
     }
-    return enEdge;
+    return enFeature;
 }
-

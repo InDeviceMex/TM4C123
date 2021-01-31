@@ -21,20 +21,17 @@
  * Date           Author     Version     Description
  * 3 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_DIGITALCONFIG_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_DIGITALCONFIG_H_
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
-GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,
-                                      GPIO_nCONFIG enConfigParam);
-GPIO_nSTATUS GPIO__enSetDigitalConfigStruct(
-        GPIO_nDIGITAL_FUNCTION enFunction, const GPIO_CONFIG_Typedef *psConfig);
+GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_nCONFIG enConfigParam);
+GPIO_nSTATUS GPIO__enSetDigitalConfigStruct( GPIO_nDIGITAL_FUNCTION enFunction, const GPIO_CONFIG_Typedef *psConfig);
 
 GPIO_nCONFIG GPIO__enGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
-void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction,
-                             GPIO_CONFIG_Typedef *psConfig);
-GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(
-        GPIO_nDIGITAL_FUNCTION enFunction);
+void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Typedef *psConfig);
+GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_APP_GPIO_DIGITALCONFIG_H_ */

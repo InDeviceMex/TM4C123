@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 29 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DMATRIGGER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DMATRIGGER_H_
 
@@ -28,5 +29,8 @@
 
 void GPIO__vEnDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 void GPIO__vDisDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO__vSetDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDMA_TRIGGER enFeature);
+
+GPIO_nDMA_TRIGGER GPIO__enGetDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DMATRIGGER_H_ */

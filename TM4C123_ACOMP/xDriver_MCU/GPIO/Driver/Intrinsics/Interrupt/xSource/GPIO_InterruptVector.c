@@ -21,37 +21,30 @@
  * Date           Author     Version     Description
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptVector.h>
 
-static NVIC_nSTIR NVIC_enSTIR_GPIO[6] = { NVIC_enSTIR_GPIOA, NVIC_enSTIR_GPIOB,
-                                          NVIC_enSTIR_GPIOC, NVIC_enSTIR_GPIOD,
-                                          NVIC_enSTIR_GPIOE, NVIC_enSTIR_GPIOF };
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
+#include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
+
+static NVIC_nSTIR NVIC_enSTIR_GPIO[ (uint32_t) GPIO_enPORT_MAX] =
+{ NVIC_enSTIR_GPIOA, NVIC_enSTIR_GPIOB, NVIC_enSTIR_GPIOC, NVIC_enSTIR_GPIOD, NVIC_enSTIR_GPIOE, NVIC_enSTIR_GPIOF };
 
 void GPIO__vEnInterruptVector(GPIO_nPORT enPort, GPIO_nPRIORITY enGPIOPriority)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_GPIOA;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
+    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
 
-    enVector = NVIC_enSTIR_GPIO[enPort];
+    enVector = NVIC_enSTIR_GPIO[ (uint32_t) enPort];
 
-    enGPIOPriority &= 0x7U;
-    NVIC__vSetEnableIRQ((NVIC_nSTIR) enVector,
-                         (NVIC_nPRIORITY) enGPIOPriority);
+    NVIC__vSetEnableIRQ( enVector, (NVIC_nPRIORITY) enGPIOPriority);
 }
 
 void GPIO__vDisInterruptVector(GPIO_nPORT enPort)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_GPIOA;
-    if(enPort > GPIO_enPORT_MAX)
-    {
-        enPort = GPIO_enPORT_MAX;
-    }
+    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
 
-    enVector = NVIC_enSTIR_GPIO[enPort];
-    NVIC__vClearEnableIRQ((NVIC_nSTIR) enVector);
+    enVector = NVIC_enSTIR_GPIO[ (uint32_t) enPort];
+    NVIC__vClearEnableIRQ( enVector);
 }

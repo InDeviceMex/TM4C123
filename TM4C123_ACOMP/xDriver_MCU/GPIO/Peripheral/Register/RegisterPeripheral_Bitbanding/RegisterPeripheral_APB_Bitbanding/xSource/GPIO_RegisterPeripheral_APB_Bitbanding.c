@@ -21,17 +21,10 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_APB_Bitbanding/GPIO_RegisterPeripheral_APB_Bitbanding.h>
 
-GPIO_BITBANDING_TypeDef *GPIO_APB_BITBANDING_BLOCK[6] = { GPIOA_APB_BITBANDING,
-                                                          GPIOB_APB_BITBANDING,
-                                                          GPIOC_APB_BITBANDING,
-                                                          GPIOD_APB_BITBANDING,
-                                                          GPIOE_APB_BITBANDING,
-                                                          GPIOF_APB_BITBANDING };
-GPIO_AUX_BITBANDING_TypeDef *GPIO_APB_AUX_BITBANDING_BLOCK[6] = {
-        GPIOA_APB_AUX_BITBANDING, GPIOB_APB_AUX_BITBANDING,
-        GPIOC_APB_AUX_BITBANDING, GPIOD_APB_AUX_BITBANDING,
-        GPIOE_APB_AUX_BITBANDING, GPIOF_APB_AUX_BITBANDING };
+GPIO_BITBANDING_TypeDef* GPIO_APB_BITBANDING_BLOCK[(uint32_t) GPIO_enPORT_MAX] =
+{ GPIOA_APB_BITBANDING, GPIOB_APB_BITBANDING, GPIOC_APB_BITBANDING, GPIOD_APB_BITBANDING, GPIOE_APB_BITBANDING, GPIOF_APB_BITBANDING };
 
+GPIO_AUX_BITBANDING_TypeDef* GPIO_APB_AUX_BITBANDING_BLOCK[(uint32_t) GPIO_enPORT_MAX] =
+{ GPIOA_APB_AUX_BITBANDING, GPIOB_APB_AUX_BITBANDING, GPIOC_APB_AUX_BITBANDING, GPIOD_APB_AUX_BITBANDING, GPIOE_APB_AUX_BITBANDING, GPIOF_APB_AUX_BITBANDING };

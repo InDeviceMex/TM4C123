@@ -21,12 +21,10 @@
  * Date           Author     Version     Description
  * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/GPIO/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_AHB/GPIO_RegisterPeripheral_AHB.h>
 
-GPIO_TypeDef *GPIO_AHB_BLOCK[6] = { GPIOA_AHB, GPIOB_AHB, GPIOC_AHB, GPIOD_AHB,
-                                    GPIOE_AHB, GPIOF_AHB };
-GPIO_AUX_TypeDef *GPIO_AHB_AUX_BLOCK[6] = { GPIOA_AHB_AUX, GPIOB_AHB_AUX,
-                                            GPIOC_AHB_AUX, GPIOD_AHB_AUX,
-                                            GPIOE_AHB_AUX, GPIOF_AHB_AUX };
+GPIO_TypeDef *GPIO_AHB_BLOCK[(uint32_t) GPIO_enPORT_MAX ] =
+{ GPIOA_AHB, GPIOB_AHB, GPIOC_AHB, GPIOD_AHB, GPIOE_AHB, GPIOF_AHB };
 
+GPIO_AUX_TypeDef *GPIO_AHB_AUX_BLOCK[(uint32_t) GPIO_enPORT_MAX ] =
+{ GPIOA_AHB_AUX, GPIOB_AHB_AUX, GPIOC_AHB_AUX, GPIOD_AHB_AUX, GPIOE_AHB_AUX, GPIOF_AHB_AUX };
