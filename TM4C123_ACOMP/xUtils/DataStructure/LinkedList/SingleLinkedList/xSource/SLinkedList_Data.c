@@ -33,10 +33,10 @@
  {
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          psElement = SLinkedList__psGetNodePos(psList,u32Position);
-         if((uint32_t)0UL != (uint32_t)psElement)
+         if((uint32_t) 0UL != (uint32_t) psElement)
          {
              pvElementData = SLinkedList__pvGetElementData(psElement);
          }
@@ -49,10 +49,10 @@
  {
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          psElement = SLinkedList__psGetNodeEnd(psList);
-         if((uint32_t)0UL != (uint32_t)psElement)
+         if((uint32_t) 0UL != (uint32_t) psElement)
          {
              pvElementData = SLinkedList__pvGetElementData(psElement);
          }
@@ -64,10 +64,10 @@
  {
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          psElement = SLinkedList__psGetNodeBegin(psList);
-         if((uint32_t)0UL != (uint32_t)psElement)
+         if((uint32_t) 0UL != (uint32_t) psElement)
          {
              pvElementData = SLinkedList__pvGetElementData(psElement);
          }

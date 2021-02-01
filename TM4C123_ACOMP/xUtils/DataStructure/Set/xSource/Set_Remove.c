@@ -35,11 +35,11 @@ Set_nSTATUS Set__enRemove(Set_TypeDef* psSet, void** pvData)
     SLinkedListElement_TypeDef* psPreviousMember = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet) && ((uint32_t)0UL != (uint32_t)pvData))
+    if(((uint32_t) 0UL != (uint32_t) psSet) && ((uint32_t) 0UL != (uint32_t) pvData))
     {
 
         psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
-        while((uint32_t)0UL != (uint32_t)psMember)
+        while((uint32_t) 0UL != (uint32_t) psMember)
         {
             pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
             if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(*pvData,pvDataMember))
@@ -51,7 +51,7 @@ Set_nSTATUS Set__enRemove(Set_TypeDef* psSet, void** pvData)
             psMember = psMemberTemp;
         }
 
-        if((uint32_t)0UL != (uint32_t)psMember)
+        if((uint32_t) 0UL != (uint32_t) psMember)
         {
             enStatus = (Set_nSTATUS) SLinkedList__enRemoveNext((SLinkedList_TypeDef*) psSet, psPreviousMember, pvData);
         }

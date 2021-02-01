@@ -28,8 +28,8 @@ Queue_nSTATUS Queue__enEnqueue(Queue_TypeDef* psQueue, void* pvData)
 {
     Queue_nSTATUS enStatus = Queue_enSTATUS_ERROR;
     SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
-    psNewElement =  SLinkedList__psAddEnd((SLinkedList_TypeDef*) psQueue, pvData);
-    if(0UL != (uint32_t)psNewElement)
+    psNewElement = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psQueue, pvData);
+    if(0UL != (uint32_t) psNewElement)
     {
         enStatus = Queue_enSTATUS_OK;
     }

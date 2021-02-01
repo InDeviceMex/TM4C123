@@ -30,13 +30,13 @@ Set_nSTATUS Set__enInsert(Set_TypeDef* psSet, void* pvData)
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
     SLinkedListElement_TypeDef* psMember = (SLinkedListElement_TypeDef*) 0UL;
     SLinkedListElement_TypeDef* psMemberSet = (SLinkedListElement_TypeDef*) 0UL;
-    if((uint32_t)0UL != (uint32_t)psSet)
+    if((uint32_t) 0UL != (uint32_t) psSet)
     {
         psMemberSet = Set__psIsMember(psSet, pvData);
-        if((uint32_t)0UL == (uint32_t)psMemberSet)
+        if((uint32_t) 0UL == (uint32_t) psMemberSet)
         {
             psMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*)psSet,pvData);
-            if((uint32_t)0UL != (uint32_t)psMember)
+            if((uint32_t) 0UL != (uint32_t) psMember)
             {
                 enStatus = Set_enSTATUS_OK;
             }

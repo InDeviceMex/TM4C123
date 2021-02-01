@@ -35,22 +35,22 @@
      SLinkedListElement_TypeDef* psListHeadNode= (SLinkedListElement_TypeDef*) 0UL ;
      SLinkedListElement_TypeDef* psElementNextNode= (SLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
-     if(((uint32_t)0UL != (uint32_t)psList))
+     if(((uint32_t) 0UL != (uint32_t) psList))
      {
         #if defined ( __TI_ARM__ )
-         psNewElement = (SLinkedListElement_TypeDef*) memalign((size_t)4,(size_t)sizeof(SLinkedListElement_TypeDef));
+         psNewElement = (SLinkedListElement_TypeDef*) memalign((size_t) 4,(size_t) sizeof(SLinkedListElement_TypeDef));
         #elif defined ( __GNUC__ )
          psNewElement = (SLinkedListElement_TypeDef*) malloc(sizeof(SLinkedListElement_TypeDef));
         #endif
 
-        if((uint32_t)0UL != (uint32_t)psNewElement)
+        if((uint32_t) 0UL != (uint32_t) psNewElement)
         {
             SLinkedList__vSetElementData(psNewElement, pvData);
 
             u32SizeReg = SLinkedList__u32GetSize(psList);
-            if((uint32_t)0UL == (uint32_t) psElement)
+            if((uint32_t) 0UL == (uint32_t) psElement)
             {
-                if( 0UL == u32SizeReg)
+                if(0UL == u32SizeReg)
                 {
                     SLinkedList__vSetTail(psList,psNewElement);
                 }
@@ -61,7 +61,7 @@
             else
             {
                 psElementNextNode = SLinkedList__psGetElementNextNode(psElement);
-                if( (uint32_t)0UL == (uint32_t)psElementNextNode)
+                if((uint32_t) 0UL == (uint32_t) psElementNextNode)
                 {
                     SLinkedList__vSetTail(psList,psNewElement);
                 }
@@ -80,10 +80,10 @@
  SLinkedListElement_TypeDef*  SLinkedList__psAddEnd(SLinkedList_TypeDef* psList, void* pvData)
  {
      SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psEndElement =(SLinkedListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList))
+     SLinkedListElement_TypeDef* psEndElement = (SLinkedListElement_TypeDef*) 0UL;
+     if(((uint32_t) 0UL != (uint32_t) psList))
      {
-         psEndElement =  SLinkedList__psGetTail(psList);
+         psEndElement = SLinkedList__psGetTail(psList);
          psNewElement = SLinkedList__psAddNext(psList, psEndElement, pvData);
      }
      return psNewElement;
@@ -92,7 +92,7 @@
  SLinkedListElement_TypeDef*  SLinkedList__psAddBegin(SLinkedList_TypeDef* psList, void* pvData)
  {
      SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
-     if(((uint32_t)0UL != (uint32_t)psList))
+     if(((uint32_t) 0UL != (uint32_t) psList))
      {
          psNewElement = SLinkedList__psAddNext(psList, (SLinkedListElement_TypeDef*) 0UL, pvData);
      }
@@ -104,7 +104,7 @@
      SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList))
+     if(((uint32_t) 0UL != (uint32_t) psList))
      {
          u32SizeList = SLinkedList__u32GetSize(psList);
          if(u32Position <= u32SizeList)

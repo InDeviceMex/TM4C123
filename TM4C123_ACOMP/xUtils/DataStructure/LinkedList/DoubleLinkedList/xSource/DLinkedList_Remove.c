@@ -37,20 +37,20 @@
      DLinkedListElement_TypeDef* psElementPreviousNode= (DLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
-     if( ((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          u32SizeReg = DLinkedList__u32GetSize(psList);
-         if(((uint32_t)0UL != (uint32_t)psElement) || (0UL != u32SizeReg))
+         if(((uint32_t) 0UL != (uint32_t) psElement) || (0UL != u32SizeReg))
          {
              enStatus = DLinkedList_enSTATUS_OK;
              *pvData = DLinkedList__pvGetElementData(psElement);
              psHeadElement = DLinkedList__psGetHead(psList);
-             if((uint32_t)psElement == (uint32_t)psHeadElement)
+             if((uint32_t) psElement == (uint32_t) psHeadElement)
              {
                  psElementNextNode = DLinkedList__psGetElementNextNode(psElement);
                  DLinkedList__vSetHead(psList, psElementNextNode);
 
-                 if((uint32_t)0UL == (uint32_t)psElementNextNode)
+                 if((uint32_t) 0UL == (uint32_t) psElementNextNode)
                  {
                      DLinkedList__vSetTail(psList, (DLinkedListElement_TypeDef*) 0UL);
                  }
@@ -66,7 +66,7 @@
 
                  DLinkedList__vSetElementNextNode(psElementPreviousNode, psElementNextNode);
 
-                 if((uint32_t)0UL == (uint32_t)psElementNextNode)
+                 if((uint32_t) 0UL == (uint32_t) psElementNextNode)
                  {
                      DLinkedList__vSetTail(psList,psElementPreviousNode);
                  }
@@ -95,7 +95,7 @@
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psElementNextNode= (DLinkedListElement_TypeDef*) 0UL ;
 
-     if( ((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)psElement)&& ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          psElementNextNode = DLinkedList__psGetElementNextNode(psElement);
          enStatus = DLinkedList__enRemove(psList,psElementNextNode, pvData);
@@ -108,7 +108,7 @@
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psElementPreviousNode= (DLinkedListElement_TypeDef*) 0UL ;
 
-     if( ((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)psElement)&& ((uint32_t)0UL != (uint32_t)pvData))
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          psElementPreviousNode = DLinkedList__psGetElementPreviousNode(psElement);
          enStatus = DLinkedList__enRemove(psList,psElementPreviousNode, pvData);
@@ -119,10 +119,10 @@
  DLinkedList_nSTATUS  DLinkedList__enRemoveEnd(DLinkedList_TypeDef* psList, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psEndElement =(DLinkedListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     DLinkedListElement_TypeDef* psEndElement = (DLinkedListElement_TypeDef*) 0UL;
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         psEndElement =  DLinkedList__psGetTail(psList);
+         psEndElement = DLinkedList__psGetTail(psList);
          enStatus = DLinkedList__enRemove(psList, psEndElement, pvData);
      }
      return enStatus;
@@ -131,10 +131,10 @@
  DLinkedList_nSTATUS  DLinkedList__enRemoveBegin(DLinkedList_TypeDef* psList, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psEndElement =(DLinkedListElement_TypeDef*) 0UL;
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData))
+     DLinkedListElement_TypeDef* psEndElement = (DLinkedListElement_TypeDef*) 0UL;
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         psEndElement =  DLinkedList__psGetHead(psList);
+         psEndElement = DLinkedList__psGetHead(psList);
          enStatus = DLinkedList__enRemove(psList, psEndElement, pvData);
      }
      return enStatus;
@@ -149,12 +149,12 @@
      uint32_t u32SizeBackward= 0UL;
      uint32_t u32SizeOptimum= 0UL;
      uint32_t u32Direction= 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          u32SizeList = DLinkedList__u32GetSize(psList);
           if(u32Position < u32SizeList)
           {
-              if(0UL ==u32Position) /*Remove Head*/
+              if(0UL == u32Position) /*Remove Head*/
               {
                   enStatus = DLinkedList__enRemoveBegin(psList,pvData);
               }
@@ -168,7 +168,7 @@
 
                   u32SizeForward = u32Position;
 
-                  if( u32SizeForward > u32SizeBackward)
+                  if(u32SizeForward > u32SizeBackward)
                   {
                       u32SizeOptimum = u32SizeBackward;
                       u32Direction = 1UL;
@@ -179,7 +179,7 @@
                       u32Direction = 0UL;
                   }
 
-                  if( u32Direction == 0UL) /*Forward*/
+                  if(u32Direction == 0UL) /*Forward*/
                   {
                       psElement = DLinkedList__psGetHead(psList);
                       while(0UL != u32SizeOptimum)

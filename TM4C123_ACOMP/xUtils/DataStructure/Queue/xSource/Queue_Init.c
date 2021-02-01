@@ -24,12 +24,12 @@
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Init.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Init.h>
 
-Queue_TypeDef* Queue__psInit( void  (*pfvDestroyElementDataArg)(void *DataContainer))
+Queue_TypeDef* Queue__psInit( void    (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     return (Queue_TypeDef*)SLinkedList__psInit(  pfvDestroyElementDataArg);
 }
 
-Queue_nSTATUS Queue__enInit( Queue_TypeDef* psQueue ,void  (*pfvDestroyElementDataArg)(void *DataContainer))
+Queue_nSTATUS Queue__enInit( Queue_TypeDef* psQueue ,void    (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     return (Queue_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psQueue ,pfvDestroyElementDataArg);
 }

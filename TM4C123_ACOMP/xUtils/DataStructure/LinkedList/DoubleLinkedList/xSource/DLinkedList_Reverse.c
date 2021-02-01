@@ -36,22 +36,22 @@
      DLinkedListElement_TypeDef* psNextNextElement= (DLinkedListElement_TypeDef*) 0UL ;
      DLinkedListElement_TypeDef* psNextPreviousElement= (DLinkedListElement_TypeDef*) 0UL ;
      DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL ;
-     if( ((uint32_t)0UL != (uint32_t)psList))
+     if(((uint32_t) 0UL != (uint32_t) psList))
      {
          psElement = DLinkedList__psGetHead(psList);
          DLinkedList__vSetTail(psList,psElement);
-         if((uint32_t)0UL != (uint32_t)psElement)
+         if((uint32_t) 0UL != (uint32_t) psElement)
          {
-             psNextElement =DLinkedList__psGetElementNextNode(psElement);
-             if((uint32_t)0UL != (uint32_t)psNextElement)
+             psNextElement = DLinkedList__psGetElementNextNode(psElement);
+             if((uint32_t) 0UL != (uint32_t) psNextElement)
              {
                  enStatus = DLinkedList_enSTATUS_OK;
                  DLinkedList__vSetElementNextNode(psElement, (DLinkedListElement_TypeDef*)0UL);
                  DLinkedList__vSetElementPreviousNode(psElement,psNextElement);
 
-                 while((uint32_t)0UL != (uint32_t)psNextElement)
+                 while((uint32_t) 0UL != (uint32_t) psNextElement)
                  {
-                     psNextNextElement =DLinkedList__psGetElementNextNode(psNextElement);
+                     psNextNextElement = DLinkedList__psGetElementNextNode(psNextElement);
                      DLinkedList__vSetElementPreviousNode(psNextElement,psNextNextElement);
                      DLinkedList__vSetElementNextNode(psNextElement,psElement);
                      psNextPreviousElement = DLinkedList__psGetElementPreviousNode(psNextElement);

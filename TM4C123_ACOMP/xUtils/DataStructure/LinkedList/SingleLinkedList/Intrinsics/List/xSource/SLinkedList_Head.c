@@ -41,7 +41,7 @@ SLinkedList_nSTATUS SLinkedList__enIsHead(const SLinkedList_TypeDef* const psLis
     SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
     SLinkedListElement_TypeDef* psListHead = (SLinkedListElement_TypeDef*)0UL;
     psListHead = SLinkedList__psGetHead(psList);
-    if ((uint32_t)psElement == (uint32_t)(psListHead))
+    if ((uint32_t) psElement == (uint32_t) (psListHead))
     {
         enStatus = SLinkedList_enSTATUS_OK;
     }

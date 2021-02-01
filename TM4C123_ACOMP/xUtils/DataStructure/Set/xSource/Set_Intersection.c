@@ -39,20 +39,20 @@ Set_nSTATUS Set__enIntersection(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, cons
     SLinkedListElement_TypeDef* psMemberSet = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet1) && ((uint32_t)0UL != (uint32_t)psSet2))
+    if(((uint32_t) 0UL != (uint32_t) psSet1) && ((uint32_t) 0UL != (uint32_t) psSet2))
     {
-        enStatus = Set__enInit(psNewSet, psSet1->pfu32Match, (void  (*)(void *DataContainer))0UL);
+        enStatus = Set__enInit(psNewSet, psSet1->pfu32Match, (void    (*) (void *DataContainer))0UL);
         if(Set_enSTATUS_ERROR != enStatus)
         {
             psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet1);
-            while((uint32_t)0UL != (uint32_t)psMember)
+            while((uint32_t) 0UL != (uint32_t) psMember)
             {
                 pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
-                if((uint32_t)0UL != (uint32_t)psMemberSet)
+                if((uint32_t) 0UL != (uint32_t) psMemberSet)
                 {
                     psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet,  pvDataMember);
-                    if( (uint32_t)0UL == (uint32_t)psNewMember)
+                    if((uint32_t) 0UL == (uint32_t) psNewMember)
                     {
                         enStatus = Set_enSTATUS_ERROR;
                         Set__vDestroy(psNewSet);
@@ -76,21 +76,21 @@ Set_TypeDef* Set__psIntersection(Set_TypeDef* psSet1, const Set_TypeDef* psSet2)
     SLinkedListElement_TypeDef* psMemberSet = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet1) && ((uint32_t)0UL != (uint32_t)psSet2))
+    if(((uint32_t) 0UL != (uint32_t) psSet1) && ((uint32_t) 0UL != (uint32_t) psSet2))
     {
-        psNewSet = Set__psInit(psSet1->pfu32Match, (void  (*)(void *DataContainer))0UL);
+        psNewSet = Set__psInit(psSet1->pfu32Match, (void    (*) (void *DataContainer))0UL);
 
-        if((uint32_t)0UL != (uint32_t)psNewSet)
+        if((uint32_t) 0UL != (uint32_t) psNewSet)
         {
             psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet1);
-            while((uint32_t)0UL != (uint32_t)psMember)
+            while((uint32_t) 0UL != (uint32_t) psMember)
             {
                 pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
-                if((uint32_t)0UL != (uint32_t)psMemberSet)
+                if((uint32_t) 0UL != (uint32_t) psMemberSet)
                 {
                     psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet,  pvDataMember);
-                    if( (uint32_t)0UL == (uint32_t)psNewMember)
+                    if((uint32_t) 0UL == (uint32_t) psNewMember)
                     {
                         Set__vDestroy(psNewSet);
                         break;

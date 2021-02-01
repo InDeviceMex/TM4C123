@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Struct.h>
 
-Queue_TypeDef* Queue__psInit( void  (*pfvDestroyElementDataArg)(void *DataContainer));
-Queue_nSTATUS Queue__enInit( Queue_TypeDef* psQueue ,void  (*pfvDestroyElementDataArg)(void *DataContainer));
+Queue_TypeDef* Queue__psInit( void    (*pfvDestroyElementDataArg) (void *DataContainer));
+Queue_nSTATUS Queue__enInit( Queue_TypeDef* psQueue ,void    (*pfvDestroyElementDataArg) (void *DataContainer));
 
 
 

@@ -39,7 +39,7 @@ void SLinkedList__vSetTail(SLinkedList_TypeDef* psList, SLinkedListElement_TypeD
 SLinkedList_nSTATUS SLinkedList__enIsTail(const SLinkedListElement_TypeDef* const psElement)
 {
     SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
-    if ((uint32_t)0UL == (uint32_t)(psElement->psNextNode))
+    if ((uint32_t) 0UL == (uint32_t) (psElement->psNextNode))
     {
         enStatus = SLinkedList_enSTATUS_OK;
     }

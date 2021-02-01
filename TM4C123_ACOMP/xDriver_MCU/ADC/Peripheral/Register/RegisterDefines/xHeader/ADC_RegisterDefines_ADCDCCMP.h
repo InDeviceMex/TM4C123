@@ -30,17 +30,17 @@
 ************************************ 23 ADCDCCMP *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ADC_ADCDCCMP_R_COMP0_MASK      ((uint32_t)0x00000FFFU)
-#define ADC_ADCDCCMP_R_COMP0_BIT       ((uint32_t)0U)
+#define ADC_ADCDCCMP_R_COMP0_MASK    ((uint32_t) 0x00000FFFU)
+#define ADC_ADCDCCMP_R_COMP0_BIT    ((uint32_t) 0U)
 
-#define ADC_ADCDCCMP_COMP0_MASK        ((uint32_t)0x00000FFFU)
+#define ADC_ADCDCCMP_COMP0_MASK    ((uint32_t) 0x00000FFFU)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCCMP_R_COMP1_MASK      ((uint32_t)0x0FFF0000U)
-#define ADC_ADCDCCMP_R_COMP1_BIT       ((uint32_t)16U)
+#define ADC_ADCDCCMP_R_COMP1_MASK    ((uint32_t) 0x0FFF0000U)
+#define ADC_ADCDCCMP_R_COMP1_BIT    ((uint32_t) 16U)
 
-#define ADC_ADCDCCMP_COMP1_MASK        ((uint32_t)0x00000FFFU)
+#define ADC_ADCDCCMP_COMP1_MASK    ((uint32_t) 0x00000FFFU)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCDCCMP_H_ */

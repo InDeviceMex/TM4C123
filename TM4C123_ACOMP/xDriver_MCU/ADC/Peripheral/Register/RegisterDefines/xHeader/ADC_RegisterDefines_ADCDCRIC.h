@@ -30,180 +30,180 @@
 ************************************ 21 ADCDCRIC *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT0_MASK      ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_R_DCINT0_BIT       ((uint32_t)0U)
-#define ADC_ADCDCRIC_R_DCINT0_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT0_RESET     ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_R_DCINT0_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_R_DCINT0_BIT    ((uint32_t) 0U)
+#define ADC_ADCDCRIC_R_DCINT0_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT0_RESET    ((uint32_t) 0x00000001U)
 
-#define ADC_ADCDCRIC_DCINT0_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT0_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT0_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT0_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT0_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT0_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT1_MASK      ((uint32_t)0x00000002U)
-#define ADC_ADCDCRIC_R_DCINT1_BIT       ((uint32_t)1U)
-#define ADC_ADCDCRIC_R_DCINT1_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT1_RESET     ((uint32_t)0x00000002U)
+#define ADC_ADCDCRIC_R_DCINT1_MASK    ((uint32_t) 0x00000002U)
+#define ADC_ADCDCRIC_R_DCINT1_BIT    ((uint32_t) 1U)
+#define ADC_ADCDCRIC_R_DCINT1_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT1_RESET    ((uint32_t) 0x00000002U)
 
-#define ADC_ADCDCRIC_DCINT1_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT1_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT1_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT1_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT1_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT1_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT2_MASK      ((uint32_t)0x00000004U)
-#define ADC_ADCDCRIC_R_DCINT2_BIT       ((uint32_t)2U)
-#define ADC_ADCDCRIC_R_DCINT2_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT2_RESET     ((uint32_t)0x00000004U)
+#define ADC_ADCDCRIC_R_DCINT2_MASK    ((uint32_t) 0x00000004U)
+#define ADC_ADCDCRIC_R_DCINT2_BIT    ((uint32_t) 2U)
+#define ADC_ADCDCRIC_R_DCINT2_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT2_RESET    ((uint32_t) 0x00000004U)
 
-#define ADC_ADCDCRIC_DCINT2_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT2_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT2_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT2_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT2_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT2_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT3_MASK      ((uint32_t)0x00000008U)
-#define ADC_ADCDCRIC_R_DCINT3_BIT       ((uint32_t)3U)
-#define ADC_ADCDCRIC_R_DCINT3_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT3_RESET     ((uint32_t)0x00000008U)
+#define ADC_ADCDCRIC_R_DCINT3_MASK    ((uint32_t) 0x00000008U)
+#define ADC_ADCDCRIC_R_DCINT3_BIT    ((uint32_t) 3U)
+#define ADC_ADCDCRIC_R_DCINT3_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT3_RESET    ((uint32_t) 0x00000008U)
 
-#define ADC_ADCDCRIC_DCINT3_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT3_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT3_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT3_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT3_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT3_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT4_MASK      ((uint32_t)0x00000010U)
-#define ADC_ADCDCRIC_R_DCINT4_BIT       ((uint32_t)4U)
-#define ADC_ADCDCRIC_R_DCINT4_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT4_RESET     ((uint32_t)0x00000010U)
+#define ADC_ADCDCRIC_R_DCINT4_MASK    ((uint32_t) 0x00000010U)
+#define ADC_ADCDCRIC_R_DCINT4_BIT    ((uint32_t) 4U)
+#define ADC_ADCDCRIC_R_DCINT4_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT4_RESET    ((uint32_t) 0x00000010U)
 
-#define ADC_ADCDCRIC_DCINT4_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT4_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT4_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT4_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT4_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT4_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT5_MASK      ((uint32_t)0x00000020U)
-#define ADC_ADCDCRIC_R_DCINT5_BIT       ((uint32_t)5U)
-#define ADC_ADCDCRIC_R_DCINT5_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT5_RESET     ((uint32_t)0x00000020U)
+#define ADC_ADCDCRIC_R_DCINT5_MASK    ((uint32_t) 0x00000020U)
+#define ADC_ADCDCRIC_R_DCINT5_BIT    ((uint32_t) 5U)
+#define ADC_ADCDCRIC_R_DCINT5_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT5_RESET    ((uint32_t) 0x00000020U)
 
-#define ADC_ADCDCRIC_DCINT5_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT5_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT5_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT5_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT5_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT5_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT6_MASK      ((uint32_t)0x00000040U)
-#define ADC_ADCDCRIC_R_DCINT6_BIT       ((uint32_t)6U)
-#define ADC_ADCDCRIC_R_DCINT6_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT6_RESET     ((uint32_t)0x00000040U)
+#define ADC_ADCDCRIC_R_DCINT6_MASK    ((uint32_t) 0x00000040U)
+#define ADC_ADCDCRIC_R_DCINT6_BIT    ((uint32_t) 6U)
+#define ADC_ADCDCRIC_R_DCINT6_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT6_RESET    ((uint32_t) 0x00000040U)
 
-#define ADC_ADCDCRIC_DCINT6_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT6_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT6_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT6_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT6_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT6_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCINT7_MASK      ((uint32_t)0x00000080U)
-#define ADC_ADCDCRIC_R_DCINT7_BIT       ((uint32_t)7U)
-#define ADC_ADCDCRIC_R_DCINT7_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCINT7_RESET     ((uint32_t)0x00000080U)
+#define ADC_ADCDCRIC_R_DCINT7_MASK    ((uint32_t) 0x00000080U)
+#define ADC_ADCDCRIC_R_DCINT7_BIT    ((uint32_t) 7U)
+#define ADC_ADCDCRIC_R_DCINT7_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCINT7_RESET    ((uint32_t) 0x00000080U)
 
-#define ADC_ADCDCRIC_DCINT7_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCINT7_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCINT7_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCINT7_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCINT7_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCINT7_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG0_MASK      ((uint32_t)0x00010000U)
-#define ADC_ADCDCRIC_R_DCTRIG0_BIT       ((uint32_t)16U)
-#define ADC_ADCDCRIC_R_DCTRIG0_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG0_RESET     ((uint32_t)0x00010000U)
+#define ADC_ADCDCRIC_R_DCTRIG0_MASK    ((uint32_t) 0x00010000U)
+#define ADC_ADCDCRIC_R_DCTRIG0_BIT    ((uint32_t) 16U)
+#define ADC_ADCDCRIC_R_DCTRIG0_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG0_RESET    ((uint32_t) 0x00010000U)
 
-#define ADC_ADCDCRIC_DCTRIG0_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG0_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG0_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG0_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG0_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG0_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG1_MASK      ((uint32_t)0x00020000U)
-#define ADC_ADCDCRIC_R_DCTRIG1_BIT       ((uint32_t)17U)
-#define ADC_ADCDCRIC_R_DCTRIG1_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG1_RESET     ((uint32_t)0x00020000U)
+#define ADC_ADCDCRIC_R_DCTRIG1_MASK    ((uint32_t) 0x00020000U)
+#define ADC_ADCDCRIC_R_DCTRIG1_BIT    ((uint32_t) 17U)
+#define ADC_ADCDCRIC_R_DCTRIG1_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG1_RESET    ((uint32_t) 0x00020000U)
 
-#define ADC_ADCDCRIC_DCTRIG1_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG1_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG1_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG1_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG1_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG1_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG2_MASK      ((uint32_t)0x00040000U)
-#define ADC_ADCDCRIC_R_DCTRIG2_BIT       ((uint32_t)18U)
-#define ADC_ADCDCRIC_R_DCTRIG2_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG2_RESET     ((uint32_t)0x00040000U)
+#define ADC_ADCDCRIC_R_DCTRIG2_MASK    ((uint32_t) 0x00040000U)
+#define ADC_ADCDCRIC_R_DCTRIG2_BIT    ((uint32_t) 18U)
+#define ADC_ADCDCRIC_R_DCTRIG2_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG2_RESET    ((uint32_t) 0x00040000U)
 
-#define ADC_ADCDCRIC_DCTRIG2_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG2_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG2_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG2_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG2_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG2_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG3_MASK      ((uint32_t)0x00080000U)
-#define ADC_ADCDCRIC_R_DCTRIG3_BIT       ((uint32_t)19U)
-#define ADC_ADCDCRIC_R_DCTRIG3_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG3_RESET     ((uint32_t)0x00080000U)
+#define ADC_ADCDCRIC_R_DCTRIG3_MASK    ((uint32_t) 0x00080000U)
+#define ADC_ADCDCRIC_R_DCTRIG3_BIT    ((uint32_t) 19U)
+#define ADC_ADCDCRIC_R_DCTRIG3_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG3_RESET    ((uint32_t) 0x00080000U)
 
-#define ADC_ADCDCRIC_DCTRIG3_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG3_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG3_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG3_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG3_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG3_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG4_MASK      ((uint32_t)0x00100000U)
-#define ADC_ADCDCRIC_R_DCTRIG4_BIT       ((uint32_t)20U)
-#define ADC_ADCDCRIC_R_DCTRIG4_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG4_RESET     ((uint32_t)0x00100000U)
+#define ADC_ADCDCRIC_R_DCTRIG4_MASK    ((uint32_t) 0x00100000U)
+#define ADC_ADCDCRIC_R_DCTRIG4_BIT    ((uint32_t) 20U)
+#define ADC_ADCDCRIC_R_DCTRIG4_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG4_RESET    ((uint32_t) 0x00100000U)
 
-#define ADC_ADCDCRIC_DCTRIG4_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG4_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG4_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG4_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG4_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG4_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG5_MASK      ((uint32_t)0x00200000U)
-#define ADC_ADCDCRIC_R_DCTRIG5_BIT       ((uint32_t)21U)
-#define ADC_ADCDCRIC_R_DCTRIG5_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG5_RESET     ((uint32_t)0x00200000U)
+#define ADC_ADCDCRIC_R_DCTRIG5_MASK    ((uint32_t) 0x00200000U)
+#define ADC_ADCDCRIC_R_DCTRIG5_BIT    ((uint32_t) 21U)
+#define ADC_ADCDCRIC_R_DCTRIG5_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG5_RESET    ((uint32_t) 0x00200000U)
 
-#define ADC_ADCDCRIC_DCTRIG5_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG5_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG5_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG5_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG5_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG5_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG6_MASK      ((uint32_t)0x00400000U)
-#define ADC_ADCDCRIC_R_DCTRIG6_BIT       ((uint32_t)22U)
-#define ADC_ADCDCRIC_R_DCTRIG6_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG6_RESET     ((uint32_t)0x00400000U)
+#define ADC_ADCDCRIC_R_DCTRIG6_MASK    ((uint32_t) 0x00400000U)
+#define ADC_ADCDCRIC_R_DCTRIG6_BIT    ((uint32_t) 22U)
+#define ADC_ADCDCRIC_R_DCTRIG6_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG6_RESET    ((uint32_t) 0x00400000U)
 
-#define ADC_ADCDCRIC_DCTRIG6_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG6_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG6_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG6_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG6_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG6_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 /*--------*/
-#define ADC_ADCDCRIC_R_DCTRIG7_MASK      ((uint32_t)0x00800000U)
-#define ADC_ADCDCRIC_R_DCTRIG7_BIT       ((uint32_t)23U)
-#define ADC_ADCDCRIC_R_DCTRIG7_NA        ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_R_DCTRIG7_RESET     ((uint32_t)0x00800000U)
+#define ADC_ADCDCRIC_R_DCTRIG7_MASK    ((uint32_t) 0x00800000U)
+#define ADC_ADCDCRIC_R_DCTRIG7_BIT    ((uint32_t) 23U)
+#define ADC_ADCDCRIC_R_DCTRIG7_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_R_DCTRIG7_RESET    ((uint32_t) 0x00800000U)
 
-#define ADC_ADCDCRIC_DCTRIG7_MASK        ((uint32_t)0x00000001U)
-#define ADC_ADCDCRIC_DCTRIG7_NA          ((uint32_t)0x00000000U)
-#define ADC_ADCDCRIC_DCTRIG7_RESET       ((uint32_t)0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG7_MASK    ((uint32_t) 0x00000001U)
+#define ADC_ADCDCRIC_DCTRIG7_NA    ((uint32_t) 0x00000000U)
+#define ADC_ADCDCRIC_DCTRIG7_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCDCRIC_H_ */

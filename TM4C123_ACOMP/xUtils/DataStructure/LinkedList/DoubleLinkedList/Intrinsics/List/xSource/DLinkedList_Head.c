@@ -41,7 +41,7 @@ DLinkedList_nSTATUS DLinkedList__enIsHead(const DLinkedList_TypeDef* const psLis
     DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
     DLinkedListElement_TypeDef* psListHead = (DLinkedListElement_TypeDef*)0UL;
     psListHead = DLinkedList__psGetHead(psList);
-    if ((uint32_t)psElement == (uint32_t)(psListHead))
+    if ((uint32_t) psElement == (uint32_t) (psListHead))
     {
         enStatus = DLinkedList_enSTATUS_OK;
     }

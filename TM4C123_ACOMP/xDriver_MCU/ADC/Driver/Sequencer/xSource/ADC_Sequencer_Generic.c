@@ -32,26 +32,26 @@ void ADC__vSetSequencerGeneric(uint32_t u32Module,uint32_t u32OffsetRegister, ui
     uint32_t u32RegAddress=0U;
     volatile uint32_t* pu32Adc=0U;
 
-    if((uint32_t)ADC_enMODULE_MAX<u32Module)
+    if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ADC_enMODULE_MAX;
+        u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    if((uint32_t)ADC_enSEQMASK_MAX<u32Sequence)
+    if((uint32_t) ADC_enSEQMASK_MAX<u32Sequence)
     {
-        u32Sequence=(uint32_t)ADC_enSEQMASK_MAX;
+        u32Sequence = (uint32_t) ADC_enSEQMASK_MAX;
     }
     ADC__vSetReady((ADC_nMODULE)u32Module);
     u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
-    u32RegAddress+= u32OffsetRegister;
-    pu32Adc=(volatile uint32_t*)(u32RegAddress);
-    u32Reg=*pu32Adc;
-    if(0u  == u32Feature)
+    u32RegAddress += u32OffsetRegister;
+    pu32Adc=(volatile uint32_t*) (u32RegAddress);
+    u32Reg = *pu32Adc;
+    if(0UL == u32Feature)
     {
-        u32Reg&=~((uint32_t)u32Sequence);
+        u32Reg &= ~((uint32_t) u32Sequence);
     }
     else
     {
-        u32Reg|=((uint32_t)u32Sequence);
+        u32Reg |= ((uint32_t) u32Sequence);
     }
     *pu32Adc=u32Reg;
 }
@@ -62,24 +62,24 @@ void ADC__vSetSequencerGenericBit(uint32_t u32Module,uint32_t u32OffsetRegister,
     uint32_t u32RegAddress=0U;
     volatile uint32_t* pu32Adc=0U;
 
-    u32Feature&=u32FeatureMask;
-    if((uint32_t)ADC_enMODULE_MAX<u32Module)
+    u32Feature &= u32FeatureMask;
+    if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ADC_enMODULE_MAX;
+        u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    if((uint32_t)ADC_enSEQ_MAX<u32Sequence)
+    if((uint32_t) ADC_enSEQ_MAX<u32Sequence)
     {
-        u32Sequence=(uint32_t)ADC_enSEQ_MAX;
+        u32Sequence = (uint32_t) ADC_enSEQ_MAX;
     }
     ADC__vSetReady((ADC_nMODULE)u32Module);
     u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
-    u32RegAddress+= u32OffsetRegister;
-    pu32Adc=(volatile uint32_t*)(u32RegAddress);
-    u32Sequence*=u32FeatureBitMult;
-    u32Sequence+=u32FeatureBitAdd;
-    u32Reg=*pu32Adc;
-    u32Reg&=~(u32FeatureMask<<u32Sequence);
-    u32Reg|=(u32Feature<<u32Sequence);
+    u32RegAddress += u32OffsetRegister;
+    pu32Adc=(volatile uint32_t*) (u32RegAddress);
+    u32Sequence *= u32FeatureBitMult;
+    u32Sequence += u32FeatureBitAdd;
+    u32Reg = *pu32Adc;
+    u32Reg &= ~(u32FeatureMask << u32Sequence);
+    u32Reg |= (u32Feature << u32Sequence);
     *pu32Adc=u32Reg;
 }
 
@@ -91,24 +91,24 @@ uint32_t ADC__u32GetSequencerGeneric(uint32_t u32Module,uint32_t u32OffsetRegist
 
     ADC_nREADY enReady= ADC_enNOREADY;
     uint32_t u32Feature = 0xFFFFFFFFU;
-    if((uint32_t)ADC_enMODULE_MAX<u32Module)
+    if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ADC_enMODULE_MAX;
+        u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    if((uint32_t)ADC_enSEQMASK_MAX<u32Sequence)
+    if((uint32_t) ADC_enSEQMASK_MAX<u32Sequence)
     {
-        u32Sequence=(uint32_t)ADC_enSEQMASK_MAX;
+        u32Sequence = (uint32_t) ADC_enSEQMASK_MAX;
     }
 
     enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
     {
         u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
-        u32RegAddress+= u32OffsetRegister;
+        u32RegAddress += u32OffsetRegister;
         pu32Adc=(volatile uint32_t*) (u32RegAddress);
-        u32Reg=*pu32Adc;
-        u32Reg&= u32Sequence;
-        if(0u != u32Reg)
+        u32Reg = *pu32Adc;
+        u32Reg &= u32Sequence;
+        if(0UL != u32Reg)
         {
             u32Feature = 1U;
         }
@@ -127,26 +127,26 @@ uint32_t ADC__u32GetSequencerGenericBit(uint32_t u32Module,uint32_t u32OffsetReg
 
     ADC_nREADY enReady= ADC_enNOREADY;
     uint32_t u32Feature = 0xFFFFFFFFU;
-    if((uint32_t)ADC_enMODULE_MAX<u32Module)
+    if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ADC_enMODULE_MAX;
+        u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    if((uint32_t)ADC_enSEQ_MAX<u32Sequence)
+    if((uint32_t) ADC_enSEQ_MAX<u32Sequence)
     {
-        u32Sequence=(uint32_t)ADC_enSEQ_MAX;
+        u32Sequence = (uint32_t) ADC_enSEQ_MAX;
     }
 
     enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
     {
         u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
-        u32RegAddress+= u32OffsetRegister;
+        u32RegAddress += u32OffsetRegister;
         pu32Adc=(volatile uint32_t*) (u32RegAddress);
-        u32Sequence*=u32FeatureBitMult;
-        u32Sequence+=u32FeatureBitAdd;
-        u32Reg=*pu32Adc;
-        u32Reg>>=u32Sequence;
-        u32Reg&= u32FeatureMask;
+        u32Sequence *= u32FeatureBitMult;
+        u32Sequence += u32FeatureBitAdd;
+        u32Reg = *pu32Adc;
+        u32Reg >>= u32Sequence;
+        u32Reg &= u32FeatureMask;
         u32Feature = u32Reg;
     }
     return u32Feature;

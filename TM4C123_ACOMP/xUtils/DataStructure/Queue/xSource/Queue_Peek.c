@@ -34,7 +34,7 @@ uint32_t Queue__u32GetNMember(const Queue_TypeDef* psQueue, const void** pvData,
 {
     uint32_t u32SizeReg = 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psQueue) && ((uint32_t)0UL != (uint32_t)pvData )&& (0UL != u32Members )&& (0UL != u32MaxSize ))
+    if(((uint32_t) 0UL != (uint32_t) psQueue) && ((uint32_t) 0UL != (uint32_t) pvData ) && (0UL != u32Members ) && (0UL != u32MaxSize ))
     {
         u32SizeReg = SLinkedList__u32GetNNode((const SLinkedList_TypeDef*)psQueue, pvData, u32Members, u32MaxSize);
     }
@@ -45,7 +45,7 @@ uint32_t Queue__u32GetAllMember(const Queue_TypeDef* psQueue, const void** pvDat
 {
     uint32_t u32SizeReg = 0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psQueue) && ((uint32_t)0UL != (uint32_t)pvData ) && ((uint32_t)0UL != u32MaxSize ))
+    if(((uint32_t) 0UL != (uint32_t) psQueue) && ((uint32_t) 0UL != (uint32_t) pvData ) && ((uint32_t) 0UL != u32MaxSize ))
     {
         u32SizeReg = SLinkedList__u32GetAllNode((const SLinkedList_TypeDef*)psQueue, pvData, u32MaxSize);
     }

@@ -38,7 +38,7 @@ Set_nSTATUS Set__enIsSubset(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2
     uint32_t u32Size2 = 0UL;
     void* pvDataMember = (void*)0UL;
 
-    if(((uint32_t)0UL != (uint32_t)psSet1) && ((uint32_t)0UL != (uint32_t)psSet2))
+    if(((uint32_t) 0UL != (uint32_t) psSet1) && ((uint32_t) 0UL != (uint32_t) psSet2))
     {
         u32Size1 = Set__u32GetSize(psSet1);
         u32Size2 = Set__u32GetSize(psSet2);
@@ -46,11 +46,11 @@ Set_nSTATUS Set__enIsSubset(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2
         {
             enStatus = Set_enSTATUS_OK;
             psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet1);
-            while((uint32_t)0UL != (uint32_t)psMember)
+            while((uint32_t) 0UL != (uint32_t) psMember)
             {
                 pvDataMember = SLinkedList__pvGetElementData((const SLinkedListElement_TypeDef*)psMember);
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
-                if((uint32_t)0UL == (uint32_t)psMemberSet)
+                if((uint32_t) 0UL == (uint32_t) psMemberSet)
                 {
                     enStatus = Set_enSTATUS_ERROR;
                     break;

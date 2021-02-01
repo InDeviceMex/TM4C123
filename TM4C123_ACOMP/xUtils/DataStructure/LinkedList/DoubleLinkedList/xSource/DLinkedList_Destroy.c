@@ -35,17 +35,17 @@ void DLinkedList__vDestroy( DLinkedList_TypeDef* psList)
      DLinkedListElement_TypeDef* psTailElement = (DLinkedListElement_TypeDef*) 0UL;
      void * pvDataElement = (void*)0UL;
      uint32_t u32SizeReg = 0UL;
-     void  (*pfvListDestroy)(void* List)  = (void  (*)(void* List) )0UL;
+     void    (*pfvListDestroy) (void* List) = (void    (*) (void* List) )0UL;
 
-     if( (DLinkedList_TypeDef*)0 != psList)
+     if((DLinkedList_TypeDef*)0 != psList)
      {
          enStatus = DLinkedList_enSTATUS_OK;
          u32SizeReg = DLinkedList__u32GetSize(psList);
-         pfvListDestroy =  psList->pfvDestroy;
+         pfvListDestroy = psList->pfvDestroy;
          while (u32SizeReg> 0UL)
          {
              psTailElement = DLinkedList__psGetTail(psList);
-             enStatus = DLinkedList__enRemove(psList,psTailElement,(void **)&pvDataElement);
+             enStatus = DLinkedList__enRemove(psList,psTailElement,(void **) & pvDataElement);
              if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) psList->pfvDestroyElementData))
              {
                  psList->pfvDestroyElementData(pvDataElement);
@@ -53,14 +53,14 @@ void DLinkedList__vDestroy( DLinkedList_TypeDef* psList)
              u32SizeReg = DLinkedList__u32GetSize(psList);
          }
 
-         psList->pfu32Match = (uint32_t  (*)(const void *pcvKey1, const void *pcvKey2)) 0UL;
-         psList->pfvDestroy = (void  (*)(void* List)) 0UL;
-         psList->pfvDestroyElementData = (void  (*)(void* DataContainer)) 0UL;
+         psList->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
+         psList->pfvDestroy = (void    (*) (void* List)) 0UL;
+         psList->pfvDestroyElementData = (void    (*) (void* DataContainer)) 0UL;
          psList->psHead = (DLinkedListElement_TypeDef *) 0UL;
          psList->psTail = (DLinkedListElement_TypeDef *) 0UL;
          psList->u32Size = 0UL;
 
-         if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t)pfvListDestroy))
+         if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) pfvListDestroy))
          {
              pfvListDestroy(psList);
              psList = (DLinkedList_TypeDef*)0UL;

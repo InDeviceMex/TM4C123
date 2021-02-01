@@ -32,7 +32,7 @@
  {
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          u32SizeList = SLinkedList__u32GetSize(psList);
          if(u32Position < u32SizeList)
@@ -63,7 +63,7 @@
  SLinkedListElement_TypeDef*  SLinkedList__psGetNodeEnd(const SLinkedList_TypeDef* psList)
  {
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL ;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          psElement = SLinkedList__psGetTail(psList);
      }
@@ -73,7 +73,7 @@
  SLinkedListElement_TypeDef*  SLinkedList__psGetNodeBegin(const SLinkedList_TypeDef* psList)
  {
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL ;
-     if((uint32_t)0UL != (uint32_t)psList)
+     if((uint32_t) 0UL != (uint32_t) psList)
      {
          psElement = SLinkedList__psGetHead(psList);
      }
@@ -87,10 +87,10 @@
      void* pvDataMember = (void*)0UL;
      uint32_t u32SizeReg = 0UL;
 
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData ) && (0UL != u32MaxLength))
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData ) && (0UL != u32MaxLength))
      {
          psMember = SLinkedList__psGetHead(psList);
-          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != u32MaxLength))
+          while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength))
           {
               pvDataMember=SLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
@@ -111,10 +111,10 @@
      void* pvDataMember = (void*)0UL;
      uint32_t u32SizeReg = 0UL;
 
-     if(((uint32_t)0UL != (uint32_t)psList) && ((uint32_t)0UL != (uint32_t)pvData ) && (0UL != u32MaxLength)&& (0UL != u32Nodes))
+     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData ) && (0UL != u32MaxLength) && (0UL != u32Nodes))
      {
          psMember = SLinkedList__psGetHead(psList);
-          while(((uint32_t)0UL != (uint32_t)psMember) && (0UL != u32MaxLength) && (0UL != u32Nodes))
+          while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength) && (0UL != u32Nodes))
           {
               pvDataMember=SLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
