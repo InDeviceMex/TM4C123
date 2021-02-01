@@ -39,7 +39,7 @@ void TIMER__vGetSubParams(TIMER_nMODULE enModule, uint32_t *pu32ModuleSize, uint
         u32ModuleSize &= 0x1UL;
         *pu32ModuleSize = MCU__u32CheckPatams( u32ModuleSize, (uint32_t) TIMER_enSIZE_MAX);
     }
-    if(0UL != (uint32_t) u32SubModule)
+    if(0UL != (uint32_t) pu32SubModule)
     {
         u32SubModule = (uint32_t) enModule;
         u32SubModule >>= 8UL;
@@ -47,7 +47,7 @@ void TIMER__vGetSubParams(TIMER_nMODULE enModule, uint32_t *pu32ModuleSize, uint
         *pu32SubModule = MCU__u32CheckPatams( u32SubModule, (uint32_t) TIMER_enSUBMODULE_MAX);
     }
 
-    if(0UL != (uint32_t) u32ModuleNumber)
+    if(0UL != (uint32_t) pu32ModuleNumber)
     {
         u32ModuleNumber = (uint32_t) enModule;
         u32ModuleNumber >>= 0UL;

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_RTCSTALL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_RTCSTALL_H_
 
@@ -28,6 +29,5 @@
 
 void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStallParam);
 TIMER_nRTC_STALL TIMER__enGetRTCStall(TIMER_nMODULE enModule);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_RTCSTALL_H_ */

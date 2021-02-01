@@ -21,19 +21,17 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_Enable.h>
+
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
 
 void TIMER__vSetEnable(TIMER_nMODULE enModule, TIMER_nENABLE enEnable)
 {
-    TIMER__vSetControlGeneric(enModule, (uint32_t) enEnable, GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
+    TIMER__vSetControlGeneric( enModule, (uint32_t) enEnable, GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
 }
 
 TIMER_nENABLE TIMER__enGetEnable(TIMER_nMODULE enModule)
 {
-    return (TIMER_nENABLE)TIMER__u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
+    return (TIMER_nENABLE) TIMER__u32GetControlGeneric( enModule, GPTM_TA_GPTMTnCTL_TnEN_MASK, GPTM_TA_GPTMTnCTL_R_TnEN_BIT);
 }
-

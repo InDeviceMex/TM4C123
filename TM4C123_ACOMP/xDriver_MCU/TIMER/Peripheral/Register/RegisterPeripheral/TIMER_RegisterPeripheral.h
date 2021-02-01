@@ -48,7 +48,6 @@
 extern GPTM_TypeDef *TIMER_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 extern uint32_t TIMER_BLOCK_BASE[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 
-extern volatile uint32_t* TIMER_TnMR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 extern volatile uint32_t* TIMER_TnILR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 extern volatile uint32_t* TIMER_TnPR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 extern volatile uint32_t* TIMER_TnMATCHR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];

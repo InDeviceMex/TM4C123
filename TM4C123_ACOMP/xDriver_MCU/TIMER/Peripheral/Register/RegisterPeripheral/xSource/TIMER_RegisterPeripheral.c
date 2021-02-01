@@ -61,32 +61,6 @@ uint32_t TIMER_BLOCK_BASE[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enMODULE
     },
 };
 
-volatile uint32_t* TIMER_TnMR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX] = {
- {
-     {
-     (volatile uint32_t*) (GPTM0_BASE + GPTM_TA_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPTM1_BASE + GPTM_TA_GPTMTnMR_OFFSET) ,
-     (volatile uint32_t*) (GPTM2_BASE + GPTM_TA_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPTM3_BASE + GPTM_TA_GPTMTnMR_OFFSET) ,
-     (volatile uint32_t*) (GPTM4_BASE + GPTM_TA_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPTM5_BASE + GPTM_TA_GPTMTnMR_OFFSET)
-     },
-     {
-     (volatile uint32_t*) (GPTM0_BASE + GPTM_TB_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPTM1_BASE + GPTM_TB_GPTMTnMR_OFFSET) ,
-     (volatile uint32_t*) (GPTM2_BASE + GPTM_TB_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPTM3_BASE + GPTM_TB_GPTMTnMR_OFFSET) ,
-     (volatile uint32_t*) (GPTM4_BASE + GPTM_TB_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPTM5_BASE + GPTM_TB_GPTMTnMR_OFFSET)
-     },
- },
- {
-    {
-    (volatile uint32_t*) (GPWTM0_BASE + GPWTM_TA_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPWTM1_BASE + GPWTM_TA_GPTMTnMR_OFFSET) ,
-    (volatile uint32_t*) (GPWTM2_BASE + GPWTM_TA_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMR_OFFSET) ,
-    (volatile uint32_t*) (GPWTM4_BASE + GPWTM_TA_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPWTM5_BASE + GPWTM_TA_GPTMTnMR_OFFSET)
-    },
-    {
-    (volatile uint32_t*) (GPWTM0_BASE + GPWTM_TB_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPWTM1_BASE + GPWTM_TB_GPTMTnMR_OFFSET) ,
-    (volatile uint32_t*) (GPWTM2_BASE + GPWTM_TB_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPWTM3_BASE + GPWTM_TB_GPTMTnMR_OFFSET) ,
-    (volatile uint32_t*) (GPWTM4_BASE + GPWTM_TB_GPTMTnMR_OFFSET) , (volatile uint32_t*) (GPWTM5_BASE + GPWTM_TB_GPTMTnMR_OFFSET)
-    },
- }
-};
 
 volatile uint32_t* TIMER_TnILR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX] = {
  {

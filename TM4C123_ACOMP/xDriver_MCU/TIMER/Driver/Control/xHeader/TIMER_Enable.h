@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_ENABLE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_ENABLE_H_
 
@@ -28,7 +29,5 @@
 
 void TIMER__vSetEnable(TIMER_nMODULE enModule, TIMER_nENABLE enEnable);
 TIMER_nENABLE TIMER__enGetEnable(TIMER_nMODULE enModule);
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_ENABLE_H_ */

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_EDGEEVENT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_EDGEEVENT_H_
 
@@ -28,6 +29,5 @@
 
 void TIMER__vSetEdgeEvent(TIMER_nMODULE enModule, TIMER_nEDGE_EVENT enEdgeEventVar);
 TIMER_nEDGE_EVENT TIMER__enGetEdgeEvent(TIMER_nMODULE enModule);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_EDGEEVENT_H_ */

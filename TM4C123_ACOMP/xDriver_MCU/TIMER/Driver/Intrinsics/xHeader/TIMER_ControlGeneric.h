@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-uint32_t TIMER__u32GetControlGeneric(TIMER_nMODULE enModule,uint32_t u32Mask, uint32_t u32Bit);
-void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32ControlGeneric, uint32_t u32Mask, uint32_t u32Bit);
+uint32_t TIMER__u32GetControlGeneric(TIMER_nMODULE enModule, uint32_t u32MaskFeature, uint32_t u32BitFeature);
+void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_INTRINSICS_TIMER_CONTROLGENERIC_H_ */

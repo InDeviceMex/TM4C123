@@ -21,21 +21,17 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_PWMOutputLevel.h>
+
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
 
 void TIMER__vSetPWMOutputLevel(TIMER_nMODULE enModule, TIMER_nPWM_OUTPUT enPWMOutputLevel)
 {
-    TIMER__vSetControlGeneric(enModule, (uint32_t) enPWMOutputLevel, GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
+    TIMER__vSetControlGeneric( enModule, (uint32_t) enPWMOutputLevel, GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
 }
 
 TIMER_nPWM_OUTPUT TIMER__enGetPWMOutputLevel(TIMER_nMODULE enModule)
 {
-    return (TIMER_nPWM_OUTPUT)TIMER__u32GetControlGeneric(enModule,GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
+    return (TIMER_nPWM_OUTPUT) TIMER__u32GetControlGeneric( enModule, GPTM_TA_GPTMTnCTL_TnPWML_MASK, GPTM_TA_GPTMTnCTL_R_TnPWML_BIT);
 }
-
-
-

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_ADCTRIGGER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_ADCTRIGGER_H_
 
@@ -28,7 +29,5 @@
 
 void TIMER__vSetADCTrigger(TIMER_nMODULE enModule, TIMER_nADC_TRIGGER enADCTriggerVar);
 TIMER_nADC_TRIGGER TIMER__enGetADCTrigger(TIMER_nMODULE enModule);
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_CONTROL_TIMER_ADCTRIGGER_H_ */
