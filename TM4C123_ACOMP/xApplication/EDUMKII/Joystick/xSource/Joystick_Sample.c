@@ -70,7 +70,7 @@ void EDUMKII_Select_vIRQSourceHandler(void)
 {
     uint32_t u32ValueButton1 = 0UL;
      GPIO__enGetData(EDUMKII_SELECT_PORT,EDUMKII_SELECT_PIN, &u32ValueButton1);
-    if( 0UL == u32ValueButton1 )
+    if(0UL == u32ValueButton1)
     {
         enSelectStatus = EDUMKII_enJOYSTICK_PRESS;
     }

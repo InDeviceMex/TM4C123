@@ -29,103 +29,103 @@ int32_t Conv__s32String2Hex(const char* pcString,int64_t* s64NumSigned )
     pcStringBack=CONV_pcStringBack;
 
 
-    while((*pcString != (char) 0) && (*pcString!='\n') && (*pcString!='\r') && (*pcString!=(char) 0x1BU)) /*0x1B is a ESC ASCII*/
+    while((*pcString != (char) 0) && (*pcString != '\n') && (*pcString != '\r') && (*pcString != (char) 0x1BU)) /*0x1B is a ESC ASCII*/
     {
 
-        if((*pcString=='0') && (s32Length==0) )
+        if((*pcString == '0') && (s32Length == 0) )
         {
             s32Length++;
             s64InitSuf=1;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if(((*pcString=='x') || (*pcString=='X')) && (s32Length==0))
+        else if(((*pcString == 'x') || (*pcString == 'X')) && (s32Length == 0))
         {
             s32Length++;
             s64InitSuf=3;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if(((*pcString=='x') || (*pcString=='X')) && (s64InitSuf==1) && (s32Length==1))
+        else if(((*pcString == 'x') || (*pcString == 'X')) && (s64InitSuf == 1) && (s32Length == 1))
         {
             s32Length++;
             s64InitSuf=2;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((((uint8_t) *pcString>=(uint8_t) '0') && ((uint8_t) *pcString<=(uint8_t) '9')) && (s64InitSuf!=1))
+        else if((((uint8_t) *pcString >= (uint8_t) '0') && ((uint8_t) *pcString <= (uint8_t) '9')) && (s64InitSuf != 1))
         {
             u64NumShiftReg= (uint64_t) s64NumSignedReg;
-            u64NumShiftReg<<=4;
+            u64NumShiftReg <<= 4;
             s64NumSignedReg = (int64_t) u64NumShiftReg;
             u8ValueAux = (uint8_t) (*pcString );
-            u8ValueAux-= (uint8_t) '0';
+            u8ValueAux -= (uint8_t) '0';
             s64NumSignedReg += (int64_t) u8ValueAux;
             s32Length++;
 
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((((uint8_t) *pcString>=(uint8_t) 'A') && ((uint8_t) *pcString<=(uint8_t) 'F')) && (s64InitSuf!=1))
+        else if((((uint8_t) *pcString >= (uint8_t) 'A') && ((uint8_t) *pcString <= (uint8_t) 'F')) && (s64InitSuf != 1))
         {
             u64NumShiftReg= (uint64_t) s64NumSignedReg;
-            u64NumShiftReg<<=4;
+            u64NumShiftReg <<= 4;
             s64NumSignedReg = (int64_t) u64NumShiftReg;
             u8ValueAux = (uint8_t) (*pcString );
-            u8ValueAux-= (uint8_t) 'A';
-            s64NumSignedReg += (int64_t) u8ValueAux;
-            s64NumSignedReg += 10;
-            s32Length++;
-
-            *pcStringBack=*pcString;
-            pcStringBack += 1U;
-        }
-        else if((((uint8_t) *pcString>=(uint8_t) 'a') && ((uint8_t) *pcString<=(uint8_t) 'f')) && (s64InitSuf!=1))
-        {
-            u64NumShiftReg= (uint64_t) s64NumSignedReg;
-            u64NumShiftReg<<=4;
-            s64NumSignedReg = (int64_t) u64NumShiftReg;
-            u8ValueAux = (uint8_t) (*pcString );
-            u8ValueAux-= (uint8_t) 'a';
+            u8ValueAux -= (uint8_t) 'A';
             s64NumSignedReg += (int64_t) u8ValueAux;
             s64NumSignedReg += 10;
             s32Length++;
 
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((*pcString=='\b') && (0 != s32Length))
+        else if((((uint8_t) *pcString >= (uint8_t) 'a') && ((uint8_t) *pcString <= (uint8_t) 'f')) && (s64InitSuf != 1))
         {
-            pcStringBack-=1U;
+            u64NumShiftReg= (uint64_t) s64NumSignedReg;
+            u64NumShiftReg <<= 4;
+            s64NumSignedReg = (int64_t) u64NumShiftReg;
+            u8ValueAux = (uint8_t) (*pcString );
+            u8ValueAux -= (uint8_t) 'a';
+            s64NumSignedReg += (int64_t) u8ValueAux;
+            s64NumSignedReg += 10;
+            s32Length++;
 
-            if((*pcStringBack=='0') && (s32Length==1) )
+            *pcStringBack = *pcString;
+            pcStringBack += 1U;
+        }
+        else if((*pcString == '\b') && (0 != s32Length))
+        {
+            pcStringBack -= 1U;
+
+            if((*pcStringBack == '0') && (s32Length == 1) )
             {
                 s64InitSuf=0;
             }
-            else if(((*pcStringBack=='x') || (*pcStringBack=='X')) && (s32Length==1) )
+            else if(((*pcStringBack == 'x') || (*pcStringBack == 'X')) && (s32Length == 1) )
             {
                 s64InitSuf=0;
             }
-            else if(((*pcStringBack=='x') || (*pcStringBack=='X')) && (s64InitSuf==2) && (s32Length==2))
+            else if(((*pcStringBack == 'x') || (*pcStringBack == 'X')) && (s64InitSuf == 2) && (s32Length == 2))
             {
                 s64InitSuf=1;
             }
-            else if(((uint8_t) *(pcStringBack)>=(uint8_t) '0') && ((uint8_t) *(pcStringBack)<=(uint8_t) '9'))
+            else if(((uint8_t) *(pcStringBack) >= (uint8_t) '0') && ((uint8_t) *(pcStringBack) <= (uint8_t) '9'))
             {
                 s64NumSignedReg /= 16;
             }
-            else if(((uint8_t) *pcStringBack>=(uint8_t) 'A') && ((uint8_t) *pcStringBack<=(uint8_t) 'F'))
+            else if(((uint8_t) *pcStringBack >= (uint8_t) 'A') && ((uint8_t) *pcStringBack <= (uint8_t) 'F'))
             {
                 s64NumSignedReg /= 16;
             }
-            else if(((uint8_t) *pcStringBack>=(uint8_t) 'a') && ((uint8_t) *pcStringBack<=(uint8_t) 'f'))
+            else if(((uint8_t) *pcStringBack >= (uint8_t) 'a') && ((uint8_t) *pcStringBack <= (uint8_t) 'f'))
             {
                 s64NumSignedReg /= 16;
             }
             else{}
             s32Length--;
         }
-        else if (*pcString!='\b')
+        else if (*pcString != '\b')
         {
             s32Length=(int32_t) CONV_enNAN;
             break;
@@ -151,40 +151,40 @@ int32_t Conv__s32String2Oct(const char* pcString,int64_t* s64NumSigned )
 
 
 
-    while(((char)0 != *pcString) && (*pcString!='\n') && (*pcString!='\r') && (*pcString!= (char)0x1BU))
+    while(((char)0 != *pcString) && (*pcString != '\n') && (*pcString != '\r') && (*pcString != (char)0x1BU))
     {
-        if((*pcString=='0') && (s32Length==0) )
+        if((*pcString == '0') && (s32Length == 0) )
         {
             s32Length++;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if(((uint8_t) *pcString>=(uint8_t) '0') && ((uint8_t) *pcString<=(uint8_t) '7'))
+        else if(((uint8_t) *pcString >= (uint8_t) '0') && ((uint8_t) *pcString <= (uint8_t) '7'))
         {
             u64NumShiftReg= (uint64_t) s64NumSignedReg;
-            u64NumShiftReg<<=3;
+            u64NumShiftReg <<= 3;
             s64NumSignedReg = (int64_t) u64NumShiftReg;
             u8ValueAux= (uint8_t) *pcString;
-            u8ValueAux-=(uint8_t) '0';
+            u8ValueAux -= (uint8_t) '0';
             s64NumSignedReg += (int64_t) u8ValueAux;
             s32Length++;
 
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((*pcString=='\b') && (0 != s32Length))
+        else if((*pcString == '\b') && (0 != s32Length))
         {
-            pcStringBack-=1U;
-            if(((uint8_t) *(pcStringBack)>=(uint8_t) '0') && ((uint8_t) *(pcStringBack)<=(uint8_t) '7'))
+            pcStringBack -= 1U;
+            if(((uint8_t) *(pcStringBack) >= (uint8_t) '0') && ((uint8_t) *(pcStringBack) <= (uint8_t) '7'))
             {
-                if(s32Length!=1)
+                if(s32Length != 1)
                 {
                     s64NumSignedReg /= 8;
                 }
             }
             s32Length--;
         }
-        else if (*pcString!='\b')
+        else if (*pcString != '\b')
         {
             s32Length=(int32_t) CONV_enNAN;
             break;
@@ -209,38 +209,38 @@ int32_t Conv__s32String2Bin(const char* pcString,int64_t* s64NumSigned )
 
 
 
-    while(((char) 0 != *pcString) && (*pcString!='\n') && (*pcString!='\r') && (*pcString!=(char)0x1BU))
+    while(((char) 0 != *pcString) && (*pcString != '\n') && (*pcString != '\r') && (*pcString != (char)0x1BU))
     {
-        if(((*pcString=='b') || (*pcString=='B')) && (s32Length==0) )
+        if(((*pcString == 'b') || (*pcString == 'B')) && (s32Length == 0) )
         {
             s32Length++;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if(((uint8_t) *pcString>=(uint8_t) '0') && ((uint8_t) *pcString<=(uint8_t) '1'))
+        else if(((uint8_t) *pcString >= (uint8_t) '0') && ((uint8_t) *pcString <= (uint8_t) '1'))
         {
             u64NumShiftReg= (uint64_t) s64NumSignedReg;
-            u64NumShiftReg<<=1;
+            u64NumShiftReg <<= 1;
             s64NumSignedReg = (int64_t) u64NumShiftReg;
             u8ValueAux=(uint8_t) *pcString;
-            u8ValueAux-=(uint8_t) '0';
+            u8ValueAux -= (uint8_t) '0';
             s64NumSignedReg += (int64_t) u8ValueAux;
             s32Length++;
 
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((*pcString=='\b') && (0!= s32Length))
+        else if((*pcString == '\b') && (0 != s32Length))
         {
-            pcStringBack-=1U;
-            if(((uint8_t) *(pcStringBack)>=(uint8_t) '0') && ((uint8_t) *(pcStringBack)<=(uint8_t) '1'))
+            pcStringBack -= 1U;
+            if(((uint8_t) *(pcStringBack) >= (uint8_t) '0') && ((uint8_t) *(pcStringBack) <= (uint8_t) '1'))
             {
                 s64NumSignedReg /= 2;
             }
 
             s32Length--;
         }
-        else if (*pcString!='\b')
+        else if (*pcString != '\b')
         {
             s32Length= (int32_t) CONV_enNAN;
         }
@@ -257,7 +257,7 @@ int32_t Conv__s32String2UInt(const char* pcString,uint64_t* u64NumUnsigned )
    int64_t u64NumSigned=0;
     int32_t s32Length=0;
     s32Length=Conv__s32String2Integer(pcString, &u64NumSigned);
-    if(s32Length!=(int32_t) CONV_enNAN)
+    if(s32Length != (int32_t) CONV_enNAN)
     {
         *u64NumUnsigned= (uint64_t) u64NumSigned;
     }
@@ -285,75 +285,75 @@ int32_t Conv__s32String2Float(const char* pcString,int8_t s8Decimals, float32_t*
     pcStringBack=CONV_pcStringBack;
 
 
-    while(((char) 0 != *pcString) && (*pcString!='\n') && (*pcString!='\r') && (*pcString!= (char) 0x1BU) && (s8DecimalsActual<s8Decimals))
+    while(((char) 0 != *pcString) && (*pcString != '\n') && (*pcString != '\r') && (*pcString != (char) 0x1BU) && (s8DecimalsActual<s8Decimals))
     {
 
-        if((*pcString=='-') && (s32Length==0) && (s32FindDot==0))
+        if((*pcString == '-') && (s32Length == 0) && (s32FindDot == 0))
         {
             s32Sign=1;
             s32Length++;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((*pcString=='.') && (s32FindDot==0))
+        else if((*pcString == '.') && (s32FindDot == 0))
         {
             s32FindDot=1;
             s32Length++;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if(((uint8_t) *pcString>=(uint8_t) '0') && ((uint8_t) *pcString<=(uint8_t) '9'))
+        else if(((uint8_t) *pcString >= (uint8_t) '0') && ((uint8_t) *pcString <= (uint8_t) '9'))
         {
-            if(s32FindDot==0)
+            if(s32FindDot == 0)
             {
                 fNumberInteger *= 10.0f;
                 u8ValueAux=(uint8_t) *pcString;
-                u8ValueAux-=(uint8_t) '0';
+                u8ValueAux -= (uint8_t) '0';
                 fNumberInteger += (float32_t) u8ValueAux;
             }
             else
             {
                 fNumberAuxilar /= 10.0f;
                 u8ValueAux=(uint8_t) *pcString;
-                u8ValueAux-=(uint8_t) '0';
+                u8ValueAux -= (uint8_t) '0';
                 fNumberDecimal=(float32_t) u8ValueAux;
                 fNumberDecimal *= fNumberAuxilar;
                 fNumberDecimalAdded += fNumberDecimal;
                 s8DecimalsActual++;
             }
             s32Length++;
-            *pcStringBack=*pcString;
+            *pcStringBack = *pcString;
             pcStringBack += 1U;
         }
-        else if((*pcString=='\b') && (s32Length!=0))
+        else if((*pcString == '\b') && (s32Length != 0))
         {
-            pcStringBack-=1U;
-            if(s32FindDot==0)
+            pcStringBack -= 1U;
+            if(s32FindDot == 0)
             {
-                if(((uint8_t) *pcStringBack>=(uint8_t) '0') && ((uint8_t) *pcStringBack<=(uint8_t) '9'))
+                if(((uint8_t) *pcStringBack >= (uint8_t) '0') && ((uint8_t) *pcStringBack <= (uint8_t) '9'))
                 {
                     fNumberInteger /= 10.0f;
                 }
-                if(*pcStringBack=='-')
+                if(*pcStringBack == '-')
                 {
                     s32Sign=0;
                 }
             }
             else
             {
-                if(((uint8_t) *pcStringBack>=(uint8_t) '0') && ((uint8_t) *pcStringBack<=(uint8_t) '9'))
+                if(((uint8_t) *pcStringBack >= (uint8_t) '0') && ((uint8_t) *pcStringBack <= (uint8_t) '9'))
                 {
                     fNumberAuxilar *= (float32_t) 10;
                     pcStringAux=pcString;
-                    pcStringAux-=1U;
+                    pcStringAux -= 1U;
                     u8ValueAux=(uint8_t) *pcStringAux;
-                    u8ValueAux-=(uint8_t) '0';
+                    u8ValueAux -= (uint8_t) '0';
                     fNumberDecimal=(float32_t) u8ValueAux;
                     fNumberDecimal *= fNumberAuxilar;
-                    fNumberDecimalAdded-=fNumberDecimal;
+                    fNumberDecimalAdded -= fNumberDecimal;
                     s8DecimalsActual--;
                 }
-                else if(*pcStringBack=='.')
+                else if(*pcStringBack == '.')
                 {
                     s32FindDot=0;
                 }
@@ -361,7 +361,7 @@ int32_t Conv__s32String2Float(const char* pcString,int8_t s8Decimals, float32_t*
             }
             s32Length--;
         }
-        else if ((*pcString!='\b'))
+        else if ((*pcString != '\b'))
         {
             s32Length=(int32_t) CONV_enNAN;
             break;
@@ -372,7 +372,7 @@ int32_t Conv__s32String2Float(const char* pcString,int8_t s8Decimals, float32_t*
     }
     fNumberFinal=fNumberInteger+fNumberDecimalAdded;
 
-    if(s32Sign==1)
+    if(s32Sign == 1)
     {
         fNumberFinal *= (float32_t) (-1);
     }

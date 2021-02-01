@@ -115,16 +115,16 @@ int32_t main(void)
         enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
         enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
-        if(  EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
+        if(EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
         {
             u32PWMRed++;
-            if( u32PWMRed > 50UL)
+            if(u32PWMRed > 50UL)
             {
                 u32PWMRed = 0UL;
             }
         }
 
-        if( EDUMKII_enBUTTON_STATE_PRESS ==enButton2State)
+        if(EDUMKII_enBUTTON_STATE_PRESS == enButton2State)
         {
             u32PWMRed = 0UL;
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, 0UL);
@@ -198,7 +198,7 @@ int32_t main(void)
         while('\0' != *cNokiaBufferPointer)
         {
             enTransmitFullState = UART__enIsFifoTransmitFull(UART_enMODULE_0);
-            if( UART_enFIFO_FULL_NO == enTransmitFullState)
+            if(UART_enFIFO_FULL_NO == enTransmitFullState)
             {
                 UART__vSetData(UART_enMODULE_0, (uint32_t) (*cNokiaBufferPointer));
                 cNokiaBufferPointer += 1U;

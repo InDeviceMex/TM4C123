@@ -73,7 +73,7 @@ void EDUMKII_Led_vInitPWM(EDUMKII_nLED enLedSelect)
         TIMER__enSetMode_ReloadMatch(EDUMKII_LED_GREEN_TIMER,TIMER_enMODE_PWM_INDIVIDUAL_HIGH_NEGATIVE_DOWN,0U,10240U-1U,10240U-1U);
         TIMER__vSetEnable(EDUMKII_LED_GREEN_TIMER,TIMER_enENABLE_START);
     }
-    if((uint32_t) EDUMKII_enLED_BLUE== ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_BLUE))
+    if((uint32_t) EDUMKII_enLED_BLUE == ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_BLUE))
     {
         GPIO__enSetDigitalConfig(EDUMKII_LED_BLUE,GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL); /*WTimer 0A*/
         TIMER__enSetExtraModeStruct(EDUMKII_LED_BLUE_TIMER, &psExtraMode);
