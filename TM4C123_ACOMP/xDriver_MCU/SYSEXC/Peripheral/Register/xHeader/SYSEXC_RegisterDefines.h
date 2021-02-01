@@ -112,7 +112,7 @@
 
 /*----------*/
 #define SYSEXC_SYSEXCIM_R_FPDZCIM_MASK    ((uint32_t) 0x00000002UL)
-#define SYSEXC_SYSEXCIM_R_FPDZCIM_BIT    ((uint32_t)1)
+#define SYSEXC_SYSEXCIM_R_FPDZCIM_BIT    ((uint32_t) 1)
 #define SYSEXC_SYSEXCIM_R_FPDZCIM_DIS    ((uint32_t) 0x00000000UL)
 #define SYSEXC_SYSEXCIM_R_FPDZCIM_EN    ((uint32_t) 0x00000002UL)
 

@@ -21,34 +21,27 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/TIMER_InterruptRegisterIRQSource.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/TIMER_InterruptRoutine.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
 
 void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nMODULE enModule,TIMER_nINTERRUPT enInterruptParam)
 {
-    uint32_t u32Interrupt =(uint32_t) enInterruptParam;
+    uint32_t u32InterruptSource = (uint32_t) enInterruptParam;
 
-    uint32_t u32Number= (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x1U;
-    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
-    uint32_t u32IrqSourceHandler=0;
+    uint32_t u32ModuleNumber = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleSize = 0UL;
 
-
-    if((uint32_t)pfIrqSourceHandler !=0U)
+    if((uint32_t) pfIrqSourceHandler != 0U)
     {
-        if((uint32_t)TIMER_enMISC_MAX<u32Number)
-        {
-            u32Number=(uint32_t)TIMER_enMISC_MAX;
-        }
-        if((uint32_t)TIMER_enMISC_INT<u32Interrupt)
-        {
-            u32Interrupt=(uint32_t)TIMER_enMISC_INT;
-        }
-
-        u32IrqSourceHandler=((uint32_t)pfIrqSourceHandler|1U);
-        TIMER__vIRQSourceHandler[u32Wide][u32Letter][u32Number][u32Interrupt]= (void (*) (void))u32IrqSourceHandler;
+        TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+        u32SubModule &= 0x1UL;
+        u32InterruptSource = MCU__u32CheckPatams( (uint32_t) enInterruptParam,  (uint32_t) TIMER_enINTERRUPT_MAX);
+        MCU__vRegisterIRQSourceHandler( pfIrqSourceHandler, &TIMER__vIRQSourceHandler[u32ModuleSize][u32SubModule][u32ModuleNumber][u32InterruptSource], 0UL, 1UL);
     }
 }

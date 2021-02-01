@@ -30,8 +30,8 @@
 
 TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EXTRAMODE_Typedef* psExtraMode)
 {
-    TIMER_nSTATUS enReturn=TIMER_enERROR;
-    if(psExtraMode!=0)
+    TIMER_nSTATUS enReturn=TIMER_enSTATUS_ERROR;
+    if(psExtraMode != 0)
     {
         TIMER__vSetWaitTrigger(enModule,psExtraMode->enWaitTrigger);
         TIMER__vSetUpdateIntervalMode(enModule,psExtraMode->enUpdateInterval);
@@ -41,7 +41,7 @@ TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EX
         TIMER__vSetStall(enModule,psExtraMode->enStall);
         TIMER__vSetRTCStall(enModule,psExtraMode->enRTCStall);
         TIMER__vSetADCTrigger(enModule,psExtraMode->enADCTrigger);
-        enReturn = TIMER_enOK;
+        enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
     /*Configure Reload and Match*/
@@ -69,12 +69,12 @@ TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule)
 {
     TIMER_EXTRAMODE_Typedef* psExtraMode=0;
     #if defined ( __TI_ARM__ )
-    psExtraMode = (TIMER_EXTRAMODE_Typedef*) memalign((size_t)4,(size_t)sizeof(TIMER_EXTRAMODE_Typedef));
+    psExtraMode = (TIMER_EXTRAMODE_Typedef*) memalign((size_t) 4,(size_t) sizeof(TIMER_EXTRAMODE_Typedef));
     #elif defined ( __GNUC__ )
-    psExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc((size_t)sizeof(TIMER_EXTRAMODE_Typedef));
+    psExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc((size_t) sizeof(TIMER_EXTRAMODE_Typedef));
     #endif
 
-    if(0!=psExtraMode)
+    if(0 != psExtraMode)
     {
         psExtraMode->enWaitTrigger=TIMER__enGetWaitTrigger(enModule);
         psExtraMode->enUpdateInterval=TIMER__enGetUpdateIntervalMode(enModule);

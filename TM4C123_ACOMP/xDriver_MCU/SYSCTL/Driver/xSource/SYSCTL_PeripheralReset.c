@@ -36,7 +36,7 @@ static inline void SYSCTL_vNoOperation(void)
 void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
     uint32_t u32NoRegister = 0UL;
-    uint32_t u32NoPeripheral =  0UL;
+    uint32_t u32NoPeripheral = 0UL;
     uint32_t u32Offset = 0UL;
 
     uint32_t u32RegisterSROffset = SYSCTL_SR_OFFSET;

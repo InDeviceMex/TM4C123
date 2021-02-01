@@ -38,7 +38,7 @@ void SYSEXC__vIRQVectorHandler(void)
         " movw R2, SYSEXC_pu32Context\n"
         " movt R2, SYSEXC_pu32Context\n"
     #elif defined ( __GNUC__ )
-        " ldr R2, =SYSEXC_pu32Context\n"
+        " ldr R2, = SYSEXC_pu32Context\n"
     #endif
         " ldr R1, [R0, #0X0]\n"
         " str R1, [R2, #0x0]\n"/*SYSEXC_pu32Context[0] R0*/
@@ -76,7 +76,7 @@ void SYSEXC__vIRQVectorHandler(void)
         SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_INVALID;
         SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_INVALID]();
     }
-    if(0UL != (u32Reg & (uint32_t)SYSEXC_enINT_UNDERFLOW))
+    if(0UL != (u32Reg & (uint32_t) SYSEXC_enINT_UNDERFLOW))
     {
         SYSEXC_SYSEXCIC_R = (uint32_t) SYSEXC_enINT_UNDERFLOW;
         SYSEXC__vIRQSourceHandler[(uint32_t) SYSEXC_enINTERRUPT_UNDERFLOW]();

@@ -31,6 +31,6 @@ void HIB__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), HIB_nINTE
 {
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        MCU__vRegisterIRQSourceHandler(pfIrqSourceHandler, HIB__vIRQSourceHandler, (uint32_t) enInterruptParam, (uint32_t)  HIB_enINTERRUPT_MAX);
+        MCU__vRegisterIRQSourceHandler(pfIrqSourceHandler, HIB__vIRQSourceHandler, (uint32_t) enInterruptParam, (uint32_t) HIB_enINTERRUPT_MAX);
     }
 }

@@ -37,7 +37,7 @@ void SYSCTL__vWritePeripheral(SYSCTL_nPERIPHERAL enPeripheral, uint32_t u32Perip
 {
     uint32_t u32RegisterValue = 0UL;
     uint32_t u32NoRegister = 0UL;
-    uint32_t u32NoPeripheral =  0UL;
+    uint32_t u32NoPeripheral = 0UL;
     uint32_t u32Offset = 0UL;
 
     uint32_t u32RegisterPROffset = SYSCTL_PR_OFFSET;
@@ -75,7 +75,7 @@ uint32_t SYSCTL__u32ReadPeripheral(SYSCTL_nPERIPHERAL enPeripheral, uint32_t u32
 {
     uint32_t u32RegisterValue = 0UL;
     uint32_t u32NoRegister = 0UL;
-    uint32_t u32NoPeripheral =  0UL;
+    uint32_t u32NoPeripheral = 0UL;
     uint32_t u32Offset = 0UL;
 
     u32NoRegister = (uint32_t) enPeripheral;

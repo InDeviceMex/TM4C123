@@ -49,7 +49,7 @@
 
 /*--------*/
 #define SYSCTL_DID0_R_MAJOR_MASK    ((uint32_t) 0x0000FF00UL)
-#define SYSCTL_DID0_R_MAJOR_BIT    ((uint32_t)8)
+#define SYSCTL_DID0_R_MAJOR_BIT    ((uint32_t) 8)
 #define SYSCTL_DID0_R_MAJOR_REVA    ((uint32_t) 0x00000000UL)
 #define SYSCTL_DID0_R_MAJOR_REVB    ((uint32_t) 0x00000100UL)
 #define SYSCTL_DID0_R_MAJOR_REVC    ((uint32_t) 0x00000200UL)

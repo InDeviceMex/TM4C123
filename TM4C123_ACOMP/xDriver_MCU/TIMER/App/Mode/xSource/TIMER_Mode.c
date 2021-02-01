@@ -31,10 +31,10 @@
 
 TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
 {
-    TIMER_nSTATUS enReturn=TIMER_enERROR;
+    TIMER_nSTATUS enReturn=TIMER_enSTATUS_ERROR;
     TIMER_MODE_Typedef* psMode=TIMER__psCreateModeStruct(enMode);
 
-    if(psMode!=0)
+    if(psMode != 0)
     {
         TIMER__vSetConfiguration(enModule,psMode->enConfig);
         TIMER__vSetSubMode(enModule,psMode->enSubMode);
@@ -46,7 +46,7 @@ TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
         TIMER__vSetEdgeEvent(enModule,psMode->enEdgeEvent);
         TIMER__vSetPWMOutputLevel(enModule,psMode->enPWMOut);
         TIMER__vDeleteModeStruct(psMode);
-        enReturn = TIMER_enOK;
+        enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
     /*Configure Reload and Match*/
@@ -57,8 +57,8 @@ TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
 
 TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode)
 {
-    TIMER_nSTATUS enReturn=TIMER_enERROR;
-    if(psMode!=0)
+    TIMER_nSTATUS enReturn=TIMER_enSTATUS_ERROR;
+    if(psMode != 0)
     {
         TIMER__vSetConfiguration(enModule,psMode->enConfig);
         TIMER__vSetSubMode(enModule,psMode->enSubMode);
@@ -69,7 +69,7 @@ TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Ty
         TIMER__vSetPWMOutputInit(enModule,psMode->enPWMOutInit);
         TIMER__vSetEdgeEvent(enModule,psMode->enEdgeEvent);
         TIMER__vSetPWMOutputLevel(enModule,psMode->enPWMOut);
-        enReturn = TIMER_enOK;
+        enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
     /*Configure Reload and Match*/
@@ -109,15 +109,15 @@ TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule)
     enEdgeEventVar=TIMER__enGetEdgeEvent(enModule);
     enPWMOutVar=TIMER__enGetPWMOutputLevel(enModule);
 
-    u32Reg = ((uint32_t)enDirectionVar <<0);
-    u32Reg|= ((uint32_t)enAltModeVar  <<4);
-    u32Reg|= ((uint32_t)enEdgeModeVar  <<8);
-    u32Reg|= ((uint32_t)enSubModeVar   <<12);
-    u32Reg|= ((uint32_t)enConfigVar    <<16);
-    u32Reg|= ((uint32_t)enPWMOutVar    <<20);
-    u32Reg|= ((uint32_t)enPWMOutInitVar<<24);
-    u32Reg|= ((uint32_t)enEdgeEventVar <<28);
-    u32Reg|= ((uint32_t)enSnapShotVar  <<30);
+    u32Reg = ((uint32_t) enDirectionVar << 0);
+    u32Reg |= ((uint32_t) enAltModeVar << 4);
+    u32Reg |= ((uint32_t) enEdgeModeVar << 8);
+    u32Reg |= ((uint32_t) enSubModeVar << 12);
+    u32Reg |= ((uint32_t) enConfigVar << 16);
+    u32Reg |= ((uint32_t) enPWMOutVar << 20);
+    u32Reg |= ((uint32_t) enPWMOutInitVar << 24);
+    u32Reg |= ((uint32_t) enEdgeEventVar << 28);
+    u32Reg |= ((uint32_t) enSnapShotVar << 30);
 
     enMode = (TIMER_nMODE)u32Reg;
     return enMode;
@@ -126,8 +126,8 @@ TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule)
 
 TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode)
 {
-    TIMER_nSTATUS enStatus = TIMER_enERROR;
-    if(0!= psMode)
+    TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
+    if(0 != psMode)
     {
         psMode->enConfig=TIMER__enGetConfiguration(enModule);
         psMode->enSubMode=TIMER__enGetSubMode(enModule);
@@ -138,7 +138,7 @@ TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef*
         psMode->enPWMOutInit=TIMER__enGetPWMOutputInit(enModule);
         psMode->enEdgeEvent=TIMER__enGetEdgeEvent(enModule);
         psMode->enPWMOut=TIMER__enGetPWMOutputLevel(enModule);
-        enStatus = TIMER_enOK;
+        enStatus = TIMER_enSTATUS_OK;
     }
     return enStatus;
 }
@@ -149,7 +149,7 @@ TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule)
 {
     TIMER_MODE_Typedef* psMode=0;
     #if defined ( __TI_ARM__ )
-    psMode = (TIMER_MODE_Typedef*) memalign((size_t)4,(size_t)sizeof(TIMER_MODE_Typedef));
+    psMode = (TIMER_MODE_Typedef*) memalign((size_t) 4,(size_t) sizeof(TIMER_MODE_Typedef));
     #elif defined ( __GNUC__ )
     psMode = (TIMER_MODE_Typedef*) malloc(sizeof(TIMER_MODE_Typedef));
     #endif

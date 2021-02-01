@@ -1,7 +1,7 @@
 /**!
  *  @file HIB.h
  *  @brief Header File for HIB Peripheral
- *  @date Created on: 29/03/2020
+ *  @date Created on: 29 / 03 / 2020
  *  @author vyldram
  */
 

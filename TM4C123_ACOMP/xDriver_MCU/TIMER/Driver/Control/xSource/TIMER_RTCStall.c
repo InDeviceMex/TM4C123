@@ -28,8 +28,8 @@
 
 void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStallParam)
 {
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
-    if((uint32_t)TIMER_enW == u32Letter)
+    uint32_t u32Letter= ((uint32_t) enModule >> 8U) & 0x3U;
+    if((uint32_t) TIMER_enSUBMODULE_W == u32Letter)
     {
         TIMER__vSetControlGeneric(enModule, (uint32_t) enRTCStallParam, GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
     }
@@ -37,9 +37,9 @@ void TIMER__vSetRTCStall(TIMER_nMODULE enModule, TIMER_nRTC_STALL enRTCStallPara
 
 TIMER_nRTC_STALL TIMER__enGetRTCStall(TIMER_nMODULE enModule)
 {
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
+    uint32_t u32Letter= ((uint32_t) enModule >> 8U) & 0x3U;
     TIMER_nRTC_STALL enReturn = TIMER_enRTC_STALL_UNDEF;
-    if((uint32_t)TIMER_enW == u32Letter)
+    if((uint32_t) TIMER_enSUBMODULE_W == u32Letter)
     {
         enReturn = (TIMER_nRTC_STALL)TIMER__u32GetControlGeneric(enModule,GPTM_TW_GPTMTnCTL_RTCEN_MASK, GPTM_TW_GPTMTnCTL_R_RTCEN_BIT);
     }

@@ -23,4 +23,4 @@
  */
 #include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/InterruptRoutine/HIB_InterruptRoutine.h>
 
-void (*HIB__pvIRQVectorHandler) (void)={&HIB__vIRQVectorHandler};
+void (*HIB__pvIRQVectorHandler) (void)= { &HIB__vIRQVectorHandler};

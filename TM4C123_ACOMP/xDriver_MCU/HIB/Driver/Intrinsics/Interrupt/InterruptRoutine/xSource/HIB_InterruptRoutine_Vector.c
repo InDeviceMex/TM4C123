@@ -32,25 +32,25 @@ void HIB__vIRQVectorHandler(void)
     volatile uint32_t u32Reg = 0UL;
 
     u32Reg = HIB_HIBMIS_R;
-    if(u32Reg & (uint32_t) HIB_enINT_RTCALT)
+    if((uint32_t) HIB_enINT_RTCALT & u32Reg)
     {
         HIB__enWait();
         HIB_HIBIC_R = (uint32_t) HIB_enINT_RTCALT;
         HIB__vIRQSourceHandler[(uint32_t) HIB_enINTERRUPT_RTCALT]();
     }
-    if(u32Reg & (uint32_t) HIB_enINT_LOWBAT)
+    if((uint32_t) HIB_enINT_LOWBAT & u32Reg)
     {
         HIB__enWait();
         HIB_HIBIC_R = (uint32_t) HIB_enINT_LOWBAT;
         HIB__vIRQSourceHandler[(uint32_t) HIB_enINTERRUPT_LOWBAT]();
     }
-    if(u32Reg & (uint32_t) HIB_enINT_EXTW)
+    if((uint32_t) HIB_enINT_EXTW & u32Reg)
     {
         HIB__enWait();
         HIB_HIBIC_R = (uint32_t) HIB_enINT_EXTW;
         HIB__vIRQSourceHandler[(uint32_t) HIB_enINTERRUPT_EXTW]();
     }
-    if(u32Reg & (uint32_t) HIB_enINT_WC)
+    if((uint32_t) HIB_enINT_WC & u32Reg)
     {
         HIB__enWait();
         HIB_HIBIC_R = (uint32_t) HIB_enINT_WC;
