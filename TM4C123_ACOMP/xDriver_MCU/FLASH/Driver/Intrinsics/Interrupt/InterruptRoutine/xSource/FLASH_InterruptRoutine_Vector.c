@@ -32,17 +32,17 @@ void FLASH__vIRQVectorHandler(void)
     volatile uint32_t u32Reg = 0UL;
     volatile uint32_t u32RegEEPROM = 0UL;
     u32Reg = FLASH_FCMISC_R;
-    if(u32Reg & (uint32_t) FLASH_enINT_ACCESS)
+    if((uint32_t) FLASH_enINT_ACCESS & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_ACCESS;
         FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_ACCESS]();
     }
-    if(u32Reg & (uint32_t) FLASH_enINT_PROGRAMMING)
+    if((uint32_t) FLASH_enINT_PROGRAMMING & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_PROGRAMMING;
         FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_PROGRAMMING]();
     }
-    if(u32Reg & (uint32_t) FLASH_enINT_EEPROM)
+    if((uint32_t) FLASH_enINT_EEPROM & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_EEPROM;
         u32RegEEPROM = SYSCTL_PREEPROM_R;
@@ -52,22 +52,22 @@ void FLASH__vIRQVectorHandler(void)
             FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_EEPROM]();
         }
     }
-    if(u32Reg & (uint32_t) FLASH_enINT_PUMP_VOL)
+    if((uint32_t) FLASH_enINT_PUMP_VOL & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_PUMP_VOL;
         FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_PUMP_VOL]();
     }
-    if(u32Reg & (uint32_t) FLASH_enINT_INVALID_DATA)
+    if((uint32_t) FLASH_enINT_INVALID_DATA & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_INVALID_DATA;
         FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_INVALID_DATA]();
     }
-    if(u32Reg & (uint32_t) FLASH_enINT_ERRASE_ERROR)
+    if((uint32_t) FLASH_enINT_ERRASE_ERROR & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_ERRASE_ERROR;
         FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_ERRASE_ERROR]();
     }
-    if(u32Reg & (uint32_t) FLASH_enINT_PROGRAM_ERROR)
+    if((uint32_t) FLASH_enINT_PROGRAM_ERROR & u32Reg)
     {
         FLASH_FCMISC_R = (uint32_t) FLASH_enINT_PROGRAM_ERROR;
         FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_PROGRAM_ERROR]();

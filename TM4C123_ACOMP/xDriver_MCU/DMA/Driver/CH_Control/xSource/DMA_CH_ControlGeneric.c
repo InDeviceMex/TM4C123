@@ -38,7 +38,7 @@ void DMA_CH__vSetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32F
 
 void DMA_CH__vSetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
+    if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
         DMA_CH__vSetPrimaryControlGeneric( enChannel, u32FeatureValue, u32MaskFeature, u32BitFeature);
     }
@@ -65,7 +65,7 @@ uint32_t DMA_CH__u32GetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_
 uint32_t DMA_CH__u32GetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
     uint32_t u32Reg = 0UL;
-    if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
+    if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
         u32Reg = DMA_CH__u32GetPrimaryControlGeneric( enChannel, u32MaskFeature, u32BitFeature);
     }

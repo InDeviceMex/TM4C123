@@ -44,28 +44,28 @@ static void FLASH_vSetData(uint32_t* pu32DataOut, uint32_t u32Data, uint32_t u32
     switch(u32VariableType)
     {
         case 0UL:
-            u32AuxValue =  *((uint32_t*) u32AddressBase);
+            u32AuxValue = *((uint32_t*) u32AddressBase);
 
             pu8DataValue = (uint8_t*) &u32AuxValue;
             pu8DataValue += u32AddressOffset;
-            u8DataValue =  (uint8_t) u32Data;
+            u8DataValue = (uint8_t) u32Data;
             *(pu8DataValue) = u8DataValue;
 
             *pu32DataOut = u32AuxValue;
         break;
         case 1UL:
-            u32AuxValue =  *((uint32_t*) u32AddressBase);
+            u32AuxValue = *((uint32_t*) u32AddressBase);
 
             pu16DataValue = (uint16_t*) &u32AuxValue;
             pu16DataValue += u32AddressOffset;
-            u16DataValue =  (uint16_t) u32Data;
+            u16DataValue = (uint16_t) u32Data;
             *(pu16DataValue) = u16DataValue;
 
             *pu32DataOut = u32AuxValue;
 
         break;
         case 2UL:
-            u32AuxValue =  *((uint32_t*) u32AddressBase);
+            u32AuxValue = *((uint32_t*) u32AddressBase);
 
             pu32DataValue = (uint32_t*) &u32AuxValue;
             pu32DataValue += u32AddressOffset;
@@ -141,7 +141,7 @@ static FLASH_nSTATUS FLASH_enWriteAux(uint32_t u32Data, uint32_t u32Address, uin
         enDataErased = FLASH_enIsDataErased(u32AddressCurrent, u32AddressOffset, u32VariableType);
         if(FLASH_enOK == enDataErased)
         {
-            FLASH_vSetData(&u32DataAux, u32Data, u32AddressCurrent, u32AddressOffset, u32VariableType);
+            FLASH_vSetData( &u32DataAux, u32Data, u32AddressCurrent, u32AddressOffset, u32VariableType);
             enReturn = FLASH__enWrite( u32DataAux, u32Address);
         }
         else
@@ -191,7 +191,7 @@ static FLASH_nSTATUS FLASH_enWriteAux(uint32_t u32Data, uint32_t u32Address, uin
                     {
                         break;
                     }
-                    u32AddressPage += 0x80UL;/*32World = 4Bytes*32 =0x80=128*/
+                    u32AddressPage += 0x80UL;/*32World = 4Bytes*32 = 0x80=128*/
                     pu32PageData += 32UL;
                 }
                 free( pu32PageDataInitial);

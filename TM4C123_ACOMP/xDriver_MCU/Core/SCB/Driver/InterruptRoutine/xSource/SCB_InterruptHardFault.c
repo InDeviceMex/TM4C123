@@ -36,7 +36,7 @@ void HardFault__vIRQVectorHandler(void)
     " movw R2, SCB_HardFault_pu32Context\n"
     " movt R2, SCB_HardFault_pu32Context\n"
 #elif defined ( __GNUC__ )
-    " ldr R2, =SCB_HardFault_pu32Context\n"
+    " ldr R2, = SCB_HardFault_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
     " str R1, [R2, #0x0]\n"/*SCB_HardFault_pu32Context[0] R0*/

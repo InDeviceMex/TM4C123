@@ -63,7 +63,7 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
         u32OffsetRegisterDRR += 4UL ;
     }
 
-    if( 0xFFFFFFFFUL != u32DriveParam)
+    if(0xFFFFFFFFUL != u32DriveParam)
     {
         if(GPIO_enDRIVE_8mA == enDriveVar)
         {

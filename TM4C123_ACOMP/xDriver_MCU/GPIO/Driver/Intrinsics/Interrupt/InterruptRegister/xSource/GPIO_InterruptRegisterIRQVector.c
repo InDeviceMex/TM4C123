@@ -27,10 +27,9 @@
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine.h>
 
-const SCB_nVECISR SCB_enVECISR_GPIO[(uint32_t) GPIO_enPORT_MAX] =
-{ SCB_enVECISR_GPIOA, SCB_enVECISR_GPIOB, SCB_enVECISR_GPIOC, SCB_enVECISR_GPIOD, SCB_enVECISR_GPIOE, SCB_enVECISR_GPIOF};
+const SCB_nVECISR SCB_enVECISR_GPIO[(uint32_t) GPIO_enPORT_MAX] = { SCB_enVECISR_GPIOA, SCB_enVECISR_GPIOB, SCB_enVECISR_GPIOC, SCB_enVECISR_GPIOD, SCB_enVECISR_GPIOE, SCB_enVECISR_GPIOF};
 
-void GPIO__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler)(void), GPIO_nPORT enPort)
+void GPIO__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), GPIO_nPORT enPort)
 {
     SCB_nVECISR enVector = SCB_enVECISR_GPIOA;
     uint32_t u32Port = 0UL;

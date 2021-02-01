@@ -29,10 +29,10 @@
 #if defined ( __TI_ARM__ )
 
 #pragma DATA_SECTION(SCB__pfnVectors, ".vtable")
-void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE])(void) = {0UL};
+void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE]) (void) = {0UL};
 
 #elif defined ( __GNUC__ )
-__attribute__((section(".vtable"))) void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE])(void) = {0UL};
+__attribute__((section(".vtable"))) void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE]) (void) = {0UL};
 #endif
 
 inline void SCB__vSetVectorOffset(uint32_t u32Offset)
@@ -42,7 +42,7 @@ inline void SCB__vSetVectorOffset(uint32_t u32Offset)
     uint32_t u32FlashTemp = 0UL;
     uint32_t u32Count = 0UL;
 
-    u32Offset&=~(uint32_t)0x3FFUL;
+    u32Offset &= ~(uint32_t) 0x3FFUL;
     u32FlashTemp = MCU__u32ReadRegister( SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
     if(SCB_FLASH_MAX > u32Offset)
     {

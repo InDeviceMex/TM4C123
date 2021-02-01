@@ -39,7 +39,7 @@ void MemoryFault__vIRQVectorHandler(void)
     " movw R2, SCB_MemoryFault_pu32Context\n"
     " movt R2, SCB_MemoryFault_pu32Context\n"
 #elif defined ( __GNUC__ )
-    " ldr R2, =SCB_MemoryFault_pu32Context\n"
+    " ldr R2, = SCB_MemoryFault_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
     " str R1, [R2, #0x0]\n"/*SCB_MemoryFault_pu32Context[0] R0*/
@@ -62,7 +62,7 @@ void MemoryFault__vIRQVectorHandler(void)
     u8InvalidFault = u8MemFault;
     u8InvalidFault &= (uint8_t) SCB_enMCFSR_MMARVALID;
 
-    if( (uint8_t)0U != u8InvalidFault)
+    if((uint8_t) 0U != u8InvalidFault)
     {
         u8MemFault &= ~(uint32_t) SCB_enMCFSR_MMARVALID;
     }

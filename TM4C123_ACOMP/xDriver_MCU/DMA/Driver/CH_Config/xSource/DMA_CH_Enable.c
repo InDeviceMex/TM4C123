@@ -41,7 +41,7 @@ static void DMA_CH__vDisable(DMA_nCH_MODULE enChannel)
 
 void DMA_CH__vSetEnable(DMA_nCH_MODULE enChannel, DMA_nCH_ENA enEnable)
 {
-    if( DMA_enCH_ENA_DIS == enEnable)
+    if(DMA_enCH_ENA_DIS == enEnable)
     {
         DMA_CH__vDisable( enChannel);
     }

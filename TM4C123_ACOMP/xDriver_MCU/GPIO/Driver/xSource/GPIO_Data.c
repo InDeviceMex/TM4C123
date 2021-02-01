@@ -38,6 +38,8 @@ inline uint32_t GPIO__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* pu
 {
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
     uint32_t u32Pin = 0UL;
+    u32Pin = (uint32_t) enPin;
+    u32Pin &= (uint32_t) GPIO_enPIN_ALL;
     enStatus = GPIO__enReadRegister( enPort, GPIO_GPIODATA_OFFSET, pu32Feature, u32Pin, 0UL);
     return enStatus;
 }

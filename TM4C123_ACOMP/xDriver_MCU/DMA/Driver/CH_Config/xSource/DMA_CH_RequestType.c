@@ -41,7 +41,7 @@ static void DMA_CH__vSetRequestOnlyBurst(DMA_nCH_MODULE enChannel)
 
 void DMA_CH__vSetRequestType(DMA_nCH_MODULE enChannel, DMA_nCH_REQTYPE enRequestType)
 {
-    if( DMA_enCH_REQTYPE_BOTH == enRequestType)
+    if(DMA_enCH_REQTYPE_BOTH == enRequestType)
     {
         DMA_CH__vSetRequestBoth( enChannel);
     }

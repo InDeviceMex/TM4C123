@@ -73,7 +73,7 @@ void GPIOE__vIRQVectorHandler(void)
             GPIOE_APB_GPIOICR_R = (uint32_t) GPIO_enPIN_0;
             GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_E][(uint32_t) GPIO_enPIN_NUMBER0]();
         }
-        if((uint32_t) GPIO_enPIN_1& u32Reg)
+        if((uint32_t) GPIO_enPIN_1 & u32Reg)
         {
             GPIOE_APB_GPIOICR_R = (uint32_t) GPIO_enPIN_1;
             GPIO__vIRQSourceHandler[(uint32_t) GPIO_enPORT_E][(uint32_t) GPIO_enPIN_NUMBER1]();

@@ -27,18 +27,15 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Source.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
-void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler)(void), GPIO_nPORT enPort, GPIO_nPIN enPin)
+void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    uint32_t u32Interrupt = 0UL;
-    uint32_t u32InterruptMax = 0UL;
-
     uint32_t u32PinNumber = 0UL;
     uint32_t u32Port = 0UL;
     uint32_t u32Pin = 0UL;
 
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        u32Port = MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t)  GPIO_enPORT_MAX);
+        u32Port = MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
 
         u32Pin = (uint32_t) enPin;
         u32Pin &= (uint32_t) GPIO_enPIN_ALL;
@@ -47,14 +44,6 @@ void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler)(void), GPIO_nPOR
             u32PinNumber++;
             u32Pin >>= 1UL;
         }
-
-        u32InterruptMax = (uint32_t) GPIO_enPORT_MAX;
-        u32InterruptMax *=  (uint32_t) GPIO_enPIN_NUMBER_MAX;
-
-        u32Interrupt = (uint32_t) GPIO_enPIN_NUMBER_MAX;
-        u32Interrupt *= u32Port;
-        u32Interrupt += u32PinNumber;
-
-        MCU__vRegisterIRQSourceHandler( pfIrqSourceHandler, &GPIO__vIRQSourceHandler[0UL][0UL], u32Interrupt, u32InterruptMax);
+        MCU__vRegisterIRQSourceHandler( pfIrqSourceHandler, &GPIO__vIRQSourceHandler[u32Port][u32PinNumber], 0UL, 1UL);
     }
 }

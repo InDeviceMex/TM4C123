@@ -16,7 +16,7 @@ static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address,
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     uint32_t u32MaxAddress = 0UL;
-    uint32_t u32Block = 0UL;/*u32Address/16*/
+    uint32_t u32Block = 0UL;/*u32Address / 16*/
     uint32_t u32Offset = 0UL;/*First 16 worlds*/
     uint32_t u32Pos = 0UL;
 
@@ -32,7 +32,7 @@ static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address,
     EEPROM__vSetReady();
 
     u32MaxAddress = EEPROM__u32GetWorldCount();
-    u32MaxAddress  <<= 2UL;
+    u32MaxAddress <<= 2UL;
 
     u32Block = u32Address;
     u32Block >>= 6UL;
@@ -125,13 +125,13 @@ EEPROM_nSTATUS EEPROM__enWriteWorldBlock(const uint32_t* pu32Data,uint32_t u32Ad
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     uint32_t u32MaxAddress= 0UL;
-    uint32_t u32Block = 0UL;/*u32Address/16*/
+    uint32_t u32Block = 0UL;/*u32Address / 16*/
     uint32_t u32Offset = 0UL;/*First 16 worlds*/
 
     if(0UL != (uint32_t) pu32Data)
     {
         u32MaxAddress = EEPROM__u32GetWorldCount();
-        u32MaxAddress  <<= 2UL;
+        u32MaxAddress <<= 2UL;
 
         u32Block = u32Address;
         u32Block >>= 6UL;

@@ -44,7 +44,7 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data,uint32_t u32Address, ui
     u32CountMax = u32CountActual + u32Count;
     u32Address &= ~(uint32_t) 0x7FUL;
 
-    if( (u32Address < FLASH_ADDRESS_MAX) && (u32CountMax <= 32UL) && (0UL != u32Count) )
+    if((u32Address < FLASH_ADDRESS_MAX) && (u32CountMax <= 32UL) && (0UL != u32Count) )
     {
         MCU__vWriteRegister( FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_R_OFFSET_MASK, 0UL);
         u32RegisterOffset = FLASH_FWBn_OFFSET;

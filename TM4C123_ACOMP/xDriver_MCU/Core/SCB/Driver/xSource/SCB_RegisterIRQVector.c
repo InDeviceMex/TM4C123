@@ -34,9 +34,9 @@ void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), void (**
     uint32_t* pu32BaseVector = 0UL;
     uint32_t u32IrqVectorHandler = 0UL;
 
-    if(0UL != (uint32_t)pfIrqVectorHandler)
+    if(0UL != (uint32_t) pfIrqVectorHandler)
     {
-        u32IrqVectorHandler = (uint32_t)pfIrqVectorHandler;
+        u32IrqVectorHandler = (uint32_t) pfIrqVectorHandler;
         u32IrqVectorHandler |= 1UL;
 
         u32BaseVector = MCU__u32ReadRegister( SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
@@ -69,15 +69,15 @@ void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector)
 {
     uint32_t u32BaseVector = SCB_VTOR_R;
 
-    if(u32BaseVector<=0x00010000U)
+    if(u32BaseVector <= 0x00010000U)
     {
         MCU__vDisGlobalInterrupt();
-        FLASH__enWrite((uint32_t)IntDefaultHandler|1,u32BaseVector+((uint32_t)enVector*4U));
+        FLASH__enWrite((uint32_t) IntDefaultHandler | 1,u32BaseVector+((uint32_t) enVector*4U));
         MCU__vEnGlobalInterrupt();
     }
-    else if((u32BaseVector>=0x20000000U) && (u32BaseVector<=0x20000400U) )
+    else if((u32BaseVector >= 0x20000000U) && (u32BaseVector <= 0x20000400U) )
     {
-        *((uint32_t*)u32BaseVector+(uint32_t)enVector)=(uint32_t)IntDefaultHandler|1;
+        *((uint32_t*)u32BaseVector+(uint32_t) enVector)=(uint32_t) IntDefaultHandler | 1;
     }
 }
 */

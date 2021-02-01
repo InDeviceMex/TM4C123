@@ -30,7 +30,7 @@ void DMA__vSetReady(DMA_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enUDMA;
     enModule = (DMA_nMODULE) MCU__u32CheckPatams( (uint32_t) enModule, (uint32_t) DMA_enMODULE_MAX);
-    enPeripheral|= enModule;
+    enPeripheral |= enModule;
     SYSCTL__vSetReady( enPeripheral);
 }
 void DMA__vReset(DMA_nMODULE enModule)

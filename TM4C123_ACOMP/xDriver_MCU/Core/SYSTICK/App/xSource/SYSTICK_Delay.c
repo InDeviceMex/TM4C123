@@ -33,12 +33,12 @@
 
     u64CountInitial -= u64CountDelta;
     u64CountCurrent = u64CountInitial;
-    while(((uint64_t)u64Count < (uint64_t)u64CountMax))
+    while(((uint64_t) u64Count < (uint64_t) u64CountMax))
     {
         u64CountCurrent = SysTick__u64GetTickAccumulated();
         if(u64CountCurrent >= u64CountInitial)
         {
-            u64Count =  (uint64_t) u64CountCurrent;
+            u64Count = (uint64_t) u64CountCurrent;
             u64Count -= (uint64_t) u64CountInitial;
         }
         else

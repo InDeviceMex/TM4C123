@@ -21,7 +21,7 @@ EEPROM_nSTATUS EEPROM__enWriteMultiAlt (void* pvData, uint32_t u32Address, uint1
     uint32_t *pu32DataAux = 0UL;
 
     u32MaxAddress = EEPROM__u32GetWorldCount();
-    u32MaxAddress  <<= 2UL;
+    u32MaxAddress <<= 2UL;
 
     if(0UL != (uint32_t) pvData)
     {
@@ -31,10 +31,10 @@ EEPROM_nSTATUS EEPROM__enWriteMultiAlt (void* pvData, uint32_t u32Address, uint1
         {
         case 0UL:
             pu8DataAux = (uint8_t*) pvData;
-            while((u32MaxAddress > u32Address) && (u16Count > (uint16_t)0UL) && (EEPROM_enOK == enReturn))
+            while((u32MaxAddress > u32Address) && (u16Count > (uint16_t) 0UL) && (EEPROM_enOK == enReturn))
             {
                 enReturn = EEPROM__enWriteByte( *pu8DataAux, u32Address);
-                pu8DataAux+=1UL;
+                pu8DataAux += 1UL;
                 u32Address += 1UL;
                 u16Count--;
             }

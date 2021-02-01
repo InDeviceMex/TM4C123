@@ -43,8 +43,8 @@ void DMA_CH__vSetEncoder(DMA_nCH_MODULE enChannel, DMA_nCH_ENCODER enChannelEnco
     u32RegisterOffset = DMA_DMACHMAP_OFFSET;
     u32RegisterOffset += u32ChannelReg;
 
-    u32ChannelPos =u32Channel % 8UL;
-    u32ChannelPos*= 4UL;
+    u32ChannelPos = u32Channel % 8UL;
+    u32ChannelPos *= 4UL;
 
     DMA__vWriteRegister(u32RegisterOffset, u32Encoder, 0xFUL, u32ChannelPos);
 }
@@ -68,7 +68,7 @@ DMA_nCH_ENCODER DMA_CH__enGetEncoder(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Channel = 0UL;
     uint32_t u32ChannelReg = 0UL;
-    uint32_t u32ChannelPos =  0UL;
+    uint32_t u32ChannelPos = 0UL;
     uint32_t u32Encoder = 0UL;
     uint32_t u32RegisterOffset = 0UL;
     DMA_nCH_ENCODER enChannelEncoder = DMA_enCH_ENCODER_UNDEF;
@@ -81,8 +81,8 @@ DMA_nCH_ENCODER DMA_CH__enGetEncoder(DMA_nCH_MODULE enChannel)
     u32RegisterOffset = DMA_DMACHMAP_OFFSET;
     u32RegisterOffset += u32ChannelReg;
 
-    u32ChannelPos =u32Channel % 8UL;
-    u32ChannelPos*= 4UL;
+    u32ChannelPos = u32Channel % 8UL;
+    u32ChannelPos *= 4UL;
 
     enStatus = DMA__enReadRegister(u32RegisterOffset, &u32Encoder, 0xFUL, u32ChannelPos);
 

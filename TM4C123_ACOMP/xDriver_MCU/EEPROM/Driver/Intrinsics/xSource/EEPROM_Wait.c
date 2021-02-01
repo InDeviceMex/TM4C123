@@ -68,7 +68,7 @@ EEPROM_nSTATUS EEPROM__enWait (void)
         {
             enReturn = EEPROM__enGetStatus();
             u32TimeOut--;
-        }while((EEPROM_enBUSY == (EEPROM_nSTATUS) enReturn) && ((uint32_t)0 != u32TimeOut));
+        }while((EEPROM_enBUSY == (EEPROM_nSTATUS) enReturn) && ((uint32_t) 0 != u32TimeOut));
     }
     return (EEPROM_nSTATUS) enReturn;
 }

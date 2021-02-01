@@ -6,7 +6,7 @@
  */
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_FreqBase.h>
 
-static uint32_t SysTick_u32FreqBase  = 0UL;
+static uint32_t SysTick_u32FreqBase = 0UL;
 
 void SysTick__vClearFreqBase(void)
 {

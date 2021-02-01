@@ -38,7 +38,7 @@ void DMA_CH__vSetAlternateSourceEndAddress(DMA_nCH_MODULE enChannel, uint32_t u3
 
 void DMA_CH__vSetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32SourceAddress)
 {
-    if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
+    if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
         DMA_CH__vSetPrimarySourceEndAddress( enChannel,u32SourceAddress);
     }
@@ -65,7 +65,7 @@ uint32_t DMA_CH__u32GetAlternateSourceEndAddress(DMA_nCH_MODULE enChannel)
 uint32_t DMA_CH__u32GetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
 {
     uint32_t u32Reg = 0UL;
-    if(DMA_enCH_CTL_PRIMARY ==  enChannelStructure)
+    if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
         u32Reg = DMA_CH__u32GetPrimarySourceEndAddress( enChannel);
     }

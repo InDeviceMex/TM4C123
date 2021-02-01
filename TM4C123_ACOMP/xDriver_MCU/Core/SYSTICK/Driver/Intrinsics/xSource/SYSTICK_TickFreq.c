@@ -10,7 +10,7 @@ static float32_t SysTick_fTickFreq = 0.0f;
 
 void SysTick__vClearTickFreq(void)
 {
-    SysTick_fTickFreq =  0.0f;
+    SysTick_fTickFreq = 0.0f;
 }
 
 void SysTick__vSetTickFreq(float32_t fTick)

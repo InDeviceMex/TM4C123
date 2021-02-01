@@ -41,7 +41,7 @@ static void DMA_CH__vSetPrimaryStructure(DMA_nCH_MODULE enChannel)
 
 void DMA_CH__vSetControlStructure(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelControlStructure)
 {
-    if( DMA_enCH_CTL_PRIMARY == enChannelControlStructure)
+    if(DMA_enCH_CTL_PRIMARY == enChannelControlStructure)
     {
         DMA_CH__vSetPrimaryStructure( enChannel);
     }

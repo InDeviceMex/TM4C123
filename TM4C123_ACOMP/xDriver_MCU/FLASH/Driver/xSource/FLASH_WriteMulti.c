@@ -98,7 +98,7 @@ static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Addr
     u32VariableSize <<= u32VariableType;
 
     u32AddressCurrent = u32Address;
-    u32AddressCurrent&= ~(uint32_t) (u32VariableSize - 1UL);
+    u32AddressCurrent &= ~(uint32_t) (u32VariableSize - 1UL);
 
     u32Offset = u32Count;
     u32Offset *= u32VariableSize;
@@ -164,11 +164,11 @@ static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Addr
                 for(u32Pos = 0UL; u32Pos < 8UL; u32Pos++)
                 {
                     enReturn = FLASH__enWriteBuf( pu32PageData, u32AddressPage, 32UL);
-                    if( FLASH_enERROR == enReturn)
+                    if(FLASH_enERROR == enReturn)
                     {
                         break;
                     }
-                    u32AddressPage += 0x80UL;/*32World = 4Bytes*32 =0x80=128*/
+                    u32AddressPage += 0x80UL;/*32World = 4Bytes*32 = 0x80=128*/
                     pu32PageData += 32UL;
                 }
                 u32AddressCurrent = u32AddressPage;

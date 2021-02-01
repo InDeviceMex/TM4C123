@@ -41,7 +41,7 @@ static void DMA_CH__vDisPeripheral(DMA_nCH_MODULE enChannel)
 
 void DMA_CH__vSetPeripheralEnable(DMA_nCH_MODULE enChannel, DMA_nCH_PERIPHERAL enChannelPeripheralEn)
 {
-    if( DMA_enCH_PERIPHERAL_ENA == enChannelPeripheralEn)
+    if(DMA_enCH_PERIPHERAL_ENA == enChannelPeripheralEn)
     {
         DMA_CH__vEnPeripheral( enChannel);
     }

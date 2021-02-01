@@ -41,7 +41,7 @@ static void DMA_CH__vSetHighPriority(DMA_nCH_MODULE enChannel)
 
 void DMA_CH__vSetPriority(DMA_nCH_MODULE enChannel, DMA_nCH_PRIO enDMAChannelPriority)
 {
-    if( DMA_enCH_PRIO_DEFAULT == enDMAChannelPriority)
+    if(DMA_enCH_PRIO_DEFAULT == enDMAChannelPriority)
     {
         DMA_CH__vSetDefaultPriority(enChannel);
     }

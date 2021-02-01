@@ -30,7 +30,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiAlt (void* pvData, uint32_t u32Address, uint16
         {
             enReturn = EEPROM_enOK;
             u32MaxAddress = EEPROM__u32GetWorldCount();
-            u32MaxAddress  <<= 2UL;
+            u32MaxAddress <<= 2UL;
             u32Offset <<= u32VariableType;
             switch (u32VariableType)
             {

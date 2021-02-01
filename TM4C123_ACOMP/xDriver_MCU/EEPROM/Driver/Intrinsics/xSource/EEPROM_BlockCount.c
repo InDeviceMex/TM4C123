@@ -27,7 +27,7 @@
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 /**
- * Max Number of 16 World Blocks (16*32bits) inside the EEPROM peripheral
+ * Max Number of 16 World Blocks (16 * 32bits) inside the EEPROM peripheral
  */
 static uint32_t EEPROM_u32BlockCount = 0UL;
 

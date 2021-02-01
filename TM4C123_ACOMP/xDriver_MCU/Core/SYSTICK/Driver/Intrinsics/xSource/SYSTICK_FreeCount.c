@@ -17,7 +17,7 @@ uint32_t SysTick__u32GetFreeCount(void)
 
 void SysTick__vClearFreeCount(void)
 {
-    SysTick_u32FreeCount = (uint32_t)0UL;
+    SysTick_u32FreeCount = (uint32_t) 0UL;
 }
 
 void SysTick__vSetFreeCount(uint32_t u32Count)
@@ -33,7 +33,7 @@ uint32_t SysTick__u32GetFreeCountOv(void)
 
 void SysTick__vClearFreeCountOv(void)
 {
-    SysTick_u32FreeCountOv = (uint32_t)0UL;
+    SysTick_u32FreeCountOv = (uint32_t) 0UL;
 }
 
 void SysTick__vSetFreeCountOv(uint32_t u32Count)

@@ -26,7 +26,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-uint32_t SCB_UsageFault_pu32Context[8UL] ={0UL};
+uint32_t SCB_UsageFault_pu32Context[8UL] = {0UL};
 
 void UsageFault__vIRQVectorHandler(void)
 {
@@ -38,7 +38,7 @@ void UsageFault__vIRQVectorHandler(void)
     " movw R2, SCB_UsageFault_pu32Context\n"
     " movt R2, SCB_UsageFault_pu32Context\n"
 #elif defined ( __GNUC__ )
-    " ldr R2, =SCB_UsageFault_pu32Context\n"
+    " ldr R2, = SCB_UsageFault_pu32Context\n"
 #endif
     " ldr R1, [R0, #0X0]\n"
     " str R1, [R2, #0x0]\n"/*SCB_UsageFault_pu32Context[0] R0*/
