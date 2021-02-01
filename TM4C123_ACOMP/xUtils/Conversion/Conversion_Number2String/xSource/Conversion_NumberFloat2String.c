@@ -37,8 +37,8 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
   char* cFni = "fni";
   char* cFni_ = "fni+";
   char* cCorrect = 0U;
-  size_t szLength  = 0U;
-  uint32_t  u32LengthIn  = 0U;
+  size_t szLength = 0U;
+  uint32_t  u32LengthIn = 0U;
   float64_t dDiff = 0.0;
   uint32_t u32Negative = 0U;
   CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
@@ -57,7 +57,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
   /* test for special values*/
   if (dValue < -DBL_MAX)
   {
-      enStatus =  Conv__enOutInversion(pvfOut, pcBufferOut, "fni-", u32Index, u32MaxLenght, 4U, pu32BufOutLenght, u32Width, u32flags);
+      enStatus = Conv__enOutInversion(pvfOut, pcBufferOut, "fni-", u32Index, u32MaxLenght, 4U, pu32BufOutLenght, u32Width, u32flags);
   }
   else if (dValue > DBL_MAX)
   {
@@ -71,7 +71,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
           u32LengthIn = 3U;
           cCorrect = cFni;
       }
-      enStatus =  Conv__enOutInversion(pvfOut, pcBufferOut,cCorrect, u32Index, u32MaxLenght,u32LengthIn, pu32BufOutLenght, u32Width, u32flags);
+      enStatus = Conv__enOutInversion(pvfOut, pcBufferOut,cCorrect, u32Index, u32MaxLenght,u32LengthIn, pu32BufOutLenght, u32Width, u32flags);
   }
  else
  {
@@ -81,7 +81,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
        */
       if ((dValue > CONV_MAX_VALUE_FLOAT) || (dValue < -CONV_MAX_VALUE_FLOAT))
       {
-          enStatus =   Conv__enNumber2String_Exponential(pvfOut, pcBufferOut,dValue, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
+          enStatus = Conv__enNumber2String_Exponential(pvfOut, pcBufferOut,dValue, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
       }
       else
       {
@@ -106,20 +106,20 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
           }
 
           s64ValueComplete = (int64_t) dValue;
-          dValueTemp2 = (float64_t)s64ValueComplete;
+          dValueTemp2 = (float64_t) s64ValueComplete;
           dValueTemp = dValue;
           dValueTemp -= dValueTemp2;
           dValueTemp *= dPow10[u32Prec];
 
-          u64Fractional = (uint64_t)dValueTemp;
+          u64Fractional = (uint64_t) dValueTemp;
           dDiff = dValueTemp;
-          dDiff -= (float64_t)u64Fractional;
+          dDiff -= (float64_t) u64Fractional;
 
           if (0.5 < dDiff )
           {
             u64Fractional++;
             /* handle rollover, e.g. case 0.99 with u32Prec 1 is 1.0*/
-            if (u64Fractional >= (uint64_t)dPow10[u32Prec])
+            if (u64Fractional >= (uint64_t) dPow10[u32Prec])
             {
               u64Fractional = 0U;
               s64ValueComplete++;
@@ -138,7 +138,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
           if (0U == u32Prec )
           {
             dDiff = dValue;
-            dDiff -= (float64_t)s64ValueComplete;
+            dDiff -= (float64_t) s64ValueComplete;
             if(0.5 > dDiff)
             {
                 u64DiffCompare = 0U;
@@ -157,11 +157,10 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
                 u64DiffCompare2 = 0U;
             }
 
-            if (( u64DiffCompare || u64DiffCompare2 ) && (0U != ((uint64_t)s64ValueComplete & (uint64_t)1)))
+            if (( u64DiffCompare || u64DiffCompare2 ) && (0U != ((uint64_t) s64ValueComplete & (uint64_t) 1)))
             {
               /* exactly 0.5 and ODD, then round up
-               *1.5 -> 2, but 2.5 -> 2
-               *1.5 */
+               *1.5 -> 2, but 2.5 -> 2 * 1.5 */
               s64ValueComplete++;
             }
           }

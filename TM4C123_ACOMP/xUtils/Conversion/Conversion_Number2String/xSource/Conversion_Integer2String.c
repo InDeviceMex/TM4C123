@@ -24,14 +24,13 @@
 #include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Integer2String.h>
 
-#define INT2STRINGMAX   (21U)
+#define INT2STRINGMAX    (21U)
 
-static const char Conversion_pc8Decimal[10]=
-{
+static const char Conversion_pc8Decimal[10] = {
  '0','1','2','3','4','5','6','7','8','9'
 };
 
-static char CONV_pcConvTemp[30]={0}; /*longitud maxima de long 12 digitos con signo*/
+static char CONV_pcConvTemp[30] = {0UL}; /*longitud maxima de long 12 digitos con signo*/
 
 /*ToDo review Conv__u8DInt2String*/
 uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Padding0,uint8_t u8Deci, char* pcConv)
@@ -53,12 +52,12 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
     pcPointerActual = &CONV_pcConvTemp[21 - 1];/*empezamos llenando desde la ultima posicion*/
     *pcPointerActual = (char) 0;/*guarda el fin de cadena en la ultima posicion*/
 
-    if (u8Deci>(uint8_t)19)
+    if (u8Deci>(uint8_t) 19)
     {
-        u8Deci=(uint8_t)19;
+        u8Deci=(uint8_t) 19;
     }
     do {
-        pcPointerActual-=1U;/*se decrementa la posicion donse guardara el valor*/
+        pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
         s8Num=(int8_t) (s64NumberReg % 10);/*obtiene el digito de menor peso*/
         if(s8Num<0)
         {
@@ -73,7 +72,7 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
         {
             u8Comp1=0U;
         }
-        if(0u == u8DeciActual)
+        if(0UL == u8DeciActual)
         {
             u8Comp2=1U;
         }
@@ -81,11 +80,11 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
         {
             u8Comp2=0U;
         }
-        u8Comp1|=u8Comp2;
-        if ((uint8_t)1 == u8Comp1)
+        u8Comp1 |= u8Comp2;
+        if ((uint8_t) 1 == u8Comp1)
         {
             s8CharAux=s8Num;
-            s8CharAux+=(int8_t)'0';
+            s8CharAux += (int8_t) '0';
             *pcPointerActual = (char)s8CharAux;
             u8DeciActual++;
         }
@@ -123,34 +122,34 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
     {
         if ( s64Number < 0)
         {
-            pcPointerActual-=1U;
+            pcPointerActual -= 1U;
             *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/
         }
         else if (u8Positive)
         {
-            pcPointerActual-=1U;
+            pcPointerActual -= 1U;
             *pcPointerActual = '+';/*si el s32Numero es negativo guarda el signo negativo*/
         }
         else{}
     }
-    u32ResultAux=((uint32_t)&CONV_pcConvTemp[21 - 1]);
-    s64NumberReg=(int64_t)u32ResultAux;
-    s64NumberReg+=1;
-    u32ResultAux=((uint32_t)pcPointerActual);
-    s64NumberReg-=(int64_t)u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
+    u32ResultAux=((uint32_t) &CONV_pcConvTemp[21 - 1]);
+    s64NumberReg=(int64_t) u32ResultAux;
+    s64NumberReg += 1;
+    u32ResultAux=((uint32_t) pcPointerActual);
+    s64NumberReg -= (int64_t) u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
 
     pcConvAux = pcConv;
-    pcConvAux += (uint8_t)s64NumberReg;
+    pcConvAux += (uint8_t) s64NumberReg;
     pcPointerActualAux=pcPointerActual;
-    pcPointerActualAux+=(uint8_t)s64NumberReg;
-    for (s8I = (int8_t) (s64NumberReg-1); s8I>= (int8_t)0; s8I--) /*hace un ciclo burbuja optimizado*/
+    pcPointerActualAux += (uint8_t) s64NumberReg;
+    for (s8I = (int8_t) (s64NumberReg-1); s8I >= (int8_t) 0; s8I--) /*hace un ciclo burbuja optimizado*/
     {
-          pcConvAux-=1U;
-          pcPointerActualAux-=1U;
+          pcConvAux -= 1U;
+          pcPointerActualAux -= 1U;
          *pcConvAux= *pcPointerActualAux;
     }
-    s32Result=(int32_t)s64NumberReg;
-    s32Result-=1;
+    s32Result=(int32_t) s64NumberReg;
+    s32Result -= 1;
     return (uint8_t) (s32Result);
 }
 
@@ -168,44 +167,44 @@ uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
     uint32_t u32ResultAux=0;
 
     *pcPointerActual = (char)0;/*guarda el fin de cadena en la ultima posicion*/
-    if( s64NumberReg < 0)
+    if(s64NumberReg < 0)
     {
         s64NumberReg*=-1;
         s8FlagSign=1;
     }
 
     do {
-        pcPointerActual-=1U;/*se decrementa la posicion donse guardara el valor*/
+        pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
         s64NumberRegAlt = s64NumberReg;
-        s64NumberRegAlt%=(int64_t)10;
-        u8Num=(uint8_t)s64NumberRegAlt;/*obtiene el digito de menor peso*/
-        *pcPointerActual =(char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
+        s64NumberRegAlt%=(int64_t) 10;
+        u8Num=(uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
+        *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s64NumberReg /= 10;
         pcPointerActualAux=CONV_pcConvTemp;
-        pcPointerActualAux+=s8FlagSign;
-    }   while((s64NumberReg!=0)&&(pcPointerActual>(pcPointerActualAux)));/*mientras exista un digito sigue el ciclo*/
+        pcPointerActualAux += s8FlagSign;
+    }   while((s64NumberReg != 0) && (pcPointerActual>(pcPointerActualAux)));/*mientras exista un digito sigue el ciclo*/
 
-    if (s8FlagSign==1)
+    if (s8FlagSign == 1)
     {
-        pcPointerActual-=1U;
+        pcPointerActual -= 1U;
         *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/
     }
-    u32ResultAux= ((uint32_t)CONV_pcConvTemp);
-    s64NumberReg=(int64_t)u32ResultAux;
-    s64NumberReg+=(int64_t)INT2STRINGMAX;
-    s64NumberReg-=1;
-    u32ResultAux=((uint32_t)pcPointerActual);
-    s64NumberReg-=(int64_t)u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
+    u32ResultAux= ((uint32_t) CONV_pcConvTemp);
+    s64NumberReg=(int64_t) u32ResultAux;
+    s64NumberReg += (int64_t) INT2STRINGMAX;
+    s64NumberReg -= 1;
+    u32ResultAux=((uint32_t) pcPointerActual);
+    s64NumberReg -= (int64_t) u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
 
-    pcConvAux =pcConv;
-    pcConvAux+=s64NumberReg;
+    pcConvAux = pcConv;
+    pcConvAux += s64NumberReg;
     pcPointerActualAux=pcPointerActual;
-    pcPointerActualAux+=s64NumberReg;
-    for (s8I = (int8_t)s64NumberReg; s8I>= (int8_t)0; s8I--) /*hace un ciclo burbuja optimizado*/
+    pcPointerActualAux += s64NumberReg;
+    for (s8I = (int8_t) s64NumberReg; s8I >= (int8_t) 0; s8I--) /*hace un ciclo burbuja optimizado*/
     {
         *pcConvAux= *pcPointerActualAux;
-        pcConvAux-=1U;
-        pcPointerActualAux-=1U;
+        pcConvAux -= 1U;
+        pcPointerActualAux -= 1U;
     }
 
     return (uint8_t) s64NumberReg;
@@ -225,65 +224,65 @@ uint8_t Conv__u8Int2StringZeros(int64_t s64Number,int8_t s8CerosLeft, char* pcCo
     int8_t  s8FlagSign=0;
     uint32_t u32ResultAux=0;
 
-    if(s8CerosLeft>(int8_t)(INT2STRINGMAX-2U))
+    if(s8CerosLeft>(int8_t) (INT2STRINGMAX-2U))
     {
-        s8CerosLeft=(int8_t)(INT2STRINGMAX-2U);
+        s8CerosLeft=(int8_t) (INT2STRINGMAX-2U);
     }
 
     *pcPointerActual = (char)0;/*guarda el fin de cadena en la ultima posicion*/
-    if( s64NumberReg < 0)
+    if(s64NumberReg < 0)
     {
         s64NumberReg*=-1;
         s8FlagSign=1;
     }
 
     pcPointerActualAux=CONV_pcConvTemp;
-    pcPointerActualAux+=s8FlagSign;
+    pcPointerActualAux += s8FlagSign;
 
     do {
-        pcPointerActual-=1U;/*se decrementa la posicion donse guardara el valor*/
+        pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
 
         s64NumberRegAlt = s64NumberReg;
-        s64NumberRegAlt%=(int64_t)10;
-        u8Num=(uint8_t)s64NumberRegAlt;/*obtiene el digito de menor peso*/
+        s64NumberRegAlt%=(int64_t) 10;
+        u8Num=(uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s8CerosLeft--;
         s64NumberReg /= 10;
 
-    }  while((s64NumberReg!=0)&&(pcPointerActual>(pcPointerActualAux)));/*mientras exista un digito sigue el ciclo*/
+    }  while((s64NumberReg != 0) && (pcPointerActual>(pcPointerActualAux)));/*mientras exista un digito sigue el ciclo*/
 
     pcPointerActualAux=CONV_pcConvTemp;
-    pcPointerActualAux+=s8FlagSign;
+    pcPointerActualAux += s8FlagSign;
     while((pcPointerActual>(pcPointerActualAux)) && (s8CerosLeft>0))
     {
-        pcPointerActual-=1U;
-        *pcPointerActual ='0';
+        pcPointerActual -= 1U;
+        *pcPointerActual = '0';
         s8CerosLeft--;
     }
-    if (s8FlagSign==1)
+    if (s8FlagSign == 1)
     {
-        pcPointerActual-=1U;
+        pcPointerActual -= 1U;
         *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/
     }
-    u32ResultAux= ((uint32_t)CONV_pcConvTemp);
-    s64NumberReg=(int64_t)u32ResultAux;
-    s64NumberReg+=(int64_t)INT2STRINGMAX;
-    s64NumberReg-=1;
-    u32ResultAux = ((uint32_t)pcPointerActual);
-    s64NumberReg-=(int64_t)u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
+    u32ResultAux= ((uint32_t) CONV_pcConvTemp);
+    s64NumberReg=(int64_t) u32ResultAux;
+    s64NumberReg += (int64_t) INT2STRINGMAX;
+    s64NumberReg -= 1;
+    u32ResultAux = ((uint32_t) pcPointerActual);
+    s64NumberReg -= (int64_t) u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
 
-    pcConvAux =pcConv;
-    pcConvAux+=s64NumberReg;
+    pcConvAux = pcConv;
+    pcConvAux += s64NumberReg;
     pcPointerActualAux=pcPointerActual;
-    pcPointerActualAux+=s64NumberReg;
-    for (s8I = (int8_t) s64NumberReg; s8I>= (int8_t)0; s8I--) /*hace un ciclo burbuja optimizado*/
+    pcPointerActualAux += s64NumberReg;
+    for (s8I = (int8_t) s64NumberReg; s8I >= (int8_t) 0; s8I--) /*hace un ciclo burbuja optimizado*/
     {
         *pcConvAux= *pcPointerActualAux;
-        pcConvAux-=1U;
-        pcPointerActualAux-=1U;
+        pcConvAux -= 1U;
+        pcPointerActualAux -= 1U;
     }
 
-    return (uint8_t)s64NumberReg;
+    return (uint8_t) s64NumberReg;
 
 }
 

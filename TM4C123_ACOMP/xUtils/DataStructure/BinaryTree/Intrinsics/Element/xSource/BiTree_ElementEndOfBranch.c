@@ -30,7 +30,7 @@ BiTree_nSTATUS BiTree__enIsElementEndOfBranch(const BiTreeElement_TypeDef* const
 {
     BiTree_nSTATUS enStatusReg = BiTree_enSTATUS_ERROR;
 
-    if((uint32_t)0UL == (uint32_t)psElement)
+    if((uint32_t) 0UL == (uint32_t) psElement)
     {
         enStatusReg = BiTree_enSTATUS_OK;
     }

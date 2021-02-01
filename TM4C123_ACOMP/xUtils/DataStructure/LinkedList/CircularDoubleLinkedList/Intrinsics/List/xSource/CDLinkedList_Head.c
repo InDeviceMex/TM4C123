@@ -41,7 +41,7 @@ CDLinkedList_nSTATUS CDLinkedList__enIsHead(const CDLinkedList_TypeDef* const ps
     CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
     CDLinkedListElement_TypeDef* psListHead = (CDLinkedListElement_TypeDef*)0UL;
     psListHead = CDLinkedList__psGetHead(psList);
-    if ((uint32_t)psElement == (uint32_t)(psListHead))
+    if ((uint32_t) psElement == (uint32_t) (psListHead))
     {
         enStatus = CDLinkedList_enSTATUS_OK;
     }

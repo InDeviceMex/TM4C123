@@ -37,11 +37,11 @@ typedef struct OAHashTable {
 
     uint32_t u32Positions;
     void*  pvVacated;
-    uint32_t (*pfu32HashFunction1)(const void *pcvKey);
-    uint32_t (*pfu32HashFunction2)(const void *pcvKey);
-    uint32_t  (*pfu32Match)(const void *pcvKey1, const void *pcvKey2);
-    void  (*pfvDestroyElementData)(void *DataContainer);
-    void  (*pfvDestroy)(void* Hash);
+    uint32_t (*pfu32HashFunction1) (const void *pcvKey);
+    uint32_t (*pfu32HashFunction2) (const void *pcvKey);
+    uint32_t    (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
+    void    (*pfvDestroyElementData) (void *DataContainer);
+    void    (*pfvDestroy) (void* Hash);
     uint32_t u32Size;
     void ** pvTable;
 } OAHashTable_TypeDef;

@@ -29,16 +29,16 @@ CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn,char* const pcPoint
     uint8_t u8I=0;
     const char* pcPointerInAux=0U;
     char* pcPointerOutAux=0U;
-    if(((uint32_t)0!=(uint32_t)pcPointerIn) && ((uint32_t)0!=(uint32_t)pcPointerOut))
+    if(((uint32_t) 0 != (uint32_t) pcPointerIn) && ((uint32_t) 0 != (uint32_t) pcPointerOut))
     {
         enStatus= CONV_enSTATUS_OK;
         pcPointerOutAux=pcPointerOut;
         pcPointerInAux=pcPointerIn;
-        for (u8I = 0U; u8I<=u8Length; u8I++) /*hace un ciclo burbuja optimizado*/
+        for (u8I = 0U; u8I <= u8Length; u8I++) /*hace un ciclo burbuja optimizado*/
         {
             *pcPointerOutAux= *pcPointerInAux;
-            pcPointerOutAux+=1U;
-            pcPointerInAux+=1U;
+            pcPointerOutAux += 1U;
+            pcPointerInAux += 1U;
         }
     }
     return enStatus;
@@ -53,13 +53,10 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
     const uint32_t u32StartIndex = u32Index;
 
 
-    if(    ((uint32_t)0U != (uint32_t)pvBufferOut) &&
-            ((uint32_t)0U != (uint32_t)pvBufferIn) &&
-            ((uint32_t)0U !=(uint32_t)pvfOut))
+    if(((uint32_t) 0U != (uint32_t) pvBufferOut) && ((uint32_t) 0U != (uint32_t) pvBufferIn) && ((uint32_t) 0U != (uint32_t) pvfOut))
     {
         enStatus= CONV_enSTATUS_OK;
-        if ((0U == (u32flags & (uint32_t)CONV_enFLAGS_LEFT)) &&
-             (0U == (u32flags & (uint32_t)CONV_enFLAGS_ZEROPAD)))
+        if ((0U == (u32flags & (uint32_t) CONV_enFLAGS_LEFT)) && (0U == (u32flags & (uint32_t) CONV_enFLAGS_ZEROPAD)))
         {
             for (u32Pos = u32BufInLenght; u32Pos<u32Width; u32Pos++) /*hace un ciclo burbuja optimizado*/
             {
@@ -68,16 +65,16 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
             }
         }
         pcBufferTemp = pvBufferIn;
-        pcBufferTemp +=u32BufInLenght;
+        pcBufferTemp += u32BufInLenght;
         while(0U != u32BufInLenght)
         {
             u32BufInLenght--;
-            pcBufferTemp-= 1U;
+            pcBufferTemp -= 1U;
             pvfOut(*pcBufferTemp,pvBufferOut,u32Index,u32MaxLenght);
             u32Index++;
         }
 
-        if ( (uint32_t)CONV_enFLAGS_LEFT == (u32flags & (uint32_t)CONV_enFLAGS_LEFT))
+        if ( (uint32_t) CONV_enFLAGS_LEFT == (u32flags & (uint32_t) CONV_enFLAGS_LEFT))
         {
             while ((u32Index - u32StartIndex) < u32Width)
             {

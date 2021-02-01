@@ -41,7 +41,7 @@ CSLinkedList_nSTATUS CSLinkedList__enIsTail(const CSLinkedList_TypeDef*  const p
     CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
     CSLinkedListElement_TypeDef* psListTail = (CSLinkedListElement_TypeDef*) 0UL;
     psListTail = CSLinkedList__psGetTail(psList);
-    if ((uint32_t)psListTail == (uint32_t)psElement)
+    if ((uint32_t) psListTail == (uint32_t) psElement)
     {
         enStatus = CSLinkedList_enSTATUS_OK;
     }

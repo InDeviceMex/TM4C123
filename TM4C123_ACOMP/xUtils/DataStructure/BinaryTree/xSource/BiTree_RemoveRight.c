@@ -34,16 +34,16 @@
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
      BiTreeElement_TypeDef** psElementPosition= (BiTreeElement_TypeDef**) 0UL ;
-     void  (*pfvDestroyData)(void *DataContainer) = (void  (*)(void *DataContainer)) 0UL;
+     void    (*pfvDestroyData) (void *DataContainer) = (void    (*) (void *DataContainer)) 0UL;
      uint32_t u32SizeReg = 0UL;
 
-     if((uint32_t)0UL != (uint32_t)psTree)
+     if((uint32_t) 0UL != (uint32_t) psTree)
      {
          u32SizeReg = BiTree__u32GetSize(psTree);
          if(0UL != u32SizeReg)
          {
 
-             if((uint32_t)0UL == (uint32_t)psElement)
+             if((uint32_t) 0UL == (uint32_t) psElement)
              {
                  psElementPosition = &psTree->psRoot;
              }
@@ -52,14 +52,14 @@
                  psElementPosition = &psElement->psRightNode;
              }
 
-             if((uint32_t)0UL != (uint32_t)*psElementPosition)
+             if((uint32_t) 0UL != (uint32_t) *psElementPosition)
              {
                  enStatus = BiTree_enSTATUS_OK;
 
                  BiTree__enRemoveLeft(psTree,*psElementPosition);
                  BiTree__enRemoveRight(psTree,*psElementPosition);
                  pfvDestroyData = psTree->pfvDestroyElementData;
-                 if((uint32_t)0UL != (uint32_t)pfvDestroyData)
+                 if((uint32_t) 0UL != (uint32_t) pfvDestroyData)
                  {
                      pfvDestroyData((*psElementPosition)->pvDataContainer);
                  }

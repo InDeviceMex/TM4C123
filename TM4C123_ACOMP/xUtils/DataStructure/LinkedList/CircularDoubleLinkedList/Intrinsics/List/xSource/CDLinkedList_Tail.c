@@ -39,7 +39,7 @@ void CDLinkedList__vSetTail(CDLinkedList_TypeDef* psList, CDLinkedListElement_Ty
 CDLinkedList_nSTATUS CDLinkedList__enIsTail(const CDLinkedListElement_TypeDef* const psElement)
 {
     CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
-    if ((uint32_t)0UL == (uint32_t)(psElement->psNextNode))
+    if ((uint32_t) 0UL == (uint32_t) (psElement->psNextNode))
     {
         enStatus = CDLinkedList_enSTATUS_OK;
     }

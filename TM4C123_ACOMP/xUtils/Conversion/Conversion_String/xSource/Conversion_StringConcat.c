@@ -27,21 +27,21 @@
 char* CONV_pcStringConcat(char*  pcStringInitial, const char* pcStringConcat, uint32_t u32MaxSize)
 {
     char* pcStringReg = pcStringInitial;
-    if(((uint32_t)0U != (uint32_t)pcStringConcat) && ((uint32_t)0U != (uint32_t)pcStringInitial))
+    if(((uint32_t) 0U != (uint32_t) pcStringConcat) && ((uint32_t) 0U != (uint32_t) pcStringInitial))
     {
-        while(((char)0!=(char) *pcStringReg) && ((uint32_t)0!=(uint32_t)u32MaxSize))
+        while(((char)0 != (char) *pcStringReg) && ((uint32_t) 0 != (uint32_t) u32MaxSize))
         {
             pcStringReg += 1U;
             u32MaxSize--;
         }
-        while(((char)0!=(char) *pcStringConcat) && ((uint32_t)0!=(uint32_t)u32MaxSize))
+        while(((char)0 != (char) *pcStringConcat) && ((uint32_t) 0 != (uint32_t) u32MaxSize))
         {
             *pcStringReg = *pcStringConcat;
             pcStringConcat += 1U;
             pcStringReg += 1U;
             u32MaxSize--;
         }
-        if((uint32_t)0 != (uint32_t)u32MaxSize)
+        if((uint32_t) 0 != (uint32_t) u32MaxSize)
         {
             *pcStringReg = '\0';
         }

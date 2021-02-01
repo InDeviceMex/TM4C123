@@ -41,7 +41,7 @@ CSLinkedList_nSTATUS CSLinkedList__enIsHead(const CSLinkedList_TypeDef* const ps
     CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
     CSLinkedListElement_TypeDef* psListHead = (CSLinkedListElement_TypeDef*)0UL;
     psListHead = CSLinkedList__psGetHead(psList);
-    if ((uint32_t)psElement == (uint32_t)(psListHead))
+    if ((uint32_t) psElement == (uint32_t) (psListHead))
     {
         enStatus = CSLinkedList_enSTATUS_OK;
     }

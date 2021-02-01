@@ -36,13 +36,13 @@ BiTreeElement_TypeDef* BiTree__psInsertRight(BiTree_TypeDef* psTree, BiTreeEleme
      BiTreeElement_TypeDef** psElementPosition= (BiTreeElement_TypeDef**) 0UL ;
      uint32_t u32SizeReg = 0U;
 
-     if(((uint32_t)0UL != (uint32_t)psTree))
+     if(((uint32_t) 0UL != (uint32_t) psTree))
      {
          u32SizeReg = BiTree__u32GetSize(psTree);
          /*Insert at the root if the Tree is empty*/
-         if((uint32_t)0UL == (uint32_t)psElement)
+         if((uint32_t) 0UL == (uint32_t) psElement)
          {
-             if((uint32_t)0UL == (uint32_t)u32SizeReg)
+             if((uint32_t) 0UL == (uint32_t) u32SizeReg)
              {
                  psElementPosition = &psTree->psRoot;
              }
@@ -51,25 +51,25 @@ BiTreeElement_TypeDef* BiTree__psInsertRight(BiTree_TypeDef* psTree, BiTreeEleme
          else
          {
              psElementRight = BiTree__psGetElementRightNode(psElement);
-             if((uint32_t)0UL == (uint32_t)psElementRight)
+             if((uint32_t) 0UL == (uint32_t) psElementRight)
              {
                  psElementPosition = &psElement->psRightNode;
              }
          }
 
         #if defined ( __TI_ARM__ )
-         psNewElement = (BiTreeElement_TypeDef*) memalign((size_t)4,(size_t)sizeof(BiTreeElement_TypeDef));
+         psNewElement = (BiTreeElement_TypeDef*) memalign((size_t) 4,(size_t) sizeof(BiTreeElement_TypeDef));
         #elif defined ( __GNUC__ )
          psNewElement = (BiTreeElement_TypeDef*) malloc(sizeof(BiTreeElement_TypeDef));
         #endif
 
-        if((uint32_t)0UL != (uint32_t)psNewElement)
+        if((uint32_t) 0UL != (uint32_t) psNewElement)
         {
 
             BiTree__vSetElementData(psNewElement, pvData);
             BiTree__vSetElementRightNode(psNewElement, (BiTreeElement_TypeDef*) 0UL);
             BiTree__vSetElementRightNode(psNewElement, (BiTreeElement_TypeDef*) 0UL);
-            if((uint32_t)0UL != (uint32_t)psElementPosition)
+            if((uint32_t) 0UL != (uint32_t) psElementPosition)
             {
                 *psElementPosition = psNewElement;
             }

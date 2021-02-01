@@ -37,7 +37,7 @@ CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* psCHashTable, void* 
     uint32_t u32SizeReg = 0UL;
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
 
-    if((uint32_t)0UL != (uint32_t)psCHashTable)
+    if((uint32_t) 0UL != (uint32_t) psCHashTable)
     {
         pvDataTemp = (void*)pvData;
         enMatchResult = CHashTable__enLookup(psCHashTable, &pvDataTemp);
@@ -49,7 +49,7 @@ CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* psCHashTable, void* 
             psList = psCHashTable->psTable;
             psList += u32BucketNum;
             psElement = SLinkedList__psAddBegin(psList, pvData);
-            if((uint32_t)0UL != (uint32_t)psElement)
+            if((uint32_t) 0UL != (uint32_t) psElement)
             {
                 u32SizeReg = CHashTable__u32GetSize(psCHashTable);
                 u32SizeReg++;

@@ -35,7 +35,7 @@ OAHashTable_nSTATUS OAHashTable__enRemove(OAHashTable_TypeDef* psOAHashTable, vo
     uint32_t u32Iteration = 0UL;
     OAHashTable_nSTATUS enMatchResult = OAHashTable_enSTATUS_ERROR;
 
-    if(((uint32_t)0UL != (uint32_t)psOAHashTable) && ((uint32_t)0UL != (uint32_t)pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
         u32PositionSize = psOAHashTable->u32Positions;
         pvVacatedReg = psOAHashTable->pvVacated;
@@ -49,18 +49,18 @@ OAHashTable_nSTATUS OAHashTable__enRemove(OAHashTable_TypeDef* psOAHashTable, vo
 
             pvElementData = psOAHashTable->pvTable;
             pvElementData += u32PositionNum;
-            if((uint32_t)0UL == (uint32_t)(*pvElementData))
+            if((uint32_t) 0UL == (uint32_t) (*pvElementData))
             {
                 break;
             }
-            else  if((uint32_t)(*pvElementData) == (uint32_t)pvVacatedReg)
+            else  if((uint32_t) (*pvElementData) == (uint32_t) pvVacatedReg)
             {
                 /*Do nothing*/
             }
             else
             {
                 enMatchResult = (OAHashTable_nSTATUS) psOAHashTable->pfu32Match((*pvElementData), *pvData);
-                if(OAHashTable_enSTATUS_OK  == enMatchResult)
+                if(OAHashTable_enSTATUS_OK == enMatchResult)
                 {
                     *pvData = *pvElementData;
                     *pvElementData = pvVacatedReg;

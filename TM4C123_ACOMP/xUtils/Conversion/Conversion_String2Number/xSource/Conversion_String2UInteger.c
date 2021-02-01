@@ -33,20 +33,20 @@ int32_t Conv__s32String2UInteger(const char** pcString,uint64_t* pu64NumUnsigned
 {
     int32_t s32Length=CONV_enNAN;
     uint64_t u64NumUnsignedTemp = 0U;
-    CONV_nDIGIT enDigit =CONV_enDIGIT_NO;
+    CONV_nDIGIT enDigit = CONV_enDIGIT_NO;
     uint8_t  u8ValueAux=0;
 
-    if(((uint32_t)0U != (uint32_t)pcString)&& ((uint32_t)0U != (uint32_t)pu64NumUnsigned))
+    if(((uint32_t) 0U != (uint32_t) pcString) && ((uint32_t) 0U != (uint32_t) pu64NumUnsigned))
     {
         s32Length = 0;
         enDigit = Conv__enIsDigit(**pcString);
         while (CONV_enDIGIT_OK == enDigit)
         {
-            u64NumUnsignedTemp *=  10U;
-            u8ValueAux = (uint8_t)(**pcString);
-            u8ValueAux-=(uint8_t)'0';
-            u64NumUnsignedTemp+=u8ValueAux;
-            (*pcString)+= 1U;
+            u64NumUnsignedTemp *= 10U;
+            u8ValueAux = (uint8_t) (**pcString);
+            u8ValueAux -= (uint8_t) '0';
+            u64NumUnsignedTemp += u8ValueAux;
+            (*pcString) += 1U;
             s32Length++;
             enDigit = Conv__enIsDigit(**pcString);
         }

@@ -36,7 +36,7 @@ CHashTable_nSTATUS CHashTable__enLookup(const CHashTable_TypeDef* psCHashTable, 
     uint32_t u32BucketNum = 0UL;
     uint32_t u32BucketsSize = 0UL;
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
-    if(((uint32_t)0UL != (uint32_t)psCHashTable) && ((uint32_t)0UL != (uint32_t)pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) psCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
         u32BucketsSize = psCHashTable->u32Buckets;
         u32BucketNum = psCHashTable->pfu32HashFunction(* pvData);
@@ -45,7 +45,7 @@ CHashTable_nSTATUS CHashTable__enLookup(const CHashTable_TypeDef* psCHashTable, 
         psList = psCHashTable->psTable;
         psList += u32BucketNum;
         psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t)0UL != (uint32_t)psElement)
+        while((uint32_t) 0UL != (uint32_t) psElement)
         {
             pvElementData = SLinkedList__pvGetElementData(psElement);
             enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData,(const void*)pvElementData);
@@ -72,7 +72,7 @@ void* CHashTable__pvLookup(const CHashTable_TypeDef* psCHashTable, const void* c
     uint32_t u32BucketNum = 0UL;
     uint32_t u32BucketSize = 0UL;
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
-    if(((uint32_t)0UL != (uint32_t)psCHashTable) && ((uint32_t)0UL != (uint32_t)pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) psCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
         u32BucketSize = psCHashTable->u32Buckets;
         u32BucketNum = psCHashTable->pfu32HashFunction(* pvData);
@@ -81,10 +81,10 @@ void* CHashTable__pvLookup(const CHashTable_TypeDef* psCHashTable, const void* c
         psList = psCHashTable->psTable;
         psList += u32BucketNum;
         psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t)0UL != (uint32_t)psElement)
+        while((uint32_t) 0UL != (uint32_t) psElement)
         {
             pvElementData = SLinkedList__pvGetElementData(psElement);
-            enMatchResult =  (CHashTable_nSTATUS) psCHashTable->pfu32Match(*pvData,pvElementData);
+            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match(*pvData,pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
                 pvElementReturn = pvElementData;

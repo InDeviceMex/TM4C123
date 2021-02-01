@@ -26,17 +26,17 @@
 
 int32_t CONV_s32StringCompare(const char*  pcString1, const char* pcString2, uint32_t u32MaxSize)
 {
-    int32_t s32Result =0;
-    if(((uint32_t)0U != (uint32_t)pcString2) && ((uint32_t)0U != (uint32_t)pcString1))
+    int32_t s32Result = 0;
+    if(((uint32_t) 0U != (uint32_t) pcString2) && ((uint32_t) 0U != (uint32_t) pcString1))
     {
-        while(((char)0!=(char) *pcString1) && ((char)0!=(char) *pcString2) && ((uint32_t)0!=(uint32_t)u32MaxSize))
+        while(((char)0 != (char) *pcString1) && ((char)0 != (char) *pcString2) && ((uint32_t) 0 != (uint32_t) u32MaxSize))
         {
-            if ( (uint8_t)*pcString1 > (uint8_t)*pcString2)
+            if ( (uint8_t) *pcString1 > (uint8_t) *pcString2)
             {
                 s32Result = 1;
                 break;
             }
-            else if ( (uint8_t)*pcString1 < (uint8_t)*pcString2)
+            else if ( (uint8_t) *pcString1 < (uint8_t) *pcString2)
             {
                 s32Result = -1;
                 break;
@@ -47,13 +47,13 @@ int32_t CONV_s32StringCompare(const char*  pcString1, const char* pcString2, uin
             pcString1 += 1U;
             u32MaxSize--;
         }
-        if((0 == s32Result) && ((uint32_t)0 != (uint32_t)u32MaxSize))
+        if((0 == s32Result) && ((uint32_t) 0 != (uint32_t) u32MaxSize))
         {
-            if( (char)0 != (char)*pcString2 )
+            if((char)0 != (char)*pcString2 )
             {
                 s32Result = -1;
             }
-            else if( (char)0 != (char)*pcString1 )
+            else if((char)0 != (char)*pcString1 )
             {
                 s32Result = 1;
             }

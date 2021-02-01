@@ -34,16 +34,16 @@ uint32_t HashTable_StringFunction(const void *pvKey)
     while ('\0' != *pcCharacter)
     {
         u32Value <<= 4UL;
-        u8Temp = (uint8_t)(*pcCharacter);
-        u32Value+= (uint32_t)u8Temp;
+        u8Temp = (uint8_t) (*pcCharacter);
+        u32Value += (uint32_t) u8Temp;
         u32Temp = u32Value & 0xf0000000UL;
-        if (0UL  != u32Temp)
+        if (0UL != u32Temp)
         {
             u32TempShift = (u32Temp >> 24);
             u32Value ^= u32TempShift;
             u32Value ^= u32Temp;
         }
-        pcCharacter+= 1UL;
+        pcCharacter += 1UL;
     }
     return u32Value;
 }

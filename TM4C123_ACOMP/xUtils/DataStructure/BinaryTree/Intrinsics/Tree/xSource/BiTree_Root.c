@@ -41,7 +41,7 @@ BiTree_nSTATUS BiTree__enIsRoot(const BiTree_TypeDef* const psTree, const BiTree
     BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
     BiTreeElement_TypeDef* psTreeRoot = (BiTreeElement_TypeDef*)0UL;
     psTreeRoot = BiTree__psGetRoot(psTree);
-    if ((uint32_t)psElement == (uint32_t)(psTreeRoot))
+    if ((uint32_t) psElement == (uint32_t) (psTreeRoot))
     {
         enStatus = BiTree_enSTATUS_OK;
     }

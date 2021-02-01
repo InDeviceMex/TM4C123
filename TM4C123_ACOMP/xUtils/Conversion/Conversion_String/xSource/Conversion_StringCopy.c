@@ -27,16 +27,16 @@
 char* CONV_pcStringCopy(char* pcStringDest, const char* pcStringSource,  uint32_t u32MaxSize)
 {
     char* pcStringReg = pcStringDest;
-    if(((uint32_t)0U != (uint32_t)pcStringSource) && ((uint32_t)0U != (uint32_t)pcStringDest))
+    if(((uint32_t) 0U != (uint32_t) pcStringSource) && ((uint32_t) 0U != (uint32_t) pcStringDest))
     {
-        while(((char)0!=(char) *pcStringSource) && ((uint32_t)0!=(uint32_t)u32MaxSize))
+        while(((char)0 != (char) *pcStringSource) && ((uint32_t) 0 != (uint32_t) u32MaxSize))
         {
             *pcStringReg = *pcStringSource;
             pcStringSource += 1U;
             pcStringReg += 1U;
             u32MaxSize--;
         }
-        if((uint32_t)0 != (uint32_t)u32MaxSize)
+        if((uint32_t) 0 != (uint32_t) u32MaxSize)
         {
             *pcStringReg = '\0';
         }

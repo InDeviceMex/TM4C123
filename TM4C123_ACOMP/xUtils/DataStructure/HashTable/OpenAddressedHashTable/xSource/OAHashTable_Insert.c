@@ -38,14 +38,14 @@ OAHashTable_nSTATUS OAHashTable__enInsert(OAHashTable_TypeDef* psOAHashTable, vo
     OAHashTable_nSTATUS enLookup= OAHashTable_enSTATUS_ERROR;
     OAHashTable_nSTATUS enStatus = OAHashTable_enSTATUS_ERROR;
 
-    if(((uint32_t)0UL != (uint32_t)psOAHashTable) && ((uint32_t)0UL != (uint32_t)pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
         u32PositionSize = psOAHashTable->u32Positions;
         u32SizeReg = OAHashTable__u32GetSize(psOAHashTable);
         if(u32SizeReg != u32PositionSize)
         {
             pvTemp = pvData;
-            enLookup = OAHashTable__enLookup(psOAHashTable,&pvTemp);
+            enLookup = OAHashTable__enLookup(psOAHashTable, &pvTemp);
             if(OAHashTable_enSTATUS_OK != enLookup)
             {
                 pvVacatedReg = psOAHashTable->pvVacated;
@@ -59,7 +59,7 @@ OAHashTable_nSTATUS OAHashTable__enInsert(OAHashTable_TypeDef* psOAHashTable, vo
 
                     pvElementData = psOAHashTable->pvTable;
                     pvElementData += u32PositionNum;
-                    if(((uint32_t)0UL == (uint32_t)(*pvElementData)) || ((uint32_t)(*pvElementData) == (uint32_t)pvVacatedReg))
+                    if(((uint32_t) 0UL == (uint32_t) (*pvElementData)) || ((uint32_t) (*pvElementData) == (uint32_t) pvVacatedReg))
                     {
                         enStatus = OAHashTable_enSTATUS_OK;
                         *pvElementData = pvTemp;

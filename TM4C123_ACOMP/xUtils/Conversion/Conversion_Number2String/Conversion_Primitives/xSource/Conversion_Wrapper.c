@@ -35,7 +35,7 @@ void Conv__vOutBuffer(char cCharacter, void* pvBuffer, uint32_t u32Index, uint32
         if (u32Index < u32MaxLenght)
         {
             pcBuffer = (char*)pvBuffer;
-            pcBuffer +=  u32Index;
+            pcBuffer += u32Index;
             *pcBuffer = cCharacter;
         }
     }

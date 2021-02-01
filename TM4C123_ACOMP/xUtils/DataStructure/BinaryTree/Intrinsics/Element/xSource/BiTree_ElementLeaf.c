@@ -35,7 +35,7 @@ BiTree_nSTATUS BiTree__enIsElementLeaf(const BiTreeElement_TypeDef* const psElem
     psLeftNodeReg = BiTree__psGetElementLeftNode(psElement);
     psRightNodeReg = BiTree__psGetElementRightNode(psElement);
 
-    if(((uint32_t)0UL == (uint32_t)psLeftNodeReg)&& ((uint32_t)0UL == (uint32_t)psRightNodeReg))
+    if(((uint32_t) 0UL == (uint32_t) psLeftNodeReg) && ((uint32_t) 0UL == (uint32_t) psRightNodeReg))
     {
         enStatusReg = BiTree_enSTATUS_OK;
     }

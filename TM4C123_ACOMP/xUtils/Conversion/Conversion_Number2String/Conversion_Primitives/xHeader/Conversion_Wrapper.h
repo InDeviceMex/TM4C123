@@ -28,8 +28,8 @@
 #include <xUtils/Standard/Standard.h>
 
 
-#define CONV_DEFAULT_FLOAT_PRECISION ((uint32_t)6U)
-#define CONV_MAX_VALUE_FLOAT         (1e9)
+#define CONV_DEFAULT_FLOAT_PRECISION ((uint32_t) 6U)
+#define CONV_MAX_VALUE_FLOAT    (1e9)
 
 typedef enum
 {
@@ -40,18 +40,18 @@ typedef enum
 typedef enum
 {
 
-    CONV_enFLAGS_ZEROPAD   =( (uint32_t)1U <<  (uint32_t)0U),
-    CONV_enFLAGS_LEFT      =( (uint32_t)1U <<   (uint32_t)1U),
-    CONV_enFLAGS_PLUS      =( (uint32_t)1U <<  (uint32_t) 2U),
-    CONV_enFLAGS_SPACE     =( (uint32_t)1U <<   (uint32_t)3U),
-    CONV_enFLAGS_HASH      =( (uint32_t)1U <<   (uint32_t)4U),
-    CONV_enFLAGS_UPPERCASE =( (uint32_t)1U <<   (uint32_t)5U),
-    CONV_enFLAGS_CHAR      =( (uint32_t)1U <<   (uint32_t)6U),
-    CONV_enFLAGS_SHORT     =( (uint32_t)1U <<   (uint32_t)7U),
-    CONV_enFLAGS_LONG      =( (uint32_t)1U <<   (uint32_t)8U),
-    CONV_enFLAGS_LONG_LONG =( (uint32_t)1U <<   (uint32_t)9U),
-    CONV_enFLAGS_PRECISION =( (uint32_t)1U <<  (uint32_t)10U),
-    CONV_enFLAGS_ADAPT_EXP =( (uint32_t)1U <<  (uint32_t)11U),
+    CONV_enFLAGS_ZEROPAD = ( (uint32_t) 1U << (uint32_t) 0U),
+    CONV_enFLAGS_LEFT = ( (uint32_t) 1U << (uint32_t) 1U),
+    CONV_enFLAGS_PLUS = ( (uint32_t) 1U << (uint32_t) 2U),
+    CONV_enFLAGS_SPACE = ( (uint32_t) 1U << (uint32_t) 3U),
+    CONV_enFLAGS_HASH = ( (uint32_t) 1U << (uint32_t) 4U),
+    CONV_enFLAGS_UPPERCASE = ( (uint32_t) 1U << (uint32_t) 5U),
+    CONV_enFLAGS_CHAR = ( (uint32_t) 1U << (uint32_t) 6U),
+    CONV_enFLAGS_SHORT = ( (uint32_t) 1U << (uint32_t) 7U),
+    CONV_enFLAGS_LONG = ( (uint32_t) 1U << (uint32_t) 8U),
+    CONV_enFLAGS_LONG_LONG = ( (uint32_t) 1U << (uint32_t) 9U),
+    CONV_enFLAGS_PRECISION = ( (uint32_t) 1U << (uint32_t) 10U),
+    CONV_enFLAGS_ADAPT_EXP = ( (uint32_t) 1U << (uint32_t) 11U),
 
 }CONV_nFLAGS;
 
@@ -62,8 +62,8 @@ typedef union {
   double   FLOAT;
 } CONV_FLOAT_UNION_TypeDef;
 
-typedef void  (*CONV_FUNCTION_Typedef)(char cCharacter, void* pvFuncArguments);
-typedef void (*CONV_OUT_TypeDef)(char cCharacter, void* pvBuffer, uint32_t u32Index, uint32_t u32MaxLenght);
+typedef void    (*CONV_FUNCTION_Typedef) (char cCharacter, void* pvFuncArguments);
+typedef void (*CONV_OUT_TypeDef) (char cCharacter, void* pvBuffer, uint32_t u32Index, uint32_t u32MaxLenght);
 
 typedef struct {
   CONV_FUNCTION_Typedef  pfvFunction;

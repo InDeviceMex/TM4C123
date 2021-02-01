@@ -35,18 +35,18 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
     char  cCharTemp = 0;
     uint32_t u32flagsTemp=0U;
 
-    if(((uint32_t)0U != (uint32_t)pcBufferOut) && ((uint32_t)0U !=(uint32_t)pcBufferIn ) && ((uint32_t)0U !=(uint32_t)pu32BufOutLenght) )
+    if(((uint32_t) 0U != (uint32_t) pcBufferOut) && ((uint32_t) 0U != (uint32_t) pcBufferIn ) && ((uint32_t) 0U != (uint32_t) pu32BufOutLenght) )
     {
         /* pad leading zeros */
-        if ((uint32_t)0U == (u32flags & (uint32_t)CONV_enFLAGS_LEFT))
+        if ((uint32_t) 0U == (u32flags & (uint32_t) CONV_enFLAGS_LEFT))
         {
-            if( (uint32_t)0U != u32Width)
+            if((uint32_t) 0U != u32Width)
             {
-                if((uint32_t)CONV_enFLAGS_ZEROPAD == (u32flags & (uint32_t)CONV_enFLAGS_ZEROPAD))
+                if((uint32_t) CONV_enFLAGS_ZEROPAD == (u32flags & (uint32_t) CONV_enFLAGS_ZEROPAD))
                 {
-                    u32flagsTemp = (uint32_t)CONV_enFLAGS_PLUS | (uint32_t)CONV_enFLAGS_SPACE;
-                    u32flagsTemp&= u32flags;
-                    if(((uint32_t)0U != u32Negative) || ((uint32_t)0U != u32flagsTemp))
+                    u32flagsTemp = (uint32_t) CONV_enFLAGS_PLUS | (uint32_t) CONV_enFLAGS_SPACE;
+                    u32flagsTemp &= u32flags;
+                    if(((uint32_t) 0U != u32Negative) || ((uint32_t) 0U != u32flagsTemp))
                     {
                         u32Width--;
                     }
@@ -57,17 +57,17 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
             else{}
 
 
-            while ((u32BufInLenght < u32Prec) && (u32BufInLenght < (uint32_t)CONV_enBUFFER_SIZE_NUMBER))
+            while ((u32BufInLenght < u32Prec) && (u32BufInLenght < (uint32_t) CONV_enBUFFER_SIZE_NUMBER))
             {
                 pcBufferTemp = pcBufferIn;
-                pcBufferTemp +=u32BufInLenght;
+                pcBufferTemp += u32BufInLenght;
                 *pcBufferTemp = '0';
                 u32BufInLenght++;
             }
-            while ((((uint32_t)CONV_enFLAGS_ZEROPAD == (u32flags & (uint32_t)CONV_enFLAGS_ZEROPAD)) && (u32BufInLenght < u32Width)) && (u32BufInLenght < (uint32_t)CONV_enBUFFER_SIZE_NUMBER))
+            while ((((uint32_t) CONV_enFLAGS_ZEROPAD == (u32flags & (uint32_t) CONV_enFLAGS_ZEROPAD)) && (u32BufInLenght < u32Width)) && (u32BufInLenght < (uint32_t) CONV_enBUFFER_SIZE_NUMBER))
             {
                 pcBufferTemp = pcBufferIn;
-                pcBufferTemp +=u32BufInLenght;
+                pcBufferTemp += u32BufInLenght;
                 *pcBufferTemp = '0';
                 u32BufInLenght++;
             }
@@ -75,16 +75,16 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
         else{}
 
         /* handle hash */
-        if ((uint32_t)CONV_enFLAGS_HASH == (u32flags & (uint32_t)CONV_enFLAGS_HASH))
+        if ((uint32_t) CONV_enFLAGS_HASH == (u32flags & (uint32_t) CONV_enFLAGS_HASH))
         {
-            if ((uint32_t)0U != u32BufInLenght)
+            if ((uint32_t) 0U != u32BufInLenght)
             {
-                if((uint32_t)0U==(u32flags & (uint32_t)CONV_enFLAGS_PRECISION))
+                if((uint32_t) 0U == (u32flags & (uint32_t) CONV_enFLAGS_PRECISION))
                 {
                     if((u32BufInLenght == u32Prec) || (u32BufInLenght == u32Width))
                     {
                         u32BufInLenght--;
-                        if (((uint32_t)0U != u32BufInLenght) && ( (uint32_t)16U == u32Base))
+                        if (((uint32_t) 0U != u32BufInLenght) && ( (uint32_t) 16U == u32Base))
                         {
                             u32BufInLenght--;
                         }
@@ -97,33 +97,33 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
             else{}
 
 
-            if ((uint32_t)CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
+            if ((uint32_t) CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
             {
-                if((uint32_t)16U == u32Base)
+                if((uint32_t) 16U == u32Base)
                 {
-                    if( (uint32_t)0U == (u32flags & (uint32_t)CONV_enFLAGS_UPPERCASE))
+                    if((uint32_t) 0U == (u32flags & (uint32_t) CONV_enFLAGS_UPPERCASE))
                     {
-                        cCharTemp =  'x';
+                        cCharTemp = 'x';
                         pcBufferTemp = pcBufferIn;
-                        pcBufferTemp +=u32BufInLenght;
+                        pcBufferTemp += u32BufInLenght;
                         *pcBufferTemp = cCharTemp;
                         u32BufInLenght++;
                     }
-                    /*( (uint32_t)CONV_enFLAGS_UPPERCASE== (u32flags & (uint32_t)CONV_enFLAGS_UPPERCASE))*/
+                    /*( (uint32_t) CONV_enFLAGS_UPPERCASE == (u32flags & (uint32_t) CONV_enFLAGS_UPPERCASE))*/
                     else
                     {
                         cCharTemp = 'X';
                         pcBufferTemp = pcBufferIn;
-                        pcBufferTemp +=u32BufInLenght;
+                        pcBufferTemp += u32BufInLenght;
                         *pcBufferTemp = cCharTemp;
                         u32BufInLenght++;
                     }
                 }
-                else if((uint32_t)2U == u32Base)
+                else if((uint32_t) 2U == u32Base)
                 {
                     cCharTemp = 'b';
                     pcBufferTemp = pcBufferIn;
-                    pcBufferTemp +=u32BufInLenght;
+                    pcBufferTemp += u32BufInLenght;
                     *pcBufferTemp = cCharTemp;
                     u32BufInLenght++;
                 }
@@ -131,11 +131,11 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
             }
             else{}
 
-            if ((uint32_t)CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
+            if ((uint32_t) CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
             {
                 cCharTemp = '0';
                 pcBufferTemp = pcBufferIn;
-                pcBufferTemp +=u32BufInLenght;
+                pcBufferTemp += u32BufInLenght;
                 *pcBufferTemp = cCharTemp;
                 u32BufInLenght++;
             }
@@ -143,26 +143,26 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
         }
         else{}
 
-        if ((uint32_t)CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
+        if ((uint32_t) CONV_enBUFFER_SIZE_NUMBER > u32BufInLenght )
         {
-            if ((uint32_t)0U != u32Negative)
+            if ((uint32_t) 0U != u32Negative)
             {
                 pcBufferTemp = pcBufferIn;
-                pcBufferTemp +=u32BufInLenght;
-                *pcBufferTemp  = '-';
+                pcBufferTemp += u32BufInLenght;
+                *pcBufferTemp = '-';
                 u32BufInLenght++;
             }
-            else if ((uint32_t)CONV_enFLAGS_PLUS == (u32flags & (uint32_t)CONV_enFLAGS_PLUS))
+            else if ((uint32_t) CONV_enFLAGS_PLUS == (u32flags & (uint32_t) CONV_enFLAGS_PLUS))
             {
                 pcBufferTemp = pcBufferIn;
-                pcBufferTemp +=u32BufInLenght;
+                pcBufferTemp += u32BufInLenght;
                 *pcBufferTemp = '+';  /* ignore the space if the '+' exists */
                 u32BufInLenght++;
             }
-            else if ((uint32_t)CONV_enFLAGS_SPACE == (u32flags & (uint32_t)CONV_enFLAGS_SPACE))
+            else if ((uint32_t) CONV_enFLAGS_SPACE == (u32flags & (uint32_t) CONV_enFLAGS_SPACE))
             {
                 pcBufferTemp = pcBufferIn;
-                pcBufferTemp +=u32BufInLenght;
+                pcBufferTemp += u32BufInLenght;
                 *pcBufferTemp = ' ';
                 u32BufInLenght++;
             }

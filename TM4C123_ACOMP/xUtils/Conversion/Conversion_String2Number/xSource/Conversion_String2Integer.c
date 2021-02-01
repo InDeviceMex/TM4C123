@@ -40,17 +40,17 @@ int32_t Conv__s32String2Integer(const char* pcString,int64_t* s64NumSigned )
     CONV_nBACKSPACE enBackSpace= CONV_enBACKSPACE_NO;
     CONV_nSIGNED enSign=CONV_enSIGNED_POSITIVE;
 
-    char cStringBack[30]={0};
+    char cStringBack[30] = {0UL};
     char* pcStringBack=cStringBack;
     uint8_t  u8ValueAux=0;
 
-    if((uint32_t)0u == (uint32_t)pcString)
+    if((uint32_t) 0UL == (uint32_t) pcString)
     {
         s32Length=0;
         /* The following situation is only valid when CONV_enSTATUS_OK is 0 and CONV_enSTATUS_ERROR is 1*/
         enStatus=(CONV_nSTATUS)Conv__enIsNewLineReturn(*pcString);
-        enStatus&=(CONV_nSTATUS)Conv__enIsScape(*pcString);
-        enStatus&=(CONV_nSTATUS)Conv__enIsNull(*pcString);
+        enStatus &= (CONV_nSTATUS)Conv__enIsScape(*pcString);
+        enStatus &= (CONV_nSTATUS)Conv__enIsNull(*pcString);
         while(enStatus)
         {
 
@@ -63,34 +63,34 @@ int32_t Conv__s32String2Integer(const char* pcString,int64_t* s64NumSigned )
             {
                 enSign=CONV_enSIGNED_NEGATIVE;
                 s32Length++;
-                *pcStringBack=*pcString;
-                pcStringBack+=1U;
+                *pcStringBack = *pcString;
+                pcStringBack += 1U;
             }
             else if((CONV_enPOSITIVE_SIGN_OK == enPositiveSign) && (0 == s32Length))
             {
                 enSign=CONV_enSIGNED_POSITIVE;
                 s32Length++;
-                *pcStringBack=*pcString;
-                pcStringBack+=1U;
+                *pcStringBack = *pcString;
+                pcStringBack += 1U;
             }
             else if(CONV_enDIGIT_OK == enDigit)
             {
-                s64NumSignedReg*=10;
-                u8ValueAux= (uint8_t)*pcString;
-                u8ValueAux-=(uint8_t)'0';
-                s64NumSignedReg+=(int64_t)u8ValueAux;
+                s64NumSignedReg *= 10;
+                u8ValueAux= (uint8_t) *pcString;
+                u8ValueAux -= (uint8_t) '0';
+                s64NumSignedReg += (int64_t) u8ValueAux;
                 s32Length++;
-                *pcStringBack=*pcString;
-                pcStringBack+=1U;
+                *pcStringBack = *pcString;
+                pcStringBack += 1U;
             }
-            else if((CONV_enBACKSPACE_OK==enBackSpace) && (0 != s32Length))
+            else if((CONV_enBACKSPACE_OK == enBackSpace) && (0 != s32Length))
             {
-                pcStringBack-=1U;
+                pcStringBack -= 1U;
                 enDigit=Conv__enIsDigit(*pcStringBack);
                 enNegativeSign = Conv__enIsNegativeSign(*pcStringBack);
                 if(CONV_enDIGIT_OK == enDigit)
                 {
-                    s64NumSignedReg/=10;
+                    s64NumSignedReg /= 10;
                 }
                 else if(CONV_enNEGATIVE_SIGN_OK == enNegativeSign)
                 {
@@ -99,21 +99,21 @@ int32_t Conv__s32String2Integer(const char* pcString,int64_t* s64NumSigned )
                 else {}
                 s32Length--;
             }
-            else if (CONV_enBACKSPACE_OK==enBackSpace)
+            else if (CONV_enBACKSPACE_OK == enBackSpace)
             {
-                s32Length =(int32_t)CONV_enNAN;
+                s32Length = (int32_t) CONV_enNAN;
                 break;
             }
             else{}
 
-            pcString+=1U;
+            pcString += 1U;
 
             enStatus=(CONV_nSTATUS)Conv__enIsNewLineReturn(*pcString);
-            enStatus&=(CONV_nSTATUS)Conv__enIsScape(*pcString);
-            enStatus&=(CONV_nSTATUS)Conv__enIsNull(*pcString);
+            enStatus &= (CONV_nSTATUS)Conv__enIsScape(*pcString);
+            enStatus &= (CONV_nSTATUS)Conv__enIsNull(*pcString);
         }
 
-        if( (int32_t) CONV_enNAN != s32Length)
+        if((int32_t) CONV_enNAN != s32Length)
         {
             if(CONV_enSIGNED_NEGATIVE == enSign)
             {

@@ -44,7 +44,7 @@ CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void**
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
     SLinkedList_nSTATUS enRemoveResult = SLinkedList_enSTATUS_ERROR;
 
-    if(((uint32_t)0UL != (uint32_t)psCHashTable) && ((uint32_t)0UL != (uint32_t)pvData) )
+    if(((uint32_t) 0UL != (uint32_t) psCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData) )
     {
         u32BucketsSize = psCHashTable->u32Buckets;
         u32BucketNum = psCHashTable->pfu32HashFunction(*pvData);
@@ -53,14 +53,14 @@ CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void**
         psList = psCHashTable->psTable;
         psList += u32BucketNum;
         psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t)0UL != (uint32_t)psElement)
+        while((uint32_t) 0UL != (uint32_t) psElement)
         {
             pvElementData = SLinkedList__pvGetElementData(psElement);
             enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData,(const void*)pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
                 enRemoveResult = SLinkedList__enRemoveNext(psList, psPreviousElement, pvData);
-                if( SLinkedList_enSTATUS_OK== enRemoveResult)
+                if(SLinkedList_enSTATUS_OK == enRemoveResult)
                 {
                     u32SizeReg = CHashTable__u32GetSize(psCHashTable);
                     u32SizeReg--;

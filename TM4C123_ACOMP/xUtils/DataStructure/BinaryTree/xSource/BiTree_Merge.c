@@ -45,13 +45,13 @@
      uint32_t u32SizeRight = 0UL;
      uint32_t u32SizeMerged = 0UL;
      uint32_t u32SizeTotal = 0UL;
-     if(((uint32_t)0UL != (uint32_t)psTreeLeft)  && ((uint32_t)0UL != (uint32_t)psTreeRight) )
+     if(((uint32_t) 0UL != (uint32_t) psTreeLeft) && ((uint32_t) 0UL != (uint32_t) psTreeRight) )
      {
          psTreeMerged = BiTree__psInit(psTreeLeft->pfvDestroyElementData);
-         if((uint32_t)0UL != (uint32_t)psTreeMerged)
+         if((uint32_t) 0UL != (uint32_t) psTreeMerged)
          {
              psElementReg = BiTree__psInsertLeft(psTreeMerged,(BiTreeElement_TypeDef*) 0UL, pvData);
-             if((uint32_t)0UL != (uint32_t)psElementReg)
+             if((uint32_t) 0UL != (uint32_t) psElementReg)
              {
                  psElementRootReg = BiTree__psGetRoot(psTreeMerged);
                  psElementRootLeftReg = BiTree__psGetRoot(psTreeLeft);
@@ -59,9 +59,9 @@
                  BiTree__vSetElementLeftNode(psElementRootReg, psElementRootLeftReg);
                  BiTree__vSetElementRightNode(psElementRootReg, psElementRootRigthReg);
 
-                 u32SizeLeft =BiTree__u32GetSize(psTreeLeft);
-                 u32SizeRight =BiTree__u32GetSize(psTreeRight);
-                 u32SizeMerged =BiTree__u32GetSize(psTreeMerged);
+                 u32SizeLeft = BiTree__u32GetSize(psTreeLeft);
+                 u32SizeRight = BiTree__u32GetSize(psTreeRight);
+                 u32SizeMerged = BiTree__u32GetSize(psTreeMerged);
                  u32SizeTotal = u32SizeMerged + u32SizeRight + u32SizeLeft;
 
                  BiTree__vSetSize(psTreeMerged, u32SizeTotal);
@@ -81,7 +81,7 @@
 
  BiTree_nSTATUS BiTree__enMerge(BiTree_TypeDef* psTreeMerged,BiTree_TypeDef* psTreeLeft,BiTree_TypeDef* psTreeRight, void* pvData)
  {
-     BiTree_nSTATUS enStatus =BiTree_enSTATUS_ERROR;
+     BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
      BiTreeElement_TypeDef* psElementReg = (BiTreeElement_TypeDef*) 0UL;
      BiTreeElement_TypeDef* psElementRootReg = (BiTreeElement_TypeDef*) 0UL;
      BiTreeElement_TypeDef* psElementRootLeftReg = (BiTreeElement_TypeDef*) 0UL;
@@ -90,24 +90,24 @@
      uint32_t u32SizeRight = 0UL;
      uint32_t u32SizeMerged = 0UL;
      uint32_t u32SizeTotal = 0UL;
-     if(((uint32_t)0UL != (uint32_t)psTreeMerged) && ((uint32_t)0UL != (uint32_t)psTreeLeft)  && ((uint32_t)0UL != (uint32_t)psTreeRight) )
+     if(((uint32_t) 0UL != (uint32_t) psTreeMerged) && ((uint32_t) 0UL != (uint32_t) psTreeLeft) && ((uint32_t) 0UL != (uint32_t) psTreeRight) )
      {
          enStatus = BiTree__enInit(psTreeMerged, psTreeLeft->pfvDestroyElementData);
          if(BiTree_enSTATUS_OK == enStatus)
          {
              psElementReg = BiTree__psInsertLeft(psTreeMerged,(BiTreeElement_TypeDef*) 0UL, pvData);
-             if((uint32_t)0UL != (uint32_t)psElementReg)
+             if((uint32_t) 0UL != (uint32_t) psElementReg)
              {
-                 enStatus =BiTree_enSTATUS_OK;
+                 enStatus = BiTree_enSTATUS_OK;
                  psElementRootReg = BiTree__psGetRoot(psTreeMerged);
                  psElementRootLeftReg = BiTree__psGetRoot(psTreeLeft);
                  psElementRootRigthReg = BiTree__psGetRoot(psTreeRight);
                  BiTree__vSetElementLeftNode(psElementRootReg, psElementRootLeftReg);
                  BiTree__vSetElementRightNode(psElementRootReg, psElementRootRigthReg);
 
-                 u32SizeLeft =BiTree__u32GetSize(psTreeLeft);
-                 u32SizeRight =BiTree__u32GetSize(psTreeRight);
-                 u32SizeMerged =BiTree__u32GetSize(psTreeMerged);
+                 u32SizeLeft = BiTree__u32GetSize(psTreeLeft);
+                 u32SizeRight = BiTree__u32GetSize(psTreeRight);
+                 u32SizeMerged = BiTree__u32GetSize(psTreeMerged);
                  u32SizeTotal = u32SizeMerged + u32SizeRight + u32SizeLeft;
 
                  BiTree__vSetSize(psTreeMerged, u32SizeTotal);
@@ -118,7 +118,7 @@
              }
              else
              {
-                 enStatus =BiTree_enSTATUS_ERROR;
+                 enStatus = BiTree_enSTATUS_ERROR;
                  BiTree__vDestroy(psTreeMerged);
              }
          }
