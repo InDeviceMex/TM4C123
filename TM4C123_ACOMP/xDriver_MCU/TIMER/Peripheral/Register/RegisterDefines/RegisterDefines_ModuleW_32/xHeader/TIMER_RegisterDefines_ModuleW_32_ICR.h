@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 7 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEW_32_TIMER_REGISTERDEFINES_MODULEW_32_ICR_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEW_32_TIMER_REGISTERDEFINES_MODULEW_32_ICR_H_
 
@@ -31,48 +32,48 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TW_GPTMTnICR_R_TnTOCINT_MASK               ((uint32_t)0x00000001U)
-#define GPTM_TW_GPTMTnICR_R_TnTOCINT_BIT                (0U)
-#define GPTM_TW_GPTMTnICR_R_TnTOCINT_CLEAR              ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnICR_R_TnTOCINT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TW_GPTMTnICR_R_TnTOCINT_BIT    (0UL)
+#define GPTM_TW_GPTMTnICR_R_TnTOCINT_CLEAR    ((uint32_t) 0x00000001UL)
 
-#define GPTM_TW_GPTMTnICR_TnTOCINT_MASK                 ((uint32_t)0x00000001U)
-#define GPTM_TW_GPTMTnICR_TnTOCINT_CLEAR                ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnICR_TnTOCINT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TW_GPTMTnICR_TnTOCINT_CLEAR    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnICR_R_CnMCINT_MASK                ((uint32_t)0x00000002U)
-#define GPTM_TW_GPTMTnICR_R_CnMCINT_BIT                 (1U)
-#define GPTM_TW_GPTMTnICR_R_CnMCINT_CLEAR               ((uint32_t)0x00000002U)
+#define GPTM_TW_GPTMTnICR_R_CnMCINT_MASK    ((uint32_t) 0x00000002UL)
+#define GPTM_TW_GPTMTnICR_R_CnMCINT_BIT    (1UL)
+#define GPTM_TW_GPTMTnICR_R_CnMCINT_CLEAR    ((uint32_t) 0x00000002UL)
 
-#define GPTM_TW_GPTMTnICR_CnMCINT_MASK                  ((uint32_t)0x00000001U)
-#define GPTM_TW_GPTMTnICR_CnMCINT_CLEAR                 ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnICR_CnMCINT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TW_GPTMTnICR_CnMCINT_CLEAR    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnICR_R_CnECINT_MASK                ((uint32_t)0x00000004U)
-#define GPTM_TW_GPTMTnICR_R_CnECINT_BIT                 (2U)
-#define GPTM_TW_GPTMTnICR_R_CnECINT_CLEAR               ((uint32_t)0x00000004U)
+#define GPTM_TW_GPTMTnICR_R_CnECINT_MASK    ((uint32_t) 0x00000004UL)
+#define GPTM_TW_GPTMTnICR_R_CnECINT_BIT    (2UL)
+#define GPTM_TW_GPTMTnICR_R_CnECINT_CLEAR    ((uint32_t) 0x00000004UL)
 
-#define GPTM_TW_GPTMTnICR_CnECINT_MASK                  ((uint32_t)0x00000001U)
-#define GPTM_TW_GPTMTnICR_CnECINT_CLEAR                 ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnICR_CnECINT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TW_GPTMTnICR_CnECINT_CLEAR    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnICR_R_RTCCINT_MASK                ((uint32_t)0x00000008U)
-#define GPTM_TW_GPTMTnICR_R_RTCCINT_BIT                 (3U)
-#define GPTM_TW_GPTMTnICR_R_RTCCINT_CLEAR               ((uint32_t)0x00000008U)
+#define GPTM_TW_GPTMTnICR_R_RTCCINT_MASK    ((uint32_t) 0x00000008UL)
+#define GPTM_TW_GPTMTnICR_R_RTCCINT_BIT    (3UL)
+#define GPTM_TW_GPTMTnICR_R_RTCCINT_CLEAR    ((uint32_t) 0x00000008UL)
 
-#define GPTM_TW_GPTMTnICR_RTCCINT_MASK                  ((uint32_t)0x00000001U)
-#define GPTM_TW_GPTMTnICR_RTCCINT_CLEAR                 ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnICR_RTCCINT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TW_GPTMTnICR_RTCCINT_CLEAR    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_TW_GPTMTnICR_R_TnMCINT_MASK                ((uint32_t)0x00000010U)
-#define GPTM_TW_GPTMTnICR_R_TnMCINT_BIT                 (4U)
-#define GPTM_TW_GPTMTnICR_R_TnMCINT_CLEAR               ((uint32_t)0x00000010U)
+#define GPTM_TW_GPTMTnICR_R_TnMCINT_MASK    ((uint32_t) 0x00000010UL)
+#define GPTM_TW_GPTMTnICR_R_TnMCINT_BIT    (4UL)
+#define GPTM_TW_GPTMTnICR_R_TnMCINT_CLEAR    ((uint32_t) 0x00000010UL)
 
-#define GPTM_TW_GPTMTnICR_TnMCINT_MASK                  ((uint32_t)0x00000001U)
-#define GPTM_TW_GPTMTnICR_TnMCINT_CLEAR                 ((uint32_t)0x00000001U)
+#define GPTM_TW_GPTMTnICR_TnMCINT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TW_GPTMTnICR_TnMCINT_CLEAR    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEW_32_TIMER_REGISTERDEFINES_MODULEW_32_ICR_H_ */

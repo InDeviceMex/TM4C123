@@ -27,7 +27,7 @@
 
 void TIMER__vSetSyncronize(TIMER_nSYNC enSync)
 {
-    GPTM0_GPTMSYNC_R=(uint32_t)enSync&(uint32_t)TIMER_enSYNC_ALL;
+    GPTM0_GPTMSYNC_R = (uint32_t) enSync & (uint32_t) TIMER_enSYNC_ALL;
 }
 
 

@@ -22,8 +22,6 @@
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_ModuleA_16/TIMER_RegisterPeripheral_Bitbanding_ModuleA_16.h>
+#include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-GPTM_BITBANDING_TA_TypeDef* GPTM_BITBANDING_TA_BLOCK[6]={GPTM0_BITBANDING_TA,GPTM1_BITBANDING_TA,GPTM2_BITBANDING_TA,GPTM3_BITBANDING_TA,GPTM4_BITBANDING_TA,GPTM5_BITBANDING_TA};
-
-
-
+GPTM_BITBANDING_TA_TypeDef* GPTM_BITBANDING_TA_BLOCK[(uint32_t) TIMER_enMODULE_NUM_MAX] = { GPTM0_BITBANDING_TA, GPTM1_BITBANDING_TA, GPTM2_BITBANDING_TA, GPTM3_BITBANDING_TA, GPTM4_BITBANDING_TA, GPTM5_BITBANDING_TA};

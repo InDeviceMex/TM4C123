@@ -27,66 +27,99 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Dependencies.h>
 
+#define DMA_SOURCE_BIT_1    (5UL)
+#define DMA_SOURCE_MASK_1    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_1))
+#define DMA_SOURCE_BIT_2    (7UL)
+#define DMA_SOURCE_MASK_2    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_2))
+#define DMA_SOURCE_BIT_3    (15UL)
+#define DMA_SOURCE_MASK_3    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_3))
+
 void TIMER2B__vIRQVectorHandler(void)
 {
-    volatile uint32_t u32Reg=0;
-    u32Reg=(uint32_t)GPTM2_TB_GPTMTnMIS_R;
-    if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
+    volatile uint32_t u32Reg = 0UL;
+    volatile uint32_t u32RegDMAEn = 0UL;
+    volatile uint32_t u32RegDMAOccur = 0UL;
+    volatile uint32_t u32RegDMAPeriph = 0UL;
+    volatile uint32_t u32RegDMASource = 0UL;
+
+    u32RegDMAEn = SYSCTL_RCGCDMA_R;
+    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_EN;
+    if(0UL != u32RegDMAEn)
     {
-        if(DMA_DMACHIS_R_CHIS5_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS5_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_1;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET5_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET5_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_1;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP0_R_CH5SEL_TIMER2B == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH5SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP0_R;
+                u32RegDMASource &= DMA_DMACHMAP0_R_CH5SEL_MASK;
+                if(DMA_DMACHMAP0_R_CH5SEL_TIMER2B == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][5U]();
-                     DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS5_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][DMA_SOURCE_BIT_1]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_1;
                 }
             }
         }
-        if(DMA_DMACHIS_R_CHIS6_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS6_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_2;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET7_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET7_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_2;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP0_R_CH7SEL_TIMER2B == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH7SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP0_R;
+                u32RegDMASource &= DMA_DMACHMAP0_R_CH7SEL_MASK;
+                if(DMA_DMACHMAP0_R_CH7SEL_TIMER2B == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][7U]();
-                     DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS7_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][DMA_SOURCE_BIT_2]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_2;
                 }
             }
         }
-        if(DMA_DMACHIS_R_CHIS15_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS15_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_3;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET15_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET15_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_3;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP1_R_CH15SEL_TIMER2B == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH15SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP1_R;
+                u32RegDMASource &= DMA_DMACHMAP1_R_CH15SEL_MASK;
+                if(DMA_DMACHMAP1_R_CH15SEL_TIMER2B == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][15U]();
-                     DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS15_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][DMA_SOURCE_BIT_3]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_3;
                 }
             }
         }
     }
 
-    if(u32Reg & (uint32_t)TIMER_enINT_TB_TIMEOUT)
+    u32Reg = (uint32_t) GPTM2_TB_GPTMTnMIS_R;
+
+    if((uint32_t) TIMER_enINT_TB_TIMEOUT & u32Reg)
     {
-        GPTM2_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_TIMEOUT;
-        TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_2][(uint32_t)TIMER_enINTERRUPT_TIMEOUT]();
+        GPTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_TIMEOUT;
+        TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_TIMEOUT]();
     }
-    if(u32Reg & (uint32_t)TIMER_enINT_TB_CAPTURE_MATCH)
+    if((uint32_t) TIMER_enINT_TB_CAPTURE_MATCH & u32Reg)
     {
-        GPTM2_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_CAPTURE_MATCH;
-        TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_2][(uint32_t)TIMER_enINTERRUPT_CAPTURE_MATCH]();
+        GPTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_MATCH;
+        TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_CAPTURE_MATCH]();
     }
-    if(u32Reg & (uint32_t)TIMER_enINT_TB_CAPTURE_EVENT)
+    if((uint32_t) TIMER_enINT_TB_CAPTURE_EVENT & u32Reg)
     {
-        GPTM2_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_CAPTURE_EVENT;
-        TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_2][(uint32_t)TIMER_enINTERRUPT_CAPTURE_EVENT]();
+        GPTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_EVENT;
+        TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_CAPTURE_EVENT]();
     }
-    if(u32Reg & (uint32_t)TIMER_enINT_TB_MATCH)
+    if((uint32_t) TIMER_enINT_TB_MATCH & u32Reg)
     {
-        GPTM2_TB_GPTMTnICR_R=(uint32_t)TIMER_enINT_TB_MATCH;
-        TIMER__vIRQSourceHandler[(uint32_t)TIMER_en32][(uint32_t)TIMER_enB][(uint32_t)TIMER_enMODULE_NUM_2][(uint32_t)TIMER_enINTERRUPT_MATCH]();
+        GPTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_MATCH;
+        TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_MATCH]();
     }
 }
 

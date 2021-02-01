@@ -21,9 +21,9 @@
  * Date           Author     Version     Description
  * 10 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_DRIVER_H_
-
 
 #include <xDriver_MCU/TIMER/Driver/Control/TIMER_Control.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/TIMER_Intrinsics.h>
@@ -34,7 +34,5 @@
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Match.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Reload.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Syncronize.h>
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_DRIVER_H_ */

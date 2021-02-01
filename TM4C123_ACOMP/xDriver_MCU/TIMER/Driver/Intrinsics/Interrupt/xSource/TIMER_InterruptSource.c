@@ -21,31 +21,47 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/xHeader/TIMER_InterruptSource.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 
-static uint32_t u32IntMask[3]={(uint32_t)TIMER_enINT_TA_ALL,(uint32_t)TIMER_enINT_TB_ALL,(uint32_t)TIMER_enINT_TW_ALL};
+static uint32_t TIMER_u32IntMask[ (uint32_t) TIMER_enSUBMODULE_MAX] = { (uint32_t) TIMER_enINT_TA_ALL, (uint32_t) TIMER_enINT_TB_ALL, (uint32_t) TIMER_enINT_TW_ALL};
+
+static uint32_t TIMER__u32GetInterruptValue( TIMER_nSUBMODULE enSubModule, uint32_t u32InterruptValue);
+
+
+static uint32_t TIMER__u32GetInterruptValue( TIMER_nSUBMODULE enSubModule, TIMER_nINT enInterruptParam)
+{
+    uint32_t u32InterruptValue = 0UL;
+    uint32_t u32SubModule = 0UL;
+    u32SubModule = (uint32_t) enSubModule;
+    u32InterruptValue = (uint32_t) enInterruptParam;
+    if((uint32_t) TIMER_enSUBMODULE_B == u32SubModule)
+    {
+        u32InterruptValue &= ~(uint32_t) TIMER_enINT_RTC;
+        if(0UL != (u32InterruptValue & (uint32_t) TIMER_enINT_MATCH))
+        {
+            u32InterruptValue &= ~(uint32_t) TIMER_enINT_MATCH;
+            u32InterruptValue |= (uint32_t) TIMER_enINT_RTC;
+        }
+        u32InterruptValue <<= 8UL;
+    }
+    u32InterruptValue &= TIMER_u32IntMask[u32SubModule];
+    return u32InterruptValue;
+}
 
 void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
-    uint32_t u32Reg=0;
-    uint32_t u32Int=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
-    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
-    GPTM_TypeDef* psTimerIMR=0;
+    uint32_t u32InterruptValue = 0UL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
 
-    if((uint32_t)TIMER_enMISC_MAX<u32Number)
-    {
-        u32Number=(uint32_t)TIMER_enMISC_MAX;
-    }
-    TIMER__vSetReady(enModule);
 #if 0
-    if(enInterruptParam&TIMER_enINT_MATCH)
+    if(enInterruptParam & TIMER_enINT_MATCH)
     {
         if(TIMER_enEVENT_INT_DIS == TIMER__enGetMatchEventInterrupt)
         {
@@ -53,7 +69,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPar
         }
     }
 
-    if(enInterruptParam&TIMER_enINT_CAPTURE_EVENT)
+    if(enInterruptParam & TIMER_enINT_CAPTURE_EVENT)
     {
         if(TIMER_enPWM_INT_DIS == TIMER__enGetPWMInterrupt)
         {
@@ -61,44 +77,20 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPar
         }
     }
 #endif
-    psTimerIMR=TIMER_BLOCK[u32Wide][u32Number];
-    u32Int=(uint32_t)enInterruptParam;
-    if((uint32_t)TIMER_enB==u32Letter)
-    {
-        u32Int&=~(uint32_t)TIMER_enINT_RTC;
-        if(u32Int& (uint32_t) TIMER_enINT_MATCH)
-        {
-            u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-            u32Int|=(uint32_t)TIMER_enINT_RTC;
-        }
-        u32Int<<=8;
-    }
-    u32Int&=(uint32_t)u32IntMask[u32Letter];
-
-
-    u32Reg=psTimerIMR->GPTMIMR;
-    u32Reg|=u32Int;
-    psTimerIMR->GPTMIMR=u32Reg;
+    u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule,  enInterruptParam);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMIMR_OFFSET, u32InterruptValue, u32InterruptValue, 0UL);
 }
-
-
 
 void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
-    uint32_t u32Reg=0;
-    uint32_t u32Int=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
-    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
-    GPTM_TypeDef* psTimerIMR=0;
+    uint32_t u32InterruptValue = 0UL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
 
-    if((uint32_t)TIMER_enMISC_MAX<u32Number)
-    {
-        u32Number=(uint32_t)TIMER_enMISC_MAX;
-    }
-    TIMER__vSetReady(enModule);
 #if 0
-    if(enInterruptParam&TIMER_enINT_MATCH)
+    if(enInterruptParam & TIMER_enINT_MATCH)
     {
         if(TIMER_enEVENT_INT_EN == TIMER__enGetMatchEventInterrupt)
         {
@@ -106,7 +98,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
         }
     }
 
-    if(enInterruptParam&TIMER_enINT_CAPTURE_EVENT)
+    if(enInterruptParam & TIMER_enINT_CAPTURE_EVENT)
     {
         if(TIMER_enPWM_INT_EN == TIMER__enGetPWMInterrupt)
         {
@@ -114,104 +106,43 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
         }
     }
 #endif
-    psTimerIMR=TIMER_BLOCK[u32Wide][u32Number];
-    u32Int=(uint32_t)enInterruptParam;
-    if((uint32_t)TIMER_enB==u32Letter)
-    {
-        u32Int&=~(uint32_t)TIMER_enINT_RTC;
-        if(u32Int& (uint32_t) TIMER_enINT_MATCH)
-        {
-            u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-            u32Int|=(uint32_t)TIMER_enINT_RTC;
-        }
-        u32Int<<=8;
-    }
-    u32Int&=(uint32_t)u32IntMask[u32Letter];
-
-
-    u32Reg=psTimerIMR->GPTMIMR;
-    u32Reg&=~u32Int;
-    psTimerIMR->GPTMIMR=u32Reg;
+    u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule,  enInterruptParam);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMIMR_OFFSET, 0UL, u32InterruptValue, 0UL);
 }
 
 void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
-    uint32_t u32Reg=0;
-    uint32_t u32Number= (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
-    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
-    GPTM_TypeDef* psTimerICR=0;
-
-    if((uint32_t)TIMER_enMISC_MAX<u32Number)
-    {
-        u32Number=(uint32_t)TIMER_enMISC_MAX;
-    }
-    TIMER__vSetReady(enModule);
-
-    psTimerICR=TIMER_BLOCK[u32Wide][u32Number];
-    u32Reg=(uint32_t)enInterruptParam;
-    if((uint32_t)TIMER_enB==u32Letter)
-    {
-        u32Reg&=~(uint32_t)TIMER_enINT_RTC;
-        if(u32Reg&(uint32_t)TIMER_enINT_MATCH)
-        {
-            u32Reg&=~(uint32_t)(TIMER_enINT_MATCH);
-            u32Reg|=(uint32_t)TIMER_enINT_RTC;
-        }
-        u32Reg<<=8;
-    }
-    u32Reg&=(uint32_t)u32IntMask[u32Letter];
-
-    psTimerICR->GPTMICR=u32Reg;
+    uint32_t u32InterruptValue = 0UL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule,  enInterruptParam);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMICR_OFFSET, u32InterruptValue, u32InterruptValue, 0UL);
 }
 
 TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
 {
-    TIMER_nINT_STATUS enInt=TIMER_enINT_STATUS_UNDEF;
-    uint32_t u32Reg=0;
-    uint32_t u32Int=0;
-    TIMER_nREADY enReady=TIMER_enNOREADY;
-    uint32_t u32Number= (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule>>8U) & 0x3U;
-    uint32_t u32Wide= ((uint32_t) enModule>>16U) & 0x1U;
-    GPTM_TypeDef* psTimerRIS=0;
-    if((uint32_t)TIMER_enMISC_MAX<u32Number)
+    TIMER_nINT_STATUS enFeatureValue = TIMER_enINT_STATUS_UNDEF;
+    TIMER_nSTATUS enStatus = TIMER_enSTATUS_UNDEF;
+    uint32_t u32InterruptValue = 0xFFFFFFFFUL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule,  enInterruptParam);
+
+    enStatus = TIMER__enReadRegister((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMRIS_OFFSET, &u32InterruptValue, u32InterruptValue, 0UL);
+    if(TIMER_enSTATUS_OK == enStatus)
     {
-        u32Number=(uint32_t)TIMER_enMISC_MAX;
-    }
-    enReady=TIMER__enIsReady(enModule);
-
-    if(TIMER_enREADY == enReady)
-    {
-        psTimerRIS=TIMER_BLOCK[u32Wide][u32Number];
-        u32Int=(uint32_t)enInterruptParam;
-        if((uint32_t)TIMER_enB==u32Letter)
+        if(0UL != u32InterruptValue)
         {
-            u32Int&=~(uint32_t)TIMER_enINT_RTC;
-            if(u32Int&(uint32_t)TIMER_enINT_MATCH)
-            {
-                u32Int&=~(uint32_t)(TIMER_enINT_MATCH);
-                u32Int|=(uint32_t)TIMER_enINT_RTC;
-            }
-            u32Int<<=8;
-        }
-        u32Int&=(uint32_t)u32IntMask[u32Letter];
-
-        u32Reg=psTimerRIS->GPTMRIS;
-        u32Reg&=u32Int;
-
-        if(0u!=u32Reg)
-        {
-            enInt=TIMER_enINT_OCCUR;
+            enFeatureValue = TIMER_enINT_OCCUR;
         }
         else
         {
-            enInt=TIMER_enINT_NOOCCUR;
+            enFeatureValue = TIMER_enINT_NOOCCUR;
         }
     }
-    return enInt;
+    return enFeatureValue;
 }
-
-
-
-

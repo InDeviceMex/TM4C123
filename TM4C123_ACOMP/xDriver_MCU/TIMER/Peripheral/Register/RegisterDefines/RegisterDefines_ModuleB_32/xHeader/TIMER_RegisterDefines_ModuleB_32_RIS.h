@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 6 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_32_TIMER_REGISTERDEFINES_MODULEB_32_RIS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_32_TIMER_REGISTERDEFINES_MODULEB_32_RIS_H_
 
@@ -31,47 +32,47 @@
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_MASK              ((uint32_t)0x00000100U)
-#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_BIT               (8U)
-#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_DIS               ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_EN                ((uint32_t)0x00000100U)
+#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_MASK    ((uint32_t) 0x00000100UL)
+#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_BIT    (8UL)
+#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_R_TnTORIS_EN    ((uint32_t) 0x00000100UL)
 
-#define GPWTM_TB_GPTMTnRIS_TnTORIS_MASK                ((uint32_t)0x00000001U)
-#define GPWTM_TB_GPTMTnRIS_TnTORIS_DIS                 ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_TnTORIS_EN                  ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnRIS_TnTORIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TB_GPTMTnRIS_TnTORIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_TnTORIS_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_MASK               ((uint32_t)0x00000200U)
-#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_BIT                (9U)
-#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_DIS                ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_EN                 ((uint32_t)0x00000200U)
+#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_MASK    ((uint32_t) 0x00000200UL)
+#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_BIT    (9UL)
+#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_R_CnMRIS_EN    ((uint32_t) 0x00000200UL)
 
-#define GPWTM_TB_GPTMTnRIS_CnMRIS_MASK                 ((uint32_t)0x00000001U)
-#define GPWTM_TB_GPTMTnRIS_CnMRIS_DIS                  ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_CnMRIS_EN                   ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnRIS_CnMRIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TB_GPTMTnRIS_CnMRIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_CnMRIS_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnRIS_R_CnERIS_MASK               ((uint32_t)0x00000400U)
-#define GPWTM_TB_GPTMTnRIS_R_CnERIS_BIT                (10U)
-#define GPWTM_TB_GPTMTnRIS_R_CnERIS_DIS                ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_R_CnERIS_EN                 ((uint32_t)0x00000400U)
+#define GPWTM_TB_GPTMTnRIS_R_CnERIS_MASK    ((uint32_t) 0x00000400UL)
+#define GPWTM_TB_GPTMTnRIS_R_CnERIS_BIT    (10UL)
+#define GPWTM_TB_GPTMTnRIS_R_CnERIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_R_CnERIS_EN    ((uint32_t) 0x00000400UL)
 
-#define GPWTM_TB_GPTMTnRIS_CnERIS_MASK                 ((uint32_t)0x00000001U)
-#define GPWTM_TB_GPTMTnRIS_CnERIS_DIS                  ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_CnERIS_EN                   ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnRIS_CnERIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TB_GPTMTnRIS_CnERIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_CnERIS_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_MASK               ((uint32_t)0x00000800U)
-#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_BIT                (11U)
-#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_DIS                ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_EN                 ((uint32_t)0x00000800U)
+#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_MASK    ((uint32_t) 0x00000800UL)
+#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_BIT    (11UL)
+#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_R_TnMRIS_EN    ((uint32_t) 0x00000800UL)
 
-#define GPWTM_TB_GPTMTnRIS_TnMRIS_MASK                 ((uint32_t)0x00000001U)
-#define GPWTM_TB_GPTMTnRIS_TnMRIS_DIS                  ((uint32_t)0x00000000U)
-#define GPWTM_TB_GPTMTnRIS_TnMRIS_EN                   ((uint32_t)0x00000001U)
+#define GPWTM_TB_GPTMTnRIS_TnMRIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TB_GPTMTnRIS_TnMRIS_DIS    ((uint32_t) 0x00000000UL)
+#define GPWTM_TB_GPTMTnRIS_TnMRIS_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_32_TIMER_REGISTERDEFINES_MODULEB_32_RIS_H_ */

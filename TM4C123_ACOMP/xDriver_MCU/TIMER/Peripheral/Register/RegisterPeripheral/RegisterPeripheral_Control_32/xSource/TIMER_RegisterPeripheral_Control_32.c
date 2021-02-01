@@ -21,7 +21,6 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_Control_32/TIMER_RegisterPeripheral_Control_32.h>
 
-GPTM_CTL_TypeDef* GPTM_CTL_BLOCK[6]={GPTM0_CTL,GPTM1_CTL,GPTM2_CTL,GPTM3_CTL,GPTM4_CTL,GPTM5_CTL};
+GPTM_CTL_TypeDef* GPTM_CTL_BLOCK[(uint32_t) TIMER_enMODULE_NUM_MAX] = { GPTM0_CTL, GPTM1_CTL, GPTM2_CTL, GPTM3_CTL, GPTM4_CTL, GPTM5_CTL};

@@ -23,5 +23,4 @@
  */
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_Control_64/TIMER_RegisterPeripheral_Control_64.h>
 
-GPWTM_CTL_TypeDef* GPWTM_CTL_BLOCK[6]={GPWTM0_CTL,GPWTM1_CTL,GPWTM2_CTL,GPWTM3_CTL,GPWTM4_CTL,GPWTM5_CTL};
-
+GPWTM_CTL_TypeDef* GPWTM_CTL_BLOCK[(uint32_t) TIMER_enMODULE_NUM_MAX] = { GPWTM0_CTL, GPWTM1_CTL, GPWTM2_CTL, GPWTM3_CTL, GPWTM4_CTL, GPWTM5_CTL};

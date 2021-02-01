@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 7 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_
 
@@ -38,25 +39,25 @@
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_Standard_32/TIMER_RegisterPeripheral_Standard_32.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral/RegisterPeripheral_Standard_64/TIMER_RegisterPeripheral_Standard_64.h>
 
+#define GPTM    (((GPTMS_TypeDef*) (GPTM_BASE)))
+#define GPTM_UNION    (((GPTM_UNION_TypeDef*) (GPTM_BASE)))
 
-#define GPTM                     (((GPTMS_TypeDef*)(GPTM_BASE)))
-#define GPTM_UNION               (((GPTM_UNION_TypeDef*)(GPTM_BASE)))
+#define GPWTM    (((GPWTMS_TypeDef*) (GPWTM_BASE)))
+#define GPWTM_UNION    (((GPWTM_UNION_TypeDef*) (GPWTM_BASE)))
 
-#define GPWTM                     (((GPWTMS_TypeDef*)(GPWTM_BASE)))
-#define GPWTM_UNION               (((GPWTM_UNION_TypeDef*)(GPWTM_BASE)))
+extern GPTM_TypeDef *TIMER_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern uint32_t TIMER_BLOCK_BASE[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 
-extern GPTM_TypeDef *TIMER_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
+extern volatile uint32_t* TIMER_TnMR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnILR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnPR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnMATCHR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnPMR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnR_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnPS_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnV_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
+extern volatile uint32_t* TIMER_TnPV_BLOCK[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX][(uint32_t) TIMER_enMODULE_NUM_MAX];
 
-extern volatile uint32_t * TIMER_TnMR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnILR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnPR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnMATCHR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnPMR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnR_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnPS_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnV_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-extern volatile uint32_t * TIMER_TnPV_BLOCK[(uint32_t)TIMER_enLETTER_MAX+1U][(uint32_t)TIMER_enWIDE_MAX][(uint32_t)TIMER_enMODULE_NUM_MAX+1U];
-
-extern volatile uint32_t * TIMER_RTCPD_BLOCK[6];
+extern volatile uint32_t* TIMER_RTCPD_BLOCK[(uint32_t) TIMER_enMODULE_NUM_MAX];
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_H_ */
