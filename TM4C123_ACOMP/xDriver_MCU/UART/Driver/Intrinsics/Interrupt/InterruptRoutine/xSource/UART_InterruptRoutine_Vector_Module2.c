@@ -31,7 +31,7 @@
 void UART2__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg=0U;
-    u32Reg=(uint32_t)UART2_UARTMIS_R;
+    u32Reg = (uint32_t) UART2_UARTMIS_R;
 
     if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
     {
@@ -42,7 +42,7 @@ void UART2__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP0_R_CH0SEL_UART2_RX == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH0SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][0U]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][0U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS0_CLEAR;
                 }
             }
@@ -53,7 +53,7 @@ void UART2__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP1_R_CH12SEL_UART2_RX == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH12SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][12U]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][12U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS12_CLEAR;
                 }
             }
@@ -65,7 +65,7 @@ void UART2__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP0_R_CH1SEL_UART2_TX == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH1SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][1U]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][1U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS1_CLEAR;
                 }
             }
@@ -76,57 +76,57 @@ void UART2__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP1_R_CH13SEL_UART2_TX == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH13SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][13U]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][13U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS13_CLEAR;
                 }
             }
         }
     }
 
-    if(u32Reg & (uint32_t)UART_enINT_CLEAR_TO_SEND)
+    if((uint32_t) UART_enINT_CLEAR_TO_SEND & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_CLEAR_TO_SEND;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_CLEAR_TO_SEND]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_CLEAR_TO_SEND;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_CLEAR_TO_SEND]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_RECEIVE)
+    if((uint32_t) UART_enINT_RECEIVE & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_RECEIVE;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_RECEIVE]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_RECEIVE;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_RECEIVE]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_TRANSMIT)
+    if((uint32_t) UART_enINT_TRANSMIT & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_TRANSMIT;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_TRANSMIT]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_TRANSMIT;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_TRANSMIT]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_RECEIVE_TIMEOUT)
+    if((uint32_t) UART_enINT_RECEIVE_TIMEOUT & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_RECEIVE_TIMEOUT;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_RECEIVE_TIMEOUT]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_RECEIVE_TIMEOUT;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_RECEIVE_TIMEOUT]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_FRAME_ERROR)
+    if((uint32_t) UART_enINT_FRAME_ERROR & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_FRAME_ERROR;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_FRAME_ERROR]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_FRAME_ERROR;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_FRAME_ERROR]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_PARITY_ERROR)
+    if((uint32_t) UART_enINT_PARITY_ERROR & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_PARITY_ERROR;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_PARITY_ERROR]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_PARITY_ERROR;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_PARITY_ERROR]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_BREAK_ERROR)
+    if((uint32_t) UART_enINT_BREAK_ERROR & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_BREAK_ERROR;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_BREAK_ERROR]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_BREAK_ERROR;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_BREAK_ERROR]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_OVERRUN_ERROR)
+    if((uint32_t) UART_enINT_OVERRUN_ERROR & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_OVERRUN_ERROR;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_OVERRUN_ERROR]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_OVERRUN_ERROR;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_OVERRUN_ERROR]();
     }
-    if(u32Reg & (uint32_t)UART_enINT_BIT9_MODE)
+    if((uint32_t) UART_enINT_BIT9_MODE & u32Reg)
     {
-        UART2_UARTICR_R=(uint32_t)UART_enINT_BIT9_MODE;
-        UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_2][(uint32_t)UART_enINTERRUPT_BIT9_MODE]();
+        UART2_UARTICR_R = (uint32_t) UART_enINT_BIT9_MODE;
+        UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_BIT9_MODE]();
     }
 
 }

@@ -29,7 +29,7 @@
 void UART__vSetParityEnable(UART_nMODULE enModule, UART_nPARITY enParityState)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32ParityState = (uint32_t)enParityState;
+    uint32_t u32ParityState = (uint32_t) enParityState;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -42,7 +42,7 @@ void UART__vSetParityEnable(UART_nMODULE enModule, UART_nPARITY enParityState)
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_PEN_MASK;
     u32Reg |= u32ParityState;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 }
 
 
@@ -61,7 +61,7 @@ UART_nPARITY UART__enGetParityEnable(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_PEN_BIT;
+            u32Reg >>= UART_UARTLCRH_R_PEN_BIT;
             u32Reg &= UART_UARTLCRH_PEN_MASK;
             enStatus = (UART_nPARITY) u32Reg;
     }
@@ -72,7 +72,7 @@ UART_nPARITY UART__enGetParityEnable(UART_nMODULE enModule)
 void UART__vSetParityType(UART_nMODULE enModule, UART_nPARITY_TYPE enParityTypeArg)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32ParityTypeArg = (uint32_t)enParityTypeArg;
+    uint32_t u32ParityTypeArg = (uint32_t) enParityTypeArg;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -85,7 +85,7 @@ void UART__vSetParityType(UART_nMODULE enModule, UART_nPARITY_TYPE enParityTypeA
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_EPS_MASK;
     u32Reg |= u32ParityTypeArg;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 
 }
 
@@ -104,7 +104,7 @@ UART_nPARITY_TYPE UART__enGetParityType(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_EPS_BIT;
+            u32Reg >>= UART_UARTLCRH_R_EPS_BIT;
             u32Reg &= UART_UARTLCRH_EPS_MASK;
             enStatus = (UART_nPARITY_TYPE) u32Reg;
     }
@@ -114,7 +114,7 @@ UART_nPARITY_TYPE UART__enGetParityType(UART_nMODULE enModule)
 void UART__vSetParityStick(UART_nMODULE enModule, UART_nPARITY_STICK enParityStickArg)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32ParityStickArg = (uint32_t)enParityStickArg;
+    uint32_t u32ParityStickArg = (uint32_t) enParityStickArg;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -127,7 +127,7 @@ void UART__vSetParityStick(UART_nMODULE enModule, UART_nPARITY_STICK enParitySti
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_SPS_MASK;
     u32Reg |= u32ParityStickArg;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 
 }
 
@@ -146,7 +146,7 @@ UART_nPARITY_STICK UART__enGetParityStick(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_SPS_BIT;
+            u32Reg >>= UART_UARTLCRH_R_SPS_BIT;
             u32Reg &= UART_UARTLCRH_SPS_MASK;
             enStatus = (UART_nPARITY_STICK) u32Reg;
     }
@@ -160,7 +160,7 @@ void UART__vSetParityConfigStruct(UART_nMODULE enModule, const UART_PARITY_TypeD
 
 void UART__vSetParityConfigStructPointer(UART_nMODULE enModule, const UART_PARITY_TypeDef* psParityConfig)
 {
-    if((uint32_t)0UL != (uint32_t)psParityConfig)
+    if((uint32_t) 0UL != (uint32_t) psParityConfig)
     {
         UART__vSetParityConfig(enModule, psParityConfig->enParity, psParityConfig->enParityType,psParityConfig->enParityStick);
     }

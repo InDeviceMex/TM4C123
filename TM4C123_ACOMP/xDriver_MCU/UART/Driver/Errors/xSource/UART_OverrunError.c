@@ -41,7 +41,7 @@ UART_nERROR UART__enGetOverrunErrorState(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTRSR;
-            u32Reg>>= UART_UARTRSR_R_OE_BIT;
+            u32Reg >>= UART_UARTRSR_R_OE_BIT;
             u32Reg &= UART_UARTRSR_OE_MASK;
             enStatus = (UART_nERROR) u32Reg;
     }

@@ -31,12 +31,12 @@
 ******************************************************************************************/
 
 /*--------*/
-#define UART_UARTFBRD_R_DIVFRAC_MASK      ((uint32_t)0x0000003FU)
-#define UART_UARTFBRD_R_DIVFRAC_BIT          ((uint32_t)0U)
-#define UART_UARTFBRD_R_DIVFRAC_CLEAR      ((uint32_t)0x0000003FU)
+#define UART_UARTFBRD_R_DIVFRAC_MASK    ((uint32_t) 0x0000003FU)
+#define UART_UARTFBRD_R_DIVFRAC_BIT    ((uint32_t) 0U)
+#define UART_UARTFBRD_R_DIVFRAC_CLEAR    ((uint32_t) 0x0000003FU)
 
-#define UART_UARTFBRD_DIVFRAC_MASK        ((uint32_t)0x0000003FU)
-#define UART_UARTFBRD_DIVFRAC_CLEAR        ((uint32_t)0x0000003FU)
+#define UART_UARTFBRD_DIVFRAC_MASK    ((uint32_t) 0x0000003FU)
+#define UART_UARTFBRD_DIVFRAC_CLEAR    ((uint32_t) 0x0000003FU)
 /*--------*/
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UARTFBRD_H_ */

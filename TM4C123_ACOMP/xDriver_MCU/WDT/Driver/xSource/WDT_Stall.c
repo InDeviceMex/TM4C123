@@ -40,7 +40,7 @@ void WDT__vDisStall(WDT_nMODULE enModule)
 
 void WDT__vSetStall(WDT_nMODULE enModule, WDT_nSTALL enStallValue)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTTEST_OFFSET, (uint32_t)enStallValue, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
+    WDT__vWriteRegister(enModule, WDT_WDTTEST_OFFSET, (uint32_t) enStallValue, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
 }
 
 WDT_nSTATUS WDT__enGetStall(WDT_nMODULE enModule, WDT_nSTALL* penFeatureArg)

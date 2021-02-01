@@ -31,12 +31,12 @@
 ******************************************************************************************/
 
 /*--------*/
-#define UART_UARTILPR_R_ILPDVSR_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTILPR_R_ILPDVSR_BIT          ((uint32_t)0U)
-#define UART_UARTILPR_R_ILPDVSR_CLEAR      ((uint32_t)0x000000FFU)
+#define UART_UARTILPR_R_ILPDVSR_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTILPR_R_ILPDVSR_BIT    ((uint32_t) 0U)
+#define UART_UARTILPR_R_ILPDVSR_CLEAR    ((uint32_t) 0x000000FFU)
 
-#define UART_UARTILPR_ILPDVSR_MASK        ((uint32_t)0x000000FFU)
-#define UART_UARTILPR_ILPDVSR_CLEAR        ((uint32_t)0x000000FFU)
+#define UART_UARTILPR_ILPDVSR_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTILPR_ILPDVSR_CLEAR    ((uint32_t) 0x000000FFU)
 /*--------*/
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UARTILPR_H_ */

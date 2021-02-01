@@ -41,7 +41,7 @@ UART_nBREAK UART__enGetBreak(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_BRK_BIT;
+            u32Reg >>= UART_UARTLCRH_R_BRK_BIT;
             u32Reg &= UART_UARTLCRH_BRK_MASK;
             enStatus = (UART_nBREAK) u32Reg;
     }
@@ -51,7 +51,7 @@ UART_nBREAK UART__enGetBreak(UART_nMODULE enModule)
 void UART__vSetBreak(UART_nMODULE enModule, UART_nBREAK enBreakArg)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32BreakArg = (uint32_t)enBreakArg;
+    uint32_t u32BreakArg = (uint32_t) enBreakArg;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -64,7 +64,7 @@ void UART__vSetBreak(UART_nMODULE enModule, UART_nBREAK enBreakArg)
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_BRK_MASK;
     u32Reg |= u32BreakArg;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 
 }
 

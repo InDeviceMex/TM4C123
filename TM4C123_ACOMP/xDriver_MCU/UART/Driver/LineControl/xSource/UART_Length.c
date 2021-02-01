@@ -41,7 +41,7 @@ UART_nLENGTH UART__enGetDataLength(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_WLEN_BIT;
+            u32Reg >>= UART_UARTLCRH_R_WLEN_BIT;
             u32Reg &= UART_UARTLCRH_WLEN_MASK;
             enStatus = (UART_nLENGTH) u32Reg;
     }
@@ -51,7 +51,7 @@ UART_nLENGTH UART__enGetDataLength(UART_nMODULE enModule)
 void UART__vSetDataLength(UART_nMODULE enModule, UART_nLENGTH enDataLength)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32DataLength = (uint32_t)enDataLength;
+    uint32_t u32DataLength = (uint32_t) enDataLength;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -64,7 +64,7 @@ void UART__vSetDataLength(UART_nMODULE enModule, UART_nLENGTH enDataLength)
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_WLEN_MASK;
     u32Reg |= u32DataLength;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 
 }
 

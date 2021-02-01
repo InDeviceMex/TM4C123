@@ -41,7 +41,7 @@ UART_nERROR UART__enGetBreakErrorState(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTRSR;
-            u32Reg>>= UART_UARTRSR_R_BE_BIT;
+            u32Reg >>= UART_UARTRSR_R_BE_BIT;
             u32Reg &= UART_UARTRSR_BE_MASK;
             enStatus = (UART_nERROR) u32Reg;
     }

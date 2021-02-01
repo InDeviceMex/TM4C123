@@ -33,10 +33,10 @@
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xHeader/UART_RegisterPeripheral_Module6.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xHeader/UART_RegisterPeripheral_Module7.h>
 
-#define UART               (((UARTS_TypeDef*)(UART_BASE)))
+#define UART    (((UARTS_TypeDef*) (UART_BASE)))
 
-extern UART_TypeDef* UART_BLOCK[(uint32_t)UART_enMODULE_MAX+1U];
-extern uint32_t UART_BLOCK_ADDRESS[(uint32_t)UART_enMODULE_MAX+1U];
+extern UART_TypeDef* UART_BLOCK[(uint32_t) UART_enMODULE_MAX+1U];
+extern uint32_t UART_BLOCK_ADDRESS[(uint32_t) UART_enMODULE_MAX+1U];
 
 
 

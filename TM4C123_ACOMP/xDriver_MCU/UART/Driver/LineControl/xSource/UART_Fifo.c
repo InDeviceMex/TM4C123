@@ -41,7 +41,7 @@ UART_nFIFO UART__enGetFifoEnable(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_FEN_BIT;
+            u32Reg >>= UART_UARTLCRH_R_FEN_BIT;
             u32Reg &= UART_UARTLCRH_FEN_MASK;
             enStatus = (UART_nFIFO) u32Reg;
     }
@@ -51,7 +51,7 @@ UART_nFIFO UART__enGetFifoEnable(UART_nMODULE enModule)
 void UART__vSetFifoEnable(UART_nMODULE enModule, UART_nFIFO enFifoEnable)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32FifoEnable = (uint32_t)enFifoEnable;
+    uint32_t u32FifoEnable = (uint32_t) enFifoEnable;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -64,7 +64,7 @@ void UART__vSetFifoEnable(UART_nMODULE enModule, UART_nFIFO enFifoEnable)
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_FEN_MASK;
     u32Reg |= u32FifoEnable;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 
 }
 

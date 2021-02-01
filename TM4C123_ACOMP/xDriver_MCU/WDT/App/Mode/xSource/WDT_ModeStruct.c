@@ -28,9 +28,9 @@
 void WDT__vCreateModeStructPointer(WDT_nMODE enMode, WDT_MODE_Typedef* psMode)
 {
 
-    if( (uint32_t) 0U != (uint32_t) psMode )
+    if((uint32_t) 0U != (uint32_t) psMode )
     {
-        psMode->enInterrupt = (WDT_nINTERRUPT) ((uint32_t)enMode & 1U);
+        psMode->enInterrupt = (WDT_nINTERRUPT) ((uint32_t) enMode & 1U);
         psMode->enStall = (WDT_nSTALL) (( (uint32_t) enMode >> 8U) & 1U );
         psMode->enIntType = (WDT_nINT_TYPE) (( (uint32_t) enMode >> 16U ) & 1U);
         psMode->enResetOutput = (WDT_nRESET) (( (uint32_t) enMode >> 24U ) & 1U);
@@ -43,9 +43,9 @@ WDT_MODE_Typedef* WDT__psCreateModeStruct(WDT_nMODE enMode)
     #if defined ( __TI_ARM__ )
     psMode = (WDT_MODE_Typedef*) memalign((size_t) 4U, (size_t) sizeof(WDT_MODE_Typedef));
     #elif defined ( __GNUC__ )
-    psMode = (WDT_MODE_Typedef*) malloc((size_t)sizeof(WDT_MODE_Typedef));
+    psMode = (WDT_MODE_Typedef*) malloc((size_t) sizeof(WDT_MODE_Typedef));
     #endif
-    if( (uint32_t) 0U != (uint32_t) psMode )
+    if((uint32_t) 0U != (uint32_t) psMode )
     {
         psMode->enInterrupt = (WDT_nINTERRUPT) ( (uint32_t) enMode & 1U);
         psMode->enStall = (WDT_nSTALL) (( (uint32_t) enMode >> 8U ) & 1U);

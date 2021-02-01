@@ -41,7 +41,7 @@ UART_nERROR UART__enGetFramingErrorState(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTRSR;
-            u32Reg>>= UART_UARTRSR_R_FE_BIT;
+            u32Reg >>= UART_UARTRSR_R_FE_BIT;
             u32Reg &= UART_UARTRSR_FE_MASK;
             enStatus = (UART_nERROR) u32Reg;
     }

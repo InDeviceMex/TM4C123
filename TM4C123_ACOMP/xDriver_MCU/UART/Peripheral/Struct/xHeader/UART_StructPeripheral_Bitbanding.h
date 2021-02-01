@@ -42,13 +42,13 @@ typedef volatile struct
                 BITBANDING_UARTRSR_TypeDef UARTRSR_Bit;
                 BITBANDING_UARTECR_TypeDef UARTECR_Bit;
         };
-        const uint32_t reserved[4*32];
+        const uint32_t reserved[4 * 32];
         union
         {
                 volatile const uint32_t UARTFR[32];
                 BITBANDING_UARTFR_TypeDef UARTFR_Bit;
         };
-        const uint32_t reserved1[1*32];
+        const uint32_t reserved1[1 * 32];
         union
         {
                 volatile uint32_t UARTILPR[32];
@@ -104,7 +104,7 @@ typedef volatile struct
                 volatile uint32_t UARTDMACTL[32];
                 BITBANDING_UARTDMACTL_TypeDef UARTDMACTL_Bit;
         };
-        const uint32_t reserved2[22*32];
+        const uint32_t reserved2[22 * 32];
         union
         {
                 volatile uint32_t UART9BITADDR[32];
@@ -115,19 +115,19 @@ typedef volatile struct
                 volatile uint32_t UART9BITAMASK[32];
                 BITBANDING_UART9BITAMASK_TypeDef UART9BITAMASK_Bit;
         };
-        const uint32_t reserved3[965*32];
+        const uint32_t reserved3[965 * 32];
         union
         {
                 volatile const uint32_t UARTPP[32];
                 BITBANDING_UARTPP_TypeDef UARTPP_Bit;
         };
-        const uint32_t reserved4[1*32];
+        const uint32_t reserved4[1 * 32];
         union
         {
                 volatile const uint32_t UARTCC[32];
                 BITBANDING_UARTCC_TypeDef UARTCC_Bit;
         };
-        const uint32_t reserved5[1*32];
+        const uint32_t reserved5[1 * 32];
         union
         {
                 volatile const uint32_t UARTPeriphID4[32];

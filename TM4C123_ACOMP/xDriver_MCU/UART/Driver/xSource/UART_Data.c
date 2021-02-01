@@ -30,7 +30,7 @@ inline void UART__vSetData(UART_nMODULE enModule, uint32_t u32Data)
 {
     UART_TypeDef *uart = (UART_TypeDef*)0UL;
     uint32_t u32DataReg = u32Data & UART_UARTDR_DATA_MASK;
-    u32DataReg <<=UART_UARTDR_R_DATA_BIT;
+    u32DataReg <<= UART_UARTDR_R_DATA_BIT;
     if(enModule > UART_enMODULE_MAX)
     {
         enModule = UART_enMODULE_MAX;

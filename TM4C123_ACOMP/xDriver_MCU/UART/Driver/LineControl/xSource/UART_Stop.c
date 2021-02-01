@@ -41,7 +41,7 @@ UART_nSTOP UART__enGetStopBits(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTLCRH;
-            u32Reg>>= UART_UARTLCRH_R_STP2_BIT;
+            u32Reg >>= UART_UARTLCRH_R_STP2_BIT;
             u32Reg &= UART_UARTLCRH_STP2_MASK;
             enStatus = (UART_nSTOP) u32Reg;
     }
@@ -51,7 +51,7 @@ UART_nSTOP UART__enGetStopBits(UART_nMODULE enModule)
 void UART__vSetStopBits(UART_nMODULE enModule, UART_nSTOP enStopBitsArg)
 {
     UART_TypeDef *uart = 0;
-    uint32_t u32StopBitsArg = (uint32_t)enStopBitsArg;
+    uint32_t u32StopBitsArg = (uint32_t) enStopBitsArg;
     uint32_t u32Reg = 0UL;
     if(enModule > UART_enMODULE_MAX)
     {
@@ -64,7 +64,7 @@ void UART__vSetStopBits(UART_nMODULE enModule, UART_nSTOP enStopBitsArg)
     u32Reg = uart->UARTLCRH;
     u32Reg &= ~UART_UARTLCRH_R_STP2_MASK;
     u32Reg |= u32StopBitsArg;
-    uart->UARTLCRH  = u32Reg;
+    uart->UARTLCRH = u32Reg;
 
 }
 

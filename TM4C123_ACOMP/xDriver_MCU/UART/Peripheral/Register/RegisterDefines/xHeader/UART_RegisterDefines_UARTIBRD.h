@@ -31,12 +31,12 @@
 ******************************************************************************************/
 
 /*--------*/
-#define UART_UARTIBRD_R_DIVINT_MASK      ((uint32_t)0x0000FFFFU)
-#define UART_UARTIBRD_R_DIVINT_BIT          ((uint32_t)0U)
-#define UART_UARTIBRD_R_DIVINT_CLEAR      ((uint32_t)0x0000FFFFU)
+#define UART_UARTIBRD_R_DIVINT_MASK    ((uint32_t) 0x0000FFFFU)
+#define UART_UARTIBRD_R_DIVINT_BIT    ((uint32_t) 0U)
+#define UART_UARTIBRD_R_DIVINT_CLEAR    ((uint32_t) 0x0000FFFFU)
 
-#define UART_UARTIBRD_DIVINT_MASK        ((uint32_t)0x0000FFFFU)
-#define UART_UARTIBRD_DIVINT_CLEAR        ((uint32_t)0x0000FFFFU)
+#define UART_UARTIBRD_DIVINT_MASK    ((uint32_t) 0x0000FFFFU)
+#define UART_UARTIBRD_DIVINT_CLEAR    ((uint32_t) 0x0000FFFFU)
 /*--------*/
 
 

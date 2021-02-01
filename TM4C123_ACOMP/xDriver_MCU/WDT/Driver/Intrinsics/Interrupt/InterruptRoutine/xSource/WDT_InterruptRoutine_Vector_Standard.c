@@ -34,22 +34,22 @@ void WDT_Standard__vIRQVectorHandler(void)
     volatile uint32_t u32Reg1= 0U;
     volatile uint32_t u32RegWrite1 = 0U;
 
-    if( (uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )
+    if((uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )
     {
         u32Reg0 = WDT0_WDTMIS_R;
         u32Reg0 &= WDT_WDTMIS_R_WDTMIS_MASK;
-        if( (uint32_t) WDT_enINT_STATUS_OCCUR == u32Reg0 )
+        if((uint32_t) WDT_enINT_STATUS_OCCUR == u32Reg0 )
         {
-            WDT0_WDTICR_R = (uint32_t)WDT_enINT_STATUS_OCCUR;
+            WDT0_WDTICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
             WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_STANDARD][(uint32_t) WDT_enMODULE_0]();
         }
     }
 
-    if( (uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT1_MASK ) )
+    if((uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT1_MASK ) )
     {
         u32Reg1 = WDT1_WDTMIS_R;
         u32Reg1 &= WDT_WDTMIS_R_WDTMIS_MASK;
-        if( (uint32_t) WDT_enINT_STATUS_OCCUR == u32Reg1 )
+        if((uint32_t) WDT_enINT_STATUS_OCCUR == u32Reg1 )
         {
             WDT1_WDTICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
             do

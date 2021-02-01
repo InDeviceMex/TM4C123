@@ -31,12 +31,12 @@
 ******************************************************************************************/
 
 /*--------*/
-#define UART_UARTECR_R_DATA_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTECR_R_DATA_BIT          ((uint32_t)0U)
-#define UART_UARTECR_R_DATA_CLEAR      ((uint32_t)0x000000FFU)
+#define UART_UARTECR_R_DATA_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTECR_R_DATA_BIT    ((uint32_t) 0U)
+#define UART_UARTECR_R_DATA_CLEAR    ((uint32_t) 0x000000FFU)
 
-#define UART_UARTECR_DATA_MASK        ((uint32_t)0x000000FFU)
-#define UART_UARTECR_DATA_CLEAR        ((uint32_t)0x000000FFU)
+#define UART_UARTECR_DATA_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTECR_DATA_CLEAR    ((uint32_t) 0x000000FFU)
 /*--------*/
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UARTECR_H_ */

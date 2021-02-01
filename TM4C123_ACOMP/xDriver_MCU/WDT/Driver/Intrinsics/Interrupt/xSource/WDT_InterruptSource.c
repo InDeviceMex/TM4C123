@@ -40,18 +40,18 @@ WDT_nSTATUS WDT__enGetInterruptSource(WDT_nMODULE enModule, WDT_nINTERRUPT* penF
 
 void WDT__vEnInterruptSource(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTCTL_OFFSET, (uint32_t)WDT_enINTERRUPT_ENABLE, WDT_WDTCTL_INTEN_MASK, WDT_WDTCTL_R_INTEN_BIT);
+    WDT__vWriteRegister(enModule, WDT_WDTCTL_OFFSET, (uint32_t) WDT_enINTERRUPT_ENABLE, WDT_WDTCTL_INTEN_MASK, WDT_WDTCTL_R_INTEN_BIT);
 }
 
 void WDT__vDisInterruptSource(WDT_nMODULE enModule)
 {
-    enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t)enModule, (uint32_t)WDT_enMODULE_MAX);
+    enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     WDT__vReset(enModule);
 }
 
 void WDT__vClearInterruptSource(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTICR_OFFSET, (uint32_t)0UL, WDT_WDTICR_WDTINTCLR_MASK, WDT_WDTICR_R_WDTINTCLR_BIT);
+    WDT__vWriteRegister(enModule, WDT_WDTICR_OFFSET, (uint32_t) 0UL, WDT_WDTICR_WDTINTCLR_MASK, WDT_WDTICR_R_WDTINTCLR_BIT);
 }
 
 WDT_nSTATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule, WDT_nINT_STATUS* penFeatureArg)

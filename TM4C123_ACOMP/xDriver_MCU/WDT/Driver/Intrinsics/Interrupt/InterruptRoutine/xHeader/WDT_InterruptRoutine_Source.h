@@ -26,6 +26,6 @@
 
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-extern void (*WDT__vIRQSourceHandler[(uint32_t)WDT_enINT_TYPE_MAX+1U][(uint32_t)WDT_enMODULE_MAX+1U]) (void);
+extern void (*WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_MAX+1U][(uint32_t) WDT_enMODULE_MAX+1U]) (void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_INTERRUPT_WDT_INTERRUPTROUTINE_WDT_INTERRUPTROUTINE_MODULES_H_ */

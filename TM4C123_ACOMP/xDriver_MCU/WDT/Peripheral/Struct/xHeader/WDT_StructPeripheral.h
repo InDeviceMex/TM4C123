@@ -138,7 +138,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-     WDT_TypeDef MODULE[(uint32_t)WDT_enMODULE_MAX +1U];
+     WDT_TypeDef MODULE[(uint32_t) WDT_enMODULE_MAX +1U];
 }WDTS_TypeDef;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCTPERIPHERAL_H_ */

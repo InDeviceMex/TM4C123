@@ -58,20 +58,20 @@ typedef volatile struct
         volatile const uint32_t             WDTMIS[32];
         BITBANDING_WDTMIS_TypeDef           WDTMIS_Bit;
     };
-    const uint32_t                          reserved[256*32];
+    const uint32_t                          reserved[256 * 32];
     union
     {
         volatile uint32_t                   WDTTEST[32];
         BITBANDING_WDTTEST_TypeDef          WDTTEST_Bit;
     };
 
-    const uint32_t                          reserved1[505*32];
+    const uint32_t                          reserved1[505 * 32];
     union
     {
         volatile uint32_t                   WDTLOCK[32];
         BITBANDING_WDTLOCK_TypeDef          WDTLOCK_Bit;
     };
-    const uint32_t                          reserved2[243*32];
+    const uint32_t                          reserved2[243 * 32];
     union
     {
         volatile uint32_t                   WDTPeriphID4[32];

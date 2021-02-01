@@ -34,7 +34,7 @@ void UART__vEnInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
     {
         enModule = UART_enMODULE_MAX;
     }
-    enIntSource &= (uint32_t)UART_enINT_ALL;
+    enIntSource &= (uint32_t) UART_enINT_ALL;
     UART__vSetReady(enModule);
     gpio = UART_BLOCK[(uint32_t) enModule];
     u32Reg = gpio->UARTIM;
@@ -51,7 +51,7 @@ void UART__vDisInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
     {
         enModule = UART_enMODULE_MAX;
     }
-    enIntSource &= (uint32_t)UART_enINT_ALL;
+    enIntSource &= (uint32_t) UART_enINT_ALL;
     UART__vSetReady(enModule);
     gpio = UART_BLOCK[(uint32_t) enModule];
     u32Reg = gpio->UARTIM;
@@ -66,7 +66,7 @@ void UART__vClearInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
     {
         enModule = UART_enMODULE_MAX;
     }
-    enIntSource &= (uint32_t)UART_enINT_ALL;
+    enIntSource &= (uint32_t) UART_enINT_ALL;
     UART__vSetReady(enModule);
     gpio = UART_BLOCK[(uint32_t) enModule];
     gpio->UARTICR = enIntSource;
@@ -84,7 +84,7 @@ UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule,
     {
         enModule = UART_enMODULE_MAX;
     }
-    enIntSource &= (uint32_t)UART_enINT_ALL;
+    enIntSource &= (uint32_t) UART_enINT_ALL;
     enReady = UART__enIsReady(enModule);
 
     if((UART_enREADY == enReady))

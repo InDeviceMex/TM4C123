@@ -41,7 +41,7 @@ UART_nBUSY UART__enGetBusyState(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTFR;
-            u32Reg>>= UART_UARTFR_R_BUSY_BIT;
+            u32Reg >>= UART_UARTFR_R_BUSY_BIT;
             u32Reg &= UART_UARTFR_BUSY_MASK;
             enStatus = (UART_nBUSY) u32Reg;
     }

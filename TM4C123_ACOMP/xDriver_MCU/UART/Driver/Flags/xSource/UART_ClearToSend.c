@@ -41,7 +41,7 @@ UART_nCTS UART__enGetClearToSendStatus(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTFR;
-            u32Reg>>= UART_UARTFR_R_CTS_BIT;
+            u32Reg >>= UART_UARTFR_R_CTS_BIT;
             u32Reg &= UART_UARTFR_CTS_MASK;
             enStatus = (UART_nCTS) u32Reg;
     }

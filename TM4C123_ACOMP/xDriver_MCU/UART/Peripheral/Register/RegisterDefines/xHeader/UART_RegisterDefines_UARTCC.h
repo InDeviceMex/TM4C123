@@ -30,14 +30,14 @@
 ************************************ 18 UARTCC *********************************************
 ******************************************************************************************/
 /*--------*/
-#define UART_UARTCC_R_CS_MASK      ((uint32_t)0x0000000FU)
-#define UART_UARTCC_R_CS_BIT       ((uint32_t)0U)
-#define UART_UARTCC_R_CS_SYSCLK       ((uint32_t)0x00000000U)
-#define UART_UARTCC_R_CS_PIOSC     ((uint32_t)0x00000005U)
+#define UART_UARTCC_R_CS_MASK    ((uint32_t) 0x0000000FU)
+#define UART_UARTCC_R_CS_BIT    ((uint32_t) 0U)
+#define UART_UARTCC_R_CS_SYSCLK    ((uint32_t) 0x00000000U)
+#define UART_UARTCC_R_CS_PIOSC    ((uint32_t) 0x00000005U)
 
-#define UART_UARTCC_CS_MASK        ((uint32_t)0x0000000FU)
-#define UART_UARTCC_CS_SYSCLK         ((uint32_t)0x00000000U)
-#define UART_UARTCC_CS_PIOSC       ((uint32_t)0x00000005U)
+#define UART_UARTCC_CS_MASK    ((uint32_t) 0x0000000FU)
+#define UART_UARTCC_CS_SYSCLK    ((uint32_t) 0x00000000U)
+#define UART_UARTCC_CS_PIOSC    ((uint32_t) 0x00000005U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UARTCC_H_ */

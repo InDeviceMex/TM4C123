@@ -41,7 +41,7 @@ UART_nFIFO_EMPTY UART__enIsFifoTransmitEmpty(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTFR;
-            u32Reg>>= UART_UARTFR_R_TXFE_BIT;
+            u32Reg >>= UART_UARTFR_R_TXFE_BIT;
             u32Reg &= UART_UARTFR_TXFE_MASK;
             enStatus = (UART_nFIFO_EMPTY) u32Reg;
     }
@@ -63,7 +63,7 @@ UART_nFIFO_FULL UART__enIsFifoTransmitFull(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTFR;
-            u32Reg>>= UART_UARTFR_R_TXFF_BIT;
+            u32Reg >>= UART_UARTFR_R_TXFF_BIT;
             u32Reg &= UART_UARTFR_TXFF_MASK;
             enStatus = (UART_nFIFO_FULL) u32Reg;
     }

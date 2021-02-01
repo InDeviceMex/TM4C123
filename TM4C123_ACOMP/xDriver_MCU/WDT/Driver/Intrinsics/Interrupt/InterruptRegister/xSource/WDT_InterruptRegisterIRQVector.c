@@ -33,7 +33,7 @@ void WDT__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), WDT_nINT_
     uint32_t u32IrqVectorHandler = 0UL;
     uint32_t u32IntType = (uint32_t) enIntTypeParam;
 
-    if(0UL !=  (uint32_t) pfIrqVectorHandler)
+    if(0UL != (uint32_t) pfIrqVectorHandler)
     {
         u32IntType &= (uint32_t) WDT_enINT_TYPE_MAX;
         if((uint32_t) WDT_enINT_TYPE_STANDARD == u32IntType)

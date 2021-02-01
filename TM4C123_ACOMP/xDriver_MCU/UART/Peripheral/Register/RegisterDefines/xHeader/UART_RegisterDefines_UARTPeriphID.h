@@ -31,12 +31,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID4_R_PID4_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID4_R_PID4_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID4_R_PID4_RESET   ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID4_R_PID4_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID4_R_PID4_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID4_R_PID4_RESET    ((uint32_t) 0x00000000U)
 
-#define UART_UARTPeriphID4_PID4_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID4_PID4_RESET     ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID4_PID4_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID4_PID4_RESET    ((uint32_t) 0x00000000U)
 /*--------*/
 
 /**************************************************************************************
@@ -44,12 +44,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID5_R_PID5_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID5_R_PID5_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID5_R_PID5_RESET   ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID5_R_PID5_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID5_R_PID5_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID5_R_PID5_RESET    ((uint32_t) 0x00000000U)
 
-#define UART_UARTPeriphID5_PID5_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID5_PID5_RESET     ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID5_PID5_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID5_PID5_RESET    ((uint32_t) 0x00000000U)
 /*--------*/
 
 /**************************************************************************************
@@ -57,12 +57,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID6_R_PID6_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID6_R_PID6_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID6_R_PID6_RESET   ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID6_R_PID6_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID6_R_PID6_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID6_R_PID6_RESET    ((uint32_t) 0x00000000U)
 
-#define UART_UARTPeriphID6_PID6_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID6_PID6_RESET     ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID6_PID6_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID6_PID6_RESET    ((uint32_t) 0x00000000U)
 /*--------*/
 
 /**************************************************************************************
@@ -70,12 +70,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID7_R_PID7_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID7_R_PID7_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID7_R_PID7_RESET   ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID7_R_PID7_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID7_R_PID7_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID7_R_PID7_RESET    ((uint32_t) 0x00000000U)
 
-#define UART_UARTPeriphID7_PID7_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID7_PID7_RESET     ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID7_PID7_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID7_PID7_RESET    ((uint32_t) 0x00000000U)
 /*--------*/
 
 /**************************************************************************************
@@ -83,12 +83,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID0_R_PID0_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID0_R_PID0_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID0_R_PID0_RESET   ((uint32_t)0x00000060U)
+#define UART_UARTPeriphID0_R_PID0_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID0_R_PID0_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID0_R_PID0_RESET    ((uint32_t) 0x00000060U)
 
-#define UART_UARTPeriphID0_PID0_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID0_PID0_RESET     ((uint32_t)0x00000060U)
+#define UART_UARTPeriphID0_PID0_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID0_PID0_RESET    ((uint32_t) 0x00000060U)
 /*--------*/
 
 /**************************************************************************************
@@ -96,12 +96,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID1_R_PID1_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID1_R_PID1_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID1_R_PID1_RESET   ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID1_R_PID1_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID1_R_PID1_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID1_R_PID1_RESET    ((uint32_t) 0x00000000U)
 
-#define UART_UARTPeriphID1_PID1_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID1_PID1_RESET     ((uint32_t)0x00000000U)
+#define UART_UARTPeriphID1_PID1_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID1_PID1_RESET    ((uint32_t) 0x00000000U)
 /*--------*/
 
 /**************************************************************************************
@@ -109,12 +109,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID2_R_PID2_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID2_R_PID2_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID2_R_PID2_RESET   ((uint32_t)0x00000018U)
+#define UART_UARTPeriphID2_R_PID2_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID2_R_PID2_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID2_R_PID2_RESET    ((uint32_t) 0x00000018U)
 
-#define UART_UARTPeriphID2_PID2_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID2_PID2_RESET     ((uint32_t)0x00000018U)
+#define UART_UARTPeriphID2_PID2_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID2_PID2_RESET    ((uint32_t) 0x00000018U)
 /*--------*/
 
 /**************************************************************************************
@@ -122,12 +122,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPeriphID3_R_PID3_MASK    ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID3_R_PID3_BIT     ((uint32_t)0U)
-#define UART_UARTPeriphID3_R_PID3_RESET   ((uint32_t)0x00000001U)
+#define UART_UARTPeriphID3_R_PID3_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID3_R_PID3_BIT    ((uint32_t) 0U)
+#define UART_UARTPeriphID3_R_PID3_RESET    ((uint32_t) 0x00000001U)
 
-#define UART_UARTPeriphID3_PID3_MASK      ((uint32_t)0x000000FFU)
-#define UART_UARTPeriphID3_PID3_RESET     ((uint32_t)0x00000001U)
+#define UART_UARTPeriphID3_PID3_MASK    ((uint32_t) 0x000000FFU)
+#define UART_UARTPeriphID3_PID3_RESET    ((uint32_t) 0x00000001U)
 /*--------*/
 
 

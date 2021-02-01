@@ -29,7 +29,7 @@
 
 void WDT__vSetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE enType)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTCTL_OFFSET, (uint32_t)enType, WDT_WDTCTL_INTTYPE_MASK, WDT_WDTCTL_R_INTTYPE_BIT);
+    WDT__vWriteRegister(enModule, WDT_WDTCTL_OFFSET, (uint32_t) enType, WDT_WDTCTL_INTTYPE_MASK, WDT_WDTCTL_R_INTTYPE_BIT);
 }
 
 WDT_nSTATUS WDT__enGetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE* penFeatureArg)
