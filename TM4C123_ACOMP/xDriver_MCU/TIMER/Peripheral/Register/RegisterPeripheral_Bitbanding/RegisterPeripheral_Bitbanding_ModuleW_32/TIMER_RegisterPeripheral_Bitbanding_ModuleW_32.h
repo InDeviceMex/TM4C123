@@ -21,9 +21,11 @@
  * Date           Author     Version     Description
  * 9 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_BITBANDING_TIMER_REGISTERPERIPHERAL_BITBANDING_MODULEW_32_TIMER_REGISTERPERIPHERAL_BITBANDING_MODULEW_32_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_BITBANDING_TIMER_REGISTERPERIPHERAL_BITBANDING_MODULEW_32_TIMER_REGISTERPERIPHERAL_BITBANDING_MODULEW_32_H_
 
+#include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_ModuleW_32/xHeader/TIMER_RegisterPeripheral_Bitbanding_ModuleW_32_Module0.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_ModuleW_32/xHeader/TIMER_RegisterPeripheral_Bitbanding_ModuleW_32_Module1.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_ModuleW_32/xHeader/TIMER_RegisterPeripheral_Bitbanding_ModuleW_32_Module2.h>
@@ -31,6 +33,6 @@
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_ModuleW_32/xHeader/TIMER_RegisterPeripheral_Bitbanding_ModuleW_32_Module4.h>
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_ModuleW_32/xHeader/TIMER_RegisterPeripheral_Bitbanding_ModuleW_32_Module5.h>
 
-extern GPTM_BITBANDING_TW_TypeDef* GPTM_BITBANDING_TW_BLOCK[6];
+extern GPTM_BITBANDING_TW_TypeDef* GPTM_BITBANDING_TW_BLOCK[(uint32_t) TIMER_enMODULE_NUM_MAX];
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_BITBANDING_TIMER_REGISTERPERIPHERAL_BITBANDING_MODULEW_32_TIMER_REGISTERPERIPHERAL_BITBANDING_MODULEW_32_H_ */

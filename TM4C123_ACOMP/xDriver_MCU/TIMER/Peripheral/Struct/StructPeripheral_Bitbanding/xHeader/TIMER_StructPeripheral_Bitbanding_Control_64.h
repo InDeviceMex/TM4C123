@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 4 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 4 jul. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_BITBANDING_TIMER_STRUCTPERIPHERAL_BITBANDING_CONTROL_64_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_BITBANDING_TIMER_STRUCTPERIPHERAL_BITBANDING_CONTROL_64_H_
 
@@ -30,16 +31,16 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t                   GPTMCFG[32];
-        BITBANDING_GPTMCFG_TypeDef          GPTMCFG_Bit;
+        volatile uint32_t GPTMCFG [32UL];
+        BITBANDING_GPTMCFG_TypeDef GPTMCFG_Bit;
     };
-    const uint32_t                          reserved1[1007*32];
+    const uint32_t reserved1 [1007UL * 32UL];
     union
     {
-        volatile uint32_t                   GPTMPP[32];
-        BITBANDING_GPTMPP_TypeDef           GPTMPP_Bit;
+        volatile uint32_t GPTMPP [32UL];
+        BITBANDING_GPTMPP_TypeDef GPTMPP_Bit;
     };
-    const uint32_t                          reserved2[15*32];
+    const uint32_t reserved2 [15UL * 32UL];
 }GPWTM_BITBANDING_CTL_TypeDef;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_BITBANDING_TIMER_STRUCTPERIPHERAL_BITBANDING_CONTROL_64_H_ */

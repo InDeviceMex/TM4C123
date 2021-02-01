@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 4 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 4 jul. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_TIMER_STRUCTPERIPHERAL_CONTROL_32_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_TIMER_STRUCTPERIPHERAL_CONTROL_32_H_
 
@@ -30,22 +31,22 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t                   GPTMCFG;
-        GPTMCFG_TypeDef                     GPTMCFG_Bit;
+        volatile uint32_t GPTMCFG;
+        GPTMCFG_TypeDef GPTMCFG_Bit;
     };
-    const uint32_t                          reserved[3];
+    const uint32_t reserved [3UL];
     union
     {
-        volatile uint32_t                   GPTMSYNC;
-        GPTMSYNC_TypeDef                    GPTMSYNC_Bit;
+        volatile uint32_t GPTMSYNC;
+        GPTMSYNC_TypeDef GPTMSYNC_Bit;
     };
-    const uint32_t                          reserved1[1003];
+    const uint32_t reserved1 [1003UL];
     union
     {
-        volatile uint32_t                   GPTMPP;
-        GPTMPP_TypeDef                      GPTMPP_Bit;
+        volatile uint32_t GPTMPP;
+        GPTMPP_TypeDef GPTMPP_Bit;
     };
-    const uint32_t                          reserved2[15];
+    const uint32_t reserved2 [15UL];
 }GPTM_CTL_TypeDef;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_TIMER_STRUCTPERIPHERAL_CONTROL_32_H_ */

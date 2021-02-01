@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 4 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 4 jul. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_TIMER_STRUCTPERIPHERAL_MODULEW_32_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_STRUCT_TIMER_STRUCTPERIPHERAL_TIMER_STRUCTPERIPHERAL_MODULEW_32_H_
 
@@ -29,69 +30,69 @@
 typedef volatile struct
 {
 
-    const uint32_t                          reserved;
+    const uint32_t reserved;
     union
     {
-        volatile uint32_t                   GPTMTnMR;
-        TW_GPTMMR_TypeDef                   GPTMTnMR_Bit;
+        volatile uint32_t GPTMTnMR;
+        TW_GPTMMR_TypeDef GPTMTnMR_Bit;
     };
-    const uint32_t                          reserved1;
+    const uint32_t reserved1;
     union
     {
-        volatile uint32_t                   GPTMTnCTL;
-        TW_GPTMCTL_TypeDef                  GPTMTnCTL_Bit;
+        volatile uint32_t GPTMTnCTL;
+        TW_GPTMCTL_TypeDef GPTMTnCTL_Bit;
     };
-    const uint32_t                          reserved3[2];
+    const uint32_t reserved3 [2UL];
     union
     {
-        volatile uint32_t                   GPTMTnIMR;
-        TW_GPTMIMR_TypeDef                  GPTMTnIMR_Bit;
-    };
-    union
-    {
-        volatile uint32_t                   GPTMTnRIS;
-        TW_GPTMRIS_TypeDef                  GPTMTnRIS_Bit;
+        volatile uint32_t GPTMTnIMR;
+        TW_GPTMIMR_TypeDef GPTMTnIMR_Bit;
     };
     union
     {
-        volatile uint32_t                   GPTMTnMIS;
-        TW_GPTMMIS_TypeDef                  GPTMTnMIS_Bit;
+        volatile uint32_t GPTMTnRIS;
+        TW_GPTMRIS_TypeDef GPTMTnRIS_Bit;
     };
     union
     {
-        volatile uint32_t                   GPTMTnICR;
-        TW_GPTMICR_TypeDef                  GPTMTnICR_Bit;
+        volatile uint32_t GPTMTnMIS;
+        TW_GPTMMIS_TypeDef GPTMTnMIS_Bit;
     };
     union
     {
-        volatile uint32_t                   GPTMTnILR;
-        TW_GPTMILR_TypeDef                  GPTMTnILR_Bit;
+        volatile uint32_t GPTMTnICR;
+        TW_GPTMICR_TypeDef GPTMTnICR_Bit;
     };
-    const uint32_t                          reserved8;
     union
     {
-        volatile uint32_t                   GPTMTnMATCHR;
-        TW_GPTMMATCHR_TypeDef               GPTMTnMATCHR_Bit;
+        volatile uint32_t GPTMTnILR;
+        TW_GPTMILR_TypeDef GPTMTnILR_Bit;
     };
-    const uint32_t                          reserved9[5];
+    const uint32_t reserved8;
     union
     {
-        volatile const uint32_t             GPTMTnR;
-        TW_GPTMR_TypeDef                    GPTMTnR_Bit;
+        volatile uint32_t GPTMTnMATCHR;
+        TW_GPTMMATCHR_TypeDef GPTMTnMATCHR_Bit;
     };
-    const uint32_t                          reserved10;
+    const uint32_t reserved9 [5UL];
     union
     {
-        volatile uint32_t                   GPTMTnV;
-        TW_GPTMV_TypeDef                    GPTMTnV_Bit;
+        volatile const uint32_t GPTMTnR;
+        TW_GPTMR_TypeDef GPTMTnR_Bit;
     };
-    const uint32_t                          reserved11;
+    const uint32_t reserved10;
     union
     {
-        volatile const uint32_t             GPTMRTCPD;
-        TW_GPTMRTCPD_TypeDef                GPTMRTCPD_Bit;
+        volatile uint32_t GPTMTnV;
+        TW_GPTMV_TypeDef GPTMTnV_Bit;
     };
-    const uint32_t                          reserved13[1001];
+    const uint32_t reserved11;
+    union
+    {
+        volatile const uint32_t GPTMRTCPD;
+        TW_GPTMRTCPD_TypeDef GPTMRTCPD_Bit;
+    };
+    const uint32_t reserved13 [1001UL];
 
 }GPTM_TW_TypeDef;
 
