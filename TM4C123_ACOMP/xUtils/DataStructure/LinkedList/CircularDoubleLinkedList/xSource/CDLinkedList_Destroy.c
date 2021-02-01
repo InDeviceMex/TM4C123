@@ -38,7 +38,7 @@ void CDLinkedList__vDestroy( CDLinkedList_TypeDef* psList)
      CDLinkedListElement_TypeDef* psTailElement = (CDLinkedListElement_TypeDef*) 0UL;
      void * pvDataElement = (void*)0UL;
      uint32_t u32SizeReg = 0UL;
-     void    (*pfvListDestroy) (void* List) = (void    (*) (void* List) )0UL;
+     void (*pfvListDestroy) (void* List) = (void (*) (void* List) )0UL;
 
      if((CDLinkedList_TypeDef*)0 != psList)
      {
@@ -57,8 +57,8 @@ void CDLinkedList__vDestroy( CDLinkedList_TypeDef* psList)
          }
 
          psList->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
-         psList->pfvDestroy = (void    (*) (void* List)) 0UL;
-         psList->pfvDestroyElementData = (void    (*) (void* DataContainer)) 0UL;
+         psList->pfvDestroy = (void (*) (void* List)) 0UL;
+         psList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
          psList->psHead = (CDLinkedListElement_TypeDef *) 0UL;
          psList->psTail = (CDLinkedListElement_TypeDef *) 0UL;
          psList->u32Size = 0UL;

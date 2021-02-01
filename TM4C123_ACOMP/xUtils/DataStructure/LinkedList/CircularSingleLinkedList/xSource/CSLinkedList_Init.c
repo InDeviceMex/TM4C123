@@ -24,7 +24,7 @@
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/xHeader/CSLinkedList_Init.h>
 #include <stdlib.h>
 
-CSLinkedList_TypeDef* CSLinkedList__psInit( void    (*pfvDestroyElementDataArg) (void *DataContainer))
+CSLinkedList_TypeDef* CSLinkedList__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CSLinkedList_TypeDef *psList = 0;
 #if defined ( __TI_ARM__ )
@@ -43,14 +43,14 @@ CSLinkedList_TypeDef* CSLinkedList__psInit( void    (*pfvDestroyElementDataArg) 
 }
 
 
-CSLinkedList_nSTATUS CSLinkedList__enInit( CSLinkedList_TypeDef* psList ,void    (*pfvDestroyElementDataArg) (void *DataContainer))
+CSLinkedList_nSTATUS CSLinkedList__enInit( CSLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)
     {
         enStatus = CSLinkedList_enSTATUS_OK;
         psList->u32Size= 0UL;
-        psList->pfvDestroy = (void    (*) (void* List))0UL;
+        psList->pfvDestroy = (void (*) (void* List))0UL;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (CSLinkedListElement_TypeDef*)  0UL;
     }

@@ -41,7 +41,7 @@ Set_nSTATUS Set__enIntersection(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, cons
 
     if(((uint32_t) 0UL != (uint32_t) psSet1) && ((uint32_t) 0UL != (uint32_t) psSet2))
     {
-        enStatus = Set__enInit(psNewSet, psSet1->pfu32Match, (void    (*) (void *DataContainer))0UL);
+        enStatus = Set__enInit(psNewSet, psSet1->pfu32Match, (void (*) (void *DataContainer))0UL);
         if(Set_enSTATUS_ERROR != enStatus)
         {
             psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet1);
@@ -78,7 +78,7 @@ Set_TypeDef* Set__psIntersection(Set_TypeDef* psSet1, const Set_TypeDef* psSet2)
 
     if(((uint32_t) 0UL != (uint32_t) psSet1) && ((uint32_t) 0UL != (uint32_t) psSet2))
     {
-        psNewSet = Set__psInit(psSet1->pfu32Match, (void    (*) (void *DataContainer))0UL);
+        psNewSet = Set__psInit(psSet1->pfu32Match, (void (*) (void *DataContainer))0UL);
 
         if((uint32_t) 0UL != (uint32_t) psNewSet)
         {

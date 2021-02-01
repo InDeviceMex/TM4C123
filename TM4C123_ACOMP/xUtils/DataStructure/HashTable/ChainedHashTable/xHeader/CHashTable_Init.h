@@ -28,10 +28,10 @@
 
 
 CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_t u32BucketsNum,uint32_t    (*pfu32FunctionArg) (const void *pcvKey),
-                                                           uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void    (*pfvDestroyElementDataArg) (void *DataContainer));
+                                                           uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer));
 
 CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t    (*pfu32FunctionArg) (const void *pcvKey),
-                                                       uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void    (*pfvDestroyElementDataArg) (void *DataContainer));
+                                                       uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void (*pfvDestroyElementDataArg) (void *DataContainer));
 
 
 

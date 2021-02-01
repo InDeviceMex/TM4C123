@@ -28,7 +28,7 @@
 static char OAHashTable_cVacated = 0;
 
 OAHashTable_nSTATUS OAHashTable__enInit( OAHashTable_TypeDef* psOAHashTable ,uint32_t u32PositionsNum,uint32_t    (*pfu32Function1Arg) (const void *pcvKey),
-                                         uint32_t    (*pfu32Function2Arg) (const void *pcvKey),uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void    (*pfvDestroyElementDataArg) (void *DataContainer))
+                                         uint32_t    (*pfu32Function2Arg) (const void *pcvKey),uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     OAHashTable_nSTATUS enHashStatus = OAHashTable_enSTATUS_ERROR;
     uint32_t u32Position = 0UL;
@@ -66,7 +66,7 @@ OAHashTable_nSTATUS OAHashTable__enInit( OAHashTable_TypeDef* psOAHashTable ,uin
 }
 
 OAHashTable_TypeDef* OAHashTable__psInit( uint32_t u32PositionsNum,uint32_t    (*pfu32Function1Arg) (const void *pcvKey),
-                                         uint32_t    (*pfu32Function2Arg) (const void *pcvKey),uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void    (*pfvDestroyElementDataArg) (void *DataContainer))
+                                         uint32_t    (*pfu32Function2Arg) (const void *pcvKey),uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     OAHashTable_TypeDef *psOAHashTable = 0;
     void** pvTableReg = (void**)0UL;

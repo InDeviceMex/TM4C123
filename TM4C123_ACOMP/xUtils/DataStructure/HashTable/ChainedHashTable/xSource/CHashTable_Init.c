@@ -28,7 +28,7 @@
 #include <stdlib.h>
 
 CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_t u32BucketsNum,uint32_t    (*pfu32FunctionArg) (const void *pcvKey),
-                                                                       uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void    (*pfvDestroyElementDataArg) (void *DataContainer))
+                                                                       uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enLinkedStatus = SLinkedList_enSTATUS_ERROR;
     SLinkedList_TypeDef* psList = (SLinkedList_TypeDef*)0UL;
@@ -39,7 +39,7 @@ CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_
         psCHashTable->u32Size= 0UL;
         psCHashTable->pfu32HashFunction = pfu32FunctionArg;
         psCHashTable->pfu32Match = pfu32MatchArg;
-        psCHashTable->pfvDestroy = (void    (*) (void* List))0UL;
+        psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
         psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
     #if defined ( __TI_ARM__ )
@@ -72,7 +72,7 @@ CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_
 }
 
 CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t    (*pfu32FunctionArg) (const void *pcvKey),
-                                                                       uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void    (*pfvDestroyElementDataArg) (void *DataContainer))
+                                                                       uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CHashTable_TypeDef *psCHashTable = 0;
     SLinkedList_TypeDef* psList = (SLinkedList_TypeDef*)0UL;
@@ -89,7 +89,7 @@ CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t    (*pfu3
         psCHashTable->u32Size= 0UL;
         psCHashTable->pfu32HashFunction = pfu32FunctionArg;
         psCHashTable->pfu32Match = pfu32MatchArg;
-        psCHashTable->pfvDestroy = (void    (*) (void* List))0UL;
+        psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
         psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
     #if defined ( __TI_ARM__ )

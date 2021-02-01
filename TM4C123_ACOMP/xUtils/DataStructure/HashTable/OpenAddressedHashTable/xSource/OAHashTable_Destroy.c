@@ -31,8 +31,8 @@ void OAHashTable__vDestroy( OAHashTable_TypeDef* psOAHashTable)
     uint32_t u32PositionsCant = 0UL;
     void* pvVacatedReg = (void*)0UL;
     void** psList = (void**)0UL;
-    void    (*pfvHashDestroy) (void* Hash) = (void    (*) (void* Hash))0UL;
-    void    (*pfvHashDestroyElement) (void* DataContainer) = (void    (*) (void* DataContainer))0UL;
+    void (*pfvHashDestroy) (void* Hash) = (void (*) (void* Hash))0UL;
+    void (*pfvHashDestroyElement) (void* DataContainer) = (void (*) (void* DataContainer))0UL;
 
     if((uint32_t) 0UL != (uint32_t) psOAHashTable)
     {
@@ -57,8 +57,8 @@ void OAHashTable__vDestroy( OAHashTable_TypeDef* psOAHashTable)
 
         psOAHashTable->pvTable = (void* *)  0UL;
         psOAHashTable->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
-        psOAHashTable->pfvDestroy = (void    (*) (void* List)) 0UL;
-        psOAHashTable->pfvDestroyElementData = (void    (*) (void* DataContainer)) 0UL;
+        psOAHashTable->pfvDestroy = (void (*) (void* List)) 0UL;
+        psOAHashTable->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
         psOAHashTable->pfu32HashFunction1 = (uint32_t (*) (const void *pcvKey)) 0UL;
         psOAHashTable->pfu32HashFunction2 = (uint32_t (*) (const void *pcvKey)) 0UL;
         psOAHashTable->u32Positions = 0UL;

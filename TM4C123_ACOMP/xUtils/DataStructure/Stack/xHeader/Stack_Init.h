@@ -27,8 +27,8 @@
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Struct.h>
 
-Stack_TypeDef* Stack__psInit( void    (*pfvDestroyElementDataArg) (void *DataContainer));
-Stack_nSTATUS Stack__enInit( Stack_TypeDef* psStack ,void    (*pfvDestroyElementDataArg) (void *DataContainer));
+Stack_TypeDef* Stack__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer));
+Stack_nSTATUS Stack__enInit( Stack_TypeDef* psStack ,void (*pfvDestroyElementDataArg) (void *DataContainer));
 
 
 

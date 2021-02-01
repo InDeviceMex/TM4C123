@@ -62,7 +62,7 @@ typedef union {
   double   FLOAT;
 } CONV_FLOAT_UNION_TypeDef;
 
-typedef void    (*CONV_FUNCTION_Typedef) (char cCharacter, void* pvFuncArguments);
+typedef void (*CONV_FUNCTION_Typedef) (char cCharacter, void* pvFuncArguments);
 typedef void (*CONV_OUT_TypeDef) (char cCharacter, void* pvBuffer, uint32_t u32Index, uint32_t u32MaxLenght);
 
 typedef struct {

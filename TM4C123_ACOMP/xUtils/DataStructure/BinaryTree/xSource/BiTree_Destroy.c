@@ -29,7 +29,7 @@
 void BiTree__vDestroy( BiTree_TypeDef* psTree)
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
-     void    (*pfvListDestroy) (void* List) = (void    (*) (void* List) )0UL;
+     void (*pfvListDestroy) (void* List) = (void (*) (void* List) )0UL;
 
      if((BiTree_TypeDef*)0 != psTree)
      {
@@ -37,8 +37,8 @@ void BiTree__vDestroy( BiTree_TypeDef* psTree)
          enStatus = BiTree__enRemoveLeft(psTree,(BiTreeElement_TypeDef*) 0UL );
 
          psTree->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
-         psTree->pfvDestroy = (void    (*) (void* List)) 0UL;
-         psTree->pfvDestroyElementData = (void    (*) (void* DataContainer)) 0UL;
+         psTree->pfvDestroy = (void (*) (void* List)) 0UL;
+         psTree->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
          psTree->psRoot = (BiTreeElement_TypeDef *) 0UL;
          psTree->u32Size = 0UL;
 
