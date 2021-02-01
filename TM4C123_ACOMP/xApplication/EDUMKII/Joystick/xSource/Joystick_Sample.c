@@ -28,12 +28,12 @@
 #include <xDriver_MCU/DMA/DMA.h>
 
 static volatile EDUMKII_nJOYSTICK enSelectStatus = EDUMKII_enJOYSTICK_NOPRESS;
-volatile uint32_t u32JostickFifoArray[2]= {0};
+volatile uint32_t u32JostickFifoArray[2] = {0UL};
 
 void EDUMKII_Joystick_vSample(uint32_t *u32X, uint32_t *u32Y, EDUMKII_nJOYSTICK *enSelect)
 {
-    *u32X = (uint32_t)u32JostickFifoArray[0];
-    *u32Y = (uint32_t)u32JostickFifoArray[1];
+    *u32X = (uint32_t) u32JostickFifoArray[0];
+    *u32Y = (uint32_t) u32JostickFifoArray[1];
 
     *enSelect = (EDUMKII_nJOYSTICK)enSelectStatus;
 
@@ -41,11 +41,10 @@ void EDUMKII_Joystick_vSample(uint32_t *u32X, uint32_t *u32Y, EDUMKII_nJOYSTICK 
 
 void EDUMKII_Joystick_vIRQSourceHandler(void)
 {
-    DMACHCTL_TypeDef enChControl =
-    {
+    DMACHCTL_TypeDef enChControl = {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         2u-1U,
+         2UL-1U,
          DMA_enCH_BURST_SIZE_2,
          0,
          DMA_enCH_SRC_SIZE_WORD,

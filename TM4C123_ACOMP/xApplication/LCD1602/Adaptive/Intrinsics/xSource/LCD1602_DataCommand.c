@@ -29,5 +29,5 @@
 
 void LCD1602__vSetDataCommand(LCD1602_nRS enMode)
 {
-    GPIO__vSetData(LCD1602_PORT_RS, LCD1602_RS, ((uint32_t)enMode)<<LCD1602_RS_POS);
+    GPIO__vSetData(LCD1602_PORT_RS, LCD1602_RS, ((uint32_t) enMode) << LCD1602_RS_POS);
 }

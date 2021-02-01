@@ -29,7 +29,7 @@
 void EDUMKII_Buzzer_vSet(uint32_t u32Value)
 {
     uint32_t u32TimerValue = 0UL;
-    if(1023UL>= u32Value)
+    if(1023UL >= u32Value)
     {
         u32TimerValue= u32Value * 10240U;
         u32TimerValue >>= 10UL;
@@ -40,7 +40,7 @@ void EDUMKII_Buzzer_vSet(uint32_t u32Value)
         }
         else
         {
-            u32TimerValue =  10240U-1U - u32TimerValue;
+            u32TimerValue = 10240U-1U - u32TimerValue;
         }
         TIMER__vSetMatch(EDUMKII_BUZZER_TIMER,(uint64_t) u32TimerValue);
     }

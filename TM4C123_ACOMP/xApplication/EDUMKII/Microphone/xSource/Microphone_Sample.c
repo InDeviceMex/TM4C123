@@ -27,7 +27,7 @@
 #include <xDriver_MCU/ADC/ADC.h>
 #include <xDriver_MCU/DMA/DMA.h>
 
-volatile uint32_t u32MicrophoneFifoArray[1]= {0};
+volatile uint32_t u32MicrophoneFifoArray[1] = {0UL};
 
 void EDUMKII_Microphone_vSample(uint32_t *u32Input)
 {
@@ -36,11 +36,10 @@ void EDUMKII_Microphone_vSample(uint32_t *u32Input)
 
 void EDUMKII_Microphone_vIRQSourceHandler(void)
 {
-    DMACHCTL_TypeDef enChControl =
-    {
+    DMACHCTL_TypeDef enChControl = {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         1u-1U,
+         1UL-1U,
          DMA_enCH_BURST_SIZE_1,
          0,
          DMA_enCH_SRC_SIZE_WORD,

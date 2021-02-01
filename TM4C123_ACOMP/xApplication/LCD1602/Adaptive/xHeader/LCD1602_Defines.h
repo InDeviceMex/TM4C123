@@ -30,7 +30,7 @@
 #define LCD1602_PORT_D5 (GPIO_enPORT_E)
 #define LCD1602_PORT_D6 (GPIO_enPORT_B)
 #define LCD1602_PORT_D7 (GPIO_enPORT_C)
-#define LCD1602_PORT_E  (GPIO_enPORT_B)
+#define LCD1602_PORT_E    (GPIO_enPORT_B)
 #define LCD1602_PORT_RS (GPIO_enPORT_B)
 #define LCD1602_PORT_RW (GPIO_enPORT_B)
 
@@ -38,7 +38,7 @@
 #define LCD1602_D5 (GPIO_enPIN_4)
 #define LCD1602_D6 (GPIO_enPIN_2)
 #define LCD1602_D7 (GPIO_enPIN_4)
-#define LCD1602_E  (GPIO_enPIN_4)
+#define LCD1602_E    (GPIO_enPIN_4)
 #define LCD1602_RS (GPIO_enPIN_5)
 #define LCD1602_RW (GPIO_enPIN_6)
 
@@ -46,7 +46,7 @@
 #define LCD1602_D5_POS (4U)
 #define LCD1602_D6_POS (2U)
 #define LCD1602_D7_POS (4U)
-#define LCD1602_E_POS  (4U)
+#define LCD1602_E_POS    (4U)
 #define LCD1602_RS_POS (5U)
 #define LCD1602_RW_POS (6U)
 

@@ -41,7 +41,7 @@ uint8_t LCD1602__u8Read(LCD1602_nRS enMode)
     LCD1602__vPulseReadEnable();
 
     LCD1602__vPrepareReadEnable();
-    u8DatoRead|=LCD1602__u8ReadLowByte();
+    u8DatoRead |= LCD1602__u8ReadLowByte();
     LCD1602__vPulseReadEnable();
 
     LCD1602__vSetWriteMode();

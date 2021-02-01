@@ -38,6 +38,6 @@ void EDUMKII_Common_vAdcInit(void)
     ADC__vSetClockConfig(ADC_enMODULE_0, ADC_enCLOCK_PIOSC);
     ADC__vSetDither(ADC_enMODULE_0, ADC_enDITHER_EN);
     ADC__vSetAverage(ADC_enMODULE_0, ADC_enAVERAGE_64);
-    u32Init =1UL;
+    u32Init = 1UL;
     }
 }

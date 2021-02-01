@@ -42,10 +42,10 @@ void EDUMKII_Common_vTimerInit(void)
         psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
         psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_EN;
 
-        TIMER__enSetExtraModeStruct(TIMER_enT5A,&psExtraMode);
+        TIMER__enSetExtraModeStruct(TIMER_enT5A, &psExtraMode);
         TIMER__enSetMode_Reload(TIMER_enT5A,TIMER_enMODE_PERIODIC_INDIVIDUAL_UP,0U,800000U-1U);
         TIMER__vSetEnable(TIMER_enT5A,TIMER_enENABLE_START);
-        u32Init =1UL;
+        u32Init = 1UL;
     }
 }
 

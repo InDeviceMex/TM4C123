@@ -30,7 +30,7 @@
 
 void LCD1602__vWriteLowNible(uint8_t u8Data)
 {
-    if(u8Data&GPIO_enPIN_3)
+    if(u8Data & GPIO_enPIN_3)
     {
         GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, LCD1602_D7);
     }
@@ -39,7 +39,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
         GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, 0U);
     }
 
-    if(u8Data&GPIO_enPIN_2)
+    if(u8Data & GPIO_enPIN_2)
     {
         GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, LCD1602_D6);
     }
@@ -48,7 +48,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
         GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, 0U);
     }
 
-    if(u8Data&GPIO_enPIN_1)
+    if(u8Data & GPIO_enPIN_1)
     {
         GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, LCD1602_D5);
     }
@@ -57,7 +57,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
         GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, 0U);
     }
 
-    if(u8Data&GPIO_enPIN_0)
+    if(u8Data & GPIO_enPIN_0)
     {
         GPIO__vSetData(LCD1602_PORT_D4, LCD1602_D4, LCD1602_D4);
     }
@@ -70,7 +70,7 @@ void LCD1602__vWriteLowNible(uint8_t u8Data)
 
 void LCD1602__vWriteHighNible(uint8_t u8Data)
 {
-    if(u8Data&GPIO_enPIN_7)
+    if(u8Data & GPIO_enPIN_7)
     {
         GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, LCD1602_D7);
     }
@@ -79,7 +79,7 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
         GPIO__vSetData(LCD1602_PORT_D7, LCD1602_D7, 0U);
     }
 
-    if(u8Data&GPIO_enPIN_6)
+    if(u8Data & GPIO_enPIN_6)
     {
         GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, LCD1602_D6);
     }
@@ -88,7 +88,7 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
         GPIO__vSetData(LCD1602_PORT_D6, LCD1602_D6, 0U);
     }
 
-    if(u8Data&GPIO_enPIN_5)
+    if(u8Data & GPIO_enPIN_5)
     {
         GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, LCD1602_D5);
     }
@@ -97,7 +97,7 @@ void LCD1602__vWriteHighNible(uint8_t u8Data)
         GPIO__vSetData(LCD1602_PORT_D5, LCD1602_D5, 0U);
     }
 
-    if(u8Data&GPIO_enPIN_4)
+    if(u8Data & GPIO_enPIN_4)
     {
         GPIO__vSetData(LCD1602_PORT_D4, LCD1602_D4, LCD1602_D4);
     }

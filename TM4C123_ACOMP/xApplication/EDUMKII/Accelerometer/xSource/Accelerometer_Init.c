@@ -35,8 +35,7 @@
 
 void EDUMKII_Accelerometer_vInit(void)
 {
-    ADC_SAMPLE_CONFIG_Typedef sADC0SampleConfig =
-    {
+    ADC_SAMPLE_CONFIG_Typedef sADC0SampleConfig = {
      ADC_enSEQ_INPUT_0,
      ADC_enSEQ_INPUT_DIFF_DIS,
      ADC_enSEQ_INPUT_ENDED_DIS,
@@ -46,8 +45,7 @@ void EDUMKII_Accelerometer_vInit(void)
      ADC_en_COMPARATOR_0
     };
 
-    DMA_CONFIG_Typedef enDMAChConfig=
-    {
+    DMA_CONFIG_Typedef enDMAChConfig= {
         DMA_enCH_REQTYPE_BOTH,
         DMA_enCH_PERIPHERAL_ENA,
         DMA_enCH_CTL_PRIMARY ,
@@ -55,11 +53,10 @@ void EDUMKII_Accelerometer_vInit(void)
         DMA_enCH_ENCODER_0
     };
 
-    DMACHCTL_TypeDef enDMAChControl =
-    {
+    DMACHCTL_TypeDef enDMAChControl = {
          DMA_enCH_MODE_PING_PONG,
          DMA_enCH_BURST_OFF,
-         4u-1U,
+         4UL-1U,
          DMA_enCH_BURST_SIZE_4,
          0,
          DMA_enCH_SRC_SIZE_WORD,
@@ -69,12 +66,12 @@ void EDUMKII_Accelerometer_vInit(void)
     };
 
 
-    DMA__vRegisterIRQSourceHandler(&EDUMKII_Accelerometer_vIRQSourceHandler,DMA_enCH_MODULE_16, DMA_enCH_ENCODER_0 );
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_16, (uint32_t) &u32AccelerometerFifoArray[4u-1U]);
+    DMA__vRegisterIRQSourceHandler( &EDUMKII_Accelerometer_vIRQSourceHandler,DMA_enCH_MODULE_16, DMA_enCH_ENCODER_0 );
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_16, (uint32_t) &u32AccelerometerFifoArray[4UL-1U]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_16, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO2_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_16, enDMAChControl);
 
-    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_16, (uint32_t) &u32AccelerometerFifoArray[4u-1U]);
+    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_16, (uint32_t) &u32AccelerometerFifoArray[4UL-1U]);
     DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_16, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO2_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_16, enDMAChControl);
 
@@ -91,18 +88,18 @@ void EDUMKII_Accelerometer_vInit(void)
     ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enSEQ_TRIGGER_TIMER);
 
     sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_X_INPUT;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_0,&sADC0SampleConfig);
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_0, &sADC0SampleConfig);
 
     sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Y_INPUT;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_1,&sADC0SampleConfig);
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_1, &sADC0SampleConfig);
 
     sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_2,&sADC0SampleConfig);
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_2, &sADC0SampleConfig);
 
     sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
     sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_EN;
     sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_3,&sADC0SampleConfig);
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_3, &sADC0SampleConfig);
 
     ADC__vEnInterruptVector(ADC_enMODULE_0,ADC_enSEQ_2,ADC_enPRI7);
     ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_2,ADC_enSEQ_ENABLE_ENA);

@@ -30,7 +30,7 @@
 
 void LCD1602__vSetWriteMode(void)
 {
-    GPIO__vSetData(LCD1602_PORT_RW, LCD1602_RW, ((uint32_t)LCD1602_enWRITE)<<LCD1602_RW_POS);
+    GPIO__vSetData(LCD1602_PORT_RW, LCD1602_RW, ((uint32_t) LCD1602_enWRITE) << LCD1602_RW_POS);
 }
 
 

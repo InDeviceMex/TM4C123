@@ -29,7 +29,7 @@
 
 void LCD1602__vSetReadWrite(LCD1602_nRW enMode)
 {
-    GPIO__vSetData(LCD1602_PORT_RW, LCD1602_RW, ((uint32_t)enMode)<<LCD1602_RW_POS);
+    GPIO__vSetData(LCD1602_PORT_RW, LCD1602_RW, ((uint32_t) enMode) << LCD1602_RW_POS);
 }
 
 

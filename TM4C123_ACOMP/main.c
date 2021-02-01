@@ -22,19 +22,19 @@
 /*Applications*/
 #include <xApplication/EDUMKII/EDUMKII.h>
 
-uint8_t NokiaBuffer[64*(48/8)] ={0u};
-char cNokiaBuffer[64*(48/8)] ={0u};
-char* cNokiaBufferPointer ={0u};
+uint8_t NokiaBuffer[64 * (48 / 8)] = {0UL};
+char cNokiaBuffer[64 * (48 / 8)] = {0UL};
+char* cNokiaBufferPointer = {0UL};
 
 /*Local functions*/
 EDUMKII_nBUTTON_STATE enButton1State = EDUMKII_enBUTTON_STATE_NOPRESS;
 EDUMKII_nBUTTON_STATE enButton2State = EDUMKII_enBUTTON_STATE_NOPRESS;
-int32_t s32AccelerometerXValue =0UL;
-int32_t s32AccelerometerYValue =0UL;
-int32_t s32AccelerometerZValue =0UL;
-uint32_t u32MicrophoneValue =0UL;
-uint32_t u32JoystickXValue =0UL;
-uint32_t u32JoystickYValue =0UL;
+int32_t s32AccelerometerXValue = 0UL;
+int32_t s32AccelerometerYValue = 0UL;
+int32_t s32AccelerometerZValue = 0UL;
+uint32_t u32MicrophoneValue = 0UL;
+uint32_t u32JoystickXValue = 0UL;
+uint32_t u32JoystickYValue = 0UL;
 
 volatile uint32_t u32InterruptUart=0UL;
 volatile uint32_t u32InterruptRUart=0UL;
@@ -43,6 +43,7 @@ volatile uint32_t u32State=0UL;
 volatile char cCharacterReceive=0UL;
 
 EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK)0UL;
+
 uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2);
 void MAIN_vIrqCOMP1_INT1(void);
 void MAIN_vTransmiterCount(void);
@@ -58,8 +59,7 @@ int32_t main(void)
     uint32_t u32PWMGreen = 0UL;
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
     UART_nFIFO_FULL enTransmitFullState = UART_enFIFO_FULL_NO;
-    UART_LINE_CONTROL_TypeDef sUARTControlLine  =
-    {
+    UART_LINE_CONTROL_TypeDef sUARTControlLine = {
         UART_enFIFO_ENA,
         UART_enSTOP_ONE,
         UART_enPARITY_DIS,
@@ -71,12 +71,11 @@ int32_t main(void)
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
-    SYSEXC__vInit((SYSEXC_nINT)((uint32_t)SYSEXC_enINT_INVALID|(uint32_t)SYSEXC_enINT_DIV0|
-          (uint32_t)SYSEXC_enINT_OVERFLOW|(uint32_t)SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
+    SYSEXC__vInit((SYSEXC_nINT) ((uint32_t) SYSEXC_enINT_INVALID | (uint32_t) SYSEXC_enINT_DIV0 | (uint32_t) SYSEXC_enINT_OVERFLOW | (uint32_t) SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
     u32Clock = SYSCTL__u32GetClock();
-    SysTick__enInitUs(((float32_t)u32Clock/80000.0f),SCB_enSHPR0);
+    SysTick__enInitUs(((float32_t) u32Clock / 80000.0f),SCB_enSHPR0);
     GPIO__vInit();
     TIMER__vInit();
     DMA__vInit();
@@ -84,9 +83,9 @@ int32_t main(void)
 
     UART__vSetReady(UART_enMODULE_0);
 
-    UART__vRegisterIRQVectorHandler(&UART0__vIRQVectorHandler, UART_enMODULE_0);
-    UART__vRegisterIRQSourceHandler(&MAIN_vTransmiterCount, UART_enMODULE_0, UART_enINTERRUPT_TRANSMIT);
-    UART__vRegisterIRQSourceHandler(&MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
+    UART__vRegisterIRQVectorHandler( &UART0__vIRQVectorHandler, UART_enMODULE_0);
+    UART__vRegisterIRQSourceHandler( &MAIN_vTransmiterCount, UART_enMODULE_0, UART_enINTERRUPT_TRANSMIT);
+    UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
 
 
     GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
@@ -97,7 +96,7 @@ int32_t main(void)
     UART0->UARTFBRD = 55UL;
     UART__vSetLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine);
     UART0->UARTCC &= ~UART_UARTCC_R_CS_MASK;
-    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA |UART_UARTCTL_R_HSE_DIV8;
+    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA | UART_UARTCTL_R_HSE_DIV8;
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
     UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_TRANSMIT);
@@ -113,9 +112,9 @@ int32_t main(void)
     while(1U)
     {
 
-        enButtonState =  EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
-        enButton1State =(EDUMKII_nBUTTON_STATE)((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_1);
-        enButton2State =(EDUMKII_nBUTTON_STATE)(((uint32_t)enButtonState & (uint32_t)EDUMKII_enBUTTON_2)>>1UL);
+        enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
+        enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
+        enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
         if(  EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
         {
             u32PWMRed++;
@@ -131,34 +130,34 @@ int32_t main(void)
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, 0UL);
         }
 
-        EDUMKII_Joystick_vSample(&u32JoystickXValue,&u32JoystickYValue,&enJoystickSelectValue);
-        EDUMKII_Accelerometer_vSample(&s32AccelerometerXValue,&s32AccelerometerYValue,&s32AccelerometerZValue);
-        EDUMKII_Microphone_vSample(&u32MicrophoneValue);
+        EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
+        EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
+        EDUMKII_Microphone_vSample( &u32MicrophoneValue);
 
         if(EDUMKII_enJOYSTICK_PRESS == enJoystickSelectValue)
         {
-            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t)u32PWMRed);
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t) u32PWMRed);
         }
         else
         {
-            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t)0UL);
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t) 0UL);
         }
 
-        if(u32JoystickXValue<= 1700UL)
+        if(u32JoystickXValue <= 1700UL)
         {
             u32PWMGreen = u32JoystickXValue;
             u32PWMGreen -= 0UL;
-            u32PWMGreen*= 50UL;
-            u32PWMGreen/= (1700UL - 0UL);
+            u32PWMGreen *= 50UL;
+            u32PWMGreen /= (1700UL - 0UL);
             u32PWMGreen = 50UL - u32PWMGreen;
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) u32PWMGreen );
         }
-        else if((u32JoystickXValue>= 2400UL) && (u32JoystickXValue<= 4096UL))
+        else if((u32JoystickXValue >= 2400UL) && (u32JoystickXValue <= 4096UL))
         {
             u32PWMGreen = u32JoystickXValue;
             u32PWMGreen -= 2400UL;
-            u32PWMGreen*= 50UL;
-            u32PWMGreen/= (4096UL - 2400UL);
+            u32PWMGreen *= 50UL;
+            u32PWMGreen /= (4096UL - 2400UL);
             u32PWMGreen = u32PWMGreen;
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) u32PWMGreen );
         }
@@ -167,21 +166,21 @@ int32_t main(void)
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) 0UL );
         }
 
-        if(u32JoystickYValue<= 1700UL)
+        if(u32JoystickYValue <= 1700UL)
         {
             u32PWMBlue = u32JoystickYValue;
             u32PWMBlue -= 0UL;
-            u32PWMBlue*= 50UL;
-            u32PWMBlue/= (1700UL - 0UL);
+            u32PWMBlue *= 50UL;
+            u32PWMBlue /= (1700UL - 0UL);
             u32PWMBlue = 50UL - u32PWMBlue;
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) u32PWMBlue );
         }
-        else if((u32JoystickYValue>= 2400UL) && (u32JoystickYValue<= 4096UL))
+        else if((u32JoystickYValue >= 2400UL) && (u32JoystickYValue <= 4096UL))
         {
             u32PWMBlue = u32JoystickYValue;
             u32PWMBlue -= 2400UL;
-            u32PWMBlue*= 50UL;
-            u32PWMBlue/= (4096UL - 2400UL);
+            u32PWMBlue *= 50UL;
+            u32PWMBlue /= (4096UL - 2400UL);
             u32PWMBlue = u32PWMBlue;
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) u32PWMBlue );
         }
@@ -201,7 +200,7 @@ int32_t main(void)
             enTransmitFullState = UART__enIsFifoTransmitFull(UART_enMODULE_0);
             if( UART_enFIFO_FULL_NO == enTransmitFullState)
             {
-                UART__vSetData(UART_enMODULE_0, (uint32_t)(*cNokiaBufferPointer));
+                UART__vSetData(UART_enMODULE_0, (uint32_t) (*cNokiaBufferPointer));
                 cNokiaBufferPointer += 1U;
             }
         }
@@ -213,7 +212,7 @@ int32_t main(void)
         {
             u32State = 0UL;
         }
-        u32InterruptUart =0UL;
+        u32InterruptUart = 0UL;
     }
 }
 
@@ -232,15 +231,15 @@ void MAIN_vReceiverCount(void)
 uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2)
 {
     Set_nSTATUS enComparison = Set_enSTATUS_ERROR;
-    uint32_t u32Value1 = (uint32_t)pcvKey1;
-    uint32_t u32Value2 = (uint32_t)pcvKey2;
+    uint32_t u32Value1 = (uint32_t) pcvKey1;
+    uint32_t u32Value2 = (uint32_t) pcvKey2;
 
     if(u32Value1 == u32Value2)
     {
         enComparison = Set_enSTATUS_OK;
     }
 
-    return (uint32_t)enComparison;
+    return (uint32_t) enComparison;
 }
 
 void MAIN_vIrqCOMP1_INT1(void)
