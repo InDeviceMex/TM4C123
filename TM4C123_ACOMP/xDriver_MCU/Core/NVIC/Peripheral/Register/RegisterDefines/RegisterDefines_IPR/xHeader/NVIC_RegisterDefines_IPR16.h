@@ -55,7 +55,7 @@
 /*----------*/
 
 /*----------*/
-#define NVIC_IPR16_R_NVIC_RES81_MASK  ((uint32_t) 0x0000E000UL)
+#define NVIC_IPR16_R_NVIC_RES81_MASK    ((uint32_t) 0x0000E000UL)
 #define NVIC_IPR16_R_NVIC_RES81_BIT    (13UL)
 #define NVIC_IPR16_R_NVIC_RES81_IP0    ((uint32_t) 0x00000000UL)
 #define NVIC_IPR16_R_NVIC_RES81_IP1    ((uint32_t) 0x00002000UL)

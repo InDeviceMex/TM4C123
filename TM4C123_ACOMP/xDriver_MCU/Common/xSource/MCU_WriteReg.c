@@ -42,6 +42,6 @@ void MCU__vWriteRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister,
     pu32Peripheral = (volatile uint32_t*) (u32RegAddress);
     u32Reg = (*pu32Peripheral);
     u32Reg &= ~u32FeatureClear;
-    u32Reg|= u32FeatureReg;
+    u32Reg |= u32FeatureReg;
     (*pu32Peripheral) = u32Reg;
 }

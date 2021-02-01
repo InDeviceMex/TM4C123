@@ -59,7 +59,7 @@ typedef volatile struct
               volatile uint32_t      ADCSSDC[32];
               BITBANDING_ADCSSDC8_TypeDef ADCSSDC_Bit;
           };
-          const uint32_t reserved2[2*32];
+          const uint32_t reserved2[2 * 32];
 }BITBANDING_ADCINPUT_Typedef;
 
 typedef volatile struct
@@ -141,27 +141,27 @@ typedef volatile struct
 
     BITBANDING_ADCINPUT_Typedef ADCINPUT[4];
 
-    const uint32_t reserved5[32*784];
+    const uint32_t reserved5[32 * 784];
     union
     {
         volatile uint32_t      ADCDCRIC[32];
         BITBANDING_ADCDCRIC_TypeDef ADCDCRIC_Bit;
     };
 
-    const uint32_t reserved6[63*32];
+    const uint32_t reserved6[63 * 32];
     union
     {
         volatile uint32_t      ADCDCCTL[8][32];
         BITBANDING_ADCDCCTL_TypeDef ADCDCCTL_Bit[8];
     };
-    const uint32_t reserved7[8*32];
+    const uint32_t reserved7[8 * 32];
     union
     {
         volatile uint32_t        ADCDCCMP[8][32];
         BITBANDING_ADCDCCMP_TypeDef ADCDCCMP_Bit;
     };
 
-    const uint32_t reserved8[88*32];
+    const uint32_t reserved8[88 * 32];
     union
     {
         volatile const uint32_t ADCPP[32];
@@ -178,12 +178,12 @@ typedef volatile struct
         BITBANDING_ADCCC_TypeDef  ADCCC_Bit;
     };
 
-    const uint32_t reserved9[13*32];
+    const uint32_t reserved9[13 * 32];
 }ADC_BITBANDING_TypeDef;
 
 typedef volatile struct
 {
-        ADC_BITBANDING_TypeDef MODULE[(uint32_t)ADC_enMODULE_MAX +1U];
+        ADC_BITBANDING_TypeDef MODULE[(uint32_t) ADC_enMODULE_MAX +1U];
 }ADCS_BITBANDING_TypeDef;
 
 

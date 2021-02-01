@@ -55,7 +55,7 @@
 /*----------*/
 
 /*----------*/
-#define NVIC_IPR6_R_NVIC_ACOMP0_MASK     ((uint32_t) 0x0000E000UL)
+#define NVIC_IPR6_R_NVIC_ACOMP0_MASK    ((uint32_t) 0x0000E000UL)
 #define NVIC_IPR6_R_NVIC_ACOMP0_BIT    (13UL)
 #define NVIC_IPR6_R_NVIC_ACOMP0_IP0    ((uint32_t) 0x00000000UL)
 #define NVIC_IPR6_R_NVIC_ACOMP0_IP1    ((uint32_t) 0x00002000UL)

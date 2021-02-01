@@ -27,8 +27,8 @@
 #include <xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/ADC_RegisterPeripheral_Bitbanding_Module0.h>
 #include <xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/ADC_RegisterPeripheral_Bitbanding_Module1.h>
 
-#define ADC_BITBANDING        (((ADCS_BITBANDING_TypeDef*)(ADC_BITBANDING_BASE+(ADC_OFFSET*32U))))
+#define ADC_BITBANDING    (((ADCS_BITBANDING_TypeDef*) (ADC_BITBANDING_BASE+(ADC_OFFSET*32U))))
 
-extern ADC_BITBANDING_TypeDef* ADC_BITBANDING_BLOCK[(uint32_t)ADC_enMODULE_MAX+1U];
+extern ADC_BITBANDING_TypeDef* ADC_BITBANDING_BLOCK[(uint32_t) ADC_enMODULE_MAX+1U];
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_BITBANDING_ADC_REGISTERPERIPHERAL_BITBANDING_H_ */

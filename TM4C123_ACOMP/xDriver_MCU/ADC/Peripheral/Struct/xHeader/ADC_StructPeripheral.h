@@ -183,7 +183,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    ADC_TypeDef MODULE[(uint32_t)ADC_enMODULE_MAX +1U];
+    ADC_TypeDef MODULE[(uint32_t) ADC_enMODULE_MAX +1U];
 }ADCS_TypeDef;
 
 
