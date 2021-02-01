@@ -42,7 +42,7 @@ void ADC1_SS0__vIRQVectorHandler(void)
             {
                 if(DMA_DMACHMAP3_R_CH24SEL_ADC1_SS0 == (DMA_DMACHMAP3_R & DMA_DMACHMAP3_R_CH24SEL_MASK ))
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t)DMA_enCH_ENCODER_1][24U]();
+                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][24U]();
                      DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS24_CLEAR;
                 }
             }
@@ -51,24 +51,24 @@ void ADC1_SS0__vIRQVectorHandler(void)
     u32Reg=ADC1_ADCISC_R;
     u32RegCompInterrupt = ADC1_ADCDCISC_R;
     u32RegCompSelect = ADC1_ADCSSOP0_R;
-    if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_SAMPLE<<(uint32_t)ADC_enSEQ_0))
+    if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_0))
     {
-        ADC1_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_SAMPLE<<(uint32_t)ADC_enSEQ_0);
-        ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_0]();
+        ADC1_ADCISC_R=((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_0);
+        ADC_SAMPLE__vIRQSourceHandler[(uint32_t) ADC_enMODULE_1][(uint32_t) ADC_enSEQ_0]();
     }
-    if(u32Reg & ((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_0))
+    if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_0))
     {
-        ADC1_ADCISC_R=((uint32_t)ADC_enSEQ_SOURCE_COMP<<(uint32_t)ADC_enSEQ_0);
-        for(u32Pos = 0U; u32Pos<=(uint32_t)ADC_en_MUX_7;u32Pos++)
+        ADC1_ADCISC_R=((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_0);
+        for(u32Pos = 0U; u32Pos <= (uint32_t) ADC_en_MUX_7;u32Pos++)
         {
-            if(u32RegCompSelect & ((uint32_t)0x1u<<(u32Pos*0x4U)))
+            if(u32RegCompSelect & ((uint32_t) 0x1UL << (u32Pos*0x4U)))
             {
-                u32RegCompMux = ADC1_ADCSSDC0_R>>(u32Pos*0x4U);
-                u32RegCompMux&= 0xFU;
-                if(u32RegCompInterrupt & ((uint32_t)1u<<u32RegCompMux))
+                u32RegCompMux = ADC1_ADCSSDC0_R >> (u32Pos*0x4U);
+                u32RegCompMux &= 0xFU;
+                if(u32RegCompInterrupt & ((uint32_t) 1UL << u32RegCompMux))
                 {
-                    ADC1_ADCDCISC_R = ((uint32_t)1u<<u32RegCompMux);
-                    ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_1][(uint32_t)ADC_enSEQ_0][u32RegCompMux]();
+                    ADC1_ADCDCISC_R = ((uint32_t) 1UL << u32RegCompMux);
+                    ADC_COMP__vIRQSourceHandler[(uint32_t) ADC_enMODULE_1][(uint32_t) ADC_enSEQ_0][u32RegCompMux]();
                 }
             }
         }

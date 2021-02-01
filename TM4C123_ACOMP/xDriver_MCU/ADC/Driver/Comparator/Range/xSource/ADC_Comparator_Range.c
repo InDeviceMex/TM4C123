@@ -48,8 +48,8 @@ ADC_nSTATUS ADC__enGetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,
     uint32_t u32CompRangeHigh = 0U;
     if((0U != pu32CompRangeLow) && (0U != pu32CompRangeHigh))
     {
-        u32CompRangeLow =  ADC__u32GetCompRangeLow(enModule, enActComp);
-        u32CompRangeHigh =  ADC__u32GetCompRangeHigh(enModule, enActComp);
+        u32CompRangeLow = ADC__u32GetCompRangeLow(enModule, enActComp);
+        u32CompRangeHigh = ADC__u32GetCompRangeHigh(enModule, enActComp);
         if((0xFFFFFFFFU != u32CompRangeLow) && (0xFFFFFFFFU != u32CompRangeHigh))
         {
             enStatus = ADC_enOK;

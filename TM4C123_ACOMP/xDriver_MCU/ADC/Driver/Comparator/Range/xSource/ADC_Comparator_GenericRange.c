@@ -33,22 +33,22 @@ void ADC__vSetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator, uint
     uint32_t u32Reg=0U;
     ADC_TypeDef* psAdc=0U;
 
-    if((uint32_t)ADC_enMODULE_MAX<u32Module)
+    if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ADC_enMODULE_MAX;
+        u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    if((uint32_t)ADC_en_COMPARATOR_MAX<u32Comparator)
+    if((uint32_t) ADC_en_COMPARATOR_MAX<u32Comparator)
     {
-        u32Comparator=(uint32_t)ADC_en_COMPARATOR_MAX;
+        u32Comparator = (uint32_t) ADC_en_COMPARATOR_MAX;
     }
     ADC__vSetReady((ADC_nMODULE)u32Module);
     psAdc=ADC_BLOCK[u32Module];
     u32Reg = psAdc->ADCDCCMP[u32Comparator];
 
-    u32Reg&=~(u32RangeMask<<u32RangeBit);
-    u32Reg|=(u32Range<<u32RangeBit);
+    u32Reg &= ~(u32RangeMask << u32RangeBit);
+    u32Reg |= (u32Range << u32RangeBit);
 
-    psAdc->ADCDCCMP[u32Comparator]=u32Reg;
+    psAdc->ADCDCCMP[u32Comparator] =u32Reg;
 }
 
 uint32_t ADC__u32GetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32RangeMask, uint32_t u32RangeBit)
@@ -58,13 +58,13 @@ uint32_t ADC__u32GetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator
 
     ADC_nREADY enReady= ADC_enNOREADY;
     uint32_t u32Range = 0xFFFFFFFFU;
-    if((uint32_t)ADC_enMODULE_MAX<u32Module)
+    if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ADC_enMODULE_MAX;
+        u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    if((uint32_t)ADC_en_COMPARATOR_MAX<u32Comparator)
+    if((uint32_t) ADC_en_COMPARATOR_MAX<u32Comparator)
     {
-        u32Comparator=(uint32_t)ADC_en_COMPARATOR_MAX;
+        u32Comparator = (uint32_t) ADC_en_COMPARATOR_MAX;
     }
     enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
@@ -72,8 +72,8 @@ uint32_t ADC__u32GetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator
         psAdc=ADC_BLOCK[u32Module];
         u32Reg = psAdc->ADCDCCTL[u32Comparator];
 
-        u32Reg>>=u32RangeBit;
-        u32Reg&=u32RangeMask;
+        u32Reg >>= u32RangeBit;
+        u32Reg &= u32RangeMask;
         u32Range = u32Reg;
     }
     return u32Range;

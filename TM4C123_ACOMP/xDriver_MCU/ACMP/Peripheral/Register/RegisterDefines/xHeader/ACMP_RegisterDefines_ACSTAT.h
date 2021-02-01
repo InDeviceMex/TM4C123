@@ -29,14 +29,14 @@
 ************************************ 5 ACSTAT *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ACMP_ACSTAT_R_OVAL_MASK      ((uint32_t)0x00000002U)
-#define ACMP_ACSTAT_R_OVAL_BIT          ((uint32_t)1U)
-#define ACMP_ACSTAT_R_OVAL_LOW         ((uint32_t)0x00000000U)
-#define ACMP_ACSTAT_R_OVAL_HIGH        ((uint32_t)0x00000002U)
+#define ACMP_ACSTAT_R_OVAL_MASK    ((uint32_t) 0x00000002U)
+#define ACMP_ACSTAT_R_OVAL_BIT    ((uint32_t) 1U)
+#define ACMP_ACSTAT_R_OVAL_LOW    ((uint32_t) 0x00000000U)
+#define ACMP_ACSTAT_R_OVAL_HIGH    ((uint32_t) 0x00000002U)
 
-#define ACMP_ACSTAT_OVAL_MASK        ((uint32_t)0x00000001U)
-#define ACMP_ACSTAT_OVAL_LOW          ((uint32_t)0x00000000U)
-#define ACMP_ACSTAT_OVAL_HIGH         ((uint32_t)0x00000001U)
+#define ACMP_ACSTAT_OVAL_MASK    ((uint32_t) 0x00000001U)
+#define ACMP_ACSTAT_OVAL_LOW    ((uint32_t) 0x00000000U)
+#define ACMP_ACSTAT_OVAL_HIGH    ((uint32_t) 0x00000001U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ACMP_REGISTERDEFINES_ACSTAT_H_ */

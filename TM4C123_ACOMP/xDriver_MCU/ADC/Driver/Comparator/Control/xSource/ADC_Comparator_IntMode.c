@@ -30,12 +30,12 @@
 
 void ADC__vSetCompIntMode(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  ADC_nCOMP_INT_MODE enActCompIntMode)
 {
-    ADC__vSetCompGenericControl((uint32_t) enModule, (uint32_t)  enActComp, (uint32_t) enActCompIntMode,ADC_ADCDCCTL_CIM_MASK, ADC_ADCDCCTL_R_CIM_BIT);
+    ADC__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enActComp, (uint32_t) enActCompIntMode,ADC_ADCDCCTL_CIM_MASK, ADC_ADCDCCTL_R_CIM_BIT);
 }
 
 ADC_nCOMP_INT_MODE ADC__enGetCompIntMode(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp)
 {
-    return (ADC_nCOMP_INT_MODE) ADC__u32GetCompGenericControl((uint32_t) enModule, (uint32_t)  enActComp,ADC_ADCDCCTL_CIM_MASK, ADC_ADCDCCTL_R_CIM_BIT);
+    return (ADC_nCOMP_INT_MODE) ADC__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enActComp,ADC_ADCDCCTL_CIM_MASK, ADC_ADCDCCTL_R_CIM_BIT);
 }
 
 

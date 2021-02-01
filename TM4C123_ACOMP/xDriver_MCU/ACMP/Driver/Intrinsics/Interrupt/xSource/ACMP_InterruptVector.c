@@ -32,12 +32,12 @@ static NVIC_nSTIR ACMP__enGetInterruptVector(ACMP_nMODULE enModule);
 
 static NVIC_nSTIR ACMP__enGetInterruptVector(ACMP_nMODULE enModule)
 {
-    NVIC_nSTIR NVIC_VECTOR_ACMP[(uint32_t)ACMP_enMODULE_MAX+1U]={ NVIC_enSTIR_ACOMP0,NVIC_enSTIR_ACOMP1};
+    NVIC_nSTIR NVIC_VECTOR_ACMP[(uint32_t) ACMP_enMODULE_MAX+1U] = { NVIC_enSTIR_ACOMP0,NVIC_enSTIR_ACOMP1};
     NVIC_nSTIR enVector=NVIC_enSTIR_ACOMP0;
-    uint32_t u32Module= (uint32_t) enModule;
-    if((uint32_t)ACMP_enMODULE_MAX<u32Module)
+    uint32_t u32Module = (uint32_t) enModule;
+    if((uint32_t) ACMP_enMODULE_MAX<u32Module)
     {
-        u32Module=(uint32_t)ACMP_enMODULE_MAX;
+        u32Module = (uint32_t) ACMP_enMODULE_MAX;
     }
     enVector=NVIC_VECTOR_ACMP[u32Module];
     return enVector;
@@ -47,7 +47,7 @@ void ACMP__vEnInterruptVector(ACMP_nMODULE enModule, ACMP_nPRIORITY enACMPPriori
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_ACOMP0;
     enVector= ACMP__enGetInterruptVector(enModule);
-    enACMPPriority&=ACMP_enPRIMAX;
+    enACMPPriority &= ACMP_enPRIMAX;
     NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enACMPPriority);
 }
 
