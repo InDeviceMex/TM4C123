@@ -21,14 +21,12 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Syncronize.h>
+
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
+#include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 
 void TIMER__vSetSyncronize(TIMER_nSYNC enSync)
 {
-    GPTM0_GPTMSYNC_R = (uint32_t) enSync & (uint32_t) TIMER_enSYNC_ALL;
+    TIMER__vWriteRegister( TIMER_enSIZE_32, TIMER_enMODULE_NUM_0, GPTM_GPTMSYNC_OFFSET, (uint32_t) enSync, (uint32_t) TIMER_enSYNC_ALL, 0UL);
 }
-
-
-

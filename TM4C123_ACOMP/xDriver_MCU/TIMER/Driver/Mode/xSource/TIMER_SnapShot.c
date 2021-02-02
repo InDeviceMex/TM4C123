@@ -21,19 +21,17 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_SnapShot.h>
+
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
+#include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_ModeGeneric.h>
 
 void TIMER__vSetSnapShot(TIMER_nMODULE enModule, TIMER_nSNAPSHOT enSnapShotParam)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enSnapShotParam,GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
+    TIMER__vSetModeGeneric( enModule, (uint32_t) enSnapShotParam, GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
 }
 
 TIMER_nSNAPSHOT TIMER__enGetSnapShot(TIMER_nMODULE enModule)
 {
-    return (TIMER_nSNAPSHOT)TIMER__u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
+    return (TIMER_nSNAPSHOT) TIMER__u32GetModeGeneric( enModule, GPTM_TA_GPTMTnMR_TnSNAPS_MASK, GPTM_TA_GPTMTnMR_R_TnSNAPS_BIT);
 }
-
-

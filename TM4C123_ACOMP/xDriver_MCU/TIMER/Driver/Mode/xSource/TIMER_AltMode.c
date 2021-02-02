@@ -21,18 +21,17 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_AltMode.h>
+
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
+#include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_ModeGeneric.h>
 
 void TIMER__vSetAltMode(TIMER_nMODULE enModule, TIMER_nALT_MODE enAltModeVar)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enAltModeVar, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
+    TIMER__vSetModeGeneric( enModule, (uint32_t) enAltModeVar, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
 }
 
 TIMER_nALT_MODE TIMER__enGetAltMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nALT_MODE)TIMER__u32GetModeGeneric(enModule,GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
+    return (TIMER_nALT_MODE) TIMER__u32GetModeGeneric( enModule, GPTM_TA_GPTMTnMR_TnAMS_MASK, GPTM_TA_GPTMTnMR_R_TnAMS_BIT);
 }
-

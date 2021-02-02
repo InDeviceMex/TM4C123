@@ -24,7 +24,7 @@
 #include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_ADCTrigger.h>
 
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
+#include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_ControlGeneric.h>
 
 void TIMER__vSetADCTrigger(TIMER_nMODULE enModule, TIMER_nADC_TRIGGER enADCTriggerVar)
 {

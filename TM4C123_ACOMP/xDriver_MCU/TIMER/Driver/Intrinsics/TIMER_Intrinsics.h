@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/TIMER_Interrupt.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ModeGeneric.h>
+#include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_ControlGeneric.h>
+#include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_ModeGeneric.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_INTRINSICS_TIMER_INTRINSICS_H_ */

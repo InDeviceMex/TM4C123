@@ -21,9 +21,9 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_MODE_TIMER_MODE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_MODE_TIMER_MODE_H_
-
 
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_AltMode.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_CountDir.h>
@@ -36,9 +36,5 @@
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_UpdateIntervalMode.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_UpdateMatchMode.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_WaitTrigger.h>
-
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_DRIVER_TIMER_MODE_TIMER_MODE_H_ */

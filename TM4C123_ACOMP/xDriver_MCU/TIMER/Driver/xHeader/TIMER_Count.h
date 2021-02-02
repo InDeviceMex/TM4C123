@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 27 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_TIMER_DRIVER_XHEADER_TIMER_COUNT_H_
 #define XDRIVER_MCU_TIMER_DRIVER_XHEADER_TIMER_COUNT_H_
 
@@ -28,6 +29,5 @@
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
 TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count);
-
 
 #endif /* XDRIVER_MCU_TIMER_DRIVER_XHEADER_TIMER_COUNT_H_ */

@@ -21,61 +21,37 @@
  * Date           Author     Version     Description
  * 15 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Configuration.h>
+
+#include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
 void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf)
 {
-    uint32_t u32En=0;
-    uint32_t u32Reg=0;
-    uint32_t u32Conf=0;
-    uint32_t u32Number = (uint32_t) enModule & 0x7U;
-    uint32_t u32Wide= ((uint32_t) enModule >> 16U) & 0x1U;
-
-    GPTM_TypeDef* psTimer=0;
-    if((uint32_t) TIMER_enMISC_MAX<u32Number)
+    uint32_t u32TimerEnable = 0xFFFFFFFFUL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, (uint32_t*) 0UL, &u32ModuleNumber);
+    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, &u32TimerEnable, GPTM_GPTMCTL_R_TBEN_MASK | GPTM_GPTMCTL_R_TAEN_MASK, 0UL);
+    if(0xFFFFFFFFUL != u32TimerEnable)
     {
-        u32Number = (uint32_t) TIMER_enMISC_MAX;
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, 0UL, GPTM_GPTMCTL_R_TBEN_MASK | GPTM_GPTMCTL_R_TAEN_MASK, 0UL);
     }
-    TIMER__vSetReady((TIMER_nSIZE)u32Wide, (TIMER_nMODULE_NUM) u32Number);
-    psTimer=TIMER_BLOCK[u32Wide][u32Number];
 
-    u32En=psTimer->GPTMCTL;
-    u32Reg=(u32En & ~(GPTM_GPTMCTL_R_TAEN_MASK | GPTM_GPTMCTL_R_TBEN_MASK));
-    psTimer->GPTMCTL=u32Reg;
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCFG_OFFSET, (uint32_t) enConf, GPTM_GPTMCFG_GPTMCFG_MASK, GPTM_GPTMCFG_R_GPTMCFG_BIT);
 
-    u32Conf = (uint32_t) enConf;
-    u32Conf &= GPTM_CTL_GPTMCFG_GPTMCFG_MASK;
-    u32Conf <<= GPTM_CTL_GPTMCFG_R_GPTMCFG_BIT;
-    psTimer->GPTMCFG=u32Conf;
-
-    psTimer->GPTMCTL=u32En;
+    if(0xFFFFFFFFUL != u32TimerEnable)
+    {
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, u32TimerEnable, GPTM_GPTMCTL_R_TBEN_MASK | GPTM_GPTMCTL_R_TAEN_MASK, 0UL);
+    }
 }
 
 TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
 {
-    uint32_t u32Reg=0;
-    TIMER_nCONFIG enConf=TIMER_enCONFIG_UNDEF;
-    TIMER_nREADY enReady= TIMER_enNOREADY;
-    uint32_t u32Number = (uint32_t) enModule & 0x7U;
-    uint32_t u32Wide= ((uint32_t) enModule >> 16U) & 0x1U;
-
-    GPTM_TypeDef* psTimer=0;
-    if((uint32_t) TIMER_enMISC_MAX<u32Number)
-    {
-        u32Number = (uint32_t) TIMER_enMISC_MAX;
-    }
-    enReady=TIMER__enIsReady((TIMER_nSIZE)u32Wide, (TIMER_nMODULE_NUM) u32Number);
-
-    if(TIMER_enREADY == enReady)
-    {
-        psTimer=TIMER_BLOCK[u32Wide][u32Number];
-        u32Reg=psTimer->GPTMCFG;
-        u32Reg &= GPTM_CTL_GPTMCFG_R_GPTMCFG_MASK;
-        u32Reg >>= GPTM_CTL_GPTMCFG_R_GPTMCFG_BIT;
-        enConf=(TIMER_nCONFIG) (u32Reg);
-    }
-    return enConf;
+    uint32_t u32FeatureValue = 0xFFFFFFFFUL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, (uint32_t*) 0UL, &u32ModuleNumber);
+    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCFG_OFFSET, &u32FeatureValue, GPTM_GPTMCFG_GPTMCFG_MASK, GPTM_GPTMCFG_R_GPTMCFG_BIT);
+    return  (TIMER_nCONFIG) u32FeatureValue;
 }

@@ -24,7 +24,7 @@
 #include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_EdgeEvent.h>
 
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/xHeader/TIMER_ControlGeneric.h>
+#include <xDriver_MCU/TIMER/Driver/Control/xHeader/TIMER_ControlGeneric.h>
 
 void TIMER__vSetEdgeEvent(TIMER_nMODULE enModule, TIMER_nEDGE_EVENT enEdgeEventVar)
 {
