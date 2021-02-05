@@ -39,15 +39,8 @@ void EDUMKII_Accelerometer_vSample(int32_t *s32X, int32_t *s32Y, int32_t *s32Z )
 void EDUMKII_Accelerometer_vIRQSourceHandler(void)
 {
     DMACHCTL_TypeDef enChControl = {
-         DMA_enCH_MODE_PING_PONG,
-         DMA_enCH_BURST_OFF,
-         4UL-1U,
-         DMA_enCH_BURST_SIZE_4,
-         0,
-         DMA_enCH_SRC_SIZE_WORD,
-         DMA_enCH_SRC_INC_NO,
-         DMA_enCH_DST_SIZE_WORD,
-         DMA_enCH_DST_INC_WORD,
+         DMA_enCH_MODE_PING_PONG, DMA_enCH_BURST_OFF, 4UL-1U, DMA_enCH_BURST_SIZE_4, 0,
+         DMA_enCH_SRC_SIZE_WORD, DMA_enCH_SRC_INC_NO, DMA_enCH_DST_SIZE_WORD, DMA_enCH_DST_INC_WORD,
     };
 
     DMA_nCH_CTL enDMAcontrol = DMA_enCH_CTL_UNDEF;

@@ -82,9 +82,9 @@ void EDUMKII_Led_vWritePWM(EDUMKII_nLED enLedSelect, uint32_t u32Value)
 }
 
 
-void EDUMKII_Led_vWriteRGB(uint32_t u32ValueRed,uint32_t u32ValueGreen,uint32_t u32ValueBlue)
+void EDUMKII_Led_vWriteRGB(uint32_t u32ValueRed, uint32_t u32ValueGreen, uint32_t u32ValueBlue)
 {
-    EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,u32ValueRed);
-    EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN,u32ValueGreen);
-    EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE,u32ValueBlue);
+    EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, u32ValueRed);
+    EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, u32ValueGreen);
+    EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, u32ValueBlue);
 }

@@ -66,7 +66,7 @@ void EDUMKII_Microphone_vInit(void)
     };
 
 
-    DMA__vRegisterIRQSourceHandler( &EDUMKII_Microphone_vIRQSourceHandler,DMA_enCH_MODULE_14, DMA_enCH_ENCODER_0 );
+    DMA__vRegisterIRQSourceHandler( &EDUMKII_Microphone_vIRQSourceHandler, DMA_enCH_MODULE_14, DMA_enCH_ENCODER_0 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1UL-1U]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO0_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_14, enDMAChControl);
@@ -76,13 +76,13 @@ void EDUMKII_Microphone_vInit(void)
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_14, enDMAChControl);
 
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_14, enDMAChConfig);
-    DMA_CH__vSetEnable(DMA_enCH_MODULE_14,DMA_enCH_ENA_ENA);
+    DMA_CH__vSetEnable(DMA_enCH_MODULE_14, DMA_enCH_ENA_ENA);
 
     EDUMKII_Common_vAdcInit();
 
     GPIO__vSetAnalogFunction(EDUMKII_MICROPHONE);
 
-    ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_0,ADC_enSEQ_ENABLE_DIS);
+    ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_0, ADC_enSEQ_ENABLE_DIS);
     ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_0, ADC_enSEQ_TRIGGER_TIMER);
 
 
@@ -91,8 +91,8 @@ void EDUMKII_Microphone_vInit(void)
     sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_0, ADC_en_MUX_0, &sADC0SampleConfig);
 
-    ADC__vEnInterruptVector(ADC_enMODULE_0,ADC_enSEQ_0,ADC_enPRI7);
-    ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_0,ADC_enSEQ_ENABLE_ENA);
+    ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_0, ADC_enPRI7);
+    ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_0, ADC_enSEQ_ENABLE_ENA);
     EDUMKII_Common_vTimerInit();
 }
 

@@ -26,7 +26,7 @@
 #include <xUtils/Standard/Standard.h>
 
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef* const psServoMotor,int8_t s8Angle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef* const psServoMotor, int8_t s8Angle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
@@ -53,7 +53,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef*
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_Typedef* const psServoMotor,uint8_t u8Angle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_Typedef* const psServoMotor, uint8_t u8Angle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
@@ -80,7 +80,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typedef* const psServoMotor,float32_t fAngle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typedef* const psServoMotor, float32_t fAngle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
@@ -107,7 +107,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typ
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_SG90_Typedef* const psServoMotor,float32_t fAngle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_SG90_Typedef* const psServoMotor, float32_t fAngle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;

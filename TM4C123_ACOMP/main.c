@@ -60,12 +60,7 @@ int32_t main(void)
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
     UART_nFIFO_FULL enTransmitFullState = UART_enFIFO_FULL_NO;
     UART_LINE_CONTROL_TypeDef sUARTControlLine = {
-        UART_enFIFO_ENA,
-        UART_enSTOP_ONE,
-        UART_enPARITY_DIS,
-        UART_enPARITY_TYPE_ODD,
-        UART_enPARITY_STICK_DIS,
-        UART_enLENGTH_8BITS,
+        UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
     };
 
     MPU__vInit();
@@ -192,8 +187,7 @@ int32_t main(void)
 
        SysTick__vDelayUs(100000.0f);
         u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %u, JoystickY: %u, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
-                         enButton1State,enButton2State,u32JoystickXValue,u32JoystickYValue,enJoystickSelectValue,s32AccelerometerXValue,s32AccelerometerYValue,s32AccelerometerZValue,
-                         u32MicrophoneValue);
+                         enButton1State, enButton2State, u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue, s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue, u32MicrophoneValue);
         cNokiaBufferPointer = cNokiaBuffer;
         while('\0' != *cNokiaBufferPointer)
         {

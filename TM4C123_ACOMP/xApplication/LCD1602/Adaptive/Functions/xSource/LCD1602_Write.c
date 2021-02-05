@@ -28,7 +28,7 @@
 #include <xApplication/LCD1602/Adaptive/Intrinsics/LCD1602_Intrinsics.h>
 
 
-void LCD1602__vWritePin8Bit(uint8_t u8Data,LCD1602_nRS enMode)
+void LCD1602__vWritePin8Bit(uint8_t u8Data, LCD1602_nRS enMode)
 {
     LCD1602__vSetWriteMode();
     LCD1602__vSetDataCommand(enMode);
@@ -37,7 +37,7 @@ void LCD1602__vWritePin8Bit(uint8_t u8Data,LCD1602_nRS enMode)
     LCD1602__vPulseWriteEnable();
 }
 
-void LCD1602__vWrite(uint8_t u8Data,LCD1602_nRS enMode)
+void LCD1602__vWrite(uint8_t u8Data, LCD1602_nRS enMode)
 {
     LCD1602__vSetWriteMode();
     LCD1602__vSetDataCommand(enMode);

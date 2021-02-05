@@ -244,7 +244,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
           /* signed*/
           if (0U != (u32Flags & (uint32_t) CONV_enFLAGS_LONG_LONG))
           {
-                s64ValueArgument = (int64_t) va_arg(vaList,int64_t);
+                s64ValueArgument = (int64_t) va_arg(vaList, int64_t);
                 if(s64ValueArgument >= 0)
                 {
                     u64ValueTemp = (uint64_t) s64ValueArgument;
@@ -257,7 +257,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
                     u32Negative = 1U;
                 }
 
-                Conv__enNumber2String_LongLong(pvfOut,pcBuffer,u64ValueTemp,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,(uint64_t) u32Base,u32Precision);
+                Conv__enNumber2String_LongLong(pvfOut, pcBuffer, u64ValueTemp, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative,(uint64_t) u32Base, u32Precision);
                 u32Index = u32LengthOut;
           }
           else if (0U != (u32Flags & (uint32_t) CONV_enFLAGS_LONG))
@@ -275,7 +275,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
                   u32Negative = 1U;
               }
 
-              Conv__enNumber2String_Long(pvfOut,pcBuffer,u32ValueTemp,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,u32Base,u32Precision);
+              Conv__enNumber2String_Long(pvfOut, pcBuffer, u32ValueTemp, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative, u32Base, u32Precision);
               u32Index = u32LengthOut;
 
           }
@@ -308,7 +308,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
                   u32Negative = 1U;
               }
 
-              Conv__enNumber2String_Long(pvfOut,pcBuffer,u32ValueTemp,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,u32Base,u32Precision);
+              Conv__enNumber2String_Long(pvfOut, pcBuffer, u32ValueTemp, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative, u32Base, u32Precision);
               u32Index = u32LengthOut;
           }
         }
@@ -320,7 +320,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
               u64ValueArgument = (uint64_t) va_arg(vaList, uint64_t);
               u32Negative = 0U;
 
-              Conv__enNumber2String_LongLong(pvfOut,pcBuffer,u64ValueArgument,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,(uint64_t) u32Base,u32Precision);
+              Conv__enNumber2String_LongLong(pvfOut, pcBuffer, u64ValueArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative,(uint64_t) u32Base, u32Precision);
               u32Index = u32LengthOut;
           }
           else if (u32Flags & (uint32_t) CONV_enFLAGS_LONG)
@@ -328,7 +328,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
               u32ValueArgument = (uint32_t) va_arg(vaList, uint32_t);
               u32Negative = 0U;
 
-              Conv__enNumber2String_Long(pvfOut,pcBuffer,u32ValueArgument,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,u32Base,u32Precision);
+              Conv__enNumber2String_Long(pvfOut, pcBuffer, u32ValueArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative, u32Base, u32Precision);
               u32Index = u32LengthOut;
           }
           else
@@ -350,7 +350,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
               }
               u32Negative = 0U;
 
-              Conv__enNumber2String_Long(pvfOut,pcBuffer,u32ValueArgument,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,u32Base,u32Precision);
+              Conv__enNumber2String_Long(pvfOut, pcBuffer, u32ValueArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative, u32Base, u32Precision);
               u32Index = u32LengthOut;
           }
         }
@@ -364,7 +364,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
             u32Flags |= (uint32_t) CONV_enFLAGS_UPPERCASE;
         }
         dDoubleArgument = (float64_t) va_arg(vaList, float64_t);
-        Conv__enNumber2String_Float(pvfOut, pcBuffer,dDoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
+        Conv__enNumber2String_Float(pvfOut, pcBuffer, dDoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
         u32Index = u32LengthOut;
 
         pcFormat += 1U;
@@ -383,7 +383,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
         }
 
         dDoubleArgument = (float64_t) va_arg(vaList, float64_t);
-        Conv__enNumber2String_Exponential(pvfOut, pcBuffer,dDoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
+        Conv__enNumber2String_Exponential(pvfOut, pcBuffer, dDoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
         u32Index = u32LengthOut;
         pcFormat += 1U;
         break;
@@ -430,7 +430,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
         {
             u32PrecisionTemp = u32Precision;
         }
-        u32lteration = CONV_u32StringLength(pcValueArgument,u32PrecisionTemp);
+        u32lteration = CONV_u32StringLength(pcValueArgument, u32PrecisionTemp);
         /* pre padding*/
         if (0U != (u32Flags & (uint32_t) CONV_enFLAGS_PRECISION))
         {
@@ -479,7 +479,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
         u32ValueArgument = (uint32_t) pvPointerArgument;
         u32Negative = 0U;
 
-        Conv__enNumber2String_Long(pvfOut,pcBuffer,u32ValueArgument,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,16U,u32Precision);
+        Conv__enNumber2String_Long(pvfOut, pcBuffer, u32ValueArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Negative, 16U, u32Precision);
         u32Index = u32LengthOut;
 
 

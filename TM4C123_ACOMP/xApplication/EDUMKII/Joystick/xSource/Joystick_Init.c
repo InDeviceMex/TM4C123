@@ -66,11 +66,11 @@ void EDUMKII_Joystick_vInit(void)
     GPIO__vRegisterIRQSourceHandler( &EDUMKII_Select_vIRQSourceHandler, EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN);
     GPIO__enSetDigitalConfig(EDUMKII_SELECT, GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
 
-    GPIO__vEnInterruptVector(EDUMKII_SELECT_PORT,GPIO_enPRI6);
-    GPIO__vClearInterruptSource(EDUMKII_SELECT_PORT,  EDUMKII_SELECT_PIN);
-    GPIO__vEnInterruptSourceConfig(EDUMKII_SELECT_PORT,EDUMKII_SELECT_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+    GPIO__vEnInterruptVector(EDUMKII_SELECT_PORT, GPIO_enPRI6);
+    GPIO__vClearInterruptSource(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN);
+    GPIO__vEnInterruptSourceConfig(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
 
-    DMA__vRegisterIRQSourceHandler( &EDUMKII_Joystick_vIRQSourceHandler,DMA_enCH_MODULE_15, DMA_enCH_ENCODER_0 );
+    DMA__vRegisterIRQSourceHandler( &EDUMKII_Joystick_vIRQSourceHandler, DMA_enCH_MODULE_15, DMA_enCH_ENCODER_0 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2UL-1U]);
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO1_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMAChControl);
@@ -80,14 +80,14 @@ void EDUMKII_Joystick_vInit(void)
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_15, enDMAChControl);
 
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_15, enDMAChConfig);
-    DMA_CH__vSetEnable(DMA_enCH_MODULE_15,DMA_enCH_ENA_ENA);
+    DMA_CH__vSetEnable(DMA_enCH_MODULE_15, DMA_enCH_ENA_ENA);
 
     EDUMKII_Common_vAdcInit();
 
     GPIO__vSetAnalogFunction(EDUMKII_AXIS_X);
     GPIO__vSetAnalogFunction(EDUMKII_AXIS_Y);
 
-    ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_1,ADC_enSEQ_ENABLE_DIS);
+    ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_1, ADC_enSEQ_ENABLE_DIS);
     ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_1, ADC_enSEQ_TRIGGER_TIMER);
 
     sADC0SampleConfig.enInput = EDUMKII_AXIS_X_INPUT;
@@ -98,8 +98,8 @@ void EDUMKII_Joystick_vInit(void)
     sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_1, ADC_en_MUX_1, &sADC0SampleConfig);
 
-    ADC__vEnInterruptVector(ADC_enMODULE_0,ADC_enSEQ_1,ADC_enPRI7);
-    ADC__vSetSequencerEnable(ADC_enMODULE_0,ADC_enSEQMASK_1,ADC_enSEQ_ENABLE_ENA);
+    ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_1, ADC_enPRI7);
+    ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_1, ADC_enSEQ_ENABLE_ENA);
 
     EDUMKII_Common_vTimerInit();
 }

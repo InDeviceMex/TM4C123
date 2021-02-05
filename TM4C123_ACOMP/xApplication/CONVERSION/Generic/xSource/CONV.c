@@ -17,7 +17,7 @@ static char CONV_pcStringBack[66] = {0UL};
 
 
 
-int32_t Conv__s32String2Hex(const char* pcString,int64_t* s64NumSigned )
+int32_t Conv__s32String2Hex(const char* pcString, int64_t* s64NumSigned )
 {
     int32_t s32Length=0;
     int64_t s64NumSignedReg=0;
@@ -139,7 +139,7 @@ int32_t Conv__s32String2Hex(const char* pcString,int64_t* s64NumSigned )
 }
 
 
-int32_t Conv__s32String2Oct(const char* pcString,int64_t* s64NumSigned )
+int32_t Conv__s32String2Oct(const char* pcString, int64_t* s64NumSigned )
 {
     int32_t s32Length=0;
     int64_t s64NumSignedReg=0;
@@ -197,7 +197,7 @@ int32_t Conv__s32String2Oct(const char* pcString,int64_t* s64NumSigned )
     return s32Length;
 }
 
-int32_t Conv__s32String2Bin(const char* pcString,int64_t* s64NumSigned )
+int32_t Conv__s32String2Bin(const char* pcString, int64_t* s64NumSigned )
 {
     int32_t s32Length=0;
     int64_t s64NumSignedReg=0;
@@ -252,7 +252,7 @@ int32_t Conv__s32String2Bin(const char* pcString,int64_t* s64NumSigned )
     return s32Length;
 }
 
-int32_t Conv__s32String2UInt(const char* pcString,uint64_t* u64NumUnsigned )
+int32_t Conv__s32String2UInt(const char* pcString, uint64_t* u64NumUnsigned )
 {
    int64_t u64NumSigned=0;
     int32_t s32Length=0;
@@ -268,7 +268,7 @@ int32_t Conv__s32String2UInt(const char* pcString,uint64_t* u64NumUnsigned )
 
 
 
-int32_t Conv__s32String2Float(const char* pcString,int8_t s8Decimals, float32_t* pfConversion)
+int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t* pfConversion)
 {
     float32_t fNumberInteger=0.0;
     float32_t fNumberDecimal=0.0;

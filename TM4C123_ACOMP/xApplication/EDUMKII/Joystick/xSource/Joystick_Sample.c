@@ -42,15 +42,8 @@ void EDUMKII_Joystick_vSample(uint32_t *u32X, uint32_t *u32Y, EDUMKII_nJOYSTICK 
 void EDUMKII_Joystick_vIRQSourceHandler(void)
 {
     DMACHCTL_TypeDef enChControl = {
-         DMA_enCH_MODE_PING_PONG,
-         DMA_enCH_BURST_OFF,
-         2UL-1U,
-         DMA_enCH_BURST_SIZE_2,
-         0,
-         DMA_enCH_SRC_SIZE_WORD,
-         DMA_enCH_SRC_INC_NO,
-         DMA_enCH_DST_SIZE_WORD,
-         DMA_enCH_DST_INC_WORD,
+         DMA_enCH_MODE_PING_PONG, DMA_enCH_BURST_OFF, 2UL-1U, DMA_enCH_BURST_SIZE_2, 0,
+         DMA_enCH_SRC_SIZE_WORD, DMA_enCH_SRC_INC_NO, DMA_enCH_DST_SIZE_WORD, DMA_enCH_DST_INC_WORD,
     };
 
     DMA_nCH_CTL enDMAcontrol = DMA_enCH_CTL_UNDEF;
@@ -69,7 +62,7 @@ void EDUMKII_Joystick_vIRQSourceHandler(void)
 void EDUMKII_Select_vIRQSourceHandler(void)
 {
     uint32_t u32ValueButton1 = 0UL;
-     GPIO__enGetData(EDUMKII_SELECT_PORT,EDUMKII_SELECT_PIN, &u32ValueButton1);
+     GPIO__enGetData(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN, &u32ValueButton1);
     if(0UL == u32ValueButton1)
     {
         enSelectStatus = EDUMKII_enJOYSTICK_PRESS;
