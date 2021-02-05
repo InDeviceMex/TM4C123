@@ -30,7 +30,7 @@ Stack_TypeDef* Stack__psInit(void (*pfvDestroyElementDataArg) (void *DataContain
     return (Stack_TypeDef*)SLinkedList__psInit(pfvDestroyElementDataArg);
 }
 
-Stack_nSTATUS Stack__enInit(Stack_TypeDef* psStack ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+Stack_nSTATUS Stack__enInit(Stack_TypeDef* psStack, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
-    return (Stack_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psStack ,pfvDestroyElementDataArg);
+    return (Stack_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psStack, pfvDestroyElementDataArg);
 }

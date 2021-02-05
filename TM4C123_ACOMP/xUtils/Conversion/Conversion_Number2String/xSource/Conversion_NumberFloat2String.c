@@ -31,7 +31,7 @@
 
 
 #define FLOAT_PRECISION_MAX (14U)
-CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, float64_t dValue, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t* pu32BufOutLenght,  uint32_t u32Width, uint32_t u32flags,  uint32_t u32Prec)
+CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, float64_t dValue, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags, uint32_t u32Prec)
 {
   char pvBufferIn[CONV_enBUFFER_SIZE_FLOAT];
   char* cFni = "fni";
@@ -52,7 +52,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
   uint64_t u64DiffCompare2 = 0U;
   uint32_t u32Counter = 0U;
   /* powers of 10*/
-  static const float64_t dPow10[FLOAT_PRECISION_MAX] = { 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, 10000000.0, 100000000.0, 1000000000.0, 10000000000.0, 100000000000.0, 1000000000000.0 , 10000000000000.0  };
+  static const float64_t dPow10[FLOAT_PRECISION_MAX] = { 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, 10000000.0, 100000000.0, 1000000000.0, 10000000000.0, 100000000000.0, 1000000000000.0, 10000000000000.0  };
 
   /* test for special values*/
   if (dValue < -DBL_MAX)
@@ -71,7 +71,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
           u32LengthIn = 3U;
           cCorrect = cFni;
       }
-      enStatus = Conv__enOutInversion(pvfOut, pcBufferOut,cCorrect, u32Index, u32MaxLenght,u32LengthIn, pu32BufOutLenght, u32Width, u32flags);
+      enStatus = Conv__enOutInversion(pvfOut, pcBufferOut, cCorrect, u32Index, u32MaxLenght, u32LengthIn, pu32BufOutLenght, u32Width, u32flags);
   }
  else
  {
@@ -81,7 +81,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
        */
       if ((dValue > CONV_MAX_VALUE_FLOAT) || (dValue < -CONV_MAX_VALUE_FLOAT))
       {
-          enStatus = Conv__enNumber2String_Exponential(pvfOut, pcBufferOut,dValue, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
+          enStatus = Conv__enNumber2String_Exponential(pvfOut, pcBufferOut, dValue, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
       }
       else
       {

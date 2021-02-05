@@ -28,7 +28,7 @@
 
 
 CDLinkedListElement_TypeDef* CDLinkedList__psGetElementPreviousNode(const CDLinkedListElement_TypeDef* const psElement);
-void CDLinkedList__vSetElementPreviousNode(CDLinkedListElement_TypeDef* psElement,  CDLinkedListElement_TypeDef* psPreviousElement);
+void CDLinkedList__vSetElementPreviousNode(CDLinkedListElement_TypeDef* psElement, CDLinkedListElement_TypeDef* psPreviousElement);
 
 
 

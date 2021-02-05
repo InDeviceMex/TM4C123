@@ -26,7 +26,7 @@
 
 
 #include <xUtils/Standard/Standard.h>
-int32_t Conv__s32String2UInteger(const char** pcString,uint64_t* pu64NumUnsigned );
+int32_t Conv__s32String2UInteger(const char** pcString, uint64_t* pu64NumUnsigned );
 
 
 

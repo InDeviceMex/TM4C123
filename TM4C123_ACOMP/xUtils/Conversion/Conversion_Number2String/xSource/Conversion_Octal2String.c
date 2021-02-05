@@ -37,13 +37,13 @@ uint8_t Conv__u8Oct2String(uint64_t u64Number, char* pcConv)
     char  *pcPointerActual= &pcConvTemp[OCT2STRINGMAX - 1U];
     uint8_t u8Length = 0U;
 
-    enStatus = Conv__enConversion(pcPointerActual, u64Number, &u8Length, 8U,CONV_pc8Octal);
+    enStatus = Conv__enConversion(pcPointerActual, u64Number, &u8Length, 8U, CONV_pc8Octal);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;
         pcPointerActual -= u8Length;
         *pcPointerActual = '0';
-        enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
+        enStatus=Conv__enInversion(pcPointerActual, pcConv, u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
             u8Length=0U;

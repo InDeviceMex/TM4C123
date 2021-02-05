@@ -44,7 +44,7 @@ CDLinkedList_TypeDef* CDLinkedList__psInit(void (*pfvDestroyElementDataArg) (voi
 }
 
 
-CDLinkedList_nSTATUS CDLinkedList__enInit(CDLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+CDLinkedList_nSTATUS CDLinkedList__enInit(CDLinkedList_TypeDef* psList, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

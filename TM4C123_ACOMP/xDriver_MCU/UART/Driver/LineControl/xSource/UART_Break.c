@@ -70,11 +70,11 @@ void UART__vSetBreak(UART_nMODULE enModule, UART_nBREAK enBreakArg)
 
 void UART__vSendBreak(UART_nMODULE enModule)
 {
-    UART__vSetBreak(enModule,UART_enBREAK_ACTIVE);
+    UART__vSetBreak(enModule, UART_enBREAK_ACTIVE);
 }
 
 void UART__vStopBreak(UART_nMODULE enModule)
 {
-    UART__vSetBreak(enModule,UART_enBREAK_DIS);
+    UART__vSetBreak(enModule, UART_enBREAK_DIS);
 }
 

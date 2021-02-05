@@ -31,7 +31,7 @@ CDLinkedListElement_TypeDef* CDLinkedList__psGetElementNextNode(const CDLinkedLi
     return psNextElementReg;
 }
 
-void CDLinkedList__vSetElementNextNode(CDLinkedListElement_TypeDef* psElement,  CDLinkedListElement_TypeDef* psNextElement)
+void CDLinkedList__vSetElementNextNode(CDLinkedListElement_TypeDef* psElement, CDLinkedListElement_TypeDef* psNextElement)
 {
     psElement->psNextNode = psNextElement;
 }

@@ -164,7 +164,7 @@
      return u32SizeReg;
  }
 
- uint32_t CDLinkedList__u32GetNNode(const CDLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength)
+ uint32_t CDLinkedList__u32GetNNode(const CDLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength)
  {
      CDLinkedListElement_TypeDef *psMember = (CDLinkedListElement_TypeDef*) 0UL;
      CDLinkedListElement_TypeDef *psMemberTemp = (CDLinkedListElement_TypeDef*) 0UL;
@@ -191,7 +191,7 @@
      return u32SizeReg;
  }
 
- uint32_t CDLinkedList__u32GetNNodeBackward(const CDLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength)
+ uint32_t CDLinkedList__u32GetNNodeBackward(const CDLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength)
  {
      CDLinkedListElement_TypeDef *psMember = (CDLinkedListElement_TypeDef*) 0UL;
      CDLinkedListElement_TypeDef *psMemberTemp = (CDLinkedListElement_TypeDef*) 0UL;

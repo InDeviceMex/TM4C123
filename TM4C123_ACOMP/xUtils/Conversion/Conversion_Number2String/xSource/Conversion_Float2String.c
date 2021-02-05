@@ -26,12 +26,10 @@
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Float2String.h>
 #include <xUtils/Conversion/Conversion_Number2String/xHeader/Conversion_Integer2String.h>
 
-const int64_t CONV_s64Dec[16] = {0,10,100,1000,10000,100000,1000000,10000000,100000000,
- 1000000000,10000000000,100000000000,1000000000000,
- 10000000000000,100000000000000,1000000000000000
+const int64_t CONV_s64Dec[16] = {0, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000
 };
 /* ToDo Actualizar Float*/
-uint8_t Conv__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padding0,int32_t s32Enteros,int32_t s32Decimals,char* pcConv)
+uint8_t Conv__u8Float2String(float64_t dNumber, uint8_t u8Positive, uint8_t u8Padding0, int32_t s32Enteros, int32_t s32Decimals, char* pcConv)
 {
     int64_t CONV_s64Deci=0;/*contiene los dDecimales en version entero*/
     float64_t dDecimal=0;/*contiene el valor de dDecimales en version float64_t*/
@@ -56,7 +54,7 @@ uint8_t Conv__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padd
         u8Positive= (uint8_t) 1;
         u8NegativeNumber= (uint8_t) 1;
     }
-    u8Values= Conv__u8DInt2String((int64_t) dNumber,u8Positive,u8Padding0,(uint8_t) s32Enteros, pcConv);/*pcConvierte la parte entera del numero*/
+    u8Values= Conv__u8DInt2String((int64_t) dNumber, u8Positive, u8Padding0,(uint8_t) s32Enteros, pcConv);/*pcConvierte la parte entera del numero*/
     if(u8NegativeNumber == (uint8_t) 1)
     {
         pcConvAux = pcConv;
@@ -69,6 +67,6 @@ uint8_t Conv__u8Float2String(float64_t dNumber,uint8_t u8Positive,uint8_t u8Padd
     u8Values++;/*aumenta a la siguiente posicion*/
     pcConvAux = pcConv;
     pcConvAux += u8Values;
-    u8Values += Conv__u8DInt2String((int64_t) CONV_s64Deci,0U,1U,(uint8_t) s32Decimals, (char*)pcConvAux);/*pcConvierte la parte dDecimal despues del punto*/
+    u8Values += Conv__u8DInt2String((int64_t) CONV_s64Deci, 0U, 1U,(uint8_t) s32Decimals, (char*)pcConvAux);/*pcConvierte la parte dDecimal despues del punto*/
     return u8Values;/*regresa la cantidad de digitos pcConvertidos*/
 }

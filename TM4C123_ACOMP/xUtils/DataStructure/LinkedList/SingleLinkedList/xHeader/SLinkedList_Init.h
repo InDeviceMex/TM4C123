@@ -27,7 +27,7 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
 SLinkedList_TypeDef* SLinkedList__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer));
-SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer));
+SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList, void (*pfvDestroyElementDataArg) (void *DataContainer));
 
 
 #endif /* XUTILS_DATASTRUCTURE_SINGLELINKEDLIST_XHEADER_SLINKEDLIST_INIT_H_ */

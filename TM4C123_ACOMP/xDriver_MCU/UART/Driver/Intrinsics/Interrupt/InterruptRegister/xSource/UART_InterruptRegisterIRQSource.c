@@ -26,7 +26,7 @@
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Source.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
-void UART__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),UART_nMODULE enModule,UART_nINTERRUPT enInterruptSource)
+void UART__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),UART_nMODULE enModule, UART_nINTERRUPT enInterruptSource)
 {
     uint32_t u32IrqSourceHandler=0U;
     uint32_t u32Module = (uint32_t) enModule;

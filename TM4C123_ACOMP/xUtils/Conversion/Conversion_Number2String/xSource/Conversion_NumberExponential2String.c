@@ -30,7 +30,7 @@
 
 
 
-CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, float64_t dValue, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t* pu32BufOutLenght,  uint32_t u32Width, uint32_t u32flags,  uint32_t u32Prec)
+CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, float64_t dValue, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags, uint32_t u32Prec)
 {
 
     CONV_nSTATUS enConvStatus = CONV_enSTATUS_ERROR;
@@ -72,7 +72,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
         /* check for NaN and special dValues*/
         if ((dValue > DBL_MAX) || (dValue < -DBL_MAX))
         {
-            enConvStatus = Conv__enNumber2String_Float(pvfOut, pcBufferOut, dValue, u32Index, u32MaxLenght,pu32BufOutLenght, u32Width, u32flags,  u32Prec);
+            enConvStatus = Conv__enNumber2String_Float(pvfOut, pcBufferOut, dValue, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
         }
         else
         {
@@ -110,7 +110,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
             u64TempShift2 <<= 52ULL;
 
             u64Temp2 = u64Temp | u64TempShift2;
-            uFloatConversion.UNSIGNED = u64Temp2;  /* drop the exponent so uFloatConversion.FLOAT is now in [1,2)*/
+            uFloatConversion.UNSIGNED = u64Temp2;  /* drop the exponent so uFloatConversion.FLOAT is now in [1, 2)*/
 
             /* now approximate log10 from the log2 integer part and an expansion of ln around 1.5*/
             dTemp = uFloatConversion.FLOAT;
@@ -247,7 +247,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
             }
             u32flagsTemp = u32flags & ~((uint32_t) CONV_enFLAGS_ADAPT_EXP);
 
-            enConvStatus = Conv__enNumber2String_Float(pvfOut, pcBufferOut, dValueTemp, u32Index, u32MaxLenght, pu32BufOutLenght,u32FloatWidth, u32flagsTemp,  u32Prec);
+            enConvStatus = Conv__enNumber2String_Float(pvfOut, pcBufferOut, dValueTemp, u32Index, u32MaxLenght, pu32BufOutLenght, u32FloatWidth, u32flagsTemp, u32Prec);
             if(CONV_enSTATUS_OK == enConvStatus)
             {
                 u32Index = *pu32BufOutLenght;
@@ -278,7 +278,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
                       u32Negative = (uint32_t) 0U;
                   }
                   u32flagsTemp = (uint32_t) CONV_enFLAGS_ZEROPAD | (uint32_t) CONV_enFLAGS_PLUS;
-                   enConvStatus = Conv__enNumber2String_Long(pvfOut, pcBufferOut, (uint32_t) s64Temp, u32Index, u32MaxLenght, pu32BufOutLenght, u32MinWidth-1U, u32flagsTemp ,u32Negative, (uint32_t) 10U, (uint32_t) 0U);
+                   enConvStatus = Conv__enNumber2String_Long(pvfOut, pcBufferOut, (uint32_t) s64Temp, u32Index, u32MaxLenght, pu32BufOutLenght, u32MinWidth-1U, u32flagsTemp, u32Negative, (uint32_t) 10U, (uint32_t) 0U);
                    u32Index = *pu32BufOutLenght;
                  /* might need to right-pad spaces*/
                   if ((uint32_t) 0U != (u32flags & (uint32_t) CONV_enFLAGS_LEFT))

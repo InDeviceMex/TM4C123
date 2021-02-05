@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
-BiTree_TypeDef* BiTree__psMerge(BiTree_TypeDef* psTreeLeft,BiTree_TypeDef* psTreeRight, void* pvData);
- BiTree_nSTATUS BiTree__enMerge(BiTree_TypeDef* psTreeMerged,BiTree_TypeDef* psTreeLeft,BiTree_TypeDef* psTreeRight, void* pvData);
+BiTree_TypeDef* BiTree__psMerge(BiTree_TypeDef* psTreeLeft, BiTree_TypeDef* psTreeRight, void* pvData);
+ BiTree_nSTATUS BiTree__enMerge(BiTree_TypeDef* psTreeMerged, BiTree_TypeDef* psTreeLeft, BiTree_TypeDef* psTreeRight, void* pvData);
 
 
 

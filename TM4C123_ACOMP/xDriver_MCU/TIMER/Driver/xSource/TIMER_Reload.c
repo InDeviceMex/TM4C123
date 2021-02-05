@@ -30,7 +30,7 @@
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Configuration.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
-void TIMER__vSetReload(TIMER_nMODULE enModule,uint64_t u64Reload)
+void TIMER__vSetReload(TIMER_nMODULE enModule, uint64_t u64Reload)
 {
     TIMER_nCONFIG enConfigVar = TIMER_enCONFIG_UNDEF;
 
@@ -163,7 +163,7 @@ void TIMER__vSetReload(TIMER_nMODULE enModule,uint64_t u64Reload)
     }
 }
 
-TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule,uint64_t* pu64Reload)
+TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint64_t* pu64Reload)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_UNDEF;
 
@@ -280,7 +280,7 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule,uint64_t* pu64Reload)
                         sReload64Config.u32CountLowShiftLeft = 0UL;
                         sReload64Config.pu64CountValue = pu64Reload;
                         /*Prescaler*/
-                        /*One shot and periodic Down , no PWM no Capture*/
+                        /*One shot and periodic Down, no PWM no Capture*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
                             sReload64Config.u32CountHighRegister = GPTM_GPTMTAILR_OFFSET + (4UL * u32SubModule);
@@ -291,7 +291,7 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule,uint64_t* pu64Reload)
                             sReload64Config.u32CountLowMask =0xFFFFUL;
                         }
                         /*Time Extension*/
-                        /*PWM, capture , One shot UP or periodic UP*/
+                        /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
                             sReload64Config.u32CountHighRegister = GPTM_GPTMTAPR_OFFSET + (4UL * u32SubModule);

@@ -51,7 +51,7 @@ Set_nSTATUS Set__enIntersection(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, cons
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
                 if((uint32_t) 0UL != (uint32_t) psMemberSet)
                 {
-                    psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet,  pvDataMember);
+                    psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet, pvDataMember);
                     if((uint32_t) 0UL == (uint32_t) psNewMember)
                     {
                         enStatus = Set_enSTATUS_ERROR;
@@ -89,7 +89,7 @@ Set_TypeDef* Set__psIntersection(Set_TypeDef* psSet1, const Set_TypeDef* psSet2)
                 psMemberSet = Set__psIsMember(psSet2, pvDataMember);
                 if((uint32_t) 0UL != (uint32_t) psMemberSet)
                 {
-                    psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet,  pvDataMember);
+                    psNewMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psNewSet, pvDataMember);
                     if((uint32_t) 0UL == (uint32_t) psNewMember)
                     {
                         Set__vDestroy(psNewSet);

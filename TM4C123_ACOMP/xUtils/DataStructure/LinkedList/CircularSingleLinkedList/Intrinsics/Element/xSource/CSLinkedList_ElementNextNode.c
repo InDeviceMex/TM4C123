@@ -31,7 +31,7 @@ CSLinkedListElement_TypeDef* CSLinkedList__psGetElementNextNode(const CSLinkedLi
     return psNextElementReg;
 }
 
-void CSLinkedList__vSetElementNextNode(CSLinkedListElement_TypeDef* psElement,  CSLinkedListElement_TypeDef* psNextElement)
+void CSLinkedList__vSetElementNextNode(CSLinkedListElement_TypeDef* psElement, CSLinkedListElement_TypeDef* psNextElement)
 {
     psElement->psNextNode = psNextElement;
 }

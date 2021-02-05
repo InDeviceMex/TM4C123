@@ -43,7 +43,7 @@ CSLinkedList_TypeDef* CSLinkedList__psInit(void (*pfvDestroyElementDataArg) (voi
 }
 
 
-CSLinkedList_nSTATUS CSLinkedList__enInit(CSLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+CSLinkedList_nSTATUS CSLinkedList__enInit(CSLinkedList_TypeDef* psList, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

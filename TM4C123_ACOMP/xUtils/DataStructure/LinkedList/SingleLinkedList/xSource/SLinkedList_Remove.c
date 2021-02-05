@@ -30,7 +30,7 @@
 #include <stdlib.h>
 
 
- SLinkedList_nSTATUS SLinkedList__enRemoveNext(SLinkedList_TypeDef* psList,SLinkedListElement_TypeDef* psElement, void** pvData)
+ SLinkedList_nSTATUS SLinkedList__enRemoveNext(SLinkedList_TypeDef* psList, SLinkedListElement_TypeDef* psElement, void** pvData)
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psOldElement = (SLinkedListElement_TypeDef*) 0UL ;
@@ -71,7 +71,7 @@
                      psOldElement = psElementNextNode;
 
                      psElementNextNextNode = SLinkedList__psGetElementNextNode(psElementNextNode);
-                     SLinkedList__vSetElementNextNode(psElement,psElementNextNextNode);
+                     SLinkedList__vSetElementNextNode(psElement, psElementNextNextNode);
 
 
                      psElementNextNode = SLinkedList__psGetElementNextNode(psElement);
@@ -90,14 +90,14 @@
                  psOldElement = (SLinkedListElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
-                 SLinkedList__vSetSize(psList,u32SizeReg);
+                 SLinkedList__vSetSize(psList, u32SizeReg);
              }
          }
      }
      return enStatus;
  }
 
- SLinkedList_nSTATUS SLinkedList__enRemove(SLinkedList_TypeDef* psList,SLinkedListElement_TypeDef* psElement, void** pvData)
+ SLinkedList_nSTATUS SLinkedList__enRemove(SLinkedList_TypeDef* psList, SLinkedListElement_TypeDef* psElement, void** pvData)
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psOldElement = (SLinkedListElement_TypeDef*) 0UL ;
@@ -140,8 +140,8 @@
                      psOldElement = psElementNextNode;
 
                      psElementNextNextNode = SLinkedList__psGetElementNextNode(psElementNextNode);
-                     SLinkedList__vSetElementNextNode(psElement,psElementNextNextNode);
-                     SLinkedList__vSetElementData(psElement,psElementNextNodeData);
+                     SLinkedList__vSetElementNextNode(psElement, psElementNextNextNode);
+                     SLinkedList__vSetElementData(psElement, psElementNextNodeData);
 
 
                      psElementNextNode = SLinkedList__psGetElementNextNode(psElement);
@@ -160,7 +160,7 @@
                  psOldElement = (SLinkedListElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
-                 SLinkedList__vSetSize(psList,u32SizeReg);
+                 SLinkedList__vSetSize(psList, u32SizeReg);
              }
          }
      }
@@ -201,7 +201,7 @@
      return enStatus;
  }
 
- SLinkedList_nSTATUS  SLinkedList__enRemovePos(SLinkedList_TypeDef* psList,uint32_t u32Position, void** pvData)
+ SLinkedList_nSTATUS  SLinkedList__enRemovePos(SLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData)
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psElement = (SLinkedListElement_TypeDef*) 0UL;

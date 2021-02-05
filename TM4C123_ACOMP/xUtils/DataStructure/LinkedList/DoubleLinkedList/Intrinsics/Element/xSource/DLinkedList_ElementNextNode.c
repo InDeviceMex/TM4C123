@@ -31,7 +31,7 @@ DLinkedListElement_TypeDef* DLinkedList__psGetElementNextNode(const DLinkedListE
     return psNextElementReg;
 }
 
-void DLinkedList__vSetElementNextNode(DLinkedListElement_TypeDef* psElement,  DLinkedListElement_TypeDef* psNextElement)
+void DLinkedList__vSetElementNextNode(DLinkedListElement_TypeDef* psElement, DLinkedListElement_TypeDef* psNextElement)
 {
     psElement->psNextNode = psNextElement;
 }

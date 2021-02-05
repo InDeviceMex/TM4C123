@@ -55,7 +55,7 @@
                  enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNodeReg);
                  if(BiTree_enSTATUS_OK != enEndOfBranch)
                  {
-                     enStatusReturn = BiTree__enTraversePreOrder(psLeftNodeReg,psListOrdered);
+                     enStatusReturn = BiTree__enTraversePreOrder(psLeftNodeReg, psListOrdered);
                  }
 
                  if(BiTree_enSTATUS_OK == enStatusReturn)
@@ -64,7 +64,7 @@
                      enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNodeReg);
                      if(BiTree_enSTATUS_OK != enEndOfBranch)
                      {
-                         enStatusReturn = BiTree__enTraversePreOrder(psLeftNodeReg,psListOrdered);
+                         enStatusReturn = BiTree__enTraversePreOrder(psLeftNodeReg, psListOrdered);
                      }
                  }
              }
@@ -92,7 +92,7 @@
              enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNodeReg);
              if(BiTree_enSTATUS_OK != enEndOfBranch)
              {
-                 enStatusReturn = BiTree__enTraverseInOrder(psLeftNodeReg,psListOrdered);
+                 enStatusReturn = BiTree__enTraverseInOrder(psLeftNodeReg, psListOrdered);
              }
 
              if(BiTree_enSTATUS_OK == enStatusReturn)
@@ -109,7 +109,7 @@
                      enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNodeReg);
                      if(BiTree_enSTATUS_OK != enEndOfBranch)
                      {
-                         enStatusReturn = BiTree__enTraverseInOrder(psLeftNodeReg,psListOrdered);
+                         enStatusReturn = BiTree__enTraverseInOrder(psLeftNodeReg, psListOrdered);
                      }
                  }
              }
@@ -137,7 +137,7 @@
              enEndOfBranch = BiTree__enIsElementEndOfBranch(psLeftNodeReg);
              if(BiTree_enSTATUS_OK != enEndOfBranch)
              {
-                 enStatusReturn = BiTree__enTraversePostOrder(psLeftNodeReg,psListOrdered);
+                 enStatusReturn = BiTree__enTraversePostOrder(psLeftNodeReg, psListOrdered);
              }
 
              if(BiTree_enSTATUS_OK == enStatusReturn)
@@ -146,7 +146,7 @@
                  enEndOfBranch = BiTree__enIsElementEndOfBranch(psRightNodeReg);
                  if(BiTree_enSTATUS_OK != enEndOfBranch)
                  {
-                     enStatusReturn = BiTree__enTraversePostOrder(psLeftNodeReg,psListOrdered);
+                     enStatusReturn = BiTree__enTraversePostOrder(psLeftNodeReg, psListOrdered);
                  }
 
                  if(BiTree_enSTATUS_OK == enStatusReturn)

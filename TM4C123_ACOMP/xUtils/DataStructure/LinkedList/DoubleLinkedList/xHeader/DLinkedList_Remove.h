@@ -26,12 +26,12 @@
 
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/xHeader/DLinkedList_Struct.h>
 
- DLinkedList_nSTATUS DLinkedList__enRemove(DLinkedList_TypeDef* psList,DLinkedListElement_TypeDef* psElement, void** pvData);
- DLinkedList_nSTATUS DLinkedList__enRemoveNext(DLinkedList_TypeDef* psList,const DLinkedListElement_TypeDef* psElement, void** pvData);
+ DLinkedList_nSTATUS DLinkedList__enRemove(DLinkedList_TypeDef* psList, DLinkedListElement_TypeDef* psElement, void** pvData);
+ DLinkedList_nSTATUS DLinkedList__enRemoveNext(DLinkedList_TypeDef* psList, const DLinkedListElement_TypeDef* psElement, void** pvData);
  DLinkedList_nSTATUS DLinkedList__enRemovePrevious(DLinkedList_TypeDef* psList, const DLinkedListElement_TypeDef* psElement, void** pvData);
  DLinkedList_nSTATUS DLinkedList__enRemoveBegin(DLinkedList_TypeDef* psList, void** pvData);
  DLinkedList_nSTATUS DLinkedList__enRemoveEnd(DLinkedList_TypeDef* psList, void** pvData);
- DLinkedList_nSTATUS  DLinkedList__enRemovePos(DLinkedList_TypeDef* psList,uint32_t u32Position, void** pvData);
+ DLinkedList_nSTATUS  DLinkedList__enRemovePos(DLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData);
 
 
 

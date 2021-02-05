@@ -24,7 +24,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xUtils/Conversion/Conversion_String/xHeader/Conversion_StringCopy.h>
 
-char* CONV_pcStringCopy(char* pcStringDest, const char* pcStringSource,  uint32_t u32MaxSize)
+char* CONV_pcStringCopy(char* pcStringDest, const char* pcStringSource, uint32_t u32MaxSize)
 {
     char* pcStringReg = pcStringDest;
     if(((uint32_t) 0U != (uint32_t) pcStringSource) && ((uint32_t) 0U != (uint32_t) pcStringDest))

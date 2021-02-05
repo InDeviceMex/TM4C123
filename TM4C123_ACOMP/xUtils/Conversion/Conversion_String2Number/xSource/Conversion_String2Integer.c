@@ -28,7 +28,7 @@
 
 
 
-int32_t Conv__s32String2Integer(const char* pcString,int64_t* s64NumSigned )
+int32_t Conv__s32String2Integer(const char* pcString, int64_t* s64NumSigned )
 {
     int32_t s32Length=CONV_enNAN;
     int64_t s64NumSignedReg=0;

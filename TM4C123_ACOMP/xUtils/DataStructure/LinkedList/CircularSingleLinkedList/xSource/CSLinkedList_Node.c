@@ -106,7 +106,7 @@
      return u32SizeReg;
  }
 
- uint32_t CSLinkedList__u32GetNNode(const CSLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength)
+ uint32_t CSLinkedList__u32GetNNode(const CSLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength)
  {
      CSLinkedListElement_TypeDef *psMember = (CSLinkedListElement_TypeDef*) 0UL;
      CSLinkedListElement_TypeDef *psMemberTemp = (CSLinkedListElement_TypeDef*) 0UL;

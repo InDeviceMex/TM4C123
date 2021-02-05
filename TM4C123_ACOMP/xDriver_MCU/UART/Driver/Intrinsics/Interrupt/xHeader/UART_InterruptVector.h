@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
 
-void UART__vEnInterruptVector(UART_nMODULE enModule,UART_nPRIORITY enUARTPriority);
+void UART__vEnInterruptVector(UART_nMODULE enModule, UART_nPRIORITY enUARTPriority);
 void UART__vDisInterruptVector(UART_nMODULE enModule);
 
 

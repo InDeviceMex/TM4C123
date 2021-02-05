@@ -45,7 +45,7 @@ DLinkedList_TypeDef* DLinkedList__psInit(void (*pfvDestroyElementDataArg) (void 
 }
 
 
-DLinkedList_nSTATUS DLinkedList__enInit(DLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+DLinkedList_nSTATUS DLinkedList__enInit(DLinkedList_TypeDef* psList, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

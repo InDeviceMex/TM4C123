@@ -35,7 +35,7 @@
      void* pvElementData = (void*) 0UL;
      if((uint32_t) 0UL != (uint32_t) psList)
      {
-         psElement = SLinkedList__psGetNodePos(psList,u32Position);
+         psElement = SLinkedList__psGetNodePos(psList, u32Position);
          if((uint32_t) 0UL != (uint32_t) psElement)
          {
              pvElementData = SLinkedList__pvGetElementData(psElement);

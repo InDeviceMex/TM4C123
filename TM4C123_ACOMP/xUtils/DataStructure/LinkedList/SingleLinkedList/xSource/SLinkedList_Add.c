@@ -52,24 +52,24 @@
             {
                 if(0UL == u32SizeReg)
                 {
-                    SLinkedList__vSetTail(psList,psNewElement);
+                    SLinkedList__vSetTail(psList, psNewElement);
                 }
                 psListHeadNode = SLinkedList__psGetHead(psList);
                 SLinkedList__vSetElementNextNode(psNewElement, psListHeadNode);
-                SLinkedList__vSetHead(psList,psNewElement);
+                SLinkedList__vSetHead(psList, psNewElement);
             }
             else
             {
                 psElementNextNode = SLinkedList__psGetElementNextNode(psElement);
                 if((uint32_t) 0UL == (uint32_t) psElementNextNode)
                 {
-                    SLinkedList__vSetTail(psList,psNewElement);
+                    SLinkedList__vSetTail(psList, psNewElement);
                 }
                 SLinkedList__vSetElementNextNode(psNewElement, psElementNextNode);
                 SLinkedList__vSetElementNextNode(psElement, psNewElement);
             }
             u32SizeReg++;
-            SLinkedList__vSetSize(psList,u32SizeReg);
+            SLinkedList__vSetSize(psList, u32SizeReg);
         }
     }
     return psNewElement;

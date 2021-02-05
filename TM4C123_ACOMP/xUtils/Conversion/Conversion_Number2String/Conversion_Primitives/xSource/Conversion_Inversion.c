@@ -23,7 +23,7 @@
  */
 #include <xUtils/Conversion/Conversion_Number2String/Conversion_Primitives/xHeader/Conversion_Inversion.h>
 
-CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn,char* const pcPointerOut,uint8_t u8Length)
+CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn, char* const pcPointerOut, uint8_t u8Length)
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     uint8_t u8I=0;
@@ -44,8 +44,7 @@ CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn,char* const pcPoint
     return enStatus;
 }
 
-CONV_nSTATUS Conv__enOutInversion(CONV_OUT_TypeDef pvfOut, char* pvBufferOut, const char* pvBufferIn, uint32_t u32Index,
-uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags)
+CONV_nSTATUS Conv__enOutInversion(CONV_OUT_TypeDef pvfOut, char* pvBufferOut, const char* pvBufferIn, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags)
 {
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
     uint32_t u32Pos=0;
@@ -60,7 +59,7 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
         {
             for (u32Pos = u32BufInLenght; u32Pos<u32Width; u32Pos++) /*hace un ciclo burbuja optimizado*/
             {
-                pvfOut(' ',pvBufferOut,u32Index,u32MaxLenght);
+                pvfOut(' ',pvBufferOut, u32Index, u32MaxLenght);
                 u32Index++;
             }
         }
@@ -70,7 +69,7 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
         {
             u32BufInLenght--;
             pcBufferTemp -= 1U;
-            pvfOut(*pcBufferTemp,pvBufferOut,u32Index,u32MaxLenght);
+            pvfOut(*pcBufferTemp, pvBufferOut, u32Index, u32MaxLenght);
             u32Index++;
         }
 
@@ -78,7 +77,7 @@ uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint
         {
             while ((u32Index - u32StartIndex) < u32Width)
             {
-                pvfOut(' ',pvBufferOut,u32Index,u32MaxLenght);
+                pvfOut(' ',pvBufferOut, u32Index, u32MaxLenght);
                 u32Index++;
             }
         }

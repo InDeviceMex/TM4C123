@@ -29,7 +29,7 @@
     #pragma CHECK_MISRA("-16.7")
 #endif
 
-int32_t Conv__s32String2UInteger(const char** pcString,uint64_t* pu64NumUnsigned )
+int32_t Conv__s32String2UInteger(const char** pcString, uint64_t* pu64NumUnsigned )
 {
     int32_t s32Length=CONV_enNAN;
     uint64_t u64NumUnsignedTemp = 0U;

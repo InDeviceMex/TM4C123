@@ -38,13 +38,13 @@ uint8_t Conv__u8Pointer2String(void* vNumber, char* pcConv)
     uint8_t u8Length = 0U;
     uint32_t u32Number = (uint32_t) &vNumber;
 
-    enStatus = Conv__enConversion(pcPointerActual, (uint64_t) u32Number, &u8Length, 16U,CONV_pc8Pointer);
+    enStatus = Conv__enConversion(pcPointerActual, (uint64_t) u32Number, &u8Length, 16U, CONV_pc8Pointer);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;
         pcPointerActual -= u8Length;
         *pcPointerActual = 'b';
-        enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
+        enStatus=Conv__enInversion(pcPointerActual, pcConv, u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
             u8Length=0U;

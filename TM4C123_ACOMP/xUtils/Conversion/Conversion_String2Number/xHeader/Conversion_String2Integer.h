@@ -26,6 +26,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-int32_t Conv__s32String2Integer(const char* pcString,int64_t* s64NumSigned );
+int32_t Conv__s32String2Integer(const char* pcString, int64_t* s64NumSigned );
 
 #endif /* XUTILS_CONVERSION_XHEADER_CONVERSION_STRING2NUMBER_CONVERSION_STRING2INTEGER_H_ */

@@ -52,33 +52,33 @@
 
                 if(0UL == u32SizeReg)
                 {
-                    DLinkedList__vSetHead(psList,psNewElement);
+                    DLinkedList__vSetHead(psList, psNewElement);
 
                     DLinkedList__vSetElementNextNode(psNewElement, (DLinkedListElement_TypeDef*) 0UL );
                     DLinkedList__vSetElementPreviousNode(psNewElement, (DLinkedListElement_TypeDef*) 0UL );
 
-                    DLinkedList__vSetTail(psList,psNewElement);
+                    DLinkedList__vSetTail(psList, psNewElement);
                 }
                 else
                 {
                     psElementNextNode = DLinkedList__psGetElementNextNode(psElement);
 
-                    DLinkedList__vSetElementNextNode(psNewElement,psElementNextNode );
-                    DLinkedList__vSetElementPreviousNode(psNewElement,psElement);
+                    DLinkedList__vSetElementNextNode(psNewElement, psElementNextNode );
+                    DLinkedList__vSetElementPreviousNode(psNewElement, psElement);
 
                     if((uint32_t) 0UL == (uint32_t) psElementNextNode)
                     {
-                        DLinkedList__vSetTail(psList,psNewElement);
+                        DLinkedList__vSetTail(psList, psNewElement);
                     }
                     else
                     {
-                        DLinkedList__vSetElementPreviousNode(psElementNextNode,psNewElement);
+                        DLinkedList__vSetElementPreviousNode(psElementNextNode, psNewElement);
                     }
                     DLinkedList__vSetElementNextNode(psElement, psNewElement);
                 }
 
                 u32SizeReg++;
-                DLinkedList__vSetSize(psList,u32SizeReg);
+                DLinkedList__vSetSize(psList, u32SizeReg);
             }
         }
     }
@@ -107,32 +107,32 @@
 
                 if(0UL == u32SizeReg)
                 {
-                    DLinkedList__vSetHead(psList,psNewElement);
+                    DLinkedList__vSetHead(psList, psNewElement);
 
                     DLinkedList__vSetElementNextNode(psNewElement, (DLinkedListElement_TypeDef*) 0UL );
                     DLinkedList__vSetElementPreviousNode(psNewElement, (DLinkedListElement_TypeDef*) 0UL );
 
-                    DLinkedList__vSetTail(psList,psNewElement);
+                    DLinkedList__vSetTail(psList, psNewElement);
                 }
                 else
                 {
                     psElementPreviousNode = DLinkedList__psGetElementPreviousNode(psElement);
 
-                    DLinkedList__vSetElementNextNode(psNewElement,psElement );
-                    DLinkedList__vSetElementPreviousNode(psNewElement,psElementPreviousNode);
+                    DLinkedList__vSetElementNextNode(psNewElement, psElement );
+                    DLinkedList__vSetElementPreviousNode(psNewElement, psElementPreviousNode);
 
                     if((uint32_t) 0UL == (uint32_t) psElementPreviousNode)
                     {
-                        DLinkedList__vSetHead(psList,psNewElement);
+                        DLinkedList__vSetHead(psList, psNewElement);
                     }
                     else
                     {
-                        DLinkedList__vSetElementNextNode(psElementPreviousNode,psNewElement);
+                        DLinkedList__vSetElementNextNode(psElementPreviousNode, psNewElement);
                     }
                     DLinkedList__vSetElementPreviousNode(psElement, psNewElement);
                 }
                 u32SizeReg++;
-                DLinkedList__vSetSize(psList,u32SizeReg);
+                DLinkedList__vSetSize(psList, u32SizeReg);
 
                 }
         }
@@ -180,11 +180,11 @@
          {
              if(0UL == u32Position) /*Add Head*/
              {
-                 psNewElement = DLinkedList__psAddBegin(psList,pvData);
+                 psNewElement = DLinkedList__psAddBegin(psList, pvData);
              }
              else if(u32Position == u32SizeList) /*Add Tail*/
              {
-                 psNewElement = DLinkedList__psAddEnd(psList,pvData);
+                 psNewElement = DLinkedList__psAddEnd(psList, pvData);
              }
              else
              {

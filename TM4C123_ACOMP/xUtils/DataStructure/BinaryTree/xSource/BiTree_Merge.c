@@ -34,7 +34,7 @@
 
 #include <stdlib.h>
 
- BiTree_TypeDef*  BiTree__psMerge(BiTree_TypeDef* psTreeLeft,BiTree_TypeDef* psTreeRight, void* pvData)
+ BiTree_TypeDef*  BiTree__psMerge(BiTree_TypeDef* psTreeLeft, BiTree_TypeDef* psTreeRight, void* pvData)
  {
      BiTreeElement_TypeDef* psElementReg = (BiTreeElement_TypeDef*) 0UL;
      BiTreeElement_TypeDef* psElementRootReg = (BiTreeElement_TypeDef*) 0UL;
@@ -66,9 +66,9 @@
 
                  BiTree__vSetSize(psTreeMerged, u32SizeTotal);
                  BiTree__vSetRoot(psTreeLeft, (BiTreeElement_TypeDef*) 0UL);
-                 BiTree__vSetSize(psTreeLeft,0UL);
+                 BiTree__vSetSize(psTreeLeft, 0UL);
                  BiTree__vSetRoot(psTreeRight, (BiTreeElement_TypeDef*) 0UL);
-                 BiTree__vSetSize(psTreeRight,0UL);
+                 BiTree__vSetSize(psTreeRight, 0UL);
              }
              else
              {
@@ -79,7 +79,7 @@
      return psTreeMerged;
  }
 
- BiTree_nSTATUS BiTree__enMerge(BiTree_TypeDef* psTreeMerged,BiTree_TypeDef* psTreeLeft,BiTree_TypeDef* psTreeRight, void* pvData)
+ BiTree_nSTATUS BiTree__enMerge(BiTree_TypeDef* psTreeMerged, BiTree_TypeDef* psTreeLeft, BiTree_TypeDef* psTreeRight, void* pvData)
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
      BiTreeElement_TypeDef* psElementReg = (BiTreeElement_TypeDef*) 0UL;
@@ -112,9 +112,9 @@
 
                  BiTree__vSetSize(psTreeMerged, u32SizeTotal);
                  BiTree__vSetRoot(psTreeLeft, (BiTreeElement_TypeDef*) 0UL);
-                 BiTree__vSetSize(psTreeLeft,0UL);
+                 BiTree__vSetSize(psTreeLeft, 0UL);
                  BiTree__vSetRoot(psTreeRight, (BiTreeElement_TypeDef*) 0UL);
-                 BiTree__vSetSize(psTreeRight,0UL);
+                 BiTree__vSetSize(psTreeRight, 0UL);
              }
              else
              {

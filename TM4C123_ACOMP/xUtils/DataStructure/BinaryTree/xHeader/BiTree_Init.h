@@ -27,7 +27,7 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
 BiTree_TypeDef* BiTree__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer));
-BiTree_nSTATUS BiTree__enInit(BiTree_TypeDef* psTree ,void (*pfvDestroyElementDataArg) (void *DataContainer));
+BiTree_nSTATUS BiTree__enInit(BiTree_TypeDef* psTree, void (*pfvDestroyElementDataArg) (void *DataContainer));
 
 
 

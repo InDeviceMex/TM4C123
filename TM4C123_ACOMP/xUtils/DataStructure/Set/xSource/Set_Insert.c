@@ -35,7 +35,7 @@ Set_nSTATUS Set__enInsert(Set_TypeDef* psSet, void* pvData)
         psMemberSet = Set__psIsMember(psSet, pvData);
         if((uint32_t) 0UL == (uint32_t) psMemberSet)
         {
-            psMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*)psSet,pvData);
+            psMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*)psSet, pvData);
             if((uint32_t) 0UL != (uint32_t) psMember)
             {
                 enStatus = Set_enSTATUS_OK;

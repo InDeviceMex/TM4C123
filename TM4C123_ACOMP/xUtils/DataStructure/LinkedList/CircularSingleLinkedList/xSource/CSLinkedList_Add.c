@@ -78,8 +78,8 @@
             {
                 psNewElement1 = psNewElement;
                 CSLinkedList__vSetElementNextNode(psNewElement, psNewElement1);
-                CSLinkedList__vSetHead(psList,psNewElement);
-                CSLinkedList__vSetTail(psList,psNewElement);
+                CSLinkedList__vSetHead(psList, psNewElement);
+                CSLinkedList__vSetTail(psList, psNewElement);
             }
             else if((uint32_t) 0UL == (uint32_t) psElement) /*Insert to head*/
             {
@@ -87,21 +87,21 @@
                     psListHeadNode = CSLinkedList__psGetHead(psList);
                     CSLinkedList__vSetElementNextNode(psNewElement, psListHeadNode);
                     CSLinkedList__vSetElementNextNode(psListTailNode, psNewElement);
-                    CSLinkedList__vSetHead(psList,psNewElement);
+                    CSLinkedList__vSetHead(psList, psNewElement);
             }
             else /*Insert beetween nodes*/
             {
-                enStatus = CSLinkedList__enIsTail(psList,psElement);
+                enStatus = CSLinkedList__enIsTail(psList, psElement);
                 if((uint32_t) CSLinkedList_enSTATUS_OK == (uint32_t) enStatus)
                 {
-                    CSLinkedList__vSetTail(psList,psNewElement);
+                    CSLinkedList__vSetTail(psList, psNewElement);
                 }
                 psNextElement = CSLinkedList__psGetElementNextNode(psElement);
                 CSLinkedList__vSetElementNextNode(psNewElement, psNextElement);
                 CSLinkedList__vSetElementNextNode(psElement, psNewElement);
             }
             u32SizeReg++;
-            CSLinkedList__vSetSize(psList,u32SizeReg);
+            CSLinkedList__vSetSize(psList, u32SizeReg);
         }
     }
     return psNewElement;

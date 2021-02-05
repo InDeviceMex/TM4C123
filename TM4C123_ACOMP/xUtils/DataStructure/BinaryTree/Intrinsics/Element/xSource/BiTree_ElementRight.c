@@ -31,7 +31,7 @@ BiTreeElement_TypeDef* BiTree__psGetElementRightNode(const BiTreeElement_TypeDef
     return psRightElementReg;
 }
 
-void BiTree__vSetElementRightNode(BiTreeElement_TypeDef* psElement,  BiTreeElement_TypeDef* psRightElement)
+void BiTree__vSetElementRightNode(BiTreeElement_TypeDef* psElement, BiTreeElement_TypeDef* psRightElement)
 {
     psElement->psRightNode = psRightElement;
 }

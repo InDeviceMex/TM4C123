@@ -26,8 +26,7 @@
 #include <xUtils/Conversion/Conversion_Number2String/Conversion_Primitives/xHeader/Conversion_Inversion.h>
 
 
-CONV_nSTATUS Conv__enNumber2String_Format(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, char* pcBufferIn, uint32_t u32Index, uint32_t u32MaxLenght,  uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags,
-uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
+CONV_nSTATUS Conv__enNumber2String_Format(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, char* pcBufferIn, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags, uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
 {
 
     CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
@@ -169,7 +168,7 @@ uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
             else{}
         }
 
-        enStatus = Conv__enOutInversion(pvfOut, pcBufferOut, (const char*)pcBufferIn, u32Index, u32MaxLenght, u32BufInLenght, pu32BufOutLenght,u32Width, u32flags);
+        enStatus = Conv__enOutInversion(pvfOut, pcBufferOut, (const char*)pcBufferIn, u32Index, u32MaxLenght, u32BufInLenght, pu32BufOutLenght, u32Width, u32flags);
     }
   return enStatus;
 }

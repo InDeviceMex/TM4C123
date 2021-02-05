@@ -73,8 +73,7 @@ void UART__vClearInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
 
 }
 
-UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule,
-                                               UART_nINT enIntSource)
+UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
 {
     UART_nINT_STATUS enStatus = UART_enINT_STATUS_UNDEF;
     UART_nREADY enReady = UART_enNOREADY;

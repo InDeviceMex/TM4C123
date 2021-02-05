@@ -36,10 +36,10 @@ Set_TypeDef* Set__psInit(uint32_t (*pfu32MatchArg) (const void *pcvKey1, const v
     return psSet;
 }
 
-Set_nSTATUS Set__enInit(Set_TypeDef* psSet ,uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
+Set_nSTATUS Set__enInit(Set_TypeDef* psSet, uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    enStatus = (Set_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psSet ,pfvDestroyElementDataArg);
+    enStatus = (Set_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psSet, pfvDestroyElementDataArg);
     if(Set_enSTATUS_ERROR != enStatus)
     {
         psSet->pfu32Match = pfu32MatchArg;

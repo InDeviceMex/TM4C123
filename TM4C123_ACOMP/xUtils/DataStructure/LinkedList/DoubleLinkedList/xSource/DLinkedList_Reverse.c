@@ -39,7 +39,7 @@
      if(((uint32_t) 0UL != (uint32_t) psList))
      {
          psElement = DLinkedList__psGetHead(psList);
-         DLinkedList__vSetTail(psList,psElement);
+         DLinkedList__vSetTail(psList, psElement);
          if((uint32_t) 0UL != (uint32_t) psElement)
          {
              psNextElement = DLinkedList__psGetElementNextNode(psElement);
@@ -47,19 +47,19 @@
              {
                  enStatus = DLinkedList_enSTATUS_OK;
                  DLinkedList__vSetElementNextNode(psElement, (DLinkedListElement_TypeDef*)0UL);
-                 DLinkedList__vSetElementPreviousNode(psElement,psNextElement);
+                 DLinkedList__vSetElementPreviousNode(psElement, psNextElement);
 
                  while((uint32_t) 0UL != (uint32_t) psNextElement)
                  {
                      psNextNextElement = DLinkedList__psGetElementNextNode(psNextElement);
-                     DLinkedList__vSetElementPreviousNode(psNextElement,psNextNextElement);
-                     DLinkedList__vSetElementNextNode(psNextElement,psElement);
+                     DLinkedList__vSetElementPreviousNode(psNextElement, psNextNextElement);
+                     DLinkedList__vSetElementNextNode(psNextElement, psElement);
                      psNextPreviousElement = DLinkedList__psGetElementPreviousNode(psNextElement);
 
                      psElement = psNextElement;
                      psNextElement = psNextPreviousElement;
                  }
-                 DLinkedList__vSetHead(psList,psElement);
+                 DLinkedList__vSetHead(psList, psElement);
              }
          }
      }

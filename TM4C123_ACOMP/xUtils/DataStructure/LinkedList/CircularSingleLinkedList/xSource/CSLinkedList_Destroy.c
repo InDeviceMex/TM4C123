@@ -48,7 +48,7 @@ void CSLinkedList__vDestroy(CSLinkedList_TypeDef* psList)
          while (u32SizeReg> 0UL)
          {
              psHeadElement = CSLinkedList__psGetHead(psList);
-             enStatus = CSLinkedList__enRemoveNext(psList,psHeadElement,(void **) & pvDataElement);
+             enStatus = CSLinkedList__enRemoveNext(psList, psHeadElement,(void **) & pvDataElement);
              if((CSLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) psList->pfvDestroyElementData))
              {
                  psList->pfvDestroyElementData(pvDataElement);

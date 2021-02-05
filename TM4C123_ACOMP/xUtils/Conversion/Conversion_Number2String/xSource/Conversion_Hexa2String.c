@@ -36,7 +36,7 @@ uint8_t Conv__u8Hex2String(uint64_t u64Number, char* pcConv)
     char  *pcPointerActual= &pcConvTemp[HEX2STRINGMAX - 1U];
     uint8_t u8Length = 0U;
 
-    enStatus = Conv__enConversion(pcPointerActual, u64Number, &u8Length, 16U,CONV_pc8Hexa);
+    enStatus = Conv__enConversion(pcPointerActual, u64Number, &u8Length, 16U, CONV_pc8Hexa);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;
@@ -45,7 +45,7 @@ uint8_t Conv__u8Hex2String(uint64_t u64Number, char* pcConv)
         u8Length++;
         pcPointerActual -= 1U;
         *pcPointerActual = '0';
-        enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
+        enStatus=Conv__enInversion(pcPointerActual, pcConv, u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
             u8Length=0U;
@@ -64,7 +64,7 @@ uint8_t Conv__u8HEX2String(uint64_t u64Number, char* pcConv)
     char  *pcPointerActual= &pcConvTemp[HEX2STRINGMAX - 1U];
     uint8_t u8Length = 0U;
 
-    enStatus = Conv__enConversion(pcPointerActual, u64Number, &u8Length, 16U,CONV_pc8HEXA);
+    enStatus = Conv__enConversion(pcPointerActual, u64Number, &u8Length, 16U, CONV_pc8HEXA);
     if(CONV_enSTATUS_OK == enStatus)
     {
         u8Length++;
@@ -73,7 +73,7 @@ uint8_t Conv__u8HEX2String(uint64_t u64Number, char* pcConv)
         u8Length++;
         pcPointerActual -= 1U;
         *pcPointerActual = '0';
-        enStatus=Conv__enInversion(pcPointerActual,pcConv,u8Length);
+        enStatus=Conv__enInversion(pcPointerActual, pcConv, u8Length);
         if(CONV_enSTATUS_ERROR == enStatus)
         {
             u8Length=0U;

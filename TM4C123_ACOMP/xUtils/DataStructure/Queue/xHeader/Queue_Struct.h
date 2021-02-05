@@ -28,10 +28,7 @@
 
 typedef enum
 {
-    Queue_enSTATUS_OK,
-    Queue_enSTATUS_ERROR,
-    Queue_enSTATUS_FULL,
-    Queue_enSTATUS_EMPTY,
+    Queue_enSTATUS_OK, Queue_enSTATUS_ERROR, Queue_enSTATUS_FULL, Queue_enSTATUS_EMPTY,
 }Queue_nSTATUS;
 
 typedef SLinkedList_TypeDef Queue_TypeDef;

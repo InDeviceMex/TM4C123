@@ -155,14 +155,14 @@ UART_nPARITY_STICK UART__enGetParityStick(UART_nMODULE enModule)
 
 void UART__vSetParityConfigStruct(UART_nMODULE enModule, const UART_PARITY_TypeDef sParityConfig)
 {
-    UART__vSetParityConfig(enModule, sParityConfig.enParity, sParityConfig.enParityType,sParityConfig.enParityStick);
+    UART__vSetParityConfig(enModule, sParityConfig.enParity, sParityConfig.enParityType, sParityConfig.enParityStick);
 }
 
 void UART__vSetParityConfigStructPointer(UART_nMODULE enModule, const UART_PARITY_TypeDef* psParityConfig)
 {
     if((uint32_t) 0UL != (uint32_t) psParityConfig)
     {
-        UART__vSetParityConfig(enModule, psParityConfig->enParity, psParityConfig->enParityType,psParityConfig->enParityStick);
+        UART__vSetParityConfig(enModule, psParityConfig->enParity, psParityConfig->enParityType, psParityConfig->enParityStick);
     }
 }
 

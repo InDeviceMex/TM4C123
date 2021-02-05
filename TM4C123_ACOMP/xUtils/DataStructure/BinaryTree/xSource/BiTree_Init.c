@@ -43,7 +43,7 @@ BiTree_TypeDef* BiTree__psInit(void (*pfvDestroyElementDataArg) (void *DataConta
 }
 
 
-BiTree_nSTATUS BiTree__enInit(BiTree_TypeDef* psTree ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+BiTree_nSTATUS BiTree__enInit(BiTree_TypeDef* psTree, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psTree)

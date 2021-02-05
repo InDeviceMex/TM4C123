@@ -75,7 +75,7 @@ BiTreeElement_TypeDef* BiTree__psInsertLeft(BiTree_TypeDef* psTree, BiTreeElemen
             }
 
             u32SizeReg++;
-            BiTree__vSetSize(psTree,u32SizeReg);
+            BiTree__vSetSize(psTree, u32SizeReg);
         }
     }
     return psNewElement;

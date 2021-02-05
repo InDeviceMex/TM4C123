@@ -45,7 +45,7 @@ void DLinkedList__vDestroy(DLinkedList_TypeDef* psList)
          while (u32SizeReg> 0UL)
          {
              psTailElement = DLinkedList__psGetTail(psList);
-             enStatus = DLinkedList__enRemove(psList,psTailElement,(void **) & pvDataElement);
+             enStatus = DLinkedList__enRemove(psList, psTailElement,(void **) & pvDataElement);
              if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) psList->pfvDestroyElementData))
              {
                  psList->pfvDestroyElementData(pvDataElement);

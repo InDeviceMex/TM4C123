@@ -53,31 +53,31 @@
 
                 if(0UL == u32SizeReg)
                 {
-                    CDLinkedList__vSetHead(psList,psNewElement);
+                    CDLinkedList__vSetHead(psList, psNewElement);
                     psElementTemp = psNewElement;
                     CDLinkedList__vSetElementNextNode(psNewElement, psElementTemp );
-                    CDLinkedList__vSetElementPreviousNode(psNewElement,psElementTemp );
+                    CDLinkedList__vSetElementPreviousNode(psNewElement, psElementTemp );
 
-                    CDLinkedList__vSetTail(psList,psNewElement);
+                    CDLinkedList__vSetTail(psList, psNewElement);
                 }
                 else
                 {
                     psHeadNode = CDLinkedList__psGetHead(psList);
                     psElementNextNode = CDLinkedList__psGetElementNextNode(psElement);
 
-                    CDLinkedList__vSetElementNextNode(psNewElement,psElementNextNode );
-                    CDLinkedList__vSetElementPreviousNode(psNewElement,psElement);
+                    CDLinkedList__vSetElementNextNode(psNewElement, psElementNextNode );
+                    CDLinkedList__vSetElementPreviousNode(psNewElement, psElement);
                     if((uint32_t) psHeadNode == (uint32_t) psElementNextNode)
                     {
-                        CDLinkedList__vSetTail(psList,psNewElement);
+                        CDLinkedList__vSetTail(psList, psNewElement);
                     }
 
-                    CDLinkedList__vSetElementPreviousNode(psElementNextNode,psNewElement);
+                    CDLinkedList__vSetElementPreviousNode(psElementNextNode, psNewElement);
                     CDLinkedList__vSetElementNextNode(psElement, psNewElement);
                 }
 
                 u32SizeReg++;
-                CDLinkedList__vSetSize(psList,u32SizeReg);
+                CDLinkedList__vSetSize(psList, u32SizeReg);
             }
         }
     }
@@ -108,33 +108,33 @@
 
                  if(0UL == u32SizeReg)
                  {
-                     CDLinkedList__vSetHead(psList,psNewElement);
+                     CDLinkedList__vSetHead(psList, psNewElement);
                      psElementTemp = psNewElement;
                      CDLinkedList__vSetElementNextNode(psNewElement, psElementTemp );
-                     CDLinkedList__vSetElementPreviousNode(psNewElement,psElementTemp );
+                     CDLinkedList__vSetElementPreviousNode(psNewElement, psElementTemp );
 
-                     CDLinkedList__vSetTail(psList,psNewElement);
+                     CDLinkedList__vSetTail(psList, psNewElement);
                  }
                  else
                  {
                      psTailNode = CDLinkedList__psGetTail(psList);
                      psElementPreviousNode = CDLinkedList__psGetElementPreviousNode(psElement);
 
-                     CDLinkedList__vSetElementNextNode(psNewElement,psElement );
-                     CDLinkedList__vSetElementPreviousNode(psNewElement,psElementPreviousNode);
+                     CDLinkedList__vSetElementNextNode(psNewElement, psElement );
+                     CDLinkedList__vSetElementPreviousNode(psNewElement, psElementPreviousNode);
 
                      if((uint32_t) psTailNode == (uint32_t) psElementPreviousNode)
                      {
-                         CDLinkedList__vSetHead(psList,psNewElement);
+                         CDLinkedList__vSetHead(psList, psNewElement);
                      }
 
-                     CDLinkedList__vSetElementNextNode(psElementPreviousNode,psNewElement);
+                     CDLinkedList__vSetElementNextNode(psElementPreviousNode, psNewElement);
                      CDLinkedList__vSetElementPreviousNode(psElement, psNewElement);
                  }
 
                  }
                  u32SizeReg++;
-                 CDLinkedList__vSetSize(psList,u32SizeReg);
+                 CDLinkedList__vSetSize(psList, u32SizeReg);
          }
      }
      return psNewElement;
@@ -180,11 +180,11 @@
          {
              if(0UL == u32Position) /*Add Head*/
              {
-                 psNewElement = CDLinkedList__psAddBegin(psList,pvData);
+                 psNewElement = CDLinkedList__psAddBegin(psList, pvData);
              }
              else if(u32Position == u32SizeList) /*Add Tail*/
              {
-                 psNewElement = CDLinkedList__psAddEnd(psList,pvData);
+                 psNewElement = CDLinkedList__psAddEnd(psList, pvData);
              }
              else
              {

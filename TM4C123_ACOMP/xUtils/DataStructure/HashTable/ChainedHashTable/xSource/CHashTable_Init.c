@@ -27,7 +27,7 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 #include <stdlib.h>
 
-CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* psCHashTable ,uint32_t u32BucketsNum,uint32_t (*pfu32FunctionArg) (const void *pcvKey),
+CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* psCHashTable, uint32_t u32BucketsNum, uint32_t (*pfu32FunctionArg) (const void *pcvKey),
                                                                        uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enLinkedStatus = SLinkedList_enSTATUS_ERROR;
@@ -71,7 +71,7 @@ CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* psCHashTable ,uint32_t
     return (CHashTable_nSTATUS) enLinkedStatus;
 }
 
-CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t (*pfu32FunctionArg) (const void *pcvKey),
+CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum, uint32_t (*pfu32FunctionArg) (const void *pcvKey),
                                                                        uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CHashTable_TypeDef *psCHashTable = 0;

@@ -104,7 +104,7 @@
      return u32SizeReg;
  }
 
- uint32_t SLinkedList__u32GetNNode(const SLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength)
+ uint32_t SLinkedList__u32GetNNode(const SLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength)
  {
      SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
      SLinkedListElement_TypeDef *psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;

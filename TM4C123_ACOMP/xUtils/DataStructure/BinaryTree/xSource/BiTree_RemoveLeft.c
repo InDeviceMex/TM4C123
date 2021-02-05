@@ -30,7 +30,7 @@
 #include <stdlib.h>
 
 
- BiTree_nSTATUS BiTree__enRemoveLeft(BiTree_TypeDef* psTree,BiTreeElement_TypeDef* psElement)
+ BiTree_nSTATUS BiTree__enRemoveLeft(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psElement)
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
      BiTreeElement_TypeDef** psElementPosition= (BiTreeElement_TypeDef**) 0UL ;
@@ -68,7 +68,7 @@
                  *psElementPosition = (BiTreeElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
-                 BiTree__vSetSize(psTree,u32SizeReg);
+                 BiTree__vSetSize(psTree, u32SizeReg);
              }
          }
      }

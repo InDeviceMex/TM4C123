@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
- uint32_t SLinkedList__u32GetNNode(const SLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength);
+ uint32_t SLinkedList__u32GetNNode(const SLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength);
  uint32_t SLinkedList__u32GetAllNode(const SLinkedList_TypeDef* psList, const void** pvData, uint32_t u32MaxLength);
 
  SLinkedListElement_TypeDef*  SLinkedList__psGetNodePos(const SLinkedList_TypeDef* psList, uint32_t u32Position);

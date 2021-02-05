@@ -30,7 +30,7 @@
  CSLinkedListElement_TypeDef*  CSLinkedList__psGetNodeEnd(const CSLinkedList_TypeDef* psList);
  CSLinkedListElement_TypeDef*  CSLinkedList__psGetNodeBegin(const CSLinkedList_TypeDef* psList);
 
- uint32_t CSLinkedList__u32GetNNode(const CSLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength);
+ uint32_t CSLinkedList__u32GetNNode(const CSLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength);
  uint32_t CSLinkedList__u32GetAllNode(const CSLinkedList_TypeDef* psList, const void** pvData, uint32_t u32MaxLength);
 
 

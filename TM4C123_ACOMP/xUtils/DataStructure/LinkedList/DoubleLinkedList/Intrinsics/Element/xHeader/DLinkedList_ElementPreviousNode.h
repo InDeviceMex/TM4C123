@@ -28,7 +28,7 @@
 
 
 DLinkedListElement_TypeDef* DLinkedList__psGetElementPreviousNode(const DLinkedListElement_TypeDef* const psElement);
-void DLinkedList__vSetElementPreviousNode(DLinkedListElement_TypeDef* psElement,  DLinkedListElement_TypeDef* psPreviousElement);
+void DLinkedList__vSetElementPreviousNode(DLinkedListElement_TypeDef* psElement, DLinkedListElement_TypeDef* psPreviousElement);
 
 
 

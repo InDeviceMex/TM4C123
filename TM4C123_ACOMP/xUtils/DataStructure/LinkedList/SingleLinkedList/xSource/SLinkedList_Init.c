@@ -44,7 +44,7 @@ SLinkedList_TypeDef* SLinkedList__psInit(void (*pfvDestroyElementDataArg) (void 
     return psList;
 }
 
-SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

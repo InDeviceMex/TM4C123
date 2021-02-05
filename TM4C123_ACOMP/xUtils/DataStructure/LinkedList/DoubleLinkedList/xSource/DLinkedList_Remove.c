@@ -29,7 +29,7 @@
 #include <stdlib.h>
 
 
- DLinkedList_nSTATUS DLinkedList__enRemove(DLinkedList_TypeDef* psList,DLinkedListElement_TypeDef* psElement, void** pvData)
+ DLinkedList_nSTATUS DLinkedList__enRemove(DLinkedList_TypeDef* psList, DLinkedListElement_TypeDef* psElement, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psHeadElement = (DLinkedListElement_TypeDef*) 0UL ;
@@ -68,7 +68,7 @@
 
                  if((uint32_t) 0UL == (uint32_t) psElementNextNode)
                  {
-                     DLinkedList__vSetTail(psList,psElementPreviousNode);
+                     DLinkedList__vSetTail(psList, psElementPreviousNode);
                  }
                  else
                  {
@@ -83,14 +83,14 @@
              psElement = (DLinkedListElement_TypeDef*) 0UL;
 
              u32SizeReg--;
-             DLinkedList__vSetSize(psList,u32SizeReg);
+             DLinkedList__vSetSize(psList, u32SizeReg);
          }
      }
      return enStatus;
  }
 
 
- DLinkedList_nSTATUS DLinkedList__enRemoveNext(DLinkedList_TypeDef* psList,const DLinkedListElement_TypeDef* psElement, void** pvData)
+ DLinkedList_nSTATUS DLinkedList__enRemoveNext(DLinkedList_TypeDef* psList, const DLinkedListElement_TypeDef* psElement, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psElementNextNode= (DLinkedListElement_TypeDef*) 0UL ;
@@ -98,7 +98,7 @@
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          psElementNextNode = DLinkedList__psGetElementNextNode(psElement);
-         enStatus = DLinkedList__enRemove(psList,psElementNextNode, pvData);
+         enStatus = DLinkedList__enRemove(psList, psElementNextNode, pvData);
      }
      return enStatus;
  }
@@ -111,7 +111,7 @@
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          psElementPreviousNode = DLinkedList__psGetElementPreviousNode(psElement);
-         enStatus = DLinkedList__enRemove(psList,psElementPreviousNode, pvData);
+         enStatus = DLinkedList__enRemove(psList, psElementPreviousNode, pvData);
      }
      return enStatus;
  }
@@ -140,7 +140,7 @@
      return enStatus;
  }
 
- DLinkedList_nSTATUS  DLinkedList__enRemovePos(DLinkedList_TypeDef* psList,uint32_t u32Position, void** pvData)
+ DLinkedList_nSTATUS  DLinkedList__enRemovePos(DLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL;
@@ -156,11 +156,11 @@
           {
               if(0UL == u32Position) /*Remove Head*/
               {
-                  enStatus = DLinkedList__enRemoveBegin(psList,pvData);
+                  enStatus = DLinkedList__enRemoveBegin(psList, pvData);
               }
               else if(u32Position == (u32SizeList - 1UL)) /*Remove Tail*/
               {
-                  enStatus = DLinkedList__enRemoveEnd(psList,pvData);
+                  enStatus = DLinkedList__enRemoveEnd(psList, pvData);
               }
               else
               {

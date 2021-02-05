@@ -33,7 +33,7 @@ static const char Conversion_pc8Decimal[10] = {
 static char CONV_pcConvTemp[30] = {0UL}; /*longitud maxima de long 12 digitos con signo*/
 
 /*ToDo review Conv__u8DInt2String*/
-uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Padding0,uint8_t u8Deci, char* pcConv)
+uint8_t Conv__u8DInt2String(int64_t s64Number, uint8_t u8Positive, uint8_t u8Padding0, uint8_t u8Deci, char* pcConv)
 {
     char *pcPointerActual=0U;
     char *pcPointerActualAux=0U;
@@ -212,7 +212,7 @@ uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
 
 
 
-uint8_t Conv__u8Int2StringZeros(int64_t s64Number,int8_t s8CerosLeft, char* pcConv)
+uint8_t Conv__u8Int2StringZeros(int64_t s64Number, int8_t s8CerosLeft, char* pcConv)
 {
     char    *pcPointerActual = &CONV_pcConvTemp[INT2STRINGMAX - 1U];/*empezamos llenando desde la ultima posicion*/
     char *pcPointerActualAux=0U;

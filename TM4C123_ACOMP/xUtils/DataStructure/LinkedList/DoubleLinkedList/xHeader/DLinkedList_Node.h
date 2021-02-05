@@ -28,8 +28,8 @@
 
  uint32_t DLinkedList__u32GetAllNode(const DLinkedList_TypeDef* psList, const void** pvData, uint32_t u32MaxLength);
  uint32_t DLinkedList__u32GetAllNodeBackward(const DLinkedList_TypeDef* psList, const void** pvData, uint32_t u32MaxLength);
- uint32_t DLinkedList__u32GetNNodeBackward(const DLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength);
- uint32_t DLinkedList__u32GetNNode(const DLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength);
+ uint32_t DLinkedList__u32GetNNodeBackward(const DLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength);
+ uint32_t DLinkedList__u32GetNNode(const DLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength);
 
  DLinkedListElement_TypeDef*  DLinkedList__psGetNodePos(const DLinkedList_TypeDef* psList, uint32_t u32Position);
  DLinkedListElement_TypeDef*  DLinkedList__psGetNodeEnd(const DLinkedList_TypeDef* psList);

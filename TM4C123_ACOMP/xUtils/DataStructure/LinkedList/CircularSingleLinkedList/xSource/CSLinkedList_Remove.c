@@ -29,7 +29,7 @@
 #include <stdlib.h>
 
 
- CSLinkedList_nSTATUS CSLinkedList__enRemoveNext(CSLinkedList_TypeDef* psList,CSLinkedListElement_TypeDef* psElement, void** pvData)
+ CSLinkedList_nSTATUS CSLinkedList__enRemoveNext(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
      CSLinkedListElement_TypeDef* psOldElement = (CSLinkedListElement_TypeDef*) 0UL ;
@@ -64,7 +64,7 @@
              else
              {
                  psElementNextNextNode = CSLinkedList__psGetElementNextNode(psElementNextNode);
-                 CSLinkedList__vSetElementNextNode(psElement,psElementNextNextNode);
+                 CSLinkedList__vSetElementNextNode(psElement, psElementNextNextNode);
 
                  psHeadElement = CSLinkedList__psGetHead(psList);
                  psTailNode = CSLinkedList__psGetTail(psList);
@@ -84,7 +84,7 @@
              psOldElement = (CSLinkedListElement_TypeDef*) 0UL;
 
              u32SizeReg--;
-             CSLinkedList__vSetSize(psList,u32SizeReg);
+             CSLinkedList__vSetSize(psList, u32SizeReg);
          }
      }
      return enStatus;
@@ -92,7 +92,7 @@
 
 
 
- CSLinkedList_nSTATUS CSLinkedList__enRemove(CSLinkedList_TypeDef* psList,CSLinkedListElement_TypeDef* psElement, void** pvData)
+ CSLinkedList_nSTATUS CSLinkedList__enRemove(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
      CSLinkedListElement_TypeDef* psOldElement = (CSLinkedListElement_TypeDef*) 0UL ;
@@ -128,7 +128,7 @@
                  {
                      psTailElement = CSLinkedList__psGetTail(psList);
                      CSLinkedList__vSetHead(psList, psHeadNextNode);
-                     CSLinkedList__vSetElementNextNode(psTailElement,psHeadNextNode);
+                     CSLinkedList__vSetElementNextNode(psTailElement, psHeadNextNode);
                  }
 
              }
@@ -154,12 +154,12 @@
                      }
                      else
                      {
-                         CSLinkedList__vSetElementNextNode(psElement,psElementNextNextNode);
-                         CSLinkedList__vSetElementData(psElement,psElementNextNodeData);
+                         CSLinkedList__vSetElementNextNode(psElement, psElementNextNextNode);
+                         CSLinkedList__vSetElementData(psElement, psElementNextNodeData);
 
                          if((uint32_t) psTailElement == (uint32_t) psElementNextNode)
                          {
-                             CSLinkedList__vSetTail(psList,psElement);
+                             CSLinkedList__vSetTail(psList, psElement);
                          }
                      }
                  }
@@ -173,7 +173,7 @@
                  psOldElement = (CSLinkedListElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
-                 CSLinkedList__vSetSize(psList,u32SizeReg);
+                 CSLinkedList__vSetSize(psList, u32SizeReg);
              }
          }
      }
@@ -216,7 +216,7 @@
 
 
 
- CSLinkedList_nSTATUS  CSLinkedList__enRemovePos(CSLinkedList_TypeDef* psList,uint32_t u32Position, void** pvData)
+ CSLinkedList_nSTATUS  CSLinkedList__enRemovePos(CSLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
      CSLinkedListElement_TypeDef* psElement = (CSLinkedListElement_TypeDef*) 0UL;

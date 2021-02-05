@@ -84,7 +84,7 @@ void* CHashTable__pvLookup(const CHashTable_TypeDef* psCHashTable, const void* c
         while((uint32_t) 0UL != (uint32_t) psElement)
         {
             pvElementData = SLinkedList__pvGetElementData(psElement);
-            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match(*pvData,pvElementData);
+            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match(*pvData, pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
                 pvElementReturn = pvElementData;

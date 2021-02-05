@@ -26,6 +26,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-char* CONV_pcStringCopy(char* pcStringDest, const char* pcStringSource,  uint32_t u32MaxSize);
+char* CONV_pcStringCopy(char* pcStringDest, const char* pcStringSource, uint32_t u32MaxSize);
 
 #endif /* XUTILS_CONVERSION_CONVERSION_STRING_XHEADER_CONVERSION_STRINGCOPY_H_ */

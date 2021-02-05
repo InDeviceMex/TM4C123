@@ -30,7 +30,7 @@
 #include <stdlib.h>
 
 
- CDLinkedList_nSTATUS CDLinkedList__enRemove(CDLinkedList_TypeDef* psList,CDLinkedListElement_TypeDef* psElement, void** pvData)
+ CDLinkedList_nSTATUS CDLinkedList__enRemove(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
      CDLinkedListElement_TypeDef* psElementNextNode= (CDLinkedListElement_TypeDef*) 0UL ;
@@ -62,11 +62,11 @@
              {
                  if((uint32_t) psHeadNode == (uint32_t) psElement)
                  {
-                     CDLinkedList__vSetHead(psList,psElementNextNode);
+                     CDLinkedList__vSetHead(psList, psElementNextNode);
                  }
                  if((uint32_t) psTailNode == (uint32_t) psElement)
                  {
-                     CDLinkedList__vSetTail(psList,psElementPreviousNode);
+                     CDLinkedList__vSetTail(psList, psElementPreviousNode);
                  }
                  CDLinkedList__vSetElementNextNode(psElementPreviousNode, psElementNextNode);
                  CDLinkedList__vSetElementPreviousNode(psElementNextNode, psElementPreviousNode);
@@ -79,14 +79,14 @@
              psElement = (CDLinkedListElement_TypeDef*) 0UL;
 
              u32SizeReg--;
-             CDLinkedList__vSetSize(psList,u32SizeReg);
+             CDLinkedList__vSetSize(psList, u32SizeReg);
          }
      }
      return enStatus;
  }
 
 
- CDLinkedList_nSTATUS CDLinkedList__enRemoveNext(CDLinkedList_TypeDef* psList,const CDLinkedListElement_TypeDef* psElement, void** pvData)
+ CDLinkedList_nSTATUS CDLinkedList__enRemoveNext(CDLinkedList_TypeDef* psList, const CDLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
      CDLinkedListElement_TypeDef* psElementNextNode= (CDLinkedListElement_TypeDef*) 0UL ;
@@ -94,7 +94,7 @@
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          psElementNextNode = CDLinkedList__psGetElementNextNode(psElement);
-         enStatus = CDLinkedList__enRemove(psList,psElementNextNode, pvData);
+         enStatus = CDLinkedList__enRemove(psList, psElementNextNode, pvData);
      }
      return enStatus;
  }
@@ -107,7 +107,7 @@
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
          psElementPreviousNode = CDLinkedList__psGetElementPreviousNode(psElement);
-         enStatus = CDLinkedList__enRemove(psList,psElementPreviousNode, pvData);
+         enStatus = CDLinkedList__enRemove(psList, psElementPreviousNode, pvData);
      }
      return enStatus;
  }
@@ -136,7 +136,7 @@
      return enStatus;
  }
 
- CDLinkedList_nSTATUS  CDLinkedList__enRemovePos(CDLinkedList_TypeDef* psList,uint32_t u32Position, void** pvData)
+ CDLinkedList_nSTATUS  CDLinkedList__enRemovePos(CDLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
      CDLinkedListElement_TypeDef* psElement = (CDLinkedListElement_TypeDef*) 0UL;
@@ -152,11 +152,11 @@
           {
               if(0UL == u32Position) /*Remove Head*/
               {
-                  enStatus = CDLinkedList__enRemoveBegin(psList,pvData);
+                  enStatus = CDLinkedList__enRemoveBegin(psList, pvData);
               }
               else if(u32Position == (u32SizeList - 1UL)) /*Remove Tail*/
               {
-                  enStatus = CDLinkedList__enRemoveEnd(psList,pvData);
+                  enStatus = CDLinkedList__enRemoveEnd(psList, pvData);
               }
               else
               {

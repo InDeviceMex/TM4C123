@@ -159,7 +159,7 @@
      return u32SizeReg;
  }
 
- uint32_t DLinkedList__u32GetNNode(const DLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength)
+ uint32_t DLinkedList__u32GetNNode(const DLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength)
  {
      DLinkedListElement_TypeDef *psMember = (DLinkedListElement_TypeDef*) 0UL;
      DLinkedListElement_TypeDef *psMemberTemp = (DLinkedListElement_TypeDef*) 0UL;
@@ -184,7 +184,7 @@
      return u32SizeReg;
  }
 
- uint32_t DLinkedList__u32GetNNodeBackward(const DLinkedList_TypeDef* psList, const void** pvData,uint32_t u32Nodes, uint32_t u32MaxLength)
+ uint32_t DLinkedList__u32GetNNodeBackward(const DLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength)
  {
      DLinkedListElement_TypeDef *psMember = (DLinkedListElement_TypeDef*) 0UL;
      DLinkedListElement_TypeDef *psMemberTemp = (DLinkedListElement_TypeDef*) 0UL;
