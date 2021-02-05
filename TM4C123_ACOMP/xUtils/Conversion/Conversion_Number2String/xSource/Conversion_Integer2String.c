@@ -176,7 +176,7 @@ uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
     do {
         pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
         s64NumberRegAlt = s64NumberReg;
-        s64NumberRegAlt%=(int64_t) 10;
+        s64NumberRegAlt %= (int64_t) 10;
         u8Num = (uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s64NumberReg /= 10;
@@ -243,7 +243,7 @@ uint8_t Conv__u8Int2StringZeros(int64_t s64Number, int8_t s8CerosLeft, char* pcC
         pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
 
         s64NumberRegAlt = s64NumberReg;
-        s64NumberRegAlt%=(int64_t) 10;
+        s64NumberRegAlt %= (int64_t) 10;
         u8Num = (uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s8CerosLeft--;
