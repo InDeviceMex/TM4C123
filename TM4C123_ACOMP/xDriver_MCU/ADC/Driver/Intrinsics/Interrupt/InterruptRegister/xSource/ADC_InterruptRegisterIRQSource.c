@@ -27,7 +27,7 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 void ADC_Sample__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
-    uint32_t u32IrqSourceHandler=0U;
+    uint32_t u32IrqSourceHandler = 0U;
     uint32_t u32Module = (uint32_t) enModule;
     uint32_t u32Sequencer = (uint32_t) enSequence;
     if((uint32_t) pfIrqSourceHandler != 0U)
@@ -47,7 +47,7 @@ void ADC_Sample__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC
 
 void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, ADC_nCOMPARATOR enSeqComparator)
 {
-    uint32_t u32IrqSourceHandler=0U;
+    uint32_t u32IrqSourceHandler = 0U;
     uint32_t u32Module = (uint32_t) enModule;
     uint32_t u32Sequencer = (uint32_t) enSequence;
     uint32_t u32Comparator = (uint32_t) enSeqComparator;

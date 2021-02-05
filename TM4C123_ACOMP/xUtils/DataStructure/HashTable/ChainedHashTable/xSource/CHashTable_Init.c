@@ -36,7 +36,7 @@ CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* psCHashTable, uint32_t
 
     if((uint32_t) 0UL != (uint32_t) psCHashTable)
     {
-        psCHashTable->u32Size= 0UL;
+        psCHashTable->u32Size = 0UL;
         psCHashTable->pfu32HashFunction = pfu32FunctionArg;
         psCHashTable->pfu32Match = pfu32MatchArg;
         psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
@@ -86,7 +86,7 @@ CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum, uint32_t (*pfu32F
 #endif
     if((uint32_t) 0UL != (uint32_t) psCHashTable)
     {
-        psCHashTable->u32Size= 0UL;
+        psCHashTable->u32Size = 0UL;
         psCHashTable->pfu32HashFunction = pfu32FunctionArg;
         psCHashTable->pfu32Match = pfu32MatchArg;
         psCHashTable->pfvDestroy = (void (*) (void* List))0UL;

@@ -12,7 +12,7 @@
 HIB_nSTATUS HIB__enGetCounter(uint32_t* pu32Counter, uint32_t *pu32SubCounter)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_UNDEF;
-    uint32_t u32SecondRead= 0UL;
+    uint32_t u32SecondRead = 0UL;
     if((0UL != (uint32_t) pu32Counter) && (0UL != (uint32_t) pu32SubCounter))
     {
         enReturn = HIB__enReadRegister(HIB_HIBRTCC_OFFSET, pu32Counter, HIB_HIBRTCC_RTCC_MASK, HIB_HIBRTCC_R_RTCC_BIT);

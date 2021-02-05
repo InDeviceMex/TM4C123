@@ -38,7 +38,7 @@ void DMA_CH__vSetEncoder(DMA_nCH_MODULE enChannel, DMA_nCH_ENCODER enChannelEnco
     u32Channel = MCU__u32CheckPatams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
     u32Encoder = MCU__u32CheckPatams( (uint32_t) enChannelEncoder, (uint32_t) DMA_enCH_ENCODER_MAX);
 
-    u32ChannelReg= u32Channel / 8UL;
+    u32ChannelReg = u32Channel / 8UL;
     u32ChannelReg *= 4UL;
     u32RegisterOffset = DMA_DMACHMAP_OFFSET;
     u32RegisterOffset += u32ChannelReg;

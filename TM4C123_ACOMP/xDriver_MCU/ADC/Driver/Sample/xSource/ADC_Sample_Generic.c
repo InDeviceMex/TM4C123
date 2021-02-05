@@ -30,13 +30,13 @@ static const uint32_t ADC_u32MuxMax[(uint32_t) ADC_enSEQ_MAX+0x1U] = {(uint32_t)
 
 void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t u32OffsetRegister, uint32_t u32MuxInput, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBitAdd)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32RegAddress=0U;
-    ADC_TypeDef* psAdc=0U;
-    ADCINPUT_Typedef* psAdcSeq=0U;
+    uint32_t u32Reg = 0U;
+    uint32_t u32RegAddress = 0U;
+    ADC_TypeDef* psAdc = 0U;
+    ADCINPUT_Typedef* psAdcSeq = 0U;
     volatile uint32_t* pu32AdcSeq = 0U;
 
-    uint32_t u32MuxMax= 0U;
+    uint32_t u32MuxMax = 0U;
     if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
         u32Module = (uint32_t) ADC_enMODULE_MAX;
@@ -51,7 +51,7 @@ void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t
         u32MuxInput = (uint32_t) u32MuxMax;
     }
     ADC__vSetReady((ADC_nMODULE)u32Module);
-    psAdc=ADC_BLOCK[u32Module];
+    psAdc = ADC_BLOCK[u32Module];
     psAdcSeq = (ADCINPUT_Typedef*) ( &psAdc->ADCINPUT[u32Sequencer]);
     u32RegAddress = (uint32_t) (psAdcSeq)+u32OffsetRegister;
     pu32AdcSeq = (volatile uint32_t*)u32RegAddress;
@@ -61,19 +61,19 @@ void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t
     u32MuxInput += u32FeatureBitAdd;
     u32Reg &= ~(u32FeatureMask << u32MuxInput);
     u32Reg |= (u32Feature << u32MuxInput);
-    *pu32AdcSeq=u32Reg;
+    *pu32AdcSeq = u32Reg;
 }
 
 uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t u32OffsetRegister, uint32_t u32MuxInput, uint32_t u32FeatureMask, uint32_t u32FeatureBitAdd)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32RegAddress=0U;
-    ADC_TypeDef* psAdc=0U;
-    ADCINPUT_Typedef* psAdcSeq=0U;
+    uint32_t u32Reg = 0U;
+    uint32_t u32RegAddress = 0U;
+    ADC_TypeDef* psAdc = 0U;
+    ADCINPUT_Typedef* psAdcSeq = 0U;
     volatile uint32_t* pu32AdcSeq = 0U;
 
-    ADC_nREADY enReady= ADC_enNOREADY;
-    uint32_t u32MuxMax= 0U;
+    ADC_nREADY enReady = ADC_enNOREADY;
+    uint32_t u32MuxMax = 0U;
     uint32_t u32Feature = 0xFFFFFFFFU;
     if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
@@ -88,10 +88,10 @@ uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, ui
     {
         u32MuxInput = (uint32_t) u32MuxMax;
     }
-    enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
+    enReady = ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
     {
-        psAdc=ADC_BLOCK[u32Module];
+        psAdc = ADC_BLOCK[u32Module];
         psAdcSeq = (ADCINPUT_Typedef*) ( &psAdc->ADCINPUT[u32Sequencer]);
         u32RegAddress = (uint32_t) (psAdcSeq)+u32OffsetRegister;
         pu32AdcSeq = (volatile uint32_t*)u32RegAddress;

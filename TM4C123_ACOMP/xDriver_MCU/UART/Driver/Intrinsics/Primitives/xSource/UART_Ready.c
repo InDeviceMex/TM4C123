@@ -30,14 +30,14 @@ static SYSCTL_nPERIPHERAL SYSCTL_VECTOR_UART[(uint32_t) UART_enMODULE_MAX+1U] = 
 
 void UART__vSetReady(UART_nMODULE enModule)
 {
-    UART_nREADY enReady=UART_enNOREADY;
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enUART0;
+    UART_nREADY enReady = UART_enNOREADY;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enUART0;
     uint32_t u32Module = (uint32_t) enModule;
     if((uint32_t) UART_enMODULE_MAX<u32Module)
     {
         u32Module = (uint32_t) UART_enMODULE_MAX;
     }
-    enPeripheral=SYSCTL_VECTOR_UART[u32Module];
+    enPeripheral = SYSCTL_VECTOR_UART[u32Module];
     enReady = UART__enIsReady(enModule);
     if(UART_enNOREADY == enReady)
     {
@@ -49,26 +49,26 @@ void UART__vSetReady(UART_nMODULE enModule)
 
 void UART__vClearReady(UART_nMODULE enModule)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enUART0;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enUART0;
     uint32_t u32Module = (uint32_t) enModule;
     if((uint32_t) UART_enMODULE_MAX<u32Module)
     {
         u32Module = (uint32_t) UART_enMODULE_MAX;
     }
-    enPeripheral=SYSCTL_VECTOR_UART[u32Module];
+    enPeripheral = SYSCTL_VECTOR_UART[u32Module];
     SYSCTL__vClearReady(enPeripheral);
 }
 
 UART_nREADY UART__enIsReady(UART_nMODULE enModule)
 {
-    UART_nREADY enReady=UART_enNOREADY;
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enUART0;
+    UART_nREADY enReady = UART_enNOREADY;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enUART0;
     uint32_t u32Module = (uint32_t) enModule;
     if((uint32_t) UART_enMODULE_MAX<u32Module)
     {
         u32Module = (uint32_t) UART_enMODULE_MAX;
     }
-    enPeripheral=SYSCTL_VECTOR_UART[u32Module];
+    enPeripheral = SYSCTL_VECTOR_UART[u32Module];
     enReady=(UART_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }

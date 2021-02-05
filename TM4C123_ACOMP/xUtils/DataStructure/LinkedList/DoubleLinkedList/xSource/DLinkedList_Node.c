@@ -33,9 +33,9 @@
      DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
      uint32_t u32SizeForward = 0UL;
-     uint32_t u32SizeBackward= 0UL;
-     uint32_t u32SizeOptimum= 0UL;
-     uint32_t u32Direction= 0UL;
+     uint32_t u32SizeBackward = 0UL;
+     uint32_t u32SizeOptimum = 0UL;
+     uint32_t u32Direction = 0UL;
      if((uint32_t) 0UL != (uint32_t) psList)
      {
          u32SizeList = DLinkedList__u32GetSize(psList);
@@ -123,7 +123,7 @@
          psMember = DLinkedList__psGetHead(psList);
           while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength))
           {
-              pvDataMember=DLinkedList__pvGetElementData(psMember);
+              pvDataMember = DLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -147,7 +147,7 @@
          psMember = DLinkedList__psGetTail(psList);
           while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength))
           {
-              pvDataMember=DLinkedList__pvGetElementData(psMember);
+              pvDataMember = DLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -171,7 +171,7 @@
          psMember = DLinkedList__psGetHead(psList);
           while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength) && (0UL != u32Nodes))
           {
-              pvDataMember=DLinkedList__pvGetElementData(psMember);
+              pvDataMember = DLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -196,7 +196,7 @@
          psMember = DLinkedList__psGetTail(psList);
           while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength) && (0UL != u32Nodes))
           {
-              pvDataMember=DLinkedList__pvGetElementData(psMember);
+              pvDataMember = DLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;

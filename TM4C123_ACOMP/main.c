@@ -36,11 +36,11 @@ uint32_t u32MicrophoneValue = 0UL;
 uint32_t u32JoystickXValue = 0UL;
 uint32_t u32JoystickYValue = 0UL;
 
-volatile uint32_t u32InterruptUart=0UL;
-volatile uint32_t u32InterruptRUart=0UL;
-volatile uint32_t u32Lengtht=0UL;
-volatile uint32_t u32State=0UL;
-volatile char cCharacterReceive=0UL;
+volatile uint32_t u32InterruptUart = 0UL;
+volatile uint32_t u32InterruptRUart = 0UL;
+volatile uint32_t u32Lengtht = 0UL;
+volatile uint32_t u32State = 0UL;
+volatile char cCharacterReceive = 0UL;
 
 EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK)0UL;
 
@@ -240,7 +240,7 @@ void MAIN_vIrqCOMP1_INT1(void)
 {
     uint32_t u32CompState = 0U;
 
-   u32CompState= ACMP_BITBANDING_ACSTAT1_OVAL;
+   u32CompState = ACMP_BITBANDING_ACSTAT1_OVAL;
    if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
    {
        GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, GPIO_enPIN_3);

@@ -30,15 +30,15 @@
 
 ADC_nSEQ_FIFO ADC__enGetSampleFifoStat(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32RegEmpty=0U;
-    uint32_t u32RegFull=0U;
-    uint32_t u32RegAddress=0U;
-    ADC_TypeDef* psAdc=0U;
-    ADCINPUT_Typedef* psAdcSeq=0U;
+    uint32_t u32Reg = 0U;
+    uint32_t u32RegEmpty = 0U;
+    uint32_t u32RegFull = 0U;
+    uint32_t u32RegAddress = 0U;
+    ADC_TypeDef* psAdc = 0U;
+    ADCINPUT_Typedef* psAdcSeq = 0U;
     volatile uint32_t* pu32AdcSeq = 0U;
 
-    ADC_nREADY enReady= ADC_enNOREADY;
+    ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32Module = (uint32_t) enModule;
     uint32_t u32Sequencer = (uint32_t) enSequencer;
     ADC_nSEQ_FIFO enFeature = ADC_enSEQ_FIFO_INT_UNDEF;
@@ -50,10 +50,10 @@ ADC_nSEQ_FIFO ADC__enGetSampleFifoStat(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
     {
         u32Sequencer = (uint32_t) ADC_enSEQ_MAX;
     }
-    enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
+    enReady = ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
     {
-        psAdc=ADC_BLOCK[u32Module];
+        psAdc = ADC_BLOCK[u32Module];
         psAdcSeq = (ADCINPUT_Typedef*) ( &psAdc->ADCINPUT[u32Sequencer]);
         u32RegAddress = (uint32_t) (psAdcSeq)+ADC_ADCSSFSTAT_OFFSET;
         pu32AdcSeq = (volatile uint32_t*)u32RegAddress;
@@ -86,13 +86,13 @@ ADC_nSEQ_FIFO ADC__enGetSampleFifoStat(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
 
 uint32_t ADC__u32GetSampleFifoValue(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, uint32_t* pu32FifoArray)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32RegAddress=0U;
-    ADC_TypeDef* psAdc=0U;
-    ADCINPUT_Typedef* psAdcSeq=0U;
+    uint32_t u32Reg = 0U;
+    uint32_t u32RegAddress = 0U;
+    ADC_TypeDef* psAdc = 0U;
+    ADCINPUT_Typedef* psAdcSeq = 0U;
     volatile uint32_t* pu32AdcSeq = 0U;
 
-    ADC_nREADY enReady= ADC_enNOREADY;
+    ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32Module = (uint32_t) enModule;
     uint32_t u32Sequencer = (uint32_t) enSequencer;
     uint32_t u32Count = 0U;
@@ -105,10 +105,10 @@ uint32_t ADC__u32GetSampleFifoValue(ADC_nMODULE enModule, ADC_nSEQUENCER enSeque
     {
         u32Sequencer = (uint32_t) ADC_enSEQ_MAX;
     }
-    enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
+    enReady = ADC__enIsReady((ADC_nMODULE)u32Module);
     if((ADC_enREADY == enReady) && ((uint32_t) 0UL != (uint32_t) pu32FifoArray))
     {
-        psAdc=ADC_BLOCK[u32Module];
+        psAdc = ADC_BLOCK[u32Module];
         psAdcSeq = (ADCINPUT_Typedef*) ( &psAdc->ADCINPUT[u32Sequencer]);
         u32RegAddress = (uint32_t) (psAdcSeq)+ADC_ADCSSFIFO_OFFSET;
         pu32AdcSeq = (volatile uint32_t*)u32RegAddress;

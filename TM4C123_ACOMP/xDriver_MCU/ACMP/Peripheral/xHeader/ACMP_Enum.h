@@ -41,16 +41,16 @@ typedef enum
 
 typedef enum
 {
-    ACMP_enPRI0=0U,
-    ACMP_enPRI1=1U,
-    ACMP_enPRI2=2U,
-    ACMP_enPRI3=3U,
-    ACMP_enPRI4=4U,
-    ACMP_enPRI5=5U,
-    ACMP_enPRI6=6U,
-    ACMP_enPRI7=7U,
-    ACMP_enPRIMAX=7U,
-    ACMP_enDEFAULT=0xFFFFFFFFU,
+    ACMP_enPRI0 = 0U,
+    ACMP_enPRI1 = 1U,
+    ACMP_enPRI2 = 2U,
+    ACMP_enPRI3 = 3U,
+    ACMP_enPRI4 = 4U,
+    ACMP_enPRI5 = 5U,
+    ACMP_enPRI6 = 6U,
+    ACMP_enPRI7 = 7U,
+    ACMP_enPRIMAX = 7U,
+    ACMP_enDEFAULT = 0xFFFFFFFFU,
 }ACMP_nPRIORITY;
 
 typedef enum
@@ -58,7 +58,7 @@ typedef enum
     ACMP_enMODULE_0 = 0U,
     ACMP_enMODULE_1 = 1U,
     ACMP_enMODULE_MAX = 1U,
-    ACMP_enMODULE_UNDEF= 0xFFFFFFFFU,
+    ACMP_enMODULE_UNDEF = 0xFFFFFFFFU,
 }ACMP_nMODULE;
 
 typedef enum
@@ -67,7 +67,7 @@ typedef enum
     ACMP_enMODULEMASK_1 = 0x2U,
     ACMP_enMODULEMASK_ALL = 0x3U,
     ACMP_enMODULEMASK_MAX = 0x2U,
-    ACMP_enMODULEMASK_UNDEF= 0xFFFFFFFFU,
+    ACMP_enMODULEMASK_UNDEF = 0xFFFFFFFFU,
 }ACMP_nMODULEMASK;
 
 typedef enum

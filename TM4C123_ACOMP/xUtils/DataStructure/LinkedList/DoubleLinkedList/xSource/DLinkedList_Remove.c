@@ -146,9 +146,9 @@
      DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
      uint32_t u32SizeForward = 0UL;
-     uint32_t u32SizeBackward= 0UL;
-     uint32_t u32SizeOptimum= 0UL;
-     uint32_t u32Direction= 0UL;
+     uint32_t u32SizeBackward = 0UL;
+     uint32_t u32SizeOptimum = 0UL;
+     uint32_t u32Direction = 0UL;
      if((uint32_t) 0UL != (uint32_t) psList)
      {
          u32SizeList = DLinkedList__u32GetSize(psList);

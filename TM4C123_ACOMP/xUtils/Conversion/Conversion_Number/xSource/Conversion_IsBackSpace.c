@@ -26,10 +26,10 @@
 
 CONV_nBACKSPACE Conv__enIsBackSpace(char cCharacter)
 {
-    CONV_nBACKSPACE enStatus= CONV_enBACKSPACE_NO;
+    CONV_nBACKSPACE enStatus = CONV_enBACKSPACE_NO;
     if(cCharacter == '\b')
     {
-        enStatus=CONV_enBACKSPACE_OK;
+        enStatus = CONV_enBACKSPACE_OK;
     }
     return enStatus;
 }

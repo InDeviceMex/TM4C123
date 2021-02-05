@@ -21,12 +21,12 @@
  * Date           Author     Version     Description
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODEMATCH_TIMER_MODEMATCH_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODEMATCH_TIMER_MODEMATCH_H_
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
-
 
 TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint64_t u64Match);
 TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint64_t u64Match);

@@ -147,14 +147,14 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                             sFreeCount64Config.u32CountHighShiftLeft = 16UL;
 
                             sFreeCount64Config.u32CountLowRegister = GPTM_GPTMTAPV_OFFSET + (4UL * u32SubModule);
-                            sFreeCount64Config.u32CountLowMask =0xFFFFUL;
+                            sFreeCount64Config.u32CountLowMask = 0xFFFFUL;
                         }
                         /*Time Extension*/
                         /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
                             sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTAPV_OFFSET + (4UL * u32SubModule);
-                            sFreeCount64Config.u32CountHighMask =0xFFFFUL;
+                            sFreeCount64Config.u32CountHighMask = 0xFFFFUL;
                             sFreeCount64Config.u32CountHighShiftLeft = 32UL;
 
                             sFreeCount64Config.u32CountLowRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);

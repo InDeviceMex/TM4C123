@@ -35,7 +35,7 @@ DLinkedList_TypeDef* DLinkedList__psInit(void (*pfvDestroyElementDataArg) (void 
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
     {
-        psList->u32Size= 0UL;
+        psList->u32Size = 0UL;
         psList->pfvDestroy = &free;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (DLinkedListElement_TypeDef*)  0UL;
@@ -51,7 +51,7 @@ DLinkedList_nSTATUS DLinkedList__enInit(DLinkedList_TypeDef* psList, void (*pfvD
     if((uint32_t) 0UL != (uint32_t) psList)
     {
         enStatus = DLinkedList_enSTATUS_OK;
-        psList->u32Size= 0UL;
+        psList->u32Size = 0UL;
         psList->pfvDestroy = (void (*) (void* List))0UL;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (DLinkedListElement_TypeDef*)  0UL;

@@ -30,7 +30,7 @@
 
 void UART7__vIRQVectorHandler(void)
 {
-    volatile uint32_t u32Reg=0U;
+    volatile uint32_t u32Reg = 0U;
     u32Reg = (uint32_t) UART7_UARTMIS_R;
 
     if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
@@ -43,7 +43,7 @@ void UART7__vIRQVectorHandler(void)
                 if(DMA_DMACHMAP2_R_CH20SEL_UART7_RX == (DMA_DMACHMAP2_R & DMA_DMACHMAP2_R_CH20SEL_MASK ))
                 {
                      DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][20U]();
-                     DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS20_CLEAR;
+                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS20_CLEAR;
                 }
             }
         }
@@ -55,7 +55,7 @@ void UART7__vIRQVectorHandler(void)
                 if(DMA_DMACHMAP2_R_CH21SEL_UART7_TX == (DMA_DMACHMAP2_R & DMA_DMACHMAP2_R_CH21SEL_MASK ))
                 {
                      DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][21U]();
-                     DMA_DMACHIS_R=DMA_DMACHIS_R_CHIS21_CLEAR;
+                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS21_CLEAR;
                 }
             }
         }

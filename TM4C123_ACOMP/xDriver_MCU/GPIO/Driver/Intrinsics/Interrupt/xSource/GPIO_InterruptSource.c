@@ -46,7 +46,7 @@ void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
 GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_nSTATUS enStatusRead= GPIO_enSTATUS_UNDEF;
+    GPIO_nSTATUS enStatusRead = GPIO_enSTATUS_UNDEF;
     GPIO_nINT_STATUS enStatus = GPIO_enINT_STATUS_UNDEF;
     uint32_t u32Reg = 0UL;
 

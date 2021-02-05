@@ -342,7 +342,7 @@ NmiSR(void)
 static void
 FaultISR(void)
 {
-    volatile int a=1;
+    volatile int a = 1;
     /**/
     /* Enter an infinite loop.*/
     /**/

@@ -25,15 +25,15 @@
 
 CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn, char* const pcPointerOut, uint8_t u8Length)
 {
-    CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
-    uint8_t u8I=0;
-    const char* pcPointerInAux=0U;
-    char* pcPointerOutAux=0U;
+    CONV_nSTATUS enStatus = CONV_enSTATUS_ERROR;
+    uint8_t u8I = 0;
+    const char* pcPointerInAux = 0U;
+    char* pcPointerOutAux = 0U;
     if(((uint32_t) 0 != (uint32_t) pcPointerIn) && ((uint32_t) 0 != (uint32_t) pcPointerOut))
     {
-        enStatus= CONV_enSTATUS_OK;
-        pcPointerOutAux=pcPointerOut;
-        pcPointerInAux=pcPointerIn;
+        enStatus = CONV_enSTATUS_OK;
+        pcPointerOutAux = pcPointerOut;
+        pcPointerInAux = pcPointerIn;
         for (u8I = 0U; u8I <= u8Length; u8I++) /*hace un ciclo burbuja optimizado*/
         {
             *pcPointerOutAux= *pcPointerInAux;
@@ -46,15 +46,15 @@ CONV_nSTATUS Conv__enInversion(const char* const pcPointerIn, char* const pcPoin
 
 CONV_nSTATUS Conv__enOutInversion(CONV_OUT_TypeDef pvfOut, char* pvBufferOut, const char* pvBufferIn, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags)
 {
-    CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
-    uint32_t u32Pos=0;
+    CONV_nSTATUS enStatus = CONV_enSTATUS_ERROR;
+    uint32_t u32Pos = 0;
     const char* pcBufferTemp = 0;
     const uint32_t u32StartIndex = u32Index;
 
 
     if(((uint32_t) 0U != (uint32_t) pvBufferOut) && ((uint32_t) 0U != (uint32_t) pvBufferIn) && ((uint32_t) 0U != (uint32_t) pvfOut))
     {
-        enStatus= CONV_enSTATUS_OK;
+        enStatus = CONV_enSTATUS_OK;
         if ((0U == (u32flags & (uint32_t) CONV_enFLAGS_LEFT)) && (0U == (u32flags & (uint32_t) CONV_enFLAGS_ZEROPAD)))
         {
             for (u32Pos = u32BufInLenght; u32Pos<u32Width; u32Pos++) /*hace un ciclo burbuja optimizado*/

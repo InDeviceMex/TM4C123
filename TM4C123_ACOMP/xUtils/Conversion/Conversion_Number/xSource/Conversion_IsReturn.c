@@ -26,10 +26,10 @@
 
 CONV_nRETURN Conv__enIsReturn(char cCharacter)
 {
-    CONV_nRETURN enStatus= CONV_enRETURN_NO;
+    CONV_nRETURN enStatus = CONV_enRETURN_NO;
     if(cCharacter == '\r')
     {
-        enStatus=CONV_enRETURN_OK;
+        enStatus = CONV_enRETURN_OK;
     }
     return enStatus;
 }

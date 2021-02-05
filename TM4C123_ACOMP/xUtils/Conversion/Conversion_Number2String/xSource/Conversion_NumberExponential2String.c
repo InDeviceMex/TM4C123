@@ -137,7 +137,7 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
             dDoubleZ = dTemp2 - dTemp;
             dDoubleZ2 = dDoubleZ * dDoubleZ;
 
-            s64Exponential2Temp= s64Exponential2;
+            s64Exponential2Temp = s64Exponential2;
             s64Exponential2Temp += 1023;
             u64TempLong = (uint64_t) s64Exponential2Temp;
             u64Temp = (uint64_t) u64TempLong;
@@ -153,12 +153,12 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
             dDoubleDiv1 /= dDoubleDiv0;
             dDoubleDiv1 += 6.0;
 
-            dDoubleDiv2= dDoubleZ2;
+            dDoubleDiv2 = dDoubleZ2;
             dDoubleDiv2 /= dDoubleDiv1;
             dDoubleDiv2 += 2.0;
             dDoubleDiv2 -= dDoubleZ;
 
-            dDoubleDiv3= dDoubleZ;
+            dDoubleDiv3 = dDoubleZ;
             dDoubleDiv3 *= 2.0;
             dDoubleDiv3 /= dDoubleDiv2;
             dDoubleDiv3 += 1.0;

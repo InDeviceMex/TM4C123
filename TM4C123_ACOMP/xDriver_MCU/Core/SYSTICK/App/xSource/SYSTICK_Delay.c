@@ -20,7 +20,7 @@
     uint64_t u64CountMax = 0ULL;
     uint64_t u64Count = 0ULL;
 
-    fUsTick= SysTick__fGetTickUs();
+    fUsTick = SysTick__fGetTickUs();
     if(fUsTick >= 0.0f)
     {
         fCount = fTimeUs / fUsTick;

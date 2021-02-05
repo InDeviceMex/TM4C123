@@ -30,14 +30,14 @@
 
 uint8_t LCD1602__u8Read(LCD1602_nRS enMode)
 {
-    uint8_t  u8DatoRead=0U;
+    uint8_t  u8DatoRead = 0U;
     LCD1602__vSetDataInputConfig();
 
     LCD1602__vSetReadMode();
     LCD1602__vSetDataCommand(enMode);
 
     LCD1602__vPrepareReadEnable();
-    u8DatoRead=LCD1602__u8ReadHighByte();
+    u8DatoRead = LCD1602__u8ReadHighByte();
     LCD1602__vPulseReadEnable();
 
     LCD1602__vPrepareReadEnable();

@@ -26,10 +26,10 @@
 
 CONV_nNULL Conv__enIsNull(char cCharacter)
 {
-    CONV_nNULL enStatus= CONV_enNULL_NO;
+    CONV_nNULL enStatus = CONV_enNULL_NO;
     if(cCharacter == '\0')
     {
-        enStatus=CONV_enNULL_OK;
+        enStatus = CONV_enNULL_OK;
     }
     return enStatus;
 }

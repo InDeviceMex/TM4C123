@@ -29,7 +29,7 @@ uint32_t HashTable_StringFunction(const void *pvKey)
     uint32_t u32Value = 0UL;
     uint32_t u32Temp = 0UL;
     uint32_t u32TempShift = 0UL;
-    uint8_t u8Temp= 0UL;
+    uint8_t u8Temp = 0UL;
 
     while ('\0' != *pcCharacter)
     {

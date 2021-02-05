@@ -33,9 +33,9 @@
      CDLinkedListElement_TypeDef* psElement = (CDLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
      uint32_t u32SizeForward = 0UL;
-     uint32_t u32SizeBackward= 0UL;
-     uint32_t u32SizeOptimum= 0UL;
-     uint32_t u32Direction= 0UL;
+     uint32_t u32SizeBackward = 0UL;
+     uint32_t u32SizeOptimum = 0UL;
+     uint32_t u32Direction = 0UL;
      if((uint32_t) 0UL != (uint32_t) psList)
      {
          u32SizeList = CDLinkedList__u32GetSize(psList);
@@ -126,7 +126,7 @@
          u32SizeList = CDLinkedList__u32GetSize(psList);
           while((0UL != u32MaxLength) && (u32SizeReg != u32SizeList))
           {
-              pvDataMember=CDLinkedList__pvGetElementData(psMember);
+              pvDataMember = CDLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -152,7 +152,7 @@
          u32SizeList = CDLinkedList__u32GetSize(psList);
           while((0UL != u32MaxLength) && (u32SizeReg != u32SizeList))
           {
-              pvDataMember=CDLinkedList__pvGetElementData(psMember);
+              pvDataMember = CDLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -178,7 +178,7 @@
          u32SizeList = CDLinkedList__u32GetSize(psList);
           while((0UL != u32MaxLength) && (u32SizeReg != u32SizeList) && (0UL != u32Nodes))
           {
-              pvDataMember=CDLinkedList__pvGetElementData(psMember);
+              pvDataMember = CDLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -205,7 +205,7 @@
          u32SizeList = CDLinkedList__u32GetSize(psList);
           while((0UL != u32MaxLength) && (u32SizeReg != u32SizeList) && (0UL != u32Nodes))
           {
-              pvDataMember=CDLinkedList__pvGetElementData(psMember);
+              pvDataMember = CDLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;

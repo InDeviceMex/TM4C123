@@ -37,7 +37,7 @@ OAHashTable_nSTATUS OAHashTable__enInit(OAHashTable_TypeDef* psOAHashTable, uint
     if((uint32_t) 0UL != (uint32_t) psOAHashTable)
     {
         psOAHashTable->pvVacated = (void*) & OAHashTable_cVacated;
-        psOAHashTable->u32Size= 0UL;
+        psOAHashTable->u32Size = 0UL;
         psOAHashTable->pfu32HashFunction1 = pfu32Function1Arg;
         psOAHashTable->pfu32HashFunction2 = pfu32Function2Arg;
         psOAHashTable->pfu32Match = pfu32MatchArg;
@@ -80,7 +80,7 @@ OAHashTable_TypeDef* OAHashTable__psInit(uint32_t u32PositionsNum, uint32_t (*pf
     if((uint32_t) 0UL != (uint32_t) psOAHashTable)
     {
         psOAHashTable->pvVacated = (void*) & OAHashTable_cVacated;
-        psOAHashTable->u32Size= 0UL;
+        psOAHashTable->u32Size = 0UL;
         psOAHashTable->pfu32HashFunction1 = pfu32Function1Arg;
         psOAHashTable->pfu32HashFunction2 = pfu32Function2Arg;
         psOAHashTable->pfu32Match = pfu32MatchArg;

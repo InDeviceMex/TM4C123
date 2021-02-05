@@ -52,7 +52,7 @@ void EDUMKII_Led_vWritePWM(EDUMKII_nLED enLedSelect, uint32_t u32Value)
     uint32_t u32TimerValue = 0UL;
     if(1023UL >= u32Value)
     {
-        u32TimerValue= u32Value * 10240U;
+        u32TimerValue = u32Value * 10240U;
         u32TimerValue >>= 10UL;
 
         if(0UL == u32Value)

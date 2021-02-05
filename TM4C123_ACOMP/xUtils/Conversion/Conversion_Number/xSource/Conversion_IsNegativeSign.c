@@ -27,11 +27,11 @@
 
 CONV_nNEGATIVE_SIGN Conv__enIsNegativeSign(char cCharacter)
 {
-    CONV_nNEGATIVE_SIGN enStatus= CONV_enNEGATIVE_SIGN_NO;
+    CONV_nNEGATIVE_SIGN enStatus = CONV_enNEGATIVE_SIGN_NO;
     char cChar = (char)cCharacter;
     if((char)'-' == cChar)
     {
-        enStatus=CONV_enNEGATIVE_SIGN_OK;
+        enStatus = CONV_enNEGATIVE_SIGN_OK;
     }
 
     return enStatus;

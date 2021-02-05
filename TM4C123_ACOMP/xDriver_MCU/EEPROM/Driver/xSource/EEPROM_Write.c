@@ -124,7 +124,7 @@ EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data, uint32_t u32Address)
 EEPROM_nSTATUS EEPROM__enWriteWorldBlock(const uint32_t* pu32Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    uint32_t u32MaxAddress= 0UL;
+    uint32_t u32MaxAddress = 0UL;
     uint32_t u32Block = 0UL;/*u32Address / 16*/
     uint32_t u32Offset = 0UL;/*First 16 worlds*/
 

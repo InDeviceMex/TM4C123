@@ -29,10 +29,10 @@
 CONV_nSTATUS Conv__enNumber2String_Format(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, char* pcBufferIn, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t u32BufInLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags, uint32_t u32Negative, uint32_t u32Base, uint32_t u32Prec)
 {
 
-    CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
+    CONV_nSTATUS enStatus = CONV_enSTATUS_ERROR;
     char* pcBufferTemp = 0;
     char  cCharTemp = 0;
-    uint32_t u32flagsTemp=0U;
+    uint32_t u32flagsTemp = 0U;
 
     if(((uint32_t) 0U != (uint32_t) pcBufferOut) && ((uint32_t) 0U != (uint32_t) pcBufferIn ) && ((uint32_t) 0U != (uint32_t) pu32BufOutLenght) )
     {

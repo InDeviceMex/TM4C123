@@ -34,13 +34,13 @@ void EDUMKII_Common_vTimerInit(void)
     static uint32_t u32Init = 0UL;
     if(0UL == u32Init)
     {
-        psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
-        psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
-        psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
-        psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
-        psExtraMode.enStall=TIMER_enSTALL_FREEZE;
-        psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
-        psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_EN;
+        psExtraMode.enWaitTrigger = TIMER_enWAIT_NOTRIGGER;
+        psExtraMode.enPWMInterrupt = TIMER_enPWM_INT_DIS;
+        psExtraMode.enEventInterrupt = TIMER_enEVENT_INT_DIS;
+        psExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
+        psExtraMode.enStall = TIMER_enSTALL_FREEZE;
+        psExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
+        psExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_EN;
 
         TIMER__enSetExtraModeStruct(TIMER_enT5A, &psExtraMode);
         TIMER__enSetMode_Reload(TIMER_enT5A, TIMER_enMODE_PERIODIC_INDIVIDUAL_UP, 800000U-1U);

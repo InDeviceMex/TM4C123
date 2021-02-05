@@ -26,10 +26,10 @@
 
 CONV_nNEWLINERETURN Conv__enIsNewLineReturn(char cCharacter)
 {
-    CONV_nNEWLINERETURN enStatus= CONV_enNEWLINERETURN_NO;
+    CONV_nNEWLINERETURN enStatus = CONV_enNEWLINERETURN_NO;
     if((cCharacter == '\n') || (cCharacter == '\r') )
     {
-        enStatus=CONV_enNEWLINERETURN_OK;
+        enStatus = CONV_enNEWLINERETURN_OK;
     }
     return enStatus;
 }

@@ -29,8 +29,8 @@
 
 uint8_t LCD1602__u8ReadLowByte(void)
 {
-    uint32_t u32Reg=0U;
-    uint8_t  u8DatoRead=0U;
+    uint32_t u32Reg = 0U;
+    uint8_t  u8DatoRead = 0U;
     GPIO__enGetData(LCD1602_PORT_D7, LCD1602_D7, &u32Reg);
     if(0UL != u32Reg)
     {
@@ -60,8 +60,8 @@ uint8_t LCD1602__u8ReadLowByte(void)
 
 uint8_t LCD1602__u8ReadHighByte(void)
 {
-    uint32_t u32Reg=0U;
-    uint8_t  u8DatoRead=0U;
+    uint32_t u32Reg = 0U;
+    uint8_t  u8DatoRead = 0U;
 
     GPIO__enGetData(LCD1602_PORT_D7, LCD1602_D7, &u32Reg);
     if(0UL != u32Reg)

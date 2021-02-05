@@ -35,7 +35,7 @@ OAHashTable_nSTATUS OAHashTable__enInsert(OAHashTable_TypeDef* psOAHashTable, vo
     void* pvVacatedReg = (void*)0UL;
     void* pvTemp = (void*)0UL;
     uint32_t u32Iteration = 0UL;
-    OAHashTable_nSTATUS enLookup= OAHashTable_enSTATUS_ERROR;
+    OAHashTable_nSTATUS enLookup = OAHashTable_enSTATUS_ERROR;
     OAHashTable_nSTATUS enStatus = OAHashTable_enSTATUS_ERROR;
 
     if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )

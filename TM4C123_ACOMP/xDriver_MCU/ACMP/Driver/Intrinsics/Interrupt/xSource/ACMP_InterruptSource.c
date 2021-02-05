@@ -28,7 +28,7 @@
 
 void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    uint32_t u32Reg=0U;
+    uint32_t u32Reg = 0U;
 
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
     if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
@@ -37,14 +37,14 @@ void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
     }
     ACMP__vSetReady();
 
-    u32Reg=ACMP->ACINTEN;
+    u32Reg = ACMP->ACINTEN;
     u32Reg |= u32ModuleMask;
-    ACMP->ACINTEN=u32Reg;
+    ACMP->ACINTEN = u32Reg;
 }
 
 void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    uint32_t u32Reg=0U;
+    uint32_t u32Reg = 0U;
 
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
     if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
@@ -53,9 +53,9 @@ void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
     }
     ACMP__vSetReady();
 
-    u32Reg=ACMP->ACINTEN;
+    u32Reg = ACMP->ACINTEN;
     u32Reg &= ~u32ModuleMask;
-    ACMP->ACINTEN=u32Reg;
+    ACMP->ACINTEN = u32Reg;
 }
 
 void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
@@ -72,15 +72,15 @@ void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
 
 ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    ACMP_nINT_STATUS enInt=ACMP_enINT_STATUS_UNDEF;
-    uint32_t u32Reg=0U;
-    ACMP_nREADY enReady=ACMP_enNOREADY;
+    ACMP_nINT_STATUS enInt = ACMP_enINT_STATUS_UNDEF;
+    uint32_t u32Reg = 0U;
+    ACMP_nREADY enReady = ACMP_enNOREADY;
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
     if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
     {
         u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
     }
-    enReady=ACMP__enIsReady();
+    enReady = ACMP__enIsReady();
 
     if(ACMP_enREADY == enReady)
     {
@@ -89,11 +89,11 @@ ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULEMASK enModuleMask)
 
         if((uint32_t) ACMP_enINT_NOOCCUR == u32Reg)
         {
-            enInt=ACMP_enINT_NOOCCUR;
+            enInt = ACMP_enINT_NOOCCUR;
         }
         else
         {
-            enInt=ACMP_enINT_OCCUR;
+            enInt = ACMP_enINT_OCCUR;
         }
     }
     return enInt;

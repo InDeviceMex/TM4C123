@@ -39,7 +39,7 @@
 EEPROM_nSTATUS EEPROM__enGetStatus (void)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    EEPROM_nREADY enReady= EEPROM_enNOREADY;
+    EEPROM_nREADY enReady = EEPROM_enNOREADY;
     uint32_t u32Reg = 0UL;
     enReady = EEPROM__enIsReady();
     if(EEPROM_enREADY == enReady)
@@ -58,7 +58,7 @@ EEPROM_nSTATUS EEPROM__enWait (void)
 {
     uint32_t u32TimeOut = EEPROM_TIMEOUT_MAX;
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    EEPROM_nREADY enReady= EEPROM_enNOREADY;
+    EEPROM_nREADY enReady = EEPROM_enNOREADY;
 
     enReady = EEPROM__enIsReady();
     if(EEPROM_enREADY == enReady)

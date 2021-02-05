@@ -34,7 +34,7 @@ CSLinkedList_TypeDef* CSLinkedList__psInit(void (*pfvDestroyElementDataArg) (voi
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
     {
-        psList->u32Size= 0UL;
+        psList->u32Size = 0UL;
         psList->pfvDestroy = &free;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (CSLinkedListElement_TypeDef*)  0UL;
@@ -49,7 +49,7 @@ CSLinkedList_nSTATUS CSLinkedList__enInit(CSLinkedList_TypeDef* psList, void (*p
     if((uint32_t) 0UL != (uint32_t) psList)
     {
         enStatus = CSLinkedList_enSTATUS_OK;
-        psList->u32Size= 0UL;
+        psList->u32Size = 0UL;
         psList->pfvDestroy = (void (*) (void* List))0UL;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (CSLinkedListElement_TypeDef*)  0UL;

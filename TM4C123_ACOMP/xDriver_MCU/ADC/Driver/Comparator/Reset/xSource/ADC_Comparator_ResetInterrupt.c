@@ -28,8 +28,8 @@
 
 void ADC__vResetCompIntConditions(ADC_nMODULE enModule, ADC_nCOMPMASK  enActCompMask)
 {
-    uint32_t u32Reg=0U;
-    ADC_TypeDef* psAdc=0U;
+    uint32_t u32Reg = 0U;
+    ADC_TypeDef* psAdc = 0U;
 
     uint32_t u32Module = (uint32_t) enModule;
     uint32_t u32Comparator = (uint32_t) enActCompMask;
@@ -42,10 +42,10 @@ void ADC__vResetCompIntConditions(ADC_nMODULE enModule, ADC_nCOMPMASK  enActComp
         u32Comparator = (uint32_t) ADC_en_COMPMASK_MAX;
     }
     ADC__vSetReady((ADC_nMODULE)u32Module);
-    psAdc=ADC_BLOCK[u32Module];
+    psAdc = ADC_BLOCK[u32Module];
 
     u32Reg = (uint32_t) u32Comparator << ADC_ADCDCRIC_R_DCINT0_BIT;
-    psAdc->ADCDCRIC=u32Reg;
+    psAdc->ADCDCRIC = u32Reg;
 }
 
 

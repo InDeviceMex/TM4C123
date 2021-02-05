@@ -35,7 +35,7 @@ SLinkedList_TypeDef* SLinkedList__psInit(void (*pfvDestroyElementDataArg) (void 
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
     {
-        psList->u32Size= 0UL;
+        psList->u32Size = 0UL;
         psList->pfvDestroy = &free;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (SLinkedListElement_TypeDef*)  0UL;
@@ -50,7 +50,7 @@ SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList, void (*pfvD
     if((uint32_t) 0UL != (uint32_t) psList)
     {
         enStatus = SLinkedList_enSTATUS_OK;
-        psList->u32Size= 0UL;
+        psList->u32Size = 0UL;
         psList->pfvDestroy = (void (*) (void* List))0UL;
         psList->pfvDestroyElementData = pfvDestroyElementDataArg;
         psList->psHead = (SLinkedListElement_TypeDef*)  0UL;

@@ -31,7 +31,7 @@ typedef enum
 {
     DMA_enSTATUS_OK = 0UL,
     DMA_enSTATUS_ERROR = 1UL,
-    DMA_enSTATUS_UNDEF= 0xFFFFFFFFUL,
+    DMA_enSTATUS_UNDEF = 0xFFFFFFFFUL,
 }DMA_nSTATUS;
 
 typedef enum

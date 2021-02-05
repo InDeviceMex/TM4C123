@@ -41,7 +41,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
   uint32_t  u32LengthIn = 0U;
   float64_t dDiff = 0.0;
   uint32_t u32Negative = 0U;
-  CONV_nSTATUS enStatus= CONV_enSTATUS_ERROR;
+  CONV_nSTATUS enStatus = CONV_enSTATUS_ERROR;
   int64_t s64ValueComplete = 0;
   float64_t dValueTemp = 0.0;
   uint64_t u64ValueTemp = 0U;

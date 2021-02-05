@@ -142,7 +142,7 @@ SysTick_nSTATUS SysTick__enInitUs(float32_t fTimeUs, SCB_nSHPR enPriority)
     SysTick_nSTATUS enReturn = SysTick_enOK;
     uint32_t u32SysTickFrequency = 0UL;
     uint32_t u32CountTick = 0UL;
-    float32_t fSysTickFrequency=0.0f;
+    float32_t fSysTickFrequency = 0.0f;
     float32_t fCountTick = 0.0f;
     float32_t  fReg = 0.0f;
 

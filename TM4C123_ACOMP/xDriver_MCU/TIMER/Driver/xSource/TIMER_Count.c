@@ -83,11 +83,11 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar))
                         {
                             enDirectionVar = TIMER__enGetCountDir(enModule);
-                            enSnapshotVar= TIMER__enGetSnapShot(enModule);
+                            enSnapshotVar = TIMER__enGetSnapShot(enModule);
 
                             sCount64Config.u32CountHighRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);
                             sCount64Config.u32CountHighMask = 0xFFFFUL;
-                            sCount64Config.u32CountLowMask =0xFFUL;
+                            sCount64Config.u32CountLowMask = 0xFFUL;
                             sCount64Config.u32CountHighShiftRight = 0UL;
                             sCount64Config.pu64CountValue = pu64Count;
 
@@ -184,14 +184,14 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                             sCount64Config.u32CountHighShiftLeft = 16UL;
 
                             sCount64Config.u32CountLowRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);
-                            sCount64Config.u32CountLowMask =0xFFFFUL;
+                            sCount64Config.u32CountLowMask = 0xFFFFUL;
                         }
                         /*Time Extension*/
                         /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
                             sCount64Config.u32CountHighRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);
-                            sCount64Config.u32CountHighMask =0xFFFFUL;
+                            sCount64Config.u32CountHighMask = 0xFFFFUL;
                             sCount64Config.u32CountHighShiftLeft = 32UL;
 
                             sCount64Config.u32CountLowRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);

@@ -61,7 +61,7 @@ void WTIMER0A__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg=GPWTM0_TW_GPTMTnMIS_R;
+    u32Reg = GPWTM0_TW_GPTMTnMIS_R;
 
     if((uint32_t) TIMER_enINT_TA_TIMEOUT & u32Reg)
     {

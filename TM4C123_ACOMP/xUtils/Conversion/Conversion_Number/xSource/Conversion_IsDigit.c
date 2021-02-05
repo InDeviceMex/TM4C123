@@ -27,11 +27,11 @@
 
 CONV_nDIGIT Conv__enIsDigit(char cCharacter)
 {
-    CONV_nDIGIT enStatus= CONV_enDIGIT_NO;
+    CONV_nDIGIT enStatus = CONV_enDIGIT_NO;
     uint8_t u8Char = (uint8_t) cCharacter;
     if((u8Char >= (uint8_t) '0') && (u8Char <= (uint8_t) '9'))
     {
-        enStatus=CONV_enDIGIT_OK;
+        enStatus = CONV_enDIGIT_OK;
     }
 
     return enStatus;

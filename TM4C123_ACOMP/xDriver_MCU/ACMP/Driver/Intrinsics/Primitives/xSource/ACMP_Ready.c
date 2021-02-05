@@ -26,19 +26,19 @@
 
 void ACMP__vSetReady(void)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enACMP;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enACMP;
     SYSCTL__vSetReady(enPeripheral);
 }
 
 void ACMP__vClearReady(void)
 {
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enACMP;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enACMP;
     SYSCTL__vClearReady(enPeripheral);
 }
 ACMP_nREADY ACMP__enIsReady(void)
 {
-    ACMP_nREADY enReady=ACMP_enNOREADY;
-    SYSCTL_nPERIPHERAL enPeripheral=SYSCTL_enACMP;
+    ACMP_nREADY enReady = ACMP_enNOREADY;
+    SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enACMP;
     enReady=(ACMP_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }

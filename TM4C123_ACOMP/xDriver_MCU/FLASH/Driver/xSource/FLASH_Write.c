@@ -121,7 +121,7 @@ static FLASH_nSTATUS FLASH_enIsDataErased(uint32_t u32AddressBase, uint32_t u32A
 static FLASH_nSTATUS FLASH_enWriteAux(uint32_t u32Data, uint32_t u32Address, uint32_t u32AddressOffset, uint32_t u32VariableType)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
-    FLASH_nSTATUS enDataErased= FLASH_enERROR;
+    FLASH_nSTATUS enDataErased = FLASH_enERROR;
     uint32_t *pu32PageDataInitial = 0UL;
     uint32_t *pu32PageData = 0UL;
     uint32_t *pu32AuxData = 0UL;
@@ -130,7 +130,7 @@ static FLASH_nSTATUS FLASH_enWriteAux(uint32_t u32Data, uint32_t u32Address, uin
     uint32_t u32OffsetWorld = 0UL;
     uint32_t u32AddressCurrent = 0UL;
     uint32_t u32AddressPage = 0UL;
-    uint32_t u32TempValue= 0UL;
+    uint32_t u32TempValue = 0UL;
     static uint32_t u32DataAux = 0UL;
 
     u32AddressCurrent = u32Address;
@@ -191,7 +191,7 @@ static FLASH_nSTATUS FLASH_enWriteAux(uint32_t u32Data, uint32_t u32Address, uin
                     {
                         break;
                     }
-                    u32AddressPage += 0x80UL;/*32World = 4Bytes*32 = 0x80=128*/
+                    u32AddressPage += 0x80UL;/*32World = 4Bytes*32 = 0x80 = 128*/
                     pu32PageData += 32UL;
                 }
                 free(pu32PageDataInitial);

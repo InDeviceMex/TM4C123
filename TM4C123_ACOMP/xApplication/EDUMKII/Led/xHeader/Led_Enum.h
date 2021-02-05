@@ -50,7 +50,7 @@
 typedef enum
 {
     EDUMKII_enLED_NO = 0x0UL,
-    EDUMKII_enLED_RED= 0x1UL,
+    EDUMKII_enLED_RED = 0x1UL,
     EDUMKII_enLED_GREEN = 0x2UL,
     EDUMKII_enLED_BLUE = 0x4UL,
     EDUMKII_enLED_ALL = 0x7UL

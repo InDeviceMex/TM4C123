@@ -34,7 +34,7 @@ BiTree_TypeDef* BiTree__psInit(void (*pfvDestroyElementDataArg) (void *DataConta
 #endif
     if((uint32_t) 0UL != (uint32_t) psTree)
     {
-        psTree->u32Size= 0UL;
+        psTree->u32Size = 0UL;
         psTree->pfvDestroy = &free;
         psTree->pfvDestroyElementData = pfvDestroyElementDataArg;
         psTree->psRoot = (BiTreeElement_TypeDef*)  0UL;
@@ -49,7 +49,7 @@ BiTree_nSTATUS BiTree__enInit(BiTree_TypeDef* psTree, void (*pfvDestroyElementDa
     if((uint32_t) 0UL != (uint32_t) psTree)
     {
         enStatus = BiTree_enSTATUS_OK;
-        psTree->u32Size= 0UL;
+        psTree->u32Size = 0UL;
         psTree->pfvDestroy = (void (*) (void* List))0UL;
         psTree->pfvDestroyElementData = pfvDestroyElementDataArg;
         psTree->psRoot = (BiTreeElement_TypeDef*)  0UL;

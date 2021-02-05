@@ -31,10 +31,10 @@
 
 int32_t Conv__s32String2UInteger(const char** pcString, uint64_t* pu64NumUnsigned )
 {
-    int32_t s32Length=CONV_enNAN;
+    int32_t s32Length = CONV_enNAN;
     uint64_t u64NumUnsignedTemp = 0U;
     CONV_nDIGIT enDigit = CONV_enDIGIT_NO;
-    uint8_t  u8ValueAux=0;
+    uint8_t  u8ValueAux = 0;
 
     if(((uint32_t) 0U != (uint32_t) pcString) && ((uint32_t) 0U != (uint32_t) pu64NumUnsigned))
     {

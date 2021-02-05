@@ -21,15 +21,14 @@
  * Date           Author     Version     Description
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/TIMER/App/Mode/xHeader/TIMER_ModeStruct.h>
 
 #include <stdlib.h>
-#include <xDriver_MCU/TIMER/App/Mode/xHeader/TIMER_ModeStruct.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
 void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode, TIMER_MODE_Typedef* psMode)
 {
-
-    if(psMode != 0)
+    if(0UL != (uint32_t) psMode)
     {
         psMode->enDirection=(TIMER_nCOUNT_DIR) ((uint32_t) enMode & 1U);
         psMode->enAltMode=(TIMER_nALT_MODE) (((uint32_t) enMode >> 4U) & 1U);
@@ -45,13 +44,13 @@ void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode, TIMER_MODE_Typedef* psM
 
 TIMER_MODE_Typedef* TIMER__psCreateModeStruct(TIMER_nMODE enMode)
 {
-    TIMER_MODE_Typedef* psMode=0;
+    TIMER_MODE_Typedef* psMode = 0;
     #if defined (__TI_ARM__ )
     psMode = (TIMER_MODE_Typedef*) memalign((size_t) 4,(size_t) sizeof(TIMER_MODE_Typedef));
     #elif defined (__GNUC__ )
     psMode = (TIMER_MODE_Typedef*) malloc((size_t) sizeof(TIMER_MODE_Typedef));
     #endif
-    if(psMode != 0)
+    if(0UL != (uint32_t) psMode)
     {
         psMode->enDirection=(TIMER_nCOUNT_DIR) ((uint32_t) enMode & 1U);
         psMode->enAltMode=(TIMER_nALT_MODE) (((uint32_t) enMode >> 4U) & 1U);
@@ -71,6 +70,3 @@ void TIMER__vDeleteModeStruct(TIMER_MODE_Typedef* psMode)
     free(psMode);
     psMode = (TIMER_MODE_Typedef*) 0UL;
 }
-
-
-

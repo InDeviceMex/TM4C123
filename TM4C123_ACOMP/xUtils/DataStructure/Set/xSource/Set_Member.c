@@ -39,7 +39,7 @@ SetMember_TypeDef* Set__psIsMember(const Set_TypeDef* psSet, const void* pvData)
         psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
         while((uint32_t) 0UL != (uint32_t) psMember)
         {
-            pvDataMember=SLinkedList__pvGetElementData(psMember);
+            pvDataMember = SLinkedList__pvGetElementData(psMember);
             if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(pvData, pvDataMember))
             {
                 enStatus = Set_enSTATUS_OK;
@@ -142,7 +142,7 @@ Set_nSTATUS Set__enIsMember(const Set_TypeDef* psSet, const void* pvData)
         psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
         while((uint32_t) 0UL != (uint32_t) psMember)
         {
-            pvDataMember=SLinkedList__pvGetElementData(psMember);
+            pvDataMember = SLinkedList__pvGetElementData(psMember);
             if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(pvData, pvDataMember))
             {
                 enStatus = Set_enSTATUS_OK;

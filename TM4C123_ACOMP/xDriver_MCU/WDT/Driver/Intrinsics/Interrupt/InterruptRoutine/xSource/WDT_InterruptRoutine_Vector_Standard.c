@@ -31,7 +31,7 @@
 void WDT_Standard__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg0 = 0U;
-    volatile uint32_t u32Reg1= 0U;
+    volatile uint32_t u32Reg1 = 0U;
     volatile uint32_t u32RegWrite1 = 0U;
 
     if((uint32_t) 0U != (SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )

@@ -92,7 +92,7 @@
          psMember = SLinkedList__psGetHead(psList);
           while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength))
           {
-              pvDataMember=SLinkedList__pvGetElementData(psMember);
+              pvDataMember = SLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -116,7 +116,7 @@
          psMember = SLinkedList__psGetHead(psList);
           while(((uint32_t) 0UL != (uint32_t) psMember) && (0UL != u32MaxLength) && (0UL != u32Nodes))
           {
-              pvDataMember=SLinkedList__pvGetElementData(psMember);
+              pvDataMember = SLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;

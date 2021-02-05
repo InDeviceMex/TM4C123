@@ -28,7 +28,7 @@
 
 void UART__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),UART_nMODULE enModule, UART_nINTERRUPT enInterruptSource)
 {
-    uint32_t u32IrqSourceHandler=0U;
+    uint32_t u32IrqSourceHandler = 0U;
     uint32_t u32Module = (uint32_t) enModule;
     uint32_t u32InterruptSource = (uint32_t) enInterruptSource;
     if((uint32_t) pfIrqSourceHandler != 0U)

@@ -30,9 +30,9 @@
 
 void ADC__vSetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32Feature, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32RegAddress=0U;
-    volatile uint32_t* pu32Adc=0U;
+    uint32_t u32Reg = 0U;
+    uint32_t u32RegAddress = 0U;
+    volatile uint32_t* pu32Adc = 0U;
 
     u32Feature &= u32MaskFeature;
     if((uint32_t) ADC_enMODULE_MAX<u32Module)
@@ -46,22 +46,22 @@ void ADC__vSetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uin
     u32Reg = *pu32Adc;
     u32Reg &= ~(u32MaskFeature << u32BitFeature);
     u32Reg |= (u32Feature << u32BitFeature);
-    *pu32Adc=u32Reg;
+    *pu32Adc = u32Reg;
 }
 
 uint32_t ADC__u32GetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    uint32_t u32Reg=0U;
-    uint32_t u32RegAddress=0U;
-    volatile uint32_t* pu32Adc=0U;
+    uint32_t u32Reg = 0U;
+    uint32_t u32RegAddress = 0U;
+    volatile uint32_t* pu32Adc = 0U;
 
-    ADC_nREADY enReady= ADC_enNOREADY;
+    ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32Feature = 0xFFFFFFFFU;
     if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
         u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
-    enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
+    enReady = ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
     {
         u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];

@@ -26,10 +26,10 @@
 
 CONV_nNEWLINE Conv__enIsNewLine(char cCharacter)
 {
-    CONV_nNEWLINE enStatus= CONV_enNEWLINE_NO;
+    CONV_nNEWLINE enStatus = CONV_enNEWLINE_NO;
     if(cCharacter == '\n')
     {
-        enStatus=CONV_enNEWLINE_OK;
+        enStatus = CONV_enNEWLINE_OK;
     }
     return enStatus;
 }

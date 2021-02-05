@@ -49,14 +49,14 @@ void EDUMKII_Led_vInitPWM(EDUMKII_nLED enLedSelect)
 {
     TIMER_EXTRAMODE_Typedef psExtraMode;
 
-    psExtraMode.enWaitTrigger=TIMER_enWAIT_NOTRIGGER;
-    psExtraMode.enUpdateInterval=TIMER_enUPDATE_INTERVAL_TIMEOUT;
-    psExtraMode.enPWMInterrupt=TIMER_enPWM_INT_DIS;
-    psExtraMode.enEventInterrupt=TIMER_enEVENT_INT_DIS;
-    psExtraMode.enUpdateMatch=TIMER_enUPDATE_MATCH_TIMEOUT;
-    psExtraMode.enStall=TIMER_enSTALL_FREEZE;
-    psExtraMode.enRTCStall=TIMER_enRTC_STALL_FREEZE;
-    psExtraMode.enADCTrigger=TIMER_enADC_TRIGGER_DIS;
+    psExtraMode.enWaitTrigger = TIMER_enWAIT_NOTRIGGER;
+    psExtraMode.enUpdateInterval = TIMER_enUPDATE_INTERVAL_TIMEOUT;
+    psExtraMode.enPWMInterrupt = TIMER_enPWM_INT_DIS;
+    psExtraMode.enEventInterrupt = TIMER_enEVENT_INT_DIS;
+    psExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
+    psExtraMode.enStall = TIMER_enSTALL_FREEZE;
+    psExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
+    psExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_DIS;
 
     /*GREEN, RED, BLUE LED*/
     if((uint32_t) EDUMKII_enLED_RED == ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_RED))

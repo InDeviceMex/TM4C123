@@ -27,11 +27,11 @@
 
 CONV_nPOSITIVE_SIGN Conv__enIsPositiveSign(char cCharacter)
 {
-    CONV_nPOSITIVE_SIGN enStatus= CONV_enPOSITIVE_SIGN_NO;
+    CONV_nPOSITIVE_SIGN enStatus = CONV_enPOSITIVE_SIGN_NO;
     char cChar = (char)cCharacter;
     if((char)'+' == (char)cChar)
     {
-        enStatus=CONV_enPOSITIVE_SIGN_OK;
+        enStatus = CONV_enPOSITIVE_SIGN_OK;
     }
 
     return enStatus;

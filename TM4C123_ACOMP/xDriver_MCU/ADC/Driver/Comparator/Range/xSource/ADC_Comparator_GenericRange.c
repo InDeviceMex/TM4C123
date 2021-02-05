@@ -30,8 +30,8 @@
 
 void ADC__vSetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32Range, uint32_t u32RangeMask, uint32_t u32RangeBit)
 {
-    uint32_t u32Reg=0U;
-    ADC_TypeDef* psAdc=0U;
+    uint32_t u32Reg = 0U;
+    ADC_TypeDef* psAdc = 0U;
 
     if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
@@ -42,7 +42,7 @@ void ADC__vSetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator, uint
         u32Comparator = (uint32_t) ADC_en_COMPARATOR_MAX;
     }
     ADC__vSetReady((ADC_nMODULE)u32Module);
-    psAdc=ADC_BLOCK[u32Module];
+    psAdc = ADC_BLOCK[u32Module];
     u32Reg = psAdc->ADCDCCMP[u32Comparator];
 
     u32Reg &= ~(u32RangeMask << u32RangeBit);
@@ -53,10 +53,10 @@ void ADC__vSetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator, uint
 
 uint32_t ADC__u32GetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32RangeMask, uint32_t u32RangeBit)
 {
-    uint32_t u32Reg=0U;
-    ADC_TypeDef* psAdc=0U;
+    uint32_t u32Reg = 0U;
+    ADC_TypeDef* psAdc = 0U;
 
-    ADC_nREADY enReady= ADC_enNOREADY;
+    ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32Range = 0xFFFFFFFFU;
     if((uint32_t) ADC_enMODULE_MAX<u32Module)
     {
@@ -66,10 +66,10 @@ uint32_t ADC__u32GetCompGenericRange(uint32_t u32Module, uint32_t  u32Comparator
     {
         u32Comparator = (uint32_t) ADC_en_COMPARATOR_MAX;
     }
-    enReady=ADC__enIsReady((ADC_nMODULE)u32Module);
+    enReady = ADC__enIsReady((ADC_nMODULE)u32Module);
     if(ADC_enREADY == enReady)
     {
-        psAdc=ADC_BLOCK[u32Module];
+        psAdc = ADC_BLOCK[u32Module];
         u32Reg = psAdc->ADCDCCTL[u32Comparator];
 
         u32Reg >>= u32RangeBit;

@@ -131,7 +131,7 @@ void TIMER__vSetReload(TIMER_nMODULE enModule, uint64_t u64Reload)
                     enAltModeVar = TIMER__enGetAltMode(enModule);
                     enDirectionVar = TIMER__enGetCountDir(enModule);
 
-                    u64TimerValue =  u64Reload;
+                    u64TimerValue = u64Reload;
                     sReload64Config.u32CountHighShiftLeft = 0UL;
                     sReload64Config.u32CountLowShiftRight = 0UL;
                     sReload64Config.u32CountLowShiftLeft = 0UL;
@@ -220,7 +220,7 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint64_t* pu64Reload)
                             sReload64Config.u32CountHighShiftLeft = 8UL;
 
                             sReload64Config.u32CountLowRegister = GPTM_GPTMTAPR_OFFSET + (4UL * u32SubModule);
-                            sReload64Config.u32CountLowMask =0xFFUL;
+                            sReload64Config.u32CountLowMask = 0xFFUL;
                             sReload64Config.u32CountLowShiftLeft = 0UL;
                             sReload64Config.u32CountLowShiftRight = 0UL;
 
@@ -231,7 +231,7 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint64_t* pu64Reload)
                         {
 
                             sReload64Config.u32CountHighRegister = GPTM_GPTMTAPR_OFFSET + (4UL * u32SubModule);
-                            sReload64Config.u32CountHighMask =0xFFUL;
+                            sReload64Config.u32CountHighMask = 0xFFUL;
                             sReload64Config.u32CountHighShiftRight = 0UL;
                             sReload64Config.u32CountHighShiftLeft = 16UL;
 
@@ -288,14 +288,14 @@ TIMER_nSTATUS TIMER__enGetReload(TIMER_nMODULE enModule, uint64_t* pu64Reload)
                             sReload64Config.u32CountHighShiftLeft = 16UL;
 
                             sReload64Config.u32CountLowRegister = GPTM_GPTMTAPR_OFFSET + (4UL * u32SubModule);
-                            sReload64Config.u32CountLowMask =0xFFFFUL;
+                            sReload64Config.u32CountLowMask = 0xFFFFUL;
                         }
                         /*Time Extension*/
                         /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
                             sReload64Config.u32CountHighRegister = GPTM_GPTMTAPR_OFFSET + (4UL * u32SubModule);
-                            sReload64Config.u32CountHighMask =0xFFFFUL;
+                            sReload64Config.u32CountHighMask = 0xFFFFUL;
                             sReload64Config.u32CountHighShiftLeft = 32UL;
 
                             sReload64Config.u32CountLowRegister = GPTM_GPTMTAILR_OFFSET + (4UL * u32SubModule);

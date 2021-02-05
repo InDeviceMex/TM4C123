@@ -17,20 +17,20 @@
 
 typedef enum
 {
-    LCD1602_enOK=0U,
-    LCD1602_enBUSY=1U,
+    LCD1602_enOK = 0U,
+    LCD1602_enBUSY = 1U,
 }LCD1602_nBUSY;
 
 typedef enum
 {
-    LCD1602_enCONITNUE=0U,
-    LCD1602_enFINISH=1U,
+    LCD1602_enCONITNUE = 0U,
+    LCD1602_enFINISH = 1U,
 }LCD1602_nFINISH;
 
 typedef enum
 {
-    LCD1602_enSTATUS_OK=0U,
-    LCD1602_enSTATUS_ERROR=1U,
+    LCD1602_enSTATUS_OK = 0U,
+    LCD1602_enSTATUS_ERROR = 1U,
 }LCD1602_nSTATUS;
 
 typedef enum
@@ -58,7 +58,7 @@ typedef enum
     LCD1602_enM1LINE = 0x20U, /*1 Line Mode*/
     LCD1602_enM4BIT = 0x20U, /*4 bit Mode*/
     LCD1602_enM5_8_Font = 0x20U, /*5x8 Font*/
-    LCD1602_enM5_11_Font=0x24U, /*5x11 Font*/
+    LCD1602_enM5_11_Font = 0x24U, /*5x11 Font*/
     LCD1602_enM2LINE = 0x28U, /*2 Line Mode*/
     LCD1602_enM8BIT = 0x30U, /*8 bit Mode*/
 

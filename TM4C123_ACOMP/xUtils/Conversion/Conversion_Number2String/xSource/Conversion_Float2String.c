@@ -31,14 +31,14 @@ const int64_t CONV_s64Dec[16] = {0, 10, 100, 1000, 10000, 100000, 1000000, 10000
 /* ToDo Actualizar Float*/
 uint8_t Conv__u8Float2String(float64_t dNumber, uint8_t u8Positive, uint8_t u8Padding0, int32_t s32Enteros, int32_t s32Decimals, char* pcConv)
 {
-    int64_t CONV_s64Deci=0;/*contiene los dDecimales en version entero*/
-    float64_t dDecimal=0;/*contiene el valor de dDecimales en version float64_t*/
-    uint8_t u8Values=0;/*cuantos digitos se imprimen*/
-    uint8_t u8NegativeNumber=0;/*cuantos digitos se imprimen*/
-    char* pcConvAux=0U;
+    int64_t CONV_s64Deci = 0;/*contiene los dDecimales en version entero*/
+    float64_t dDecimal = 0;/*contiene el valor de dDecimales en version float64_t*/
+    uint8_t u8Values = 0;/*cuantos digitos se imprimen*/
+    uint8_t u8NegativeNumber = 0;/*cuantos digitos se imprimen*/
+    char* pcConvAux = 0U;
     if(s32Decimals>15)
     {
-        s32Decimals=15;
+        s32Decimals = 15;
     }
     CONV_s64Deci = (int64_t) dNumber;
     dDecimal=(float64_t) (dNumber-(float64_t) CONV_s64Deci);/*obtiene la parte dDecimal*/
@@ -54,7 +54,7 @@ uint8_t Conv__u8Float2String(float64_t dNumber, uint8_t u8Positive, uint8_t u8Pa
         u8Positive= (uint8_t) 1;
         u8NegativeNumber= (uint8_t) 1;
     }
-    u8Values= Conv__u8DInt2String((int64_t) dNumber, u8Positive, u8Padding0,(uint8_t) s32Enteros, pcConv);/*pcConvierte la parte entera del numero*/
+    u8Values = Conv__u8DInt2String((int64_t) dNumber, u8Positive, u8Padding0,(uint8_t) s32Enteros, pcConv);/*pcConvierte la parte entera del numero*/
     if(u8NegativeNumber == (uint8_t) 1)
     {
         pcConvAux = pcConv;

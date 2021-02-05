@@ -56,7 +56,7 @@ HIB_nSTATUS HIB__enClearInterruptSource(HIB_nINT enInterruptParam)
 
 HIB_nINT_STATUS HIB__enStatusInterruptSource(HIB_nINT enInterruptParam)
 {
-    HIB_nSTATUS enStatusRead= HIB_enSTATUS_UNDEF;
+    HIB_nSTATUS enStatusRead = HIB_enSTATUS_UNDEF;
     HIB_nINT_STATUS enStatus = HIB_enINT_STATUS_UNDEF;
     uint32_t u32Reg = 0UL;
 

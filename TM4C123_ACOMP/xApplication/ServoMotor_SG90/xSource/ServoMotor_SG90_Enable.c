@@ -27,14 +27,14 @@
 
 ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* const psServoMotor)
 {
-    ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
-    TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
+    ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
+    TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
     if(0UL != psServoMotor)
     {
 
-        enTimerModuleVar= psServoMotor->enTimerModule;
+        enTimerModuleVar = psServoMotor->enTimerModule;
         TIMER__vSetEnable(enTimerModuleVar, TIMER_enENABLE_START);
-        enServoStatus=ServoMoto_SG90_enOK;
+        enServoStatus = ServoMoto_SG90_enOK;
 
     }
     return enServoStatus;
@@ -42,14 +42,14 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* c
 
 ServoMoto_SG90_nSTATUS ServoMotor_SG90__enDisable(const ServoMoto_SG90_Typedef* const psServoMotor)
 {
-    ServoMoto_SG90_nSTATUS enServoStatus= ServoMoto_SG90_enERROR;
-    TIMER_nMODULE enTimerModuleVar= TIMER_enMODULE_UNDEF;
+    ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
+    TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
     if(0UL != psServoMotor)
     {
 
-      enTimerModuleVar= psServoMotor->enTimerModule;
+      enTimerModuleVar = psServoMotor->enTimerModule;
         TIMER__vSetEnable(enTimerModuleVar, TIMER_enENABLE_STOP);
-        enServoStatus=ServoMoto_SG90_enOK;
+        enServoStatus = ServoMoto_SG90_enOK;
 
     }
     return enServoStatus;

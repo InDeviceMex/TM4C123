@@ -15,7 +15,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
 {
   uint32_t u32Flags = 0U;
   uint32_t u32Width = 0U;
-  uint32_t u32Negative= 0U;
+  uint32_t u32Negative = 0U;
   uint32_t u32LengthOut = 0U;
   uint64_t u64ValueTemp = 0ULL;
   uint32_t u32Precision = 0U;

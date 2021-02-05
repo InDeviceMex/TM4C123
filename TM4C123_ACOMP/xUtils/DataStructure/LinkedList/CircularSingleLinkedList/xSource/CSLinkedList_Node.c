@@ -94,7 +94,7 @@
          u32SizeList = CSLinkedList__u32GetSize(psList);
           while((0UL != u32MaxLength) && (u32SizeReg != u32SizeList))
           {
-              pvDataMember=CSLinkedList__pvGetElementData(psMember);
+              pvDataMember = CSLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;
@@ -120,7 +120,7 @@
          u32SizeList = CSLinkedList__u32GetSize(psList);
           while((0UL != u32MaxLength) && (u32SizeReg != u32SizeList) && (0UL != u32Nodes))
           {
-              pvDataMember=CSLinkedList__pvGetElementData(psMember);
+              pvDataMember = CSLinkedList__pvGetElementData(psMember);
               *pvData = pvDataMember;
               u32SizeReg++;
               pvData += 1U;

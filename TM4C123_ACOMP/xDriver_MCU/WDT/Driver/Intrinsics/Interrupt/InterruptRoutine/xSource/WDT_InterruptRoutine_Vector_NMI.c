@@ -70,7 +70,7 @@ void WDT_NMI__vIRQVectorHandler(void)
                 WDT1_WDTICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
                 do
                 {
-                    u32RegWrite1= WDT1_WDTCTL_R;
+                    u32RegWrite1 = WDT1_WDTCTL_R;
                     u32RegWrite1 &= WDT_WDTCTL_R_WRC_MASK;
                 }while(WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1 );
                 WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_NMI][(uint32_t) WDT_enMODULE_1]();
