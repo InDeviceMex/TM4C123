@@ -33,8 +33,8 @@
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psHeadElement = (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psElementNextNode= (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psElementPreviousNode= (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psElementNextNode = (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psElementPreviousNode = (DLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
@@ -93,7 +93,7 @@
  DLinkedList_nSTATUS DLinkedList__enRemoveNext(DLinkedList_TypeDef* psList, const DLinkedListElement_TypeDef* psElement, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psElementNextNode= (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psElementNextNode = (DLinkedListElement_TypeDef*) 0UL ;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
@@ -106,7 +106,7 @@
  DLinkedList_nSTATUS DLinkedList__enRemovePrevious(DLinkedList_TypeDef* psList, const DLinkedListElement_TypeDef* psElement, void** pvData)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psElementPreviousNode= (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psElementPreviousNode = (DLinkedListElement_TypeDef*) 0UL ;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {

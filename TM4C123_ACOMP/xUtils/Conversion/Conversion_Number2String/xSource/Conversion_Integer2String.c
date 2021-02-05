@@ -54,11 +54,11 @@ uint8_t Conv__u8DInt2String(int64_t s64Number, uint8_t u8Positive, uint8_t u8Pad
 
     if (u8Deci>(uint8_t) 19)
     {
-        u8Deci=(uint8_t) 19;
+        u8Deci = (uint8_t) 19;
     }
     do {
         pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
-        s8Num=(int8_t) (s64NumberReg % 10);/*obtiene el digito de menor peso*/
+        s8Num = (int8_t) (s64NumberReg % 10);/*obtiene el digito de menor peso*/
         if(s8Num<0)
         {
             s8Num*=-1;
@@ -106,7 +106,7 @@ uint8_t Conv__u8DInt2String(int64_t s64Number, uint8_t u8Positive, uint8_t u8Pad
                     *pcPointerActual = '+';/*si el s32Numero es negativo guarda el signo negativo*/
                 }
                 else{}
-                u8FlagSign=(uint8_t) 0;
+                u8FlagSign = (uint8_t) 0;
             }
             else
             {
@@ -132,10 +132,10 @@ uint8_t Conv__u8DInt2String(int64_t s64Number, uint8_t u8Positive, uint8_t u8Pad
         }
         else{}
     }
-    u32ResultAux=((uint32_t) &CONV_pcConvTemp[21 - 1]);
-    s64NumberReg=(int64_t) u32ResultAux;
+    u32ResultAux = ((uint32_t) &CONV_pcConvTemp[21 - 1]);
+    s64NumberReg = (int64_t) u32ResultAux;
     s64NumberReg += 1;
-    u32ResultAux=((uint32_t) pcPointerActual);
+    u32ResultAux = ((uint32_t) pcPointerActual);
     s64NumberReg -= (int64_t) u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
 
     pcConvAux = pcConv;
@@ -148,7 +148,7 @@ uint8_t Conv__u8DInt2String(int64_t s64Number, uint8_t u8Positive, uint8_t u8Pad
           pcPointerActualAux -= 1U;
          *pcConvAux= *pcPointerActualAux;
     }
-    s32Result=(int32_t) s64NumberReg;
+    s32Result = (int32_t) s64NumberReg;
     s32Result -= 1;
     return (uint8_t) (s32Result);
 }
@@ -177,7 +177,7 @@ uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
         pcPointerActual -= 1U;/*se decrementa la posicion donse guardara el valor*/
         s64NumberRegAlt = s64NumberReg;
         s64NumberRegAlt%=(int64_t) 10;
-        u8Num=(uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
+        u8Num = (uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s64NumberReg /= 10;
         pcPointerActualAux = CONV_pcConvTemp;
@@ -189,11 +189,11 @@ uint8_t Conv__u8Int2String(int64_t s64Number, char* pcConv)
         pcPointerActual -= 1U;
         *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/
     }
-    u32ResultAux= ((uint32_t) CONV_pcConvTemp);
-    s64NumberReg=(int64_t) u32ResultAux;
+    u32ResultAux = ((uint32_t) CONV_pcConvTemp);
+    s64NumberReg = (int64_t) u32ResultAux;
     s64NumberReg += (int64_t) INT2STRINGMAX;
     s64NumberReg -= 1;
-    u32ResultAux=((uint32_t) pcPointerActual);
+    u32ResultAux = ((uint32_t) pcPointerActual);
     s64NumberReg -= (int64_t) u32ResultAux;/*realiza la resta de cuantos caracteres se utilizaron*/
 
     pcConvAux = pcConv;
@@ -226,7 +226,7 @@ uint8_t Conv__u8Int2StringZeros(int64_t s64Number, int8_t s8CerosLeft, char* pcC
 
     if(s8CerosLeft>(int8_t) (INT2STRINGMAX-2U))
     {
-        s8CerosLeft=(int8_t) (INT2STRINGMAX-2U);
+        s8CerosLeft = (int8_t) (INT2STRINGMAX-2U);
     }
 
     *pcPointerActual = (char)0;/*guarda el fin de cadena en la ultima posicion*/
@@ -244,7 +244,7 @@ uint8_t Conv__u8Int2StringZeros(int64_t s64Number, int8_t s8CerosLeft, char* pcC
 
         s64NumberRegAlt = s64NumberReg;
         s64NumberRegAlt%=(int64_t) 10;
-        u8Num=(uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
+        u8Num = (uint8_t) s64NumberRegAlt;/*obtiene el digito de menor peso*/
         *pcPointerActual = (char) Conversion_pc8Decimal[u8Num];/*pcConvierte el valor en caracter*/
         s8CerosLeft--;
         s64NumberReg /= 10;
@@ -264,8 +264,8 @@ uint8_t Conv__u8Int2StringZeros(int64_t s64Number, int8_t s8CerosLeft, char* pcC
         pcPointerActual -= 1U;
         *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/
     }
-    u32ResultAux= ((uint32_t) CONV_pcConvTemp);
-    s64NumberReg=(int64_t) u32ResultAux;
+    u32ResultAux = ((uint32_t) CONV_pcConvTemp);
+    s64NumberReg = (int64_t) u32ResultAux;
     s64NumberReg += (int64_t) INT2STRINGMAX;
     s64NumberReg -= 1;
     u32ResultAux = ((uint32_t) pcPointerActual);

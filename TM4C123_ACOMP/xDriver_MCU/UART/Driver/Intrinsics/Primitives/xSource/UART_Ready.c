@@ -69,7 +69,7 @@ UART_nREADY UART__enIsReady(UART_nMODULE enModule)
         u32Module = (uint32_t) UART_enMODULE_MAX;
     }
     enPeripheral = SYSCTL_VECTOR_UART[u32Module];
-    enReady=(UART_nREADY)SYSCTL__enIsReady(enPeripheral);
+    enReady = (UART_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
 

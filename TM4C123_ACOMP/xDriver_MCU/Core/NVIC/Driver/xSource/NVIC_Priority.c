@@ -61,7 +61,7 @@ inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ)
     u32RegisterOffset += u32IsrIndex;
 
     u32Priority = MCU__u32ReadRegister(NVIC_BASE, u32RegisterOffset, NVIC_PRI_MASK, u32IsrBit);
-    enPriority= (NVIC_nPRIORITY) u32Priority;
+    enPriority = (NVIC_nPRIORITY) u32Priority;
 
     return enPriority;
 }

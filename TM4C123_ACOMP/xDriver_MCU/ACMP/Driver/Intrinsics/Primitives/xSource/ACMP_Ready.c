@@ -39,7 +39,7 @@ ACMP_nREADY ACMP__enIsReady(void)
 {
     ACMP_nREADY enReady = ACMP_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enACMP;
-    enReady=(ACMP_nREADY)SYSCTL__enIsReady(enPeripheral);
+    enReady = (ACMP_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
 

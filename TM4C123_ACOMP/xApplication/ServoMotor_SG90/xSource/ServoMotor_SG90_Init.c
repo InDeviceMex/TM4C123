@@ -70,7 +70,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         psServoMotor->u32DeltaCount = u32ServoMinPulse - u32ServoMaxPulse;
         psServoMotor->u32DegreeCount = psServoMotor->u32DeltaCount;
         u32DegreeCountVar = psServoMotor->u32DeltaCount;
-        fDegreeCountVar= (float32_t) u32DegreeCountVar;
+        fDegreeCountVar = (float32_t) u32DegreeCountVar;
         psServoMotor->fDegreeCount = fDegreeCountVar;
         psServoMotor->u32DegreeCount /= 180U;
         psServoMotor->fDegreeCount /= 180.0f;

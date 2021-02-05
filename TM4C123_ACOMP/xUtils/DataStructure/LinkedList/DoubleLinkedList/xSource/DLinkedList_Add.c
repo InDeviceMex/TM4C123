@@ -32,7 +32,7 @@
  DLinkedListElement_TypeDef* DLinkedList__psAddNext(DLinkedList_TypeDef* psList, DLinkedListElement_TypeDef* psElement, void* pvData)
 {
      DLinkedListElement_TypeDef* psNewElement = (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psElementNextNode= (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psElementNextNode = (DLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
 
      if(((uint32_t) 0UL != (uint32_t) psList))
@@ -88,7 +88,7 @@
  DLinkedListElement_TypeDef* DLinkedList__psAddPrevious(DLinkedList_TypeDef* psList, DLinkedListElement_TypeDef* psElement, void* pvData)
 {
      DLinkedListElement_TypeDef* psNewElement = (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psElementPreviousNode= (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psElementPreviousNode = (DLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {

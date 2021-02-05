@@ -41,7 +41,7 @@ CONV_nSTATUS Conv__enConversion(char* pcPointer, uint64_t u64Number, uint8_t* u8
             pcPointer -= 1U;/*se decrementa la posicion donse guardara el valor*/
             u64NumberReg = u64Number;
             u64NumberReg %= u8Base;
-            u8Num=(uint8_t) (u64NumberReg);/*obtiene el digito de menor peso*/
+            u8Num = (uint8_t) (u64NumberReg);/*obtiene el digito de menor peso*/
             pcLookUpTableReg = pcLookUpTable;
             pcLookUpTableReg += u8Num;
             (*pcPointer) = (char) *pcLookUpTableReg;/*convierte el valor en caracter*/

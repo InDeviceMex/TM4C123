@@ -33,10 +33,10 @@
  CDLinkedList_nSTATUS CDLinkedList__enRemove(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
-     CDLinkedListElement_TypeDef* psElementNextNode= (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psElementPreviousNode= (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psHeadNode= (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psTailNode= (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psElementNextNode = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psElementPreviousNode = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psHeadNode = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psTailNode = (CDLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
@@ -89,7 +89,7 @@
  CDLinkedList_nSTATUS CDLinkedList__enRemoveNext(CDLinkedList_TypeDef* psList, const CDLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
-     CDLinkedListElement_TypeDef* psElementNextNode= (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psElementNextNode = (CDLinkedListElement_TypeDef*) 0UL ;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
@@ -102,7 +102,7 @@
  CDLinkedList_nSTATUS CDLinkedList__enRemovePrevious(CDLinkedList_TypeDef* psList, const CDLinkedListElement_TypeDef* psElement, void** pvData)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
-     CDLinkedListElement_TypeDef* psElementPreviousNode= (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psElementPreviousNode = (CDLinkedListElement_TypeDef*) 0UL ;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) psElement) && ((uint32_t) 0UL != (uint32_t) pvData))
      {

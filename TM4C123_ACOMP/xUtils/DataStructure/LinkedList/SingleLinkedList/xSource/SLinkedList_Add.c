@@ -32,8 +32,8 @@
  SLinkedListElement_TypeDef* SLinkedList__psAddNext(SLinkedList_TypeDef* psList, SLinkedListElement_TypeDef* psElement, void* pvData)
 {
      SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psListHeadNode= (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psElementNextNode= (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psListHeadNode = (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psElementNextNode = (SLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {

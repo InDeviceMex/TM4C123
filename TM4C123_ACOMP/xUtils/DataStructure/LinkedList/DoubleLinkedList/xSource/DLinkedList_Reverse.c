@@ -32,9 +32,9 @@
  DLinkedList_nSTATUS DLinkedList__enReverse(DLinkedList_TypeDef* psList)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psNextElement= (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psNextNextElement= (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psNextPreviousElement= (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psNextElement = (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psNextNextElement = (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* psNextPreviousElement = (DLinkedListElement_TypeDef*) 0UL ;
      DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL ;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {

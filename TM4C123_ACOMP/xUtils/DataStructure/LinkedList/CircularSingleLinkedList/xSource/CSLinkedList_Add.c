@@ -58,8 +58,8 @@
      CSLinkedListElement_TypeDef* psNewElement = (CSLinkedListElement_TypeDef*) 0UL ;
      CSLinkedListElement_TypeDef* psNextElement = (CSLinkedListElement_TypeDef*) 0UL ;
      CSLinkedListElement_TypeDef* psNewElement1 = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psListHeadNode= (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psListTailNode= (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* psListHeadNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* psListTailNode = (CSLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {

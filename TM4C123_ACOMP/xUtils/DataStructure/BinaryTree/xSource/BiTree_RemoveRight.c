@@ -33,7 +33,7 @@
  BiTree_nSTATUS BiTree__enRemoveRight(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psElement)
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
-     BiTreeElement_TypeDef** psElementPosition= (BiTreeElement_TypeDef**) 0UL ;
+     BiTreeElement_TypeDef** psElementPosition = (BiTreeElement_TypeDef**) 0UL ;
      void (*pfvDestroyData) (void *DataContainer) = (void (*) (void *DataContainer)) 0UL;
      uint32_t u32SizeReg = 0UL;
 

@@ -33,8 +33,8 @@
 {
      CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
      CDLinkedListElement_TypeDef* psElementTemp = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psElementNextNode= (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psHeadNode= (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psElementNextNode = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* psHeadNode = (CDLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {
@@ -88,8 +88,8 @@
  {
       CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
       CDLinkedListElement_TypeDef* psElementTemp = (CDLinkedListElement_TypeDef*) 0UL ;
-      CDLinkedListElement_TypeDef* psElementPreviousNode= (CDLinkedListElement_TypeDef*) 0UL ;
-      CDLinkedListElement_TypeDef* psTailNode= (CDLinkedListElement_TypeDef*) 0UL ;
+      CDLinkedListElement_TypeDef* psElementPreviousNode = (CDLinkedListElement_TypeDef*) 0UL ;
+      CDLinkedListElement_TypeDef* psTailNode = (CDLinkedListElement_TypeDef*) 0UL ;
       uint32_t u32SizeReg = 0U;
       if(((uint32_t) 0UL != (uint32_t) psList))
       {

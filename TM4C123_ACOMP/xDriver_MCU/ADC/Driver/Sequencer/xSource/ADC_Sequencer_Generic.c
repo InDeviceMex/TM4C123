@@ -43,7 +43,7 @@ void ADC__vSetSequencerGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, u
     ADC__vSetReady((ADC_nMODULE)u32Module);
     u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
     u32RegAddress += u32OffsetRegister;
-    pu32Adc=(volatile uint32_t*) (u32RegAddress);
+    pu32Adc = (volatile uint32_t*) (u32RegAddress);
     u32Reg = *pu32Adc;
     if(0UL == u32Feature)
     {
@@ -74,7 +74,7 @@ void ADC__vSetSequencerGenericBit(uint32_t u32Module, uint32_t u32OffsetRegister
     ADC__vSetReady((ADC_nMODULE)u32Module);
     u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
     u32RegAddress += u32OffsetRegister;
-    pu32Adc=(volatile uint32_t*) (u32RegAddress);
+    pu32Adc = (volatile uint32_t*) (u32RegAddress);
     u32Sequence *= u32FeatureBitMult;
     u32Sequence += u32FeatureBitAdd;
     u32Reg = *pu32Adc;
@@ -105,7 +105,7 @@ uint32_t ADC__u32GetSequencerGeneric(uint32_t u32Module, uint32_t u32OffsetRegis
     {
         u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
         u32RegAddress += u32OffsetRegister;
-        pu32Adc=(volatile uint32_t*) (u32RegAddress);
+        pu32Adc = (volatile uint32_t*) (u32RegAddress);
         u32Reg = *pu32Adc;
         u32Reg &= u32Sequence;
         if(0UL != u32Reg)
@@ -141,7 +141,7 @@ uint32_t ADC__u32GetSequencerGenericBit(uint32_t u32Module, uint32_t u32OffsetRe
     {
         u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
         u32RegAddress += u32OffsetRegister;
-        pu32Adc=(volatile uint32_t*) (u32RegAddress);
+        pu32Adc = (volatile uint32_t*) (u32RegAddress);
         u32Sequence *= u32FeatureBitMult;
         u32Sequence += u32FeatureBitAdd;
         u32Reg = *pu32Adc;

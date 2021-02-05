@@ -69,6 +69,6 @@ ADC_nREADY ADC__enIsReady(ADC_nMODULE enModule)
         u32Module = (uint32_t) ADC_enMODULE_MAX;
     }
     enPeripheral = SYSCTL_VECTOR_ADC[u32Module];
-    enReady=(ADC_nREADY)SYSCTL__enIsReady(enPeripheral);
+    enReady = (ADC_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }

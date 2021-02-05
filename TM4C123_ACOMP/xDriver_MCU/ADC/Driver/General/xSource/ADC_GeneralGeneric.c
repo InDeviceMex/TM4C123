@@ -42,7 +42,7 @@ void ADC__vSetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uin
     ADC__vSetReady((ADC_nMODULE)u32Module);
     u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
     u32RegAddress += u32OffsetRegister;
-    pu32Adc=(volatile uint32_t*) (u32RegAddress);
+    pu32Adc = (volatile uint32_t*) (u32RegAddress);
     u32Reg = *pu32Adc;
     u32Reg &= ~(u32MaskFeature << u32BitFeature);
     u32Reg |= (u32Feature << u32BitFeature);
@@ -66,7 +66,7 @@ uint32_t ADC__u32GetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegiste
     {
         u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
         u32RegAddress += u32OffsetRegister;
-        pu32Adc=(volatile uint32_t*) (u32RegAddress);
+        pu32Adc = (volatile uint32_t*) (u32RegAddress);
         u32Reg = *pu32Adc;
         u32Reg >>= u32BitFeature;
         u32Reg &= u32MaskFeature;

@@ -32,8 +32,8 @@
  SLinkedList_nSTATUS SLinkedList__enReverse(SLinkedList_TypeDef* psList)
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
-     SLinkedListElement_TypeDef* psPreviousElement= (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psNextElement= (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psPreviousElement = (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psNextElement = (SLinkedListElement_TypeDef*) 0UL ;
      SLinkedListElement_TypeDef* psHeadElement = (SLinkedListElement_TypeDef*) 0UL ;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {

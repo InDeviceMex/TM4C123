@@ -48,7 +48,7 @@ int32_t Conv__s32String2Integer(const char* pcString, int64_t* s64NumSigned )
     {
         s32Length = 0;
         /* The following situation is only valid when CONV_enSTATUS_OK is 0 and CONV_enSTATUS_ERROR is 1*/
-        enStatus=(CONV_nSTATUS)Conv__enIsNewLineReturn(*pcString);
+        enStatus = (CONV_nSTATUS)Conv__enIsNewLineReturn(*pcString);
         enStatus &= (CONV_nSTATUS)Conv__enIsScape(*pcString);
         enStatus &= (CONV_nSTATUS)Conv__enIsNull(*pcString);
         while(enStatus)
@@ -76,7 +76,7 @@ int32_t Conv__s32String2Integer(const char* pcString, int64_t* s64NumSigned )
             else if(CONV_enDIGIT_OK == enDigit)
             {
                 s64NumSignedReg *= 10;
-                u8ValueAux= (uint8_t) *pcString;
+                u8ValueAux = (uint8_t) *pcString;
                 u8ValueAux -= (uint8_t) '0';
                 s64NumSignedReg += (int64_t) u8ValueAux;
                 s32Length++;
@@ -108,7 +108,7 @@ int32_t Conv__s32String2Integer(const char* pcString, int64_t* s64NumSigned )
 
             pcString += 1U;
 
-            enStatus=(CONV_nSTATUS)Conv__enIsNewLineReturn(*pcString);
+            enStatus = (CONV_nSTATUS)Conv__enIsNewLineReturn(*pcString);
             enStatus &= (CONV_nSTATUS)Conv__enIsScape(*pcString);
             enStatus &= (CONV_nSTATUS)Conv__enIsNull(*pcString);
         }

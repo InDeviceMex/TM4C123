@@ -41,9 +41,9 @@ uint8_t Conv__u8Float2String(float64_t dNumber, uint8_t u8Positive, uint8_t u8Pa
         s32Decimals = 15;
     }
     CONV_s64Deci = (int64_t) dNumber;
-    dDecimal=(float64_t) (dNumber-(float64_t) CONV_s64Deci);/*obtiene la parte dDecimal*/
+    dDecimal = (float64_t) (dNumber-(float64_t) CONV_s64Deci);/*obtiene la parte dDecimal*/
     dDecimal *= (float64_t) CONV_s64Dec[(uint32_t) s32Decimals];/*hace la multiplicacion depende de cuantos dDecimales necesitemos*/
-    CONV_s64Deci=(int64_t) dDecimal;/*castea la parte dDecimal a un int64_t (64 bits)*/
+    CONV_s64Deci = (int64_t) dDecimal;/*castea la parte dDecimal a un int64_t (64 bits)*/
     if(CONV_s64Deci<0)/*si el numero es negativo elimina el signo*/
     {
       CONV_s64Deci*=-1;
@@ -51,8 +51,8 @@ uint8_t Conv__u8Float2String(float64_t dNumber, uint8_t u8Positive, uint8_t u8Pa
 
     if(dNumber<(float64_t) 0)
     {
-        u8Positive= (uint8_t) 1;
-        u8NegativeNumber= (uint8_t) 1;
+        u8Positive = (uint8_t) 1;
+        u8NegativeNumber = (uint8_t) 1;
     }
     u8Values = Conv__u8DInt2String((int64_t) dNumber, u8Positive, u8Padding0,(uint8_t) s32Enteros, pcConv);/*pcConvierte la parte entera del numero*/
     if(u8NegativeNumber == (uint8_t) 1)

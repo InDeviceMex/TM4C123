@@ -33,7 +33,7 @@ BiTreeElement_TypeDef* BiTree__psInsertRight(BiTree_TypeDef* psTree, BiTreeEleme
 {
      BiTreeElement_TypeDef* psNewElement = (BiTreeElement_TypeDef*) 0UL ;
      BiTreeElement_TypeDef* psElementRight = (BiTreeElement_TypeDef*) 0UL ;
-     BiTreeElement_TypeDef** psElementPosition= (BiTreeElement_TypeDef**) 0UL ;
+     BiTreeElement_TypeDef** psElementPosition = (BiTreeElement_TypeDef**) 0UL ;
      uint32_t u32SizeReg = 0U;
 
      if(((uint32_t) 0UL != (uint32_t) psTree))

@@ -34,11 +34,11 @@
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psOldElement = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psHeadNextNode= (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psHeadNextNode = (SLinkedListElement_TypeDef*) 0UL ;
      SLinkedListElement_TypeDef* psHeadData = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psElementNextNode= (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psElementNextNextNode= (SLinkedListElement_TypeDef*) 0UL ;
-     void* psElementNextNodeData= (void*) 0UL ;
+     SLinkedListElement_TypeDef* psElementNextNode = (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psElementNextNextNode = (SLinkedListElement_TypeDef*) 0UL ;
+     void* psElementNextNodeData = (void*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
@@ -101,12 +101,12 @@
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
      SLinkedListElement_TypeDef* psOldElement = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psHeadNextNode= (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psHeadNextNode = (SLinkedListElement_TypeDef*) 0UL ;
      SLinkedListElement_TypeDef* psHeadData = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psElementNextNode= (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psElementNextNextNode= (SLinkedListElement_TypeDef*) 0UL ;
-     void* psElementNextNodeData= (void*) 0UL ;
-     void* psElementNodeData= (void*) 0UL ;
+     SLinkedListElement_TypeDef* psElementNextNode = (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* psElementNextNextNode = (SLinkedListElement_TypeDef*) 0UL ;
+     void* psElementNextNodeData = (void*) 0UL ;
+     void* psElementNodeData = (void*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
      if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))

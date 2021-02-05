@@ -52,12 +52,12 @@ void ADC1_SS3__vIRQVectorHandler(void)
     u32RegCompSelect = ADC1_ADCSSOP3_R;
     if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_3))
     {
-        ADC1_ADCISC_R=((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_3);
+        ADC1_ADCISC_R = ((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_3);
         ADC_SAMPLE__vIRQSourceHandler[(uint32_t) ADC_enMODULE_1][(uint32_t) ADC_enSEQ_3]();
     }
     if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_3))
      {
-         ADC1_ADCISC_R=((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_3);
+         ADC1_ADCISC_R = ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_3);
          if(u32RegCompSelect & ((uint32_t) 0x1UL << (ADC_en_MUX_0 * 0x4U)))
          {
              u32RegCompMux = ADC1_ADCSSDC3_R >> (ADC_en_MUX_0 * 0x4U);
