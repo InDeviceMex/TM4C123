@@ -27,6 +27,16 @@
 
 #include <xUtils/Standard/Standard.h>
 
+#if defined (__TI_ARM__ )
+
+#pragma  CODE_SECTION(MCU__vRegisterIRQSourceHandler, ".ramcode")
+
 void MCU__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), void (**pfIrqVectorHandler) (void), uint32_t u32InterruptSource, uint32_t u32InterruptSourceMax);
+
+#elif defined (__GNUC__ )
+
+void MCU__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), void (**pfIrqVectorHandler) (void), uint32_t u32InterruptSource, uint32_t u32InterruptSourceMax)__attribute__((section(".ramcode")));
+
+#endif
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_REGISTERSOURCEIRQ_H_ */

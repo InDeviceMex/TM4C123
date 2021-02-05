@@ -35,8 +35,8 @@ void DMA__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), DMA_nCH_M
     uint32_t u32Encoder = 0UL;
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        u32DMAModule = MCU__u32CheckPatams(enDMAModule, DMA_enCH_MODULE_MAX);
-        u32Encoder = MCU__u32CheckPatams(enInterruptSourceType, DMA_enCH_ENCODER_MAX);
+        u32DMAModule = MCU__u32CheckParams(enDMAModule, DMA_enCH_MODULE_MAX);
+        u32Encoder = MCU__u32CheckParams(enInterruptSourceType, DMA_enCH_ENCODER_MAX);
 
         u32InterruptMax = (uint32_t) DMA_enCH_ENCODER_MAX;
         u32InterruptMax *= (uint32_t) DMA_enCH_MODULE_MAX;

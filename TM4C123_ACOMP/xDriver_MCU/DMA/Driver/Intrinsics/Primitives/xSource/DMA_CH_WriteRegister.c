@@ -29,7 +29,7 @@
 void DMA_CH__vWriteRegister(uint32_t u32ChBase, uint32_t u32ChNum, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
     uint32_t u32RegChannel = 0UL;
-    u32ChNum = MCU__u32CheckPatams(u32ChNum, DMA_enCH_MODULE_MAX);
+    u32ChNum = MCU__u32CheckParams(u32ChNum, DMA_enCH_MODULE_MAX);
 
     u32RegChannel = DMACH_REG_NUM;
     u32RegChannel *= u32ChNum;

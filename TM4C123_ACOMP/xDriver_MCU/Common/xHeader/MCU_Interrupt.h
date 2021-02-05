@@ -25,8 +25,20 @@
 #ifndef XDRIVER_MCU_COMMON_XHEADER_MCU_INTERRUPT_H_
 #define XDRIVER_MCU_COMMON_XHEADER_MCU_INTERRUPT_H_
 
+#if defined (__TI_ARM__ )
+
+#pragma  CODE_SECTION(MCU__vEnGlobalInterrupt, ".ramcode")
+#pragma  CODE_SECTION(MCU__vDisGlobalInterrupt, ".ramcode")
+
 void MCU__vEnGlobalInterrupt(void);
 void MCU__vDisGlobalInterrupt(void);
+
+#elif defined (__GNUC__ )
+
+void MCU__vEnGlobalInterrupt(void) __attribute__((section(".ramcode")));
+void MCU__vDisGlobalInterrupt(void) __attribute__((section(".ramcode")));
+
+#endif
 
 
 

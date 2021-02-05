@@ -32,7 +32,7 @@ static NVIC_nSTIR NVIC_VECTOR_DMA[(uint32_t) DMA_enVECTOR_MAX] = { NVIC_enSTIR_U
 void DMA__vEnInterruptVector(DMA_nVECTOR enVector, DMA_nPRIORITY enDmaPriority)
 {
     NVIC_nSTIR enVectorNvic = NVIC_enSTIR_UDMASOFT;
-    enVector = (DMA_nVECTOR) MCU__u32CheckPatams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
+    enVector = (DMA_nVECTOR) MCU__u32CheckParams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
 
     enVectorNvic = NVIC_VECTOR_DMA[ (uint32_t) enVector];
     NVIC__vSetEnableIRQ(enVectorNvic, (NVIC_nPRIORITY) enDmaPriority);
@@ -41,7 +41,7 @@ void DMA__vEnInterruptVector(DMA_nVECTOR enVector, DMA_nPRIORITY enDmaPriority)
 void DMA__vDisInterruptVector(DMA_nVECTOR enVector)
 {
     NVIC_nSTIR enVectorNvic = NVIC_enSTIR_UDMASOFT;
-    enVector = (DMA_nVECTOR) MCU__u32CheckPatams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
+    enVector = (DMA_nVECTOR) MCU__u32CheckParams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
 
     enVectorNvic = NVIC_VECTOR_DMA[ (uint32_t) enVector];
     NVIC__vClearEnableIRQ(enVectorNvic);

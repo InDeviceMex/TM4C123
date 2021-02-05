@@ -33,8 +33,8 @@ GPIO_nSTATUS GPIO__enReadRegisterBus(GPIO_nPORT enPort, GPIO_nBUS enBus, uint32_
     uint32_t u32PortBase = 0UL;
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
     GPIO_nREADY enReady = GPIO_enNOREADY;
-    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
-    enBus = (GPIO_nBUS) MCU__u32CheckPatams( (uint32_t) enBus, (uint32_t) GPIO_enBUS_MAX);
+    enPort = (GPIO_nPORT) MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
+    enBus = (GPIO_nBUS) MCU__u32CheckParams( (uint32_t) enBus, (uint32_t) GPIO_enBUS_MAX);
     enReady = GPIO__enIsReady(enPort);
     if((GPIO_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))
     {
@@ -51,7 +51,7 @@ GPIO_nSTATUS GPIO__enReadRegister(GPIO_nPORT enPort, uint32_t u32OffsetRegister,
     uint32_t u32PortBase = 0UL;
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
     GPIO_nREADY enReady = GPIO_enNOREADY;
-    enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
+    enPort = (GPIO_nPORT) MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enBus = GPIO__enGetBus(enPort);
     enReady = GPIO__enIsReady(enPort);
     if((GPIO_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))

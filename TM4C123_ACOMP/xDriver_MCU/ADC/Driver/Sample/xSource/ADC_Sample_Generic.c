@@ -35,9 +35,9 @@ void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t
     uint32_t u32MuxInputReg = 0UL;
     uint32_t u32MuxMax = 0UL;
 
-    u32SequencerReg = MCU__u32CheckPatams(u32Sequencer, (uint32_t) ADC_enSEQ_MAX);
+    u32SequencerReg = MCU__u32CheckParams(u32Sequencer, (uint32_t) ADC_enSEQ_MAX);
     u32MuxMax = ADC_u32MuxMax[u32SequencerReg];
-    u32MuxInputReg = MCU__u32CheckPatams(u32MuxInput, u32MuxMax);
+    u32MuxInputReg = MCU__u32CheckParams(u32MuxInput, u32MuxMax);
 
     u32MuxInputReg *= 4UL; /* each mux have 4 bits*/
     u32MuxInputReg += u32FeatureBitAdd;
@@ -57,9 +57,9 @@ uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, ui
     uint32_t u32MuxInputReg = 0UL;
     uint32_t u32MuxMax = 0UL;
 
-    u32SequencerReg = MCU__u32CheckPatams(u32Sequencer, (uint32_t) ADC_enSEQ_MAX);
+    u32SequencerReg = MCU__u32CheckParams(u32Sequencer, (uint32_t) ADC_enSEQ_MAX);
     u32MuxMax = ADC_u32MuxMax[u32SequencerReg];
-    u32MuxInputReg = MCU__u32CheckPatams(u32MuxInput, u32MuxMax);
+    u32MuxInputReg = MCU__u32CheckParams(u32MuxInput, u32MuxMax);
 
     u32MuxInputReg *= 4UL; /* each mux have 4 bits*/
     u32MuxInputReg += u32FeatureBitAdd;

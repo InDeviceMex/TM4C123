@@ -34,9 +34,9 @@ void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequence
     uint32_t u32Sequencer = 0UL;
     uint32_t u32MuxInput = 0UL;
     uint32_t u32MuxMax = 0U;
-    u32Sequencer = MCU__u32CheckPatams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
+    u32Sequencer = MCU__u32CheckParams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
     u32MuxMax = ADC_u32MuxMax[u32Sequencer];
-    u32MuxInput = MCU__u32CheckPatams((uint32_t) enMuxInput, u32MuxMax);
+    u32MuxInput = MCU__u32CheckParams((uint32_t) enMuxInput, u32MuxMax);
 
     u32MuxInput *= 4UL; /* each mux have 4 bits*/
     u32MuxInput += ADC_ADCSSCTL_R_IE0_BIT;
@@ -55,8 +55,8 @@ void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequenc
     uint32_t u32MuxInput = 0UL;
     uint32_t u32MuxMax = 0U;
     u32MuxMax = ADC_u32MuxMax[u32Sequencer];
-    u32Sequencer = MCU__u32CheckPatams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
-    u32MuxInput = MCU__u32CheckPatams((uint32_t) enMuxInput, u32MuxMax);
+    u32Sequencer = MCU__u32CheckParams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
+    u32MuxInput = MCU__u32CheckParams((uint32_t) enMuxInput, u32MuxMax);
 
     u32MuxInput *= 4UL; /* each mux have 4 bits*/
     u32MuxInput += ADC_ADCSSCTL_R_IE0_BIT;
@@ -76,8 +76,8 @@ ADC_nSEQ_INPUT_INT ADC__enGetSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUE
     uint32_t u32MuxInput = 0UL;
     uint32_t u32MuxMax = 0U;
     u32MuxMax = ADC_u32MuxMax[u32Sequencer];
-    u32Sequencer = MCU__u32CheckPatams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
-    u32MuxInput = MCU__u32CheckPatams((uint32_t) enMuxInput, u32MuxMax);
+    u32Sequencer = MCU__u32CheckParams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
+    u32MuxInput = MCU__u32CheckParams((uint32_t) enMuxInput, u32MuxMax);
 
     u32MuxInput *= 4UL; /* each mux have 4 bits*/
     u32MuxInput += ADC_ADCSSCTL_R_IE0_BIT;

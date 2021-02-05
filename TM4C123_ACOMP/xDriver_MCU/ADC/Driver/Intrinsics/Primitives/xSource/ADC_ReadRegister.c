@@ -33,7 +33,7 @@ ADC_nSTATUS ADC__enReadRegister(ADC_nMODULE enModule, uint32_t u32OffsetRegister
     ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32AdcBase = 0UL;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
 
     enReady = ADC__enIsReady((ADC_nMODULE) u32Module);
     if((ADC_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))

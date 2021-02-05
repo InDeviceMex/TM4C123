@@ -26,6 +26,16 @@
 
 #include <xUtils/Standard/Standard.h>
 
-uint32_t MCU__u32CheckPatams(uint32_t u32Module, uint32_t u32ModuleMax);
+#if defined (__TI_ARM__ )
+
+#pragma  CODE_SECTION(MCU__u32CheckParams, ".ramcode")
+
+uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax);
+
+#elif defined (__GNUC__ )
+
+uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax) _attribute__((section(".ramcode")));
+
+#endif
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_CHECKPARAMS_H_ */

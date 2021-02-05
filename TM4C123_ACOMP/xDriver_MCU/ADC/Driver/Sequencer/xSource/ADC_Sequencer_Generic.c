@@ -30,7 +30,7 @@
 void ADC__vSetSequencerGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32Sequence, uint32_t u32Feature)
 {
     uint32_t u32SequencerReg = 0UL;
-    u32SequencerReg = MCU__u32CheckPatams(u32Sequence, (uint32_t) ADC_enSEQMASK_MAX);
+    u32SequencerReg = MCU__u32CheckParams(u32Sequence, (uint32_t) ADC_enSEQMASK_MAX);
     if(0UL != u32Feature)
     {
         ADC__vWriteRegister((ADC_nMODULE) u32Module, u32OffsetRegister, u32SequencerReg, u32SequencerReg, 0UL);
@@ -44,7 +44,7 @@ void ADC__vSetSequencerGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, u
 void ADC__vSetSequencerGenericBit(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32Sequence, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBitMult, uint32_t u32FeatureBitAdd)
 {
     uint32_t u32SequencerReg = 0UL;
-    u32SequencerReg = MCU__u32CheckPatams(u32Sequence, (uint32_t) ADC_enSEQ_MAX);
+    u32SequencerReg = MCU__u32CheckParams(u32Sequence, (uint32_t) ADC_enSEQ_MAX);
     u32SequencerReg *= u32FeatureBitMult;
     u32SequencerReg += u32FeatureBitAdd;
     ADC__vWriteRegister((ADC_nMODULE) u32Module, u32OffsetRegister, u32Feature, u32FeatureMask, u32SequencerReg);
@@ -55,7 +55,7 @@ uint32_t ADC__u32GetSequencerGeneric(uint32_t u32Module, uint32_t u32OffsetRegis
     uint32_t u32Feature = 0xFFFFFFFFU;
     ADC_nSTATUS enStatus = ADC_enSTATUS_UNDEF;
     uint32_t u32SequencerReg = 0UL;
-    u32SequencerReg = MCU__u32CheckPatams(u32Sequence, (uint32_t) ADC_enSEQMASK_MAX);
+    u32SequencerReg = MCU__u32CheckParams(u32Sequence, (uint32_t) ADC_enSEQMASK_MAX);
     enStatus = ADC__enReadRegister((ADC_nMODULE) u32Module , u32OffsetRegister, (uint32_t*) &u32Feature, u32SequencerReg, 0UL);
 
     if(ADC_enSTATUS_OK == enStatus)
@@ -76,7 +76,7 @@ uint32_t ADC__u32GetSequencerGenericBit(uint32_t u32Module, uint32_t u32OffsetRe
 {
     uint32_t u32Feature = 0xFFFFFFFFU;
     uint32_t u32SequencerReg = 0UL;
-    u32SequencerReg = MCU__u32CheckPatams(u32Sequence, (uint32_t) ADC_enSEQ_MAX);
+    u32SequencerReg = MCU__u32CheckParams(u32Sequence, (uint32_t) ADC_enSEQ_MAX);
     u32SequencerReg *= u32FeatureBitMult;
     u32SequencerReg += u32FeatureBitAdd;
     ADC__enReadRegister((ADC_nMODULE) u32Module , u32OffsetRegister, (uint32_t*) &u32Feature, u32FeatureMask, u32SequencerReg);

@@ -32,7 +32,7 @@ WDT_nSTATUS WDT__enReadRegister(WDT_nMODULE enModule, uint32_t* u32FeatureValue,
 {
     WDT_nSTATUS enStatus = WDT_enSTATUS_UNDEF;
     WDT_nREADY enReady = WDT_enNOREADY;
-    enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    enModule = (WDT_nMODULE)MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     enReady = WDT__enIsReady(enModule);
 
     if(WDT_enREADY == enReady)

@@ -34,8 +34,8 @@ inline void NVIC__vSetPriorityIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
     uint32_t u32Priority = 0UL;
     uint32_t u32IRQ = 0UL;
 
-    u32Priority = MCU__u32CheckPatams( (uint32_t) enPriority, NVIC_PRI_MAX);
-    u32IRQ = MCU__u32CheckPatams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
+    u32Priority = MCU__u32CheckParams( (uint32_t) enPriority, NVIC_PRI_MAX);
+    u32IRQ = MCU__u32CheckParams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
     u32IsrBit = u32IRQ % 4UL;
     u32IsrBit *= 8UL;
     u32IsrIndex = u32IRQ / 4UL;
@@ -53,7 +53,7 @@ inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ)
     uint32_t u32Priority = 0UL;
     uint32_t u32IRQ = 0UL;
 
-    u32IRQ = MCU__u32CheckPatams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
+    u32IRQ = MCU__u32CheckParams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
     u32IsrBit = u32IRQ % 4UL;
     u32IsrBit *= 8UL;
     u32IsrIndex = u32IRQ / 4UL;

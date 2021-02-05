@@ -31,7 +31,7 @@ void ADC__vWriteRegister(ADC_nMODULE enModule, uint32_t u32OffsetRegister, uint3
 {
     uint32_t u32AdcBase = 0UL;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
 
     ADC__vSetReady((ADC_nMODULE) u32Module);
     u32AdcBase = ADC_BLOCK_ADDRESS [u32Module];

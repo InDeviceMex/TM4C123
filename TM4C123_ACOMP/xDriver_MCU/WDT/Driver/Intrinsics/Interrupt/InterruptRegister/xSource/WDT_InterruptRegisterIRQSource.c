@@ -32,8 +32,8 @@ void WDT__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), WDT_nINT_
     uint32_t u32Module = 0UL;
     if(0U != (uint32_t) pfIrqSourceHandler )
     {
-        u32IntType = MCU__u32CheckPatams((uint32_t) enIntTypeParam, (uint32_t) WDT_enINT_TYPE_MAX);
-        u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+        u32IntType = MCU__u32CheckParams((uint32_t) enIntTypeParam, (uint32_t) WDT_enINT_TYPE_MAX);
+        u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
         MCU__vRegisterIRQSourceHandler(pfIrqSourceHandler, &WDT__vIRQSourceHandler[u32IntType][u32Module], 0UL, 1UL);
     }
 }

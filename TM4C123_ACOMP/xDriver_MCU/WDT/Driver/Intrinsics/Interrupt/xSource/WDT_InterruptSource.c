@@ -44,7 +44,7 @@ void WDT__vEnInterruptSource(WDT_nMODULE enModule)
 
 void WDT__vDisInterruptSource(WDT_nMODULE enModule)
 {
-    enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    enModule = (WDT_nMODULE)MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     WDT__vReset(enModule);
 }
 

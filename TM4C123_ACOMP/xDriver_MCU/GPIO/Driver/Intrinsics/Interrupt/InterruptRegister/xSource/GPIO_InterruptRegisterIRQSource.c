@@ -35,7 +35,7 @@ void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), GPIO_nPO
 
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        u32Port = MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
+        u32Port = MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
 
         u32Pin = (uint32_t) enPin;
         u32Pin &= (uint32_t) GPIO_enPIN_ALL;

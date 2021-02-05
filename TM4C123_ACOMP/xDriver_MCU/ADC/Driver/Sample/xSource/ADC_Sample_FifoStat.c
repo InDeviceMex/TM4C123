@@ -37,7 +37,7 @@ ADC_nSEQ_FIFO ADC__enGetSampleFifoStat(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
     ADC_nSEQ_FIFO enFeature = ADC_enSEQ_FIFO_INT_UNDEF;
     uint32_t u32SequencerReg = 0UL;
 
-    u32SequencerReg = MCU__u32CheckPatams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
+    u32SequencerReg = MCU__u32CheckParams((uint32_t) enSequencer, (uint32_t) ADC_enSEQ_MAX);
 
     u32SequencerReg *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32SequencerReg *= 4UL;

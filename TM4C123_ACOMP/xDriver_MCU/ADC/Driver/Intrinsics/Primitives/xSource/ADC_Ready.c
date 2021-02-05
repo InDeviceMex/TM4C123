@@ -35,7 +35,7 @@ void ADC__vSetReady(ADC_nMODULE enModule)
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enADC0;
     uint32_t u32Module = 0UL;
 
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
 
     enPeripheral = SYSCTL_VECTOR_ADC[u32Module];
     enReady = ADC__enIsReady(enModule);
@@ -51,7 +51,7 @@ void ADC__vClearReady(ADC_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enADC0;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
     enPeripheral = SYSCTL_VECTOR_ADC[u32Module];
     SYSCTL__vClearReady(enPeripheral);
 }
@@ -61,7 +61,7 @@ ADC_nREADY ADC__enIsReady(ADC_nMODULE enModule)
     ADC_nREADY enReady = ADC_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enADC0;
     uint32_t u32Module =0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
     enPeripheral = SYSCTL_VECTOR_ADC[u32Module];
     enReady = (ADC_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;

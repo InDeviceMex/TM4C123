@@ -35,8 +35,8 @@ void DMA_CH__vSetEncoder(DMA_nCH_MODULE enChannel, DMA_nCH_ENCODER enChannelEnco
     uint32_t u32Encoder = 0UL;
     uint32_t u32RegisterOffset = 0UL;
 
-    u32Channel = MCU__u32CheckPatams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
-    u32Encoder = MCU__u32CheckPatams( (uint32_t) enChannelEncoder, (uint32_t) DMA_enCH_ENCODER_MAX);
+    u32Channel = MCU__u32CheckParams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
+    u32Encoder = MCU__u32CheckParams( (uint32_t) enChannelEncoder, (uint32_t) DMA_enCH_ENCODER_MAX);
 
     u32ChannelReg = u32Channel / 8UL;
     u32ChannelReg *= 4UL;
@@ -74,7 +74,7 @@ DMA_nCH_ENCODER DMA_CH__enGetEncoder(DMA_nCH_MODULE enChannel)
     DMA_nCH_ENCODER enChannelEncoder = DMA_enCH_ENCODER_UNDEF;
     DMA_nSTATUS enStatus = DMA_enSTATUS_UNDEF;
 
-    u32Channel = MCU__u32CheckPatams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
+    u32Channel = MCU__u32CheckParams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
 
     u32ChannelReg = u32Channel / 8UL;
     u32ChannelReg *= 4UL;
@@ -100,7 +100,7 @@ DMA_nCHSRC DMA_CH__enGetEncoderDefine(DMA_nCH_MODULE enChannel)
     DMA_nCHSRC enEncoderChannel = DMA_enCHSRC_UNDEF;
     uint32_t u32EncoderChannel = 0UL;
 
-    enChannel = (DMA_nCH_MODULE) MCU__u32CheckPatams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
+    enChannel = (DMA_nCH_MODULE) MCU__u32CheckParams( (uint32_t) enChannel, (uint32_t) DMA_enCH_MODULE_MAX);
     enChannelEncoder = DMA_CH__enGetEncoder(enChannel);
 
     u32Encoder = (uint32_t) enChannelEncoder;

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.ti.ccstudio.debug.launchType.device.debugging">
 <mapAttribute key="ccs.memoryview.format">
-<mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser.PIN_CLONE_VIEW_1@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0@#$0" value="8-Bit Hex - TI Style"/>
+<mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser.PIN_CLONE_VIEW_1@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0@#$0" value="32-Bit Hex - C Style"/>
 <mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser.PIN_CLONE_VIEW_2@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0@#$0" value="8-Bit Hex - TI Style"/>
 <mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0@#$0" value="32-Bit Hex - TI Style"/>
 </mapAttribute>
 <mapAttribute key="ccs.memoryview.pageexpr">
-<mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser.PIN_CLONE_VIEW_1@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="@@0x20181"/>
+<mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser.PIN_CLONE_VIEW_1@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="@@0"/>
 <mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser.PIN_CLONE_VIEW_2@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="@@3"/>
 <mapEntry key="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser@#$Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="@@0x20000000"/>
 </mapAttribute>

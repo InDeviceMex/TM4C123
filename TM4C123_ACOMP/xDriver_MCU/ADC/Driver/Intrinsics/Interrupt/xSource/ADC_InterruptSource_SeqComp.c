@@ -31,7 +31,7 @@ void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparato
 {
     uint32_t u32RegisterOffset = ADC_ADCDCCTL_OFFSET;
     uint32_t u32Comparator = 0UL;
-    u32Comparator = MCU__u32CheckPatams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
+    u32Comparator = MCU__u32CheckParams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     u32Comparator *= 4UL;
     u32RegisterOffset += u32Comparator;
     ADC__vWriteRegister(enModule , u32RegisterOffset, ADC_ADCDCCTL_CIE_EN, ADC_ADCDCCTL_CIE_MASK, ADC_ADCDCCTL_R_CIE_BIT);
@@ -41,7 +41,7 @@ void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparat
 {
     uint32_t u32RegisterOffset = ADC_ADCDCCTL_OFFSET;
     uint32_t u32Comparator = 0UL;
-    u32Comparator = MCU__u32CheckPatams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
+    u32Comparator = MCU__u32CheckParams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     u32Comparator *= 4UL;
     u32RegisterOffset += u32Comparator;
     ADC__vWriteRegister(enModule , u32RegisterOffset, ADC_ADCDCCTL_CIE_DIS, ADC_ADCDCCTL_CIE_MASK, ADC_ADCDCCTL_R_CIE_BIT);
@@ -50,7 +50,7 @@ void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparat
 void ADC__vClearInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)
 {
     uint32_t u32Comparator = 0UL;
-    u32Comparator = MCU__u32CheckPatams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
+    u32Comparator = MCU__u32CheckParams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     ADC__vWriteRegister(enModule , ADC_ADCDCISC_OFFSET, ADC_ADCDCISC_DCINT_CLEAR, ADC_ADCDCISC_DCINT_MASK, u32Comparator);
 }
 
@@ -58,7 +58,7 @@ ADC_nCOMP_INT_STATUS ADC__enStatusInterruptComp(ADC_nMODULE enModule, ADC_nCOMPA
 {
     ADC_nCOMP_INT_STATUS enInterruptReg = ADC_enCOMP_INT_STATUS_UNDEF;
     uint32_t u32Comparator = 0UL;
-    u32Comparator = MCU__u32CheckPatams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
+    u32Comparator = MCU__u32CheckParams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     ADC__enReadRegister(enModule, ADC_ADCDCISC_OFFSET, (uint32_t*) &enInterruptReg, ADC_ADCDCISC_DCINT_MASK, u32Comparator);
     return enInterruptReg;
 }

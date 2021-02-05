@@ -30,7 +30,7 @@
 
 void WDT__vWriteRegister(WDT_nMODULE enModule, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    enModule = (WDT_nMODULE)MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    enModule = (WDT_nMODULE)MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     WDT__vSetReady(enModule);
     MCU__vWriteRegister(WDT_BLOCK_ADDRESS[(uint32_t) enModule], u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
     WDT__vWaitWrite(enModule);

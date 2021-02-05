@@ -27,8 +27,19 @@
 
 #include <FLASH/Peripheral/xHeader/FLASH_Enum.h>
 #include <xUtils/Standard/Standard.h>
+#if defined (__TI_ARM__ )
+
+#pragma  CODE_SECTION(FLASH__enInit, ".ramcode")
+#pragma  CODE_SECTION(FLASH__vDeInit, ".ramcode")
 
 FLASH_nSTATUS FLASH__enInit(void);
 void FLASH__vDeInit(void);
+
+#elif defined (__GNUC__ )
+
+FLASH_nSTATUS FLASH__enInit(void) __attribute__((section(".ramcode")));
+void FLASH__vDeInit(void) __attribute__((section(".ramcode")));
+
+#endif
 
 #endif /* XDRIVER_MCU_FLASH_APP_XHEADER_FLASH_INIT_H_ */

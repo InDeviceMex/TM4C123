@@ -30,7 +30,7 @@ void WDT__vSetReady(WDT_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     enPeripheral |= u32Module;
     SYSCTL__vSetReady(enPeripheral);
 }
@@ -39,7 +39,7 @@ void WDT__vReset(WDT_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     enPeripheral |= u32Module;
     SYSCTL__vReset(enPeripheral);
 }
@@ -48,7 +48,7 @@ void WDT__vClearReady(WDT_nMODULE enModule)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     enPeripheral |= u32Module;
     SYSCTL__vClearReady(enPeripheral);
 }
@@ -58,7 +58,7 @@ WDT_nREADY WDT__enIsReady(WDT_nMODULE enModule)
     WDT_nREADY enReady = WDT_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enWDT0;
     uint32_t u32Module = 0UL;
-    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) WDT_enMODULE_MAX);
     enPeripheral |= u32Module;
     enReady = (WDT_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;

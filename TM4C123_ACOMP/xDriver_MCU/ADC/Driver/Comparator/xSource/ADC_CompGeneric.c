@@ -30,7 +30,7 @@
 void ADC__vSetCompGeneric(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32RegisterOffset, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
     uint32_t u32ComparatorReg = 0UL;
-    u32ComparatorReg = MCU__u32CheckPatams((uint32_t) u32Comparator, (uint32_t) ADC_en_COMPARATOR_MAX);
+    u32ComparatorReg = MCU__u32CheckParams((uint32_t) u32Comparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     u32ComparatorReg *= 4UL;
     u32RegisterOffset += u32ComparatorReg;
     ADC__vWriteRegister((ADC_nMODULE) u32Module , u32RegisterOffset, u32Feature, u32FeatureMask, u32FeatureBit);
@@ -40,7 +40,7 @@ uint32_t ADC__u32GetCompGeneric(uint32_t u32Module, uint32_t  u32Comparator, uin
 {
     uint32_t u32Feature = 0xFFFFFFFFU;
     uint32_t u32ComparatorReg = 0UL;
-    u32ComparatorReg = MCU__u32CheckPatams(u32Comparator, (uint32_t) ADC_en_COMPARATOR_MAX);
+    u32ComparatorReg = MCU__u32CheckParams(u32Comparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     u32ComparatorReg *= 4UL;
     u32RegisterOffset += u32ComparatorReg;
     ADC__enReadRegister((ADC_nMODULE) u32Module, u32RegisterOffset, &u32Feature, u32FeatureMask, u32FeatureBit);

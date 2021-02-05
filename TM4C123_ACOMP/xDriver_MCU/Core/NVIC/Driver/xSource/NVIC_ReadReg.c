@@ -33,7 +33,7 @@ inline uint32_t NVIC__u32ReadRegister(NVIC_nSTIR enIRQ, uint32_t u32RegisterOffs
     uint32_t u32IsrBit = 0UL;
     uint32_t u32IRQ = 0UL;
 
-    u32IRQ = MCU__u32CheckPatams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
+    u32IRQ = MCU__u32CheckParams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
     u32IsrBit = u32IRQ % 32UL;
     u32IsrIndex = u32IRQ / 32UL;
     u32IsrIndex *= 4UL;

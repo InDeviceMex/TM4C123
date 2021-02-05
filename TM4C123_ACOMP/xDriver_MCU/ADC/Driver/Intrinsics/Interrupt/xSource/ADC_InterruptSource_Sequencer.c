@@ -31,7 +31,7 @@ void ADC__vEnSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, A
 {
     uint32_t u32SourceInt = 0UL;
     uint32_t u32BitPos = 0UL;
-    u32SourceInt = MCU__u32CheckPatams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
+    u32SourceInt = MCU__u32CheckParams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
     u32BitPos =u32SourceInt;
     u32BitPos *= 16UL;
     if(ADC_enINT_SOURCE_COMP == enSourceInt)
@@ -48,7 +48,7 @@ void ADC__vDisSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, 
 {
     uint32_t u32SourceInt = 0UL;
     uint32_t u32BitPos = 0UL;
-    u32SourceInt = MCU__u32CheckPatams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
+    u32SourceInt = MCU__u32CheckParams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
     u32BitPos =u32SourceInt;
     u32BitPos *= 16UL;
     if(ADC_enINT_SOURCE_COMP == enSourceInt)
@@ -65,7 +65,7 @@ void ADC__vClearSeqInterruptSource(ADC_nMODULE enModule, ADC_nSEQMASK enSequence
 {
     uint32_t u32SourceInt = 0UL;
     uint32_t u32BitPos = 0UL;
-    u32SourceInt = MCU__u32CheckPatams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
+    u32SourceInt = MCU__u32CheckParams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
     u32BitPos =u32SourceInt;
     u32BitPos *= 16UL;
     ADC__vWriteRegister(enModule , ADC_ADCISC_OFFSET, (uint32_t) enSequence, (uint32_t) enSequence, u32BitPos);
@@ -78,7 +78,7 @@ ADC_nSEQ_INT_STATUS ADC__enStatusSeqInterruptSource(ADC_nMODULE enModule, ADC_nS
     uint32_t u32SourceInt = 0UL;
     uint32_t u32BitPos = 0UL;
     uint32_t u32Register= 0xFFFFFFFFUL;
-    u32SourceInt = MCU__u32CheckPatams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
+    u32SourceInt = MCU__u32CheckParams((uint32_t) enSourceInt, (uint32_t) ADC_enINT_SOURCE_MAX);
     u32BitPos =u32SourceInt;
     u32BitPos *= 16UL;
     enStatus = ADC__enReadRegister(enModule , ADC_ADCRIS_OFFSET, (uint32_t*) &u32Register, (uint32_t) enSequence, u32BitPos);

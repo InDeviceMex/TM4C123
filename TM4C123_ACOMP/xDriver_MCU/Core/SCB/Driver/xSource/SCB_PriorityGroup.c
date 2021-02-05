@@ -30,7 +30,7 @@ void SCB__vSetPriorityGroup(SCB_nPRIGROUP enGroup)
 {
     uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32CheckPatams( (uint32_t) enGroup, (uint32_t) SCB_enPRIGROUP_MAX);
+    u32Reg = MCU__u32CheckParams( (uint32_t) enGroup, (uint32_t) SCB_enPRIGROUP_MAX);
     u32Reg <<= SCB_AIRCR_R_PRIGROUP_BIT;
     u32Reg |= SCB_AIRCR_R_VECTKEY_WRITE;
     SCB_vBarrier();

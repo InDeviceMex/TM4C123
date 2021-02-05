@@ -35,7 +35,7 @@ void SYSEXC__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),SYSEXC_
 
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        u32Interrupt = MCU__u32CheckPatams( (uint32_t) enInterruptParam, (uint32_t) SYSEXC_enINTERRUPT_MAX);
+        u32Interrupt = MCU__u32CheckParams( (uint32_t) enInterruptParam, (uint32_t) SYSEXC_enINTERRUPT_MAX);
 
         u32IrqSourceHandler = (uint32_t) pfIrqSourceHandler;
         u32IrqSourceHandler |= 1UL;
