@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 23 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_RESET_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_RESET_H_
 
@@ -31,6 +32,5 @@ void WDT__vEnResetOutput(WDT_nMODULE enModule);
 void WDT__vDisResetOutput(WDT_nMODULE enModule);
 void WDT__vSetResetOutput(WDT_nMODULE enModule, WDT_nRESET enResetOutputValue);
 WDT_nSTATUS WDT__enGetResetOutput(WDT_nMODULE enModule, WDT_nRESET* penFeatureArg);
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_RESET_H_ */

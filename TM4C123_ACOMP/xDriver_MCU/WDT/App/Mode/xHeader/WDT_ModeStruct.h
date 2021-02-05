@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 24 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_MODE_WDT_MODESTRUCT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_MODE_WDT_MODESTRUCT_H_
 
@@ -30,8 +31,5 @@ void WDT__vCreateModeStructPointer(WDT_nMODE enMode, WDT_MODE_Typedef* psMode);
 WDT_MODE_Typedef* WDT__psCreateModeStruct(WDT_nMODE enMode);
 
 void WDT__vDeleteModeStruct(WDT_MODE_Typedef* psMode);
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_MODE_WDT_MODESTRUCT_H_ */

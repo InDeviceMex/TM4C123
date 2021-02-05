@@ -29,7 +29,6 @@
 
 void WDT__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), WDT_nINT_TYPE enIntTypeParam)
 {
-    uint32_t u32IrqVectorHandler = 0UL;
     uint32_t u32IntType = 0UL;
 
     if(0UL != (uint32_t) pfIrqVectorHandler)

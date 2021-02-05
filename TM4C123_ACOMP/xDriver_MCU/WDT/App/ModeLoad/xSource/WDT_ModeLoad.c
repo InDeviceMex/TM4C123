@@ -21,8 +21,9 @@
  * Date           Author     Version     Description
  * 24 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/WDT/App/Mode/WDT_Mode.h>
 #include <xDriver_MCU/WDT/App/ModeLoad/WDT_ModeLoad.h>
+
+#include <xDriver_MCU/WDT/App/Mode/WDT_Mode.h>
 #include <xDriver_MCU/WDT/App/ModeLoad/xHeader/WDT_ModeLoadStruct.h>
 #include <xDriver_MCU/WDT/Driver/xHeader/WDT_Load.h>
 #include <xDriver_MCU/WDT/App/ModeLoad/xHeader/WDT_ModeLoadStruct.h>
@@ -42,5 +43,3 @@ WDT_nSTATUS WDT__enSetModeStruct_Load(WDT_nMODULE enModule, const WDT_MODE_Typed
     enReturn = WDT__enSetModeStruct(enModule, psMode);
     return enReturn;
 }
-
-

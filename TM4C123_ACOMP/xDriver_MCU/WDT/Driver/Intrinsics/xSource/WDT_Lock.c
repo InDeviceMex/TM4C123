@@ -44,5 +44,3 @@ void WDT__vLock(WDT_nMODULE enModule)
 {
     WDT__vWriteRegister(enModule, WDT_WDTLOCK_OFFSET, (uint32_t) WDT_enKEY_LOCK, WDT_WDTLOCK_WDTLOCK_MASK, WDT_WDTLOCK_R_WDTLOCK_BIT);
 }
-
-

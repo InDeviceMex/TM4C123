@@ -23,10 +23,8 @@
  */
 #include <xDriver_MCU/WDT/Driver/xHeader/WDT_Load.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/WDT_Primitives.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
-
 
 void WDT__vSetLoad(WDT_nMODULE enModule, uint32_t u32LoadValue)
 {
@@ -41,5 +39,3 @@ WDT_nSTATUS WDT__enGetLoad(WDT_nMODULE enModule, uint32_t* pu32LoadValue )
 
     return enStatusRead;
 }
-
-

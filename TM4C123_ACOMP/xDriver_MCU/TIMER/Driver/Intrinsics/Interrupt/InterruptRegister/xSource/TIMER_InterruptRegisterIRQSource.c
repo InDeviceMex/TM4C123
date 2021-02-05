@@ -37,7 +37,7 @@ void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nM
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleSize = 0UL;
 
-    if((uint32_t) pfIrqSourceHandler != 0U)
+    if(0U != (uint32_t) pfIrqSourceHandler)
     {
         TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
         u32SubModule &= 0x1UL;
