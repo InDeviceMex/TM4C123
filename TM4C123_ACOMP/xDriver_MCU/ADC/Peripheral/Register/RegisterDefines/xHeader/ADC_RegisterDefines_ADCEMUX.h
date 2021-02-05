@@ -111,7 +111,6 @@
 #define ADC_ADCEMUX_EM2_ALWAYS    ((uint32_t) 0x0000000FUL)
 /*--------*/
 
-
 /*--------*/
 #define ADC_ADCEMUX_R_EM3_MASK    ((uint32_t) 0x0000FUL)
 #define ADC_ADCEMUX_R_EM3_BIT    ((uint32_t) 12UL)
