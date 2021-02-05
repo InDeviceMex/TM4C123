@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 19 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 19 jul. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCTREGISTER_BITBANDING_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCTREGISTER_BITBANDING_H_
 
@@ -28,128 +29,128 @@
 
 typedef volatile struct
 {
-    volatile uint32_t WDTLOAD [32];
+    volatile uint32_t WDTLOAD [32UL];
 }BITBANDING_WDTLOAD_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t WDTVALUE   [32];
+    volatile const uint32_t WDTVALUE [32UL];
 }BITBANDING_WDTVALUE_TypeDef;
 
 typedef volatile struct
 {
-    volatile uint32_t       INTEN   ;
-    volatile uint32_t       RESEN   ;
-    volatile uint32_t       INTTYPE ;
-    const    uint32_t       reserved[28];
-    volatile const uint32_t WRC     ;
+    volatile uint32_t INTEN;
+    volatile uint32_t RESEN;
+    volatile uint32_t INTTYPE;
+    const uint32_t reserved [28UL];
+    volatile const uint32_t WRC;
 }BITBANDING_WDTCTL_TypeDef;
 
 
 typedef volatile struct
 {
-    volatile uint32_t WDTINTCLR [32];
+    volatile uint32_t WDTINTCLR [32UL];
 }BITBANDING_WDTICR_TypeDef;
 
 
 
 typedef volatile struct
 {
-    volatile const uint32_t WDTRIS  ;
-    const    uint32_t       reserved[31];
+    volatile const uint32_t WDTRIS;
+    const uint32_t reserved [31UL];
 }BITBANDING_WDTRIS_TypeDef;
 
 
 
 typedef volatile struct
 {
-    volatile const uint32_t WDTMIS    ;
-    const    uint32_t       reserved  [31];
+    volatile const uint32_t WDTMIS;
+    const uint32_t reserved [31UL];
 }BITBANDING_WDTMIS_TypeDef;
 
 typedef volatile struct
 {
-    const    uint32_t     reserved [8];
-    volatile uint32_t     STALL    ;
-    const    uint32_t     reserved1[23];
+    const uint32_t reserved [8UL];
+    volatile uint32_t STALL;
+    const uint32_t reserved1 [23UL];
 }BITBANDING_WDTTEST_TypeDef;
 
 typedef volatile struct
 {
-    volatile uint32_t WDTLOCK    [32];
+    volatile uint32_t WDTLOCK [32UL];
 }BITBANDING_WDTLOCK_TypeDef;
 
 
 typedef volatile struct
 {
-    volatile const uint32_t PID4    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID4 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID4_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID5    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID5 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID5_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID6    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID6 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID6_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID7    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID7 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID7_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID0    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID0 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID0_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID1    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID1 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID1_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID2    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID2 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID2_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID3    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t PID3 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPeriphID3_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID0    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t CID0 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPCellID0_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID1    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t CID1 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPCellID1_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID2    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t CID2 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPCellID2_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID3    [8];
-    const    uint32_t       reserved[24];
+    volatile const uint32_t CID3 [8UL];
+    const uint32_t reserved [24UL];
 }BITBANDING_WDTPCellID3_TypeDef;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCTREGISTER_BITBANDING_H_ */
