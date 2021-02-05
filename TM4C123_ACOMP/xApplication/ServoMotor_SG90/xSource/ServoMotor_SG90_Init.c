@@ -48,7 +48,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     uint32_t u32MaxFrec = 1000000U;
     float32_t fDegreeCountVar = 0.0f;
 
-    if((0UL != psServoMotor) && (0UL != u32MinTime) && (0UL != u32MaxTime))
+    if((0UL != (uint32_t) psServoMotor) && (0UL != u32MinTime) && (0UL != u32MaxTime))
     {
         if(u32MinTime>u32MaxTime)
         {

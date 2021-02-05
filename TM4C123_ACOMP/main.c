@@ -63,12 +63,15 @@ int32_t main(void)
         UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
     };
 
+    NVIC__vDeInitInterrupts();
+    SYSCTL__vDeInitClockGates();
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
     SYSEXC__vInit((SYSEXC_nINT) ((uint32_t) SYSEXC_enINT_INVALID | (uint32_t) SYSEXC_enINT_DIV0 | (uint32_t) SYSEXC_enINT_OVERFLOW | (uint32_t) SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
+    {__asm(" cpsie i");}
     u32Clock = SYSCTL__u32GetClock();
     SysTick__enInitUs(((float32_t) u32Clock / 80000.0f),SCB_enSHPR0);
     GPIO__vInit();
@@ -125,6 +128,7 @@ int32_t main(void)
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, 0UL);
         }
 
+        SysTick__vDelayUs(150000.0f);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
         EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
         EDUMKII_Microphone_vSample( &u32MicrophoneValue);
@@ -185,7 +189,6 @@ int32_t main(void)
         }
 
 
-       SysTick__vDelayUs(100000.0f);
         u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %u, JoystickY: %u, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
                          enButton1State, enButton2State, u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue, s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue, u32MicrophoneValue);
         cNokiaBufferPointer = cNokiaBuffer;

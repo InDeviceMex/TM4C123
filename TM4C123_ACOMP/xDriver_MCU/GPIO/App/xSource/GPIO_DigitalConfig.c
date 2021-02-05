@@ -156,7 +156,7 @@ void GPIO__vGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_CONFIG_Type
     uint32_t u32PinNumber = 0UL;
     uint32_t u32Pin = 0UL;
 
-    if(0UL != psConfig)
+    if(0UL != (uint32_t) psConfig)
     {
         u32Port = (uint32_t) enFunction;
         u32Port >>= 16UL;
@@ -195,7 +195,7 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
     psConfig = (GPIO_CONFIG_Typedef*) malloc( (size_t) sizeof(GPIO_CONFIG_Typedef));
     #endif
 
-    if(0UL != psConfig)
+    if(0UL != (uint32_t) psConfig)
     {
         u32Port = (uint32_t) enFunction;
         u32Port >>= 16UL;

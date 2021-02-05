@@ -29,7 +29,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* c
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
-    if(0UL != psServoMotor)
+    if(0UL != (uint32_t) psServoMotor)
     {
 
         enTimerModuleVar = psServoMotor->enTimerModule;
@@ -44,7 +44,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enDisable(const ServoMoto_SG90_Typedef* 
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
-    if(0UL != psServoMotor)
+    if(0UL != (uint32_t) psServoMotor)
     {
 
       enTimerModuleVar = psServoMotor->enTimerModule;

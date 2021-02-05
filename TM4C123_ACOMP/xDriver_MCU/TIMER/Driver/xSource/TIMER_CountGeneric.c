@@ -32,7 +32,7 @@ TIMER_nSTATUS TIMER_enGet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
     uint32_t u32Reg = 0UL;
     uint32_t u32TimerBase = 0UL;
-    if((0UL != psCount->pu32CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) psCount->pu32CountValue) && (0UL != (uint32_t) psCount))
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
@@ -55,7 +55,7 @@ void TIMER_vSet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMod
 {
     uint32_t u32Reg = 0UL;
     uint32_t u32TimerBase = 0UL;
-    if((0UL != psCount->pu32CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) psCount->pu32CountValue) && (0UL != (uint32_t) psCount))
     {
         u32Reg = *psCount->pu32CountValue;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
@@ -83,7 +83,7 @@ TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE
     uint32_t u32TimerRegisterHigh = 0UL;
     uint32_t u32TimerRegisterLow = 0UL;
 
-    if((0UL != psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
@@ -131,7 +131,7 @@ void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMod
     uint32_t u32TimerRegisterHigh = 0UL;
     uint32_t u32TimerRegisterLow = 0UL;
 
-    if((0UL != psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
     {
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
@@ -176,7 +176,7 @@ TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_
     uint32_t u32TimerRegisterHigh = 0UL;
     uint32_t u32TimerRegisterLow = 0UL;
 
-    if((0UL != psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
@@ -216,10 +216,9 @@ TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_
 uint64_t  TIMER_u64GetCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
 {
     uint64_t u64Reg = 0ULL;
-
+    volatile uint32_t u32RegPredivider = 0UL;
     uint32_t u32RegHigh = 0UL;
     uint32_t u32RegHigh2 = 0UL;
-    volatile uint32_t u32RegPredivider = 0UL;
     uint32_t u32RegLow = 0UL;
     uint32_t u32RegLow2 = 0UL;
 
@@ -256,10 +255,9 @@ uint64_t  TIMER_u64GetCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMo
 uint64_t  TIMER_u64GetFreeCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
 {
     uint64_t u64Reg = 0ULL;
-
+    volatile uint32_t u32RegPredivider = 0UL;
     uint32_t u32RegHigh = 0UL;
     uint32_t u32RegHigh2 = 0UL;
-    volatile uint32_t u32RegPredivider = 0UL;
     uint32_t u32RegLow = 0UL;
     uint32_t u32RegLow2 = 0UL;
 

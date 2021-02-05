@@ -257,6 +257,9 @@ extern uint32_t __bss_end__;
 void
 ResetISR(void)
 {
+
+    {__asm(" cpsid i");}
+    FPU__vInit();
     uint32_t *pui32Src, *pui32Dest;
 
 
@@ -306,11 +309,6 @@ ResetISR(void)
     /**/
     /* Call the application's entry point.*/
     /**/
-
-    NVIC__vDeInitInterrupts();
-    SYSCTL__vDeInitClockGates();
-    {__asm(" cpsie i");}
-    FPU__vInit();
     main();
 }
 

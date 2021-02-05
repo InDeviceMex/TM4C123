@@ -21,14 +21,12 @@
  * Date           Author     Version     Description
  * 22 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_PERIPHERAL_REGISTER_UART_REGISTER_H_
 #define XDRIVER_MCU_UART_PERIPHERAL_REGISTER_UART_REGISTER_H_
 
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterDefines/UART_RegisterDefines.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/UART_RegisterPeripheral.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/UART_RegisterPeripheral_Bitbanding.h>
-
-
-
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_UART_REGISTER_H_ */

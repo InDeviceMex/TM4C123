@@ -570,7 +570,7 @@ LCD1602_nSTATUS LCD1602__enWriteBuffer(char cData, char* pcBuffer, const uint8_t
     uint32_t u32Index = 0U;
     char* pcBufferAux = 0U;
 
-    if((0UL != *pu8Column) && (0UL != *pu8Row) && (0UL != pcBuffer))
+    if((0UL != *pu8Column) && (0UL != *pu8Row) && (0UL != (uint32_t) pcBuffer))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {
@@ -607,7 +607,7 @@ LCD1602_nSTATUS LCD1602__enReadBuffer(char* pcData, const char* pcBuffer, const 
     uint8_t u8Column = 0U;
     uint32_t u32Index = 0U;
     const char* pcBufferAux = 0U;
-    if((0UL != *pu8Column) && (0UL != *pu8Row) && (0UL != pcBuffer) && (0 != pcData))
+    if((0UL != *pu8Column) && (0UL != *pu8Row) && (0UL != (uint32_t) pcBuffer) && (0UL != (uint32_t) pcData))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {

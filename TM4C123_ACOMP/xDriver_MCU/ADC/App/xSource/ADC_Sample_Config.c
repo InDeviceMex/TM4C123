@@ -35,7 +35,7 @@ ADC_nSTATUS ADC__enSetSampleConfigGpio(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
     };
     ADC_nSTATUS enReturn = ADC_enSTATUS_ERROR;
 
-    if(0UL != psSampleConfig)
+    if(0UL != (uint32_t) psSampleConfig)
     {
         GPIO__vSetAnalogFunction((GPIO_nANALOG_FUNCTION)enAdcGpioInput[(uint32_t) psSampleConfig->enInput]);
         ADC__vSetSampleInputSelection(enModule, enSequencer, enMux, psSampleConfig->enInput);
@@ -60,7 +60,7 @@ ADC_nSTATUS ADC__enSetSampleConfigGpio(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
 ADC_nSTATUS ADC__enSetSampleConfig(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, const ADC_SAMPLE_CONFIG_Typedef* psSampleConfig)
 {
     ADC_nSTATUS enReturn = ADC_enSTATUS_ERROR;
-    if(0UL != psSampleConfig)
+    if(0UL != (uint32_t) psSampleConfig)
     {
         ADC__vSetSampleInputSelection(enModule, enSequencer, enMux, psSampleConfig->enInput);
         ADC__vSetSampleTempSelection(enModule, enSequencer, enMux, psSampleConfig->enTempSensor);
@@ -84,7 +84,7 @@ ADC_nSTATUS ADC__enSetSampleConfig(ADC_nMODULE enModule, ADC_nSEQUENCER enSequen
 ADC_nSTATUS ADC__enGetSampleConfig(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, ADC_SAMPLE_CONFIG_Typedef* psSampleConfig)
 {
     ADC_nSTATUS enReturn = ADC_enSTATUS_ERROR;
-    if(0UL != psSampleConfig)
+    if(0UL != (uint32_t) psSampleConfig)
     {
         psSampleConfig->enInput = ADC__enGetSampleInputSelection(enModule, enSequencer, enMux);
         psSampleConfig->enTempSensor = ADC__enGetSampleTempSelection(enModule, enSequencer, enMux);

@@ -18,12 +18,12 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 22 ene. 2021     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 22 ene. 2021 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTPERIPHERAL_H_
 #define XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTPERIPHERAL_H_
-
 
 #include <xDriver_MCU/UART/Peripheral/Struct/xHeader/UART_StructRegister.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
@@ -42,13 +42,13 @@ typedef volatile struct
                 UARTRSR_TypeDef UARTRSR_Bit;
                 UARTECR_TypeDef UARTECR_Bit;
         };
-        const uint32_t reserved[4];
+        const uint32_t reserved [4UL];
         union
         {
                 volatile const uint32_t UARTFR;
                 UARTFR_TypeDef UARTFR_Bit;
         };
-        const uint32_t reserved1[1];
+        const uint32_t reserved1 [1UL];
         union
         {
                 volatile uint32_t UARTILPR;
@@ -104,7 +104,7 @@ typedef volatile struct
                 volatile uint32_t UARTDMACTL;
                 UARTDMACTL_TypeDef UARTDMACTL_Bit;
         };
-        const uint32_t reserved2[22];
+        const uint32_t reserved2 [22UL];
         union
         {
                 volatile uint32_t UART9BITADDR;
@@ -115,19 +115,19 @@ typedef volatile struct
                 volatile uint32_t UART9BITAMASK;
                 UART9BITAMASK_TypeDef UART9BITAMASK_Bit;
         };
-        const uint32_t reserved3[965];
+        const uint32_t reserved3 [965UL];
         union
         {
                 volatile const uint32_t UARTPP;
                 UARTPP_TypeDef UARTPP_Bit;
         };
-        const uint32_t reserved4[1];
+        const uint32_t reserved4 [1UL];
         union
         {
                 volatile uint32_t UARTCC;
                 UARTCC_TypeDef UARTCC_Bit;
         };
-        const uint32_t reserved5[1];
+        const uint32_t reserved5 [1UL];
         union
         {
                 volatile const uint32_t UARTPeriphID4;
@@ -190,10 +190,9 @@ typedef volatile struct
         };
 } UART_TypeDef;
 
-
 typedef volatile struct
 {
-        UART_TypeDef MODULE[(uint32_t) UART_enMODULE_MAX + 1U];
+        UART_TypeDef MODULE [(uint32_t) UART_enMODULE_MAX];
 } UARTS_TypeDef;
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTPERIPHERAL_H_ */

@@ -21,14 +21,12 @@
  * Date           Author     Version     Description
  * 22 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_PERIPHERAL_UART_PERIPHERAL_H_
 #define XDRIVER_MCU_UART_PERIPHERAL_UART_PERIPHERAL_H_
-
 
 #include <xDriver_MCU/UART/Peripheral/Register/UART_Register.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Dependencies.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
-
-
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_UART_PERIPHERAL_H_ */

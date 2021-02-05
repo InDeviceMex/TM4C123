@@ -44,7 +44,7 @@ ADC_nSTATUS ADC__enGetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,
     ADC_nSTATUS enStatus = ADC_enSTATUS_ERROR;
     uint32_t u32CompRangeLow = 0UL;
     uint32_t u32CompRangeHigh = 0UL;
-    if((0UL != pu32CompRangeLow) && (0UL != pu32CompRangeHigh))
+    if((0UL != (uint32_t) pu32CompRangeLow) && (0UL != (uint32_t) pu32CompRangeHigh))
     {
         u32CompRangeLow = ADC__u32GetCompRangeLow(enModule, enActComp);
         u32CompRangeHigh = ADC__u32GetCompRangeHigh(enModule, enActComp);

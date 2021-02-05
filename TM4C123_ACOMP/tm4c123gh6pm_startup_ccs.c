@@ -240,9 +240,7 @@ ResetISR(void)
     /* Jump to the CCS C initialization routine.  This will enable the*/
     /* float32_ting-point unit as well, so that does not need to be done here.*/
     /**/
-    NVIC__vDeInitInterrupts();
-    SYSCTL__vDeInitClockGates();
-    {__asm(" cpsie i");}
+    {__asm(" cpsid i");}
     FPU__vInit();
     {__asm("    .global _c_int00\n"
           "    b.w     _c_int00");};

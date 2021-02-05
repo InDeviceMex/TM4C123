@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 22 ene. 2021     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 22 ene. 2021 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTREGISTER_H_
 #define XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTREGISTER_H_
 
@@ -226,74 +227,74 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile const uint32_t PID0      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID0 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID0_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID1      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID1 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID1_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID2      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID2 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID2_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID3      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID3 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID3_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID4      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID4 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID4_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID5      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID5 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID5_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID6      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID6 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID6_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t PID7      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t PID7 :8;
+    const uint32_t reserved :24;
 }UARTPeriphID7_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID0      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t CID0 :8;
+    const uint32_t reserved :24;
 }UARTCellID0_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID1      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t CID1 :8;
+    const uint32_t reserved :24;
 }UARTCellID1_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID2      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t CID2 :8;
+    const uint32_t reserved :24;
 }UARTCellID2_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t CID3      :8;
-    const    uint32_t       reserved  :24;
+    volatile const uint32_t CID3 :8;
+    const uint32_t reserved :24;
 }UARTCellID3_TypeDef;
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_STRUCT_XHEADER_UART_STRUCTREGISTER_H_ */

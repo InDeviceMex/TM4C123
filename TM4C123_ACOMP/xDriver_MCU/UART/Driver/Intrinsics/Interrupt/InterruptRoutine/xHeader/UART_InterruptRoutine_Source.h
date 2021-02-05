@@ -28,7 +28,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
 
-extern void (*UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_MAX +1U][(uint32_t) UART_enINTERRUPT_MAX + 1U]) (void);
+extern void (*UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_MAX][(uint32_t) UART_enINTERRUPT_MAX]) (void);
 
 
 

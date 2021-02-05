@@ -23,13 +23,15 @@
  */
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral_Bitbanding/UART_RegisterPeripheral_Bitbanding.h>
 
-UART_BITBANDING_TypeDef *UART_BITBANDING_BLOCK[(uint32_t) UART_enMODULE_MAX + 1U] = { UART0_BITBANDING,
-                                                          UART1_BITBANDING,
-                                                          UART2_BITBANDING,
-                                                          UART3_BITBANDING,
-                                                          UART4_BITBANDING,
-                                                          UART5_BITBANDING,
-                                                          UART6_BITBANDING,
-                                                          UART7_BITBANDING };
+UART_BITBANDING_TypeDef *UART_BITBANDING_BLOCK[(uint32_t) UART_enMODULE_MAX] =
+{ UART0_BITBANDING,
+UART1_BITBANDING,
+UART2_BITBANDING,
+UART3_BITBANDING,
+UART4_BITBANDING,
+UART5_BITBANDING,
+UART6_BITBANDING,
+UART7_BITBANDING
+};
 
 

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_UART_REGISTERPERIPHERAL_H_
 #define XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_UART_REGISTERPERIPHERAL_H_
 
@@ -33,11 +34,9 @@
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xHeader/UART_RegisterPeripheral_Module6.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterPeripheral/xHeader/UART_RegisterPeripheral_Module7.h>
 
-#define UART    (((UARTS_TypeDef*) (UART_BASE)))
+#define UART    ((UARTS_TypeDef*) (UART_BASE))
 
-extern UART_TypeDef* UART_BLOCK[(uint32_t) UART_enMODULE_MAX+1U];
-extern uint32_t UART_BLOCK_ADDRESS[(uint32_t) UART_enMODULE_MAX+1U];
-
-
+extern UART_TypeDef* UART_BLOCK[(uint32_t) UART_enMODULE_MAX];
+extern uint32_t UART_BLOCK_ADDRESS[(uint32_t) UART_enMODULE_MAX];
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_UART_REGISTERPERIPHERAL_H_ */

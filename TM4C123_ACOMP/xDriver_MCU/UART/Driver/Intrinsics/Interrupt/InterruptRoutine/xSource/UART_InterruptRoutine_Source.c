@@ -25,7 +25,7 @@
 
 void UART_vIRQSourceHandler_Dummy(void);
 
-void (*UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_MAX +1U][(uint32_t)UART_enINTERRUPT_MAX + 1U])(void)=
+void (*UART__vIRQSourceHandler[(uint32_t)UART_enMODULE_MAX][(uint32_t)UART_enINTERRUPT_MAX])(void)=
 {
     {
          &UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,&UART_vIRQSourceHandler_Dummy,
