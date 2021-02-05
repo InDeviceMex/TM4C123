@@ -51,7 +51,7 @@ extern int main(void);
 /* Reserve space for the system stack.*/
 /**/
 /*******************************************************************************/
-static uint32_t pui32Stack[0x200>>2] __attribute__((section(".stack")));
+static uint32_t pui32Stack[0x200 >> 2] __attribute__((section(".stack")));
 
 /*******************************************************************************/
 /**/

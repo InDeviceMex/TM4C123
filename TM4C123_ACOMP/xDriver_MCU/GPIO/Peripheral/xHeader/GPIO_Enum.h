@@ -481,8 +481,7 @@ typedef enum
             | ((uint32_t) GPIO_enDIR_INPUT << 8UL)
             | ((uint32_t) GPIO_enOUTMODE_PP << 4UL)
             | ((uint32_t) GPIO_enRESMODE_PULLUP << 0UL),
-    GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLDOWN = ((uint32_t) GPIO_enDRIVE_2mA
-            << 16UL) | ((uint32_t) GPIO_enDIR_INPUT << 8UL)
+    GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLDOWN = ((uint32_t) GPIO_enDRIVE_2mA << 16UL) | ((uint32_t) GPIO_enDIR_INPUT << 8UL)
             | ((uint32_t) GPIO_enOUTMODE_PP << 4UL)
             | ((uint32_t) GPIO_enRESMODE_PULLDOWN << 0UL),
     GPIO_enCONFIG_INPUT_2MA_OPENDRAIN = ((uint32_t) GPIO_enDRIVE_2mA << 16UL)
@@ -649,7 +648,7 @@ typedef enum
             | ((uint32_t) GPIO_enDIR_OUTPUT << 8UL)
             | ((uint32_t) GPIO_enOUTMODE_PP << 4UL)
             | ((uint32_t) GPIO_enRESMODE_PULLUP << 0UL),
-    GPIO_enCONFIG_OUTPUT_8MA_SLR_PUSHPULL_PULLDOWN = ((uint32_t) GPIO_enDRIVE_8mA_SLR  << 16UL)
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_PUSHPULL_PULLDOWN = ((uint32_t) GPIO_enDRIVE_8mA_SLR << 16UL)
             | ((uint32_t) GPIO_enDIR_OUTPUT << 8UL)
             | ((uint32_t) GPIO_enOUTMODE_PP << 4UL)
             | ((uint32_t) GPIO_enRESMODE_PULLDOWN << 0UL),
@@ -661,7 +660,7 @@ typedef enum
             | ((uint32_t) GPIO_enDIR_OUTPUT << 8UL)
             | ((uint32_t) GPIO_enOUTMODE_OD << 4UL)
             | ((uint32_t) GPIO_enRESMODE_PULLUP << 0UL),
-    GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN_PULLDOWN = ((uint32_t) GPIO_enDRIVE_8mA_SLR<< 16UL)
+    GPIO_enCONFIG_OUTPUT_8MA_SLR_OPENDRAIN_PULLDOWN = ((uint32_t) GPIO_enDRIVE_8mA_SLR << 16UL)
             | ((uint32_t) GPIO_enDIR_OUTPUT << 8UL)
             | ((uint32_t) GPIO_enOUTMODE_OD << 4UL)
             | ((uint32_t) GPIO_enRESMODE_PULLDOWN << 0UL),
