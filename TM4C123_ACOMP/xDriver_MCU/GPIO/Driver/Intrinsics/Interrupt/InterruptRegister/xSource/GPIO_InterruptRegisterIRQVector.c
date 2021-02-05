@@ -38,7 +38,7 @@ void GPIO__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), GPIO_nPO
     {
         u32Port = MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
         enVector = SCB_enVECISR_GPIO[u32Port];
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &GPIO__pvIRQVectorHandler[u32Port], enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &GPIO__pvIRQVectorHandler[u32Port], enVector);
     }
 }
 

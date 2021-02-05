@@ -28,22 +28,22 @@
 
 void GPIO__vEnADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vEnGeneric( enPort, GPIO_GPIOADCCTL_OFFSET, enPin);
+    GPIO__vEnGeneric(enPort, GPIO_GPIOADCCTL_OFFSET, enPin);
 }
 
 void GPIO__vDisADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vDisGeneric( enPort, GPIO_GPIOADCCTL_OFFSET, enPin);
+    GPIO__vDisGeneric(enPort, GPIO_GPIOADCCTL_OFFSET, enPin);
 }
 
 void GPIO__vSetADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nADC_TRIGGER enFeature)
 {
-    GPIO__vSetGeneric( enPort, GPIO_GPIOADCCTL_OFFSET, enPin, (uint32_t) enFeature);
+    GPIO__vSetGeneric(enPort, GPIO_GPIOADCCTL_OFFSET, enPin, (uint32_t) enFeature);
 }
 
 GPIO_nADC_TRIGGER GPIO__enGetADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nADC_TRIGGER enFeature = GPIO_enADC_TRIGGER_UNDEF;
-    enFeature = (GPIO_nADC_TRIGGER) GPIO__u32GetGeneric( enPort, GPIO_GPIOADCCTL_OFFSET, enPin);
+    enFeature = (GPIO_nADC_TRIGGER) GPIO__u32GetGeneric(enPort, GPIO_GPIOADCCTL_OFFSET, enPin);
     return enFeature;
 }

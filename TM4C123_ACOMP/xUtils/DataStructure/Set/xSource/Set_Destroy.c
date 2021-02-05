@@ -24,7 +24,7 @@
 #include <xUtils/DataStructure/Set/xHeader/Set_Destroy.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 
-void Set__vDestroy( Set_TypeDef* psSet)
+void Set__vDestroy(Set_TypeDef* psSet)
 {
     SLinkedList__vDestroy( (SLinkedList_TypeDef*) psSet);
 }

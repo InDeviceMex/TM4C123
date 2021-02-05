@@ -26,7 +26,7 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-void SCB__vSetPriorityGroup( SCB_nPRIGROUP enGroup)
+void SCB__vSetPriorityGroup(SCB_nPRIGROUP enGroup)
 {
     uint32_t u32Reg = 0UL;
 
@@ -34,7 +34,7 @@ void SCB__vSetPriorityGroup( SCB_nPRIGROUP enGroup)
     u32Reg <<= SCB_AIRCR_R_PRIGROUP_BIT;
     u32Reg |= SCB_AIRCR_R_VECTKEY_WRITE;
     SCB_vBarrier();
-    MCU__vWriteRegister( SCB_BASE, SCB_AIRCR_OFFSET, u32Reg, (SCB_AIRCR_R_VECTKEY_MASK | SCB_AIRCR_R_PRIGROUP_MASK), 0UL);
+    MCU__vWriteRegister(SCB_BASE, SCB_AIRCR_OFFSET, u32Reg, (SCB_AIRCR_R_VECTKEY_MASK | SCB_AIRCR_R_PRIGROUP_MASK), 0UL);
     SCB_vBarrier();
 }
 
@@ -43,7 +43,7 @@ SCB_nPRIGROUP SCB__enGetPriorityGroup(void)
     SCB_nPRIGROUP enReturn = SCB_enPRIGROUP_ERROR;
     uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_AIRCR_OFFSET, SCB_AIRCR_PRIGROUP_MASK, SCB_AIRCR_R_PRIGROUP_BIT);
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_AIRCR_OFFSET, SCB_AIRCR_PRIGROUP_MASK, SCB_AIRCR_R_PRIGROUP_BIT);
     enReturn = (SCB_nPRIGROUP) u32Reg;
 
     return enReturn;

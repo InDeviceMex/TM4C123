@@ -32,7 +32,7 @@ void* DLinkedList__pvGetElementData(const DLinkedListElement_TypeDef* const psEl
     return pvDataReg;
 }
 
-void DLinkedList__vSetElementData( DLinkedListElement_TypeDef* psElement, void* pvDataArg)
+void DLinkedList__vSetElementData(DLinkedListElement_TypeDef* psElement, void* pvDataArg)
 {
     psElement->pvDataContainer = pvDataArg;
 }

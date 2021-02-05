@@ -28,10 +28,10 @@
 
 void SYSCTL__vEnSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    SYSCTL__vWritePeripheral( enPeripheral, SYSCTL_SCGC_OFFSET, 1UL);
+    SYSCTL__vWritePeripheral(enPeripheral, SYSCTL_SCGC_OFFSET, 1UL);
 }
 
 void SYSCTL__vDisSleepModePeripheral(SYSCTL_nPERIPHERAL enPeripheral)
 {
-    SYSCTL__vWritePeripheral( enPeripheral, SYSCTL_SCGC_OFFSET, 0UL);
+    SYSCTL__vWritePeripheral(enPeripheral, SYSCTL_SCGC_OFFSET, 0UL);
 }

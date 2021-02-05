@@ -904,7 +904,7 @@ LCD1602_nSTATUS LCD1602__enReadScreen(char* pcData, const char* pcBuffer, const 
     LCD1602_nSTATUS enStatus= LCD1602_enSTATUS_ERROR;
     (void)pcBuffer;
 
-    if((0UL != (uint32_t) pu8Column) && (0UL != ( uint32_t) pu8Row))
+    if((0UL != (uint32_t) pu8Column) && (0UL != (uint32_t) pu8Row))
     {
         if((*pu8Column<(LCD1602_COLUMN_MAX)) && (*pu8Row<(LCD1602_ROW_MAX)))
         {

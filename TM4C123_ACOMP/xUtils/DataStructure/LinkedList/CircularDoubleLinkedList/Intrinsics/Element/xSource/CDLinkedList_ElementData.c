@@ -33,7 +33,7 @@ void* CDLinkedList__pvGetElementData(const CDLinkedListElement_TypeDef* const ps
     return pvDataReg;
 }
 
-void CDLinkedList__vSetElementData( CDLinkedListElement_TypeDef* psElement, void* pvDataArg)
+void CDLinkedList__vSetElementData(CDLinkedListElement_TypeDef* psElement, void* pvDataArg)
 {
     psElement->pvDataContainer = pvDataArg;
 }

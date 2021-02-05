@@ -13,11 +13,11 @@ void SysTick__vIRQVectorHandler(void)
 {
     uint32_t u32Count = SysTick__u32GetFreeCount();
     u32Count++;
-    SysTick__vSetFreeCount( u32Count);
+    SysTick__vSetFreeCount(u32Count);
     if(0U == u32Count)
     {
         uint32_t u32CountOv = SysTick__u32GetFreeCountOv();
         u32CountOv++;
-        SysTick__vSetFreeCountOv( u32CountOv);
+        SysTick__vSetFreeCountOv(u32CountOv);
     }
 }

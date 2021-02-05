@@ -26,10 +26,10 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
-void NVIC__vTriggerIRQ( NVIC_nSTIR enIRQ)
+void NVIC__vTriggerIRQ(NVIC_nSTIR enIRQ)
 {
     uint32_t u32IRQ = 0UL;
 
     u32IRQ = MCU__u32CheckPatams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
-    MCU__vWriteRegister( NVIC_BASE, NVIC_STIR_OFFSET, u32IRQ, NVIC_STIR_R_INTID_MASK, NVIC_STIR_R_INTID_BIT);
+    MCU__vWriteRegister(NVIC_BASE, NVIC_STIR_OFFSET, u32IRQ, NVIC_STIR_R_INTID_MASK, NVIC_STIR_R_INTID_BIT);
 }

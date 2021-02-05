@@ -26,7 +26,7 @@
 #include <xUtils/DataStructure/BinaryTree/xHeader/BiTree_RemoveLeft.h>
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Tree/xHeader/BiTree_Size.h>
 
-void BiTree__vDestroy( BiTree_TypeDef* psTree)
+void BiTree__vDestroy(BiTree_TypeDef* psTree)
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
      void (*pfvListDestroy) (void* List) = (void (*) (void* List) )0UL;
@@ -36,7 +36,7 @@ void BiTree__vDestroy( BiTree_TypeDef* psTree)
          pfvListDestroy = psTree->pfvDestroy;
          enStatus = BiTree__enRemoveLeft(psTree,(BiTreeElement_TypeDef*) 0UL );
 
-         psTree->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
+         psTree->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
          psTree->pfvDestroy = (void (*) (void* List)) 0UL;
          psTree->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
          psTree->psRoot = (BiTreeElement_TypeDef *) 0UL;

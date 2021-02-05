@@ -57,9 +57,9 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
 {
     uint32_t u32Reg = 0UL;
     GPIO_CONFIG_Typedef *psConfig = 0UL;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef)));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t) sizeof(GPIO_CONFIG_Typedef));
     #endif
 
@@ -90,7 +90,7 @@ GPIO_CONFIG_Typedef* GPIO__psCreateConfigStruct(GPIO_nCONFIG enConfig)
 
 void GPIO__vDeleteConfigStruct(GPIO_CONFIG_Typedef *psConfig)
 {
-    free( psConfig);
+    free(psConfig);
     psConfig = (GPIO_CONFIG_Typedef*) 0UL;
 }
 

@@ -38,7 +38,7 @@ void WDT__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), WDT_nINT_
         u32IntType &= (uint32_t) WDT_enINT_TYPE_MAX;
         if((uint32_t) WDT_enINT_TYPE_STANDARD == u32IntType)
         {
-            SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &WDT__vIRQVectorHandler[u32IntType], SCB_enVECISR_WDT01);
+            SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &WDT__vIRQVectorHandler[u32IntType], SCB_enVECISR_WDT01);
         }
         else
         {

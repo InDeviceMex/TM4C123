@@ -44,6 +44,6 @@ void ADC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ADC_nMODUL
         u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
         u32Sequencer = MCU__u32CheckPatams((uint32_t) enSequence, (uint32_t) ADC_enSEQ_MAX);
         enVector = SCB_enVECISR_ADC[u32Module][u32Sequencer];
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &ADC__pvIRQVectorHandler[u32Module][u32Sequencer], enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &ADC__pvIRQVectorHandler[u32Module][u32Sequencer], enVector);
     }
 }

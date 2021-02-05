@@ -51,12 +51,12 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
 
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
 
     if(0UL != (uint32_t) pu64FreeCount)
     {
-        enConfigVar = TIMER__enGetConfiguration( enModule);
+        enConfigVar = TIMER__enGetConfiguration(enModule);
         if(TIMER_enCONFIG_UNDEF != enConfigVar)
         {
             enStatus = TIMER_enSTATUS_OK;
@@ -76,9 +76,9 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                     break;
 
                     case TIMER_enCONFIG_INDIVIDUAL:
-                        enSubModeVar = TIMER__enGetSubMode( enModule);
-                        enAltModeVar = TIMER__enGetAltMode( enModule);
-                        enDirectionVar = TIMER__enGetCountDir( enModule);
+                        enSubModeVar = TIMER__enGetSubMode(enModule);
+                        enAltModeVar = TIMER__enGetAltMode(enModule);
+                        enDirectionVar = TIMER__enGetCountDir(enModule);
 
                         sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
                         sFreeCount32Config.u32CountMask = 0xFFFFFFUL;
@@ -130,9 +130,9 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
 
 
                     case TIMER_enCONFIG_INDIVIDUAL:
-                        enSubModeVar = TIMER__enGetSubMode( enModule);
-                        enAltModeVar = TIMER__enGetAltMode( enModule);
-                        enDirectionVar = TIMER__enGetCountDir( enModule);
+                        enSubModeVar = TIMER__enGetSubMode(enModule);
+                        enAltModeVar = TIMER__enGetAltMode(enModule);
+                        enDirectionVar = TIMER__enGetCountDir(enModule);
 
                         sFreeCount64Config.u32CountHighShiftRight = 0UL;
                         sFreeCount64Config.u32CountLowShiftRight = 0UL;
@@ -188,11 +188,11 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
 
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
 
     TIMER__vSetReady((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber);
-    enConfigVar = TIMER__enGetConfiguration( enModule);
+    enConfigVar = TIMER__enGetConfiguration(enModule);
     if(TIMER_enCONFIG_UNDEF != enConfigVar)
     {
         if((uint32_t) TIMER_enSIZE_32 == (uint32_t) u32ModuleSize)
@@ -210,9 +210,9 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
                 break;
 
                 case TIMER_enCONFIG_INDIVIDUAL:
-                    enSubModeVar = TIMER__enGetSubMode( enModule);
-                    enAltModeVar = TIMER__enGetAltMode( enModule);
-                    enDirectionVar = TIMER__enGetCountDir( enModule);
+                    enSubModeVar = TIMER__enGetSubMode(enModule);
+                    enAltModeVar = TIMER__enGetAltMode(enModule);
+                    enDirectionVar = TIMER__enGetCountDir(enModule);
 
                     TimerValue = (uint32_t) u64Count;
                     sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
@@ -252,9 +252,9 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
                     TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
                 break;
                 case TIMER_enCONFIG_INDIVIDUAL:
-                    enSubModeVar = TIMER__enGetSubMode( enModule);
-                    enAltModeVar = TIMER__enGetAltMode( enModule);
-                    enDirectionVar = TIMER__enGetCountDir( enModule);
+                    enSubModeVar = TIMER__enGetSubMode(enModule);
+                    enAltModeVar = TIMER__enGetAltMode(enModule);
+                    enDirectionVar = TIMER__enGetCountDir(enModule);
 
                     sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
                     sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;

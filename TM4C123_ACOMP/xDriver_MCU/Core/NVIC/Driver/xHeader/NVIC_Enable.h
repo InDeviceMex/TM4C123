@@ -27,8 +27,8 @@
 
 #include <xDriver_MCU/Core/NVIC/Peripheral/xHeader/NVIC_Enum.h>
 
-NVIC_nENABLE NVIC__enGetEnableIRQ( NVIC_nSTIR enIRQ);
-void NVIC__vSetEnableIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority);
-void NVIC__vClearEnableIRQ( NVIC_nSTIR enIRQ);
+NVIC_nENABLE NVIC__enGetEnableIRQ(NVIC_nSTIR enIRQ);
+void NVIC__vSetEnableIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority);
+void NVIC__vClearEnableIRQ(NVIC_nSTIR enIRQ);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_NVIC_NVIC_DRIVER_NVIC_ENABLE_H_ */

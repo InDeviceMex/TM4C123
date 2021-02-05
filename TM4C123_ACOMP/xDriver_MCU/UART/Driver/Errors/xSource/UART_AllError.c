@@ -40,7 +40,7 @@ uint32_t UART__u32GetErrorState(UART_nMODULE enModule)
     {
             uart = UART_BLOCK[enModule];
             u32Reg = uart->UARTRSR;
-            u32Reg &= ( UART_UARTRSR_R_BE_MASK | UART_UARTRSR_R_FE_MASK | UART_UARTRSR_R_OE_MASK | UART_UARTRSR_R_PE_MASK);
+            u32Reg &= (UART_UARTRSR_R_BE_MASK | UART_UARTRSR_R_FE_MASK | UART_UARTRSR_R_OE_MASK | UART_UARTRSR_R_PE_MASK);
     }
     return u32Reg;
 }
@@ -55,6 +55,6 @@ void UART__vClearErrorState(UART_nMODULE enModule)
     UART__vSetReady(enModule);
 
     uart = UART_BLOCK[enModule];
-    uart->UARTECR = ( UART_UARTRSR_R_BE_MASK | UART_UARTRSR_R_FE_MASK | UART_UARTRSR_R_OE_MASK | UART_UARTRSR_R_PE_MASK);
+    uart->UARTECR = (UART_UARTRSR_R_BE_MASK | UART_UARTRSR_R_FE_MASK | UART_UARTRSR_R_OE_MASK | UART_UARTRSR_R_PE_MASK);
 }
 

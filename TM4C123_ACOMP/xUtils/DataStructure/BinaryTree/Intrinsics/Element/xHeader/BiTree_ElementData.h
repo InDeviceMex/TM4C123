@@ -27,7 +27,7 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
 void* BiTree__pvGetElementData(const BiTreeElement_TypeDef* const psElement);
-void BiTree__vSetElementData( BiTreeElement_TypeDef* psElement, void* pvDataArg);
+void BiTree__vSetElementData(BiTreeElement_TypeDef* psElement, void* pvDataArg);
 
 
 

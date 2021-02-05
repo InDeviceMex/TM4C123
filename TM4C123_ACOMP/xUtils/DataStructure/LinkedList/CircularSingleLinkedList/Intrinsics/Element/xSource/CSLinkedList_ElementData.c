@@ -32,7 +32,7 @@ void* CSLinkedList__pvGetElementData(const CSLinkedListElement_TypeDef* const ps
     return pvDataReg;
 }
 
-void CSLinkedList__vSetElementData( CSLinkedListElement_TypeDef* psElement, void* pvDataArg)
+void CSLinkedList__vSetElementData(CSLinkedListElement_TypeDef* psElement, void* pvDataArg)
 {
     psElement->pvDataContainer = pvDataArg;
 }

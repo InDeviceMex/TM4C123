@@ -28,13 +28,13 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
 
 #pragma  CODE_SECTION(FLASH__enInitProcess, ".ramcode")
 
 FLASH_nSTATUS FLASH__enInitProcess (uint32_t u32FMC, uint32_t u32Feature);
 
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
 
 FLASH_nSTATUS FLASH__enInitProcess (uint32_t u32FMC, uint32_t u32Feature) __attribute__((section(".ramcode")));
 

@@ -97,7 +97,7 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
             }
             else if (u8FlagSign)
             {
-                if ( s64Number < 0)
+                if (s64Number < 0)
                 {
                     *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/
                 }
@@ -120,7 +120,7 @@ uint8_t Conv__u8DInt2String(int64_t s64Number,uint8_t u8Positive,uint8_t u8Paddi
 
     if(u8FlagSign)
     {
-        if ( s64Number < 0)
+        if (s64Number < 0)
         {
             pcPointerActual -= 1U;
             *pcPointerActual = '-';/*si el s32Numero es negativo guarda el signo negativo*/

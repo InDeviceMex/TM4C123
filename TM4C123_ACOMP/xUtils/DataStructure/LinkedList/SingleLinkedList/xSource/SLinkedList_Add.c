@@ -37,9 +37,9 @@
      uint32_t u32SizeReg = 0U;
      if(((uint32_t) 0UL != (uint32_t) psList))
      {
-        #if defined ( __TI_ARM__ )
+        #if defined (__TI_ARM__ )
          psNewElement = (SLinkedListElement_TypeDef*) memalign((size_t) 4,(size_t) sizeof(SLinkedListElement_TypeDef));
-        #elif defined ( __GNUC__ )
+        #elif defined (__GNUC__ )
          psNewElement = (SLinkedListElement_TypeDef*) malloc(sizeof(SLinkedListElement_TypeDef));
         #endif
 

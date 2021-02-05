@@ -30,21 +30,21 @@ void SYSEXC__vEnInterruptSource(SYSEXC_nINT enInterruptParam)
 {
     uint32_t u32InterruptParam = (uint32_t) enInterruptParam;
     u32InterruptParam &= (uint32_t) SYSEXC_enINT_ALL;
-    MCU__vWriteRegister( SYSEXC_BASE, SYSEXC_SYSEXCIM_OFFSET, u32InterruptParam, u32InterruptParam, 0UL);
+    MCU__vWriteRegister(SYSEXC_BASE, SYSEXC_SYSEXCIM_OFFSET, u32InterruptParam, u32InterruptParam, 0UL);
 }
 
 void SYSEXC__vDisInterruptSource(SYSEXC_nINT enInterruptParam)
 {
     uint32_t u32InterruptParam = (uint32_t) enInterruptParam;
     u32InterruptParam &= (uint32_t) SYSEXC_enINT_ALL;
-    MCU__vWriteRegister( SYSEXC_BASE, SYSEXC_SYSEXCIM_OFFSET, 0UL, u32InterruptParam, 0UL);
+    MCU__vWriteRegister(SYSEXC_BASE, SYSEXC_SYSEXCIM_OFFSET, 0UL, u32InterruptParam, 0UL);
 }
 
 void SYSEXC__vClearInterruptSource(SYSEXC_nINT enInterruptParam)
 {
     uint32_t u32InterruptParam = (uint32_t) enInterruptParam;
     u32InterruptParam &= (uint32_t) SYSEXC_enINT_ALL;
-    MCU__vWriteRegister( SYSEXC_BASE, SYSEXC_SYSEXCIC_OFFSET,  u32InterruptParam, u32InterruptParam, 0UL);
+    MCU__vWriteRegister(SYSEXC_BASE, SYSEXC_SYSEXCIC_OFFSET,  u32InterruptParam, u32InterruptParam, 0UL);
 }
 
 SYSEXC_nINT_STATUS SYSEXC__enStatusInterruptSource(SYSEXC_nINT enInterruptParam)
@@ -54,7 +54,7 @@ SYSEXC_nINT_STATUS SYSEXC__enStatusInterruptSource(SYSEXC_nINT enInterruptParam)
     uint32_t u32Reg = 0UL;
 
     u32InterruptParam &= (uint32_t) SYSEXC_enINT_ALL;
-    u32Reg = MCU__u32ReadRegister( SYSEXC_BASE, SYSEXC_SYSEXCRIS_OFFSET, u32InterruptParam, 0UL);
+    u32Reg = MCU__u32ReadRegister(SYSEXC_BASE, SYSEXC_SYSEXCRIS_OFFSET, u32InterruptParam, 0UL);
 
     if(0UL != u32Reg)
     {

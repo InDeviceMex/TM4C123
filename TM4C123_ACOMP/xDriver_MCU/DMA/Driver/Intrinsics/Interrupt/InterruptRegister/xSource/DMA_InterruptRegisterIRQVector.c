@@ -39,6 +39,6 @@ void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nVECTO
     {
         u32Vector = MCU__u32CheckPatams((uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
         enSCBVector = SCB_enVECISR_DMA[u32Vector];
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &DMA__pvIRQVectorHandler[(uint32_t) u32Vector], enSCBVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &DMA__pvIRQVectorHandler[(uint32_t) u32Vector], enSCBVector);
     }
 }

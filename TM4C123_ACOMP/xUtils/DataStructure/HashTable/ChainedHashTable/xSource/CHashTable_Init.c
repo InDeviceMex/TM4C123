@@ -27,8 +27,8 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 #include <stdlib.h>
 
-CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_t u32BucketsNum,uint32_t    (*pfu32FunctionArg) (const void *pcvKey),
-                                                                       uint32_t    (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
+CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* psCHashTable ,uint32_t u32BucketsNum,uint32_t (*pfu32FunctionArg) (const void *pcvKey),
+                                                                       uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enLinkedStatus = SLinkedList_enSTATUS_ERROR;
     SLinkedList_TypeDef* psList = (SLinkedList_TypeDef*)0UL;
@@ -42,9 +42,9 @@ CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_
         psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
         psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
-    #if defined ( __TI_ARM__ )
+    #if defined (__TI_ARM__ )
         psCHashTable->psTable = (SLinkedList_TypeDef*) memalign((size_t) 4,(size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
-    #elif defined ( __GNUC__ )
+    #elif defined (__GNUC__ )
         psCHashTable->psTable = (SLinkedList_TypeDef*) malloc((size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #endif
         if((uint32_t) 0UL != (uint32_t) (psCHashTable->psTable))
@@ -71,7 +71,7 @@ CHashTable_nSTATUS CHashTable__enInit( CHashTable_TypeDef* psCHashTable ,uint32_
     return (CHashTable_nSTATUS) enLinkedStatus;
 }
 
-CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t    (*pfu32FunctionArg) (const void *pcvKey),
+CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t (*pfu32FunctionArg) (const void *pcvKey),
                                                                        uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CHashTable_TypeDef *psCHashTable = 0;
@@ -79,9 +79,9 @@ CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t    (*pfu3
     SLinkedList_nSTATUS enLinkedStatus = SLinkedList_enSTATUS_ERROR;
     uint32_t u32Position = 0UL;
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psCHashTable = (CHashTable_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CHashTable_TypeDef));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psCHashTable = (CHashTable_TypeDef*) malloc(sizeof(CHashTable_TypeDef));
 #endif
     if((uint32_t) 0UL != (uint32_t) psCHashTable)
@@ -92,9 +92,9 @@ CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum,uint32_t    (*pfu3
         psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
         psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
-    #if defined ( __TI_ARM__ )
+    #if defined (__TI_ARM__ )
         psCHashTable->psTable = (SLinkedList_TypeDef*) memalign((size_t) 4,(size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
-    #elif defined ( __GNUC__ )
+    #elif defined (__GNUC__ )
         psCHashTable->psTable = (SLinkedList_TypeDef*) malloc((size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #endif
         if((uint32_t) 0UL != (uint32_t) (psCHashTable->psTable))

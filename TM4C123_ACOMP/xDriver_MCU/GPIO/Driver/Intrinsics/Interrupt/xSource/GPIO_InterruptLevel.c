@@ -29,18 +29,18 @@
 
 void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel)
 {
-    GPIO__vSetIntSense( enPort,  enPin, GPIO_enSENSE_LEVEL);
-    GPIO__vSetGeneric( enPort, GPIO_GPIOIEV_OFFSET, enPin, (uint32_t) enLevel);
+    GPIO__vSetIntSense(enPort,  enPin, GPIO_enSENSE_LEVEL);
+    GPIO__vSetGeneric(enPort, GPIO_GPIOIEV_OFFSET, enPin, (uint32_t) enLevel);
 }
 
 GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nSENSE enSense = GPIO_enSENSE_UNDEF;
     GPIO_nLEVEL enFeature = GPIO_enLEVEL_UNDEF;
-    enSense = GPIO__enGetIntSense( enPort, enPin);
+    enSense = GPIO__enGetIntSense(enPort, enPin);
     if(GPIO_enSENSE_LEVEL == enSense)
     {
-        enFeature = (GPIO_nLEVEL) GPIO__u32GetGeneric( enPort, GPIO_GPIOIEV_OFFSET, enPin);
+        enFeature = (GPIO_nLEVEL) GPIO__u32GetGeneric(enPort, GPIO_GPIOIEV_OFFSET, enPin);
     }
     return enFeature;
 }

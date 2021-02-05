@@ -29,7 +29,7 @@
 void SCB_DEBUG__vSetPriority(SCB_nSHPR enDEBUGPriority)
 {
     SCB_vBarrier();
-    MCU__vWriteRegister( SCB_BASE, SCB_SHPR3_OFFSET, (uint32_t) enDEBUGPriority, SCB_SHPR3_DEBUG_MASK, SCB_SHPR3_R_DEBUG_BIT);
+    MCU__vWriteRegister(SCB_BASE, SCB_SHPR3_OFFSET, (uint32_t) enDEBUGPriority, SCB_SHPR3_DEBUG_MASK, SCB_SHPR3_R_DEBUG_BIT);
     SCB_vBarrier();
 }
 
@@ -38,7 +38,7 @@ SCB_nSHPR SCB_DEBUG__enGetPriority(void)
     SCB_nSHPR enReturn = SCB_enSHPR0;
     uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_SHPR3_OFFSET, SCB_SHPR3_DEBUG_MASK, SCB_SHPR3_R_DEBUG_BIT);
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SHPR3_OFFSET, SCB_SHPR3_DEBUG_MASK, SCB_SHPR3_R_DEBUG_BIT);
     enReturn = (SCB_nSHPR) u32Reg;
 
     return enReturn;

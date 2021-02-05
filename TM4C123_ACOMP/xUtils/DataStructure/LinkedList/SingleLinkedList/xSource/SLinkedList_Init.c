@@ -25,12 +25,12 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Init.h>
 #include <stdlib.h>
 
-SLinkedList_TypeDef* SLinkedList__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer))
+SLinkedList_TypeDef* SLinkedList__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_TypeDef *psList = 0;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psList = (SLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(SLinkedList_TypeDef));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psList = (SLinkedList_TypeDef*) malloc(sizeof(SLinkedList_TypeDef));
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
@@ -44,7 +44,7 @@ SLinkedList_TypeDef* SLinkedList__psInit( void (*pfvDestroyElementDataArg) (void
     return psList;
 }
 
-SLinkedList_nSTATUS SLinkedList__enInit( SLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

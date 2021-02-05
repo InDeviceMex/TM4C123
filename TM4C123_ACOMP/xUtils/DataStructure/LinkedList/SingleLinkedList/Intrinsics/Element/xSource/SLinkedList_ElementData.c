@@ -32,7 +32,7 @@ void* SLinkedList__pvGetElementData(const SLinkedListElement_TypeDef* const psEl
     return pvDataReg;
 }
 
-void SLinkedList__vSetElementData( SLinkedListElement_TypeDef* psElement, void* pvDataArg)
+void SLinkedList__vSetElementData(SLinkedListElement_TypeDef* psElement, void* pvDataArg)
 {
     psElement->pvDataContainer = pvDataArg;
 }

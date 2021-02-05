@@ -26,13 +26,13 @@
 
 #include <xUtils/Standard/Standard.h>
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
 
 #pragma  CODE_SECTION(MCU__vWriteRegister, ".ramcode")
 
 void MCU__vWriteRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
 
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
 
 void MCU__vWriteRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature) __attribute__((section(".ramcode")));
 

@@ -28,18 +28,18 @@
 void EEPROM__vSetReady(void)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
-    SYSCTL__vSetReady( enPeripheral);
+    SYSCTL__vSetReady(enPeripheral);
 }
 
 void EEPROM__vClearReady(void)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
-    SYSCTL__vClearReady( enPeripheral);
+    SYSCTL__vClearReady(enPeripheral);
 }
 EEPROM_nREADY EEPROM__enIsReady(void)
 {
     EEPROM_nREADY enReady = EEPROM_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
-    enReady = (EEPROM_nREADY) SYSCTL__enIsReady( enPeripheral);
+    enReady = (EEPROM_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }

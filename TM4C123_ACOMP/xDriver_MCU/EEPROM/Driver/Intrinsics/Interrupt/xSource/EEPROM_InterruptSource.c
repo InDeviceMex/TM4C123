@@ -31,7 +31,7 @@
 void EEPROM__vEnInterruptSource(void)
 {
     EEPROM__vSetReady();
-    FLASH__vEnInterruptSource( FLASH_enINT_EEPROM);
+    FLASH__vEnInterruptSource(FLASH_enINT_EEPROM);
     MCU__vWriteRegister(EEPROM_BASE, EEPROM_EEINT_OFFSET, EEPROM_EEINT_INT_OCCUR, EEPROM_EEINT_INT_MASK, EEPROM_EEINT_R_INT_BIT);
 }
 
@@ -58,7 +58,7 @@ EEPROM_nINT_STATUS EEPROM__enStatusInterruptSource(void)
     enReady = EEPROM__enIsReady();
     if(EEPROM_enREADY == enReady)
     {
-        enFlashStatus = FLASH__enStatusInterruptSource( FLASH_enINT_EEPROM);
+        enFlashStatus = FLASH__enStatusInterruptSource(FLASH_enINT_EEPROM);
         if(FLASH_enINT_OCCUR == enFlashStatus)
         {
             enEEPROMStatus = EEPROM_enINT_OCCUR;

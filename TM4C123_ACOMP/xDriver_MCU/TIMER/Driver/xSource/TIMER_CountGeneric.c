@@ -27,7 +27,7 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 
-TIMER_nSTATUS TIMER_enGet1Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount)
+TIMER_nSTATUS TIMER_enGet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
     uint32_t u32Reg = 0UL;
@@ -51,7 +51,7 @@ TIMER_nSTATUS TIMER_enGet1Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODUL
     return enStatus;
 }
 
-void TIMER_vSet1Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount)
+void TIMER_vSet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount)
 {
     uint32_t u32Reg = 0UL;
     uint32_t u32TimerBase = 0UL;
@@ -69,7 +69,7 @@ void TIMER_vSet1Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMo
     }
 }
 
-TIMER_nSTATUS TIMER_enGet2Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
+TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
 
@@ -116,7 +116,7 @@ TIMER_nSTATUS TIMER_enGet2Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODUL
     return enStatus;
 }
 
-void TIMER_vSet2Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
+void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
 {
 
     uint64_t u64Reg = 0ULL;
@@ -161,7 +161,7 @@ void TIMER_vSet2Count32Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMo
     }
 }
 
-TIMER_nSTATUS TIMER_enGetCount64Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
+TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
 
@@ -213,7 +213,7 @@ TIMER_nSTATUS TIMER_enGetCount64Generic( TIMER_nSIZE enModuleSize, TIMER_nMODULE
     return enStatus;
 }
 
-uint64_t  TIMER_u64GetCount_RTC( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
+uint64_t  TIMER_u64GetCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
 {
     uint64_t u64Reg = 0ULL;
 
@@ -253,7 +253,7 @@ uint64_t  TIMER_u64GetCount_RTC( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enM
     return u64Reg;
 }
 
-uint64_t  TIMER_u64GetFreeCount_RTC( TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
+uint64_t  TIMER_u64GetFreeCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
 {
     uint64_t u64Reg = 0ULL;
 

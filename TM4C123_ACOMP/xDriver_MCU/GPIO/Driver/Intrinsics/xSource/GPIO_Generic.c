@@ -29,24 +29,24 @@
 void GPIO__vEnGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO_nPIN enPin)
 {
     enPin &= (uint32_t) GPIO_enPIN_ALL;
-    GPIO__vWriteRegister( enPort, u32RegisterOffset, (uint32_t) enPin, (uint32_t) enPin, 0UL);
+    GPIO__vWriteRegister(enPort, u32RegisterOffset, (uint32_t) enPin, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vDisGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO_nPIN enPin)
 {
     enPin &= (uint32_t) GPIO_enPIN_ALL;
-    GPIO__vWriteRegister( enPort, u32RegisterOffset, 0UL, (uint32_t) enPin, 0UL);
+    GPIO__vWriteRegister(enPort, u32RegisterOffset, 0UL, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vSetGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO_nPIN enPin, uint32_t u32Feature)
 {
     if(0UL == u32Feature)
     {
-        GPIO__vDisGeneric( enPort, u32RegisterOffset, enPin);
+        GPIO__vDisGeneric(enPort, u32RegisterOffset, enPin);
     }
     else
     {
-        GPIO__vEnGeneric( enPort, u32RegisterOffset, enPin);
+        GPIO__vEnGeneric(enPort, u32RegisterOffset, enPin);
     }
 }
 
@@ -57,7 +57,7 @@ uint32_t GPIO__u32GetGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
     uint32_t u32Reg = 0UL;
     enPin &= (uint32_t) GPIO_enPIN_ALL;
-    enStatus = GPIO__enReadRegister( enPort, GPIO_GPIOADCCTL_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
+    enStatus = GPIO__enReadRegister(enPort, GPIO_GPIOADCCTL_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
     if(GPIO_enSTATUS_OK == enStatus)
     {
         if(0UL != u32Reg)

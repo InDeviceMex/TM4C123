@@ -11,13 +11,13 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
 
 #pragma  CODE_SECTION(FLASH__enWait, ".ramcode")
 
 FLASH_nSTATUS FLASH__enWait (uint32_t u32FMC, uint32_t u32RegisterMask);
 
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
 
 FLASH_nSTATUS FLASH__enWait (uint32_t u32FMC, uint32_t u32RegisterMask) __attribute__((section(".ramcode")));
 

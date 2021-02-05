@@ -12,7 +12,7 @@
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Erase.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_WriteIntrinsics.h>
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
 
 #pragma  CODE_SECTION(FLASH_vFillBlock, ".ramcode")
 #pragma  CODE_SECTION(FLASH_enWriteMultiAux, ".ramcode")
@@ -20,7 +20,7 @@
 static void FLASH_vFillBlock(uint32_t u32InitialAddress, uint32_t u32AddressOffset, void* pvData, uint32_t u32Count, uint32_t u32VariableType);
 static FLASH_nSTATUS FLASH_enWriteMultiAux(uint32_t* pu32Data, uint32_t u32Address, uint32_t u32Count, uint32_t u32VariableType);
 
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
 
 static void FLASH_vFillBlock(uint32_t u32InitialAddress, uint32_t u32AddressOffset, void* pvData, uint32_t u32Count, uint32_t u32VariableType) __attribute__((section(".ramcode")));
 static FLASH_nSTATUS FLASH_enWriteMultiAux(uint32_t* pu32Data, uint32_t u32Address, uint32_t u32Count, uint32_t u32VariableType)__attribute__((section(".ramcode")));
@@ -77,7 +77,7 @@ static void FLASH_vFillBlock(uint32_t u32InitialAddress, uint32_t u32AddressOffs
     }
 }
 
-static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Address, uint32_t u32Count, uint32_t u32VariableType)
+static FLASH_nSTATUS FLASH_enWriteMultiAux(uint32_t* pu32Data, uint32_t u32Address, uint32_t u32Count, uint32_t u32VariableType)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
     uint32_t *pu32PageDataInitial = 0UL;
@@ -107,9 +107,9 @@ static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Addr
 
     if((u32AddressTotal <= FLASH_ADDRESS_MAX) && (0UL != u32Count))
     {
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
         pu32PageDataInitial = (uint32_t*) memalign( (size_t) 4UL, (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
         pu32PageDataInitial = (uint32_t*) malloc( (size_t) (sizeof(uint8_t) * FLASH_PAGE_SIZE));
 #endif
         if(0UL != (uint32_t) pu32PageDataInitial)
@@ -159,11 +159,11 @@ static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Addr
                 }
                 FLASH_vFillBlock( (uint32_t) pu32PageDataInitial, u32OffsetVariable, (void*) pu32Data, u32Dif, u32VariableType);
 
-                FLASH__enPageErase( u32AddressPage);
+                FLASH__enPageErase(u32AddressPage);
                 pu32PageData = pu32PageDataInitial;
                 for(u32Pos = 0UL; u32Pos < 8UL; u32Pos++)
                 {
-                    enReturn = FLASH__enWriteBuf( pu32PageData, u32AddressPage, 32UL);
+                    enReturn = FLASH__enWriteBuf(pu32PageData, u32AddressPage, 32UL);
                     if(FLASH_enERROR == enReturn)
                     {
                         break;
@@ -175,7 +175,7 @@ static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Addr
                 u32Count -= u32Dif;
             }while(0UL != u32Count);
 
-            free( pu32PageDataInitial);
+            free(pu32PageDataInitial);
             pu32PageDataInitial = (uint32_t*) 0UL;
         }
     }
@@ -185,7 +185,7 @@ static FLASH_nSTATUS FLASH_enWriteMultiAux( uint32_t* pu32Data, uint32_t u32Addr
 FLASH_nSTATUS FLASH__enWriteMultiWorld(uint32_t* pu32Data, uint32_t u32Address, uint32_t u32Count)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
-    enReturn = FLASH_enWriteMultiAux( pu32Data, u32Address, u32Count, 2UL);
+    enReturn = FLASH_enWriteMultiAux(pu32Data, u32Address, u32Count, 2UL);
     return enReturn;
 }
 

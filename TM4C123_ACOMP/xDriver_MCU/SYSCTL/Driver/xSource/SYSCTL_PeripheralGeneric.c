@@ -53,10 +53,10 @@ void SYSCTL__vWritePeripheral(SYSCTL_nPERIPHERAL enPeripheral, uint32_t u32Perip
     u32Offset *= 4UL;
     u32PeripheralArg += u32Offset;
     u32RegisterPROffset += u32Offset;
-    u32RegisterValue = MCU__u32ReadRegister( SYSCTL_BASE, u32PeripheralArg, 1UL, u32NoPeripheral);
+    u32RegisterValue = MCU__u32ReadRegister(SYSCTL_BASE, u32PeripheralArg, 1UL, u32NoPeripheral);
     if(0UL == u32RegisterValue)
     {
-        MCU__vWriteRegister( SYSCTL_BASE, u32PeripheralArg, u32ValueArg, 1UL, u32NoPeripheral);
+        MCU__vWriteRegister(SYSCTL_BASE, u32PeripheralArg, u32ValueArg, 1UL, u32NoPeripheral);
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
         SYSCTL_vNoOperation();
@@ -65,7 +65,7 @@ void SYSCTL__vWritePeripheral(SYSCTL_nPERIPHERAL enPeripheral, uint32_t u32Perip
         {
             do
             {
-                u32RegisterValue = MCU__u32ReadRegister( SYSCTL_BASE, u32RegisterPROffset, 1UL, u32NoPeripheral);
+                u32RegisterValue = MCU__u32ReadRegister(SYSCTL_BASE, u32RegisterPROffset, 1UL, u32NoPeripheral);
             }while(0UL == u32RegisterValue);
         }
     }
@@ -90,7 +90,7 @@ uint32_t SYSCTL__u32ReadPeripheral(SYSCTL_nPERIPHERAL enPeripheral, uint32_t u32
     u32Offset *= 4UL;
     u32PeripheralArg += u32Offset;
 
-    u32RegisterValue = MCU__u32ReadRegister( SYSCTL_BASE, u32PeripheralArg, 1UL, u32NoPeripheral);
+    u32RegisterValue = MCU__u32ReadRegister(SYSCTL_BASE, u32PeripheralArg, 1UL, u32NoPeripheral);
 
     return u32RegisterValue;
 }

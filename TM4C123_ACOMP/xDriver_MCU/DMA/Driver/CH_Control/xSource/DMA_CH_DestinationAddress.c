@@ -40,11 +40,11 @@ void DMA_CH__vSetDestEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelS
 {
     if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
-        DMA_CH__vSetPrimaryDestEndAddress( enChannel, u32DestAddress);
+        DMA_CH__vSetPrimaryDestEndAddress(enChannel, u32DestAddress);
     }
     else
     {
-        DMA_CH__vSetAlternateDestEndAddress( enChannel, u32DestAddress);
+        DMA_CH__vSetAlternateDestEndAddress(enChannel, u32DestAddress);
     }
 }
 
@@ -67,11 +67,11 @@ uint32_t DMA_CH__u32GetDestEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enCh
     uint32_t u32Reg = 0UL;
     if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
-        u32Reg = DMA_CH__u32GetPrimaryDestEndAddress( enChannel);
+        u32Reg = DMA_CH__u32GetPrimaryDestEndAddress(enChannel);
     }
     else
     {
-        u32Reg = DMA_CH__u32GetAlternateDestEndAddress( enChannel);
+        u32Reg = DMA_CH__u32GetAlternateDestEndAddress(enChannel);
     }
     return u32Reg;
 }

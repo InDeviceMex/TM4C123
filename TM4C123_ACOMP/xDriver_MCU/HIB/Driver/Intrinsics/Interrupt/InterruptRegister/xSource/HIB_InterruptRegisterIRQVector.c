@@ -33,6 +33,6 @@ void HIB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))
     SCB_nVECISR enVector = SCB_enVECISR_HIB;
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &HIB__pvIRQVectorHandler, enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &HIB__pvIRQVectorHandler, enVector);
     }
 }

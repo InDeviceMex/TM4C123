@@ -30,7 +30,7 @@
  * Create Deques based on Array and Linked List
  * create Stack based on Array
  * Create Set based on Hash
- * Create Heap and Priority Queue Interface ( warning these interfasces require realloc information)
+ * Create Heap and Priority Queue Interface (warning these interfasces require realloc information)
  * */
 
 #include <xUtils/DataStructure/LinkedList/LinkedList.h>

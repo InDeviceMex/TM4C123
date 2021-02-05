@@ -26,7 +26,7 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
-inline void NVIC__vSetPriorityIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
+inline void NVIC__vSetPriorityIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
 {
     uint32_t u32RegisterOffset = NVIC_IPR_OFFSET;
     uint32_t u32IsrIndex = 0UL;
@@ -41,10 +41,10 @@ inline void NVIC__vSetPriorityIRQ( NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
     u32IsrIndex = u32IRQ / 4UL;
     u32IsrIndex *= 4UL;
     u32RegisterOffset += u32IsrIndex;
-    MCU__vWriteRegister( NVIC_BASE, u32RegisterOffset, u32Priority, NVIC_PRI_MASK, u32IsrBit);
+    MCU__vWriteRegister(NVIC_BASE, u32RegisterOffset, u32Priority, NVIC_PRI_MASK, u32IsrBit);
 }
 
-inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ( NVIC_nSTIR enIRQ)
+inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ(NVIC_nSTIR enIRQ)
 {
     NVIC_nPRIORITY enPriority = NVIC_enDEFAULT;
     uint32_t u32RegisterOffset = NVIC_IPR_OFFSET;
@@ -60,7 +60,7 @@ inline NVIC_nPRIORITY  NVIC__enGetPriorityIRQ( NVIC_nSTIR enIRQ)
     u32IsrIndex *= 4UL;
     u32RegisterOffset += u32IsrIndex;
 
-    u32Priority = MCU__u32ReadRegister( NVIC_BASE, u32RegisterOffset, NVIC_PRI_MASK, u32IsrBit);
+    u32Priority = MCU__u32ReadRegister(NVIC_BASE, u32RegisterOffset, NVIC_PRI_MASK, u32IsrBit);
     enPriority= (NVIC_nPRIORITY) u32Priority;
 
     return enPriority;

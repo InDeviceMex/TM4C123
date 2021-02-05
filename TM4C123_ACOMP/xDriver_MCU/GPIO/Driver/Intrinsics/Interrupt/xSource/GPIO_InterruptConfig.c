@@ -42,11 +42,11 @@ void GPIO__vEnInterruptSourceConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nIN
 
     if((uint32_t) GPIO_enSENSE_EDGE == u32Sense)
     {
-        GPIO__vSetIntEdge( enPort, enPin, (GPIO_nEDGE) u32Event);
+        GPIO__vSetIntEdge(enPort, enPin, (GPIO_nEDGE) u32Event);
     }
     else
     {
-        GPIO__vSetIntLevel( enPort, enPin, (GPIO_nLEVEL) u32Event);
+        GPIO__vSetIntLevel(enPort, enPin, (GPIO_nLEVEL) u32Event);
     }
-    GPIO__vEnInterruptSource( enPort, enPin);
+    GPIO__vEnInterruptSource(enPort, enPin);
 }

@@ -24,12 +24,12 @@
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/xHeader/CDLinkedList_Init.h>
 #include <stdlib.h>
 
-CDLinkedList_TypeDef* CDLinkedList__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer))
+CDLinkedList_TypeDef* CDLinkedList__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CDLinkedList_TypeDef *psList = 0;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psList = (CDLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CDLinkedList_TypeDef));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psList = (CDLinkedList_TypeDef*) malloc(sizeof(CDLinkedList_TypeDef));
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
@@ -44,7 +44,7 @@ CDLinkedList_TypeDef* CDLinkedList__psInit( void (*pfvDestroyElementDataArg) (vo
 }
 
 
-CDLinkedList_nSTATUS CDLinkedList__enInit( CDLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+CDLinkedList_nSTATUS CDLinkedList__enInit(CDLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

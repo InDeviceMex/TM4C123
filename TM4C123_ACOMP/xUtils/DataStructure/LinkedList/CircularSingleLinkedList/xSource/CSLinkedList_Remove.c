@@ -193,7 +193,7 @@
              u32SizeList--;
              psEndElement = CSLinkedList__psGetHead(psList);
              u32SizeList--;
-             while( 0UL != u32SizeList)
+             while(0UL != u32SizeList)
              {
                  psEndElement = CSLinkedList__psGetElementNextNode(psEndElement);
                  u32SizeList--;
@@ -230,7 +230,7 @@
              {
                  psElement = CSLinkedList__psGetHead(psList);
                  u32Position--;
-                 while( 0UL != u32Position)
+                 while(0UL != u32Position)
                  {
                      psElement = CSLinkedList__psGetElementNextNode(psElement);
                      u32Position--;

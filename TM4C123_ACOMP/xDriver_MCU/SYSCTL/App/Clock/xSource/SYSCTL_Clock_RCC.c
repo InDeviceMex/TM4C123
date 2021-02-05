@@ -38,7 +38,7 @@ static SYSCTL_nBYPASS SYSCTL_enGetOSCSourceFreq_RCC(uint32_t *pu32Frequency)
 
     if((uint32_t) 0UL != (uint32_t) pu32Frequency)
     {
-        u32RCC = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_BYPASS_MASK, SYSCTL_RCC_R_BYPASS_BIT);
+        u32RCC = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_BYPASS_MASK, SYSCTL_RCC_R_BYPASS_BIT);
         if(SYSCTL_RCC_BYPASS_OSC == u32RCC)
         {
             /*OSC source/div*/
@@ -58,10 +58,10 @@ static uint32_t SYSCTL_enGetPLLFreq_RCC(void)
     uint32_t u32RCC = 0UL;
     uint32_t u32RegSYSDIV2 = 0UL;
 
-    u32RCC = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_PWRDN_MASK, SYSCTL_RCC_R_PWRDN_BIT);
+    u32RCC = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_PWRDN_MASK, SYSCTL_RCC_R_PWRDN_BIT);
     if(SYSCTL_RCC_PWRDN_ON == u32RCC)
     {
-        u32RegSYSDIV2 = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_RCC2_OFFSET, SYSCTL_RCC2_SYSDIV2_MASK, SYSCTL_RCC2_R_SYSDIV2_BIT);
+        u32RegSYSDIV2 = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC2_OFFSET, SYSCTL_RCC2_SYSDIV2_MASK, SYSCTL_RCC2_R_SYSDIV2_BIT);
         /*Initial Frequency of PLL*/
         u32Frequency = 200000000U;
         u32RegAux = u32RegSYSDIV2 + 1U;
@@ -77,12 +77,12 @@ uint32_t SYSCTL__u32GetClock_RCC(void)
     uint32_t u32RegOSCSRC = 0UL;
     uint32_t u32RegXTAL = 0UL;
 
-    u32RegOSCSRC = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_OSCSRC_MASK, SYSCTL_RCC_R_OSCSRC_BIT);
+    u32RegOSCSRC = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_OSCSRC_MASK, SYSCTL_RCC_R_OSCSRC_BIT);
     switch(u32RegOSCSRC)
     {
     case SYSCTL_RCC_OSCSRC_MOSC:
-        u32RegXTAL = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_XTAL_MASK, SYSCTL_RCC_R_XTAL_BIT);
-        u32Frequency = SYSCTL__u32GetFreqXtal( u32RegXTAL);
+        u32RegXTAL = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_XTAL_MASK, SYSCTL_RCC_R_XTAL_BIT);
+        u32Frequency = SYSCTL__u32GetFreqXtal(u32RegXTAL);
         enBypass = SYSCTL_enGetOSCSourceFreq_RCC( &u32Frequency);
         if(SYSCTL_enPLL == enBypass)
         {

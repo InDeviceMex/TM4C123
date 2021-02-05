@@ -622,7 +622,7 @@ typedef volatile struct
   volatile uint32_t IP3 :3;/*3*/
 }IPRw_TypeDef;
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     #pragma CHECK_MISRA("-6.4")
 #endif
 typedef volatile struct
@@ -630,7 +630,7 @@ typedef volatile struct
      const uint8_t reserved :5;
      volatile uint8_t IP :3;
 }IPRb_TypeDef;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     #pragma RESET_MISRA("6.4")
 #endif
 

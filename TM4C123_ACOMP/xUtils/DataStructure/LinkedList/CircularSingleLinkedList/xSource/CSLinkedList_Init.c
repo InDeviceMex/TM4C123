@@ -24,12 +24,12 @@
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/xHeader/CSLinkedList_Init.h>
 #include <stdlib.h>
 
-CSLinkedList_TypeDef* CSLinkedList__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer))
+CSLinkedList_TypeDef* CSLinkedList__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CSLinkedList_TypeDef *psList = 0;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psList = (CSLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CSLinkedList_TypeDef));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psList = (CSLinkedList_TypeDef*) malloc(sizeof(CSLinkedList_TypeDef));
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
@@ -43,7 +43,7 @@ CSLinkedList_TypeDef* CSLinkedList__psInit( void (*pfvDestroyElementDataArg) (vo
 }
 
 
-CSLinkedList_nSTATUS CSLinkedList__enInit( CSLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+CSLinkedList_nSTATUS CSLinkedList__enInit(CSLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

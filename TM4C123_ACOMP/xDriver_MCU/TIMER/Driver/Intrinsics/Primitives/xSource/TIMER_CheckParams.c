@@ -31,15 +31,15 @@ void TIMER__vCheckParams(uint32_t u32ModuleSize,  uint32_t u32SubModule, uint32_
 {
     if(0UL != (uint32_t) pu32ModuleSize)
     {
-        *pu32ModuleSize = MCU__u32CheckPatams( u32ModuleSize, (uint32_t) TIMER_enSIZE_MAX);
+        *pu32ModuleSize = MCU__u32CheckPatams(u32ModuleSize, (uint32_t) TIMER_enSIZE_MAX);
     }
     if(0UL != (uint32_t) pu32SubModule)
     {
-        *pu32SubModule = MCU__u32CheckPatams( u32SubModule, (uint32_t) TIMER_enSUBMODULE_MAX);
+        *pu32SubModule = MCU__u32CheckPatams(u32SubModule, (uint32_t) TIMER_enSUBMODULE_MAX);
     }
     if(0UL != (uint32_t) pu32ModuleNumber)
     {
-        *pu32ModuleNumber = MCU__u32CheckPatams( u32ModuleNumber, (uint32_t) TIMER_enMODULE_NUM_MAX);
+        *pu32ModuleNumber = MCU__u32CheckPatams(u32ModuleNumber, (uint32_t) TIMER_enMODULE_NUM_MAX);
     }
 }
 

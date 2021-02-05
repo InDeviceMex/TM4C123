@@ -44,6 +44,6 @@ void GPIO__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), GPIO_nPO
             u32PinNumber++;
             u32Pin >>= 1UL;
         }
-        MCU__vRegisterIRQSourceHandler( pfIrqSourceHandler, &GPIO__vIRQSourceHandler[u32Port][u32PinNumber], 0UL, 1UL);
+        MCU__vRegisterIRQSourceHandler(pfIrqSourceHandler, &GPIO__vIRQSourceHandler[u32Port][u32PinNumber], 0UL, 1UL);
     }
 }

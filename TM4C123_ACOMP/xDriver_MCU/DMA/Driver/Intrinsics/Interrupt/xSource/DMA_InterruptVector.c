@@ -35,7 +35,7 @@ void DMA__vEnInterruptVector(DMA_nVECTOR enVector, DMA_nPRIORITY enDmaPriority)
     enVector = (DMA_nVECTOR) MCU__u32CheckPatams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
 
     enVectorNvic = NVIC_VECTOR_DMA[ (uint32_t) enVector];
-    NVIC__vSetEnableIRQ( enVectorNvic, (NVIC_nPRIORITY) enDmaPriority);
+    NVIC__vSetEnableIRQ(enVectorNvic, (NVIC_nPRIORITY) enDmaPriority);
 }
 
 void DMA__vDisInterruptVector(DMA_nVECTOR enVector)
@@ -44,5 +44,5 @@ void DMA__vDisInterruptVector(DMA_nVECTOR enVector)
     enVector = (DMA_nVECTOR) MCU__u32CheckPatams( (uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
 
     enVectorNvic = NVIC_VECTOR_DMA[ (uint32_t) enVector];
-    NVIC__vClearEnableIRQ( enVectorNvic);
+    NVIC__vClearEnableIRQ(enVectorNvic);
 }

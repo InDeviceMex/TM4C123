@@ -21,8 +21,9 @@
  * Date           Author     Version     Description
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/TIMER/App/Mode/TIMER_Mode.h>
 #include <xDriver_MCU/TIMER/App/ModeReloadMatch/TIMER_ModeReloadMatch.h>
+
+#include <xDriver_MCU/TIMER/App/Mode/TIMER_Mode.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Match.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Reload.h>
 

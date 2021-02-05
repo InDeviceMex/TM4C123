@@ -28,12 +28,12 @@
 
 void DMA_CH__vClearInterruptStatus(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMACHIS_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMACHIS_OFFSET);
 }
 
 DMA_nCH_INT_STATUS DMA_CH__enGetInterruptStatus(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_INT_STATUS enInterruptStatus = DMA_enCH_INT_STATUS_UNDEF;
-    enInterruptStatus = (DMA_nCH_INT_STATUS) DMA_CH__u32GetConfigGeneric( enChannel, DMA_DMACHIS_OFFSET);
+    enInterruptStatus = (DMA_nCH_INT_STATUS) DMA_CH__u32GetConfigGeneric(enChannel, DMA_DMACHIS_OFFSET);
     return enInterruptStatus;
 }

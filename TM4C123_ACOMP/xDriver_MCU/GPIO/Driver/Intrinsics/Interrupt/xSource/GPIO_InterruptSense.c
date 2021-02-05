@@ -28,12 +28,12 @@
 
 void GPIO__vSetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nSENSE enSense)
 {
-    GPIO__vSetGeneric( enPort, GPIO_GPIOIS_OFFSET, enPin, (uint32_t) enSense);
+    GPIO__vSetGeneric(enPort, GPIO_GPIOIS_OFFSET, enPin, (uint32_t) enSense);
 }
 
 GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nSENSE enFeature = GPIO_enSENSE_UNDEF;
-    enFeature = (GPIO_nSENSE) GPIO__u32GetGeneric( enPort, GPIO_GPIOIS_OFFSET, enPin);
+    enFeature = (GPIO_nSENSE) GPIO__u32GetGeneric(enPort, GPIO_GPIOIS_OFFSET, enPin);
     return enFeature;
 }

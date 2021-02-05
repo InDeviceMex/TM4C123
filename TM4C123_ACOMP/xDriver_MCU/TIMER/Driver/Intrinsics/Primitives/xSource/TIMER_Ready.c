@@ -40,7 +40,7 @@ void TIMER__vSetReady(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber
      TIMER__vCheckParams( (uint32_t) enModuleSize, 0UL, (uint32_t) enModuleNumber, &u32ModuleSize, (uint32_t*)0UL, &u32ModuleNumber);
 
     enPeripheral = SYSCTL_VECTOR_TIMER [u32ModuleSize][u32ModuleNumber];
-    SYSCTL__vSetReady( enPeripheral);
+    SYSCTL__vSetReady(enPeripheral);
 }
 
 void TIMER__vClearReady(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
@@ -52,7 +52,7 @@ void TIMER__vClearReady(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumb
      TIMER__vCheckParams( (uint32_t) enModuleSize, 0UL, (uint32_t) enModuleNumber, &u32ModuleSize, (uint32_t*)0UL, &u32ModuleNumber);
 
     enPeripheral = SYSCTL_VECTOR_TIMER [u32ModuleSize][u32ModuleNumber];
-    SYSCTL__vClearReady( enPeripheral);
+    SYSCTL__vClearReady(enPeripheral);
 }
 
 TIMER_nREADY TIMER__enIsReady(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber)
@@ -65,6 +65,6 @@ TIMER_nREADY TIMER__enIsReady(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModu
      TIMER__vCheckParams( (uint32_t) enModuleSize, 0UL, (uint32_t) enModuleNumber, &u32ModuleSize, (uint32_t*)0UL, &u32ModuleNumber);
 
     enPeripheral = SYSCTL_VECTOR_TIMER[u32ModuleSize][u32ModuleNumber];
-    enReady=(TIMER_nREADY) SYSCTL__enIsReady( enPeripheral);
+    enReady=(TIMER_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }

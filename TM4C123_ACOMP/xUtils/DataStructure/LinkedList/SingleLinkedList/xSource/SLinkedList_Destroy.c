@@ -32,7 +32,7 @@
 
 #include <stdlib.h>
 
-void SLinkedList__vDestroy( SLinkedList_TypeDef* psList)
+void SLinkedList__vDestroy(SLinkedList_TypeDef* psList)
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
      void * pvDataElement = (void*)0UL;
@@ -54,7 +54,7 @@ void SLinkedList__vDestroy( SLinkedList_TypeDef* psList)
              u32SizeReg = SLinkedList__u32GetSize(psList);
          }
 
-         psList->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
+         psList->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
          psList->pfvDestroy = (void (*) (void* List)) 0UL;
          psList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
          psList->psHead = (SLinkedListElement_TypeDef *) 0UL;

@@ -31,7 +31,7 @@ HIB_nSTATUS HIB__enEnInterruptSource(HIB_nINT enInterruptParam)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
     enInterruptParam &= (uint32_t) HIB_enINT_ALL;
-    enReturn = HIB__enWriteRegister( HIB_HIBIM_OFFSET, (uint32_t) enInterruptParam, (uint32_t) enInterruptParam, 0UL);
+    enReturn = HIB__enWriteRegister(HIB_HIBIM_OFFSET, (uint32_t) enInterruptParam, (uint32_t) enInterruptParam, 0UL);
 
     return enReturn;
 }
@@ -40,7 +40,7 @@ HIB_nSTATUS HIB__enDisInterruptSource(HIB_nINT enInterruptParam)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
     enInterruptParam &= (uint32_t) HIB_enINT_ALL;
-    enReturn = HIB__enWriteRegister( HIB_HIBIM_OFFSET, 0UL, (uint32_t) enInterruptParam, 0UL);
+    enReturn = HIB__enWriteRegister(HIB_HIBIM_OFFSET, 0UL, (uint32_t) enInterruptParam, 0UL);
 
     return enReturn;
 }
@@ -49,7 +49,7 @@ HIB_nSTATUS HIB__enClearInterruptSource(HIB_nINT enInterruptParam)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_OK;
     enInterruptParam &= (uint32_t) HIB_enINT_ALL;
-    enReturn = HIB__enWriteRegister( HIB_HIBIC_OFFSET, (uint32_t) enInterruptParam, (uint32_t) enInterruptParam, 0UL);
+    enReturn = HIB__enWriteRegister(HIB_HIBIC_OFFSET, (uint32_t) enInterruptParam, (uint32_t) enInterruptParam, 0UL);
 
     return enReturn;
 }
@@ -61,7 +61,7 @@ HIB_nINT_STATUS HIB__enStatusInterruptSource(HIB_nINT enInterruptParam)
     uint32_t u32Reg = 0UL;
 
     enInterruptParam &= (uint32_t) HIB_enINT_ALL;
-    enStatusRead = HIB__enReadRegister( HIB_HIBRIS_OFFSET, &u32Reg, (uint32_t) enInterruptParam, 0UL);
+    enStatusRead = HIB__enReadRegister(HIB_HIBRIS_OFFSET, &u32Reg, (uint32_t) enInterruptParam, 0UL);
     if(HIB_enSTATUS_ERROR != enStatusRead)
     {
         if(0UL != u32Reg)

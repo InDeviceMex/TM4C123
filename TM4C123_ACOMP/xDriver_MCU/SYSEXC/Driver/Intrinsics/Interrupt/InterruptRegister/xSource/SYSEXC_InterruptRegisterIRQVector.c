@@ -33,5 +33,5 @@ void SYSEXC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void))
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {
     }
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &SYSEXC__pvIRQVectorHandler, enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &SYSEXC__pvIRQVectorHandler, enVector);
 }

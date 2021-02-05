@@ -50,6 +50,6 @@ void TIMER__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),TIMER_nM
         TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
         u32SubModule &= 0x1UL;
         enVector = SCB_enVECISR_TIMER[u32ModuleSize][u32SubModule][u32ModuleNumber];
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler , &TIMER__pvIRQVectorHandler[u32ModuleSize][u32SubModule][u32ModuleNumber],enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler , &TIMER__pvIRQVectorHandler[u32ModuleSize][u32SubModule][u32ModuleNumber],enVector);
     }
 }

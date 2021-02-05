@@ -57,9 +57,9 @@ BiTreeElement_TypeDef* BiTree__psInsertLeft(BiTree_TypeDef* psTree, BiTreeElemen
              }
          }
 
-        #if defined ( __TI_ARM__ )
+        #if defined (__TI_ARM__ )
          psNewElement = (BiTreeElement_TypeDef*) memalign((size_t) 4,(size_t) sizeof(BiTreeElement_TypeDef));
-        #elif defined ( __GNUC__ )
+        #elif defined (__GNUC__ )
          psNewElement = (BiTreeElement_TypeDef*) malloc(sizeof(BiTreeElement_TypeDef));
         #endif
 

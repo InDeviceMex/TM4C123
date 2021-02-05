@@ -29,54 +29,54 @@
 void DMA_CH__vSetPrimaryControlWorld(DMA_nCH_MODULE enChannel, DMACHCTL_TypeDef sChannelControlWorld)
 {
     volatile uint32_t *pu32Reg = (volatile uint32_t*) &sChannelControlWorld;
-    DMA_CH__vSetPrimaryControlGeneric( enChannel, (uint32_t) *pu32Reg, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vSetPrimaryControlGeneric(enChannel, (uint32_t) *pu32Reg, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetAlternateControlWorld(DMA_nCH_MODULE enChannel, DMACHCTL_TypeDef sChannelControlWorld)
 {
     volatile uint32_t* pu32Reg = (volatile uint32_t*) &sChannelControlWorld;
-    DMA_CH__vSetAlternateControlGeneric( enChannel, (uint32_t) *pu32Reg, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vSetAlternateControlGeneric(enChannel, (uint32_t) *pu32Reg, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, DMACHCTL_TypeDef sChannelControlWorld)
 {
     volatile uint32_t* pu32Reg = (volatile uint32_t*) &sChannelControlWorld;
-    DMA_CH__vSetControlGeneric( enChannel, enChannelStructure, (uint32_t) *pu32Reg, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure, (uint32_t) *pu32Reg, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetPrimaryControlWorldInteger(DMA_nCH_MODULE enChannel, uint32_t u32ChannelControlWorld)
 {
-    DMA_CH__vSetPrimaryControlGeneric( enChannel, u32ChannelControlWorld, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vSetPrimaryControlGeneric(enChannel, u32ChannelControlWorld, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetAlternateControlWorldInteger(DMA_nCH_MODULE enChannel, uint32_t u32ChannelControlWorld)
 {
-    DMA_CH__vSetAlternateControlGeneric( enChannel, u32ChannelControlWorld, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vSetAlternateControlGeneric(enChannel, u32ChannelControlWorld, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetControlWorldInteger(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32ChannelControlWorld)
 {
-    DMA_CH__vSetControlGeneric( enChannel, enChannelStructure, u32ChannelControlWorld, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure, u32ChannelControlWorld, 0xFFFFFFFFUL, 0UL);
 }
 
 uint32_t DMA_CH__u32GetPrimaryControlWorld(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
-    u32Reg = DMA_CH__u32GetPrimaryControlGeneric( enChannel, 0xFFFFFFFFUL, 0UL);
+    u32Reg = DMA_CH__u32GetPrimaryControlGeneric(enChannel, 0xFFFFFFFFUL, 0UL);
     return u32Reg;
 }
 
 uint32_t DMA_CH__u32GetAlternateControlWorld(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
-    u32Reg = DMA_CH__u32GetAlternateControlGeneric( enChannel, 0xFFFFFFFFUL, 0UL);
+    u32Reg = DMA_CH__u32GetAlternateControlGeneric(enChannel, 0xFFFFFFFFUL, 0UL);
     return u32Reg;
 }
 
 uint32_t DMA_CH__u32GetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
 {
     uint32_t u32Reg = 0UL;
-    u32Reg = DMA_CH__u32GetControlGeneric( enChannel, enChannelStructure, 0xFFFFFFFFUL, 0UL);
+    u32Reg = DMA_CH__u32GetControlGeneric(enChannel, enChannelStructure, 0xFFFFFFFFUL, 0UL);
     return u32Reg;
 }
 
@@ -87,7 +87,7 @@ void DMA_CH__vGetPrimaryControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef* 
     if(0UL != (uint32_t) psChannelControlWorld)
     {
         pu32Reg = (volatile uint32_t*) psChannelControlWorld;
-        u32Reg = DMA_CH__u32GetPrimaryControlWorld( enChannel);
+        u32Reg = DMA_CH__u32GetPrimaryControlWorld(enChannel);
         *pu32Reg = u32Reg;
     }
 }
@@ -99,7 +99,7 @@ void DMA_CH__vGetAlternateControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef
     if(0UL != (uint32_t) psChannelControlWorld)
     {
         pu32Reg = (volatile uint32_t*) psChannelControlWorld;
-        u32Reg = DMA_CH__u32GetAlternateControlWorld( enChannel);
+        u32Reg = DMA_CH__u32GetAlternateControlWorld(enChannel);
         *pu32Reg = u32Reg;
     }
 }
@@ -111,7 +111,7 @@ void DMA_CH__vGetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStr
     if(0UL != (uint32_t) psChannelControlWorld)
     {
         pu32Reg = (volatile uint32_t*) psChannelControlWorld;
-        u32Reg = DMA_CH__u32GetControlWorld( enChannel, enChannelStructure);
+        u32Reg = DMA_CH__u32GetControlWorld(enChannel, enChannelStructure);
         *pu32Reg = u32Reg;
     }
 }

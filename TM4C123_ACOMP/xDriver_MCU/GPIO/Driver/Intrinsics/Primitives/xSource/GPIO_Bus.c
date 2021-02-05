@@ -31,6 +31,6 @@ GPIO_nBUS GPIO__enGetBus(GPIO_nPORT enPort)
     GPIO_nBUS enReturn = GPIO_enBUS_APB;
     enPort = (GPIO_nPORT) MCU__u32CheckPatams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     SYSCTL_nGPIOBUS enGPIO = (SYSCTL_nGPIOBUS) ((uint32_t) 1UL << (uint32_t) enPort);
-    enReturn = (GPIO_nBUS) SYSCTL__vGetGPIOBus( enGPIO);
+    enReturn = (GPIO_nBUS) SYSCTL__vGetGPIOBus(enGPIO);
     return enReturn;
 }

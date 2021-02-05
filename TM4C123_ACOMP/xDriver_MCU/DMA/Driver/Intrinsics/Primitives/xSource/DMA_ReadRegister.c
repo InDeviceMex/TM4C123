@@ -31,11 +31,11 @@ DMA_nSTATUS DMA__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32Featur
 {
     DMA_nSTATUS enStatus = DMA_enSTATUS_UNDEF;
     DMA_nREADY enReady = DMA_enNOREADY;
-    enReady = DMA__enIsReady( DMA_enMODULE_0);
+    enReady = DMA__enIsReady(DMA_enMODULE_0);
     if((DMA_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))
     {
         enStatus = DMA_enSTATUS_OK;
-        *pu32FeatureValue = MCU__u32ReadRegister( DMA_BASE, u32OffsetRegister, u32MaskFeature, u32BitFeature);
+        *pu32FeatureValue = MCU__u32ReadRegister(DMA_BASE, u32OffsetRegister, u32MaskFeature, u32BitFeature);
     }
     return enStatus;
 }

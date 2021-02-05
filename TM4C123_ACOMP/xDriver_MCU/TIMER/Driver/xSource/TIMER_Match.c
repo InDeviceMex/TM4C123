@@ -48,11 +48,11 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
 
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
 
     TIMER__vSetReady((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber);
-    enConfigVar = TIMER__enGetConfiguration( enModule);
+    enConfigVar = TIMER__enGetConfiguration(enModule);
     if(TIMER_enCONFIG_UNDEF != enConfigVar)
     {
         if((uint32_t) TIMER_enSIZE_32 == (uint32_t) u32ModuleSize)
@@ -71,9 +71,9 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
                 break;
 
                 case TIMER_enCONFIG_INDIVIDUAL:
-                    enSubModeVar = TIMER__enGetSubMode( enModule);
-                    enAltModeVar = TIMER__enGetAltMode( enModule);
-                    enDirectionVar = TIMER__enGetCountDir( enModule);
+                    enSubModeVar = TIMER__enGetSubMode(enModule);
+                    enAltModeVar = TIMER__enGetAltMode(enModule);
+                    enDirectionVar = TIMER__enGetCountDir(enModule);
 
                     TimerValue = (uint32_t) u64Match;
                     sMatch64Config.u32CountHighShiftLeft = 0UL;
@@ -128,9 +128,9 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule,uint64_t u64Match)
                     TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sMatch64Config);
                 break;
                 case TIMER_enCONFIG_INDIVIDUAL:
-                    enSubModeVar = TIMER__enGetSubMode( enModule);
-                    enAltModeVar = TIMER__enGetAltMode( enModule);
-                    enDirectionVar = TIMER__enGetCountDir( enModule);
+                    enSubModeVar = TIMER__enGetSubMode(enModule);
+                    enAltModeVar = TIMER__enGetAltMode(enModule);
+                    enDirectionVar = TIMER__enGetCountDir(enModule);
 
                     u64TimerValue =  u64Match;
                     sMatch64Config.u32CountHighShiftLeft = 0UL;
@@ -184,12 +184,12 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
 
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
 
     if(0UL != (uint32_t) pu64Match)
     {
-        enConfigVar = TIMER__enGetConfiguration( enModule);
+        enConfigVar = TIMER__enGetConfiguration(enModule);
         if(TIMER_enCONFIG_UNDEF != enConfigVar)
         {
             enStatus = TIMER_enSTATUS_OK;
@@ -209,9 +209,9 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
                     break;
 
                     case TIMER_enCONFIG_INDIVIDUAL:
-                        enSubModeVar = TIMER__enGetSubMode( enModule);
-                        enAltModeVar = TIMER__enGetAltMode( enModule);
-                        enDirectionVar = TIMER__enGetCountDir( enModule);
+                        enSubModeVar = TIMER__enGetSubMode(enModule);
+                        enAltModeVar = TIMER__enGetAltMode(enModule);
+                        enDirectionVar = TIMER__enGetCountDir(enModule);
                         /*One shot or Periodic*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
@@ -273,9 +273,9 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule,uint64_t* pu64Match)
                         TIMER_enGet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sMatch64Config);
                     break;
                     case TIMER_enCONFIG_INDIVIDUAL:
-                        enSubModeVar = TIMER__enGetSubMode( enModule);
-                        enAltModeVar = TIMER__enGetAltMode( enModule);
-                        enDirectionVar = TIMER__enGetCountDir( enModule);
+                        enSubModeVar = TIMER__enGetSubMode(enModule);
+                        enAltModeVar = TIMER__enGetAltMode(enModule);
+                        enDirectionVar = TIMER__enGetCountDir(enModule);
 
                         sMatch64Config.u32CountHighShiftRight = 0UL;
                         sMatch64Config.u32CountLowShiftRight = 0UL;

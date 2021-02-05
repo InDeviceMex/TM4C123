@@ -34,10 +34,10 @@ void SYSEXC__vIRQVectorHandler(void)
     {
     __asm(
         " MRS R0, MSP\n"
-    #if defined ( __TI_ARM__ )
+    #if defined (__TI_ARM__ )
         " movw R2, SYSEXC_pu32Context\n"
         " movt R2, SYSEXC_pu32Context\n"
-    #elif defined ( __GNUC__ )
+    #elif defined (__GNUC__ )
         " ldr R2, = SYSEXC_pu32Context\n"
     #endif
         " ldr R1, [R0, #0X0]\n"

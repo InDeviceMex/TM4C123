@@ -33,7 +33,7 @@ void (*WDT__vIRQSourceHandler[ (uint32_t) WDT_enINT_TYPE_MAX + 1U ][ (uint32_t) 
 
 static void WDT_vIRQSourceHandler_Dummy(void)
 {
-    while( 1U  )
+    while(1U  )
     {
 
     }

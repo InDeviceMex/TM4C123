@@ -29,39 +29,39 @@
 void SYSCTL__vSetReady(SYSCTL_nPERIPHERAL enPeripheral)
 {
     SYSCTL_nPERIPHERAL_READY enReady = SYSCTL_enNOREADY;
-    enReady = SYSCTL__enIsPeripheralReady( enPeripheral);
+    enReady = SYSCTL__enIsPeripheralReady(enPeripheral);
     if(SYSCTL_enNOREADY == enReady)
     {
-        SYSCTL__vResetPeripheral( enPeripheral);
-        SYSCTL__vDisRunModePeripheral( enPeripheral);
-        SYSCTL__vEnRunModePeripheral( enPeripheral);
+        SYSCTL__vResetPeripheral(enPeripheral);
+        SYSCTL__vDisRunModePeripheral(enPeripheral);
+        SYSCTL__vEnRunModePeripheral(enPeripheral);
     }
 }
 
 void SYSCTL__vClearReady(SYSCTL_nPERIPHERAL enPeripheral)
 {
     SYSCTL_nPERIPHERAL_READY enReady = SYSCTL_enNOREADY;
-    enReady = SYSCTL__enIsPeripheralReady( enPeripheral);
+    enReady = SYSCTL__enIsPeripheralReady(enPeripheral);
     if(SYSCTL_enREADY == enReady)
     {
-        SYSCTL__vResetPeripheral( enPeripheral);
-        SYSCTL__vDisRunModePeripheral( enPeripheral);
+        SYSCTL__vResetPeripheral(enPeripheral);
+        SYSCTL__vDisRunModePeripheral(enPeripheral);
     }
 }
 
 void SYSCTL__vReset(SYSCTL_nPERIPHERAL enPeripheral)
 {
     SYSCTL_nPERIPHERAL_READY enReady = SYSCTL_enNOREADY;
-    enReady = SYSCTL__enIsPeripheralReady( enPeripheral);
+    enReady = SYSCTL__enIsPeripheralReady(enPeripheral);
     if(SYSCTL_enREADY == enReady)
     {
-        SYSCTL__vResetPeripheral( enPeripheral);
+        SYSCTL__vResetPeripheral(enPeripheral);
     }
 }
 
 SYSCTL_nPERIPHERAL_READY SYSCTL__enIsReady(SYSCTL_nPERIPHERAL enPeripheral)
 {
     SYSCTL_nPERIPHERAL_READY enReady = SYSCTL_enNOREADY;
-    enReady = SYSCTL__enIsPeripheralReady( enPeripheral);
+    enReady = SYSCTL__enIsPeripheralReady(enPeripheral);
     return enReady;
 }

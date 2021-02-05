@@ -35,7 +35,7 @@ OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* psOAHashTab
     if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
         u32PositionSize = psOAHashTable->u32Positions;
-        for( u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
+        for(u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
         {
             u32PositionNum = psOAHashTable->pfu32HashFunction1(* pvData);
             u32Position2Num = psOAHashTable->pfu32HashFunction2(*pvData);
@@ -77,7 +77,7 @@ void* OAHashTable__pvLookup(const OAHashTable_TypeDef* psOAHashTable, const void
     if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
         u32PositionSize = psOAHashTable->u32Positions;
-        for( u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
+        for(u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
         {
             u32PositionNum = psOAHashTable->pfu32HashFunction1(* pvData);
             u32Position2Num = psOAHashTable->pfu32HashFunction2(*pvData);

@@ -29,19 +29,19 @@
 void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     enPin &= GPIO_enPIN_ALL;
-    GPIO__vWriteRegister( enPort, GPIO_GPIOIM_OFFSET, (uint32_t) enPin, (uint32_t) enPin, 0UL);
+    GPIO__vWriteRegister(enPort, GPIO_GPIOIM_OFFSET, (uint32_t) enPin, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     enPin &= GPIO_enPIN_ALL;
-    GPIO__vWriteRegister( enPort, GPIO_GPIOIM_OFFSET,  0UL, (uint32_t) enPin, 0UL);
+    GPIO__vWriteRegister(enPort, GPIO_GPIOIM_OFFSET,  0UL, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     enPin &= GPIO_enPIN_ALL;
-    GPIO__vWriteRegister( enPort, GPIO_GPIOICR_OFFSET, (uint32_t) enPin, (uint32_t) enPin, 0UL);
+    GPIO__vWriteRegister(enPort, GPIO_GPIOICR_OFFSET, (uint32_t) enPin, (uint32_t) enPin, 0UL);
 }
 
 GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
@@ -52,7 +52,7 @@ GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPi
 
     enPin &= GPIO_enPIN_ALL;
 
-    enStatusRead = GPIO__enReadRegister( enPort, GPIO_GPIORIS_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
+    enStatusRead = GPIO__enReadRegister(enPort, GPIO_GPIORIS_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
     if(GPIO_enSTATUS_ERROR != enStatusRead)
     {
         if(0UL != u32Reg)

@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/xHeader/CDLinkedList_Struct.h>
 
-void CDLinkedList__vDestroy( CDLinkedList_TypeDef* psList);
+void CDLinkedList__vDestroy(CDLinkedList_TypeDef* psList);
 
 
 

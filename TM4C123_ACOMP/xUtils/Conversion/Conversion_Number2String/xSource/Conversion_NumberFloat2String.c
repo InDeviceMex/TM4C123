@@ -157,7 +157,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
                 u64DiffCompare2 = 0U;
             }
 
-            if (( u64DiffCompare || u64DiffCompare2 ) && (0U != ((uint64_t) s64ValueComplete & (uint64_t) 1)))
+            if ((u64DiffCompare || u64DiffCompare2 ) && (0U != ((uint64_t) s64ValueComplete & (uint64_t) 1)))
             {
               /* exactly 0.5 and ODD, then round up
                *1.5 -> 2, but 2.5 -> 2 * 1.5 */
@@ -177,7 +177,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
               pvBufferIn[szLength] = (char) u64ValueTemp;
               szLength++;
               u64Fractional /= 10U;
-              if ( 0U == u64Fractional)
+              if (0U == u64Fractional)
               {
                 break;
               }

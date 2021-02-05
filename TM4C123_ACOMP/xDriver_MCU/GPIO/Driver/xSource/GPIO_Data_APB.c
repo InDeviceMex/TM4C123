@@ -42,7 +42,7 @@ inline void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin,
         u32OffsetRegister *= 4UL;
         u32OffsetRegister += GPIO_GPIODATA_MASK_OFFSET;
 
-        GPIO__vWriteRegisterBus( enPort, enBus, u32OffsetRegister, u32Data, 0xFFFFFFFFUL, 0UL);
+        GPIO__vWriteRegisterBus(enPort, enBus, u32OffsetRegister, u32Data, 0xFFFFFFFFUL, 0UL);
     }
 }
 
@@ -62,7 +62,7 @@ inline GPIO_nSTATUS GPIO_APB__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint
         u32OffsetRegister *= 4UL;
         u32OffsetRegister += GPIO_GPIODATA_MASK_OFFSET;
 
-        enStatus = GPIO__enReadRegisterBus( enPort, enBus, u32OffsetRegister, u32Feature, 0xFFFFFFFFUL, 0UL);
+        enStatus = GPIO__enReadRegisterBus(enPort, enBus, u32OffsetRegister, u32Feature, 0xFFFFFFFFUL, 0UL);
     }
     return enStatus;
 }

@@ -37,14 +37,14 @@ void TIMER__vGetSubParams(TIMER_nMODULE enModule, uint32_t *pu32ModuleSize, uint
         u32ModuleSize = (uint32_t) enModule;
         u32ModuleSize >>= 16UL;
         u32ModuleSize &= 0x1UL;
-        *pu32ModuleSize = MCU__u32CheckPatams( u32ModuleSize, (uint32_t) TIMER_enSIZE_MAX);
+        *pu32ModuleSize = MCU__u32CheckPatams(u32ModuleSize, (uint32_t) TIMER_enSIZE_MAX);
     }
     if(0UL != (uint32_t) pu32SubModule)
     {
         u32SubModule = (uint32_t) enModule;
         u32SubModule >>= 8UL;
         u32SubModule &= 0x3UL;
-        *pu32SubModule = MCU__u32CheckPatams( u32SubModule, (uint32_t) TIMER_enSUBMODULE_MAX);
+        *pu32SubModule = MCU__u32CheckPatams(u32SubModule, (uint32_t) TIMER_enSUBMODULE_MAX);
     }
 
     if(0UL != (uint32_t) pu32ModuleNumber)
@@ -52,7 +52,7 @@ void TIMER__vGetSubParams(TIMER_nMODULE enModule, uint32_t *pu32ModuleSize, uint
         u32ModuleNumber = (uint32_t) enModule;
         u32ModuleNumber >>= 0UL;
         u32ModuleNumber &= 0x7UL;
-        *pu32ModuleNumber = MCU__u32CheckPatams( u32ModuleNumber, (uint32_t) TIMER_enMODULE_NUM_MAX);
+        *pu32ModuleNumber = MCU__u32CheckPatams(u32ModuleNumber, (uint32_t) TIMER_enMODULE_NUM_MAX);
     }
 }
 

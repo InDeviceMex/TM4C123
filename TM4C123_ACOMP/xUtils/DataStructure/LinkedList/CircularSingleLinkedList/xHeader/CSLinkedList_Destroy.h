@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
-void CSLinkedList__vDestroy( CSLinkedList_TypeDef* psList);
+void CSLinkedList__vDestroy(CSLinkedList_TypeDef* psList);
 
 
 

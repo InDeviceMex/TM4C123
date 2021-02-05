@@ -34,11 +34,11 @@ GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nCONFIG 
 
     if(0UL != (uint32_t) psConfig)
     {
-        GPIO__vSetResistorMode( enPort, enPin, psConfig->enResistorMode);
-        GPIO__vSetOutputMode( enPort, enPin, psConfig->enOutputMode);
-        GPIO__vSetDirection( enPort, enPin, psConfig->enDirection);
-        GPIO__vSetDrive( enPort, enPin, psConfig->enDrive);
-        GPIO__vDeleteConfigStruct( psConfig);
+        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
+        GPIO__vDeleteConfigStruct(psConfig);
         enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
@@ -49,10 +49,10 @@ GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin, const G
     GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
     if(0UL != (uint32_t) psConfig)
     {
-        GPIO__vSetResistorMode( enPort, enPin, psConfig->enResistorMode);
-        GPIO__vSetOutputMode( enPort, enPin, psConfig->enOutputMode);
-        GPIO__vSetDirection( enPort, enPin, psConfig->enDirection);
-        GPIO__vSetDrive( enPort, enPin, psConfig->enDrive);
+        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
         enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
@@ -69,13 +69,13 @@ GPIO_nCONFIG GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
 
     uint32_t u32Reg = 0UL;
 
-    u32ResistorModeVar = (uint32_t) GPIO__enGetResistorMode( enPort, enPin);
+    u32ResistorModeVar = (uint32_t) GPIO__enGetResistorMode(enPort, enPin);
     u32ResistorModeVar <<= 0UL;
-    u32OutputModeVar = (uint32_t) GPIO__enGetOutputMode( enPort, enPin);
+    u32OutputModeVar = (uint32_t) GPIO__enGetOutputMode(enPort, enPin);
     u32OutputModeVar <<= 4UL;
-    u32DirectionVar = (uint32_t) GPIO__enGetDirection( enPort, enPin);
+    u32DirectionVar = (uint32_t) GPIO__enGetDirection(enPort, enPin);
     u32DirectionVar <<= 8UL;
-    u32DriveVar = (uint32_t) GPIO__enGetDrive( enPort, enPin);
+    u32DriveVar = (uint32_t) GPIO__enGetDrive(enPort, enPin);
     u32DriveVar <<= 16UL;
 
     u32Reg = u32ResistorModeVar;
@@ -91,19 +91,19 @@ void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_CONFIG_Typedef *p
 {
     if(0UL != (uint32_t) psConfig)
     {
-        psConfig->enResistorMode = GPIO__enGetResistorMode( enPort, enPin);
-        psConfig->enOutputMode = GPIO__enGetOutputMode( enPort, enPin);
-        psConfig->enDirection = GPIO__enGetDirection( enPort, enPin);
-        psConfig->enDrive = GPIO__enGetDrive( enPort, enPin);
+        psConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
+        psConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
+        psConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
+        psConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
     }
 }
 
 GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_CONFIG_Typedef *psConfig = 0UL;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef)));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t) sizeof(GPIO_CONFIG_Typedef));
     #endif
 

@@ -29,7 +29,7 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/List/xHeader/DLinkedList_Tail.h>
 #include <stdlib.h>
 
-void DLinkedList__vDestroy( DLinkedList_TypeDef* psList)
+void DLinkedList__vDestroy(DLinkedList_TypeDef* psList)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
      DLinkedListElement_TypeDef* psTailElement = (DLinkedListElement_TypeDef*) 0UL;
@@ -53,7 +53,7 @@ void DLinkedList__vDestroy( DLinkedList_TypeDef* psList)
              u32SizeReg = DLinkedList__u32GetSize(psList);
          }
 
-         psList->pfu32Match = (uint32_t    (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
+         psList->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
          psList->pfvDestroy = (void (*) (void* List)) 0UL;
          psList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
          psList->psHead = (DLinkedListElement_TypeDef *) 0UL;

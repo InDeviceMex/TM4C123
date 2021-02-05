@@ -29,7 +29,7 @@
 inline void SCB_SysTick__vSetPriority(SCB_nSHPR enSysTickPriority)
 {
     SCB_vBarrier();
-    MCU__vWriteRegister( SCB_BASE, SCB_SHPR3_OFFSET, (uint32_t) enSysTickPriority, SCB_SHPR3_SYSTICK_MASK, SCB_SHPR3_R_SYSTICK_BIT);
+    MCU__vWriteRegister(SCB_BASE, SCB_SHPR3_OFFSET, (uint32_t) enSysTickPriority, SCB_SHPR3_SYSTICK_MASK, SCB_SHPR3_R_SYSTICK_BIT);
     SCB_vBarrier();
 }
 
@@ -38,7 +38,7 @@ SCB_nSHPR SCB_SysTick__enGetPriority(void)
     SCB_nSHPR enReturn = SCB_enSHPR0;
     uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_SHPR3_OFFSET, SCB_SHPR3_SYSTICK_MASK, SCB_SHPR3_R_SYSTICK_BIT);
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_SHPR3_OFFSET, SCB_SHPR3_SYSTICK_MASK, SCB_SHPR3_R_SYSTICK_BIT);
     enReturn = (SCB_nSHPR) u32Reg;
 
     return enReturn;
@@ -47,12 +47,12 @@ SCB_nSHPR SCB_SysTick__enGetPriority(void)
 
 inline void SCB_SysTick__vSetPending(void)
 {
-    MCU__vWriteRegister( SCB_BASE, SCB_ICSR_OFFSET, SCB_ICSR_PENDSTSET_SET, SCB_ICSR_PENDSTSET_MASK, SCB_ICSR_R_PENDSTSET_BIT);
+    MCU__vWriteRegister(SCB_BASE, SCB_ICSR_OFFSET, SCB_ICSR_PENDSTSET_SET, SCB_ICSR_PENDSTSET_MASK, SCB_ICSR_R_PENDSTSET_BIT);
 }
 
 inline void SCB_SysTick__vClearPending(void)
 {
-    MCU__vWriteRegister( SCB_BASE, SCB_ICSR_OFFSET, SCB_ICSR_PENDSTCLR_REMOVE, SCB_ICSR_PENDSTCLR_MASK, SCB_ICSR_R_PENDSTCLR_BIT);
+    MCU__vWriteRegister(SCB_BASE, SCB_ICSR_OFFSET, SCB_ICSR_PENDSTCLR_REMOVE, SCB_ICSR_PENDSTCLR_MASK, SCB_ICSR_R_PENDSTCLR_BIT);
 }
 
 SCB_nPENDSTATE SCB_SysTick__enGetPending(void)
@@ -60,7 +60,7 @@ SCB_nPENDSTATE SCB_SysTick__enGetPending(void)
     SCB_nPENDSTATE enReturn = SCB_enNOPENDING;
     uint32_t u32Reg = 0UL;
 
-    u32Reg = MCU__u32ReadRegister( SCB_BASE, SCB_ICSR_OFFSET, SCB_ICSR_PENDSTSET_MASK, SCB_ICSR_R_PENDSTSET_BIT);
+    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_ICSR_OFFSET, SCB_ICSR_PENDSTSET_MASK, SCB_ICSR_R_PENDSTSET_BIT);
     enReturn = (SCB_nPENDSTATE) u32Reg;
 
     return enReturn;

@@ -39,5 +39,5 @@ void TIMER__vWriteRegister(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleN
 
     u32TimerBase = TIMER_BLOCK_BASE [u32ModuleSize][u32ModuleNumber];
 
-    MCU__vWriteRegister( u32TimerBase, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
+    MCU__vWriteRegister(u32TimerBase, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }

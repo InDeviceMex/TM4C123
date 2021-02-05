@@ -38,7 +38,7 @@ HIB_nSTATUS HIB__enGetStatus (void)
     if(HIB_enREADY == enReady)
     {
         enReturn = HIB_enSTATUS_OK;
-        u32Reg = MCU__u32ReadRegister( HIB_BASE, HIB_HIBCTL_OFFSET, HIB_HIBCTL_WRC_MASK, HIB_HIBCTL_R_WRC_BIT);
+        u32Reg = MCU__u32ReadRegister(HIB_BASE, HIB_HIBCTL_OFFSET, HIB_HIBCTL_WRC_MASK, HIB_HIBCTL_R_WRC_BIT);
         if(HIB_HIBCTL_WRC_BUSY == u32Reg)
         {
             enReturn = HIB_enSTATUS_BUSY;

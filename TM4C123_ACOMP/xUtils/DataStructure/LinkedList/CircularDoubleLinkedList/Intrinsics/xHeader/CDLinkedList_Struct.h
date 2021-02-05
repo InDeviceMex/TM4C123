@@ -42,7 +42,7 @@ typedef struct CDLinkedListElement
 typedef struct CDLinkedList
 {
         uint32_t u32Size;
-        uint32_t    (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
+        uint32_t (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
         void (*pfvDestroyElementData) (void *DataContainer);
         void (*pfvDestroy) (void* List);
         CDLinkedListElement_TypeDef *psHead;

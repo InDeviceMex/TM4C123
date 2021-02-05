@@ -52,14 +52,14 @@ void SYSCTL__vResetPeripheral(SYSCTL_nPERIPHERAL enPeripheral)
     u32Offset *= 4UL;
     u32RegisterSROffset += u32Offset;
 
-    MCU__vWriteRegister( SYSCTL_BASE, u32RegisterSROffset, 1UL, 1UL, u32NoPeripheral);
+    MCU__vWriteRegister(SYSCTL_BASE, u32RegisterSROffset, 1UL, 1UL, u32NoPeripheral);
 
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();
 
-    MCU__vWriteRegister( SYSCTL_BASE, u32RegisterSROffset, 0UL, 1UL, u32NoPeripheral);
+    MCU__vWriteRegister(SYSCTL_BASE, u32RegisterSROffset, 0UL, 1UL, u32NoPeripheral);
 
     SYSCTL_vNoOperation();
     SYSCTL_vNoOperation();

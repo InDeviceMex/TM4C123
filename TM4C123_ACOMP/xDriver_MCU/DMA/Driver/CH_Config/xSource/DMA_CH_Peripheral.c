@@ -31,29 +31,29 @@ static void DMA_CH__vDisPeripheral(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vEnPeripheral(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAREQMASKCLR_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAREQMASKCLR_OFFSET);
 }
 
 static void DMA_CH__vDisPeripheral(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAREQMASKSET_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAREQMASKSET_OFFSET);
 }
 
 void DMA_CH__vSetPeripheralEnable(DMA_nCH_MODULE enChannel, DMA_nCH_PERIPHERAL enChannelPeripheralEn)
 {
     if(DMA_enCH_PERIPHERAL_ENA == enChannelPeripheralEn)
     {
-        DMA_CH__vEnPeripheral( enChannel);
+        DMA_CH__vEnPeripheral(enChannel);
     }
     else
     {
-        DMA_CH__vDisPeripheral( enChannel);
+        DMA_CH__vDisPeripheral(enChannel);
     }
 }
 
 DMA_nCH_PERIPHERAL DMA_CH__enGetPeripheralEnable(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_PERIPHERAL enPeripheral = DMA_enCH_PERIPHERAL_UNDEF;
-    enPeripheral = (DMA_nCH_PERIPHERAL) DMA_CH__u32GetConfigGeneric( enChannel, DMA_DMAREQMASKSET_OFFSET);
+    enPeripheral = (DMA_nCH_PERIPHERAL) DMA_CH__u32GetConfigGeneric(enChannel, DMA_DMAREQMASKSET_OFFSET);
     return enPeripheral;
 }

@@ -19,7 +19,7 @@ FLASH_nSTATUS FLASH__enWait (uint32_t u32FMC, uint32_t u32RegisterMask)
 
     do
     {
-        u32Reg = MCU__u32ReadRegister( FLASH_BASE, u32FMC, u32RegisterMask, 0UL);
+        u32Reg = MCU__u32ReadRegister(FLASH_BASE, u32FMC, u32RegisterMask, 0UL);
         u32TimeOut--;
         if(0UL == u32TimeOut)
         {

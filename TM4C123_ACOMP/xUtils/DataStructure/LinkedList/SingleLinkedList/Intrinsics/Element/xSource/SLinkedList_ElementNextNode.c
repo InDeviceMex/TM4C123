@@ -31,7 +31,7 @@ SLinkedListElement_TypeDef* SLinkedList__psGetElementNextNode(const SLinkedListE
     return psNextElementReg;
 }
 
-void SLinkedList__vSetElementNextNode( SLinkedListElement_TypeDef* psElement,  SLinkedListElement_TypeDef* psNextElement)
+void SLinkedList__vSetElementNextNode(SLinkedListElement_TypeDef* psElement,  SLinkedListElement_TypeDef* psNextElement)
 {
     psElement->psNextNode = psNextElement;
 }

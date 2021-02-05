@@ -28,12 +28,12 @@
 
 void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vEnGeneric( enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
+    GPIO__vEnGeneric(enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
 }
 
 void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vDisGeneric( enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
+    GPIO__vDisGeneric(enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
 }
 
 void GPIO__vSetAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nANALOG_MODE enFeature)

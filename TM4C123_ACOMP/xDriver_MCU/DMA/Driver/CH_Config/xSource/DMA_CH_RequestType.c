@@ -31,29 +31,29 @@ static void DMA_CH__vSetRequestOnlyBurst(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vSetRequestBoth(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAUSEBURSTCLR_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAUSEBURSTCLR_OFFSET);
 }
 
 static void DMA_CH__vSetRequestOnlyBurst(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAUSEBURSTSET_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAUSEBURSTSET_OFFSET);
 }
 
 void DMA_CH__vSetRequestType(DMA_nCH_MODULE enChannel, DMA_nCH_REQTYPE enRequestType)
 {
     if(DMA_enCH_REQTYPE_BOTH == enRequestType)
     {
-        DMA_CH__vSetRequestBoth( enChannel);
+        DMA_CH__vSetRequestBoth(enChannel);
     }
     else
     {
-        DMA_CH__vSetRequestOnlyBurst( enChannel);
+        DMA_CH__vSetRequestOnlyBurst(enChannel);
     }
 }
 
 DMA_nCH_REQTYPE DMA_CH__enGetRequestType(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_REQTYPE enRequestType = DMA_enCH_REQTYPE_UNDEF;
-    enRequestType = (DMA_nCH_REQTYPE) DMA_CH__u32GetConfigGeneric( enChannel, DMA_DMAUSEBURSTSET_OFFSET);
+    enRequestType = (DMA_nCH_REQTYPE) DMA_CH__u32GetConfigGeneric(enChannel, DMA_DMAUSEBURSTSET_OFFSET);
     return enRequestType;
 }

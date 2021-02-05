@@ -39,7 +39,7 @@ void WDT_NMI__vIRQVectorHandler(void)
     volatile uint32_t u32Reg1 = 0U;
     volatile uint32_t u32RegWrite1 = 0U;
 
-    if((uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )
+    if((uint32_t) 0U != (SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )
     {
         u32RegType = WDT->MODULE[(uint32_t) WDT_enMODULE_0].WDTCTL;
         u32RegType &= WDT_WDTCTL_R_INTTYPE_MASK;
@@ -56,7 +56,7 @@ void WDT_NMI__vIRQVectorHandler(void)
         }
     }
 
-    if((uint32_t) 0U != ( SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT1_MASK ) )
+    if((uint32_t) 0U != (SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT1_MASK ) )
     {
         u32RegType = WDT->MODULE[(uint32_t) WDT_enMODULE_1].WDTCTL;
         u32RegType &= WDT_WDTCTL_R_INTTYPE_MASK;
@@ -72,7 +72,7 @@ void WDT_NMI__vIRQVectorHandler(void)
                 {
                     u32RegWrite1= WDT1_WDTCTL_R;
                     u32RegWrite1 &= WDT_WDTCTL_R_WRC_MASK;
-                }while( WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1 );
+                }while(WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1 );
                 WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_NMI][(uint32_t) WDT_enMODULE_1]();
             }
         }

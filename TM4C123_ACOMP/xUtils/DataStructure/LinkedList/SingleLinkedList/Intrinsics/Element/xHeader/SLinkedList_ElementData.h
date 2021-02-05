@@ -27,7 +27,7 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
 void* SLinkedList__pvGetElementData(const SLinkedListElement_TypeDef* const psElement);
-void SLinkedList__vSetElementData( SLinkedListElement_TypeDef* psElement, void* pvDataArg);
+void SLinkedList__vSetElementData(SLinkedListElement_TypeDef* psElement, void* pvDataArg);
 
 
 

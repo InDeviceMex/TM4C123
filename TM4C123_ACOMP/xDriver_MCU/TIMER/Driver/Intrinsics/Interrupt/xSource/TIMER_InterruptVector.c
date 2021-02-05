@@ -45,7 +45,7 @@ static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule)
     uint32_t u32ModuleSize = 0UL;
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
     enVector = NVIC_VECTOR_TIMER[u32ModuleSize][u32SubModule][u32ModuleNumber];
     return enVector;
@@ -54,13 +54,13 @@ static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule)
 void TIMER__vEnInterruptVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTimerPriority)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_TIMER0A;
-    enVector = TIMER__enGetInterruptVector( enModule);
-    NVIC__vSetEnableIRQ( enVector, (NVIC_nPRIORITY) enTimerPriority);
+    enVector = TIMER__enGetInterruptVector(enModule);
+    NVIC__vSetEnableIRQ(enVector, (NVIC_nPRIORITY) enTimerPriority);
 }
 
 void TIMER__vDisInterruptVector(TIMER_nMODULE enModule)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_TIMER0A;
-    enVector = TIMER__enGetInterruptVector( enModule);
-    NVIC__vClearEnableIRQ( enVector);
+    enVector = TIMER__enGetInterruptVector(enModule);
+    NVIC__vClearEnableIRQ(enVector);
 }

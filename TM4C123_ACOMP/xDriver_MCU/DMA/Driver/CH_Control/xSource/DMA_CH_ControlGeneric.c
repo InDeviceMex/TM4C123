@@ -40,11 +40,11 @@ void DMA_CH__vSetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelS
 {
     if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
-        DMA_CH__vSetPrimaryControlGeneric( enChannel, u32FeatureValue, u32MaskFeature, u32BitFeature);
+        DMA_CH__vSetPrimaryControlGeneric(enChannel, u32FeatureValue, u32MaskFeature, u32BitFeature);
     }
     else
     {
-        DMA_CH__vSetAlternateControlGeneric( enChannel, u32FeatureValue, u32MaskFeature, u32BitFeature);
+        DMA_CH__vSetAlternateControlGeneric(enChannel, u32FeatureValue, u32MaskFeature, u32BitFeature);
     }
 }
 
@@ -67,11 +67,11 @@ uint32_t DMA_CH__u32GetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enCh
     uint32_t u32Reg = 0UL;
     if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
-        u32Reg = DMA_CH__u32GetPrimaryControlGeneric( enChannel, u32MaskFeature, u32BitFeature);
+        u32Reg = DMA_CH__u32GetPrimaryControlGeneric(enChannel, u32MaskFeature, u32BitFeature);
     }
     else
     {
-        u32Reg = DMA_CH__u32GetAlternateControlGeneric( enChannel, u32MaskFeature, u32BitFeature);
+        u32Reg = DMA_CH__u32GetAlternateControlGeneric(enChannel, u32MaskFeature, u32BitFeature);
     }
     return u32Reg;
 }

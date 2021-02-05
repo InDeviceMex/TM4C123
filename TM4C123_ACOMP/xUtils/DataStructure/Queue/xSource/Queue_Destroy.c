@@ -24,7 +24,7 @@
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Destroy.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 
-void Queue__vDestroy( Queue_TypeDef* psQueue)
+void Queue__vDestroy(Queue_TypeDef* psQueue)
 {
     SLinkedList__vDestroy( (SLinkedList_TypeDef*) psQueue);
 }

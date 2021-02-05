@@ -31,7 +31,7 @@ SYSCTL_nPERIPHERAL_PRESENT SYSCTL__enIsPeripheralPresent(SYSCTL_nPERIPHERAL enPe
     SYSCTL_nPERIPHERAL_PRESENT enReturn = SYSCTL_enNOPRESENT;
     uint32_t u32RegisterValue = 0UL;
 
-    u32RegisterValue = SYSCTL__u32ReadPeripheral( enPeripheral, SYSCTL_PP_OFFSET);
+    u32RegisterValue = SYSCTL__u32ReadPeripheral(enPeripheral, SYSCTL_PP_OFFSET);
     enReturn = (SYSCTL_nPERIPHERAL_PRESENT) u32RegisterValue;
 
     return enReturn;

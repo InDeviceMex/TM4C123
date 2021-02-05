@@ -28,11 +28,11 @@
 void HIB__vEnInterruptVector(HIB_nPRIORITY enPriority)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_HIB;
-    NVIC__vSetEnableIRQ( enVector, (NVIC_nPRIORITY) enPriority);
+    NVIC__vSetEnableIRQ(enVector, (NVIC_nPRIORITY) enPriority);
 }
 
 void HIB__vDisInterruptVector(void)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_HIB;
-    NVIC__vClearEnableIRQ( enVector);
+    NVIC__vClearEnableIRQ(enVector);
 }

@@ -22,6 +22,7 @@
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/TIMER/App/xHeader/TIMER_Init.h>
+
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/TIMER_InterruptRegisterIRQVector.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Interrupt/InterruptRoutine/TIMER_InterruptRoutine.h>
 
@@ -53,4 +54,3 @@ void TIMER__vInit(void)
     TIMER__vRegisterIRQVectorHandler( &WTIMER5A__vIRQVectorHandler,TIMER_enWT5A);
     TIMER__vRegisterIRQVectorHandler( &WTIMER5B__vIRQVectorHandler,TIMER_enWT5B);
 }
-

@@ -28,7 +28,7 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
-#define WDT_TIMEOUT ( 10000UL )
+#define WDT_TIMEOUT (10000UL )
 
 void WDT__vWaitWrite(WDT_nMODULE enModule)
 {

@@ -28,12 +28,12 @@
 
 void DMA__vSetChannelControlPointer(uint32_t u32ControlAddress)
 {
-    DMA__vWriteRegister( DMA_DMACTLBASE_OFFSET, u32ControlAddress, DMA_DMACTLBASE_R_ADDR_MASK, 0UL);
+    DMA__vWriteRegister(DMA_DMACTLBASE_OFFSET, u32ControlAddress, DMA_DMACTLBASE_R_ADDR_MASK, 0UL);
 }
 
 uint32_t DMA__u32GetChannelControlPointer(void)
 {
     uint32_t u32Reg = 0UL;
-    DMA__enReadRegister( DMA_DMACTLBASE_OFFSET, &u32Reg, DMA_DMACTLBASE_R_ADDR_MASK, 0UL);
+    DMA__enReadRegister(DMA_DMACTLBASE_OFFSET, &u32Reg, DMA_DMACTLBASE_R_ADDR_MASK, 0UL);
     return u32Reg;
 }

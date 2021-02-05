@@ -180,7 +180,7 @@
              u32SizeList--;
              psEndElement = SLinkedList__psGetHead(psList);
              u32SizeList--;
-             while( 0UL != u32SizeList)
+             while(0UL != u32SizeList)
              {
                  psEndElement = SLinkedList__psGetElementNextNode(psEndElement);
                  u32SizeList--;
@@ -215,7 +215,7 @@
              {
                  psElement = SLinkedList__psGetHead(psList);
                  u32Position--;
-                 while( 0UL != u32Position)
+                 while(0UL != u32Position)
                  {
                      psElement = SLinkedList__psGetElementNextNode(psElement);
                      u32Position--;

@@ -41,7 +41,7 @@ void ACMP__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), ACMP_nMO
     {
         u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
         enVector = SCB_enVECISR_ACMP[u32Module];
-        SCB__vRegisterIRQVectorHandler( pfIrqVectorHandler, &ACMP__pvIRQVectorHandler[u32Module], enVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &ACMP__pvIRQVectorHandler[u32Module], enVector);
     }
 }
 

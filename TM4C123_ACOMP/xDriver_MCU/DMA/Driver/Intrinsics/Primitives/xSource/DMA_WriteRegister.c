@@ -29,8 +29,8 @@
 
 void DMA__vWriteRegister(uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    DMA__vSetReady( DMA_enMODULE_0);
-    MCU__vWriteRegister( DMA_BASE, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
+    DMA__vSetReady(DMA_enMODULE_0);
+    MCU__vWriteRegister(DMA_BASE, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }
 
 

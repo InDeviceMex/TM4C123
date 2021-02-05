@@ -31,23 +31,23 @@ static void DMA_CH__vSetPrimaryStructure(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vSetAlternativeStructure(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAALTSET_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAALTSET_OFFSET);
 }
 
 static void DMA_CH__vSetPrimaryStructure(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAALTCLR_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAALTCLR_OFFSET);
 }
 
 void DMA_CH__vSetControlStructure(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelControlStructure)
 {
     if(DMA_enCH_CTL_PRIMARY == enChannelControlStructure)
     {
-        DMA_CH__vSetPrimaryStructure( enChannel);
+        DMA_CH__vSetPrimaryStructure(enChannel);
     }
     else
     {
-        DMA_CH__vSetAlternativeStructure( enChannel);
+        DMA_CH__vSetAlternativeStructure(enChannel);
     }
 }
 

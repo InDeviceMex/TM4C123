@@ -55,7 +55,7 @@ FLASH_nINT_STATUS FLASH__enStatusInterruptSource(FLASH_nINT enInterruptParam)
     uint32_t u32Reg = 0UL;
 
     u32InterruptParam &= (uint32_t) FLASH_enINT_ALL;
-    u32Reg = MCU__u32ReadRegister( FLASH_BASE, FLASH_FCRIS_OFFSET, u32InterruptParam, 0UL);
+    u32Reg = MCU__u32ReadRegister(FLASH_BASE, FLASH_FCRIS_OFFSET, u32InterruptParam, 0UL);
 
     if(0UL != u32Reg)
     {

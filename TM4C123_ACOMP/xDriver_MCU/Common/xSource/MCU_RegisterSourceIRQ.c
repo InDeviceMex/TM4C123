@@ -30,7 +30,7 @@ void MCU__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), void (**p
     uint32_t u32IrqSourceHandler = 0UL;
     if((0UL != (uint32_t) pfIrqSourceHandler) && (0UL != (uint32_t) pfIrqVectorHandler))
     {
-        u32Interrupt = MCU__u32CheckPatams( u32InterruptSource, u32InterruptSourceMax);
+        u32Interrupt = MCU__u32CheckPatams(u32InterruptSource, u32InterruptSourceMax);
         u32IrqSourceHandler = (uint32_t) pfIrqSourceHandler;
         u32IrqSourceHandler |= 1UL;
 

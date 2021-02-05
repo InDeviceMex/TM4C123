@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
-void BiTree__vDestroy( BiTree_TypeDef* psTree);
+void BiTree__vDestroy(BiTree_TypeDef* psTree);
 
 #endif /* XUTILS_DATASTRUCTURE_BINARYTREE_XHEADER_BITREE_DESTROY_H_ */

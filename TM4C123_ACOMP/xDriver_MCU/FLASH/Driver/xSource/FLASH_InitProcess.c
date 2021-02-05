@@ -32,11 +32,11 @@ FLASH_nSTATUS FLASH__enInitProcess (uint32_t u32FMC, uint32_t u32Feature)
     FLASH_nSTATUS enReturn = FLASH_enERROR;
     uint32_t u32Key = 0UL;
 
-    u32Key = MCU__u32ReadRegister( SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
+    u32Key = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_BOOTCFG_OFFSET, SYSCTL_BOOTCFG_KEY_MASK, SYSCTL_BOOTCFG_R_KEY_BIT);
     switch(u32Key)
     {
     case SYSCTL_BOOTCFG_KEY_71D5:
-        MCU__vWriteRegister( FLASH_BASE, u32FMC, (FLASH_FMC_R_WRKEY_KEY2 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
+        MCU__vWriteRegister(FLASH_BASE, u32FMC, (FLASH_FMC_R_WRKEY_KEY2 | u32Feature), (FLASH_FMC_R_WRKEY_MASK | u32Feature), 0UL);
         enReturn = FLASH__enWait(u32FMC, u32Feature);
         break;
     case SYSCTL_BOOTCFG_KEY_A442:

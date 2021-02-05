@@ -35,7 +35,7 @@ HIB_nSTATUS HIB__enWriteRegister(uint32_t u32OffsetRegister, uint32_t u32Feature
     enReturn = HIB__enWait();
     if(HIB_enSTATUS_OK == enReturn)
     {
-        MCU__vWriteRegister( HIB_BASE, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
+        MCU__vWriteRegister(HIB_BASE, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
     }
     return enReturn;
 }

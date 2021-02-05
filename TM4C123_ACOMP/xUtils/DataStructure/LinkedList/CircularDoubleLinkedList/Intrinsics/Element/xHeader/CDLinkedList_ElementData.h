@@ -27,7 +27,7 @@
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/xHeader/CDLinkedList_Struct.h>
 
 void* CDLinkedList__pvGetElementData(const CDLinkedListElement_TypeDef* const psElement);
-void CDLinkedList__vSetElementData( CDLinkedListElement_TypeDef* psElement, void* pvDataArg);
+void CDLinkedList__vSetElementData(CDLinkedListElement_TypeDef* psElement, void* pvDataArg);
 
 
 

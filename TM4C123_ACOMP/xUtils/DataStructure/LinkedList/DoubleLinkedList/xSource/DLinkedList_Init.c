@@ -25,12 +25,12 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/xHeader/DLinkedList_Init.h>
 #include <stdlib.h>
 
-DLinkedList_TypeDef* DLinkedList__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer))
+DLinkedList_TypeDef* DLinkedList__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     DLinkedList_TypeDef *psList = 0;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psList = (DLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(DLinkedList_TypeDef));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psList = (DLinkedList_TypeDef*) malloc(sizeof(DLinkedList_TypeDef));
 #endif
     if((uint32_t) 0UL != (uint32_t) psList)
@@ -45,7 +45,7 @@ DLinkedList_TypeDef* DLinkedList__psInit( void (*pfvDestroyElementDataArg) (void
 }
 
 
-DLinkedList_nSTATUS DLinkedList__enInit( DLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+DLinkedList_nSTATUS DLinkedList__enInit(DLinkedList_TypeDef* psList ,void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psList)

@@ -31,7 +31,7 @@ void TIMER__vSetConfiguration(TIMER_nMODULE enModule, TIMER_nCONFIG enConf)
     uint32_t u32TimerEnable = 0xFFFFFFFFUL;
     uint32_t u32ModuleSize = 0UL;
     uint32_t u32ModuleNumber = 0UL;
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, (uint32_t*) 0UL, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, (uint32_t*) 0UL, &u32ModuleNumber);
     TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, &u32TimerEnable, GPTM_GPTMCTL_R_TBEN_MASK | GPTM_GPTMCTL_R_TAEN_MASK, 0UL);
     if(0xFFFFFFFFUL != u32TimerEnable)
     {
@@ -51,7 +51,7 @@ TIMER_nCONFIG TIMER__enGetConfiguration(TIMER_nMODULE enModule)
     uint32_t u32FeatureValue = 0xFFFFFFFFUL;
     uint32_t u32ModuleSize = 0UL;
     uint32_t u32ModuleNumber = 0UL;
-    TIMER__vGetSubParams( enModule, &u32ModuleSize, (uint32_t*) 0UL, &u32ModuleNumber);
+    TIMER__vGetSubParams(enModule, &u32ModuleSize, (uint32_t*) 0UL, &u32ModuleNumber);
     TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCFG_OFFSET, &u32FeatureValue, GPTM_GPTMCFG_GPTMCFG_MASK, GPTM_GPTMCFG_R_GPTMCFG_BIT);
     return  (TIMER_nCONFIG) u32FeatureValue;
 }

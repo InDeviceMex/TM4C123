@@ -28,25 +28,25 @@
 void HIB__vSetReady(void)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enHIB;
-    SYSCTL__vSetReady( enPeripheral);
+    SYSCTL__vSetReady(enPeripheral);
 }
 
 void HIB__vReset(void)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enHIB;
-    SYSCTL__vReset( enPeripheral);
+    SYSCTL__vReset(enPeripheral);
 }
 
 void HIB__vClearReady(void)
 {
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enHIB;
-    SYSCTL__vClearReady( enPeripheral);
+    SYSCTL__vClearReady(enPeripheral);
 }
 
 HIB_nREADY HIB__enIsReady(void)
 {
     HIB_nREADY enReady = HIB_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enHIB;
-    enReady = (HIB_nREADY) SYSCTL__enIsReady( enPeripheral);
+    enReady = (HIB_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }

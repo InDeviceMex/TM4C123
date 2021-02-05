@@ -48,9 +48,9 @@ void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
     enPort = (GPIO_nPORT) u32Port;
     enPin = (GPIO_nPIN) u32Pin;
 
-    GPIO__enSetConfig( enPort, enPin, GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
-    GPIO__vDisADCTrigger( enPort, enPin);
-    GPIO__vDisAltFunction( enPort, enPin);
-    GPIO__vDisDigital( enPort, enPin);
-    GPIO__vEnAnalog( enPort,enPin);
+    GPIO__enSetConfig(enPort, enPin, GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
+    GPIO__vDisADCTrigger(enPort, enPin);
+    GPIO__vDisAltFunction(enPort, enPin);
+    GPIO__vDisDigital(enPort, enPin);
+    GPIO__vEnAnalog(enPort,enPin);
 }

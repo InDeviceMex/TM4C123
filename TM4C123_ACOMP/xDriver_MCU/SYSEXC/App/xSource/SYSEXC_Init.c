@@ -30,7 +30,7 @@ void SYSEXC__vInit(SYSEXC_nINT enInterruptParam, SYSEXC_nPRIORITY enSYSEXCPriori
 {
     SYSEXC__vRegisterIRQVectorHandler( &SYSEXC__vIRQVectorHandler);
 
-    SYSEXC__vDisInterruptSource( SYSEXC_enINT_ALL);
-    SYSEXC__vEnInterruptSource( enInterruptParam);
-    SYSEXC__vEnInterruptVector( enSYSEXCPriority);
+    SYSEXC__vDisInterruptSource(SYSEXC_enINT_ALL);
+    SYSEXC__vEnInterruptSource(enInterruptParam);
+    SYSEXC__vEnInterruptVector(enSYSEXCPriority);
 }

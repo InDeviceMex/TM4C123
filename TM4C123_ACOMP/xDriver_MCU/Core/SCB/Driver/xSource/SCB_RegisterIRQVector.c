@@ -26,7 +26,7 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/SCB_Peripheral.h>
 
-void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), void (**pfIrqVectorHandlerExtern) (void), SCB_nVECISR enVector)
+void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), void (**pfIrqVectorHandlerExtern) (void), SCB_nVECISR enVector)
 {
     uint32_t u32Vector = 0UL;
     uint32_t u32BaseVector = 0UL;
@@ -39,7 +39,7 @@ void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), void (**
         u32IrqVectorHandler = (uint32_t) pfIrqVectorHandler;
         u32IrqVectorHandler |= 1UL;
 
-        u32BaseVector = MCU__u32ReadRegister( SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
+        u32BaseVector = MCU__u32ReadRegister(SCB_BASE, SCB_VTOR_OFFSET, SCB_VTOR_R_TBLOFF_MASK, 0UL);
 
         u32Vector = (uint32_t) enVector;
         u32Vector *= 4UL;
@@ -49,7 +49,7 @@ void SCB__vRegisterIRQVectorHandler( void (*pfIrqVectorHandler) (void), void (**
         if(SCB_FLASH_MAX > u32BaseOffsetVector)
         {
             MCU__vDisGlobalInterrupt();
-            FLASH__enWriteWorld( u32IrqVectorHandler, u32BaseOffsetVector);
+            FLASH__enWriteWorld(u32IrqVectorHandler, u32BaseOffsetVector);
             MCU__vEnGlobalInterrupt();
         }
         else

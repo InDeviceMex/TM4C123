@@ -7,7 +7,7 @@
 
 #include <Printf/Generic/xHeader/Printf.h>
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     #pragma CHECK_MISRA("-6.3, -10.1, -10.3, -12.2, -12.7, -12.10, -14.5, -16.1")
 #endif
 /* internal vsnprintf*/
@@ -260,7 +260,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
                 Conv__enNumber2String_LongLong(pvfOut,pcBuffer,u64ValueTemp,u32Index,u32MaxLength, &u32LengthOut,u32Width,u32Flags,u32Negative,(uint64_t) u32Base,u32Precision);
                 u32Index = u32LengthOut;
           }
-          else if ( 0U != (u32Flags & (uint32_t) CONV_enFLAGS_LONG))
+          else if (0U != (u32Flags & (uint32_t) CONV_enFLAGS_LONG))
           {
               s32ValueArgument = (int32_t) va_arg(vaList, int32_t);
               if(s32ValueArgument >= 0)
@@ -395,7 +395,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
         /* pre padding*/
         if (0U == (u32Flags & (uint32_t) CONV_enFLAGS_LEFT))
         {
-            while ( u32lteration < u32Width)
+            while (u32lteration < u32Width)
             {
                 u32lteration++;
                 pvfOut(' ', pcBuffer, u32Index, u32MaxLength);
@@ -567,6 +567,6 @@ uint32_t vsnprintf__u32User(char* pcBuffer, const uint32_t u32Count, const char*
 }
 
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     #pragma RESET_MISRA("6.3, 10.1, 10.3, 12.2, 12.7, 12.10, 14.5, 16.1")
 #endif

@@ -24,12 +24,12 @@
 #include <xUtils/DataStructure/BinaryTree/xHeader/BiTree_Init.h>
 #include <stdlib.h>
 
-BiTree_TypeDef* BiTree__psInit( void (*pfvDestroyElementDataArg) (void *DataContainer))
+BiTree_TypeDef* BiTree__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     BiTree_TypeDef *psTree = 0;
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
     psTree = (BiTree_TypeDef*) memalign((size_t) 4,(size_t) sizeof(BiTree_TypeDef));
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
     psTree = (BiTree_TypeDef*) malloc(sizeof(BiTree_TypeDef));
 #endif
     if((uint32_t) 0UL != (uint32_t) psTree)
@@ -43,7 +43,7 @@ BiTree_TypeDef* BiTree__psInit( void (*pfvDestroyElementDataArg) (void *DataCont
 }
 
 
-BiTree_nSTATUS BiTree__enInit( BiTree_TypeDef* psTree ,void (*pfvDestroyElementDataArg) (void *DataContainer))
+BiTree_nSTATUS BiTree__enInit(BiTree_TypeDef* psTree ,void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
     if((uint32_t) 0UL != (uint32_t) psTree)

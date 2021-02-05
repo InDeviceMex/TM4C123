@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/xHeader/DLinkedList_Struct.h>
 
-void DLinkedList__vDestroy( DLinkedList_TypeDef* psList);
+void DLinkedList__vDestroy(DLinkedList_TypeDef* psList);
 
 
 

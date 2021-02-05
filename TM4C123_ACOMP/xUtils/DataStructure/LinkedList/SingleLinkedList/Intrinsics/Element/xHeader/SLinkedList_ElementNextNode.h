@@ -28,7 +28,7 @@
 
 
 SLinkedListElement_TypeDef* SLinkedList__psGetElementNextNode(const SLinkedListElement_TypeDef* const psElement);
-void SLinkedList__vSetElementNextNode( SLinkedListElement_TypeDef* psElement,  SLinkedListElement_TypeDef* psNextElement);
+void SLinkedList__vSetElementNextNode(SLinkedListElement_TypeDef* psElement,  SLinkedListElement_TypeDef* psNextElement);
 
 
 #endif /* XUTILS_DATASTRUCTURE_SINGLELINKEDLIST_INTRINSICS_ELEMENT_XHEADER_SLINKEDLIST_ELEMENTNEXTNODE_H_ */

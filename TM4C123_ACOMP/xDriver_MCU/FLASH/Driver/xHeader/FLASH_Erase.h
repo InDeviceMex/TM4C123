@@ -11,7 +11,7 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-#if defined ( __TI_ARM__ )
+#if defined (__TI_ARM__ )
 
 #pragma  CODE_SECTION(FLASH__enPageErasePos, ".ramcode")
 #pragma  CODE_SECTION(FLASH__enPageErase, ".ramcode")
@@ -21,7 +21,7 @@ FLASH_nSTATUS FLASH__enPageErasePos(uint32_t u32Page);
 FLASH_nSTATUS FLASH__enPageErase(uint32_t u32Address);
 FLASH_nSTATUS FLASH__enMassErase(void);
 
-#elif defined ( __GNUC__ )
+#elif defined (__GNUC__ )
 
 FLASH_nSTATUS FLASH__enPageErasePos(uint32_t u32Page) __attribute__((section(".ramcode")));
 FLASH_nSTATUS FLASH__enPageErase(uint32_t u32Address) __attribute__((section(".ramcode")));

@@ -38,7 +38,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiAlt (void* pvData, uint32_t u32Address, uint16
                     pu8Data = (uint8_t*) pvData;
                     while((u32MaxAddress > u32Address) && (u16Count> (uint16_t) 0UL) && (EEPROM_enOK == enReturn))
                     {
-                        enReturn = EEPROM__enReadByte( pu8Data, u32Address);
+                        enReturn = EEPROM__enReadByte(pu8Data, u32Address);
                         pu8Data += 1UL;
                         u32Address += u32Offset;
                         u16Count--;
@@ -48,7 +48,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiAlt (void* pvData, uint32_t u32Address, uint16
                     pu16Data = (uint16_t*) pvData;
                     while((u32MaxAddress > u32Address) && (u16Count> (uint16_t) 0UL) && (EEPROM_enOK == enReturn))
                     {
-                        enReturn = EEPROM__enReadHalfWorld( pu16Data, u32Address);
+                        enReturn = EEPROM__enReadHalfWorld(pu16Data, u32Address);
                         pu16Data += 1UL;
                         u32Address += u32Offset;
                         u16Count--;
@@ -58,7 +58,7 @@ EEPROM_nSTATUS EEPROM__enReadMultiAlt (void* pvData, uint32_t u32Address, uint16
                     pu32Data = (uint32_t*) pvData;
                     while((u32MaxAddress > u32Address) && (u16Count> (uint16_t) 0UL) && (EEPROM_enOK == enReturn))
                     {
-                        enReturn = EEPROM__enReadWorld( pu32Data, u32Address);
+                        enReturn = EEPROM__enReadWorld(pu32Data, u32Address);
                         pu32Data += 1UL;
                         u32Address += u32Offset;
                         u16Count--;

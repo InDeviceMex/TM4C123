@@ -40,9 +40,9 @@ void WDT__vCreateModeStructPointer(WDT_nMODE enMode, WDT_MODE_Typedef* psMode)
 WDT_MODE_Typedef* WDT__psCreateModeStruct(WDT_nMODE enMode)
 {
     WDT_MODE_Typedef* psMode = (WDT_MODE_Typedef*) 0U;
-    #if defined ( __TI_ARM__ )
+    #if defined (__TI_ARM__ )
     psMode = (WDT_MODE_Typedef*) memalign((size_t) 4U, (size_t) sizeof(WDT_MODE_Typedef));
-    #elif defined ( __GNUC__ )
+    #elif defined (__GNUC__ )
     psMode = (WDT_MODE_Typedef*) malloc((size_t) sizeof(WDT_MODE_Typedef));
     #endif
     if((uint32_t) 0U != (uint32_t) psMode )

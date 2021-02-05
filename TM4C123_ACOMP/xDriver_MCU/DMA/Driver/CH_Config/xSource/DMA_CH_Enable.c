@@ -31,7 +31,7 @@ static void DMA_CH__vDisable(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vEnable(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric( enChannel, DMA_DMAENASET_OFFSET);
+    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAENASET_OFFSET);
 }
 
 static void DMA_CH__vDisable(DMA_nCH_MODULE enChannel)
@@ -43,17 +43,17 @@ void DMA_CH__vSetEnable(DMA_nCH_MODULE enChannel, DMA_nCH_ENA enEnable)
 {
     if(DMA_enCH_ENA_DIS == enEnable)
     {
-        DMA_CH__vDisable( enChannel);
+        DMA_CH__vDisable(enChannel);
     }
     else
     {
-        DMA_CH__vEnable( enChannel);
+        DMA_CH__vEnable(enChannel);
     }
 }
 
 DMA_nCH_ENA DMA_CH__enGetEnable(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_ENA enEnable = DMA_enCH_ENA_UNDEF;
-    enEnable = (DMA_nCH_ENA) DMA_CH__u32GetConfigGeneric( enChannel, DMA_DMAENASET_OFFSET);
+    enEnable = (DMA_nCH_ENA) DMA_CH__u32GetConfigGeneric(enChannel, DMA_DMAENASET_OFFSET);
     return enEnable;
 }

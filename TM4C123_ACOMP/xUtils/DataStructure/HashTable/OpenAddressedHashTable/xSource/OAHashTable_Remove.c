@@ -39,7 +39,7 @@ OAHashTable_nSTATUS OAHashTable__enRemove(OAHashTable_TypeDef* psOAHashTable, vo
     {
         u32PositionSize = psOAHashTable->u32Positions;
         pvVacatedReg = psOAHashTable->pvVacated;
-        for( u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
+        for(u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
         {
             u32PositionNum = psOAHashTable->pfu32HashFunction1(* pvData);
             u32Position2Num = psOAHashTable->pfu32HashFunction2(*pvData);

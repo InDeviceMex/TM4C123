@@ -41,7 +41,7 @@ TIMER_nSTATUS TIMER__enReadRegister(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM 
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[u32ModuleSize][u32ModuleNumber];
-        *pu32FeatureValue = MCU__u32ReadRegister( u32TimerBase, u32OffsetRegister, u32MaskFeature, u32BitFeature);
+        *pu32FeatureValue = MCU__u32ReadRegister(u32TimerBase, u32OffsetRegister, u32MaskFeature, u32BitFeature);
     }
     return enStatus;
 }

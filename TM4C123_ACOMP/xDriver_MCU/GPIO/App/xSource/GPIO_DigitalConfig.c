@@ -39,7 +39,7 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_nC
     GPIO_nPORT enPort = GPIO_enPORT_A;
     GPIO_nPIN enPin = GPIO_enPIN_0;
 
-    GPIO_CONFIG_Typedef *psConfig = GPIO__psCreateConfigStruct( enConfigParam);
+    GPIO_CONFIG_Typedef *psConfig = GPIO__psCreateConfigStruct(enConfigParam);
 
     if(0UL != (uint32_t) psConfig)
     {
@@ -57,12 +57,12 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_nC
         enPort = (GPIO_nPORT) u32Port;
         enPin = (GPIO_nPIN) u32Pin;
 
-        GPIO__vSetDigitalFunction( enFunction);
-        GPIO__vSetResistorMode( enPort, enPin, psConfig->enResistorMode);
-        GPIO__vSetOutputMode( enPort, enPin, psConfig->enOutputMode);
-        GPIO__vSetDirection( enPort, enPin, psConfig->enDirection);
-        GPIO__vSetDrive( enPort, enPin, psConfig->enDrive);
-        GPIO__vDeleteConfigStruct( psConfig);
+        GPIO__vSetDigitalFunction(enFunction);
+        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
+        GPIO__vDeleteConfigStruct(psConfig);
         enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
@@ -189,10 +189,10 @@ GPIO_CONFIG_Typedef* GPIO__psGetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction)
     uint32_t u32PinNumber = 0UL;
     uint32_t u32Pin = 0UL;
 
-#if defined ( __TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) ( sizeof( GPIO_CONFIG_Typedef) ));
-#elif defined ( __GNUC__ )
-    psConfig = (GPIO_CONFIG_Typedef*) malloc( (size_t) sizeof( GPIO_CONFIG_Typedef));
+#if defined (__TI_ARM__ )
+    psConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef) ));
+#elif defined (__GNUC__ )
+    psConfig = (GPIO_CONFIG_Typedef*) malloc( (size_t) sizeof(GPIO_CONFIG_Typedef));
     #endif
 
     if(0UL != psConfig)

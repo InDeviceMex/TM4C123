@@ -31,7 +31,7 @@ SYSCTL_nPERIPHERAL_READY SYSCTL__enIsPeripheralReady(SYSCTL_nPERIPHERAL enPeriph
     SYSCTL_nPERIPHERAL_READY enReturn = SYSCTL_enNOREADY;
     uint32_t u32RegisterValue = 0UL;
 
-    u32RegisterValue = SYSCTL__u32ReadPeripheral( enPeripheral, SYSCTL_PR_OFFSET);
+    u32RegisterValue = SYSCTL__u32ReadPeripheral(enPeripheral, SYSCTL_PR_OFFSET);
     enReturn = (SYSCTL_nPERIPHERAL_READY) u32RegisterValue;
 
     return enReturn;

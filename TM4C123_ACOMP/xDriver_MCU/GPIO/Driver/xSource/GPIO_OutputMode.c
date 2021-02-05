@@ -28,12 +28,12 @@
 
 void GPIO__vSetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nOUTMODE enMode)
 {
-    GPIO__vSetGeneric( enPort, GPIO_GPIOODR_OFFSET, enPin, (uint32_t) enMode);
+    GPIO__vSetGeneric(enPort, GPIO_GPIOODR_OFFSET, enPin, (uint32_t) enMode);
 }
 
 GPIO_nOUTMODE GPIO__enGetOutputMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nOUTMODE enFeature = GPIO_enOUTMODE_UNDEF;
-    enFeature = (GPIO_nOUTMODE) GPIO__u32GetGeneric( enPort, GPIO_GPIOODR_OFFSET, enPin);
+    enFeature = (GPIO_nOUTMODE) GPIO__u32GetGeneric(enPort, GPIO_GPIOODR_OFFSET, enPin);
     return enFeature;
 }
