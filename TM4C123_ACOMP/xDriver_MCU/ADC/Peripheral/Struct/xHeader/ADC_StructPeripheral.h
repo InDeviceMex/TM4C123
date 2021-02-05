@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 18 oct. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 18 oct. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_XHEADER_ADC_STRUCTPERIPHERAL_H_
 #define XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_XHEADER_ADC_STRUCTPERIPHERAL_H_
 
@@ -31,53 +32,53 @@ typedef volatile struct
 {
         union
           {
-              volatile uint32_t         ADCSSMUX;
+              volatile uint32_t ADCSSMUX;
               ADCSSMUX8_TypeDef ADCSSMUX_Bit;
           };
           union
           {
-              volatile uint32_t       ADCSSCTL;
+              volatile uint32_t ADCSSCTL;
               ADCSSCTL8_TypeDef ADCSSCTL_Bit;
           };
           union
           {
               volatile const uint32_t ADCSSFIFO;
-              ADCSSFIFO_TypeDef      ADCSSFIFO_Bit;
+              ADCSSFIFO_TypeDef ADCSSFIFO_Bit;
           };
           union
           {
               volatile const uint32_t ADCSSFSTAT;
-              ADCSSFSTAT_TypeDef    ADCSSFSTAT_Bit;
+              ADCSSFSTAT_TypeDef ADCSSFSTAT_Bit;
           };
           union
           {
-              volatile uint32_t      ADCSSOP;
+              volatile uint32_t ADCSSOP;
               ADCSSOP8_TypeDef ADCSSOP_Bit;
           };
           union
           {
-              volatile uint32_t      ADCSSDC;
+              volatile uint32_t ADCSSDC;
               ADCSSDC8_TypeDef ADCSSDC_Bit;
           };
-          const uint32_t reserved2[2];
+          const uint32_t reserved2 [2UL];
 }ADCINPUT_Typedef;
 
 typedef volatile struct
 {
     union
     {
-        volatile uint32_t      ADCACTSS;
+        volatile uint32_t ADCACTSS;
         ADCACTSS_TypeDef ADCACTSS_Bit;
     };
     union
     {
         volatile const uint32_t ADCRIS;
-        ADCRIS_TypeDef            ADCRIS_Bit;
+        ADCRIS_TypeDef ADCRIS_Bit;
     };
     union
     {
         volatile uint32_t ADCIM;
-        ADCIM_TypeDef  ADCIM_Bit;
+        ADCIM_TypeDef ADCIM_Bit;
     };
     union
     {
@@ -86,49 +87,49 @@ typedef volatile struct
     };
     union
     {
-        volatile uint32_t      ADCOSTAT;
+        volatile uint32_t ADCOSTAT;
         ADCOSTAT_TypeDef ADCOSTAT_Bit;
     };
     union
     {
-        volatile uint32_t      ADCEMUX;
+        volatile uint32_t ADCEMUX;
         ADCEMUX_TypeDef ADCEMUX_Bit;
     };
     union
     {
-        volatile uint32_t      ADCUSTAT;
+        volatile uint32_t ADCUSTAT;
         ADCUSTAT_TypeDef ADCUSTAT_Bit;
     };
     union
     {
-        volatile uint32_t      ADCTSSEL;
-        ADCTSSEL_TypeDef  ADCTSSEL_Bit;
+        volatile uint32_t ADCTSSEL;
+        ADCTSSEL_TypeDef ADCTSSEL_Bit;
     };
     union
     {
-        volatile uint32_t     ADCSSPRI;
+        volatile uint32_t ADCSSPRI;
         ADCSSPRI_TypeDef ADCSSPRI_Bit;
     };
     union
     {
-        volatile uint32_t  ADCSPC;
+        volatile uint32_t ADCSPC;
         ADCSPC_TypeDef ADCSPC_Bit;
     };
     union
     {
-        volatile uint32_t   ADCPSSI;
+        volatile uint32_t ADCPSSI;
         ADCPSSI_TypeDef ADCPSSI_Bit;
     };
 
-    const    uint32_t reserved;
+    const uint32_t reserved;
     union
     {
-        volatile uint32_t  ADCSAC;
+        volatile uint32_t ADCSAC;
         ADCSAC_TypeDef ADCSAC_Bit;
     };
     union
     {
-        volatile uint32_t      ADCDCISC;
+        volatile uint32_t ADCDCISC;
         ADCDCISC_TypeDef ADCDCISC_Bit;
     };
     union
@@ -137,53 +138,53 @@ typedef volatile struct
         ADCCTL_TypeDef ADCCTL_Bit;
     };
 
-    const    uint32_t reserved1;
+    const uint32_t reserved1;
 
-    ADCINPUT_Typedef ADCINPUT[4];
+    ADCINPUT_Typedef ADCINPUT [4UL];
 
-    const uint32_t reserved5[784];
+    const uint32_t reserved5 [784UL];
     union
     {
-        volatile uint32_t      ADCDCRIC;
+        volatile uint32_t ADCDCRIC;
         ADCDCRIC_TypeDef ADCDCRIC_Bit;
     };
 
-    const uint32_t reserved6[63];
+    const uint32_t reserved6 [63UL];
     union
     {
-        volatile uint32_t      ADCDCCTL[8];
-        ADCDCCTL_TypeDef ADCDCCTL_Bit[8];
+        volatile uint32_t ADCDCCTL [8UL];
+        ADCDCCTL_TypeDef ADCDCCTL_Bit [8UL];
     };
-    const uint32_t reserved7[8];
+    const uint32_t reserved7 [8UL];
     union
     {
-        volatile uint32_t        ADCDCCMP[8];
-        ADCDCCMP_TypeDef ADCDCCMP_Bit[8];
+        volatile uint32_t ADCDCCMP [8UL];
+        ADCDCCMP_TypeDef ADCDCCMP_Bit [8UL];
     };
 
-    const uint32_t reserved8[88];
+    const uint32_t reserved8 [88UL];
     union
     {
         volatile const uint32_t ADCPP;
-        ADCPP_TypeDef             ADCPP_Bit;
+        ADCPP_TypeDef ADCPP_Bit;
     };
     union
     {
         volatile uint32_t ADCPC;
-        ADCPC_TypeDef  ADCPC_Bit;
+        ADCPC_TypeDef ADCPC_Bit;
     };
     union
     {
         volatile uint32_t ADCCC;
-        ADCCC_TypeDef  ADCCC_Bit;
+        ADCCC_TypeDef ADCCC_Bit;
     };
 
-    const uint32_t reserved9[13];
+    const uint32_t reserved9 [13UL];
 }ADC_TypeDef;
 
 typedef volatile struct
 {
-    ADC_TypeDef MODULE[(uint32_t) ADC_enMODULE_MAX +1U];
+    ADC_TypeDef MODULE [(uint32_t) ADC_enMODULE_MAX];
 }ADCS_TypeDef;
 
 

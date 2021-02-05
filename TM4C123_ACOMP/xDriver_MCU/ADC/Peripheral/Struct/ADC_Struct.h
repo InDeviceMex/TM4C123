@@ -21,11 +21,11 @@
  * Date           Author     Version     Description
  * 26 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_ADC_STRUCT_H_
 #define XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_ADC_STRUCT_H_
 
 #include <xDriver_MCU/ADC/Peripheral/Struct/xHeader/ADC_StructPeripheral.h>
 #include <xDriver_MCU/ADC/Peripheral/Struct/xHeader/ADC_StructPeripheral_Bitbanding.h>
-
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_ADC_STRUCT_H_ */

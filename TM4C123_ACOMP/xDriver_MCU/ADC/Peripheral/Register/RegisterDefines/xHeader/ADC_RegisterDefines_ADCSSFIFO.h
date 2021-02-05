@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 15 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCSSFIFO_H_
 #define XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCSSFIFO_H_
 
@@ -30,10 +31,10 @@
 ************************************ 17 ADCSSFIFO *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ADC0_ADCSSFIFO_R_DATA_MASK    ((uint32_t) 0x00000FFFU)
-#define ADC0_ADCSSFIFO_R_DATA_BIT    ((uint32_t) 0U)
+#define ADC0_ADCSSFIFO_R_DATA_MASK    ((uint32_t) 0x00000FFFUL)
+#define ADC0_ADCSSFIFO_R_DATA_BIT    ((uint32_t) 0UL)
 
-#define ADC0_ADCSSFIFO_DATA_MASK    ((uint32_t) 0x00000FFFU)
+#define ADC0_ADCSSFIFO_DATA_MASK    ((uint32_t) 0x00000FFFUL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCSSFIFO_H_ */

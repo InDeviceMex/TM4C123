@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 14 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_ADC_REGISTERDEFINES_H_
 #define XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_ADC_REGISTERDEFINES_H_
 

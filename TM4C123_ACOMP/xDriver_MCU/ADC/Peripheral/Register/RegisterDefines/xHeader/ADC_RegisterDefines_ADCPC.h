@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 15 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCPC_H_
 #define XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCPC_H_
 
@@ -30,18 +31,18 @@
 ************************************ 25 ADCPC *********************************************
 ******************************************************************************************/
 /*--------*/
-#define ADC_ADCPC_R_SR_MASK    ((uint32_t) 0x0000000FU)
-#define ADC_ADCPC_R_SR_BIT    ((uint32_t) 0U)
-#define ADC_ADCPC_R_SR_125Ksps    ((uint32_t) 0x00000001U)
-#define ADC_ADCPC_R_SR_250Ksps    ((uint32_t) 0x00000003U)
-#define ADC_ADCPC_R_SR_500Ksps    ((uint32_t) 0x00000005U)
-#define ADC_ADCPC_R_SR_1000Ksps    ((uint32_t) 0x00000007U)
+#define ADC_ADCPC_R_SR_MASK    ((uint32_t) 0x0000000FUL)
+#define ADC_ADCPC_R_SR_BIT    ((uint32_t) 0UL)
+#define ADC_ADCPC_R_SR_125Ksps    ((uint32_t) 0x00000001UL)
+#define ADC_ADCPC_R_SR_250Ksps    ((uint32_t) 0x00000003UL)
+#define ADC_ADCPC_R_SR_500Ksps    ((uint32_t) 0x00000005UL)
+#define ADC_ADCPC_R_SR_1000Ksps    ((uint32_t) 0x00000007UL)
 
-#define ADC_ADCPC_SR_MASK    ((uint32_t) 0x0000000FU)
-#define ADC_ADCPC_SR_125Ksps    ((uint32_t) 0x00000001U)
-#define ADC_ADCPC_SR_250Ksps    ((uint32_t) 0x00000003U)
-#define ADC_ADCPC_SR_500Ksps    ((uint32_t) 0x00000005U)
-#define ADC_ADCPC_SR_1000Ksps    ((uint32_t) 0x00000007U)
+#define ADC_ADCPC_SR_MASK    ((uint32_t) 0x0000000FUL)
+#define ADC_ADCPC_SR_125Ksps    ((uint32_t) 0x00000001UL)
+#define ADC_ADCPC_SR_250Ksps    ((uint32_t) 0x00000003UL)
+#define ADC_ADCPC_SR_500Ksps    ((uint32_t) 0x00000005UL)
+#define ADC_ADCPC_SR_1000Ksps    ((uint32_t) 0x00000007UL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_ADCPC_H_ */

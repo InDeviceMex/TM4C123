@@ -18,9 +18,10 @@
  *
  * @par Change History
  * @verbatim
- * Date           Author     Version     Description
- * 26 sep. 2020     vyldram    1.0         initial Version@endverbatim
+ * Date Author Version Description
+ * 26 sep. 2020 vyldram 1.0 initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_XHEADER_ADC_STRUCTREGISTER_H_
 #define XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_XHEADER_ADC_STRUCTREGISTER_H_
 
@@ -58,12 +59,12 @@ typedef volatile struct
     volatile uint32_t MASK1: 1;
     volatile uint32_t MASK2: 1;
     volatile uint32_t MASK3: 1;
-    const uint32_t    reserved: 12;
+    const uint32_t reserved: 12;
     volatile uint32_t DCONSS0: 1;
     volatile uint32_t DCONSS1: 1;
     volatile uint32_t DCONSS2: 1;
     volatile uint32_t DCONSS3: 1;
-    const uint32_t    reserved1: 12;
+    const uint32_t reserved1: 12;
 }ADCIM_TypeDef;
 
 typedef volatile struct
@@ -324,7 +325,7 @@ typedef volatile struct
     volatile uint32_t S5DCOP: 1;
     const uint32_t reserved5: 3;
     volatile uint32_t S6DCOP: 1;
-    const  uint32_t reserved6: 3;
+    const uint32_t reserved6: 3;
     volatile uint32_t S7DCOP: 1;
     const uint32_t reserved7: 3;
 }ADCSSOP8_TypeDef;
@@ -402,7 +403,7 @@ typedef volatile struct
     volatile uint32_t DCINT5   : 1;
     volatile uint32_t DCINT6   : 1;
     volatile uint32_t DCINT7   : 1;
-    const    uint32_t reserved : 8;
+    const uint32_t reserved : 8;
     volatile uint32_t DCTRIG0  : 1;
     volatile uint32_t DCTRIG1  : 1;
     volatile uint32_t DCTRIG2  : 1;
@@ -411,7 +412,7 @@ typedef volatile struct
     volatile uint32_t DCTRIG5  : 1;
     volatile uint32_t DCTRIG6  : 1;
     volatile uint32_t DCTRIG7  : 1;
-    const    uint32_t reserved1: 8;
+    const uint32_t reserved1: 8;
 }ADCDCRIC_TypeDef;
 
 /**
