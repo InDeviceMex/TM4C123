@@ -21,9 +21,9 @@
  * Date           Author     Version     Description
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODE_TIMER_MODESTRUCT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODE_TIMER_MODESTRUCT_H_
-
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
@@ -31,7 +31,5 @@ void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode, TIMER_MODE_Typedef* psM
 TIMER_MODE_Typedef* TIMER__psCreateModeStruct(TIMER_nMODE enMode);
 
 void TIMER__vDeleteModeStruct(TIMER_MODE_Typedef* psMode);
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODE_TIMER_MODESTRUCT_H_ */

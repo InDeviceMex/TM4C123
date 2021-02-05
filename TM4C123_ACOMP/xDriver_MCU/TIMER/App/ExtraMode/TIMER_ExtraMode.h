@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_EXTRAMODE_TIMER_EXTRAMODE_H_
 #define XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_EXTRAMODE_TIMER_EXTRAMODE_H_
 
@@ -30,8 +31,5 @@ TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EX
 
 void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode);
 TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule);
-
-
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_EXTRAMODE_TIMER_EXTRAMODE_H_ */
