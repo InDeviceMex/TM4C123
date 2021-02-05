@@ -21,11 +21,10 @@
  * Date           Author     Version     Description
  * 21 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_APP_XHEADER_ADC_INIT_H_
 #define XDRIVER_MCU_ADC_APP_XHEADER_ADC_INIT_H_
 
 void ADC__vInit(void);
-
-
 
 #endif /* XDRIVER_MCU_ADC_APP_XHEADER_ADC_INIT_H_ */

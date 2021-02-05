@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 23 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_GENERIC_H_
 #define XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_GENERIC_H_
 
@@ -28,6 +29,5 @@
 
 void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t u32OffsetRegister, uint32_t u32MuxInput, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBitAdd);
 uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t u32OffsetRegister, uint32_t u32MuxInput, uint32_t u32FeatureMask, uint32_t u32FeatureBitAdd);
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_GENERIC_H_ */

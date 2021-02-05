@@ -21,10 +21,8 @@
  * Date           Author     Version     Description
  * 21 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ADC/App/xHeader/ADC_Init.h>
+
 #include <xDriver_MCU/ADC/Driver/ADC_Driver.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
@@ -39,6 +37,4 @@ void ADC__vInit(void)
     ADC__vRegisterIRQVectorHandler( &ADC1_SS1__vIRQVectorHandler, ADC_enMODULE_1, ADC_enSEQ_1);
     ADC__vRegisterIRQVectorHandler( &ADC1_SS2__vIRQVectorHandler, ADC_enMODULE_1, ADC_enSEQ_2);
     ADC__vRegisterIRQVectorHandler( &ADC1_SS3__vIRQVectorHandler, ADC_enMODULE_1, ADC_enSEQ_3);
-
 }
-

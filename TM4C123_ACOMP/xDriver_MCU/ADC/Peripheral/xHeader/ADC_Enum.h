@@ -30,8 +30,9 @@
 
 typedef enum
 {
-    ADC_enOK = 0UL,
-    ADC_enERROR = 1UL,
+    ADC_enSTATUS_OK = 0UL,
+    ADC_enSTATUS_ERROR = 1UL,
+    ADC_enSTATUS_UNDEF = 0xFFFFFFFFUL,
 }ADC_nSTATUS;
 
 typedef enum
@@ -98,6 +99,7 @@ typedef enum
 {
     ADC_enINT_SOURCE_SAMPLE = 0x0UL,
     ADC_enINT_SOURCE_COMP = 0x1UL,
+    ADC_enINT_SOURCE_MAX = 0x2UL,
     ADC_en_SOURCE_UNDEF = 0xFFFFFFFFUL,
 }ADC_nINT_SOURCE;
 

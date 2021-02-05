@@ -21,12 +21,10 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Generic.h>
 #include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Priority.h>
-#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
+#include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Generic.h>
+#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
 void ADC__vSetSequencerPriority(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, ADC_nSEQ_PRIORITY enSeqPriority)
 {
@@ -37,5 +35,3 @@ ADC_nSEQ_PRIORITY ADC__enGetSequencerPriority(ADC_nMODULE enModule, ADC_nSEQUENC
 {
     return (ADC_nSEQ_PRIORITY) (ADC__u32GetSequencerGenericBit((uint32_t) enModule, ADC_ADCSSPRI_OFFSET, (uint32_t) enSequence, ADC_ADCSSPRI_SS0_MASK,  (ADC_ADCSSPRI_R_SS1_BIT - ADC_ADCSSPRI_R_SS0_BIT), ADC_ADCSSPRI_R_SS0_BIT));
 }
-
-

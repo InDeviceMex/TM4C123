@@ -21,11 +21,10 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
 #include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_Propierties.h>
+
+#include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
 ADC_nSEQ_INPUT ADC__enGetMaxInputNumber(ADC_nMODULE enModule)
 {
@@ -36,5 +35,3 @@ ADC_nCOMPARATOR ADC__enGetMaxCompNumber(ADC_nMODULE enModule)
 {
     return (ADC_nCOMPARATOR) (ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPP_OFFSET, ADC_ADCPP_DC_MASK, ADC_ADCPP_R_DC_BIT) - 1U);
 }
-
-

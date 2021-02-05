@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_SEQUENCER_XHEADER_ADC_SEQUENCER_TRIGGER_H_
 #define XDRIVER_MCU_ADC_DRIVER_SEQUENCER_XHEADER_ADC_SEQUENCER_TRIGGER_H_
 
@@ -28,7 +29,5 @@
 
 void ADC__vSetSequencerTrigger(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, ADC_nSEQ_TRIGGER enSeqTrigger);
 ADC_nSEQ_TRIGGER ADC__enGetSequencerTrigger(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence);
-
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_SEQUENCER_XHEADER_ADC_SEQUENCER_TRIGGER_H_ */

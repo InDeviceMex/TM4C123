@@ -21,11 +21,10 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
 #include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_ClockConfig.h>
+
+#include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
 void ADC__vSetClockConfig(ADC_nMODULE enModule, ADC_nCLOCK enClock)
 {

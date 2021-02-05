@@ -21,16 +21,14 @@
  * Date           Author     Version     Description
  * 5 dic. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
+#include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeBoth.h>
+
 #include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeHigher.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeLower.h>
-#include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeBoth.h>
-#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
 void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t u32CompRangeLow, uint32_t u32CompRangeHigh)
 {
-    uint32_t u32CompRangeTemp = 0U;
+    uint32_t u32CompRangeTemp = 0UL;
     if(u32CompRangeLow > u32CompRangeHigh)
     {
         u32CompRangeTemp = u32CompRangeHigh;
@@ -43,21 +41,19 @@ void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_
 
 ADC_nSTATUS ADC__enGetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t* pu32CompRangeLow, uint32_t* pu32CompRangeHigh)
 {
-    ADC_nSTATUS enStatus = ADC_enERROR;
-    uint32_t u32CompRangeLow = 0U;
-    uint32_t u32CompRangeHigh = 0U;
-    if((0U != pu32CompRangeLow) && (0U != pu32CompRangeHigh))
+    ADC_nSTATUS enStatus = ADC_enSTATUS_ERROR;
+    uint32_t u32CompRangeLow = 0UL;
+    uint32_t u32CompRangeHigh = 0UL;
+    if((0UL != pu32CompRangeLow) && (0UL != pu32CompRangeHigh))
     {
         u32CompRangeLow = ADC__u32GetCompRangeLow(enModule, enActComp);
         u32CompRangeHigh = ADC__u32GetCompRangeHigh(enModule, enActComp);
-        if((0xFFFFFFFFU != u32CompRangeLow) && (0xFFFFFFFFU != u32CompRangeHigh))
+        if((0xFFFFFFFFUL != u32CompRangeLow) && (0xFFFFFFFFUL != u32CompRangeHigh))
         {
-            enStatus = ADC_enOK;
+            enStatus = ADC_enSTATUS_OK;
             *pu32CompRangeLow = u32CompRangeLow;
             *pu32CompRangeHigh = u32CompRangeHigh;
         }
     }
     return enStatus;
 }
-
-

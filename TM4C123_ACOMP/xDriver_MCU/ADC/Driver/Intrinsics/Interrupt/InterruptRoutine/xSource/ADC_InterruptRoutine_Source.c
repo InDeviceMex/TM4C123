@@ -25,12 +25,13 @@
 
 static void ADC_vIRQSourceHandler_Dummy(void);
 
-void (*ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX +1U][(uint32_t)ADC_enSEQ_MAX + 1U])(void) =
+void (*ADC_SAMPLE__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX][(uint32_t)ADC_enSEQ_MAX])(void) =
 {
- {&ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy,&ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy},
- {&ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy,&ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy},
+ { &ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy,&ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy},
+ { &ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy,&ADC_vIRQSourceHandler_Dummy, &ADC_vIRQSourceHandler_Dummy},
 };
-void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX + 1U][(uint32_t)ADC_enSEQ_MAX +1U][(uint32_t)ADC_en_COMPARATOR_MAX +1U])(void) =
+
+void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX][(uint32_t)ADC_enSEQ_MAX][(uint32_t)ADC_en_COMPARATOR_MAX])(void) =
 {
   {
    {
@@ -72,9 +73,7 @@ void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX + 1U][(uint32_t)AD
 
 static void ADC_vIRQSourceHandler_Dummy(void)
 {
-    while(1U)
+    while(1UL)
     {
     }
 }
-
-

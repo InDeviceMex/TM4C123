@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_SEQUENCER_ADC_SEQUENCER_H_
 #define XDRIVER_MCU_ADC_DRIVER_SEQUENCER_ADC_SEQUENCER_H_
 
@@ -31,6 +32,5 @@
 #include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_PWM.h>
 #include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Trigger.h>
 #include <xDriver_MCU/ADC/Driver/Sequencer/xHeader/ADC_Sequencer_Underflow.h>
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_SEQUENCER_ADC_SEQUENCER_H_ */

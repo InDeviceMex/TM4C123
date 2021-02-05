@@ -27,27 +27,44 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>
 
+#define DMA_SOURCE_BIT    (26UL)
+#define DMA_SOURCE_MASK    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT))
+
 void ADC1_SS2__vIRQVectorHandler(void)
 {
-    volatile uint32_t u32Reg = 0U;
-    volatile uint32_t u32RegCompInterrupt = 0U;
-    volatile uint32_t u32RegCompSelect = 0U;
-    volatile uint32_t u32RegCompMux = 0U;
-    uint32_t u32Pos = 0U;
-    if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
+    volatile uint32_t u32Reg = 0UL;
+    volatile uint32_t u32RegCompInterrupt = 0UL;
+    volatile uint32_t u32RegCompSelect = 0UL;
+    volatile uint32_t u32RegCompMux = 0UL;
+    uint32_t u32Pos = 0UL;
+    volatile uint32_t u32RegDMAEn = 0UL;
+    volatile uint32_t u32RegDMAOccur = 0UL;
+    volatile uint32_t u32RegDMAPeriph = 0UL;
+    volatile uint32_t u32RegDMASource = 0UL;
+
+    u32RegDMAEn = SYSCTL_RCGCDMA_R;
+    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_EN;
+    if(0UL != u32RegDMAEn)
     {
-        if(DMA_DMACHIS_R_CHIS26_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS26_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET26_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET26_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP3_R_CH26SEL_ADC1_SS2 == (DMA_DMACHMAP3_R & DMA_DMACHMAP3_R_CH26SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP3_R;
+                u32RegDMASource &= DMA_DMACHMAP3_R_CH26SEL_MASK;
+                if(DMA_DMACHMAP3_R_CH26SEL_ADC1_SS2 == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][26U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS26_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][DMA_SOURCE_BIT]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK;
                 }
             }
         }
     }
+
     u32Reg = ADC1_ADCISC_R;
     u32RegCompInterrupt = ADC1_ADCDCISC_R;
     u32RegCompSelect = ADC1_ADCSSOP2_R;
@@ -59,12 +76,12 @@ void ADC1_SS2__vIRQVectorHandler(void)
     if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_2))
      {
          ADC1_ADCISC_R = ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_2);
-         for(u32Pos = 0U; u32Pos <= (uint32_t) ADC_en_MUX_3;u32Pos++)
+         for(u32Pos = 0UL; u32Pos <= (uint32_t) ADC_en_MUX_3; u32Pos++)
          {
-             if(u32RegCompSelect & ((uint32_t) 0x1UL << (u32Pos*0x4U)))
+             if(u32RegCompSelect & ((uint32_t) 0x1UL << (u32Pos * 0x4UL)))
              {
-                 u32RegCompMux = ADC1_ADCSSDC2_R >> (u32Pos*0x4U);
-                 u32RegCompMux &= 0xFU;
+                 u32RegCompMux = ADC1_ADCSSDC2_R >> (u32Pos * 0x4UL);
+                 u32RegCompMux &= 0xFUL;
                  if(u32RegCompInterrupt & ((uint32_t) 1UL << u32RegCompMux))
                  {
                      ADC1_ADCDCISC_R = ((uint32_t) 1UL << u32RegCompMux);

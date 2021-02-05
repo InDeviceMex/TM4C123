@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 24 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_DIRECTION_H_
 #define XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_DIRECTION_H_
 
@@ -28,10 +29,5 @@
 
 void ADC__vSetSampleDirection(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, ADC_nSEQ_INPUT_DIR enSampleDirection);
 ADC_nSEQ_INPUT_DIR ADC__enGetSampleDirection(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux);
-
-
-
-
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_DIRECTION_H_ */

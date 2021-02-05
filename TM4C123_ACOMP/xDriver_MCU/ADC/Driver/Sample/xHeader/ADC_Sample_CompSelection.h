@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 24 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_COMPSELECTION_H_
 #define XDRIVER_MCU_ADC_DRIVER_SAMPLE_XHEADER_ADC_SAMPLE_COMPSELECTION_H_
 

@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_PHASE_H_
 #define XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_PHASE_H_
 
@@ -28,7 +29,5 @@
 
 void ADC__vSetPhase(ADC_nMODULE enModule, ADC_nPHASE enPhase);
 ADC_nPHASE ADC__enGetPhase(ADC_nMODULE enModule);
-
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_PHASE_H_ */

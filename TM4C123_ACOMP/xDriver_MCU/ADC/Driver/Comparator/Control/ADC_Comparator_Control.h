@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 5 dic. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_COMPARATOR_CONTROL_ADC_COMPARATOR_CONTROL_H_
 #define XDRIVER_MCU_ADC_DRIVER_COMPARATOR_CONTROL_ADC_COMPARATOR_CONTROL_H_
 
@@ -28,8 +29,5 @@
 #include <xDriver_MCU/ADC/Driver/Comparator/Control/xHeader/ADC_Comparator_IntMode.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Control/xHeader/ADC_Comparator_TriggerCondition.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Control/xHeader/ADC_Comparator_TriggerMode.h>
-
-
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_COMPARATOR_CONTROL_ADC_COMPARATOR_CONTROL_H_ */

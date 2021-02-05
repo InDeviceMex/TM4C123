@@ -21,11 +21,10 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
 #include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_Dither.h>
+
+#include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
 void ADC__vSetDither(ADC_nMODULE enModule, ADC_nDITHER enDither)
 {
@@ -36,6 +35,3 @@ ADC_nDITHER ADC__enGetDither(ADC_nMODULE enModule)
 {
     return (ADC_nDITHER) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCCTL_OFFSET, ADC_ADCCTL_DITHER_MASK, ADC_ADCCTL_R_DITHER_BIT);
 }
-
-
-

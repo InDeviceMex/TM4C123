@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_PROPIERTIES_H_
 #define XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_PROPIERTIES_H_
 
@@ -28,8 +29,5 @@
 
 ADC_nSEQ_INPUT ADC__enGetMaxInputNumber(ADC_nMODULE enModule);
 ADC_nCOMPARATOR ADC__enGetMaxCompNumber(ADC_nMODULE enModule);
-
-
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_PROPIERTIES_H_ */

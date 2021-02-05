@@ -21,56 +21,19 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ADC/Driver/General/xHeader/ADC_GeneralGeneric.h>
+
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-
-
-void ADC__vSetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32Feature, uint32_t u32MaskFeature, uint32_t u32BitFeature)
+void ADC__vSetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    uint32_t u32Reg = 0U;
-    uint32_t u32RegAddress = 0U;
-    volatile uint32_t* pu32Adc = 0U;
-
-    u32Feature &= u32MaskFeature;
-    if((uint32_t) ADC_enMODULE_MAX<u32Module)
-    {
-        u32Module = (uint32_t) ADC_enMODULE_MAX;
-    }
-    ADC__vSetReady((ADC_nMODULE)u32Module);
-    u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
-    u32RegAddress += u32OffsetRegister;
-    pu32Adc = (volatile uint32_t*) (u32RegAddress);
-    u32Reg = *pu32Adc;
-    u32Reg &= ~(u32MaskFeature << u32BitFeature);
-    u32Reg |= (u32Feature << u32BitFeature);
-    *pu32Adc = u32Reg;
+    ADC__vWriteRegister((ADC_nMODULE) u32Module, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }
 
 uint32_t ADC__u32GetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    uint32_t u32Reg = 0U;
-    uint32_t u32RegAddress = 0U;
-    volatile uint32_t* pu32Adc = 0U;
-
-    ADC_nREADY enReady = ADC_enNOREADY;
     uint32_t u32Feature = 0xFFFFFFFFU;
-    if((uint32_t) ADC_enMODULE_MAX<u32Module)
-    {
-        u32Module = (uint32_t) ADC_enMODULE_MAX;
-    }
-    enReady = ADC__enIsReady((ADC_nMODULE)u32Module);
-    if(ADC_enREADY == enReady)
-    {
-        u32RegAddress = ADC_BLOCK_ADDRESS[u32Module];
-        u32RegAddress += u32OffsetRegister;
-        pu32Adc = (volatile uint32_t*) (u32RegAddress);
-        u32Reg = *pu32Adc;
-        u32Reg >>= u32BitFeature;
-        u32Reg &= u32MaskFeature;
-        u32Feature = u32Reg;
-    }
+    ADC__enReadRegister((ADC_nMODULE) u32Module, u32OffsetRegister, &u32Feature, u32MaskFeature, u32BitFeature);
     return u32Feature;
 }

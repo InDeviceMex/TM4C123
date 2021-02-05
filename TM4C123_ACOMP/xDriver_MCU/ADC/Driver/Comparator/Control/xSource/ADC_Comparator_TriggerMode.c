@@ -21,12 +21,10 @@
  * Date           Author     Version     Description
  * 5 dic. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/ADC/Driver/Comparator/Control/xHeader/ADC_Comparator_Generic.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Control/xHeader/ADC_Comparator_TriggerMode.h>
-#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
-#include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
+#include <xDriver_MCU/ADC/Driver/Comparator/Control/xHeader/ADC_Comparator_Generic.h>
+#include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
 void ADC__vSetCompTriggerMode(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, ADC_nCOMP_TRIGGER_MODE enActCompTriggerMode)
 {
@@ -37,5 +35,3 @@ ADC_nCOMP_TRIGGER_MODE ADC__enGetCompTriggerMode(ADC_nMODULE enModule, ADC_nCOMP
 {
     return (ADC_nCOMP_TRIGGER_MODE) ADC__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enActComp, ADC_ADCDCCTL_CTM_MASK, ADC_ADCDCCTL_R_CTM_BIT);
 }
-
-

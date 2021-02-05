@@ -21,33 +21,29 @@
  * Date           Author     Version     Description
  * 20 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/xHeader/ADC_InterruptVector.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
+#include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 
+NVIC_nSTIR NVIC_VECTOR_ADC[(uint32_t) ADC_enMODULE_MAX][(uint32_t) ADC_enSEQ_MAX] =
+{
+    { NVIC_enSTIR_ADC0SEQ0, NVIC_enSTIR_ADC0SEQ1, NVIC_enSTIR_ADC0SEQ2, NVIC_enSTIR_ADC0SEQ3},
+    { NVIC_enSTIR_ADC1SEQ0, NVIC_enSTIR_ADC1SEQ1, NVIC_enSTIR_ADC1SEQ2, NVIC_enSTIR_ADC1SEQ3},
+};
 static NVIC_nSTIR ADC__enGetInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence);
-
-
 
 static NVIC_nSTIR ADC__enGetInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
-    NVIC_nSTIR NVIC_VECTOR_ADC[(uint32_t) ADC_enMODULE_MAX+1U][(uint32_t) ADC_enSEQ_MAX+1U] = {
-        {NVIC_enSTIR_ADC0SEQ0, NVIC_enSTIR_ADC0SEQ1, NVIC_enSTIR_ADC0SEQ2, NVIC_enSTIR_ADC0SEQ3},
-        {NVIC_enSTIR_ADC1SEQ0, NVIC_enSTIR_ADC1SEQ1, NVIC_enSTIR_ADC1SEQ2, NVIC_enSTIR_ADC1SEQ3},
-    };
+
     NVIC_nSTIR enVector = NVIC_enSTIR_ADC0SEQ0;
-    uint32_t u32Module = (uint32_t) enModule;
-    uint32_t u32Sequence = (uint32_t) enSequence;
-    if((uint32_t) ADC_enMODULE_MAX<u32Module)
-    {
-        u32Module = (uint32_t) ADC_enMODULE_MAX;
-    }
-    if((uint32_t) ADC_enSEQ_MAX<u32Sequence)
-    {
-        u32Sequence = (uint32_t) ADC_enSEQ_MAX;
-    }
-    enVector = NVIC_VECTOR_ADC[u32Module][u32Sequence];
+    uint32_t u32Module = 0UL;
+    uint32_t u32Sequencer = 0UL;
+
+    u32Module = MCU__u32CheckPatams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
+    u32Sequencer = MCU__u32CheckPatams((uint32_t) enSequence, (uint32_t) ADC_enSEQ_MAX);
+    enVector = NVIC_VECTOR_ADC[u32Module][u32Sequencer];
     return enVector;
 }
 
@@ -55,15 +51,12 @@ void ADC__vEnInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, AD
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_ADC0SEQ0;
     enVector = ADC__enGetInterruptVector(enModule, enSequence);
-    enADCPriority &= 0x7U;
-    NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector, (NVIC_nPRIORITY)enADCPriority);
+    NVIC__vSetEnableIRQ(enVector, (NVIC_nPRIORITY) enADCPriority);
 }
 
 void ADC__vDisInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_ADC0SEQ0;
     enVector = ADC__enGetInterruptVector(enModule, enSequence);
-    NVIC__vClearEnableIRQ((NVIC_nSTIR)enVector);
+    NVIC__vClearEnableIRQ(enVector);
 }
-
-

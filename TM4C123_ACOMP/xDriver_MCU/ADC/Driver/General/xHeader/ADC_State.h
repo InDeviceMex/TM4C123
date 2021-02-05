@@ -21,13 +21,12 @@
  * Date           Author     Version     Description
  * 22 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_STATE_H_
 #define XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_STATE_H_
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
 ADC_nSTATE ADC__enGetState(ADC_nMODULE enModule);
-
-
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_STATE_H_ */
