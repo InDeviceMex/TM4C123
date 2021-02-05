@@ -21,18 +21,18 @@
  * Date           Author     Version     Description
  * 16 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/TIMER/App/ModeReload/TIMER_ModeReload.h>
 
 #include <xDriver_MCU/TIMER/App/Mode/TIMER_Mode.h>
-#include <xDriver_MCU/TIMER/App/ModeReload/TIMER_ModeReload.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Reload.h>
 
 TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint64_t u64Reload)
 {
     TIMER_nSTATUS enReturn= TIMER_enSTATUS_ERROR;
-    enReturn = TIMER__enSetMode(enModule,enMode);
+    enReturn = TIMER__enSetMode(enModule, enMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
-        TIMER__vSetReload(enModule,u64Reload);
+        TIMER__vSetReload(enModule, u64Reload);
     }
     return enReturn;
 }
@@ -40,10 +40,10 @@ TIMER_nSTATUS TIMER__enSetMode_Reload(TIMER_nMODULE enModule, TIMER_nMODE enMode
 TIMER_nSTATUS TIMER__enSetModeStruct_Reload(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint64_t u64Reload)
 {
     TIMER_nSTATUS enReturn= TIMER_enSTATUS_ERROR;
-    enReturn = TIMER__enSetModeStruct(enModule,psMode);
+    enReturn = TIMER__enSetModeStruct(enModule, psMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
-        TIMER__vSetReload(enModule,u64Reload);
+        TIMER__vSetReload(enModule, u64Reload);
     }
     return enReturn;
 }

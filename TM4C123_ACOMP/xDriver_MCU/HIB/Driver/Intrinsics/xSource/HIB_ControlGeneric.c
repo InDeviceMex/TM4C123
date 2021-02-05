@@ -40,7 +40,7 @@ HIB_nSTATUS HIB__enDisControlGeneric(uint32_t u32Mask)
     return enReturn;
 }
 
-HIB_nSTATUS HIB__enSetControlGeneric(uint32_t u32ControlGeneric,uint32_t u32Mask, uint32_t u32Bit)
+HIB_nSTATUS HIB__enSetControlGeneric(uint32_t u32ControlGeneric, uint32_t u32Mask, uint32_t u32Bit)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
     enReturn = HIB__enWriteRegister(HIB_HIBCTL_OFFSET, u32ControlGeneric, u32Mask, u32Bit);

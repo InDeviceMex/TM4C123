@@ -51,7 +51,7 @@ static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule)
     return enVector;
 }
 
-void TIMER__vEnInterruptVector(TIMER_nMODULE enModule,TIMER_nPRIORITY enTimerPriority)
+void TIMER__vEnInterruptVector(TIMER_nMODULE enModule, TIMER_nPRIORITY enTimerPriority)
 {
     NVIC_nSTIR enVector = NVIC_enSTIR_TIMER0A;
     enVector = TIMER__enGetInterruptVector(enModule);

@@ -29,7 +29,7 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
 
-void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nMODULE enModule,TIMER_nINTERRUPT enInterruptParam)
+void TIMER__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),TIMER_nMODULE enModule, TIMER_nINTERRUPT enInterruptParam)
 {
     uint32_t u32InterruptSource = (uint32_t) enInterruptParam;
 

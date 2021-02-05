@@ -32,7 +32,7 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 
-TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
+TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_UNDEF;
 
@@ -176,7 +176,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
                         sCount64Config.u32CountLowShiftLeft = 0UL;
                         sCount64Config.pu64CountValue = pu64Count;
                         /*Prescaler*/
-                        /*One shot and periodic Down , no PWM no Capture*/
+                        /*One shot and periodic Down, no PWM no Capture*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
                             sCount64Config.u32CountHighRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);
@@ -187,7 +187,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
                             sCount64Config.u32CountLowMask =0xFFFFUL;
                         }
                         /*Time Extension*/
-                        /*PWM, capture , One shot UP or periodic UP*/
+                        /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
                             sCount64Config.u32CountHighRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);

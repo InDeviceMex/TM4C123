@@ -27,7 +27,7 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
 
-void TIMER__vCheckParams(uint32_t u32ModuleSize,  uint32_t u32SubModule, uint32_t u32ModuleNumber, uint32_t* pu32ModuleSize, uint32_t* pu32SubModule, uint32_t* pu32ModuleNumber)
+void TIMER__vCheckParams(uint32_t u32ModuleSize, uint32_t u32SubModule, uint32_t u32ModuleNumber, uint32_t* pu32ModuleSize, uint32_t* pu32SubModule, uint32_t* pu32ModuleNumber)
 {
     if(0UL != (uint32_t) pu32ModuleSize)
     {

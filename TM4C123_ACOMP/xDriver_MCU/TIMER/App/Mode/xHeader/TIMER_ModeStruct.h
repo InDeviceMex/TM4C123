@@ -27,7 +27,7 @@
 
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
-void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode,TIMER_MODE_Typedef* psMode);
+void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode, TIMER_MODE_Typedef* psMode);
 TIMER_MODE_Typedef* TIMER__psCreateModeStruct(TIMER_nMODE enMode);
 
 void TIMER__vDeleteModeStruct(TIMER_MODE_Typedef* psMode);

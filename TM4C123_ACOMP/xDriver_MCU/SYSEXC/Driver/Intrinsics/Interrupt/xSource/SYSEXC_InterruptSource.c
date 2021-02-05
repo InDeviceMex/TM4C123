@@ -44,7 +44,7 @@ void SYSEXC__vClearInterruptSource(SYSEXC_nINT enInterruptParam)
 {
     uint32_t u32InterruptParam = (uint32_t) enInterruptParam;
     u32InterruptParam &= (uint32_t) SYSEXC_enINT_ALL;
-    MCU__vWriteRegister(SYSEXC_BASE, SYSEXC_SYSEXCIC_OFFSET,  u32InterruptParam, u32InterruptParam, 0UL);
+    MCU__vWriteRegister(SYSEXC_BASE, SYSEXC_SYSEXCIC_OFFSET, u32InterruptParam, u32InterruptParam, 0UL);
 }
 
 SYSEXC_nINT_STATUS SYSEXC__enStatusInterruptSource(SYSEXC_nINT enInterruptParam)

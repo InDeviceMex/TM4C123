@@ -36,22 +36,22 @@ TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
 
     if(psMode != 0)
     {
-        TIMER__vSetConfiguration(enModule,psMode->enConfig);
-        TIMER__vSetSubMode(enModule,psMode->enSubMode);
-        TIMER__vSetEdgeMode(enModule,psMode->enEdgeMode);
-        TIMER__vSetAltMode(enModule,psMode->enAltMode);
-        TIMER__vSetCountDir(enModule,psMode->enDirection);
-        TIMER__vSetSnapShot(enModule,psMode->enSnapShot);
-        TIMER__vSetPWMOutputInit(enModule,psMode->enPWMOutInit);
-        TIMER__vSetEdgeEvent(enModule,psMode->enEdgeEvent);
-        TIMER__vSetPWMOutputLevel(enModule,psMode->enPWMOut);
+        TIMER__vSetConfiguration(enModule, psMode->enConfig);
+        TIMER__vSetSubMode(enModule, psMode->enSubMode);
+        TIMER__vSetEdgeMode(enModule, psMode->enEdgeMode);
+        TIMER__vSetAltMode(enModule, psMode->enAltMode);
+        TIMER__vSetCountDir(enModule, psMode->enDirection);
+        TIMER__vSetSnapShot(enModule, psMode->enSnapShot);
+        TIMER__vSetPWMOutputInit(enModule, psMode->enPWMOutInit);
+        TIMER__vSetEdgeEvent(enModule, psMode->enEdgeEvent);
+        TIMER__vSetPWMOutputLevel(enModule, psMode->enPWMOut);
         TIMER__vDeleteModeStruct(psMode);
         enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
     /*Configure Reload and Match*/
 
-    /*TIMER__vSetEnable(enModule,TIMER_enENABLE_START);*/
+    /*TIMER__vSetEnable(enModule, TIMER_enENABLE_START);*/
 
 }
 
@@ -60,21 +60,21 @@ TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Ty
     TIMER_nSTATUS enReturn=TIMER_enSTATUS_ERROR;
     if(psMode != 0)
     {
-        TIMER__vSetConfiguration(enModule,psMode->enConfig);
-        TIMER__vSetSubMode(enModule,psMode->enSubMode);
-        TIMER__vSetEdgeMode(enModule,psMode->enEdgeMode);
-        TIMER__vSetAltMode(enModule,psMode->enAltMode);
-        TIMER__vSetCountDir(enModule,psMode->enDirection);
-        TIMER__vSetSnapShot(enModule,psMode->enSnapShot);
-        TIMER__vSetPWMOutputInit(enModule,psMode->enPWMOutInit);
-        TIMER__vSetEdgeEvent(enModule,psMode->enEdgeEvent);
-        TIMER__vSetPWMOutputLevel(enModule,psMode->enPWMOut);
+        TIMER__vSetConfiguration(enModule, psMode->enConfig);
+        TIMER__vSetSubMode(enModule, psMode->enSubMode);
+        TIMER__vSetEdgeMode(enModule, psMode->enEdgeMode);
+        TIMER__vSetAltMode(enModule, psMode->enAltMode);
+        TIMER__vSetCountDir(enModule, psMode->enDirection);
+        TIMER__vSetSnapShot(enModule, psMode->enSnapShot);
+        TIMER__vSetPWMOutputInit(enModule, psMode->enPWMOutInit);
+        TIMER__vSetEdgeEvent(enModule, psMode->enEdgeEvent);
+        TIMER__vSetPWMOutputLevel(enModule, psMode->enPWMOut);
         enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
     /*Configure Reload and Match*/
 
-    /*TIMER__vSetEnable(enModule,TIMER_enENABLE_START);*/
+    /*TIMER__vSetEnable(enModule, TIMER_enENABLE_START);*/
 
 
 }

@@ -33,20 +33,20 @@ TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EX
     TIMER_nSTATUS enReturn=TIMER_enSTATUS_ERROR;
     if(psExtraMode != 0)
     {
-        TIMER__vSetWaitTrigger(enModule,psExtraMode->enWaitTrigger);
-        TIMER__vSetUpdateIntervalMode(enModule,psExtraMode->enUpdateInterval);
-        TIMER__vSetPWMInterrupt(enModule,psExtraMode->enPWMInterrupt);
-        TIMER__vSetMatchEventInterrupt(enModule,psExtraMode->enEventInterrupt);
-        TIMER__vSetUpdateMatchMode(enModule,psExtraMode->enUpdateMatch);
-        TIMER__vSetStall(enModule,psExtraMode->enStall);
-        TIMER__vSetRTCStall(enModule,psExtraMode->enRTCStall);
-        TIMER__vSetADCTrigger(enModule,psExtraMode->enADCTrigger);
+        TIMER__vSetWaitTrigger(enModule, psExtraMode->enWaitTrigger);
+        TIMER__vSetUpdateIntervalMode(enModule, psExtraMode->enUpdateInterval);
+        TIMER__vSetPWMInterrupt(enModule, psExtraMode->enPWMInterrupt);
+        TIMER__vSetMatchEventInterrupt(enModule, psExtraMode->enEventInterrupt);
+        TIMER__vSetUpdateMatchMode(enModule, psExtraMode->enUpdateMatch);
+        TIMER__vSetStall(enModule, psExtraMode->enStall);
+        TIMER__vSetRTCStall(enModule, psExtraMode->enRTCStall);
+        TIMER__vSetADCTrigger(enModule, psExtraMode->enADCTrigger);
         enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
     /*Configure Reload and Match*/
 
-    /*TIMER__vSetEnable(enModule,TIMER_enENABLE_START);*/
+    /*TIMER__vSetEnable(enModule, TIMER_enENABLE_START);*/
 
 
 }

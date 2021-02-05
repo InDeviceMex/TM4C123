@@ -139,7 +139,7 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                         sFreeCount64Config.u32CountLowShiftLeft = 0UL;
                         sFreeCount64Config.pu64CountValue = pu64FreeCount;
                         /*Prescaler*/
-                        /*One shot and periodic Down , no PWM no Capture*/
+                        /*One shot and periodic Down, no PWM no Capture*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
                             sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
@@ -150,7 +150,7 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                             sFreeCount64Config.u32CountLowMask =0xFFFFUL;
                         }
                         /*Time Extension*/
-                        /*PWM, capture , One shot UP or periodic UP*/
+                        /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
                             sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTAPV_OFFSET + (4UL * u32SubModule);
@@ -171,7 +171,7 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
     return enStatus;
 }
 
-void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
+void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule, uint64_t u64Count)
 {
     TIMER_nCONFIG enConfigVar = TIMER_enCONFIG_UNDEF;
 
@@ -262,7 +262,7 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
                     sFreeCount32Config.pu32CountValue = &TimerValue;
 
                     /*Prescaler*/
-                    /*One shot and periodic Down , no PWM no Capture*/
+                    /*One shot and periodic Down, no PWM no Capture*/
                     if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                     {
                         u64Count >>= 16UL;

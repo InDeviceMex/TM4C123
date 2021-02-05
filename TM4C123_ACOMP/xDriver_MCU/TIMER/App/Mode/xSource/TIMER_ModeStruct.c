@@ -26,7 +26,7 @@
 #include <xDriver_MCU/TIMER/App/Mode/xHeader/TIMER_ModeStruct.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 
-void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode,TIMER_MODE_Typedef* psMode)
+void TIMER__vCreateModeStructPointer(TIMER_nMODE enMode, TIMER_MODE_Typedef* psMode)
 {
 
     if(psMode != 0)

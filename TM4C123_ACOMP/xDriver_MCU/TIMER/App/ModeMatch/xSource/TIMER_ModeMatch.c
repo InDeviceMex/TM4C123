@@ -26,24 +26,24 @@
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Match.h>
 
 
-TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode,uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetMode_Match(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enSTATUS_ERROR;
-    enReturn = TIMER__enSetMode(enModule,enMode);
+    enReturn = TIMER__enSetMode(enModule, enMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
-        TIMER__vSetMatch(enModule,u64Match);
+        TIMER__vSetMatch(enModule, u64Match);
     }
     return enReturn;
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode,uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetModeStruct_Match(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enSTATUS_ERROR;
-    enReturn = TIMER__enSetModeStruct(enModule,psMode);
+    enReturn = TIMER__enSetModeStruct(enModule, psMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
-        TIMER__vSetMatch(enModule,u64Match);
+        TIMER__vSetMatch(enModule, u64Match);
     }
     return enReturn;
 }
