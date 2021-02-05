@@ -30,7 +30,7 @@ WDT_nSTATUS WDT__enGetLock(WDT_nMODULE enModule, WDT_nLOCK* penFeatureArg)
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTLOCK_OFFSET, WDT_WDTLOCK_WDTLOCK_MASK, WDT_WDTLOCK_R_WDTLOCK_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_WDTLOCK_OFFSET, WDT_WDTLOCK_WDTLOCK_MASK, WDT_WDTLOCK_R_WDTLOCK_BIT);
 
     return enStatusRead;
 }

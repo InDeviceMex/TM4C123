@@ -46,7 +46,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef*
             s32AngleAbsolute += (int32_t) s8Angle;
             s32AngleAbsolute *= (int32_t) u32DegreeCountVar;
             u32Count -= (uint32_t) s32AngleAbsolute;
-            TIMER__vSetMatch(enTimerModuleVar,(uint64_t) u32Count);
+            TIMER__vSetMatch(enTimerModuleVar, (uint64_t) u32Count);
             enServoStatus = ServoMoto_SG90_enOK;
         }
     }
@@ -73,7 +73,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_
             u32AngleAbsolute = (uint32_t) u8Angle;
             u32AngleAbsolute *= (uint32_t) u32DegreeCountVar;
             u32Count -= u32AngleAbsolute;
-            TIMER__vSetMatch(enTimerModuleVar,(uint64_t) u32Count);
+            TIMER__vSetMatch(enTimerModuleVar, (uint64_t) u32Count);
             enServoStatus = ServoMoto_SG90_enOK;
         }
     }
@@ -100,7 +100,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typ
             fAngleAbsolute += fAngle;
             fAngleAbsolute *= fDegreeCountVar;
             u32Count -= (uint32_t) fAngleAbsolute;
-            TIMER__vSetMatch(enTimerModuleVar,(uint64_t) u32Count);
+            TIMER__vSetMatch(enTimerModuleVar, (uint64_t) u32Count);
             enServoStatus = ServoMoto_SG90_enOK;
         }
     }
@@ -127,7 +127,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_
             fAngleAbsolute = fAngle;
             fAngleAbsolute *= fDegreeCountVar;
             u32Count -= (uint32_t) fAngleAbsolute;
-            TIMER__vSetMatch(enTimerModuleVar,(uint64_t) u32Count);
+            TIMER__vSetMatch(enTimerModuleVar, (uint64_t) u32Count);
             enServoStatus = ServoMoto_SG90_enOK;
         }
     }

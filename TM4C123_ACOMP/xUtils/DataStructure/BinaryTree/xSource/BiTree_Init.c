@@ -28,7 +28,7 @@ BiTree_TypeDef* BiTree__psInit(void (*pfvDestroyElementDataArg) (void *DataConta
 {
     BiTree_TypeDef *psTree = 0;
 #if defined (__TI_ARM__ )
-    psTree = (BiTree_TypeDef*) memalign((size_t) 4,(size_t) sizeof(BiTree_TypeDef));
+    psTree = (BiTree_TypeDef*) memalign((size_t) 4, (size_t) sizeof(BiTree_TypeDef));
 #elif defined (__GNUC__ )
     psTree = (BiTree_TypeDef*) malloc(sizeof(BiTree_TypeDef));
 #endif

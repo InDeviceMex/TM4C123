@@ -50,7 +50,7 @@ void UART__vEnInterruptVector(UART_nMODULE enModule, UART_nPRIORITY enUARTPriori
     NVIC_nSTIR enVector = NVIC_enSTIR_UART0;
     enVector = UART__enGetInterruptVector(enModule);
     enUARTPriority &= 0x7U;
-    NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enUARTPriority);
+    NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector, (NVIC_nPRIORITY)enUARTPriority);
 }
 
 void UART__vDisInterruptVector(UART_nMODULE enModule)

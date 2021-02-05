@@ -28,7 +28,7 @@ CDLinkedList_TypeDef* CDLinkedList__psInit(void (*pfvDestroyElementDataArg) (voi
 {
     CDLinkedList_TypeDef *psList = 0;
 #if defined (__TI_ARM__ )
-    psList = (CDLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CDLinkedList_TypeDef));
+    psList = (CDLinkedList_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedList_TypeDef));
 #elif defined (__GNUC__ )
     psList = (CDLinkedList_TypeDef*) malloc(sizeof(CDLinkedList_TypeDef));
 #endif

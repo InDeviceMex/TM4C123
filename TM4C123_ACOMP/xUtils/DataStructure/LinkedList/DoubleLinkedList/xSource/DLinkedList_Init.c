@@ -29,7 +29,7 @@ DLinkedList_TypeDef* DLinkedList__psInit(void (*pfvDestroyElementDataArg) (void 
 {
     DLinkedList_TypeDef *psList = 0;
 #if defined (__TI_ARM__ )
-    psList = (DLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(DLinkedList_TypeDef));
+    psList = (DLinkedList_TypeDef*) memalign((size_t) 4, (size_t) sizeof(DLinkedList_TypeDef));
 #elif defined (__GNUC__ )
     psList = (DLinkedList_TypeDef*) malloc(sizeof(DLinkedList_TypeDef));
 #endif

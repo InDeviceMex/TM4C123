@@ -42,7 +42,7 @@
          if(((uint32_t) 0UL != (uint32_t) psElement) || (0UL == u32SizeReg))
          {
             #if defined (__TI_ARM__ )
-             psNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CDLinkedListElement_TypeDef));
+             psNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedListElement_TypeDef));
             #elif defined (__GNUC__ )
              psNewElement = (CDLinkedListElement_TypeDef*) malloc(sizeof(CDLinkedListElement_TypeDef));
             #endif
@@ -97,7 +97,7 @@
           if(((uint32_t) 0UL != (uint32_t) psElement) || (0UL == u32SizeReg))
           {
              #if defined (__TI_ARM__ )
-              psNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CDLinkedListElement_TypeDef));
+              psNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedListElement_TypeDef));
              #elif defined (__GNUC__ )
               psNewElement = (CDLinkedListElement_TypeDef*) malloc(sizeof(CDLinkedListElement_TypeDef));
              #endif

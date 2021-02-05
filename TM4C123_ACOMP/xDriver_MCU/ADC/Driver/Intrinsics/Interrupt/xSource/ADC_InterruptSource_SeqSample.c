@@ -26,7 +26,7 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-static const uint32_t ADC_u32MuxMax[(uint32_t) ADC_enSEQ_MAX+0x1U] = {(uint32_t) ADC_en_MUX_7, (uint32_t) ADC_en_MUX_3,(uint32_t) ADC_en_MUX_3,(uint32_t) ADC_en_MUX_0};
+static const uint32_t ADC_u32MuxMax[(uint32_t) ADC_enSEQ_MAX+0x1U] = {(uint32_t) ADC_en_MUX_7, (uint32_t) ADC_en_MUX_3, (uint32_t) ADC_en_MUX_3, (uint32_t) ADC_en_MUX_0};
 
 void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
 {

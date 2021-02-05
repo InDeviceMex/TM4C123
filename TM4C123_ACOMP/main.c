@@ -131,11 +131,11 @@ int32_t main(void)
 
         if(EDUMKII_enJOYSTICK_PRESS == enJoystickSelectValue)
         {
-            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t) u32PWMRed);
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, (uint32_t) u32PWMRed);
         }
         else
         {
-            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED,(uint32_t) 0UL);
+            EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, (uint32_t) 0UL);
         }
 
         if(u32JoystickXValue <= 1700UL)

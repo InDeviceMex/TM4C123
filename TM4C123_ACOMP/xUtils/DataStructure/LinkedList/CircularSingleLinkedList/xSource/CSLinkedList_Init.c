@@ -28,7 +28,7 @@ CSLinkedList_TypeDef* CSLinkedList__psInit(void (*pfvDestroyElementDataArg) (voi
 {
     CSLinkedList_TypeDef *psList = 0;
 #if defined (__TI_ARM__ )
-    psList = (CSLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(CSLinkedList_TypeDef));
+    psList = (CSLinkedList_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CSLinkedList_TypeDef));
 #elif defined (__GNUC__ )
     psList = (CSLinkedList_TypeDef*) malloc(sizeof(CSLinkedList_TypeDef));
 #endif

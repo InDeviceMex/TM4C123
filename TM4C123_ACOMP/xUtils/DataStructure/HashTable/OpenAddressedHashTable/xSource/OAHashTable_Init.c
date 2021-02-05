@@ -45,7 +45,7 @@ OAHashTable_nSTATUS OAHashTable__enInit(OAHashTable_TypeDef* psOAHashTable, uint
         psOAHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
     #if defined (__TI_ARM__ )
-        psOAHashTable->pvTable = (void**) memalign((size_t) 4,(size_t) (u32PositionsNum * sizeof(void*)));
+        psOAHashTable->pvTable = (void**) memalign((size_t) 4, (size_t) (u32PositionsNum * sizeof(void*)));
     #elif defined (__GNUC__ )
         psOAHashTable->pvTable = (void**) malloc((size_t) (u32PositionsNum * sizeof(void*)));
     #endif
@@ -73,7 +73,7 @@ OAHashTable_TypeDef* OAHashTable__psInit(uint32_t u32PositionsNum, uint32_t (*pf
     uint32_t u32Position = 0UL;
 
 #if defined (__TI_ARM__ )
-    psOAHashTable = (OAHashTable_TypeDef*) memalign((size_t) 4,(size_t) sizeof(OAHashTable_TypeDef));
+    psOAHashTable = (OAHashTable_TypeDef*) memalign((size_t) 4, (size_t) sizeof(OAHashTable_TypeDef));
 #elif defined (__GNUC__ )
     psOAHashTable = (OAHashTable_TypeDef*) malloc(sizeof(OAHashTable_TypeDef));
 #endif
@@ -88,7 +88,7 @@ OAHashTable_TypeDef* OAHashTable__psInit(uint32_t u32PositionsNum, uint32_t (*pf
         psOAHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
     #if defined (__TI_ARM__ )
-        psOAHashTable->pvTable = (void**) memalign((size_t) 4,(size_t) (u32PositionsNum * sizeof(void*)));
+        psOAHashTable->pvTable = (void**) memalign((size_t) 4, (size_t) (u32PositionsNum * sizeof(void*)));
     #elif defined (__GNUC__ )
         psOAHashTable->pvTable = (void**) malloc((size_t) (u32PositionsNum * sizeof(void*)));
     #endif

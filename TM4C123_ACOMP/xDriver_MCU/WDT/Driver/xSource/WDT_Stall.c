@@ -47,7 +47,7 @@ WDT_nSTATUS WDT__enGetStall(WDT_nMODULE enModule, WDT_nSTALL* penFeatureArg)
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTTEST_OFFSET, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_WDTTEST_OFFSET, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
 
     return enStatusRead;
 }

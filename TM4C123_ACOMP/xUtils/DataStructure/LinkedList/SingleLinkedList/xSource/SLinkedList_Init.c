@@ -29,7 +29,7 @@ SLinkedList_TypeDef* SLinkedList__psInit(void (*pfvDestroyElementDataArg) (void 
 {
     SLinkedList_TypeDef *psList = 0;
 #if defined (__TI_ARM__ )
-    psList = (SLinkedList_TypeDef*) memalign((size_t) 4,(size_t) sizeof(SLinkedList_TypeDef));
+    psList = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) sizeof(SLinkedList_TypeDef));
 #elif defined (__GNUC__ )
     psList = (SLinkedList_TypeDef*) malloc(sizeof(SLinkedList_TypeDef));
 #endif

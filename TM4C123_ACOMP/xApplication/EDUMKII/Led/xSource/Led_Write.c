@@ -42,7 +42,7 @@ void EDUMKII_Led_vWriteDigital(EDUMKII_nLED enLedSelect, uint32_t u32Value)
 
     if((uint32_t) EDUMKII_enLED_BLUE == ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_BLUE))
     {
-        GPIO__vSetData(EDUMKII_LED_BLUE_PORT, EDUMKII_LED_BLUE_PIN,(u32Value & (uint32_t) EDUMKII_enLED_BLUE) << 2UL);
+        GPIO__vSetData(EDUMKII_LED_BLUE_PORT, EDUMKII_LED_BLUE_PIN, (u32Value & (uint32_t) EDUMKII_enLED_BLUE) << 2UL);
     }
 
 }
@@ -66,17 +66,17 @@ void EDUMKII_Led_vWritePWM(EDUMKII_nLED enLedSelect, uint32_t u32Value)
 
         if((uint32_t) EDUMKII_enLED_RED == ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_RED))
         {
-            TIMER__vSetMatch(EDUMKII_LED_RED_TIMER,(uint64_t) u32TimerValue);
+            TIMER__vSetMatch(EDUMKII_LED_RED_TIMER, (uint64_t) u32TimerValue);
         }
 
         if((uint32_t) EDUMKII_enLED_GREEN == ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_GREEN))
         {
-            TIMER__vSetMatch(EDUMKII_LED_GREEN_TIMER,(uint64_t) u32TimerValue);
+            TIMER__vSetMatch(EDUMKII_LED_GREEN_TIMER, (uint64_t) u32TimerValue);
         }
 
         if((uint32_t) EDUMKII_enLED_BLUE == ((uint32_t) enLedSelect & (uint32_t) EDUMKII_enLED_BLUE))
         {
-            TIMER__vSetMatch(EDUMKII_LED_BLUE_TIMER,(uint64_t) u32TimerValue);
+            TIMER__vSetMatch(EDUMKII_LED_BLUE_TIMER, (uint64_t) u32TimerValue);
         }
     }
 }

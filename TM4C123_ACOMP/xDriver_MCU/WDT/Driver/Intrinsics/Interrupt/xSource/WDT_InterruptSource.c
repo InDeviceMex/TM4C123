@@ -32,7 +32,7 @@ WDT_nSTATUS WDT__enGetInterruptSource(WDT_nMODULE enModule, WDT_nINTERRUPT* penF
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTCTL_OFFSET, WDT_WDTCTL_INTEN_MASK, WDT_WDTCTL_R_INTEN_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_WDTCTL_OFFSET, WDT_WDTCTL_INTEN_MASK, WDT_WDTCTL_R_INTEN_BIT);
 
     return enStatusRead;
 }
@@ -57,7 +57,7 @@ WDT_nSTATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule, WDT_nINT_STATUS* 
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule,(uint32_t*)penFeatureArg, WDT_WDTRIS_OFFSET, WDT_WDTRIS_WDTRIS_MASK, WDT_WDTRIS_R_WDTRIS_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_WDTRIS_OFFSET, WDT_WDTRIS_WDTRIS_MASK, WDT_WDTRIS_R_WDTRIS_BIT);
 
     return enStatusRead;
 }

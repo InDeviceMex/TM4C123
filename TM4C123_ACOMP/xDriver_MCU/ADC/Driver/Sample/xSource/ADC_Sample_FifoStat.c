@@ -113,14 +113,14 @@ uint32_t ADC__u32GetSampleFifoValue(ADC_nMODULE enModule, ADC_nSEQUENCER enSeque
         u32RegAddress = (uint32_t) (psAdcSeq)+ADC_ADCSSFIFO_OFFSET;
         pu32AdcSeq = (volatile uint32_t*)u32RegAddress;
 
-        enFeature = ADC__enGetSampleFifoStat((ADC_nMODULE)u32Module,(ADC_nSEQUENCER)u32Sequencer);
+        enFeature = ADC__enGetSampleFifoStat((ADC_nMODULE)u32Module, (ADC_nSEQUENCER)u32Sequencer);
         while(ADC_enSEQ_FIFO_EMPTY != enFeature)
         {
             u32Reg = *pu32AdcSeq;
             *pu32FifoArray = u32Reg;
             pu32FifoArray += 0x1U;
             u32Count++;
-            enFeature = ADC__enGetSampleFifoStat((ADC_nMODULE)u32Module,(ADC_nSEQUENCER)u32Sequencer);
+            enFeature = ADC__enGetSampleFifoStat((ADC_nMODULE)u32Module, (ADC_nSEQUENCER)u32Sequencer);
         }
 
     }

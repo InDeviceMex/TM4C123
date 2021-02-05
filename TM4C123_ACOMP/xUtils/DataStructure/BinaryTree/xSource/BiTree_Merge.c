@@ -50,7 +50,7 @@
          psTreeMerged = BiTree__psInit(psTreeLeft->pfvDestroyElementData);
          if((uint32_t) 0UL != (uint32_t) psTreeMerged)
          {
-             psElementReg = BiTree__psInsertLeft(psTreeMerged,(BiTreeElement_TypeDef*) 0UL, pvData);
+             psElementReg = BiTree__psInsertLeft(psTreeMerged, (BiTreeElement_TypeDef*) 0UL, pvData);
              if((uint32_t) 0UL != (uint32_t) psElementReg)
              {
                  psElementRootReg = BiTree__psGetRoot(psTreeMerged);
@@ -95,7 +95,7 @@
          enStatus = BiTree__enInit(psTreeMerged, psTreeLeft->pfvDestroyElementData);
          if(BiTree_enSTATUS_OK == enStatus)
          {
-             psElementReg = BiTree__psInsertLeft(psTreeMerged,(BiTreeElement_TypeDef*) 0UL, pvData);
+             psElementReg = BiTree__psInsertLeft(psTreeMerged, (BiTreeElement_TypeDef*) 0UL, pvData);
              if((uint32_t) 0UL != (uint32_t) psElementReg)
              {
                  enStatus = BiTree_enSTATUS_OK;

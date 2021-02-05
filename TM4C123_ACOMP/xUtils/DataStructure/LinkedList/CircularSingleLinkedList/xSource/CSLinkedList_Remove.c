@@ -58,8 +58,8 @@
 
              if((uint32_t) psElement == (uint32_t) psElementNextNode) /*Remove Last element*/
              {
-                 CSLinkedList__vSetTail(psList,(CSLinkedListElement_TypeDef*)0UL);
-                 CSLinkedList__vSetHead(psList,(CSLinkedListElement_TypeDef*)0UL);
+                 CSLinkedList__vSetTail(psList, (CSLinkedListElement_TypeDef*)0UL);
+                 CSLinkedList__vSetHead(psList, (CSLinkedListElement_TypeDef*)0UL);
              }
              else
              {

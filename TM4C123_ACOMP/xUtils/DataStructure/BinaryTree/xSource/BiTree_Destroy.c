@@ -34,7 +34,7 @@ void BiTree__vDestroy(BiTree_TypeDef* psTree)
      if((BiTree_TypeDef*)0 != psTree)
      {
          pfvListDestroy = psTree->pfvDestroy;
-         enStatus = BiTree__enRemoveLeft(psTree,(BiTreeElement_TypeDef*) 0UL );
+         enStatus = BiTree__enRemoveLeft(psTree, (BiTreeElement_TypeDef*) 0UL );
 
          psTree->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
          psTree->pfvDestroy = (void (*) (void* List)) 0UL;

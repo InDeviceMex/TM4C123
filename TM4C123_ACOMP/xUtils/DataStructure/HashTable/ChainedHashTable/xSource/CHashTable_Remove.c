@@ -56,7 +56,7 @@ CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void**
         while((uint32_t) 0UL != (uint32_t) psElement)
         {
             pvElementData = SLinkedList__pvGetElementData(psElement);
-            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData,(const void*)pvElementData);
+            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData, (const void*)pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
                 enRemoveResult = SLinkedList__enRemoveNext(psList, psPreviousElement, pvData);

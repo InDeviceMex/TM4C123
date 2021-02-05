@@ -47,7 +47,7 @@ DMA_CONTROL_Typedef* DMA_CH__psCreateControlStruct(uint32_t u32ControlWorld)
 {
     DMA_CONTROL_Typedef* psControl = 0UL;
     #if defined (__TI_ARM__ )
-    psControl = (DMA_CONTROL_Typedef*) memalign( (size_t) 4,(size_t) sizeof(DMA_CONTROL_Typedef));
+    psControl = (DMA_CONTROL_Typedef*) memalign( (size_t) 4, (size_t) sizeof(DMA_CONTROL_Typedef));
     #elif defined (__GNUC__ )
     psControl = (DMA_CONTROL_Typedef*) malloc( (size_t) sizeof(DMA_CONTROL_Typedef));
     #endif
