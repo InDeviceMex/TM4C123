@@ -21,311 +21,260 @@
  * Date           Author     Version     Description
  * 27 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
+#include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_FreeCount.h>
+
+#include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_CountGeneric.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_AltMode.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_CountDir.h>
 #include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_SubMode.h>
+#include <xDriver_MCU/TIMER/Driver/Mode/xHeader/TIMER_SnapShot.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Configuration.h>
-#include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_FreeCount.h>
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
+#include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 
-
-void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
+TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCount)
 {
-    uint32_t pu32PrescalerMask[2] = {0xFFU,0xFFFFu};
-    uint32_t pu32PrescalerShift[2] = {8U,16UL};
-    uint32_t pu32SizeMask[2] = {0xFFFFU,0xFFFFFFFFu};
-    uint32_t pu32SizeShift[2] = {16U,32UL};
-    uint64_t pu64TimerSize[2] = {0xFFFFFFU,0xFFFFFFFFFFFFu};
+    TIMER_nSTATUS enStatus = TIMER_enSTATUS_UNDEF;
 
-    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
-    /*Erase*/
-    uint64_t u64Reg=0U;
-    uint32_t u32Reg=0U;
-    uint32_t u32RegPrescaler=0U;
-    uint32_t u32Number = (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule >> 8U) & 0x1U;
-    uint32_t u32Wide= ((uint32_t) enModule >> 16U) & 0x1U;
-    volatile uint32_t* pu32TimerCOUNTLow=0U;
-    volatile uint32_t* pu32TimerCOUNTHigh=0U;
-    volatile uint32_t* pu32TimerPV=0U;
+    TIMER_nCONFIG enConfigVar = TIMER_enCONFIG_UNDEF;
 
-    if((uint32_t) TIMER_enMISC_MAX<u32Number)
+    TIMER_nSUB_MODE enSubModeVar = TIMER_enSUB_MODE_UNDEF;
+    TIMER_nALT_MODE enAltModeVar = TIMER_enALT_MODE_UNDEF;
+    TIMER_nCOUNT_DIR enDirectionVar = TIMER_enCOUNT_DIR_UNDEF;
+
+    TIMER_Count64_TypeDef sFreeCount64Config = {0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL};
+    TIMER_Count32_TypeDef sFreeCount32Config = {0UL, 0UL, 0UL, 0UL};
+
+    static uint32_t TimerValue = 0UL;
+    static uint32_t u32TimerValue = 0UL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    u32SubModule &= 0x1UL;
+
+    if(0UL != (uint32_t) pu64FreeCount)
     {
-        u32Number = (uint32_t) TIMER_enMISC_MAX;
-    }
-    TIMER__vSetReady((TIMER_nSIZE)u32Wide, (TIMER_nMODULE_NUM) u32Number);
-
-    enConfigVar=TIMER__enGetConfiguration(enModule);
-    switch (enConfigVar)
-    {
-    case TIMER_enCONFIG_WIDE:
-        if((uint32_t) TIMER_enSIZE_64 == (uint32_t) u32Wide)
+        enConfigVar = TIMER__enGetConfiguration( enModule);
+        if(TIMER_enCONFIG_UNDEF != enConfigVar)
         {
-            pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
-            pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
-
-            u64Reg=u64Count;
-            u64Reg >>= 32U;
-            u64Reg &= 0xFFFFFFFFU;
-            u32Reg = (uint32_t) u64Reg;
-            *pu32TimerCOUNTHigh = u32Reg;
-
-            u64Reg= u64Count;
-            u64Reg &= 0xFFFFFFFFU;
-            u32Reg = (uint32_t) u64Reg;
-            *pu32TimerCOUNTLow = u32Reg;
-        }
-        else
-        {
-            pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
-
-            u64Reg=u64Count;
-            u64Reg &= 0xFFFFFFFFU;
-            u32Reg = (uint32_t) u64Reg;
-            *pu32TimerCOUNTLow= u32Reg;
-        }
-        break;
-    case TIMER_enCONFIG_RTC:
-        pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
-        pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
-
-        u64Reg=u64Count;
-        u64Reg >>= 32U;
-        u64Reg &= 0xFFFFFFFFU;
-        u32Reg = (uint32_t) u64Reg;
-        *pu32TimerCOUNTHigh = u32Reg;
-
-        u64Reg= u64Count;
-        u64Reg &= 0xFFFFFFFFU;
-        u32Reg = (uint32_t) u64Reg;
-        *pu32TimerCOUNTLow = u32Reg;
-
-        break;
-    case TIMER_enCONFIG_INDIVIDUAL:
-
-        enSubModeVar=TIMER__enGetSubMode(enModule);
-        enAltModeVar=TIMER__enGetAltMode(enModule);
-        enDirectionVar=TIMER__enGetCountDir(enModule);
-
-        pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][u32Letter][u32Number];
-        pu32TimerPV=TIMER_TnPV_BLOCK[u32Wide][u32Letter][u32Number];
-        /*Prescaler*/
-        if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
-        {
-
-            if((uint32_t) TIMER_enSIZE_64 == (uint32_t) u32Wide)
+            enStatus = TIMER_enSTATUS_OK;
+            if((uint32_t) TIMER_enSIZE_32 == (uint32_t) u32ModuleSize)
             {
-                u64Reg=u64Count;
-                u64Reg >>= pu32PrescalerShift[u32Wide];
-                u32Reg = (uint32_t) u64Reg;
-                u32Reg &= pu32SizeMask[u32Wide];
-                *pu32TimerCOUNTLow = u32Reg;
+                switch (enConfigVar)
+                {
+                    case TIMER_enCONFIG_WIDE:
+                    case TIMER_enCONFIG_RTC:
+                        sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET;
+                        sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
+                        sFreeCount32Config.u32CountShiftRight = 0UL;
+                        sFreeCount32Config.pu32CountValue = &TimerValue;
 
-                u64Reg=u64Count;
-                u64Reg &= pu32PrescalerMask[u32Wide];
-                u32RegPrescaler = (uint32_t) u64Reg;
-                *pu32TimerPV=u32RegPrescaler;
+                        TIMER_enGet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                        *pu64FreeCount = (uint64_t) TimerValue;
+                    break;
+
+                    case TIMER_enCONFIG_INDIVIDUAL:
+                        enSubModeVar = TIMER__enGetSubMode( enModule);
+                        enAltModeVar = TIMER__enGetAltMode( enModule);
+                        enDirectionVar = TIMER__enGetCountDir( enModule);
+
+                        sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
+                        sFreeCount32Config.u32CountMask = 0xFFFFFFUL;
+                        sFreeCount32Config.u32CountShiftRight = 0UL;
+                        sFreeCount32Config.pu32CountValue = &TimerValue;
+                        TIMER_enGet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+
+                        /*One shot or Periodic*/
+                        if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
+                        {
+                            u32TimerValue = TimerValue;
+                            u32TimerValue >>= 16UL;
+                            u32TimerValue &= 0xFFUL;
+
+                            TimerValue &= 0xFFFFULL;
+                            TimerValue <<= 8UL;
+                            TimerValue |= u32TimerValue;
+                        }
+                        *pu64FreeCount = (uint64_t)TimerValue;
+                    break;
+                    default:
+                    break;
+                }
             }
             else
             {
-                u64Reg=u64Count;
-                u64Reg >>= pu32PrescalerShift[u32Wide];
-                u32Reg = (uint32_t) u64Reg;
-                u32Reg &= pu32SizeMask[u32Wide];
-
-                u64Reg=u64Count;
-                u64Reg &= pu32PrescalerMask[u32Wide];
-                u32RegPrescaler = (uint32_t) u64Reg;
-                u32RegPrescaler <<= pu32SizeShift[u32Wide];
-                u32Reg |= u32RegPrescaler;
-
-                *pu32TimerCOUNTLow = u32Reg;
-            }
-        }
-        /*Time Extension*/
-        else
-        {
-
-            if((uint32_t) TIMER_enSIZE_64 == (uint32_t) u32Wide)
-            {
-                u64Reg=u64Count;
-                u32Reg = (uint32_t) u64Reg;
-                u32Reg &= pu32SizeMask[u32Wide];
-                *pu32TimerCOUNTLow = u32Reg;
-
-                u64Reg=u64Count;
-                u64Reg >>= pu32SizeShift[u32Wide];
-                u32RegPrescaler = (uint32_t) u64Reg;
-                u32RegPrescaler &= pu32PrescalerMask[u32Wide];
-                *pu32TimerPV=u32RegPrescaler;
-            }
-            else
-            {
-                u64Reg=u64Count;
-                u32Reg = (uint32_t) u64Reg;
-                u32Reg &= pu64TimerSize[u32Wide];
-                *pu32TimerCOUNTLow = u32Reg;
-            }
-        }
-        break;
-    default:
-        break;
-    }
-
-}
-
-TIMER_nSTATUS TIMER__enGetFreeRunningCount(TIMER_nMODULE enModule,uint64_t* pu64Count)
-{
-    uint32_t pu32PrescalerMask[2] = {0xFFU,0xFFFFu};
-    uint32_t pu32PrescalerShift[2] = {8U,16UL};
-    uint32_t pu32SizeMask[2] = {0xFFFFU,0xFFFFFFFFu};
-    uint32_t pu32SizeShift[2] = {16U,32UL};
-    uint64_t pu64TimerSize[2] = {0xFFFFFFU,0xFFFFFFFFFFFFu};
-
-    TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
-    TIMER_nREADY enReady = TIMER_enNOREADY;
-    TIMER_nCONFIG enConfigVar=TIMER_enCONFIG_WIDE;
-    TIMER_nSUB_MODE enSubModeVar=TIMER_enSUB_MODE_RESERVED;
-    TIMER_nALT_MODE enAltModeVar=TIMER_enALT_MODE_CC;
-    TIMER_nCOUNT_DIR enDirectionVar=TIMER_enCOUNT_DIR_DOWN;
-    /*Erase*/
-    uint64_t u64Reg=0U;
-    uint32_t u32Reg=0U;
-    uint32_t u32RegPrescaler=0U;
-    uint32_t u32Number = (uint32_t) enModule & 0x7U;
-    uint32_t u32Letter= ((uint32_t) enModule >> 8U) & 0x1U;
-    uint32_t u32Wide= ((uint32_t) enModule >> 16U) & 0x1U;
-    volatile uint32_t* pu32TimerCOUNTLow=0U;
-    volatile uint32_t* pu32TimerCOUNTHigh=0U;
-    volatile uint32_t* pu32TimerPV=0U;
-
-    if((uint32_t) TIMER_enMISC_MAX<u32Number)
-    {
-        u32Number = (uint32_t) TIMER_enMISC_MAX;
-    }
-    enReady = TIMER__enIsReady((TIMER_nSIZE)u32Wide, (TIMER_nMODULE_NUM) u32Number);
-    if((TIMER_enREADY == enReady) && (0UL != (uint32_t) pu64Count))
-    {
-        enStatus = TIMER_enSTATUS_OK;
-
-        enConfigVar=TIMER__enGetConfiguration(enModule);
-        switch (enConfigVar)
-        {
-        case TIMER_enCONFIG_WIDE:
-            if((uint32_t) TIMER_enSIZE_64 == (uint32_t) u32Wide)
-            {
-                pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
-                pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
-
-                u32Reg = (uint32_t) (*pu32TimerCOUNTHigh);
-                u64Reg = (uint64_t) u32Reg;
-                u64Reg <<= 32U;
-                u32Reg = (uint32_t) (*pu32TimerCOUNTLow);
-                u64Reg |= (uint64_t) u32Reg;
-
-                *pu64Count= u64Reg;
-            }
-            else
-            {
-                pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
-
-                u32Reg = (uint32_t) (*pu32TimerCOUNTLow);
-                u64Reg = (uint64_t) u32Reg;
-
-                *pu64Count= u64Reg;
-            }
-
-            break;
-        case TIMER_enCONFIG_RTC:
-            pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][0][u32Number];
-            pu32TimerCOUNTHigh=TIMER_TnV_BLOCK[u32Wide][1][u32Number];
-
-            u32Reg = (uint32_t) (*pu32TimerCOUNTHigh);
-            u64Reg = (uint64_t) u32Reg;
-            u64Reg <<= 32U;
-            u32Reg = (uint32_t) (*pu32TimerCOUNTLow);
-            u64Reg |= (uint64_t) u32Reg;
-
-            *pu64Count= u64Reg;
-
-            break;
-        case TIMER_enCONFIG_INDIVIDUAL:
-
-            enSubModeVar=TIMER__enGetSubMode(enModule);
-            enAltModeVar=TIMER__enGetAltMode(enModule);
-            enDirectionVar=TIMER__enGetCountDir(enModule);
-
-            pu32TimerCOUNTLow=TIMER_TnV_BLOCK[u32Wide][u32Letter][u32Number];
-            pu32TimerPV=TIMER_TnPV_BLOCK[u32Wide][u32Letter][u32Number];
-            /*Prescaler*/
-            if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
-            {
-
-                if((uint32_t) TIMER_enSIZE_64 == (uint32_t) u32Wide)
+                switch (enConfigVar)
                 {
-                    u32Reg = *pu32TimerCOUNTLow;
-                    u32Reg &= pu32SizeMask[u32Wide];
-                    u64Reg = (uint64_t) u32Reg;
-                    u64Reg <<= pu32PrescalerShift[u32Wide];
+                    case TIMER_enCONFIG_WIDE:
 
-                    u32RegPrescaler = *pu32TimerPV;
-                    u32RegPrescaler &= pu32PrescalerMask[u32Wide];
-                    u64Reg |= (uint64_t) u32RegPrescaler;
-                    u64Reg &= pu64TimerSize[u32Wide];
+                        sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTBV_OFFSET;
+                        sFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
+                        sFreeCount64Config.u32CountHighShiftRight = 0UL;
+                        sFreeCount64Config.u32CountHighShiftLeft = 32UL;
 
-                    *pu64Count = u64Reg;
-                }
-                else
-                {
-                    u32Reg = *pu32TimerCOUNTLow;
-                    u32RegPrescaler= u32Reg;
-                    u32Reg &= pu32SizeMask[u32Wide];
-                    u64Reg = (uint64_t) u32Reg;
-                    u64Reg <<= pu32PrescalerShift[u32Wide];
+                        sFreeCount64Config.u32CountLowRegister = GPTM_GPTMTAV_OFFSET;
+                        sFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
+                        sFreeCount64Config.u32CountLowShiftRight = 0UL;
+                        sFreeCount64Config.u32CountLowShiftLeft = 0UL;
 
-                    u32RegPrescaler >>= pu32SizeShift[u32Wide];
-                    u32RegPrescaler &= pu32PrescalerMask[u32Wide];
-                    u64Reg |= (uint64_t) u32RegPrescaler;
-                    u64Reg &= pu64TimerSize[u32Wide];
+                        sFreeCount64Config.pu64CountValue = pu64FreeCount;
 
-                    *pu64Count = u64Reg;
+                        TIMER_enGetCount64Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
+                    break;
 
+                    case TIMER_enCONFIG_RTC:
+                        *pu64FreeCount = TIMER_u64GetFreeCount_RTC((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber);
+                    break;
+
+
+                    case TIMER_enCONFIG_INDIVIDUAL:
+                        enSubModeVar = TIMER__enGetSubMode( enModule);
+                        enAltModeVar = TIMER__enGetAltMode( enModule);
+                        enDirectionVar = TIMER__enGetCountDir( enModule);
+
+                        sFreeCount64Config.u32CountHighShiftRight = 0UL;
+                        sFreeCount64Config.u32CountLowShiftRight = 0UL;
+                        sFreeCount64Config.u32CountLowShiftLeft = 0UL;
+                        sFreeCount64Config.pu64CountValue = pu64FreeCount;
+                        /*Prescaler*/
+                        /*One shot and periodic Down , no PWM no Capture*/
+                        if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
+                        {
+                            sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
+                            sFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
+                            sFreeCount64Config.u32CountHighShiftLeft = 16UL;
+
+                            sFreeCount64Config.u32CountLowRegister = GPTM_GPTMTAPV_OFFSET + (4UL * u32SubModule);
+                            sFreeCount64Config.u32CountLowMask =0xFFFFUL;
+                        }
+                        /*Time Extension*/
+                        /*PWM, capture , One shot UP or periodic UP*/
+                        else
+                        {
+                            sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTAPV_OFFSET + (4UL * u32SubModule);
+                            sFreeCount64Config.u32CountHighMask =0xFFFFUL;
+                            sFreeCount64Config.u32CountHighShiftLeft = 32UL;
+
+                            sFreeCount64Config.u32CountLowRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
+                            sFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
+                        }
+                        TIMER_enGetCount64Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
+                    break;
+                    default:
+                    break;
                 }
             }
-            /*Time Extension*/
-            else
-            {
-
-                if((uint32_t) TIMER_enSIZE_64 == (uint32_t) u32Wide)
-                {
-                    u32RegPrescaler = *pu32TimerPV;
-                    u32RegPrescaler &= pu32PrescalerMask[u32Wide];
-                    u64Reg = (uint64_t) u32RegPrescaler;
-                    u64Reg <<= pu32SizeShift[u32Wide];
-
-                    u32Reg = *pu32TimerCOUNTLow;
-                    u32Reg &= pu32SizeMask[u32Wide];
-                    u64Reg |= (uint64_t) u32Reg;
-
-                    *pu64Count= u64Reg;
-                }
-                else
-                {
-                    u32Reg = *pu32TimerCOUNTLow;
-                    u64Reg = (uint64_t) u32Reg;
-                    u64Reg &= pu64TimerSize[u32Wide];
-                    *pu64Count= u64Reg;
-                }
-            }
-            break;
-        default:
-            break;
         }
     }
     return enStatus;
 }
 
+void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule,uint64_t u64Count)
+{
+    TIMER_nCONFIG enConfigVar = TIMER_enCONFIG_UNDEF;
+
+    TIMER_nSUB_MODE enSubModeVar = TIMER_enSUB_MODE_UNDEF;
+    TIMER_nALT_MODE enAltModeVar = TIMER_enALT_MODE_UNDEF;
+    TIMER_nCOUNT_DIR enDirectionVar = TIMER_enCOUNT_DIR_UNDEF;
+
+    TIMER_Count64_TypeDef sFreeCount64Config = {0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL};
+    TIMER_Count32_TypeDef sFreeCount32Config = {0UL, 0UL, 0UL, 0UL};
+
+    static uint64_t u64TimerValue = 0ULL;
+    static uint32_t TimerValue = 0UL;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
+
+    TIMER__vGetSubParams( enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
+    u32SubModule &= 0x1UL;
+
+    TIMER__vSetReady((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber);
+    enConfigVar = TIMER__enGetConfiguration( enModule);
+    if(TIMER_enCONFIG_UNDEF != enConfigVar)
+    {
+        if((uint32_t) TIMER_enSIZE_32 == (uint32_t) u32ModuleSize)
+        {
+            switch (enConfigVar)
+            {
+                case TIMER_enCONFIG_WIDE:
+                case TIMER_enCONFIG_RTC:
+                    TimerValue = (uint32_t) u64Count;
+                    sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET;
+                    sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
+                    sFreeCount32Config.u32CountShiftRight = 0UL;
+                    sFreeCount32Config.pu32CountValue = &TimerValue;
+                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                break;
+
+                case TIMER_enCONFIG_INDIVIDUAL:
+                    enSubModeVar = TIMER__enGetSubMode( enModule);
+                    enAltModeVar = TIMER__enGetAltMode( enModule);
+                    enDirectionVar = TIMER__enGetCountDir( enModule);
+
+                    TimerValue = (uint32_t) u64Count;
+                    sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
+                    sFreeCount32Config.u32CountMask = 0xFFFFUL;
+                    sFreeCount32Config.u32CountShiftRight = 0UL;
+                    sFreeCount32Config.pu32CountValue = &TimerValue;
+                    /*One shot or Periodic*/
+                    if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
+                    {
+                        sFreeCount32Config.u32CountShiftRight = 8UL;
+                    }
+                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                break;
+                default:
+                break;
+            }
+        }
+        else
+        {
+            switch (enConfigVar)
+            {
+                case TIMER_enCONFIG_WIDE:
+                case TIMER_enCONFIG_RTC:
+                    u64TimerValue = u64Count;
+                    sFreeCount64Config.u32CountHighRegister = GPTM_GPTMTBV_OFFSET;
+                    sFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
+                    sFreeCount64Config.u32CountHighShiftRight = 32UL;
+                    sFreeCount64Config.u32CountHighShiftLeft = 0UL;
+
+                    sFreeCount64Config.u32CountLowRegister = GPTM_GPTMTAV_OFFSET;
+                    sFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
+                    sFreeCount64Config.u32CountLowShiftRight = 0UL;
+                    sFreeCount64Config.u32CountLowShiftLeft = 0UL;
+
+                    sFreeCount64Config.pu64CountValue = &u64TimerValue;
+
+                    TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
+                break;
+                case TIMER_enCONFIG_INDIVIDUAL:
+                    enSubModeVar = TIMER__enGetSubMode( enModule);
+                    enAltModeVar = TIMER__enGetAltMode( enModule);
+                    enDirectionVar = TIMER__enGetCountDir( enModule);
+
+                    sFreeCount32Config.u32CountRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
+                    sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
+                    sFreeCount32Config.u32CountShiftRight = 0UL;
+                    sFreeCount32Config.pu32CountValue = &TimerValue;
+
+                    /*Prescaler*/
+                    /*One shot and periodic Down , no PWM no Capture*/
+                    if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
+                    {
+                        u64Count >>= 16UL;
+                    }
+                    u64Count &= 0xFFFFFFFFUL;
+                    TimerValue = (uint32_t) u64Count;
+                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                break;
+
+                default:
+                break;
+            }
+        }
+    }
+}

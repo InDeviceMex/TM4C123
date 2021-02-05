@@ -26,25 +26,25 @@
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Match.h>
 #include <xDriver_MCU/TIMER/Driver/xHeader/TIMER_Reload.h>
 
-TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE enMode, uint64_t u64Reload,uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enSTATUS_ERROR;
     enReturn = TIMER__enSetMode(enModule,enMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
-        TIMER__vSetReload(enModule,u32PrescalerRTC,u64Reload);
+        TIMER__vSetReload(enModule,u64Reload);
         TIMER__vSetMatch(enModule,u64Match);
     }
     return enReturn;
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint32_t u32PrescalerRTC, uint64_t u64Reload,uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint64_t u64Reload,uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn= TIMER_enSTATUS_ERROR;
     enReturn = TIMER__enSetModeStruct(enModule,psMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
-        TIMER__vSetReload(enModule,u32PrescalerRTC,u64Reload);
+        TIMER__vSetReload(enModule,u64Reload);
         TIMER__vSetMatch(enModule,u64Match);
     }
     return enReturn;

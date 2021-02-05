@@ -32,11 +32,15 @@ uint32_t MCU__u32ReadRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegi
 
     u32RegAddress += u32OffsetRegister;
     pu32Peripheral = (volatile uint32_t*) (u32RegAddress);
+
     u32Reg = *pu32Peripheral;
 
-    u32Reg >>= u32BitFeature;
-    u32Reg &= u32MaskFeature;
-    u32FeatureValue = u32Reg;
+    if(0xFFFFFFFFUL != u32MaskFeature)
+    {
+        u32Reg >>= u32BitFeature;
+        u32Reg &= u32MaskFeature;
+    }
 
+    u32FeatureValue = u32Reg;
     return u32FeatureValue;
 }
