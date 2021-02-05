@@ -27,9 +27,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetSync(ADC_nMODULE enModule,ADC_nSYNC enSync)
+void ADC__vSetSync(ADC_nMODULE enModule, ADC_nSYNC enSync)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule,ADC_ADCPSSI_OFFSET, (uint32_t) enSync, ADC_ADCPSSI_SYNCWAIT_MASK, ADC_ADCPSSI_R_SYNCWAIT_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCPSSI_OFFSET, (uint32_t) enSync, ADC_ADCPSSI_SYNCWAIT_MASK, ADC_ADCPSSI_R_SYNCWAIT_BIT);
 }
 
 ADC_nSYNC ADC__enGetSync(ADC_nMODULE enModule)

@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC__vSetGlobalSync(ADC_nMODULE enModule,ADC_nGLOBAL_SYNC enGlobalSync);
+void ADC__vSetGlobalSync(ADC_nMODULE enModule, ADC_nGLOBAL_SYNC enGlobalSync);
 ADC_nGLOBAL_SYNC ADC__enGetGlobalSync(ADC_nMODULE enModule);
 
 

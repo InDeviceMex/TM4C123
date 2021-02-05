@@ -27,7 +27,7 @@
 #include <xDriver_MCU/DMA/App/CH_Config/xHeader/DMA_CH_ConfigStruct.h>
 #include <xDriver_MCU/DMA/Driver/DMA_Driver.h>
 
-void DMA_CH__vSetConfigStruct(DMA_nCH_MODULE enDMAChannel,  DMA_CONFIG_Typedef psConfig)
+void DMA_CH__vSetConfigStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef psConfig)
 {
         DMA_CH__vSetControlStructure(enDMAChannel, psConfig.enControlStructure);
         DMA_CH__vSetPriority(enDMAChannel, psConfig.enChannelPriority);

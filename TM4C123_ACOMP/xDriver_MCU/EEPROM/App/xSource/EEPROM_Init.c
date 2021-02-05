@@ -20,7 +20,7 @@ EEPROM_nSTATUS EEPROM__enInit (void)
      * To Reinitialize Peripheral Clock
      */
     EEPROM__vSetReady();
-    /*NVIC__vSetEnableIRQ(NVIC_enSTIR_FLASH,NVIC_enPRI7);*/
+    /*NVIC__vSetEnableIRQ(NVIC_enSTIR_FLASH, NVIC_enPRI7);*/
 
     /*
      * To obtain the EEPROM Max Block and Max World allowed

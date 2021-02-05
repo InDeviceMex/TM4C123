@@ -51,6 +51,6 @@ DMA_CONTROL_Typedef* DMA_CH__psCreateControlStruct(uint32_t u32ControlWorld)
     #elif defined (__GNUC__ )
     psControl = (DMA_CONTROL_Typedef*) malloc( (size_t) sizeof(DMA_CONTROL_Typedef));
     #endif
-    DMA_CH__enCreateControlStructPointer(u32ControlWorld,psControl);
+    DMA_CH__enCreateControlStructPointer(u32ControlWorld, psControl);
     return psControl;
 }

@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC__vSetClockConfig(ADC_nMODULE enModule,ADC_nCLOCK enClock);
+void ADC__vSetClockConfig(ADC_nMODULE enModule, ADC_nCLOCK enClock);
 ADC_nCLOCK ADC__enGetClockConfig(ADC_nMODULE enModule);
 ADC_nCLOCK ADC__enGetMaxClockConfig(ADC_nMODULE enModule);
 

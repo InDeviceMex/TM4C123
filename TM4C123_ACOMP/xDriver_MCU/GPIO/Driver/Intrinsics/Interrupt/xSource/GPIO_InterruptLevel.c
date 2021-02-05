@@ -29,7 +29,7 @@
 
 void GPIO__vSetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nLEVEL enLevel)
 {
-    GPIO__vSetIntSense(enPort,  enPin, GPIO_enSENSE_LEVEL);
+    GPIO__vSetIntSense(enPort, enPin, GPIO_enSENSE_LEVEL);
     GPIO__vSetGeneric(enPort, GPIO_GPIOIEV_OFFSET, enPin, (uint32_t) enLevel);
 }
 

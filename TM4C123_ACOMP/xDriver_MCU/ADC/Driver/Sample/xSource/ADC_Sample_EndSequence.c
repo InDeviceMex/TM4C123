@@ -29,7 +29,7 @@
 
 void ADC__vSetSampleEndSequence(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, ADC_nSEQ_INPUT_ENDED enSampleEndSequence)
 {
-    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSCTL_OFFSET, (uint32_t) enMux, (uint32_t) enSampleEndSequence,ADC_ADCSSCTL_END0_MASK, ADC_ADCSSCTL_R_END0_BIT);
+    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSCTL_OFFSET, (uint32_t) enMux, (uint32_t) enSampleEndSequence, ADC_ADCSSCTL_END0_MASK, ADC_ADCSSCTL_R_END0_BIT);
 }
 
 ADC_nSEQ_INPUT_ENDED ADC__enGetSampleEndSequence(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux)

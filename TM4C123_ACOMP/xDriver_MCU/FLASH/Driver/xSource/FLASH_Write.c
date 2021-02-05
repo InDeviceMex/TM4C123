@@ -229,6 +229,6 @@ FLASH_nSTATUS FLASH__enWriteByte (uint8_t u8Data, uint32_t u32Address)
 
     u32AddressOffset = u32Address;
     u32AddressOffset &= 3UL;
-    enReturn = FLASH_enWriteAux( (uint32_t) u8Data, u32Address, u32AddressOffset,  0UL);
+    enReturn = FLASH_enWriteAux( (uint32_t) u8Data, u32Address, u32AddressOffset, 0UL);
     return enReturn;
 }

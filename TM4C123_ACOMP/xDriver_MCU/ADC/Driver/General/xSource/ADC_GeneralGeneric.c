@@ -28,7 +28,7 @@
 
 
 
-void ADC__vSetGeneralGeneric(uint32_t u32Module,uint32_t u32OffsetRegister, uint32_t u32Feature, uint32_t u32MaskFeature, uint32_t u32BitFeature)
+void ADC__vSetGeneralGeneric(uint32_t u32Module, uint32_t u32OffsetRegister, uint32_t u32Feature, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
     uint32_t u32Reg=0U;
     uint32_t u32RegAddress=0U;

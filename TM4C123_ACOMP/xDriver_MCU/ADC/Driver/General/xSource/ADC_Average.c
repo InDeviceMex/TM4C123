@@ -27,9 +27,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetAverage(ADC_nMODULE enModule,ADC_nAVERAGE enAverage)
+void ADC__vSetAverage(ADC_nMODULE enModule, ADC_nAVERAGE enAverage)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule,ADC_ADCSAC_OFFSET, (uint32_t) enAverage, ADC_ADCSAC_AVG_MASK, ADC_ADCSAC_R_AVG_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCSAC_OFFSET, (uint32_t) enAverage, ADC_ADCSAC_AVG_MASK, ADC_ADCSAC_R_AVG_BIT);
 }
 
 ADC_nAVERAGE ADC__enGetAverage(ADC_nMODULE enModule)

@@ -30,7 +30,7 @@
 
 void ADC__vSetSampleCompSelection(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, ADC_nCOMPARATOR enSampleComparator)
 {
-    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSDC_OFFSET, (uint32_t) enMux, (uint32_t) enSampleComparator,ADC_ADCSSDC_S0DCSEL_MASK, ADC_ADCSSDC_R_S0DCSEL_BIT);
+    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSDC_OFFSET, (uint32_t) enMux, (uint32_t) enSampleComparator, ADC_ADCSSDC_S0DCSEL_MASK, ADC_ADCSSDC_R_S0DCSEL_BIT);
 
 }
 

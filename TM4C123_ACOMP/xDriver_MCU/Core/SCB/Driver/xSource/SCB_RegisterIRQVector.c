@@ -72,7 +72,7 @@ void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector)
     if(u32BaseVector <= 0x00010000U)
     {
         MCU__vDisGlobalInterrupt();
-        FLASH__enWrite((uint32_t) IntDefaultHandler | 1,u32BaseVector+((uint32_t) enVector*4U));
+        FLASH__enWrite((uint32_t) IntDefaultHandler | 1, u32BaseVector+((uint32_t) enVector*4U));
         MCU__vEnGlobalInterrupt();
     }
     else if((u32BaseVector >= 0x20000000U) && (u32BaseVector <= 0x20000400U) )

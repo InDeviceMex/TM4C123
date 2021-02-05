@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC__vSetSampleRate(ADC_nMODULE enModule,ADC_nSAMPLE_RATE enSample);
+void ADC__vSetSampleRate(ADC_nMODULE enModule, ADC_nSAMPLE_RATE enSample);
 ADC_nSAMPLE_RATE ADC__enGetSampleRate(ADC_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_ADC_DRIVER_GENERAL_XHEADER_ADC_SAMPLERATE_H_ */

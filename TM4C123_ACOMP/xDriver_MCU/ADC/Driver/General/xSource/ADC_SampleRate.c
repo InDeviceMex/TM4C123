@@ -27,9 +27,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetSampleRate(ADC_nMODULE enModule,ADC_nSAMPLE_RATE enSample)
+void ADC__vSetSampleRate(ADC_nMODULE enModule, ADC_nSAMPLE_RATE enSample)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule,ADC_ADCPC_OFFSET, (uint32_t) enSample, ADC_ADCPC_SR_MASK, ADC_ADCPC_R_SR_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCPC_OFFSET, (uint32_t) enSample, ADC_ADCPC_SR_MASK, ADC_ADCPC_R_SR_BIT);
 }
 
 ADC_nSAMPLE_RATE ADC__enGetSampleRate(ADC_nMODULE enModule)

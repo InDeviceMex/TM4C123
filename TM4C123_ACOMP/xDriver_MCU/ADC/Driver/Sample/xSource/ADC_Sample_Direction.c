@@ -30,7 +30,7 @@
 
 void ADC__vSetSampleDirection(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, ADC_nSEQ_INPUT_DIR enSampleDirection)
 {
-    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSOP_OFFSET, (uint32_t) enMux, (uint32_t) enSampleDirection,ADC_ADCSSOP_S0DCOP_MASK, ADC_ADCSSOP_R_S0DCOP_BIT);
+    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSOP_OFFSET, (uint32_t) enMux, (uint32_t) enSampleDirection, ADC_ADCSSOP_S0DCOP_MASK, ADC_ADCSSOP_R_S0DCOP_BIT);
 
 }
 

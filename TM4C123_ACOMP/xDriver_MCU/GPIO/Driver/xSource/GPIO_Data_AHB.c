@@ -26,8 +26,7 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
-inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin,
-                               uint32_t u32Data)
+inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
     GPIO_nBUS enBus = GPIO_enBUS_APB;
     uint32_t u32OffsetRegister = 0UL;

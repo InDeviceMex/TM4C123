@@ -52,5 +52,5 @@ void GPIO__vSetAnalogFunction(GPIO_nANALOG_FUNCTION enFunction)
     GPIO__vDisADCTrigger(enPort, enPin);
     GPIO__vDisAltFunction(enPort, enPin);
     GPIO__vDisDigital(enPort, enPin);
-    GPIO__vEnAnalog(enPort,enPin);
+    GPIO__vEnAnalog(enPort, enPin);
 }

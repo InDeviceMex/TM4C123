@@ -28,7 +28,7 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  uint32_t u32CompRangeLow, uint32_t u32CompRangeHigh)
+void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t u32CompRangeLow, uint32_t u32CompRangeHigh)
 {
     uint32_t u32CompRangeTemp = 0U;
     if(u32CompRangeLow > u32CompRangeHigh)
@@ -41,7 +41,7 @@ void ADC__vSetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  uint32
     ADC__vSetCompRangeHigh(enModule, enActComp, u32CompRangeHigh);
 }
 
-ADC_nSTATUS ADC__enGetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,uint32_t* pu32CompRangeLow, uint32_t* pu32CompRangeHigh)
+ADC_nSTATUS ADC__enGetCompRange(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t* pu32CompRangeLow, uint32_t* pu32CompRangeHigh)
 {
     ADC_nSTATUS enStatus= ADC_enERROR;
     uint32_t u32CompRangeLow = 0U;

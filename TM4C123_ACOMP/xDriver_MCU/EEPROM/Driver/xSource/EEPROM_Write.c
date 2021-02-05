@@ -114,14 +114,14 @@ EEPROM_nSTATUS EEPROM__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
     return enReturn;
 }
 
-EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data,uint32_t u32Address)
+EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     enReturn = EEPROM__enWriteAux ( (uint32_t) u8Data, u32Address, 0UL);
     return enReturn;
 }
 
-EEPROM_nSTATUS EEPROM__enWriteWorldBlock(const uint32_t* pu32Data,uint32_t u32Address)
+EEPROM_nSTATUS EEPROM__enWriteWorldBlock(const uint32_t* pu32Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     uint32_t u32MaxAddress= 0UL;

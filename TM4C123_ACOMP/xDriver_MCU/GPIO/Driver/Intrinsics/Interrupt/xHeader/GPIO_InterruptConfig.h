@@ -27,6 +27,6 @@
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
-void GPIO__vEnInterruptSourceConfig(GPIO_nPORT enPort, GPIO_nPIN enPin,  GPIO_nINT_CONFIG enIntConfig);
+void GPIO__vEnInterruptSourceConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nINT_CONFIG enIntConfig);
 
 #endif /* XDRIVER_MCU_GPIO_DRIVER_INTRINSICS_INTERRUPT_XHEADER_GPIO_INTERRUPTCONFIG_H_ */

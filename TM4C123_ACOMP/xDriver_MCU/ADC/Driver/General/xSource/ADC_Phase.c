@@ -27,9 +27,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetPhase(ADC_nMODULE enModule,ADC_nPHASE enPhase)
+void ADC__vSetPhase(ADC_nMODULE enModule, ADC_nPHASE enPhase)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule,ADC_ADCSPC_OFFSET, (uint32_t) enPhase, ADC_ADCSPC_PHASE_MASK, ADC_ADCSPC_R_PHASE_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCSPC_OFFSET, (uint32_t) enPhase, ADC_ADCSPC_PHASE_MASK, ADC_ADCSPC_R_PHASE_BIT);
 }
 
 ADC_nPHASE ADC__enGetPhase(ADC_nMODULE enModule)

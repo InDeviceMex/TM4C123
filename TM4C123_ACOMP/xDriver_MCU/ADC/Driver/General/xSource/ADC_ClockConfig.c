@@ -27,9 +27,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetClockConfig(ADC_nMODULE enModule,ADC_nCLOCK enClock)
+void ADC__vSetClockConfig(ADC_nMODULE enModule, ADC_nCLOCK enClock)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule,ADC_ADCCC_OFFSET, (uint32_t) enClock, ADC_ADCCC_CS_MASK, ADC_ADCCC_R_CS_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCCC_OFFSET, (uint32_t) enClock, ADC_ADCCC_CS_MASK, ADC_ADCCC_R_CS_BIT);
 }
 
 ADC_nCLOCK ADC__enGetClockConfig(ADC_nMODULE enModule)

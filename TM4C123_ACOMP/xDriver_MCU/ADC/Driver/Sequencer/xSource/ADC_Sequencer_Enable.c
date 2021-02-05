@@ -29,10 +29,10 @@
 
 void ADC__vSetSequencerEnable(ADC_nMODULE enModule, ADC_nSEQMASK enSequence, ADC_nSEQ_ENABLE enSeqEnable)
 {
-    ADC__vSetSequencerGeneric((uint32_t) enModule,ADC_ADCACTSS_OFFSET, (uint32_t) enSequence, (uint32_t) enSeqEnable);
+    ADC__vSetSequencerGeneric((uint32_t) enModule, ADC_ADCACTSS_OFFSET, (uint32_t) enSequence, (uint32_t) enSeqEnable);
 }
 
 ADC_nSEQ_ENABLE ADC__enGetSequencerEnable(ADC_nMODULE enModule, ADC_nSEQMASK enSequence)
 {
-    return (ADC_nSEQ_ENABLE) (ADC__u32GetSequencerGeneric((uint32_t) enModule,ADC_ADCACTSS_OFFSET, (uint32_t) enSequence));
+    return (ADC_nSEQ_ENABLE) (ADC__u32GetSequencerGeneric((uint32_t) enModule, ADC_ADCACTSS_OFFSET, (uint32_t) enSequence));
 }

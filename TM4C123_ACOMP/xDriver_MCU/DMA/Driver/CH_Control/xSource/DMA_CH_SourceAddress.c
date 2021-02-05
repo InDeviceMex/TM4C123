@@ -40,11 +40,11 @@ void DMA_CH__vSetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChanne
 {
     if(DMA_enCH_CTL_PRIMARY == enChannelStructure)
     {
-        DMA_CH__vSetPrimarySourceEndAddress(enChannel,u32SourceAddress);
+        DMA_CH__vSetPrimarySourceEndAddress(enChannel, u32SourceAddress);
     }
     else
     {
-        DMA_CH__vSetAlternateSourceEndAddress(enChannel,u32SourceAddress);
+        DMA_CH__vSetAlternateSourceEndAddress(enChannel, u32SourceAddress);
     }
 }
 

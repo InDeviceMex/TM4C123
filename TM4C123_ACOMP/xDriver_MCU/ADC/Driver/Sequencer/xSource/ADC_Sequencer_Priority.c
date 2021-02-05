@@ -35,7 +35,7 @@ void ADC__vSetSequencerPriority(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence,
 
 ADC_nSEQ_PRIORITY ADC__enGetSequencerPriority(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
-    return (ADC_nSEQ_PRIORITY) (ADC__u32GetSequencerGenericBit((uint32_t) enModule,ADC_ADCSSPRI_OFFSET, (uint32_t) enSequence, ADC_ADCSSPRI_SS0_MASK,  (ADC_ADCSSPRI_R_SS1_BIT - ADC_ADCSSPRI_R_SS0_BIT), ADC_ADCSSPRI_R_SS0_BIT));
+    return (ADC_nSEQ_PRIORITY) (ADC__u32GetSequencerGenericBit((uint32_t) enModule, ADC_ADCSSPRI_OFFSET, (uint32_t) enSequence, ADC_ADCSSPRI_SS0_MASK,  (ADC_ADCSSPRI_R_SS1_BIT - ADC_ADCSSPRI_R_SS0_BIT), ADC_ADCSSPRI_R_SS0_BIT));
 }
 
 

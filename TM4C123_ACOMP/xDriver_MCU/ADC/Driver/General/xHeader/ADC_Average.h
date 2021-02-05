@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC__vSetAverage(ADC_nMODULE enModule,ADC_nAVERAGE enAverage);
+void ADC__vSetAverage(ADC_nMODULE enModule, ADC_nAVERAGE enAverage);
 ADC_nAVERAGE ADC__enGetAverage(ADC_nMODULE enModule);
 
 

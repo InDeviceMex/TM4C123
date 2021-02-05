@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
-void ACMP__vEnInterruptVector(ACMP_nMODULE enModule,ACMP_nPRIORITY enACMPPriority);
+void ACMP__vEnInterruptVector(ACMP_nMODULE enModule, ACMP_nPRIORITY enACMPPriority);
 void ACMP__vDisInterruptVector(ACMP_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_INTERRUPT_XHEADER_ACMP_INTERRUPTVECTOR_H_ */

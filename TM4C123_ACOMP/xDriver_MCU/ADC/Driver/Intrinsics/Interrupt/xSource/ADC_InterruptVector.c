@@ -33,8 +33,8 @@ static NVIC_nSTIR ADC__enGetInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER
 static NVIC_nSTIR ADC__enGetInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
     NVIC_nSTIR NVIC_VECTOR_ADC[(uint32_t) ADC_enMODULE_MAX+1U][(uint32_t) ADC_enSEQ_MAX+1U] = {
-        {NVIC_enSTIR_ADC0SEQ0,NVIC_enSTIR_ADC0SEQ1,NVIC_enSTIR_ADC0SEQ2,NVIC_enSTIR_ADC0SEQ3},
-        {NVIC_enSTIR_ADC1SEQ0,NVIC_enSTIR_ADC1SEQ1,NVIC_enSTIR_ADC1SEQ2,NVIC_enSTIR_ADC1SEQ3},
+        {NVIC_enSTIR_ADC0SEQ0, NVIC_enSTIR_ADC0SEQ1, NVIC_enSTIR_ADC0SEQ2, NVIC_enSTIR_ADC0SEQ3},
+        {NVIC_enSTIR_ADC1SEQ0, NVIC_enSTIR_ADC1SEQ1, NVIC_enSTIR_ADC1SEQ2, NVIC_enSTIR_ADC1SEQ3},
     };
     NVIC_nSTIR enVector=NVIC_enSTIR_ADC0SEQ0;
     uint32_t u32Module = (uint32_t) enModule;
@@ -54,7 +54,7 @@ static NVIC_nSTIR ADC__enGetInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER
 void ADC__vEnInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, ADC_nPRIORITY enADCPriority)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_ADC0SEQ0;
-    enVector= ADC__enGetInterruptVector(enModule,enSequence);
+    enVector= ADC__enGetInterruptVector(enModule, enSequence);
     enADCPriority &= 0x7U;
     NVIC__vSetEnableIRQ((NVIC_nSTIR)enVector,(NVIC_nPRIORITY)enADCPriority);
 }
@@ -62,7 +62,7 @@ void ADC__vEnInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, AD
 void ADC__vDisInterruptVector(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
     NVIC_nSTIR enVector=NVIC_enSTIR_ADC0SEQ0;
-    enVector= ADC__enGetInterruptVector(enModule,enSequence);
+    enVector= ADC__enGetInterruptVector(enModule, enSequence);
     NVIC__vClearEnableIRQ((NVIC_nSTIR)enVector);
 }
 

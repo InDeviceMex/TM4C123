@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
-void ADC__vSetPhase(ADC_nMODULE enModule,ADC_nPHASE enPhase);
+void ADC__vSetPhase(ADC_nMODULE enModule, ADC_nPHASE enPhase);
 ADC_nPHASE ADC__enGetPhase(ADC_nMODULE enModule);
 
 

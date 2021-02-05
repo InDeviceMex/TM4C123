@@ -27,14 +27,14 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetCompRangeLow(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  uint32_t u32CompRangeLow)
+void ADC__vSetCompRangeLow(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t u32CompRangeLow)
 {
-    ADC__vSetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, u32CompRangeLow,ADC_ADCDCCMP_COMP0_MASK, ADC_ADCDCCMP_R_COMP0_BIT);
+    ADC__vSetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, u32CompRangeLow, ADC_ADCDCCMP_COMP0_MASK, ADC_ADCDCCMP_R_COMP0_BIT);
 }
 
 uint32_t ADC__u32GetCompRangeLow(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp)
 {
-    return ADC__u32GetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp,ADC_ADCDCCMP_COMP0_MASK, ADC_ADCDCCMP_R_COMP0_BIT);
+    return ADC__u32GetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, ADC_ADCDCCMP_COMP0_MASK, ADC_ADCDCCMP_R_COMP0_BIT);
 }
 
 

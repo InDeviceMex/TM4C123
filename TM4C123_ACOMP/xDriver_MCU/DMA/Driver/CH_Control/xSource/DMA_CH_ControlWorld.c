@@ -80,7 +80,7 @@ uint32_t DMA_CH__u32GetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChan
     return u32Reg;
 }
 
-void DMA_CH__vGetPrimaryControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef* psChannelControlWorld)
+void DMA_CH__vGetPrimaryControlWorld(DMA_nCH_MODULE enChannel, DMACHCTL_TypeDef* psChannelControlWorld)
 {
     uint32_t u32Reg = 0UL;
     volatile uint32_t* pu32Reg = (volatile uint32_t*) 0UL;
@@ -92,7 +92,7 @@ void DMA_CH__vGetPrimaryControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef* 
     }
 }
 
-void DMA_CH__vGetAlternateControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef* psChannelControlWorld)
+void DMA_CH__vGetAlternateControlWorld(DMA_nCH_MODULE enChannel, DMACHCTL_TypeDef* psChannelControlWorld)
 {
     uint32_t u32Reg = 0UL;
     volatile uint32_t* pu32Reg = (volatile uint32_t*) 0UL;
@@ -104,7 +104,7 @@ void DMA_CH__vGetAlternateControlWorld(DMA_nCH_MODULE enChannel,DMACHCTL_TypeDef
     }
 }
 
-void DMA_CH__vGetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure,DMACHCTL_TypeDef* psChannelControlWorld)
+void DMA_CH__vGetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, DMACHCTL_TypeDef* psChannelControlWorld)
 {
     uint32_t u32Reg = 0UL;
     volatile uint32_t* pu32Reg = (volatile uint32_t*) 0UL;

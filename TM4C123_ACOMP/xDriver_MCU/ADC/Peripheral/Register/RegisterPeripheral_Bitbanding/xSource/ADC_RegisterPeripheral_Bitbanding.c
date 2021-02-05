@@ -24,6 +24,6 @@
 
 #include <xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/ADC_RegisterPeripheral_Bitbanding.h>
 
-ADC_BITBANDING_TypeDef* ADC_BITBANDING_BLOCK[(uint32_t) ADC_enMODULE_MAX+1U] = {ADC0_BITBANDING,ADC1_BITBANDING};
+ADC_BITBANDING_TypeDef* ADC_BITBANDING_BLOCK[(uint32_t) ADC_enMODULE_MAX+1U] = {ADC0_BITBANDING, ADC1_BITBANDING};
 
 

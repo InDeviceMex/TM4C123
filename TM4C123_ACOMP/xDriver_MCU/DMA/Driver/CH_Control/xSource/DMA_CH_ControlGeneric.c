@@ -28,12 +28,12 @@
 
 void DMA_CH__vSetPrimaryControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    DMA_CH__vWriteRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_DMACHCTL_OFFSET, u32FeatureValue, u32MaskFeature , u32BitFeature);
+    DMA_CH__vWriteRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_DMACHCTL_OFFSET, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }
 
 void DMA_CH__vSetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    DMA_CH__vWriteRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_DMACHCTL_OFFSET, u32FeatureValue, u32MaskFeature , u32BitFeature);
+    DMA_CH__vWriteRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_DMACHCTL_OFFSET, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }
 
 void DMA_CH__vSetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)

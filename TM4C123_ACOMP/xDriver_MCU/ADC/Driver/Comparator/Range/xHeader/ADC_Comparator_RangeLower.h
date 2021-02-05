@@ -27,7 +27,7 @@
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Enum.h>
 
 uint32_t ADC__u32GetCompRangeLow(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp);
-void ADC__vSetCompRangeLow(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp,  uint32_t u32CompRangeLow);
+void ADC__vSetCompRangeLow(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t u32CompRangeLow);
 
 
 

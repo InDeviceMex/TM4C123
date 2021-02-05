@@ -30,7 +30,7 @@
 
 const SCB_nVECISR SCB_enVECISR_ACMP[(uint32_t) ACMP_enMODULE_MAX + 1U]=
 {
-    SCB_enVECISR_ACOMP0,SCB_enVECISR_ACOMP1
+    SCB_enVECISR_ACOMP0, SCB_enVECISR_ACOMP1
 };
 void ACMP__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), ACMP_nMODULE enModule)
 {

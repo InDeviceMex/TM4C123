@@ -27,9 +27,9 @@
 #include <xDriver_MCU/ADC/Peripheral/ADC_Peripheral.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Primitives/ADC_Primitives.h>
 
-void ADC__vSetGlobalSync(ADC_nMODULE enModule,ADC_nGLOBAL_SYNC enGlobalSync)
+void ADC__vSetGlobalSync(ADC_nMODULE enModule, ADC_nGLOBAL_SYNC enGlobalSync)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule,ADC_ADCPSSI_OFFSET, (uint32_t) enGlobalSync, ADC_ADCPSSI_GSYNC_MASK, ADC_ADCPSSI_R_GSYNC_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCPSSI_OFFSET, (uint32_t) enGlobalSync, ADC_ADCPSSI_GSYNC_MASK, ADC_ADCPSSI_R_GSYNC_BIT);
 }
 
 ADC_nGLOBAL_SYNC ADC__enGetGlobalSync(ADC_nMODULE enModule)
