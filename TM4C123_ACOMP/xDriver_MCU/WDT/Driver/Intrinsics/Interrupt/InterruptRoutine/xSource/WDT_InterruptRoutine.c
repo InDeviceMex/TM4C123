@@ -24,4 +24,4 @@
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
-void (*WDT__vIRQVectorHandler[ (uint32_t) WDT_enINT_TYPE_NMI+ 1U ]) (void)= { &WDT_Standard__vIRQVectorHandler, &WDT_NMI__vIRQVectorHandler_Dummy};
+void (*WDT__vIRQVectorHandler[ (uint32_t) WDT_enINT_TYPE_MAX]) (void)= { &WDT_Standard__vIRQVectorHandler, &WDT_NMI__vIRQVectorHandler_Dummy};

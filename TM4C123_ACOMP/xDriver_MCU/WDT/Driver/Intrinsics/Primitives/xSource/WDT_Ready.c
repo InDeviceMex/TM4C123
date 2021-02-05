@@ -63,7 +63,3 @@ WDT_nREADY WDT__enIsReady(WDT_nMODULE enModule)
     enReady = (WDT_nREADY) SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
-
-
-
-

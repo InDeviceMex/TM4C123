@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral_Bitbanding/WDT_RegisterPeripheral_Bitbanding.h>
 
-WDT_BITBANDING_TypeDef* WDT_BITBANDING_BLOCK[(uint32_t) WDT_enMODULE_MAX+1U] = {WDT0_BITBANDING, WDT1_BITBANDING};
+WDT_BITBANDING_TypeDef* WDT_BITBANDING_BLOCK[(uint32_t) WDT_enMODULE_MAX] = {WDT0_BITBANDING, WDT1_BITBANDING};
 
 
 

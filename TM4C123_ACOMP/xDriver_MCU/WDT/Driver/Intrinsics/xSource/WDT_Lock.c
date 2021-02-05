@@ -23,7 +23,6 @@
  */
 #include <xDriver_MCU/WDT/Driver/Intrinsics/xHeader/WDT_Lock.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/WDT_Primitives.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 

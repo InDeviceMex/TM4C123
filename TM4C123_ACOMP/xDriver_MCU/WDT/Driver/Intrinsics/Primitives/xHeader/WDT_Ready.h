@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 22 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_PRIMITIVES_WDT_READY_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_DRIVER_WDT_INTRINSICS_WDT_PRIMITIVES_WDT_READY_H_
 

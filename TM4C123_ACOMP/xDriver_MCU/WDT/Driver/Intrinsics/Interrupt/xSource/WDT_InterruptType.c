@@ -23,7 +23,6 @@
  */
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptType.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Primitives/WDT_Primitives.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
 
@@ -40,5 +39,3 @@ WDT_nSTATUS WDT__enGetInterruptSourceType(WDT_nMODULE enModule, WDT_nINT_TYPE* p
 
     return enStatusRead;
 }
-
-

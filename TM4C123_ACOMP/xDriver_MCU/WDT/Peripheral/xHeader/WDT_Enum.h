@@ -72,7 +72,7 @@ typedef enum
 {
     WDT_enINT_TYPE_STANDARD = 0UL,
     WDT_enINT_TYPE_NMI = 1UL,
-    WDT_enINT_TYPE_MAX = 1UL,
+    WDT_enINT_TYPE_MAX = 2UL,
     WDT_enINT_TYPE_UNDEF = 0xFFFFFFFFUL,
 }WDT_nINT_TYPE;
 

@@ -21,9 +21,8 @@
  * Date           Author     Version     Description
  * 23 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Vector_Standard.h>
+
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/WDT_InterruptRoutine_Source.h>
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Dependencies.h>
 #include <xDriver_MCU/WDT/Peripheral/WDT_Peripheral.h>
@@ -56,10 +55,9 @@ void WDT_Standard__vIRQVectorHandler(void)
             {
                 u32RegWrite1 = WDT1_WDTCTL_R;
                 u32RegWrite1 &= WDT_WDTCTL_R_WRC_MASK;
-            }while(WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1 );
+            }while(WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1);
+
             WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_STANDARD][(uint32_t) WDT_enMODULE_1]();
         }
     }
 }
-
-

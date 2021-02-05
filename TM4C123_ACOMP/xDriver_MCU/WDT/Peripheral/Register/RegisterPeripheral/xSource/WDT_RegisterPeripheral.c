@@ -23,6 +23,5 @@
  */
 #include <xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral/WDT_RegisterPeripheral.h>
 
-WDT_TypeDef* WDT_BLOCK[(uint32_t) WDT_enMODULE_MAX+1U] = {WDT0, WDT1};
-uint32_t WDT_BLOCK_ADDRESS[(uint32_t) WDT_enMODULE_MAX+1U] = {WDT0_BASE, WDT1_BASE};
-
+WDT_TypeDef* WDT_BLOCK[(uint32_t) WDT_enMODULE_MAX] = {WDT0, WDT1};
+uint32_t WDT_BLOCK_ADDRESS[(uint32_t) WDT_enMODULE_MAX] = {WDT0_BASE, WDT1_BASE};

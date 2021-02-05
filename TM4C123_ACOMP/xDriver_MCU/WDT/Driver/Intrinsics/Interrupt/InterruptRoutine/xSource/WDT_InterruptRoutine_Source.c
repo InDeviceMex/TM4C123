@@ -26,16 +26,16 @@
 
 static void WDT_vIRQSourceHandler_Dummy(void);
 
-void (*WDT__vIRQSourceHandler[ (uint32_t) WDT_enINT_TYPE_MAX + 1U ][ (uint32_t) WDT_enMODULE_MAX + 1U ]) (void)=
-{{&WDT_vIRQSourceHandler_Dummy, &WDT_vIRQSourceHandler_Dummy},
- {&WDT_vIRQSourceHandler_Dummy, &WDT_vIRQSourceHandler_Dummy}};
-
+void (*WDT__vIRQSourceHandler[ (uint32_t) WDT_enINT_TYPE_MAX][ (uint32_t) WDT_enMODULE_MAX]) (void) =
+{
+    { &WDT_vIRQSourceHandler_Dummy, &WDT_vIRQSourceHandler_Dummy},
+    { &WDT_vIRQSourceHandler_Dummy, &WDT_vIRQSourceHandler_Dummy}
+ };
 
 static void WDT_vIRQSourceHandler_Dummy(void)
 {
     while(1U  )
     {
-
     }
 }
 

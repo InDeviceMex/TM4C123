@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 23 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_WDT_DRIVER_INTRINSICS_INTERRUPT_XHEADER_WDT_INTERRUPTSOURCE_H_
 #define XDRIVER_MCU_WDT_DRIVER_INTRINSICS_INTERRUPT_XHEADER_WDT_INTERRUPTSOURCE_H_
 
@@ -31,8 +32,5 @@ void WDT__vEnInterruptSource(WDT_nMODULE enModule);
 void WDT__vDisInterruptSource(WDT_nMODULE enModule);
 void WDT__vClearInterruptSource(WDT_nMODULE enModule);
 WDT_nSTATUS WDT__enStatusInterruptSource(WDT_nMODULE enModule, WDT_nINT_STATUS* penFeatureArg);
-
-
-
 
 #endif /* XDRIVER_MCU_WDT_DRIVER_INTRINSICS_INTERRUPT_XHEADER_WDT_INTERRUPTSOURCE_H_ */
