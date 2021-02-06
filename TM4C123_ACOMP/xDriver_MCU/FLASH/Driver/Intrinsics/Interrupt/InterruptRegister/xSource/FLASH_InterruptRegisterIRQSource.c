@@ -32,6 +32,6 @@ void FLASH__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void), FLASH_n
 {
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
-        MCU__vRegisterIRQSourceHandler(pfIrqSourceHandler, FLASH__vIRQSourceHandler, (uint32_t) enInterruptParam, (uint32_t) FLASH_enINTERRUPT_MAX);
+        MCU__vRegisterIRQSourceHandler_RAM(pfIrqSourceHandler, FLASH__vIRQSourceHandler, (uint32_t) enInterruptParam, (uint32_t) FLASH_enINTERRUPT_MAX);
     }
 }

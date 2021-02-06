@@ -23,17 +23,7 @@
  */
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Source.h>
 
-#if defined (__TI_ARM__ )
-
-#pragma  CODE_SECTION(FLASH_vIRQSourceHandler_Dummy, ".ramcode")
-
-static void FLASH_vIRQSourceHandler_Dummy(void);
-
-#elif defined (__GNUC__ )
-
-static void FLASH_vIRQSourceHandler_Dummy(void) __attribute__((section(".ramcode")));
-
-#endif
+void FLASH_vIRQSourceHandler_Dummy(void);
 
 void (*FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_MAX]) (void)=
 {&FLASH_vIRQSourceHandler_Dummy,

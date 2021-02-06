@@ -63,10 +63,10 @@ int32_t main(void)
         UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
     };
 
+    MPU__vInit();
     NVIC__vDeInitInterrupts();
     SYSCTL__vDeInitClockGates();
     {__asm(" cpsie i");}
-    MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
     SYSEXC__vInit((SYSEXC_nINT) ((uint32_t) SYSEXC_enINT_INVALID | (uint32_t) SYSEXC_enINT_DIV0 | (uint32_t) SYSEXC_enINT_OVERFLOW | (uint32_t) SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);

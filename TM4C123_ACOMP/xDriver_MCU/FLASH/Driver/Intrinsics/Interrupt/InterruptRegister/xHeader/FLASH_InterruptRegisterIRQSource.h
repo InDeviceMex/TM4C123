@@ -27,16 +27,6 @@
 
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
-#if defined (__TI_ARM__ )
-
-#pragma  CODE_SECTION(FLASH__vRegisterIRQSourceHandler, ".ramcode")
-
 void FLASH__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),FLASH_nINTERRUPT enInterruptParam);
-
-#elif defined (__GNUC__ )
-
-void FLASH__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),FLASH_nINTERRUPT enInterruptParam) __attribute__((section(".ramcode")));
-
-#endif
 
 #endif /* XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTREGISTER_XHEADER_FLASH_INTERRUPTREGISTERIRQSOURCE_H_ */

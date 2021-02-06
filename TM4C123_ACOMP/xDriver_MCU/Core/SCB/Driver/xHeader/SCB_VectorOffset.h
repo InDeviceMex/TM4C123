@@ -28,18 +28,7 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 #include <xUtils/Standard/Standard.h>
 
-#if defined (__TI_ARM__ )
-
-#pragma  CODE_SECTION(SCB__vSetVectorOffset, ".ramcode")
-
 void SCB__vSetVectorOffset(uint32_t u32Offset);
-
-#elif defined (__GNUC__ )
-
-void SCB__vSetVectorOffset(uint32_t u32Offset) __attribute__((section(".ramcode")));
-
-#endif
-
 
 extern void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE]) (void);
 

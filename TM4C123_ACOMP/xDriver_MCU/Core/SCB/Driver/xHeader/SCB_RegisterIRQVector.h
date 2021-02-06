@@ -27,20 +27,7 @@
 
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 
-#if defined (__TI_ARM__ )
-
-#pragma  CODE_SECTION(SCB__vRegisterIRQVectorHandler, ".ramcode")
-#pragma  CODE_SECTION(SCB__vUnRegisterIRQVectorHandler, ".ramcode")
-
 void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), void (**pfIrqVectorHandlerExtern) (void), SCB_nVECISR enVector);
 void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector);
-
-#elif defined (__GNUC__ )
-
-void SCB__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), void (**pfIrqVectorHandlerExtern) (void), SCB_nVECISR enVector) __attribute__((section(".ramcode")));
-void SCB__vUnRegisterIRQVectorHandler(SCB_nVECISR enVector) __attribute__((section(".ramcode")));
-
-#endif
-
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB__REGISTERIRQVECTOR_H_ */
