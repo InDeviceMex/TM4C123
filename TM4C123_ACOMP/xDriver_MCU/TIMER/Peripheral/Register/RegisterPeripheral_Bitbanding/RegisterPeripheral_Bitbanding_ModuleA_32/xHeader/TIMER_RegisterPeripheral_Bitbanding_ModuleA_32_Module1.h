@@ -28,7 +28,7 @@
 #include <xDriver_MCU/TIMER/Peripheral/Register/RegisterDefines/TIMER_RegisterDefines.h>
 #include <xDriver_MCU/TIMER/Peripheral/Struct/StructPeripheral_Bitbanding/xHeader/TIMER_StructPeripheral_Bitbanding_ModuleA_32.h>
 
-#define GPWTM1_BITBANDING_TA    ((GPWTM_BITBANDING_TA_TypeDef*)  (GPWTM_BITBANDING_BASE + (GPWTM1_OFFSET * 32UL)))
+#define GPWTM1_BITBANDING_TA    ((GPWTM_BITBANDING_TA_TypeDef*) (GPWTM_BITBANDING_BASE + (GPWTM1_OFFSET * 32UL)))
 
 /******************************************************************************************
 *********************************** * 2 GPTMTAMR *********************************************
