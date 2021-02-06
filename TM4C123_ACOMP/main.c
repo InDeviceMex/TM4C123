@@ -65,13 +65,13 @@ int32_t main(void)
 
     NVIC__vDeInitInterrupts();
     SYSCTL__vDeInitClockGates();
+    {__asm(" cpsie i");}
     MPU__vInit();
     SCB__vInit();
     FLASH__enInit();
     SYSEXC__vInit((SYSEXC_nINT) ((uint32_t) SYSEXC_enINT_INVALID | (uint32_t) SYSEXC_enINT_DIV0 | (uint32_t) SYSEXC_enINT_OVERFLOW | (uint32_t) SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
-    {__asm(" cpsie i");}
     u32Clock = SYSCTL__u32GetClock();
     SysTick__enInitUs(((float32_t) u32Clock / 80000.0f),SCB_enSHPR0);
     GPIO__vInit();

@@ -23,7 +23,7 @@
 /*******************************************************************************/
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU.h>
+#include <xDriver_MCU/Core/FPU/Peripheral/FPU_Peripheral.h>
 
 /*******************************************************************************/
 /**/
@@ -257,11 +257,9 @@ extern uint32_t __bss_end__;
 void
 ResetISR(void)
 {
-
-    {__asm(" cpsid i");}
-    FPU__vInit();
     uint32_t *pui32Src, *pui32Dest;
 
+    {__asm(" cpsid i");}
 
     /**/
     /* Copy the data segment initializers from flash to SRAM.*/
@@ -309,6 +307,7 @@ ResetISR(void)
     /**/
     /* Call the application's entry point.*/
     /**/
+    FPU_CPACR_R = FPU_CPACR_R_CP10_FULL | FPU_CPACR_R_CP11_FULL;
     main();
 }
 

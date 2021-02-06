@@ -27,19 +27,20 @@
 
 #if defined (__TI_ARM__ )
 
-#pragma  CODE_SECTION(MCU__vEnGlobalInterrupt, ".ramcode")
-#pragma  CODE_SECTION(MCU__vDisGlobalInterrupt, ".ramcode")
+#pragma  CODE_SECTION(MCU__vEnGlobalInterrupt_RAM, ".ramcode")
+#pragma  CODE_SECTION(MCU__vDisGlobalInterrupt_RAM, ".ramcode")
 
-void MCU__vEnGlobalInterrupt(void);
-void MCU__vDisGlobalInterrupt(void);
+void MCU__vEnGlobalInterrupt_RAM(void);
+void MCU__vDisGlobalInterrupt_RAM(void);
 
 #elif defined (__GNUC__ )
 
-void MCU__vEnGlobalInterrupt(void) __attribute__((section(".ramcode")));
-void MCU__vDisGlobalInterrupt(void) __attribute__((section(".ramcode")));
+void MCU__vEnGlobalInterrupt_RAM(void) __attribute__((section(".ramcode")));
+void MCU__vDisGlobalInterrupt_RAM(void) __attribute__((section(".ramcode")));
 
 #endif
 
-
+void MCU__vEnGlobalInterrupt(void);
+void MCU__vDisGlobalInterrupt(void);
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_INTERRUPT_H_ */

@@ -33,4 +33,13 @@ void MCU__vEnGlobalInterrupt(void)
     {__asm(" cpsie i");}
 }
 
+void MCU__vDisGlobalInterrupt_RAM(void)
+{
+    {__asm(" cpsid i");}
+}
+
+void MCU__vEnGlobalInterrupt_RAM(void)
+{
+    {__asm(" cpsie i");}
+}
 

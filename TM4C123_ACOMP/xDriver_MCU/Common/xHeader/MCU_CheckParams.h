@@ -28,14 +28,16 @@
 
 #if defined (__TI_ARM__ )
 
-#pragma  CODE_SECTION(MCU__u32CheckParams, ".ramcode")
+#pragma  CODE_SECTION(MCU__u32CheckParams_RAM, ".ramcode")
 
-uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax);
+uint32_t MCU__u32CheckParams_RAM(uint32_t u32Module, uint32_t u32ModuleMax);
 
 #elif defined (__GNUC__ )
 
-uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax) _attribute__((section(".ramcode")));
+uint32_t MCU__u32CheckParams_RAM(uint32_t u32Module, uint32_t u32ModuleMax) __attribute__((section(".ramcode")));
 
 #endif
+
+uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax);
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_CHECKPARAMS_H_ */

@@ -188,11 +188,11 @@
 #define GPIOF_APB_GPIOCR_R    (*((volatile uint32_t *) (GPIOF_APB_BASE + GPIO_GPIOCR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 21 GPIOFMSEL *********************************************
+ ************************************ 21 GPIOAFSEL *********************************************
  ******************************************************************************************/
 /* GPIOF APB AMSEL*/
-#define GPIOF_APB_GPIOFMSEL    (((GPIOFMSEL_TypeDef*) (GPIOF_APB_BASE + GPIO_GPIOFMSEL_OFFSET)))
-#define GPIOF_APB_GPIOFMSEL_R    (*((volatile uint32_t *) (GPIOF_APB_BASE + GPIO_GPIOFMSEL_OFFSET)))
+#define GPIOF_APB_GPIOAFSEL    (((GPIOAFSEL_TypeDef*) (GPIOF_APB_BASE + GPIO_GPIOAFSEL_OFFSET)))
+#define GPIOF_APB_GPIOAFSEL_R    (*((volatile uint32_t *) (GPIOF_APB_BASE + GPIO_GPIOAFSEL_OFFSET)))
 
 /******************************************************************************************
  ************************************ 22 GPIOPCTL *********************************************
