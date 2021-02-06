@@ -31,47 +31,47 @@
 ******************************************************************************************/
 
 /*--------*/
-#define UART_UARTRSR_R_FE_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTRSR_R_FE_BIT    ((uint32_t) 0U)
-#define UART_UARTRSR_R_FE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_R_FE_OCCUR    ((uint32_t) 0x00000001U)
+#define UART_UARTRSR_R_FE_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTRSR_R_FE_BIT    ((uint32_t) 0UL)
+#define UART_UARTRSR_R_FE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_R_FE_OCCUR    ((uint32_t) 0x00000001UL)
 
-#define UART_UARTRSR_FE_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTRSR_FE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_FE_OCCUR    ((uint32_t) 0x00000001U)
+#define UART_UARTRSR_FE_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTRSR_FE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_FE_OCCUR    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
-#define UART_UARTRSR_R_PE_MASK    ((uint32_t) 0x00000002U)
-#define UART_UARTRSR_R_PE_BIT    ((uint32_t) 1U)
-#define UART_UARTRSR_R_PE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_R_PE_OCCUR    ((uint32_t) 0x00000002U)
+#define UART_UARTRSR_R_PE_MASK    ((uint32_t) 0x00000002UL)
+#define UART_UARTRSR_R_PE_BIT    ((uint32_t) 1UL)
+#define UART_UARTRSR_R_PE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_R_PE_OCCUR    ((uint32_t) 0x00000002UL)
 
-#define UART_UARTRSR_PE_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTRSR_PE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_PE_OCCUR    ((uint32_t) 0x00000001U)
+#define UART_UARTRSR_PE_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTRSR_PE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_PE_OCCUR    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
-#define UART_UARTRSR_R_BE_MASK    ((uint32_t) 0x00000004U)
-#define UART_UARTRSR_R_BE_BIT    ((uint32_t) 2U)
-#define UART_UARTRSR_R_BE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_R_BE_OCCUR    ((uint32_t) 0x00000004U)
+#define UART_UARTRSR_R_BE_MASK    ((uint32_t) 0x00000004UL)
+#define UART_UARTRSR_R_BE_BIT    ((uint32_t) 2UL)
+#define UART_UARTRSR_R_BE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_R_BE_OCCUR    ((uint32_t) 0x00000004UL)
 
-#define UART_UARTRSR_BE_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTRSR_BE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_BE_OCCUR    ((uint32_t) 0x00000001U)
+#define UART_UARTRSR_BE_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTRSR_BE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_BE_OCCUR    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
-#define UART_UARTRSR_R_OE_MASK    ((uint32_t) 0x00000008U)
-#define UART_UARTRSR_R_OE_BIT    ((uint32_t) 3U)
-#define UART_UARTRSR_R_OE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_R_OE_OCCUR    ((uint32_t) 0x00000008U)
+#define UART_UARTRSR_R_OE_MASK    ((uint32_t) 0x00000008UL)
+#define UART_UARTRSR_R_OE_BIT    ((uint32_t) 3UL)
+#define UART_UARTRSR_R_OE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_R_OE_OCCUR    ((uint32_t) 0x00000008UL)
 
-#define UART_UARTRSR_OE_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTRSR_OE_NOOCCUR    ((uint32_t) 0x00000000U)
-#define UART_UARTRSR_OE_OCCUR    ((uint32_t) 0x00000001U)
+#define UART_UARTRSR_OE_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTRSR_OE_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define UART_UARTRSR_OE_OCCUR    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UARTRSR_H_ */

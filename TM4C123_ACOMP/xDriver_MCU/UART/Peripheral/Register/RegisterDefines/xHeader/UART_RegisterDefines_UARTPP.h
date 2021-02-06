@@ -31,25 +31,25 @@
 ******************************************************************************************/
 
 /*--------*/
-#define UART_UARTPP_R_SC_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTPP_R_SC_BIT    ((uint32_t) 0U)
-#define UART_UARTPP_R_SC_NONOSUPPORT ((uint32_t) 0x00000000U)
-#define UART_UARTPP_R_SC_ENA    ((uint32_t) 0x00000001U)
+#define UART_UARTPP_R_SC_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTPP_R_SC_BIT    ((uint32_t) 0UL)
+#define UART_UARTPP_R_SC_NONOSUPPORT ((uint32_t) 0x00000000UL)
+#define UART_UARTPP_R_SC_ENA    ((uint32_t) 0x00000001UL)
 
-#define UART_UARTPP_SC_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTPP_SC_NONOSUPPORT    ((uint32_t) 0x00000000U)
-#define UART_UARTPP_SC_ENA    ((uint32_t) 0x00000001U)
+#define UART_UARTPP_SC_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTPP_SC_NONOSUPPORT    ((uint32_t) 0x00000000UL)
+#define UART_UARTPP_SC_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
-#define UART_UARTPP_R_NB_MASK    ((uint32_t) 0x00000002U)
-#define UART_UARTPP_R_NB_BIT    ((uint32_t) 1U)
-#define UART_UARTPP_R_NB_NONOSUPPORT    ((uint32_t) 0x00000000U)
-#define UART_UARTPP_R_NB_ENA    ((uint32_t) 0x00000002U)
+#define UART_UARTPP_R_NB_MASK    ((uint32_t) 0x00000002UL)
+#define UART_UARTPP_R_NB_BIT    ((uint32_t) 1UL)
+#define UART_UARTPP_R_NB_NONOSUPPORT    ((uint32_t) 0x00000000UL)
+#define UART_UARTPP_R_NB_ENA    ((uint32_t) 0x00000002UL)
 
-#define UART_UARTPP_NB_MASK    ((uint32_t) 0x00000001U)
-#define UART_UARTPP_NB_NONOSUPPORT    ((uint32_t) 0x00000000U)
-#define UART_UARTPP_NB_ENA    ((uint32_t) 0x00000001U)
+#define UART_UARTPP_NB_MASK    ((uint32_t) 0x00000001UL)
+#define UART_UARTPP_NB_NONOSUPPORT    ((uint32_t) 0x00000000UL)
+#define UART_UARTPP_NB_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 

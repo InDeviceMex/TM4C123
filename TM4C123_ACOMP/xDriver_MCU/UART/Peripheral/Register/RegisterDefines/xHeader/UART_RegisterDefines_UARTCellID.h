@@ -31,12 +31,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPCellID0_R_CID0_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID0_R_CID0_BIT    ((uint32_t) 0U)
-#define UART_UARTPCellID0_R_CID0_RESET    ((uint32_t) 0x0000000DU)
+#define UART_UARTPCellID0_R_CID0_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID0_R_CID0_BIT    ((uint32_t) 0UL)
+#define UART_UARTPCellID0_R_CID0_RESET    ((uint32_t) 0x0000000DUL)
 
-#define UART_UARTPCellID0_CID0_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID0_CID0_RESET    ((uint32_t) 0x0000000DU)
+#define UART_UARTPCellID0_CID0_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID0_CID0_RESET    ((uint32_t) 0x0000000DUL)
 /*--------*/
 
 /**************************************************************************************
@@ -44,12 +44,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPCellID1_R_CID1_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID1_R_CID1_BIT    ((uint32_t) 0U)
-#define UART_UARTPCellID1_R_CID1_RESET    ((uint32_t) 0x000000F0U)
+#define UART_UARTPCellID1_R_CID1_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID1_R_CID1_BIT    ((uint32_t) 0UL)
+#define UART_UARTPCellID1_R_CID1_RESET    ((uint32_t) 0x000000F0UL)
 
-#define UART_UARTPCellID1_CID1_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID1_CID1_RESET    ((uint32_t) 0x000000F0U)
+#define UART_UARTPCellID1_CID1_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID1_CID1_RESET    ((uint32_t) 0x000000F0UL)
 /*--------*/
 
 /**************************************************************************************
@@ -57,12 +57,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPCellID2_R_CID2_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID2_R_CID2_BIT    ((uint32_t) 0U)
-#define UART_UARTPCellID2_R_CID2_RESET    ((uint32_t) 0x00000005U)
+#define UART_UARTPCellID2_R_CID2_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID2_R_CID2_BIT    ((uint32_t) 0UL)
+#define UART_UARTPCellID2_R_CID2_RESET    ((uint32_t) 0x00000005UL)
 
-#define UART_UARTPCellID2_CID2_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID2_CID2_RESET    ((uint32_t) 0x00000005U)
+#define UART_UARTPCellID2_CID2_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID2_CID2_RESET    ((uint32_t) 0x00000005UL)
 /*--------*/
 
 /**************************************************************************************
@@ -70,12 +70,12 @@
 ****************************************************************************************/
 
 /*--------*/
-#define UART_UARTPCellID3_R_CID3_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID3_R_CID3_BIT    ((uint32_t) 0U)
-#define UART_UARTPCellID3_R_CID3_RESET    ((uint32_t) 0x000000B1U)
+#define UART_UARTPCellID3_R_CID3_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID3_R_CID3_BIT    ((uint32_t) 0UL)
+#define UART_UARTPCellID3_R_CID3_RESET    ((uint32_t) 0x000000B1UL)
 
-#define UART_UARTPCellID3_CID3_MASK    ((uint32_t) 0x000000FFU)
-#define UART_UARTPCellID3_CID3_RESET    ((uint32_t) 0x000000B1U)
+#define UART_UARTPCellID3_CID3_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_UARTPCellID3_CID3_RESET    ((uint32_t) 0x000000B1UL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UARTCELLID_H_ */
