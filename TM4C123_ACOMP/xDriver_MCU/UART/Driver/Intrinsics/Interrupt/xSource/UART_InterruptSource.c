@@ -21,86 +21,58 @@
  * Date           Author     Version     Description
  * 23 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/xHeader/UART_InterruptSource.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Primitives/UART_Primitives.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
-void UART__vEnInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
+void UART__vEnSeqInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt)
 {
-    uint32_t u32Reg = 0;
-    UART_TypeDef *gpio = 0;
-    if(enModule > UART_enMODULE_MAX)
-    {
-        enModule = UART_enMODULE_MAX;
-    }
-    enIntSource &= (uint32_t) UART_enINT_ALL;
-    UART__vSetReady(enModule);
-    gpio = UART_BLOCK[(uint32_t) enModule];
-    u32Reg = gpio->UARTIM;
-    u32Reg |= enIntSource;
-    gpio->UARTIM = u32Reg;
-
+    uint32_t u32SourceInt = 0UL;
+    uint32_t u32BitPos = 0UL;
+    u32SourceInt = (uint32_t) enSourceInt;
+    u32SourceInt &= (uint32_t) UART_enINT_SOURCE_ALL;
+    UART__vWriteRegister(enModule , UART_UARTIM_OFFSET, u32SourceInt, u32SourceInt, 0UL);
 }
 
-void UART__vDisInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
+void UART__vDisInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt)
 {
-    uint32_t u32Reg = 0;
-    UART_TypeDef *gpio = 0;
-    if(enModule > UART_enMODULE_MAX)
-    {
-        enModule = UART_enMODULE_MAX;
-    }
-    enIntSource &= (uint32_t) UART_enINT_ALL;
-    UART__vSetReady(enModule);
-    gpio = UART_BLOCK[(uint32_t) enModule];
-    u32Reg = gpio->UARTIM;
-    u32Reg &= ~(uint32_t) enIntSource;
-    gpio->UARTIM = u32Reg;
+    uint32_t u32SourceInt = 0UL;
+    uint32_t u32BitPos = 0UL;
+    u32SourceInt = (uint32_t) enSourceInt;
+    u32SourceInt &= (uint32_t) UART_enINT_SOURCE_ALL;
+    UART__vWriteRegister(enModule , UART_UARTIM_OFFSET, 0UL, u32SourceInt, 0UL);
 }
 
-void UART__vClearInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
+void UART__vClearInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt)
 {
-    UART_TypeDef *gpio = 0;
-    if(enModule > UART_enMODULE_MAX)
-    {
-        enModule = UART_enMODULE_MAX;
-    }
-    enIntSource &= (uint32_t) UART_enINT_ALL;
-    UART__vSetReady(enModule);
-    gpio = UART_BLOCK[(uint32_t) enModule];
-    gpio->UARTICR = enIntSource;
-
+    uint32_t u32SourceInt = 0UL;
+    uint32_t u32BitPos = 0UL;
+    u32SourceInt = (uint32_t) enSourceInt;
+    u32SourceInt &= (uint32_t) UART_enINT_SOURCE_ALL;
+    UART__vWriteRegister(enModule , UART_UARTICR_OFFSET, u32SourceInt, 0xFFFFFFFF, 0UL);
 }
 
-UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule, UART_nINT enIntSource)
+UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt)
 {
-    UART_nINT_STATUS enStatus = UART_enINT_STATUS_UNDEF;
-    UART_nREADY enReady = UART_enNOREADY;
-    uint32_t u32Reg = 0;
-    UART_TypeDef *gpio = 0;
-    if(enModule > UART_enMODULE_MAX)
+    UART_nINT_STATUS enInterruptReg = UART_enINT_STATUS_UNDEF;
+    UART_nSTATUS enStatus = UART_enSTATUS_UNDEF;
+    uint32_t u32SourceInt = 0UL;
+    uint32_t u32BitPos = 0UL;
+    uint32_t u32Register= 0xFFFFFFFFUL;
+    u32SourceInt &= (uint32_t) UART_enINT_SOURCE_ALL;
+    enStatus = UART__enReadRegister(enModule , UART_UARTRIS_OFFSET, (uint32_t*) &u32Register, (uint32_t) u32SourceInt, 0UL);
+    if(UART_enSTATUS_OK == enStatus)
     {
-        enModule = UART_enMODULE_MAX;
-    }
-    enIntSource &= (uint32_t) UART_enINT_ALL;
-    enReady = UART__enIsReady(enModule);
-
-    if((UART_enREADY == enReady))
-    {
-        gpio = UART_BLOCK[(uint32_t) enModule];
-        u32Reg = gpio->UARTRIS;
-        u32Reg &= enIntSource;
-        if(u32Reg != 0U)
+        if(0UL != u32Register)
         {
-            enStatus = UART_enINT_OCCUR;
+            enInterruptReg = UART_enINT_OCCUR;
         }
         else
         {
-            enStatus = UART_enINT_NOOCCUR;
+            enInterruptReg = UART_enINT_NOOCCUR;
         }
     }
-    return enStatus;
+    return enInterruptReg;
 }
-
-

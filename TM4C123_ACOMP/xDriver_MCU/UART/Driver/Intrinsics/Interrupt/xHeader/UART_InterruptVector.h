@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 23 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_DRIVER_INTRINSICS_INTERRUPT_XHEADER_UART_INTERRUPTVECTOR_H_
 #define XDRIVER_MCU_UART_DRIVER_INTRINSICS_INTERRUPT_XHEADER_UART_INTERRUPTVECTOR_H_
 
@@ -28,8 +29,5 @@
 
 void UART__vEnInterruptVector(UART_nMODULE enModule, UART_nPRIORITY enUARTPriority);
 void UART__vDisInterruptVector(UART_nMODULE enModule);
-
-
-
 
 #endif /* XDRIVER_MCU_UART_DRIVER_INTRINSICS_INTERRUPT_XHEADER_UART_INTERRUPTVECTOR_H_ */
