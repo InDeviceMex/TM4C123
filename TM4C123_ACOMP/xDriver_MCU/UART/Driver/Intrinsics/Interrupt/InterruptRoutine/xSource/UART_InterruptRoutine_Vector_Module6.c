@@ -21,92 +21,113 @@
  * Date           Author     Version     Description
  * 23 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Vector_Module6.h>
+
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Source.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Dependencies.h>
 
+#define DMA_SOURCE_BIT_RX    (10UL)
+#define DMA_SOURCE_MASK_RX    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_RX))
+
+#define DMA_SOURCE_BIT_TX    (11UL)
+#define DMA_SOURCE_MASK_TX    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_TX))
 
 void UART6__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg = 0U;
-    u32Reg = (uint32_t) UART6_UARTMIS_R;
+    volatile uint32_t u32RegDMAEn = 0UL;
+    volatile uint32_t u32RegDMAOccur = 0UL;
+    volatile uint32_t u32RegDMAPeriph = 0UL;
+    volatile uint32_t u32RegDMASource = 0UL;
 
-    if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
+    u32RegDMAEn = SYSCTL_RCGCDMA_R;
+    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_EN;
+    if(0UL != u32RegDMAEn)
     {
         /*RX*/
-        if(DMA_DMACHIS_R_CHIS10_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS10_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_RX;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET10_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET10_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_RX;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP1_R_CH10SEL_UART6_RX == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH10SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP1_R;
+                u32RegDMASource &= DMA_DMACHMAP1_R_CH10SEL_MASK;
+                if(DMA_DMACHMAP1_R_CH10SEL_UART6_RX == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][10U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS10_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][DMA_SOURCE_BIT_RX]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_RX;
                 }
             }
         }
         /*TX*/
-        if(DMA_DMACHIS_R_CHIS11_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS11_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_TX;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET11_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET11_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_TX;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP1_R_CH11SEL_UART6_TX == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH11SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP1_R;
+                u32RegDMASource &= DMA_DMACHMAP1_R_CH11SEL_MASK;
+                if(DMA_DMACHMAP1_R_CH11SEL_UART6_TX == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][11U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS11_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][DMA_SOURCE_BIT_TX]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_TX;
                 }
             }
         }
     }
 
-    if((uint32_t) UART_enINT_CLEAR_TO_SEND & u32Reg)
+    u32Reg = (uint32_t) UART6_UARTMIS_R;
+
+    if((uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_CLEAR_TO_SEND;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_CLEAR_TO_SEND]();
     }
-    if((uint32_t) UART_enINT_RECEIVE & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_RECEIVE & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_RECEIVE;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_RECEIVE]();
     }
-    if((uint32_t) UART_enINT_TRANSMIT & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_TRANSMIT & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_TRANSMIT;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_TRANSMIT;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_TRANSMIT]();
     }
-    if((uint32_t) UART_enINT_RECEIVE_TIMEOUT & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_RECEIVE_TIMEOUT;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_RECEIVE_TIMEOUT]();
     }
-    if((uint32_t) UART_enINT_FRAME_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_FRAME_ERROR & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_FRAME_ERROR;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_FRAME_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_FRAME_ERROR]();
     }
-    if((uint32_t) UART_enINT_PARITY_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_PARITY_ERROR & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_PARITY_ERROR;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_PARITY_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_PARITY_ERROR]();
     }
-    if((uint32_t) UART_enINT_BREAK_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_BREAK_ERROR & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_BREAK_ERROR;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BREAK_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_BREAK_ERROR]();
     }
-    if((uint32_t) UART_enINT_OVERRUN_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_OVERRUN_ERROR;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_OVERRUN_ERROR]();
     }
-    if((uint32_t) UART_enINT_BIT9_MODE & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_BIT9_MODE & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_BIT9_MODE;
+        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BIT9_MODE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_BIT9_MODE]();
     }
-
 }
-
-

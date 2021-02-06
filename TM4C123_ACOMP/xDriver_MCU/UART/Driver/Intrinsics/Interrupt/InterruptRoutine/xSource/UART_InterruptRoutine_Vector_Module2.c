@@ -21,115 +21,151 @@
  * Date           Author     Version     Description
  * 23 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Vector_Module2.h>
+
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/UART_InterruptRoutine_Source.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Dependencies.h>
 
+#define DMA_SOURCE_BIT_RX_1    (0UL)
+#define DMA_SOURCE_MASK_RX_1    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_RX_1))
+#define DMA_SOURCE_BIT_RX_2    (12UL)
+#define DMA_SOURCE_MASK_RX_2    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_RX_2))
+
+#define DMA_SOURCE_BIT_TX_1    (1UL)
+#define DMA_SOURCE_MASK_TX_1    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_TX_1))
+#define DMA_SOURCE_BIT_TX_2    (13UL)
+#define DMA_SOURCE_MASK_TX_2    ((uint32_t) ((uint32_t) 1UL << (uint32_t) DMA_SOURCE_BIT_TX_2))
 
 void UART2__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg = 0U;
-    u32Reg = (uint32_t) UART2_UARTMIS_R;
+    volatile uint32_t u32RegDMAEn = 0UL;
+    volatile uint32_t u32RegDMAOccur = 0UL;
+    volatile uint32_t u32RegDMAPeriph = 0UL;
+    volatile uint32_t u32RegDMASource = 0UL;
 
-    if(SYSCTL_RCGCDMA_R_UDMA_EN == (SYSCTL_RCGCDMA_R & SYSCTL_RCGCDMA_R_UDMA_EN))
+    u32RegDMAEn = SYSCTL_RCGCDMA_R;
+    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_EN;
+    if(0UL != u32RegDMAEn)
     {
         /*RX*/
-        if(DMA_DMACHIS_R_CHIS0_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS0_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_RX_1;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET0_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET0_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_RX_1;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP0_R_CH0SEL_UART2_RX == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH0SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP0_R;
+                u32RegDMASource &= DMA_DMACHMAP0_R_CH0SEL_MASK;
+                if(DMA_DMACHMAP0_R_CH0SEL_UART2_RX == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][0U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS0_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][DMA_SOURCE_BIT_RX_1]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_RX_1;
                 }
             }
         }
-        if(DMA_DMACHIS_R_CHIS12_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS12_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_RX_2;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET12_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET12_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_RX_2;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP1_R_CH12SEL_UART2_RX == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH12SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP1_R;
+                u32RegDMASource &= DMA_DMACHMAP1_R_CH12SEL_MASK;
+                if(DMA_DMACHMAP1_R_CH12SEL_UART2_RX == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][12U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS12_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_0][DMA_SOURCE_BIT_RX_2]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_RX_2;
                 }
             }
         }
         /*TX*/
-        if(DMA_DMACHIS_R_CHIS1_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS1_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_TX_1;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET1_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET1_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_TX_1;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP0_R_CH1SEL_UART2_TX == (DMA_DMACHMAP0_R & DMA_DMACHMAP0_R_CH1SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP0_R;
+                u32RegDMASource &= DMA_DMACHMAP0_R_CH1SEL_MASK;
+                if(DMA_DMACHMAP0_R_CH1SEL_UART2_TX == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][1U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS1_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][DMA_SOURCE_BIT_TX_1]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_TX_1;
                 }
             }
         }
-        if(DMA_DMACHIS_R_CHIS13_OCCUR == (DMA_DMACHIS_R & DMA_DMACHIS_R_CHIS13_MASK))
+        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur &= DMA_SOURCE_MASK_TX_2;
+        if(0UL != u32RegDMAOccur)
         {
-            if(DMA_DMAREQMASKSET_R_SET13_EN == (DMA_DMAREQMASKSET_R & DMA_DMAREQMASKSET_R_SET13_MASK ))
+            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
+            u32RegDMAPeriph &= DMA_SOURCE_MASK_TX_2;
+            if(0UL == u32RegDMAPeriph)
             {
-                if(DMA_DMACHMAP1_R_CH13SEL_UART2_TX == (DMA_DMACHMAP1_R & DMA_DMACHMAP1_R_CH13SEL_MASK ))
+                u32RegDMASource = DMA_DMACHMAP1_R;
+                u32RegDMASource &= DMA_DMACHMAP1_R_CH13SEL_MASK;
+                if(DMA_DMACHMAP1_R_CH13SEL_UART2_TX == u32RegDMASource)
                 {
-                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_1][13U]();
-                     DMA_DMACHIS_R = DMA_DMACHIS_R_CHIS13_CLEAR;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_0][DMA_SOURCE_BIT_TX_2]();
+                    DMA_DMACHIS_R = DMA_SOURCE_MASK_TX_2;
                 }
             }
         }
     }
 
-    if((uint32_t) UART_enINT_CLEAR_TO_SEND & u32Reg)
+    u32Reg = (uint32_t) UART2_UARTMIS_R;
+
+    if((uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_CLEAR_TO_SEND;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_CLEAR_TO_SEND]();
     }
-    if((uint32_t) UART_enINT_RECEIVE & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_RECEIVE & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_RECEIVE;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_RECEIVE]();
     }
-    if((uint32_t) UART_enINT_TRANSMIT & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_TRANSMIT & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_TRANSMIT;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_TRANSMIT;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_TRANSMIT]();
     }
-    if((uint32_t) UART_enINT_RECEIVE_TIMEOUT & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_RECEIVE_TIMEOUT;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_RECEIVE_TIMEOUT]();
     }
-    if((uint32_t) UART_enINT_FRAME_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_FRAME_ERROR & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_FRAME_ERROR;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_FRAME_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_FRAME_ERROR]();
     }
-    if((uint32_t) UART_enINT_PARITY_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_PARITY_ERROR & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_PARITY_ERROR;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_PARITY_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_PARITY_ERROR]();
     }
-    if((uint32_t) UART_enINT_BREAK_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_BREAK_ERROR & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_BREAK_ERROR;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BREAK_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_BREAK_ERROR]();
     }
-    if((uint32_t) UART_enINT_OVERRUN_ERROR & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_OVERRUN_ERROR;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_OVERRUN_ERROR]();
     }
-    if((uint32_t) UART_enINT_BIT9_MODE & u32Reg)
+    if((uint32_t) UART_enINT_SOURCE_BIT9_MODE & u32Reg)
     {
-        UART2_UARTICR_R = (uint32_t) UART_enINT_BIT9_MODE;
+        UART2_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BIT9_MODE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_2][(uint32_t) UART_enINTERRUPT_BIT9_MODE]();
     }
-
 }
-
-
-
