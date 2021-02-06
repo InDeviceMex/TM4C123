@@ -21,14 +21,13 @@
  * Date           Author     Version     Description
  * 24 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_DRIVER_LINECONTROL_XHEADER_UART_FIFO_H_
 #define XDRIVER_MCU_UART_DRIVER_LINECONTROL_XHEADER_UART_FIFO_H_
 
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
 
-
 UART_nFIFO UART__enGetFifoEnable(UART_nMODULE enModule);
 void UART__vSetFifoEnable(UART_nMODULE enModule, UART_nFIFO enFifoEnable);
-
 
 #endif /* XDRIVER_MCU_UART_DRIVER_LINECONTROL_XHEADER_UART_FIFO_H_ */

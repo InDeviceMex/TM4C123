@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 24 ene. 2021 @endverbatim
+ * @verbatim 6 feb. 2021 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,7 +19,7 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 24 ene. 2021     vyldram    1.0         initial Version@endverbatim
+ * 6 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/UART/Driver/LineControl/UART_LineControl.h>
@@ -57,4 +57,8 @@ void UART__vSetLineControlStructPointer(UART_nMODULE enModule, const UART_LINE_C
         UART__vSetParityStick(enModule, psLineControl->enParityStick);
     }
 }
+
+
+
+
 

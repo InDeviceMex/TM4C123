@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 24 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_DRIVER_LINECONTROL_XHEADER_UART_LENGTH_H_
 #define XDRIVER_MCU_UART_DRIVER_LINECONTROL_XHEADER_UART_LENGTH_H_
 
@@ -28,8 +29,5 @@
 
 UART_nLENGTH UART__enGetDataLength(UART_nMODULE enModule);
 void UART__vSetDataLength(UART_nMODULE enModule, UART_nLENGTH enDataLength);
-
-
-
 
 #endif /* XDRIVER_MCU_UART_DRIVER_LINECONTROL_XHEADER_UART_LENGTH_H_ */

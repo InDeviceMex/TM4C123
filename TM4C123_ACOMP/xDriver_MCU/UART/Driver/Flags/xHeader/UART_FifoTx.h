@@ -21,6 +21,7 @@
  * Date           Author     Version     Description
  * 24 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_UART_DRIVER_FLAGS_XHEADER_UART_FIFOTX_H_
 #define XDRIVER_MCU_UART_DRIVER_FLAGS_XHEADER_UART_FIFOTX_H_
 
@@ -28,6 +29,5 @@
 
 UART_nFIFO_EMPTY UART__enIsFifoTransmitEmpty(UART_nMODULE enModule);
 UART_nFIFO_FULL UART__enIsFifoTransmitFull(UART_nMODULE enModule);
-
 
 #endif /* XDRIVER_MCU_UART_DRIVER_FLAGS_XHEADER_UART_FIFOTX_H_ */

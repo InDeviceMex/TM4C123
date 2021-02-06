@@ -21,32 +21,14 @@
  * Date           Author     Version     Description
  * 24 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/UART/Driver/Errors/xHeader/UART_PartyError.h>
+
 #include <xDriver_MCU/UART/Driver/Intrinsics/Primitives/UART_Primitives.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
 UART_nERROR UART__enGetParityErrorState(UART_nMODULE enModule)
 {
-    UART_nREADY enReady = UART_enNOREADY;
-    UART_nERROR enStatus = UART_enERROR_UNDEF;
-    uint32_t u32Reg = 0UL;
-    UART_TypeDef *uart = 0;
-    if(enModule > UART_enMODULE_MAX)
-    {
-        enModule = UART_enMODULE_MAX;
-    }
-    enReady = UART__enIsReady(enModule);
-    if(UART_enREADY == enReady)
-    {
-            uart = UART_BLOCK[enModule];
-            u32Reg = uart->UARTRSR;
-            u32Reg >>= UART_UARTRSR_R_PE_BIT;
-            u32Reg &= UART_UARTRSR_PE_MASK;
-            enStatus = (UART_nERROR) u32Reg;
-    }
-    return enStatus;
+    uint32_t u32Reg = 0xFFFFFFFFUL;
+    UART__enReadRegister(enModule, UART_UARTRSR_OFFSET, &u32Reg, UART_UARTRSR_PE_MASK, UART_UARTRSR_R_PE_BIT);
+    return (UART_nERROR)  u32Reg;
 }
-
-
-
