@@ -27,7 +27,7 @@
 
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
 
-void UART__vEnSeqInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt);
+void UART__vEnInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt);
 void UART__vDisInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt);
 void UART__vClearInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt);
 UART_nINT_STATUS UART__enStatusInterruptSource(UART_nMODULE enModule, UART_nINT_SOURCE enSourceInt);

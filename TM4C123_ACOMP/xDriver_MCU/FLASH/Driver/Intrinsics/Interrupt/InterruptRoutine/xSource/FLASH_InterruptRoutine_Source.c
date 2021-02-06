@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Source.h>
 
-void FLASH_vIRQSourceHandler_Dummy(void);
+static void FLASH_vIRQSourceHandler_Dummy(void);
 
 void (*FLASH__vIRQSourceHandler[(uint32_t) FLASH_enINTERRUPT_MAX]) (void)=
 {&FLASH_vIRQSourceHandler_Dummy,

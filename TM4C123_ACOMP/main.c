@@ -97,8 +97,8 @@ int32_t main(void)
     UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA | UART_UARTCTL_R_HSE_DIV8;
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
-    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_TRANSMIT);
-    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_RECEIVE);
+    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_TRANSMIT);
+    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_RECEIVE);
 
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
