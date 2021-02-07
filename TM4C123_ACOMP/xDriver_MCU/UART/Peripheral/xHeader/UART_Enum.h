@@ -192,6 +192,40 @@ typedef struct
         UART_nPARITY_STICK enParityStick;
 }UART_PARITY_TypeDef;
 
+typedef enum
+{
+    UART_enFIFO_LEVEL_2_16 = 0UL,
+    UART_enFIFO_LEVEL_4_16 = 1UL,
+    UART_enFIFO_LEVEL_8_16 = 2UL,
+    UART_enFIFO_LEVEL_12_16 = 3UL,
+    UART_enFIFO_LEVEL_14_16 = 4UL,
+    UART_enFIFO_LEVEL_UNDEF = 0xFFFFFFFFUL,
+}UART_nFIFO_LEVEL;
+
+typedef enum
+{
+    UART_enHIGH_SPEED_DIS = 0UL,
+    UART_enHIGH_SPEED_EN = 1UL,
+    UART_enHIGH_SPEED_UNDEF = 0xFFFFFFFFUL,
+}UART_nHIGH_SPEED;
+
+typedef enum
+{
+    UART_enMODE_NORMAL = 0UL,
+    UART_enMODE_SIR = 0UL,
+    UART_enMODE_SMART_CARD = 0UL,
+    UART_enMODE_MODEM = 0UL,
+    UART_enMODE_BIT9 = 1UL,
+    UART_enMODE_UNDEF = 0xFFFFFFFFUL,
+}UART_nMODE;
+
+typedef enum
+{
+    UART_enCLOCK_SYSCLK = 0UL,
+    UART_enCLOCK_PIOSC = 5UL,
+    UART_enCLOCK_UNDEF = 0xFFFFFFFFUL,
+}UART_nCLOCK;
+
 typedef struct
 {
         UART_nFIFO enFifo;

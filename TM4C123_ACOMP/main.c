@@ -35,12 +35,15 @@ int32_t s32AccelerometerZValue = 0UL;
 uint32_t u32MicrophoneValue = 0UL;
 uint32_t u32JoystickXValue = 0UL;
 uint32_t u32JoystickYValue = 0UL;
+uint32_t u32PrintValue = 0UL;
+uint32_t u32LineBreak = 0UL;
 
+char* pcLineBreak[2UL] = {"Line Break Not Received", "Line Break Received"};
 volatile uint32_t u32InterruptUart = 0UL;
 volatile uint32_t u32InterruptRUart = 0UL;
 volatile uint32_t u32Lengtht = 0UL;
 volatile uint32_t u32State = 0UL;
-volatile char cCharacterReceive = 0UL;
+char pcCharacterReceive[16UL] = {0UL};
 
 EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK)0UL;
 
@@ -48,17 +51,16 @@ uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2);
 void MAIN_vIrqCOMP1_INT1(void);
 void MAIN_vTransmiterCount(void);
 void MAIN_vReceiverCount(void);
+void MAIN_vLineBreak(void);
 int32_t main (void);
 
 int32_t main(void)
 {
-
     uint32_t u32Clock = 0UL;
     uint32_t u32PWMRed = 0UL;
     uint32_t u32PWMBlue = 0UL;
     uint32_t u32PWMGreen = 0UL;
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
-    UART_nFIFO_FULL enTransmitFullState = UART_enFIFO_FULL_NO;
     UART_LINE_CONTROL_TypeDef sUARTControlLine = {
         UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
     };
@@ -84,21 +86,26 @@ int32_t main(void)
     UART__vRegisterIRQVectorHandler( &UART0__vIRQVectorHandler, UART_enMODULE_0);
     UART__vRegisterIRQSourceHandler( &MAIN_vTransmiterCount, UART_enMODULE_0, UART_enINTERRUPT_TRANSMIT);
     UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
+    UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE_TIMEOUT);
+    UART__vRegisterIRQSourceHandler( &MAIN_vLineBreak, UART_enMODULE_0, UART_enINTERRUPT_BREAK_ERROR);
 
 
     GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
 
     UART0->UARTCTL &= ~UART_UARTCTL_R_UARTEN_MASK;
-    UART0->UARTIBRD = 10UL;
-    UART0->UARTFBRD = 55UL;
+    UART__vSetBaudRateIntegerPart(UART_enMODULE_0, 5UL);
+    UART__vSetBaudRateFractionalPart(UART_enMODULE_0, 0UL);
     UART__vSetLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine);
     UART0->UARTCC &= ~UART_UARTCC_R_CS_MASK;
+    UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_14_16);
     UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA | UART_UARTCTL_R_HSE_DIV8;
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
     UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_TRANSMIT);
     UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_RECEIVE);
+    /*UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_RECEIVE_TIMEOUT);*/
+    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_BREAK_ERROR);
 
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
@@ -189,18 +196,27 @@ int32_t main(void)
         }
 
 
-        u32Lengtht = sprintf__u32User(cNokiaBuffer, "Button1: %u, Button2: %u\n\rJoystickX: %u, JoystickY: %u, Select: %u\n\rAccelX: %d, AccelY: %d, AccelZ: %d \n\rMicrophone %u\n\r\n\r",
-                         enButton1State, enButton2State, u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue, s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue, u32MicrophoneValue);
+        u32Lengtht = sprintf__u32User(cNokiaBuffer,
+        "Button1: %u, Button2: %u\n\r"
+        "JoystickX: %u, JoystickY: %u, Select: %u\n\r"
+        "AccelX: %d, AccelY: %d, AccelZ: %d \n\r"
+        "Microphone %u\n\r"
+        "Receive Data: %s\n\r"
+        "%s\n\r\n\r",
+        enButton1State, enButton2State,
+        u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue,
+        s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue,
+        u32MicrophoneValue,
+        pcCharacterReceive,
+        pcLineBreak[u32LineBreak]);
         cNokiaBufferPointer = cNokiaBuffer;
-        while('\0' != *cNokiaBufferPointer)
+
+        if(1UL == u32LineBreak)
         {
-            enTransmitFullState = UART__enIsFifoTransmitFull(UART_enMODULE_0);
-            if(UART_enFIFO_FULL_NO == enTransmitFullState)
-            {
-                UART__vSetData(UART_enMODULE_0, (uint32_t) (*cNokiaBufferPointer));
-                cNokiaBufferPointer += 1U;
-            }
+            u32LineBreak = 0UL;
         }
+        UART__u32SetFifoDataByte(UART_enMODULE_0, (uint8_t*) cNokiaBufferPointer,u32Lengtht);
+
         if(u32Lengtht == u32InterruptUart)
         {
             u32State = 1UL;
@@ -220,11 +236,16 @@ void MAIN_vTransmiterCount(void)
 
 void MAIN_vReceiverCount(void)
 {
+    uint32_t u32Pos = 0UL;
     u32InterruptRUart++;
-    cCharacterReceive = (char)UART__u32GetData(UART_enMODULE_0);
+    u32Pos = UART__u32GetFifoDataByte(UART_enMODULE_0, (uint8_t*) pcCharacterReceive);
+    pcCharacterReceive[u32Pos] = '\0';
 }
 
-
+void MAIN_vLineBreak(void)
+{
+    u32LineBreak = 1UL;
+}
 uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2)
 {
     Set_nSTATUS enComparison = Set_enSTATUS_ERROR;
@@ -255,7 +276,4 @@ void MAIN_vIrqCOMP1_INT1(void)
        GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, GPIO_enPIN_2);
    }
 }
-
-
-
 

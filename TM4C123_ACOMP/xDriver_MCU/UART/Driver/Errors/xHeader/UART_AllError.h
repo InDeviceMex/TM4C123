@@ -26,6 +26,7 @@
 #define XDRIVER_MCU_UART_DRIVER_ERRORS_XHEADER_UART_ALLERROR_H_
 
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
+#include <xUtils/Standard/Standard.h>
 
 uint32_t UART__u32GetErrorState(UART_nMODULE enModule);
 void UART__vClearErrorState(UART_nMODULE enModule);

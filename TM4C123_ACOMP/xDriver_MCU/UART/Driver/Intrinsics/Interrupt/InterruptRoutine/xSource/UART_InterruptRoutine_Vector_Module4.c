@@ -35,6 +35,7 @@
 
 void UART4__vIRQVectorHandler(void)
 {
+    uint32_t u32ErrorFlag = 0UL;
     volatile uint32_t u32Reg = 0U;
     volatile uint32_t u32RegDMAEn = 0UL;
     volatile uint32_t u32RegDMAOccur = 0UL;
@@ -107,21 +108,25 @@ void UART4__vIRQVectorHandler(void)
     }
     if((uint32_t) UART_enINT_SOURCE_FRAME_ERROR & u32Reg)
     {
+        u32ErrorFlag = 1UL;
         UART4_UARTICR_R = (uint32_t) UART_enINT_SOURCE_FRAME_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_4][(uint32_t) UART_enINTERRUPT_FRAME_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_PARITY_ERROR & u32Reg)
     {
+        u32ErrorFlag = 1UL;
         UART4_UARTICR_R = (uint32_t) UART_enINT_SOURCE_PARITY_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_4][(uint32_t) UART_enINTERRUPT_PARITY_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_BREAK_ERROR & u32Reg)
     {
+        u32ErrorFlag = 1UL;
         UART4_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BREAK_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_4][(uint32_t) UART_enINTERRUPT_BREAK_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR & u32Reg)
     {
+        u32ErrorFlag = 1UL;
         UART4_UARTICR_R = (uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_4][(uint32_t) UART_enINTERRUPT_OVERRUN_ERROR]();
     }
@@ -129,5 +134,10 @@ void UART4__vIRQVectorHandler(void)
     {
         UART4_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BIT9_MODE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_4][(uint32_t) UART_enINTERRUPT_BIT9_MODE]();
+    }
+
+    if(1UL == u32ErrorFlag)
+    {
+        UART4_UARTECR_R = 0xFFUL;
     }
 }
