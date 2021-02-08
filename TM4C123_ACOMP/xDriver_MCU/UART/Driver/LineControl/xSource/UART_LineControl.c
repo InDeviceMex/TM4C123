@@ -58,7 +58,24 @@ void UART__vSetLineControlStructPointer(UART_nMODULE enModule, const UART_LINE_C
     }
 }
 
+UART_nSTATUS UART__enSetBaudRateAndLineControlStruct(UART_nMODULE enModule, const UART_LINE_CONTROL_TypeDef sLineControl, uint32_t u32BaudRateArg)
+{
+    UART_nSTATUS enStatus = UART_enSTATUS_ERROR;
+    enStatus = UART__enSetBaudRate(enModule, u32BaudRateArg);
+    if(UART_enSTATUS_OK == enStatus)
+    {
+        UART__vSetLineControlStruct(enModule, sLineControl);
+    }
+    return enStatus;
+}
 
-
-
-
+UART_nSTATUS UART__enSetBaudRateAndLineControlStructPointer(UART_nMODULE enModule, const UART_LINE_CONTROL_TypeDef* psLineControl, uint32_t u32BaudRateArg)
+{
+    UART_nSTATUS enStatus = UART_enSTATUS_ERROR;
+    enStatus = UART__enSetBaudRate(enModule, u32BaudRateArg);
+    if(UART_enSTATUS_OK == enStatus)
+    {
+        UART__vSetLineControlStructPointer(enModule, psLineControl);
+    }
+    return enStatus;
+}

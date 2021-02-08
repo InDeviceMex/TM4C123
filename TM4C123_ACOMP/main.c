@@ -22,7 +22,6 @@
 /*Applications*/
 #include <xApplication/EDUMKII/EDUMKII.h>
 
-uint8_t NokiaBuffer[64 * (48 / 8)] = {0UL};
 char cNokiaBuffer[64 * (48 / 8)] = {0UL};
 char* cNokiaBufferPointer = {0UL};
 
@@ -35,7 +34,6 @@ int32_t s32AccelerometerZValue = 0UL;
 uint32_t u32MicrophoneValue = 0UL;
 uint32_t u32JoystickXValue = 0UL;
 uint32_t u32JoystickYValue = 0UL;
-uint32_t u32PrintValue = 0UL;
 uint32_t u32LineBreak = 0UL;
 
 char* pcLineBreak[2UL] = {"Line Break Not Received", "Line Break Received"};
@@ -45,10 +43,8 @@ volatile uint32_t u32Lengtht = 0UL;
 volatile uint32_t u32State = 0UL;
 char pcCharacterReceive[16UL] = {0UL};
 
-EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK)0UL;
+EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
 
-uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2);
-void MAIN_vIrqCOMP1_INT1(void);
 void MAIN_vTransmiterCount(void);
 void MAIN_vReceiverCount(void);
 void MAIN_vLineBreak(void);
@@ -94,12 +90,10 @@ int32_t main(void)
     GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
 
     UART0->UARTCTL &= ~UART_UARTCTL_R_UARTEN_MASK;
-    UART__vSetBaudRateIntegerPart(UART_enMODULE_0, 5UL);
-    UART__vSetBaudRateFractionalPart(UART_enMODULE_0, 0UL);
-    UART__vSetLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine);
-    UART0->UARTCC &= ~UART_UARTCC_R_CS_MASK;
+    UART__vSetClockConfig(UART_enMODULE_0, UART_enCLOCK_SYSCLK);
+    UART__enSetBaudRateAndLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine, 2000000UL);
     UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_14_16);
-    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA | UART_UARTCTL_R_HSE_DIV8;
+    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA;
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
     UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_TRANSMIT);
@@ -246,34 +240,3 @@ void MAIN_vLineBreak(void)
 {
     u32LineBreak = 1UL;
 }
-uint32_t MAIN_u32MatchSet(const void *pcvKey1, const void *pcvKey2)
-{
-    Set_nSTATUS enComparison = Set_enSTATUS_ERROR;
-    uint32_t u32Value1 = (uint32_t) pcvKey1;
-    uint32_t u32Value2 = (uint32_t) pcvKey2;
-
-    if(u32Value1 == u32Value2)
-    {
-        enComparison = Set_enSTATUS_OK;
-    }
-
-    return (uint32_t) enComparison;
-}
-
-void MAIN_vIrqCOMP1_INT1(void)
-{
-    uint32_t u32CompState = 0U;
-
-   u32CompState = ACMP_BITBANDING_ACSTAT1_OVAL;
-   if(u32CompState == ACMP_ACSTAT_OVAL_HIGH) /*Rising*/
-   {
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, GPIO_enPIN_3);
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, 0U);
-   }
-   else/*Falling*/
-   {
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_3, 0U);
-       GPIO__vSetData(GPIO_enPORT_F, GPIO_enPIN_2, GPIO_enPIN_2);
-   }
-}
-

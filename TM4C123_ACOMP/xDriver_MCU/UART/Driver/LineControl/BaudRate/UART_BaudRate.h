@@ -1,6 +1,6 @@
 /**
  *
- * @file UART_Control.h
+ * @file UART_BaudRate.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,10 +21,10 @@
  * Date           Author     Version     Description
  * 7 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_UART_DRIVER_CONTROL_UART_CONTROL_H_
-#define XDRIVER_MCU_UART_DRIVER_CONTROL_UART_CONTROL_H_
+#ifndef XDRIVER_MCU_UART_DRIVER_LINECONTROL_BAUDRATE_UART_BAUDRATE_H_
+#define XDRIVER_MCU_UART_DRIVER_LINECONTROL_BAUDRATE_UART_BAUDRATE_H_
 
+#include <xDriver_MCU/UART/Driver/LineControl/BaudRate/xHeader/UART_BaudRate_Register.h>
+#include <xDriver_MCU/UART/Driver/LineControl/BaudRate/xHeader/UART_BaudRate_Complete.h>
 
-#include <xDriver_MCU/UART/Driver/Control/xHeader/UART_HighSpeed.h>
-
-#endif /* XDRIVER_MCU_UART_DRIVER_CONTROL_UART_CONTROL_H_ */
+#endif /* XDRIVER_MCU_UART_DRIVER_LINECONTROL_BAUDRATE_UART_BAUDRATE_H_ */

@@ -1,6 +1,6 @@
 /**
  *
- * @file UART_BaudRate.c
+ * @file UART_BaudRate_Complete.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 6 feb. 2021 @endverbatim
+ * @verbatim 7 feb. 2021 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,38 +19,15 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 6 feb. 2021     vyldram    1.0         initial Version@endverbatim
+ * 7 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/UART/Driver/xHeader/UART_BaudRate.h>
+#include <xDriver_MCU/UART/Driver/LineControl/BaudRate/xHeader/UART_BaudRate_Complete.h>
 
+#include <xDriver_MCU/UART/Driver/LineControl/BaudRate/xHeader/UART_BaudRate_Register.h>
+#include <xDriver_MCU/UART/Driver/Control/xHeader/UART_HighSpeed.h>
 #include <xDriver_MCU/UART/Driver/xHeader/UART_ClockConfig.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Primitives/UART_Primitives.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
-
-
-void UART__vSetBaudRateIntegerPart(UART_nMODULE enModule, uint32_t u32Integer)
-{
-    UART__vWriteRegister(enModule, UART_UARTIBRD_OFFSET, u32Integer, UART_UARTIBRD_DIVINT_MASK, UART_UARTIBRD_R_DIVINT_BIT);
-}
-
-uint32_t UART__u32GetBaudRateIntegerPart(UART_nMODULE enModule)
-{
-    uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTIBRD_OFFSET, &u32Reg, UART_UARTIBRD_DIVINT_MASK, UART_UARTIBRD_R_DIVINT_BIT);
-    return u32Reg;
-}
-
-void UART__vSetBaudRateFractionalPart(UART_nMODULE enModule, uint32_t u32Fractional)
-{
-    UART__vWriteRegister(enModule, UART_UARTFBRD_OFFSET, u32Fractional, UART_UARTFBRD_DIVFRAC_MASK, UART_UARTFBRD_R_DIVFRAC_BIT);
-}
-
-uint32_t UART__u32GetBaudRateFractionalPart(UART_nMODULE enModule)
-{
-    uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTFBRD_OFFSET, &u32Reg, UART_UARTFBRD_DIVFRAC_MASK, UART_UARTFBRD_R_DIVFRAC_BIT);
-    return u32Reg;
-}
 
 UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
 {
@@ -75,7 +52,7 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
     fBaudRateDivisor = (float32_t) u32CurrentClock;
     fBaudRateDivisor /= (float32_t) u32BaudRateArg;
     fBaudRateDivisor /= 8.0f;
-    /*Set HSE to 8 */
+
     /*get uart mode*/
     if((65535.0f < fBaudRateDivisor) || (UART_enMODE_SMART_CARD == enUartMode))
     {
@@ -121,7 +98,7 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
                 u32BaudRateInteger = u32BaudRateInteger2;
             }
         }
-        /*Set HSE*/
+        UART__vSetHighSpeed(enModule, enHSEValue);
         UART__vSetBaudRateIntegerPart(enModule, u32BaudRateInteger);
         UART__vSetBaudRateFractionalPart(enModule, u32BaudRateFractional);
     }
@@ -141,7 +118,7 @@ uint32_t UART__u32GetBaudRate(UART_nMODULE enModule)
     uint32_t u32HSEDivider= 8UL;
     uint32_t u32CurrentClock = 16000000UL;
 
-    /*enHSEValue = UART__enGetHighSpeed(enModule);*/
+    enHSEValue = UART__enGetHighSpeed(enModule);
     if(UART_enHIGH_SPEED_UNDEF != enHSEValue)
     {
         if(UART_enHIGH_SPEED_DIS == enHSEValue)
@@ -170,4 +147,3 @@ uint32_t UART__u32GetBaudRate(UART_nMODULE enModule)
     }
     return u32BaudRate;
 }
-

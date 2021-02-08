@@ -204,6 +204,20 @@ typedef enum
 
 typedef enum
 {
+    UART_enDMA_DIS = 0UL,
+    UART_enDMA_EN = 1UL,
+    UART_enDMA_UNDEF = 0xFFFFFFFFUL,
+}UART_nDMA;
+
+typedef enum
+{
+    UART_en9BIT_DIS = 0UL,
+    UART_en9BIT_EN = 1UL,
+    UART_en9BIT_UNDEF = 0xFFFFFFFFUL,
+}UART_n9BIT;
+
+typedef enum
+{
     UART_enHIGH_SPEED_DIS = 0UL,
     UART_enHIGH_SPEED_EN = 1UL,
     UART_enHIGH_SPEED_UNDEF = 0xFFFFFFFFUL,
