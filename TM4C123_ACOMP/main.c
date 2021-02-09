@@ -89,11 +89,11 @@ int32_t main(void)
     GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
     GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
 
-    UART0->UARTCTL &= ~UART_UARTCTL_R_UARTEN_MASK;
+    UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_STOP);
     UART__vSetClockConfig(UART_enMODULE_0, UART_enCLOCK_SYSCLK);
     UART__enSetBaudRateAndLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine, 2000000UL);
     UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_14_16);
-    UART0->UARTCTL |= UART_UARTCTL_R_UARTEN_ENA;
+    UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_START);
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
     UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_TRANSMIT);

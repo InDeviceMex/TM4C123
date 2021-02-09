@@ -226,10 +226,12 @@ typedef enum
 typedef enum
 {
     UART_enMODE_NORMAL = 0UL,
-    UART_enMODE_SIR = 0UL,
-    UART_enMODE_SMART_CARD = 0UL,
-    UART_enMODE_MODEM = 0UL,
-    UART_enMODE_BIT9 = 1UL,
+    UART_enMODE_NORMAL_MP = 1UL,
+    UART_enMODE_MODEM = 2UL,
+    UART_enMODE_MODEM_MP = 3UL,
+    UART_enMODE_SIR = 4UL,
+    UART_enMODE_SIR_LP = 5UL,
+    UART_enMODE_SMART_CARD = 6UL,
     UART_enMODE_UNDEF = 0xFFFFFFFFUL,
 }UART_nMODE;
 
@@ -239,6 +241,76 @@ typedef enum
     UART_enCLOCK_PIOSC = 5UL,
     UART_enCLOCK_UNDEF = 0xFFFFFFFFUL,
 }UART_nCLOCK;
+
+typedef enum
+{
+    UART_enENABLE_STOP = 0UL,
+    UART_enENABLE_START = 1UL,
+    UART_enENABLE_UNDEF = 0xFFFFFFFFUL,
+}UART_nENABLE;
+
+typedef enum
+{
+    UART_enLINE_DIS = 0UL,
+    UART_enLINE_EN = 1UL,
+    UART_enLINE_UNDEF = 0xFFFFFFFFUL,
+}UART_nLINE;
+
+typedef enum
+{
+    UART_enLOOPBACK_DIS = 0UL,
+    UART_enLOOPBACK_EN = 1UL,
+    UART_enLOOPBACK_UNDEF = 0xFFFFFFFFUL,
+}UART_nLOOPBACK;
+
+typedef enum
+{
+    UART_enEOT_FIFO = 0UL,
+    UART_enEOT_ALL = 1UL,
+    UART_enEOT_UNDEF = 0xFFFFFFFFUL,
+}UART_nEOT;
+
+typedef enum
+{
+    UART_enRTS_MODE_SOFT = 0UL,
+    UART_enRTS_MODE_HARD = 1UL,
+    UART_enRTS_MODE_UNDEF = 0xFFFFFFFFUL,
+}UART_nRTS_MODE;
+
+typedef enum
+{
+    UART_enCTS_MODE_SOFT = 0UL,
+    UART_enCTS_MODE_HARD = 1UL,
+    UART_enCTS_MODE_UNDEF = 0xFFFFFFFFUL,
+}UART_nCTS_MODE;
+
+typedef enum
+{
+    UART_enRTS_LEVEL_LOW = 0UL,
+    UART_enRTS_LEVEL_HIGH = 1UL,
+    UART_enRTS_LEVEL_UNDEF = 0xFFFFFFFFUL,
+}UART_nRTS_LEVEL;
+
+typedef enum
+{
+    UART_enSMART_DIS = 0UL,
+    UART_enSMART_EN = 1UL,
+    UART_enSMART_UNDEF = 0xFFFFFFFFUL,
+}UART_nSMART;
+
+typedef enum
+{
+    UART_enSIR_DIS = 0UL,
+    UART_enSIR_EN = 1UL,
+    UART_enSIR_UNDEF = 0xFFFFFFFFUL,
+}UART_nSIR;
+
+typedef enum
+{
+    UART_enSIR_LP_DIS = 0UL,
+    UART_enSIR_LP_EN = 1UL,
+    UART_enSIR_LP_UNDEF = 0xFFFFFFFFUL,
+}UART_nSIR_LP;
 
 typedef struct
 {
