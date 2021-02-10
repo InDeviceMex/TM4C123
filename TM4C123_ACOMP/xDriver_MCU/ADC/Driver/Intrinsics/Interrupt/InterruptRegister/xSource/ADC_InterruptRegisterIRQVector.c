@@ -27,16 +27,17 @@
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>
 #include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRoutine/ADC_InterruptRoutine.h>
 
-const SCB_nVECISR SCB_enVECISR_ADC[(uint32_t)ADC_enMODULE_MAX][(uint32_t)ADC_enSEQ_MAX] =
-{
-    { SCB_enVECISR_ADC0SEQ0, SCB_enVECISR_ADC0SEQ1, SCB_enVECISR_ADC0SEQ2, SCB_enVECISR_ADC0SEQ3},
-    { SCB_enVECISR_ADC1SEQ0, SCB_enVECISR_ADC1SEQ1, SCB_enVECISR_ADC1SEQ2, SCB_enVECISR_ADC1SEQ3}
-};
 void ADC__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
     SCB_nVECISR enVector = SCB_enVECISR_ADC0SEQ0;
     uint32_t u32Module = 0UL;
     uint32_t u32Sequencer = 0UL;
+
+    const SCB_nVECISR SCB_enVECISR_ADC[(uint32_t)ADC_enMODULE_MAX][(uint32_t)ADC_enSEQ_MAX] =
+    {
+        { SCB_enVECISR_ADC0SEQ0, SCB_enVECISR_ADC0SEQ1, SCB_enVECISR_ADC0SEQ2, SCB_enVECISR_ADC0SEQ3},
+        { SCB_enVECISR_ADC1SEQ0, SCB_enVECISR_ADC1SEQ1, SCB_enVECISR_ADC1SEQ2, SCB_enVECISR_ADC1SEQ3}
+    };
 
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {

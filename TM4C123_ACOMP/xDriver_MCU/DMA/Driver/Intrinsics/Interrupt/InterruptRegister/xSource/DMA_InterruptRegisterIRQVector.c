@@ -28,12 +28,11 @@
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
-const SCB_nVECISR SCB_enVECISR_DMA[(uint32_t) DMA_enVECTOR_MAX] = { SCB_enVECISR_UDMASOFT, SCB_enVECISR_UDMAERROR};
-
 void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nVECTOR enVector)
 {
     SCB_nVECISR enSCBVector = SCB_enVECISR_UDMASOFT;
     uint32_t u32Vector = 0UL;
+    const SCB_nVECISR SCB_enVECISR_DMA[(uint32_t) DMA_enVECTOR_MAX] = { SCB_enVECISR_UDMASOFT, SCB_enVECISR_UDMAERROR};
 
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {

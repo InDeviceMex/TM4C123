@@ -27,16 +27,16 @@
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Dependencies.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRoutine/UART_InterruptRoutine.h>
 
-const SCB_nVECISR SCB_enVECISR_UART[(uint32_t) UART_enMODULE_MAX]=
-{
-    SCB_enVECISR_UART0, SCB_enVECISR_UART1, SCB_enVECISR_UART2, SCB_enVECISR_UART3,
-    SCB_enVECISR_UART4, SCB_enVECISR_UART5, SCB_enVECISR_UART6, SCB_enVECISR_UART7
-};
-
 void UART__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),UART_nMODULE enModule)
 {
     SCB_nVECISR enVector = SCB_enVECISR_UART0;
     uint32_t u32Module = 0UL;
+    const SCB_nVECISR SCB_enVECISR_UART[(uint32_t) UART_enMODULE_MAX]=
+    {
+        SCB_enVECISR_UART0, SCB_enVECISR_UART1, SCB_enVECISR_UART2, SCB_enVECISR_UART3,
+        SCB_enVECISR_UART4, SCB_enVECISR_UART5, SCB_enVECISR_UART6, SCB_enVECISR_UART7
+    };
+
 
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {

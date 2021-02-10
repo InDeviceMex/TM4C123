@@ -31,6 +31,10 @@ static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule);
 
 static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule)
 {
+    NVIC_nSTIR enVector = NVIC_enSTIR_TIMER0A;
+    uint32_t u32ModuleSize = 0UL;
+    uint32_t u32SubModule = 0UL;
+    uint32_t u32ModuleNumber = 0UL;
     static NVIC_nSTIR NVIC_VECTOR_TIMER[(uint32_t) TIMER_enSIZE_MAX][(uint32_t) TIMER_enSUBMODULE_MAX - 1UL][(uint32_t) TIMER_enMODULE_NUM_MAX] = {
         {
             {NVIC_enSTIR_TIMER0A, NVIC_enSTIR_TIMER1A, NVIC_enSTIR_TIMER2A, NVIC_enSTIR_TIMER3A, NVIC_enSTIR_TIMER4A, NVIC_enSTIR_TIMER5A},
@@ -41,10 +45,6 @@ static NVIC_nSTIR TIMER__enGetInterruptVector(TIMER_nMODULE enModule)
             {NVIC_enSTIR_WTIMER0B, NVIC_enSTIR_WTIMER1B, NVIC_enSTIR_WTIMER2B, NVIC_enSTIR_WTIMER3B, NVIC_enSTIR_WTIMER4B, NVIC_enSTIR_WTIMER5B},
         }
     };
-    NVIC_nSTIR enVector = NVIC_enSTIR_TIMER0A;
-    uint32_t u32ModuleSize = 0UL;
-    uint32_t u32SubModule = 0UL;
-    uint32_t u32ModuleNumber = 0UL;
     TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
     enVector = NVIC_VECTOR_TIMER[u32ModuleSize][u32SubModule][u32ModuleNumber];

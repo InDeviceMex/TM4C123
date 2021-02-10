@@ -22,44 +22,53 @@
 /*Applications*/
 #include <xApplication/EDUMKII/EDUMKII.h>
 
-char cNokiaBuffer[64 * (48 / 8)] = {0UL};
-char* cNokiaBufferPointer = {0UL};
+char cNokiaBuffer[300] = {0UL};
 
 /*Local functions*/
-EDUMKII_nBUTTON_STATE enButton1State = EDUMKII_enBUTTON_STATE_NOPRESS;
-EDUMKII_nBUTTON_STATE enButton2State = EDUMKII_enBUTTON_STATE_NOPRESS;
-int32_t s32AccelerometerXValue = 0UL;
-int32_t s32AccelerometerYValue = 0UL;
-int32_t s32AccelerometerZValue = 0UL;
-uint32_t u32MicrophoneValue = 0UL;
-uint32_t u32JoystickXValue = 0UL;
-uint32_t u32JoystickYValue = 0UL;
-uint32_t u32LineBreak = 0UL;
 
-char* pcLineBreak[2UL] = {"Line Break Not Received", "Line Break Received"};
+DMACHCTL_TypeDef enDMAChControl = {
+     DMA_enCH_MODE_BASIC,
+     DMA_enCH_BURST_ON,
+     16UL-1U,
+     DMA_enCH_BURST_SIZE_8,
+     0,
+     DMA_enCH_SRC_SIZE_BYTE,
+     DMA_enCH_SRC_INC_BYTE,
+     DMA_enCH_DST_SIZE_BYTE,
+     DMA_enCH_DST_INC_NO,
+};
+
 volatile uint32_t u32InterruptUart = 0UL;
-volatile uint32_t u32InterruptRUart = 0UL;
-volatile uint32_t u32Lengtht = 0UL;
-volatile uint32_t u32State = 0UL;
 char pcCharacterReceive[16UL] = {0UL};
+volatile uint32_t u32State = 0UL;
 
-EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
 
 void MAIN_vTransmiterCount(void);
 void MAIN_vReceiverCount(void);
 void MAIN_vLineBreak(void);
+void MAIN_vUART0Init(void);
 int32_t main (void);
 
 int32_t main(void)
 {
+    EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
+    EDUMKII_nBUTTON_STATE enButton1State = EDUMKII_enBUTTON_STATE_NOPRESS;
+    EDUMKII_nBUTTON_STATE enButton2State = EDUMKII_enBUTTON_STATE_NOPRESS;
+    int32_t s32AccelerometerXValue = 0UL;
+    int32_t s32AccelerometerYValue = 0UL;
+    int32_t s32AccelerometerZValue = 0UL;
+    uint32_t u32MicrophoneValue = 0UL;
+    uint32_t u32JoystickXValue = 0UL;
+    uint32_t u32JoystickYValue = 0UL;
+
+    char* cNokiaBufferPointer = {0UL};
+    volatile uint32_t u32Lengtht = 0UL;
+
     uint32_t u32Clock = 0UL;
     uint32_t u32PWMRed = 0UL;
     uint32_t u32PWMBlue = 0UL;
     uint32_t u32PWMGreen = 0UL;
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
-    UART_LINE_CONTROL_TypeDef sUARTControlLine = {
-        UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
-    };
 
     MPU__vInit();
     NVIC__vDeInitInterrupts();
@@ -76,31 +85,7 @@ int32_t main(void)
     TIMER__vInit();
     DMA__vInit();
     ADC__vInit();
-
-    UART__vSetReady(UART_enMODULE_0);
-
-    UART__vRegisterIRQVectorHandler( &UART0__vIRQVectorHandler, UART_enMODULE_0);
-    UART__vRegisterIRQSourceHandler( &MAIN_vTransmiterCount, UART_enMODULE_0, UART_enINTERRUPT_TRANSMIT);
-    UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
-    UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE_TIMEOUT);
-    UART__vRegisterIRQSourceHandler( &MAIN_vLineBreak, UART_enMODULE_0, UART_enINTERRUPT_BREAK_ERROR);
-
-
-    GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
-
-    UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_STOP);
-    UART__vSetClockConfig(UART_enMODULE_0, UART_enCLOCK_SYSCLK);
-    UART__enSetBaudRateAndLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine, 2000000UL);
-    UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_14_16);
-    UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_START);
-
-    UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
-    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_TRANSMIT);
-    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_RECEIVE);
-    /*UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_RECEIVE_TIMEOUT);*/
-    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_BREAK_ERROR);
-
+    MAIN_vUART0Init();
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
     EDUMKII_Joystick_vInit();
@@ -129,7 +114,7 @@ int32_t main(void)
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_RED, 0UL);
         }
 
-        SysTick__vDelayUs(150000.0f);
+        SysTick__vDelayUs(200000.0f);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
         EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
         EDUMKII_Microphone_vSample( &u32MicrophoneValue);
@@ -195,48 +180,73 @@ int32_t main(void)
         "JoystickX: %u, JoystickY: %u, Select: %u\n\r"
         "AccelX: %d, AccelY: %d, AccelZ: %d \n\r"
         "Microphone %u\n\r"
-        "Receive Data: %s\n\r"
-        "%s\n\r\n\r",
+        "Receive Data: %s\n\r\n\r",
         enButton1State, enButton2State,
         u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue,
         s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue,
         u32MicrophoneValue,
-        pcCharacterReceive,
-        pcLineBreak[u32LineBreak]);
+        pcCharacterReceive);
         cNokiaBufferPointer = cNokiaBuffer;
+        cNokiaBufferPointer += u32Lengtht;
+        cNokiaBufferPointer -= 1UL;
+        DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_9, (uint32_t) cNokiaBufferPointer);
+        enDMAChControl.XFERSIZE = u32Lengtht - 1UL;
+        DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_9, enDMAChControl);
+        DMA_CH__vSetEnable(DMA_enCH_MODULE_9, DMA_enCH_ENA_ENA);
+        while(1UL != u32InterruptUart){};
+        /*UART__u32SetFifoDataByte(UART_enMODULE_0, (uint8_t*) cNokiaBufferPointer,u32Lengtht);*/
 
-        if(1UL == u32LineBreak)
-        {
-            u32LineBreak = 0UL;
-        }
-        UART__u32SetFifoDataByte(UART_enMODULE_0, (uint8_t*) cNokiaBufferPointer,u32Lengtht);
-
-        if(u32Lengtht == u32InterruptUart)
-        {
-            u32State = 1UL;
-        }
-        else
-        {
-            u32State = 0UL;
-        }
         u32InterruptUart = 0UL;
     }
 }
 
+void MAIN_vUART0Init(void)
+{
+    UART_LINE_CONTROL_TypeDef sUARTControlLine = {
+        UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
+    };
+
+    DMA_CONFIG_Typedef enDMAChConfig= {
+        DMA_enCH_REQTYPE_BOTH,
+        DMA_enCH_PERIPHERAL_ENA,
+        DMA_enCH_CTL_PRIMARY ,
+        DMA_enCH_PRIO_HIGH ,
+        DMA_enCH_ENCODER_0
+    };
+
+    DMA__vRegisterIRQSourceHandler( &MAIN_vTransmiterCount, DMA_enCH_MODULE_9, DMA_enCH_ENCODER_0 );
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_9, (uint32_t) (UART0_BASE + UART_UARTDR_OFFSET));
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_9, (uint32_t) &cNokiaBuffer[1UL-1U]);
+    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_9, enDMAChControl);
+
+    DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_9, enDMAChConfig);
+
+    UART__vRegisterIRQVectorHandler( &UART0__vIRQVectorHandler, UART_enMODULE_0);
+    UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
+
+    GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
+    GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
+
+    UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_STOP);
+    UART__vSetClockConfig(UART_enMODULE_0, UART_enCLOCK_SYSCLK);
+    UART__enSetBaudRateAndLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine, 1000000UL);
+    UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_8_16);
+    UART__vSetDMATx(UART_enMODULE_0, UART_enDMA_EN);
+    UART__vSetEndTransmission(UART_enMODULE_0, UART_enEOT_ALL);
+    UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_START);
+
+    UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);
+    UART__vEnInterruptSource(UART_enMODULE_0, UART_enINT_SOURCE_RECEIVE);
+}
+
 void MAIN_vTransmiterCount(void)
 {
-    u32InterruptUart++;
+    u32InterruptUart = 1UL;
 }
 
 void MAIN_vReceiverCount(void)
 {
     uint32_t u32Pos = 0UL;
-    u32InterruptRUart++;
     u32Pos = UART__u32GetFifoDataByte(UART_enMODULE_0, (uint8_t*) pcCharacterReceive);
     pcCharacterReceive[u32Pos] = '\0';
-}
-
-void MAIN_vLineBreak(void)
-{
-    u32LineBreak = 1UL;
 }

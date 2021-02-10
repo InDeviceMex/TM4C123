@@ -27,7 +27,7 @@
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 
-static NVIC_nSTIR NVIC_VECTOR_DMA[(uint32_t) DMA_enVECTOR_MAX] = { NVIC_enSTIR_UDMASOFT, NVIC_enSTIR_UDMAERROR};
+NVIC_nSTIR NVIC_VECTOR_DMA[(uint32_t) DMA_enVECTOR_MAX] = { NVIC_enSTIR_UDMASOFT, NVIC_enSTIR_UDMAERROR};
 
 void DMA__vEnInterruptVector(DMA_nVECTOR enVector, DMA_nPRIORITY enDmaPriority)
 {
