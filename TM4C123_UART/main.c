@@ -23,7 +23,7 @@
 /*Applications*/
 #include <xApplication/EDUMKII/EDUMKII.h>
 
-char cNokiaBuffer[300] = {0UL};
+char cNokiaBuffer[84*48] = {0UL};
 
 /*Local functions*/
 
