@@ -13,6 +13,7 @@
 
 /*MCU Drivers*/
 #include <xDriver_MCU.h>
+#include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
 /*Utils Libraries*/
 #include <xUtils/Conversion/Conversion.h>
@@ -73,7 +74,7 @@ int32_t main(void)
     MPU__vInit();
     NVIC__vDeInitInterrupts();
     SYSCTL__vDeInitClockGates();
-    {__asm(" cpsie i");}
+    MCU__vEnGlobalInterrupt();
     SCB__vInit();
     FLASH__enInit();
     SYSEXC__vInit((SYSEXC_nINT) ((uint32_t) SYSEXC_enINT_INVALID | (uint32_t) SYSEXC_enINT_DIV0 | (uint32_t) SYSEXC_enINT_OVERFLOW | (uint32_t) SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
@@ -85,7 +86,10 @@ int32_t main(void)
     TIMER__vInit();
     DMA__vInit();
     ADC__vInit();
+    UART__vInit();
+
     MAIN_vUART0Init();
+
     EDUMKII_Button_vInit(EDUMKII_enBUTTON_ALL);
     EDUMKII_Led_vInitPWM(EDUMKII_enLED_ALL);
     EDUMKII_Joystick_vInit();
@@ -202,8 +206,31 @@ int32_t main(void)
 
 void MAIN_vUART0Init(void)
 {
-    UART_LINE_CONTROL_TypeDef sUARTControlLine = {
-        UART_enFIFO_ENA, UART_enSTOP_ONE, UART_enPARITY_DIS, UART_enPARITY_TYPE_ODD, UART_enPARITY_STICK_DIS, UART_enLENGTH_8BITS,
+    UART_CONTROL_TypeDef enUart0Control =
+    {
+        UART_enEOT_ALL,
+        UART_enLOOPBACK_DIS,
+        UART_enLINE_EN,
+        UART_enLINE_EN,
+        UART_enRTS_MODE_SOFT,
+        UART_enCTS_MODE_SOFT,
+    };
+    UART_LINE_CONTROL_TypeDef enUart0LineControl =
+    {
+     UART_enFIFO_ENA,
+     UART_enSTOP_TWO,
+     UART_enPARITY_ENA,
+     UART_enPARITY_TYPE_EVEN,
+     UART_enPARITY_STICK_DIS ,
+     UART_enLENGTH_8BITS,
+    };
+
+    UART_LINE_TypeDef enUart0Line =
+    {
+     UART_enLINE_SELECT_PRIMARY,
+     UART_enLINE_SELECT_PRIMARY,
+     UART_enLINE_SELECT_PRIMARY,
+     UART_enLINE_SELECT_PRIMARY,
     };
 
     DMA_CONFIG_Typedef enDMAChConfig= {
@@ -224,15 +251,10 @@ void MAIN_vUART0Init(void)
     UART__vRegisterIRQVectorHandler( &UART0__vIRQVectorHandler, UART_enMODULE_0);
     UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
 
-    GPIO__enSetDigitalConfig(GPIO_enU0Tx, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-    GPIO__enSetDigitalConfig(GPIO_enU0Rx, GPIO_enCONFIG_INPUT_2MA_PUSHPULL);
-
     UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_STOP);
-    UART__vSetClockConfig(UART_enMODULE_0, UART_enCLOCK_SYSCLK);
-    UART__enSetBaudRateAndLineControlStructPointer(UART_enMODULE_0, &sUARTControlLine, 1000000UL);
     UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_8_16);
     UART__vSetDMATx(UART_enMODULE_0, UART_enDMA_EN);
-    UART__vSetEndTransmission(UART_enMODULE_0, UART_enEOT_ALL);
+    UART__enSetConfig(UART_enMODULE_0, UART_enMODE_NORMAL, &enUart0Control, &enUart0LineControl, 1000000UL, &enUart0Line );
     UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_START);
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);

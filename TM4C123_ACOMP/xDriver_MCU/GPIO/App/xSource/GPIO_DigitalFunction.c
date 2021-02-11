@@ -35,28 +35,31 @@ void GPIO__vSetDigitalFunction(GPIO_nDIGITAL_FUNCTION enFunction)
     uint32_t u32Pin = 0UL;
     uint32_t u32FunctionBit = 0UL;
 
-    u32Port = (uint32_t) enFunction;
-    u32Port >>= 16UL;
-    u32Port &= 0xFFUL;
+    if(GPIO_enGPIO_UNDEF != enFunction)
+    {
+        u32Port = (uint32_t) enFunction;
+        u32Port >>= 16UL;
+        u32Port &= 0xFFUL;
 
-    u32PinNumber = (uint32_t) enFunction;
-    u32PinNumber >>= 8UL;
-    u32PinNumber &= 0xFFUL;
+        u32PinNumber = (uint32_t) enFunction;
+        u32PinNumber >>= 8UL;
+        u32PinNumber &= 0xFFUL;
 
-    u32FunctionValue = (uint32_t) enFunction;
-    u32FunctionValue >>= 0UL;
-    u32FunctionValue &= 0xFFUL;
+        u32FunctionValue = (uint32_t) enFunction;
+        u32FunctionValue >>= 0UL;
+        u32FunctionValue &= 0xFFUL;
 
-    u32Pin = 1UL;
-    u32Pin <<= u32PinNumber;
+        u32Pin = 1UL;
+        u32Pin <<= u32PinNumber;
 
-    u32FunctionBit = u32PinNumber;
-    u32FunctionBit *= 4UL;
+        u32FunctionBit = u32PinNumber;
+        u32FunctionBit *= 4UL;
 
-    GPIO__vDisAnalog((GPIO_nPORT) u32Port, (GPIO_nPIN) u32Pin);
-    GPIO__vEnDigital((GPIO_nPORT) u32Port, (GPIO_nPIN) u32Pin);
-    GPIO__vSetAltFunction((GPIO_nPORT) u32Port, (GPIO_nPIN) u32Pin, (GPIO_nALT_FUNCTION) u32FunctionValue);
+        GPIO__vDisAnalog((GPIO_nPORT) u32Port, (GPIO_nPIN) u32Pin);
+        GPIO__vEnDigital((GPIO_nPORT) u32Port, (GPIO_nPIN) u32Pin);
+        GPIO__vSetAltFunction((GPIO_nPORT) u32Port, (GPIO_nPIN) u32Pin, (GPIO_nALT_FUNCTION) u32FunctionValue);
 
-    GPIO__vWriteRegister( (GPIO_nPORT) u32Port, GPIO_GPIOPCTL_OFFSET, u32FunctionValue, 0xFUL, u32FunctionBit);
+        GPIO__vWriteRegister( (GPIO_nPORT) u32Port, GPIO_GPIOPCTL_OFFSET, u32FunctionValue, 0xFUL, u32FunctionBit);
+    }
 }
 

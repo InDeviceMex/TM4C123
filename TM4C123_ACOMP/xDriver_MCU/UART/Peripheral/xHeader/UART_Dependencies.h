@@ -29,6 +29,7 @@
 #include <xDriver_MCU/Core/SCB/SCB.h>
 
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
+#include <xDriver_MCU/GPIO/GPIO.h>
 
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>

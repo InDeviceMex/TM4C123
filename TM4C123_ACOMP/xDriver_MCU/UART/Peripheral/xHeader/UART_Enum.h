@@ -165,7 +165,9 @@ typedef enum
 typedef enum
 {
     UART_enPARITY_TYPE_ODD = 0UL,
+    UART_enPARITY_TYPE_ADDRESS = 0UL,
     UART_enPARITY_TYPE_EVEN = 1UL,
+    UART_enPARITY_TYPE_DATA = 1UL,
     UART_enPARITY_TYPE_UNDEF = 0xFFFFFFFFUL,
 }UART_nPARITY_TYPE;
 
@@ -231,7 +233,9 @@ typedef enum
     UART_enMODE_MODEM_MP = 3UL,
     UART_enMODE_SIR = 4UL,
     UART_enMODE_SIR_LP = 5UL,
-    UART_enMODE_SMART_CARD = 6UL,
+    UART_enMODE_SIR_MP = 6UL,
+    UART_enMODE_SIR_LP_MP = 7UL,
+    UART_enMODE_SMART_CARD = 8UL,
     UART_enMODE_UNDEF = 0xFFFFFFFFUL,
 }UART_nMODE;
 
@@ -311,6 +315,31 @@ typedef enum
     UART_enSIR_LP_EN = 1UL,
     UART_enSIR_LP_UNDEF = 0xFFFFFFFFUL,
 }UART_nSIR_LP;
+
+typedef enum
+{
+    UART_enLINE_SELECT_PRIMARY = 0UL,
+    UART_enLINE_SELECT_ALT = 1UL,
+    UART_enLINE_SELECT_UNDEF = 0xFFFFFFFFUL,
+}UART_nLINE_SELECT;
+
+typedef struct
+{
+        UART_nEOT enEndOfTransmission;
+        UART_nLOOPBACK enLoopback;
+        UART_nLINE enRxLine;
+        UART_nLINE enTxLine;
+        UART_nRTS_MODE enRTSMode;
+        UART_nCTS_MODE enCTSMode;
+}UART_CONTROL_TypeDef;
+
+typedef struct
+{
+        UART_nLINE_SELECT enRx;
+        UART_nLINE_SELECT enTx;
+        UART_nLINE_SELECT enCTS;
+        UART_nLINE_SELECT enRTS;
+}UART_LINE_TypeDef;
 
 typedef struct
 {

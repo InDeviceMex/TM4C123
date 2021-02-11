@@ -25,6 +25,7 @@
 
 #include <xDriver_MCU/UART/Driver/LineControl/BaudRate/xHeader/UART_BaudRate_Register.h>
 #include <xDriver_MCU/UART/Driver/Control/xHeader/UART_HighSpeed.h>
+#include <xDriver_MCU/UART/Driver/Control/xHeader/UART_SMART.h>
 #include <xDriver_MCU/UART/Driver/xHeader/UART_ClockConfig.h>
 #include <xDriver_MCU/UART/Driver/Intrinsics/Primitives/UART_Primitives.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
@@ -39,7 +40,7 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
     uint32_t u32BaudRateFractional2 = 0UL;
     uint32_t u32BaudRateInteger = 0UL;
     uint32_t u32BaudRateInteger2 = 0UL;
-    UART_nMODE enUartMode = UART_enMODE_UNDEF;
+    UART_nSMART enUartMode = UART_enSMART_UNDEF;
     UART_nHIGH_SPEED enHSEValue = UART_enHIGH_SPEED_EN;
     uint32_t u32CurrentClock = 16000000UL;
 
@@ -54,6 +55,7 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
     fBaudRateDivisor /= 8.0f;
 
     /*get uart mode*/
+    enUartMode = UART__enGetSMART(enModule);
     if((65535.0f < fBaudRateDivisor) || (UART_enMODE_SMART_CARD == enUartMode))
     {
         fBaudRateDivisor /= 2.0f; /*HSE feature*/

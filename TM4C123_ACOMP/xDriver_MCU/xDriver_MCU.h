@@ -26,6 +26,8 @@
 
 #include <xDriver_MCU/Core/Core.h>
 
+#include <xDriver_MCU/Common/MCU_Common.h>
+
 #include <xDriver_MCU/DMA/DMA.h>
 #include <xDriver_MCU/EEPROM/EEPROM.h>
 #include <xDriver_MCU/FLASH/FLASH.h>
