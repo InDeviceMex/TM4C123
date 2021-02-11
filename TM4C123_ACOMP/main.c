@@ -39,7 +39,7 @@ DMACHCTL_TypeDef enDMAChControl = {
      DMA_enCH_DST_INC_NO,
 };
 
-volatile uint32_t u32InterruptUart = 0UL;
+volatile uint32_t u32InterruptUart = 1UL;
 char pcCharacterReceive[16UL] = {0UL};
 volatile uint32_t u32State = 0UL;
 
@@ -50,6 +50,7 @@ void MAIN_vLineBreak(void);
 void MAIN_vUART0Init(void);
 int32_t main (void);
 
+uint32_t u32MicrophoneValue = 0UL;
 int32_t main(void)
 {
     EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
@@ -58,7 +59,6 @@ int32_t main(void)
     int32_t s32AccelerometerXValue = 0UL;
     int32_t s32AccelerometerYValue = 0UL;
     int32_t s32AccelerometerZValue = 0UL;
-    uint32_t u32MicrophoneValue = 0UL;
     uint32_t u32JoystickXValue = 0UL;
     uint32_t u32JoystickYValue = 0UL;
 
@@ -178,29 +178,29 @@ int32_t main(void)
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) 0UL );
         }
 
+        if(1UL == u32InterruptUart)
+        {
+            u32Lengtht = sprintf__u32User(cNokiaBuffer,
+            "%sButton1: %u, Button2: %u\n\r"
+            "JoystickX: %u, JoystickY: %u, Select: %u\n\r"
+            "AccelX: %d, AccelY: %d, AccelZ: %d \n\r"
+            "Microphone %u\n\r"
+            "Receive Data: %s\n\r\n\r",
+            "\033[u\033[2J",enButton1State, enButton2State,
+            u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue,
+            s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue,
+            u32MicrophoneValue,
+            pcCharacterReceive);
+            cNokiaBufferPointer = cNokiaBuffer;
+            cNokiaBufferPointer += u32Lengtht;
+            cNokiaBufferPointer -= 1UL;
+            DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_9, (uint32_t) cNokiaBufferPointer);
+            enDMAChControl.XFERSIZE = u32Lengtht - 1UL;
+            DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_9, enDMAChControl);
+            DMA_CH__vSetEnable(DMA_enCH_MODULE_9, DMA_enCH_ENA_ENA);
+            u32InterruptUart = 0UL;
+        }
 
-        u32Lengtht = sprintf__u32User(cNokiaBuffer,
-        "Button1: %u, Button2: %u\n\r"
-        "JoystickX: %u, JoystickY: %u, Select: %u\n\r"
-        "AccelX: %d, AccelY: %d, AccelZ: %d \n\r"
-        "Microphone %u\n\r"
-        "Receive Data: %s\n\r\n\r",
-        enButton1State, enButton2State,
-        u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue,
-        s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue,
-        u32MicrophoneValue,
-        pcCharacterReceive);
-        cNokiaBufferPointer = cNokiaBuffer;
-        cNokiaBufferPointer += u32Lengtht;
-        cNokiaBufferPointer -= 1UL;
-        DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_9, (uint32_t) cNokiaBufferPointer);
-        enDMAChControl.XFERSIZE = u32Lengtht - 1UL;
-        DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_9, enDMAChControl);
-        DMA_CH__vSetEnable(DMA_enCH_MODULE_9, DMA_enCH_ENA_ENA);
-        while(1UL != u32InterruptUart){};
-        /*UART__u32SetFifoDataByte(UART_enMODULE_0, (uint8_t*) cNokiaBufferPointer,u32Lengtht);*/
-
-        u32InterruptUart = 0UL;
     }
 }
 
@@ -252,9 +252,9 @@ void MAIN_vUART0Init(void)
     UART__vRegisterIRQSourceHandler( &MAIN_vReceiverCount, UART_enMODULE_0, UART_enINTERRUPT_RECEIVE);
 
     UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_STOP);
-    UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_8_16);
+    UART__vSetFifoRxLevel(UART_enMODULE_0, UART_enFIFO_LEVEL_14_16);
     UART__vSetDMATx(UART_enMODULE_0, UART_enDMA_EN);
-    UART__enSetConfig(UART_enMODULE_0, UART_enMODE_NORMAL, &enUart0Control, &enUart0LineControl, 1000000UL, &enUart0Line );
+    UART__enSetConfig(UART_enMODULE_0, UART_enMODE_NORMAL, &enUart0Control, &enUart0LineControl, 115200UL, &enUart0Line );
     UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_START);
 
     UART__vEnInterruptVector(UART_enMODULE_0, UART_enPRI7);

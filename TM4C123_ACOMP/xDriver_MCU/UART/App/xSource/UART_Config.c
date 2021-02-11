@@ -104,36 +104,24 @@ UART_nSTATUS UART__enSetConfig(UART_nMODULE enModule, UART_nMODE enModeArg  , co
         UART__vSetRTSMode(enModuleFilter, UART_enRTS_MODE_SOFT);
         UART__vSetRTSLevel(enModuleFilter, UART_enRTS_LEVEL_LOW);
 
+        stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
+        stLineControlConfig.enStop = pstLineControlConfig->enStop;
+        stLineControlConfig.enLength = pstLineControlConfig->enLength;
+        stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
+        stLineControlConfig.enParity = pstLineControlConfig->enParity;
+        stLineControlConfig.enParityStick = pstLineControlConfig->enParityStick;
         switch(enModeArg)
         {
-        case UART_enMODE_MODEM:
-            UART__vSetCTSMode(enModuleFilter, pstControlConfig->enCTSMode);
-            UART__vSetRTSMode(enModuleFilter, pstControlConfig->enRTSMode);
-            if(UART_enCTS_MODE_HARD == pstControlConfig->enCTSMode)
-            {
-                GPIO__enSetDigitalConfig(UART_enGpioInput[u32Line[CTS_LINE]][(uint32_t) enModuleFilter][CTS_LINE], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
-            }
-            GPIO__enSetDigitalConfig(UART_enGpioInput[u32Line[RTS_LINE]][(uint32_t) enModuleFilter][RTS_LINE], GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
 
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = pstLineControlConfig->enParity;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
-            UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
-            break;
         case UART_enMODE_NORMAL:
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = pstLineControlConfig->enParity;
             stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
             UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
             break;
 
-        case UART_enMODE_MODEM_MP:
+        case UART_enMODE_MODEM:
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
+            UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
+
             UART__vSetCTSMode(enModuleFilter, pstControlConfig->enCTSMode);
             UART__vSetRTSMode(enModuleFilter, pstControlConfig->enRTSMode);
             if(UART_enCTS_MODE_HARD == pstControlConfig->enCTSMode)
@@ -141,74 +129,71 @@ UART_nSTATUS UART__enSetConfig(UART_nMODULE enModule, UART_nMODE enModeArg  , co
                 GPIO__enSetDigitalConfig(UART_enGpioInput[u32Line[CTS_LINE]][(uint32_t) enModuleFilter][CTS_LINE], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
             }
             GPIO__enSetDigitalConfig(UART_enGpioInput[u32Line[RTS_LINE]][(uint32_t) enModuleFilter][RTS_LINE], GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = UART_enPARITY_ENA;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
-            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
-            UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
-            break;
-        case UART_enMODE_NORMAL_MP:
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = UART_enPARITY_ENA;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
-            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
-            UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
             break;
 
-        case UART_enMODE_SIR_LP_MP:
-            UART__vSetSIRLowPower(enModuleFilter, UART_enSIR_LP_EN);
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = UART_enPARITY_ENA;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
-            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
+        case UART_enMODE_SIR:
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
             UART__vSetLineControlStruct(enModuleFilter, stLineControlConfig);
-            UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
             UART__vEnIrDALowPowerFrequency(enModuleFilter);
-            break;
-        case UART_enMODE_SIR_MP:
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = UART_enPARITY_ENA;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
-            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
-            UART__vSetLineControlStruct(enModuleFilter, stLineControlConfig);
+
             UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
-            UART__vEnIrDALowPowerFrequency(enModuleFilter);
             break;
 
         case UART_enMODE_SIR_LP:
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
+            UART__vSetLineControlStruct(enModuleFilter, stLineControlConfig);
+            UART__vEnIrDALowPowerFrequency(enModuleFilter);
+
+            UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
             UART__vSetSIRLowPower(enModuleFilter, UART_enSIR_LP_EN);
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = pstLineControlConfig->enParity;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
-            UART__vSetLineControlStruct(enModuleFilter, stLineControlConfig);
-            UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
-            UART__vEnIrDALowPowerFrequency(enModuleFilter);
             break;
-        case UART_enMODE_SIR:
-            stLineControlConfig.enFifo = pstLineControlConfig->enFifo;
-            stLineControlConfig.enStop = pstLineControlConfig->enStop;
-            stLineControlConfig.enLength = pstLineControlConfig->enLength;
-            stLineControlConfig.enParityType = pstLineControlConfig->enParityType;
-            stLineControlConfig.enParity = pstLineControlConfig->enParity;
-            stLineControlConfig.enParityStick = UART_enPARITY_STICK_DIS;
+
+            /*Multiprocesor*/
+        case UART_enMODE_NORMAL_MP:
+            stLineControlConfig.enParity = UART_enPARITY_ENA;
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
+            UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
+
+            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
+            break;
+
+        case UART_enMODE_SIR_MP:
+            stLineControlConfig.enParity = UART_enPARITY_ENA;
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
             UART__vSetLineControlStruct(enModuleFilter, stLineControlConfig);
-            UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
             UART__vEnIrDALowPowerFrequency(enModuleFilter);
+
+            UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
+
+            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
+            break;
+
+        case UART_enMODE_SIR_LP_MP:
+            stLineControlConfig.enParity = UART_enPARITY_ENA;
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
+            UART__vSetLineControlStruct(enModuleFilter, stLineControlConfig);
+            UART__vEnIrDALowPowerFrequency(enModuleFilter);
+
+            UART__vSetSIR(enModuleFilter, UART_enSIR_EN);
+            UART__vSetSIRLowPower(enModuleFilter, UART_enSIR_LP_EN);
+
+            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
+            break;
+
+        case UART_enMODE_MODEM_MP:
+            stLineControlConfig.enParity = UART_enPARITY_ENA;
+            stLineControlConfig.enParityStick = UART_enPARITY_STICK_ENA;
+            UART__enSetBaudRateAndLineControlStruct(enModuleFilter, stLineControlConfig, u32BaudRateArg);
+
+            UART__vSetCTSMode(enModuleFilter, pstControlConfig->enCTSMode);
+            UART__vSetRTSMode(enModuleFilter, pstControlConfig->enRTSMode);
+            if(UART_enCTS_MODE_HARD == pstControlConfig->enCTSMode)
+            {
+                GPIO__enSetDigitalConfig(UART_enGpioInput[u32Line[CTS_LINE]][(uint32_t) enModuleFilter][CTS_LINE], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
+            }
+            GPIO__enSetDigitalConfig(UART_enGpioInput[u32Line[RTS_LINE]][(uint32_t) enModuleFilter][RTS_LINE], GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
+
+            UART__vSet9BitMode(enModuleFilter, UART_en9BIT_EN);
             break;
 
         case UART_enMODE_SMART_CARD:
@@ -232,5 +217,3 @@ UART_nSTATUS UART__enSetConfig(UART_nMODULE enModule, UART_nMODE enModeArg  , co
     }
     return enReturn;
 }
-
-
