@@ -101,7 +101,7 @@ int32_t main(void)
     GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 0UL,
      "Button1:  , Button2:  \n\r"
      "JoystickX:     , JoystickY:     , Select:  \n\r"
-     "AccelX:     , AccelY:     , AccelZ:     \n\r"
+     "AccelX:      , AccelY:      , AccelZ:      \n\r"
      "Microphone:     \n\r"
      "Receive Data:                                 \n\r\n\r");
 
