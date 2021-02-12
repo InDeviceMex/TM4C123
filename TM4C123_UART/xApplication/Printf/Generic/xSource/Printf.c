@@ -560,6 +560,10 @@ uint32_t vprintf__u32User(const char* pcFormat, va_list vaList)
   return vsnprintf__u32UserGeneric( &Conv__vOutChar, pcBuffer, (uint32_t) -1, pcFormat, vaList);
 }
 
+uint32_t vsprintf__u32User(char* pcBuffer, const char* pcFormat, va_list vaList)
+{
+  return vsnprintf__u32UserGeneric( &Conv__vOutBuffer, pcBuffer, (uint32_t) -1, pcFormat, vaList);
+}
 
 uint32_t vsnprintf__u32User(char* pcBuffer, const uint32_t u32Count, const char* pcFormat, va_list vaList)
 {

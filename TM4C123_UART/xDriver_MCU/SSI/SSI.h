@@ -21,11 +21,8 @@
  * Date           Author     Version     Description
  * 11 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
+
 #ifndef XDRIVER_MCU_SSI_SSI_H_
 #define XDRIVER_MCU_SSI_SSI_H_
-
-
-
-
 
 #endif /* XDRIVER_MCU_SSI_SSI_H_ */

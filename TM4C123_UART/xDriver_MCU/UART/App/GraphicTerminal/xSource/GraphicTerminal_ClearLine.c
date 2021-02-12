@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI_Struct.h
+ * @file GraphicTerminal_ClearLine.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,8 +21,11 @@
  * Date           Author     Version     Description
  * 11 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
+#include <xDriver_MCU/UART/App/GraphicTerminal/xHeader/GraphicTerminal_ClearLine.h>
 
-#ifndef XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
-#define XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
+#include <xDriver_MCU/UART/App/xHeader/UART_Printf.h>
 
-#endif /* XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_ */
+void GraphTerm__vClearLine(UART_nMODULE enModule, uint32_t u32Line)
+{
+    UART__u32Printf(enModule,"\x1B[%u;0H\x1B[K", u32Line);
+}

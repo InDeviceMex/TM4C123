@@ -16,6 +16,7 @@
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
 /*Utils Libraries*/
+#include <xUtils/Math/Math.h>
 #include <xUtils/Conversion/Conversion.h>
 #include <xUtils/DataStructure/DataStructure.h>
 #include <xApplication/Printf/Printf.h>
@@ -23,7 +24,7 @@
 /*Applications*/
 #include <xApplication/EDUMKII/EDUMKII.h>
 
-char cNokiaBuffer[84*48] = {0UL};
+char cNokiaBuffer[(84+2)*48] = {0UL};
 
 /*Local functions*/
 
@@ -62,7 +63,6 @@ int32_t main(void)
     uint32_t u32JoystickXValue = 0UL;
     uint32_t u32JoystickYValue = 0UL;
 
-    char* cNokiaBufferPointer = {0UL};
     volatile uint32_t u32Lengtht = 0UL;
 
     uint32_t u32Clock = 0UL;
@@ -96,6 +96,14 @@ int32_t main(void)
     EDUMKII_Buzzer_vInit();
     EDUMKII_Accelerometer_vInit();
     EDUMKII_Microphone_vInit();
+    GraphTerm__vClearScreen(UART_enMODULE_0);
+    GraphTerm__vHideCursor(UART_enMODULE_0);
+    GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 0UL,
+     "Button1:  , Button2:  \n\r"
+     "JoystickX:     , JoystickY:     , Select:  \n\r"
+     "AccelX:     , AccelY:     , AccelZ:     \n\r"
+     "Microphone:     \n\r"
+     "Receive Data:                                 \n\r\n\r");
 
     while(1U)
     {
@@ -119,6 +127,7 @@ int32_t main(void)
         }
 
         SysTick__vDelayUs(10000.0f);
+
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
         EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
         EDUMKII_Microphone_vSample( &u32MicrophoneValue);
@@ -134,20 +143,12 @@ int32_t main(void)
 
         if(u32JoystickXValue <= 1700UL)
         {
-            u32PWMGreen = u32JoystickXValue;
-            u32PWMGreen -= 0UL;
-            u32PWMGreen *= 50UL;
-            u32PWMGreen /= (1700UL - 0UL);
-            u32PWMGreen = 50UL - u32PWMGreen;
+            u32PWMGreen = (uint32_t) Math__s32Map((int32_t) u32JoystickXValue, 1700L, 0L, 0L, 50L);
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) u32PWMGreen );
         }
         else if((u32JoystickXValue >= 2400UL) && (u32JoystickXValue <= 4096UL))
         {
-            u32PWMGreen = u32JoystickXValue;
-            u32PWMGreen -= 2400UL;
-            u32PWMGreen *= 50UL;
-            u32PWMGreen /= (4096UL - 2400UL);
-            u32PWMGreen = u32PWMGreen;
+            u32PWMGreen = Math__u32Map(u32JoystickXValue, 4096UL, 2400UL, 50UL, 0UL);
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_GREEN, (uint32_t) u32PWMGreen );
         }
         else
@@ -157,20 +158,12 @@ int32_t main(void)
 
         if(u32JoystickYValue <= 1700UL)
         {
-            u32PWMBlue = u32JoystickYValue;
-            u32PWMBlue -= 0UL;
-            u32PWMBlue *= 50UL;
-            u32PWMBlue /= (1700UL - 0UL);
-            u32PWMBlue = 50UL - u32PWMBlue;
+            u32PWMBlue = (uint32_t) Math__s32Map((int32_t) u32JoystickYValue, 1700L, 0L, 0L, 50L);
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) u32PWMBlue );
         }
         else if((u32JoystickYValue >= 2400UL) && (u32JoystickYValue <= 4096UL))
         {
-            u32PWMBlue = u32JoystickYValue;
-            u32PWMBlue -= 2400UL;
-            u32PWMBlue *= 50UL;
-            u32PWMBlue /= (4096UL - 2400UL);
-            u32PWMBlue = u32PWMBlue;
+            u32PWMBlue = Math__u32Map(u32JoystickYValue, 4096UL, 2400UL, 50UL, 0UL);
             EDUMKII_Led_vWritePWM(EDUMKII_enLED_BLUE, (uint32_t) u32PWMBlue );
         }
         else
@@ -180,25 +173,27 @@ int32_t main(void)
 
         if(1UL == u32InterruptUart)
         {
-            u32Lengtht = sprintf__u32User(cNokiaBuffer,
-            "%sButton1: %u, Button2: %u\n\r"
-            "JoystickX: %u, JoystickY: %u, Select: %u\n\r"
-            "AccelX: %d, AccelY: %d, AccelZ: %d \n\r"
-            "Microphone %u\n\r"
-            "Receive Data: %s\n\r\n\r",
-            "\x1B[u\x1B[2J",enButton1State, enButton2State,
-            u32JoystickXValue, u32JoystickYValue, enJoystickSelectValue,
-            s32AccelerometerXValue, s32AccelerometerYValue, s32AccelerometerZValue,
-            u32MicrophoneValue,
-            pcCharacterReceive);
+            GraphTerm__u32Printf(UART_enMODULE_0, 9UL, 0UL,"%1u", enButton1State);
+            GraphTerm__u32Printf(UART_enMODULE_0, 21UL, 0UL,"%1u", enButton2State);
+            GraphTerm__u32Printf(UART_enMODULE_0, 11UL, 1UL,"%4u", u32JoystickXValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 28UL, 1UL,"%4u", u32JoystickYValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 42UL, 1UL,"%1u", enJoystickSelectValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 8UL, 2UL,"%+5d", s32AccelerometerXValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 22UL, 2UL,"%+5d", s32AccelerometerYValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 36UL, 2UL,"%+5d", s32AccelerometerZValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 12UL, 3UL,"%4u", u32MicrophoneValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 13UL, 4UL,"%12s", pcCharacterReceive);
+/*
             cNokiaBufferPointer = cNokiaBuffer;
             cNokiaBufferPointer += u32Lengtht;
             cNokiaBufferPointer -= 1UL;
+
             DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_9, (uint32_t) cNokiaBufferPointer);
             enDMAChControl.XFERSIZE = u32Lengtht - 1UL;
             DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_9, enDMAChControl);
             DMA_CH__vSetEnable(DMA_enCH_MODULE_9, DMA_enCH_ENA_ENA);
             u32InterruptUart = 0UL;
+            */
         }
 
     }

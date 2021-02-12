@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI_Struct.h
+ * @file Math.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -22,7 +22,9 @@
  * 11 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 
-#ifndef XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
-#define XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
+#ifndef XUTILS_MATH_MATH_H_
+#define XUTILS_MATH_MATH_H_
 
-#endif /* XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_ */
+ #include <xUtils/Math/xHeader/Math_Map.h>
+
+#endif /* XUTILS_MATH_MATH_H_ */

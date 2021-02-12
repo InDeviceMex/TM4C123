@@ -494,6 +494,8 @@ encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bit
 encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/RegisterPeripheral_Bitbanding_Standard_64/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/TIMER/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/UART/App/GraphicTerminal/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/UART/App/GraphicTerminal/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/UART/App/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/UART/App/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/UART/Driver/Control/xSource/subdir_rules.mk=UTF-8
@@ -594,6 +596,8 @@ encoding//Debug__TI/xUtils/DataStructure/Set/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/Set/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/Stack/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/DataStructure/Stack/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xUtils/Math/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xUtils/Math/xSource/subdir_vars.mk=UTF-8
 encoding//Release/makefile=UTF-8
 encoding//Release/objects.mk=UTF-8
 encoding//Release/sources.mk=UTF-8

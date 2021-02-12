@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI_Struct.h
+ * @file GraphicTerminal_ClearScreen.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -22,7 +22,11 @@
  * 11 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 
-#ifndef XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
-#define XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
+#ifndef XDRIVER_MCU_UART_APP_GRAPHICTERMINAL_XHEADER_GRAPHICTERMINAL_CLEARSCREEN_H_
+#define XDRIVER_MCU_UART_APP_GRAPHICTERMINAL_XHEADER_GRAPHICTERMINAL_CLEARSCREEN_H_
 
-#endif /* XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_ */
+#include <xDriver_MCU/UART/Peripheral/xHeader/UART_Enum.h>
+
+void GraphTerm__vClearScreen(UART_nMODULE enModule);
+
+#endif /* XDRIVER_MCU_UART_APP_GRAPHICTERMINAL_XHEADER_GRAPHICTERMINAL_CLEARSCREEN_H_ */
