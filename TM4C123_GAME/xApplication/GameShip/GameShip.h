@@ -25,9 +25,9 @@
 #ifndef XAPPLICATION_GAMESHIP_GAMESHIP_H_
 #define XAPPLICATION_GAMESHIP_GAMESHIP_H_
 
-#include <xApplication/GameShip/Ship/Ship.h>
+#include <xApplication/GameShip/Obstacle/Obstacle.h>
+#include <xApplication/GameShip/Player/Player.h>
 #include <xApplication/GameShip/Shot/Shot.h>
-#include <xApplication/GameShip/Asteroid/Asteroid.h>
 #include <xApplication/GameShip/Frame/Frame.h>
 
 #endif /* XAPPLICATION_GAMESHIP_GAMESHIP_H_ */

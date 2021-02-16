@@ -1,6 +1,6 @@
 /**
  *
- * @file Frame_Draw.h
+ * @file Player_Erase.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -22,11 +22,11 @@
  * 12 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 
-#ifndef XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_
-#define XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_
+#ifndef XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_ERASE_H_
+#define XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_ERASE_H_
 
-#include <GameShip/Player/xHeader/Player_Struct.h>
+#include <xApplication/GameShip/Player/xHeader/Player_Struct.h>
 
-void Frame__vDraw(void);
+void Player__vErase(const Player_TypeDef* psPlayerArg);
 
-#endif /* XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_ */
+#endif /* XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_ERASE_H_ */

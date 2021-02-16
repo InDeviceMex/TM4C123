@@ -1,6 +1,6 @@
 /**
  *
- * @file Frame_Draw.h
+ * @file Obstacle_Draw.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,12 +21,10 @@
  * Date           Author     Version     Description
  * 12 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
+#include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Draw.h>
+#include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
 
-#ifndef XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_
-#define XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_
-
-#include <GameShip/Player/xHeader/Player_Struct.h>
-
-void Frame__vDraw(void);
-
-#endif /* XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_ */
+void Obstacle__vDraw(const Obstacle_TypeDef* psObstacleArg)
+{
+    GraphTerm__u32Printf(UART_enMODULE_0, psObstacleArg->u32Xpos, psObstacleArg->u32Ypos,            "O");
+}

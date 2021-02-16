@@ -1,6 +1,6 @@
 /**
  *
- * @file Frame_Draw.h
+ * @file Obstacle_Draw.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -22,11 +22,11 @@
  * 12 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 
-#ifndef XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_
-#define XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_
+#ifndef XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_DRAW_H_
+#define XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_DRAW_H_
 
-#include <GameShip/Player/xHeader/Player_Struct.h>
+#include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Struct.h>
 
-void Frame__vDraw(void);
+void Obstacle__vDraw(const Obstacle_TypeDef* psObstacleArg);
 
-#endif /* XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_DRAW_H_ */
+#endif /* XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_DRAW_H_ */

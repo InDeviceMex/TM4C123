@@ -24,7 +24,7 @@
 #ifndef XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_LIFE_H_
 #define XAPPLICATION_GAMESHIP_FRAME_XHEADER_FRAME_LIFE_H_
 
-#include <xApplication/GameShip/Ship/xHeader/Ship_Struct.h>
+#include <GameShip/Player/xHeader/Player_Struct.h>
 
 void Frame__vDrawLife(void);
 

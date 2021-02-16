@@ -33,6 +33,7 @@ void MAIN_vInitSystem(void);
 int32_t main (void);
 
 uint32_t u32MicrophoneValue = 0UL;
+
 int32_t main(void)
 {
     EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
@@ -47,7 +48,7 @@ int32_t main(void)
 
     uint32_t u32GameOver = 0UL;
 
-    Ship_TypeDef* psShip1 = 0UL;
+    Player_TypeDef* psPlayer1 = 0UL;
 
     DLinkedListElement_TypeDef* psShotIterator = 0UL;
     DLinkedListElement_TypeDef* psShotIteratorTemp = 0UL;
@@ -60,24 +61,26 @@ int32_t main(void)
     uint32_t u32ShotPosX = 0UL;
     uint32_t u32ShotPosY = 0UL;
 
-    uint32_t u32AsteroidPos = 0UL;
-    DLinkedListElement_TypeDef* psAsteroidIterator = 0UL;
-    DLinkedListElement_TypeDef* psAsteroidIteratorTemp = 0UL;
-    DLinkedList_TypeDef* psAsteroidList = 0UL;
-    Asteroid_TypeDef* psAsteroidGeneric = 0UL;
-    Asteroid_TypeDef* psAsteroidNew = 0UL;
-    Asteroid_TypeDef** psAsteroidDeletedPointer = 0UL;
-    static Asteroid_TypeDef* psAsteroidDeleted = 0UL;
-    uint32_t u32AsteroidPosX = 0UL;
-    uint32_t u32AsteroidPosY = 0UL;
-    uint32_t u32AsteroidCant = 0UL;
+    uint32_t u32ObstaclePos = 0UL;
+    DLinkedListElement_TypeDef* psObstacleIterator = 0UL;
+    DLinkedListElement_TypeDef* psObstacleIteratorTemp = 0UL;
+    DLinkedList_TypeDef* psObstacleList = 0UL;
+    Obstacle_TypeDef* psObstacleGeneric = 0UL;
+    Obstacle_TypeDef* psObstacleNew = 0UL;
+    Obstacle_TypeDef** psObstacleDeletedPointer = 0UL;
+    static Obstacle_TypeDef* psObstacleDeleted = 0UL;
+    uint32_t u32ObstaclePosX = 0UL;
+    uint32_t u32ObstaclePosY = 0UL;
+    uint32_t u32ObstacleCant = 0UL;
+    uint32_t u32ShotCant = 0UL;
 
     DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_OK;
     psShotDeletedPointer = &psShotDeleted;
-    psAsteroidDeletedPointer = &psAsteroidDeleted;
+    psObstacleDeletedPointer = &psObstacleDeleted;
 
     MAIN_vInitSystem();
     MAIN_vInitEDUMKII();
+
     GraphTerm__vClearScreen(UART_enMODULE_0);
     GraphTerm__vHideCursor(UART_enMODULE_0);
     /*GraphTerm__vSetFontColor(UART_enMODULE_0, 0xFFUL, 0UL,0UL );*/
@@ -87,31 +90,32 @@ int32_t main(void)
      "AccelX:      , AccelY:      , AccelZ:      \n\r"
      "Microphone:     \n\r\n\r");
 
-    psShotList = DLinkedList__psInit(&Ship__vDestructor);
-    psAsteroidList = DLinkedList__psInit(&Asteroid__vDestructor);
-    psShip1 = Ship__psConstructor(42UL, 40UL, 3UL, 3UL);
+    psShotList = DLinkedList__psInit(&Shot__vDestructor);
+    psObstacleList = DLinkedList__psInit(&Obstacle__vDestructor);
+    psPlayer1 = Player__psConstructor(42UL, 40UL, 3UL, 3UL);
 
 
-    for(u32AsteroidPos = 0UL; u32AsteroidPos< ASTEROID_CANT;u32AsteroidPos++ )
+    for(u32ObstaclePos = 0UL; u32ObstaclePos< ASTEROID_CANT;u32ObstaclePos++ )
     {
-        u32AsteroidPosX = Asteroid__u32GetRandPosX();
-        u32AsteroidPosY = Asteroid__u32GetRandPosY();
-        psAsteroidNew = Asteroid__psConstructor(u32AsteroidPosX, u32AsteroidPosY);
-        if(0UL != (uint32_t) psAsteroidNew)
+        u32ObstaclePosX = Obstacle__u32GetRandPosX();
+        u32ObstaclePosY = Obstacle__u32GetRandPosY();
+        psObstacleNew = Obstacle__psConstructor(u32ObstaclePosX, u32ObstaclePosY);
+        if(0UL != (uint32_t) psObstacleNew)
         {
-            psAsteroidIteratorTemp = DLinkedList__psAddEnd(psAsteroidList,  (void*) psAsteroidNew);
-            if(0UL != (uint32_t) psAsteroidIteratorTemp)
+            psObstacleIteratorTemp = DLinkedList__psAddEnd(psObstacleList,  (void*) psObstacleNew);
+            if(0UL != (uint32_t) psObstacleIteratorTemp)
             {
-                u32AsteroidCant++;
+                u32ObstacleCant++;
             }
         }
     }
-    Ship__vDraw(psShip1);
+    Player__vDraw(psPlayer1);
     Frame__vDraw();
-    Ship__vDrawLifes(psShip1);
+    Player__vDrawLifes(psPlayer1);
     while(1UL)
     {
         SysTick__vDelayUs(90000.0f);
+
         enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
         EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
@@ -123,21 +127,12 @@ int32_t main(void)
         if(EDUMKII_enBUTTON_STATE_PRESS == enButton2State)
         {
             u32GameOver = 0UL;
-            Ship__vErase(psShip1);
-            Ship__vSetLifes(psShip1, 3UL);
-            Ship__vSetSubLifes(psShip1, 3UL);
-            Ship__vSetXPos(psShip1, 42UL);
-            Ship__vSetYPos(psShip1, 40UL);
-            Ship__vMove(psShip1);
-        }
-
-
-
-        if(EDUMKII_enJOYSTICK_PRESS == enJoystickSelectValue)
-        {
-        }
-        else
-        {
+            Player__vErase(psPlayer1);
+            Player__vSetLifes(psPlayer1, 3UL);
+            Player__vSetSubLifes(psPlayer1, 3UL);
+            Player__vSetXPos(psPlayer1, 42UL);
+            Player__vSetYPos(psPlayer1, 40UL);
+            Player__vMove(psPlayer1);
         }
 
         GraphTerm__u32Printf(UART_enMODULE_0, 9UL, 0UL,"%1u", enButton1State);
@@ -154,18 +149,22 @@ int32_t main(void)
         {
             if(EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
             {
-                u32ShotPosX = Ship__u32GetXPos(psShip1);
+                u32ShotPosX = Player__u32GetXPos(psPlayer1);
                 u32ShotPosX *= 2UL;
-                u32ShotPosX += Ship__u32GetWidth(psShip1);
+                u32ShotPosX += Player__u32GetWidth(psPlayer1);
                 u32ShotPosX /= 2UL;
-                u32ShotPosY = Ship__u32GetYPos(psShip1);
+                u32ShotPosY = Player__u32GetYPos(psPlayer1);
                 u32ShotPosY *= 2UL;
-                u32ShotPosY += Ship__u32GetHeight(psShip1);
+                u32ShotPosY += Player__u32GetHeight(psPlayer1);
                 u32ShotPosY /= 2UL;
-                psShotNew =  Shot__psConstructor(u32ShotPosX, u32ShotPosY);
-                if(0UL != (uint32_t) psShotNew)
+                if(10UL > u32ShotCant)
                 {
-                    DLinkedList__psAddEnd(psShotList, (void*)psShotNew);
+                    psShotNew =  Shot__psConstructor(u32ShotPosX, u32ShotPosY);
+                    if(0UL != (uint32_t) psShotNew)
+                    {
+                        u32ShotCant++;
+                        DLinkedList__psAddEnd(psShotList, (void*)psShotNew);
+                    }
                 }
             }
 
@@ -179,6 +178,7 @@ int32_t main(void)
                     psShotIteratorTemp = DLinkedList__psGetElementNextNode(psShotIterator);
                     enStatus = DLinkedList__enRemove(psShotList, psShotIterator, (void**) psShotDeletedPointer);
                     {
+                        u32ShotCant--;
                         Shot__vDestructor(*psShotDeletedPointer);
                     }
                     psShotIterator = psShotIteratorTemp;
@@ -189,21 +189,21 @@ int32_t main(void)
                 }
             }
 
-            psAsteroidIterator = DLinkedList__psGetHead(psAsteroidList);
-            while((uint32_t) psAsteroidIterator != 0UL)
+            psObstacleIterator = DLinkedList__psGetHead(psObstacleList);
+            while((uint32_t) psObstacleIterator != 0UL)
             {
-                psAsteroidGeneric = (Asteroid_TypeDef*) DLinkedList__pvGetElementData(psAsteroidIterator);
-                Asteroid__vMove(psAsteroidGeneric);
-                Asteroid__vCollision(psAsteroidGeneric, psShip1);
-                psAsteroidIterator = DLinkedList__psGetElementNextNode(psAsteroidIterator);
+                psObstacleGeneric = (Obstacle_TypeDef*) DLinkedList__pvGetElementData(psObstacleIterator);
+                Obstacle__vMove(psObstacleGeneric);
+                Obstacle__vCollision(psObstacleGeneric, psPlayer1);
+                psObstacleIterator = DLinkedList__psGetElementNextNode(psObstacleIterator);
             }
 
-            psAsteroidIterator = DLinkedList__psGetHead(psAsteroidList);
-            while((uint32_t) psAsteroidIterator != 0UL)
+            psObstacleIterator = DLinkedList__psGetHead(psObstacleList);
+            while((uint32_t) psObstacleIterator != 0UL)
             {
-                psAsteroidGeneric = (Asteroid_TypeDef*) DLinkedList__pvGetElementData(psAsteroidIterator);
-                u32AsteroidPosX = Asteroid__u32GetXPos(psAsteroidGeneric);
-                u32AsteroidPosY = Asteroid__u32GetYPos(psAsteroidGeneric);
+                psObstacleGeneric = (Obstacle_TypeDef*) DLinkedList__pvGetElementData(psObstacleIterator);
+                u32ObstaclePosX = Obstacle__u32GetXPos(psObstacleGeneric);
+                u32ObstaclePosY = Obstacle__u32GetYPos(psObstacleGeneric);
                 psShotIterator = DLinkedList__psGetHead(psShotList);
                 while((uint32_t) psShotIterator != 0UL)
                 {
@@ -212,49 +212,50 @@ int32_t main(void)
                     u32ShotPosX = Shot__u32GetXPos(psShotGeneric);
                     u32ShotPosY = Shot__u32GetYPos(psShotGeneric);
 
-                    if(((u32AsteroidPosX == u32ShotPosX) && ((u32AsteroidPosY + 1UL) == u32ShotPosY)) ||
-                        ((u32AsteroidPosX == u32ShotPosX) && (u32AsteroidPosY == u32ShotPosY)))
+                    if(((u32ObstaclePosX == u32ShotPosX) && ((u32ObstaclePosY + 1UL) == u32ShotPosY)) ||
+                        ((u32ObstaclePosX == u32ShotPosX) && (u32ObstaclePosY == u32ShotPosY)))
                     {
                         GraphTerm__u32Printf(UART_enMODULE_0, u32ShotPosX, u32ShotPosY, " ");
                         enStatus = DLinkedList__enRemove(psShotList, psShotIterator, (void**) psShotDeletedPointer);
                         if(DLinkedList_enSTATUS_OK == enStatus)
                         {
+                            u32ShotCant--;
                             Shot__vDestructor(*psShotDeletedPointer);
                         }
 
-                        GraphTerm__u32Printf(UART_enMODULE_0, u32AsteroidPosX, u32AsteroidPosY, " ");
-                        enStatus = DLinkedList__enRemove(psAsteroidList, psAsteroidIterator, (void**) psAsteroidDeletedPointer);
+                        GraphTerm__u32Printf(UART_enMODULE_0, u32ObstaclePosX, u32ObstaclePosY, " ");
+                        enStatus = DLinkedList__enRemove(psObstacleList, psObstacleIterator, (void**) psObstacleDeletedPointer);
                         {
-                            u32AsteroidCant--;
-                            Asteroid__vDestructor(*psAsteroidDeletedPointer);
+                            u32ObstacleCant--;
+                            Obstacle__vDestructor(*psObstacleDeletedPointer);
                         }
 
-                        if(30UL > u32AsteroidCant)
+                        if(30UL > u32ObstacleCant)
                         {
-                            u32AsteroidPosX = Asteroid__u32GetRandPosX();
-                            u32AsteroidPosY = Asteroid__u32GetRandPosY();
-                            psAsteroidNew = Asteroid__psConstructor(u32AsteroidPosX, u32AsteroidPosY);
-                            if(0UL != (uint32_t) psAsteroidNew)
+                            u32ObstaclePosX = Obstacle__u32GetRandPosX();
+                            u32ObstaclePosY = Obstacle__u32GetRandPosY();
+                            psObstacleNew = Obstacle__psConstructor(u32ObstaclePosX, u32ObstaclePosY);
+                            if(0UL != (uint32_t) psObstacleNew)
                             {
-                                DLinkedList__psAddEnd(psAsteroidList,  (void*) psAsteroidNew);
+                                DLinkedList__psAddEnd(psObstacleList,  (void*) psObstacleNew);
                                 if(DLinkedList_enSTATUS_OK == enStatus)
                                 {
-                                    u32AsteroidCant++;
+                                    u32ObstacleCant++;
                                 }
                             }
                         }
 
-                        if(30UL > u32AsteroidCant)
+                        if(30UL > u32ObstacleCant)
                         {
-                            u32AsteroidPosX = Asteroid__u32GetRandPosX();
-                            u32AsteroidPosY = Asteroid__u32GetRandPosY();
-                            psAsteroidNew = Asteroid__psConstructor(u32AsteroidPosX, u32AsteroidPosY);
-                            if(0UL != (uint32_t) psAsteroidNew)
+                            u32ObstaclePosX = Obstacle__u32GetRandPosX();
+                            u32ObstaclePosY = Obstacle__u32GetRandPosY();
+                            psObstacleNew = Obstacle__psConstructor(u32ObstaclePosX, u32ObstaclePosY);
+                            if(0UL != (uint32_t) psObstacleNew)
                             {
-                                DLinkedList__psAddEnd(psAsteroidList,  (void*) psAsteroidNew);
+                                DLinkedList__psAddEnd(psObstacleList,  (void*) psObstacleNew);
                                 if(DLinkedList_enSTATUS_OK == enStatus)
                                 {
-                                    u32AsteroidCant++;
+                                    u32ObstacleCant++;
                                 }
                             }
                         }
@@ -265,11 +266,11 @@ int32_t main(void)
                         psShotIterator = DLinkedList__psGetElementNextNode(psShotIterator);
                     }
                 }
-                psAsteroidIterator = DLinkedList__psGetElementNextNode(psAsteroidIterator);
+                psObstacleIterator = DLinkedList__psGetElementNextNode(psObstacleIterator);
             }
 
-            u32GameOver = Ship__u32Destroy(psShip1);
-            Ship__vMove(psShip1);
+            u32GameOver = Player__u32Destroy(psPlayer1);
+            Player__vMove(psPlayer1);
         }
     }
 }
@@ -318,6 +319,7 @@ void MAIN_vUART0Init(void)
         UART_enRTS_MODE_SOFT,
         UART_enCTS_MODE_SOFT,
     };
+
     UART_LINE_CONTROL_TypeDef enUart0LineControl =
     {
      UART_enFIFO_ENA,
@@ -335,8 +337,8 @@ void MAIN_vUART0Init(void)
      UART_enLINE_SELECT_PRIMARY,
      UART_enLINE_SELECT_PRIMARY,
     };
+
     UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_STOP);
     UART__enSetConfig(UART_enMODULE_0, UART_enMODE_NORMAL, &enUart0Control, &enUart0LineControl, 1000000UL, &enUart0Line );
     UART__vSetEnable(UART_enMODULE_0, UART_enENABLE_START);
-
 }

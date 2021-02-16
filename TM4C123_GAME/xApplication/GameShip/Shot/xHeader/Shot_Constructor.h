@@ -27,6 +27,6 @@
 #include <xApplication/GameShip/Shot/xHeader/Shot_Struct.h>
 
 Shot_TypeDef* Shot__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg);
-void Shot__vDestructor(Shot_TypeDef* psShotArg);
+void Shot__vDestructor(void* pvShotArg);
 
 #endif /* XAPPLICATION_GAMESHIP_SHOT_XHEADER_SHOT_CONSTRUCTOR_H_ */

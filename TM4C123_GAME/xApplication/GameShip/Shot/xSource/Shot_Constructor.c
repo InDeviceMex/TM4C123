@@ -42,8 +42,9 @@ Shot_TypeDef* Shot__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
     return ShotHandle;
 }
 
-void Shot__vDestructor(Shot_TypeDef* psShotArg)
+void Shot__vDestructor(void* pvShotArg)
 {
+    Shot_TypeDef* psShotArg = (Shot_TypeDef*) pvShotArg;
     if(0UL != (uint32_t) psShotArg)
     {
         psShotArg->u32Xpos = 0UL;
