@@ -54,10 +54,8 @@ int32_t main(void)
     DLinkedListElement_TypeDef* psShotIteratorTemp = 0UL;
     DLinkedList_TypeDef* psShotList = 0UL;
     Shot_TypeDef* psShotGeneric = 0UL;
-    Shot_TypeDef* psShotNew = 0UL;
     Shot_TypeDef** psShotDeletedPointer = 0UL;
     static Shot_TypeDef* psShotDeleted = 0UL;
-    uint32_t u32DeleteShot = 0UL;
     uint32_t u32ShotPosX = 0UL;
     uint32_t u32ShotPosY = 0UL;
 
@@ -90,25 +88,21 @@ int32_t main(void)
      "AccelX:      , AccelY:      , AccelZ:      \n\r"
      "Microphone:     \n\r\n\r");
 
-    psShotList = DLinkedList__psInit(&Shot__vDestructor);
-    psObstacleList = DLinkedList__psInit(&Obstacle__vDestructor);
+    psShotList = Shot__psInitList();
+    psObstacleList = Obstacle__psInitList();
     psPlayer1 = Player__psConstructor(42UL, 40UL, 3UL, 3UL);
-
 
     for(u32ObstaclePos = 0UL; u32ObstaclePos< ASTEROID_CANT;u32ObstaclePos++ )
     {
         u32ObstaclePosX = Obstacle__u32GetRandPosX();
         u32ObstaclePosY = Obstacle__u32GetRandPosY();
-        psObstacleNew = Obstacle__psConstructor(u32ObstaclePosX, u32ObstaclePosY);
-        if(0UL != (uint32_t) psObstacleNew)
+        psObstacleIteratorTemp = Obstacle__psAddElement(psObstacleList, u32ObstaclePosX, u32ObstaclePosY);
+        if(0UL != (uint32_t) psObstacleIteratorTemp)
         {
-            psObstacleIteratorTemp = DLinkedList__psAddEnd(psObstacleList,  (void*) psObstacleNew);
-            if(0UL != (uint32_t) psObstacleIteratorTemp)
-            {
-                u32ObstacleCant++;
-            }
+            u32ObstacleCant++;
         }
     }
+
     Player__vDraw(psPlayer1);
     Frame__vDraw();
     Player__vDrawLifes(psPlayer1);
@@ -149,54 +143,27 @@ int32_t main(void)
         {
             if(EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
             {
-                u32ShotPosX = Player__u32GetXPos(psPlayer1);
-                u32ShotPosX *= 2UL;
-                u32ShotPosX += Player__u32GetWidth(psPlayer1);
-                u32ShotPosX /= 2UL;
-                u32ShotPosY = Player__u32GetYPos(psPlayer1);
-                u32ShotPosY *= 2UL;
-                u32ShotPosY += Player__u32GetHeight(psPlayer1);
-                u32ShotPosY /= 2UL;
-                if(10UL > u32ShotCant)
+                if(20UL > u32ShotCant)
                 {
-                    psShotNew =  Shot__psConstructor(u32ShotPosX, u32ShotPosY);
-                    if(0UL != (uint32_t) psShotNew)
+                    u32ShotPosX = Player__u32GetXPos(psPlayer1);
+                    u32ShotPosX *= 2UL;
+                    u32ShotPosX += Player__u32GetWidth(psPlayer1);
+                    u32ShotPosX /= 2UL;
+                    u32ShotPosY = Player__u32GetYPos(psPlayer1);
+                    u32ShotPosY *= 2UL;
+                    u32ShotPosY += Player__u32GetHeight(psPlayer1);
+                    u32ShotPosY /= 2UL;
+                    psShotIteratorTemp = Shot__psAddElement(psShotList, u32ShotPosX, u32ShotPosY);
+                    if(0UL != (uint32_t) psShotIteratorTemp)
                     {
                         u32ShotCant++;
-                        DLinkedList__psAddEnd(psShotList, (void*)psShotNew);
                     }
                 }
             }
 
-            psShotIterator = DLinkedList__psGetHead(psShotList);
-            while((uint32_t) psShotIterator != 0UL)
-            {
-                psShotGeneric = (Shot_TypeDef*) DLinkedList__pvGetElementData(psShotIterator);
-                u32DeleteShot = Shot__u32Move(psShotGeneric);
-                if(1UL == u32DeleteShot)
-                {
-                    psShotIteratorTemp = DLinkedList__psGetElementNextNode(psShotIterator);
-                    enStatus = DLinkedList__enRemove(psShotList, psShotIterator, (void**) psShotDeletedPointer);
-                    {
-                        u32ShotCant--;
-                        Shot__vDestructor(*psShotDeletedPointer);
-                    }
-                    psShotIterator = psShotIteratorTemp;
-                }
-                else
-                {
-                    psShotIterator = DLinkedList__psGetElementNextNode(psShotIterator);
-                }
-            }
+            u32ShotCant -= Shot__u32CheckToLimit(psShotList);
+            Obstacle__vCheckPlayerCollision(psObstacleList,psPlayer1);
 
-            psObstacleIterator = DLinkedList__psGetHead(psObstacleList);
-            while((uint32_t) psObstacleIterator != 0UL)
-            {
-                psObstacleGeneric = (Obstacle_TypeDef*) DLinkedList__pvGetElementData(psObstacleIterator);
-                Obstacle__vMove(psObstacleGeneric);
-                Obstacle__vCollision(psObstacleGeneric, psPlayer1);
-                psObstacleIterator = DLinkedList__psGetElementNextNode(psObstacleIterator);
-            }
 
             psObstacleIterator = DLinkedList__psGetHead(psObstacleList);
             while((uint32_t) psObstacleIterator != 0UL)
@@ -204,10 +171,10 @@ int32_t main(void)
                 psObstacleGeneric = (Obstacle_TypeDef*) DLinkedList__pvGetElementData(psObstacleIterator);
                 u32ObstaclePosX = Obstacle__u32GetXPos(psObstacleGeneric);
                 u32ObstaclePosY = Obstacle__u32GetYPos(psObstacleGeneric);
+
                 psShotIterator = DLinkedList__psGetHead(psShotList);
                 while((uint32_t) psShotIterator != 0UL)
                 {
-                    psShotIteratorTemp = DLinkedList__psGetElementNextNode(psShotIterator);
                     psShotGeneric = (Shot_TypeDef*) DLinkedList__pvGetElementData(psShotIterator);
                     u32ShotPosX = Shot__u32GetXPos(psShotGeneric);
                     u32ShotPosY = Shot__u32GetYPos(psShotGeneric);
@@ -215,6 +182,7 @@ int32_t main(void)
                     if(((u32ObstaclePosX == u32ShotPosX) && ((u32ObstaclePosY + 1UL) == u32ShotPosY)) ||
                         ((u32ObstaclePosX == u32ShotPosX) && (u32ObstaclePosY == u32ShotPosY)))
                     {
+                        psShotIteratorTemp = DLinkedList__psGetElementNextNode(psShotIterator);
                         GraphTerm__u32Printf(UART_enMODULE_0, u32ShotPosX, u32ShotPosY, " ");
                         enStatus = DLinkedList__enRemove(psShotList, psShotIterator, (void**) psShotDeletedPointer);
                         if(DLinkedList_enSTATUS_OK == enStatus)
@@ -230,6 +198,18 @@ int32_t main(void)
                             Obstacle__vDestructor(*psObstacleDeletedPointer);
                         }
 
+                        u32ObstaclePosX = Obstacle__u32GetRandPosX();
+                        u32ObstaclePosY = Obstacle__u32GetRandPosY();
+                        psObstacleNew = Obstacle__psConstructor(u32ObstaclePosX, u32ObstaclePosY);
+                        if(0UL != (uint32_t) psObstacleNew)
+                        {
+                            DLinkedList__psAddEnd(psObstacleList,  (void*) psObstacleNew);
+                            if(DLinkedList_enSTATUS_OK == enStatus)
+                            {
+                                u32ObstacleCant++;
+                            }
+                        }
+                        /*
                         if(30UL > u32ObstacleCant)
                         {
                             u32ObstaclePosX = Obstacle__u32GetRandPosX();
@@ -244,21 +224,7 @@ int32_t main(void)
                                 }
                             }
                         }
-
-                        if(30UL > u32ObstacleCant)
-                        {
-                            u32ObstaclePosX = Obstacle__u32GetRandPosX();
-                            u32ObstaclePosY = Obstacle__u32GetRandPosY();
-                            psObstacleNew = Obstacle__psConstructor(u32ObstaclePosX, u32ObstaclePosY);
-                            if(0UL != (uint32_t) psObstacleNew)
-                            {
-                                DLinkedList__psAddEnd(psObstacleList,  (void*) psObstacleNew);
-                                if(DLinkedList_enSTATUS_OK == enStatus)
-                                {
-                                    u32ObstacleCant++;
-                                }
-                            }
-                        }
+                        */
                         psShotIterator = psShotIteratorTemp;
                     }
                     else

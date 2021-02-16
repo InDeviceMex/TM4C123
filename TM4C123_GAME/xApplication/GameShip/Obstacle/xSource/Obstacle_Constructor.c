@@ -22,6 +22,7 @@
  * 12 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Constructor.h>
+#include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 #include <stdlib.h>
 
 Obstacle_TypeDef* Obstacle__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
@@ -52,4 +53,28 @@ void Obstacle__vDestructor(void* pvObstacleArg)
         free(psObstacleArg);
         psObstacleArg = (Obstacle_TypeDef*) 0UL;
     }
+}
+
+DLinkedList_TypeDef* Obstacle__psInitList(void)
+{
+    DLinkedList_TypeDef* psObstacleDLinkedList = (DLinkedList_TypeDef*) 0UL;
+    psObstacleDLinkedList = DLinkedList__psInit(&Obstacle__vDestructor);
+    return psObstacleDLinkedList;
+}
+
+void Obstacle__vDestroyList(DLinkedList_TypeDef* psObstacleDLinkedListArg)
+{
+    DLinkedList__vDestroy(psObstacleDLinkedListArg);
+}
+
+DLinkedListElement_TypeDef* Obstacle__psAddElement(DLinkedList_TypeDef* psObstacleDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg)
+{
+    DLinkedListElement_TypeDef* psNewObstacleElement = (DLinkedListElement_TypeDef*) 0UL;
+    Obstacle_TypeDef* psNewObstacle = (Obstacle_TypeDef*) 0UL;
+    psNewObstacle = Obstacle__psConstructor(u32XPosArg, u32YPosArg);
+    if(0UL != (uint32_t) psNewObstacle)
+    {
+        psNewObstacleElement = DLinkedList__psAddEnd(psObstacleDLinkedListArg,  (void*) psNewObstacle);
+    }
+    return psNewObstacleElement;
 }

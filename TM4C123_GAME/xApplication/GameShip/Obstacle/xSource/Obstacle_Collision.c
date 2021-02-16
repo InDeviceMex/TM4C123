@@ -26,6 +26,7 @@
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Move.h>
 #include <xApplication/GameShip/Player/Player.h>
 #include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
+#include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 
 void Obstacle__vCollision(Obstacle_TypeDef* psObstacleArg, Player_TypeDef* psPlayerArg)
 {
@@ -63,5 +64,19 @@ void Obstacle__vCollision(Obstacle_TypeDef* psObstacleArg, Player_TypeDef* psPla
         Player__vDraw(psPlayerArg);
         Player__vDrawLifes(psPlayerArg);
         Obstacle__vSetNewPos(psObstacleArg);
+    }
+}
+
+void Obstacle__vCheckPlayerCollision(const DLinkedList_TypeDef* psObstacleListArg, Player_TypeDef* psPlayerArg)
+{
+    Obstacle_TypeDef* psObstacleGeneric = (Obstacle_TypeDef*) 0UL;
+    DLinkedListElement_TypeDef* psObstacleIterator = (DLinkedListElement_TypeDef*) 0UL;
+    psObstacleIterator = DLinkedList__psGetHead(psObstacleListArg);
+    while((uint32_t) psObstacleIterator != 0UL)
+    {
+        psObstacleGeneric = (Obstacle_TypeDef*) DLinkedList__pvGetElementData(psObstacleIterator);
+        Obstacle__vMove(psObstacleGeneric);
+        Obstacle__vCollision(psObstacleGeneric, psPlayerArg);
+        psObstacleIterator = DLinkedList__psGetElementNextNode(psObstacleIterator);
     }
 }

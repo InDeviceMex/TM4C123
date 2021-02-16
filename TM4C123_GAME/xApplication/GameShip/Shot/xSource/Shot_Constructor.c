@@ -22,6 +22,7 @@
  * 12 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xApplication/GameShip/Shot/xHeader/Shot_Constructor.h>
+#include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 #include <stdlib.h>
 
 Shot_TypeDef* Shot__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
@@ -54,5 +55,26 @@ void Shot__vDestructor(void* pvShotArg)
     }
 }
 
+DLinkedList_TypeDef* Shot__psInitList(void)
+{
+    DLinkedList_TypeDef* psShotDLinkedList = (DLinkedList_TypeDef*) 0UL;
+    psShotDLinkedList = DLinkedList__psInit(&Shot__vDestructor);
+    return psShotDLinkedList;
+}
 
+void Shot__vDestroyList(DLinkedList_TypeDef* psShotDLinkedListArg)
+{
+    DLinkedList__vDestroy(psShotDLinkedListArg);
+}
 
+DLinkedListElement_TypeDef* Shot__psAddElement(DLinkedList_TypeDef* psShotDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg)
+{
+    DLinkedListElement_TypeDef* psNewShotElement = (DLinkedListElement_TypeDef*) 0UL;
+    Shot_TypeDef* psNewShot = (Shot_TypeDef*) 0UL;
+    psNewShot = Shot__psConstructor(u32XPosArg, u32YPosArg);
+    if(0UL != (uint32_t) psNewShot)
+    {
+        psNewShotElement = DLinkedList__psAddEnd(psShotDLinkedListArg,  (void*) psNewShot);
+    }
+    return psNewShotElement;
+}

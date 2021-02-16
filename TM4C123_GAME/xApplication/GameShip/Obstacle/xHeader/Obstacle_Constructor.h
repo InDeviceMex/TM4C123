@@ -26,11 +26,14 @@
 #define XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_CONSTRUCTOR_H_
 
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Struct.h>
+#include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 
 Obstacle_TypeDef* Obstacle__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg);
 void Obstacle__vDestructor(void* pvObstacleArg);
 
+DLinkedList_TypeDef* Obstacle__psInitList(void);
+void Obstacle__vDestroyList(DLinkedList_TypeDef* psObstacleDLinkedListArg);
 
-
+DLinkedListElement_TypeDef* Obstacle__psAddElement(DLinkedList_TypeDef* psObstacleDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg);
 
 #endif /* XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_CONSTRUCTOR_H_ */
