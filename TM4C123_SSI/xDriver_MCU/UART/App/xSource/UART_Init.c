@@ -37,6 +37,3 @@ void UART__vInit(void)
     UART__vRegisterIRQVectorHandler( &UART6__vIRQVectorHandler, UART_enMODULE_6);
     UART__vRegisterIRQVectorHandler( &UART7__vIRQVectorHandler, UART_enMODULE_7);
 }
-
-
-

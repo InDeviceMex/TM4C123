@@ -26,6 +26,7 @@
 #define XDRIVER_MCU_SSI_SSI_H_
 
 #include <xDriver_MCU/SSI/Driver/SSI_Driver.h>
+#include <xDriver_MCU/SSI/App/SSI_App.h>
 #include <xDriver_MCU/SSI/Peripheral/SSI_Peripheral.h>
 
 #endif /* XDRIVER_MCU_SSI_SSI_H_ */
