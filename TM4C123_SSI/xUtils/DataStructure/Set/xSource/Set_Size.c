@@ -1,0 +1,46 @@
+/**
+ *
+ * @file Set_Size.c
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 14 ene. 2021 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 14 ene. 2021     vyldram    1.0         initial Version@endverbatim
+ */
+#include <xUtils/DataStructure/Set/xHeader/Set_Size.h>
+#include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/xHeader/SLinkedList_Size.h>
+
+uint32_t Set__u32GetSize(const Set_TypeDef* const psSet)
+{
+    return SLinkedList__u32GetSize((const SLinkedList_TypeDef*) psSet);
+}
+
+Set_nSTATUS Set__enIsEmpty(const Set_TypeDef* const psSet)
+{
+    Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
+    uint32_t u32SizeReg = 0UL;
+    u32SizeReg = SLinkedList__u32GetSize((const SLinkedList_TypeDef*) psSet);
+
+    if(u32SizeReg == 0UL)
+    {
+        enStatus = Set_enSTATUS_OK;
+    }
+
+    return enStatus;
+}
+
+
