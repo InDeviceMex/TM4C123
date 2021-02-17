@@ -44,5 +44,3 @@ UART_nSTATUS UART__enReadRegister(UART_nMODULE enModule, uint32_t u32OffsetRegis
     }
     return enStatus;
 }
-
-

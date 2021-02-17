@@ -25,4 +25,7 @@
 #ifndef XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
 #define XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_
 
+#include <xDriver_MCU/SSI/Peripheral/Struct/StructPeripheral/SSI_StructPeripheral.h>
+#include <xDriver_MCU/SSI/Peripheral/Struct/StructPeripheral_Bitbanding/SSI_StructPeripheral_Bitbanding.h>
+
 #endif /* XDRIVER_MCU_SSI_PERIPHERAL_STRUCT_SSI_STRUCT_H_ */

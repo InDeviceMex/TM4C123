@@ -45,7 +45,6 @@
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterDefines/xHeader/UART_RegisterDefines_UARTPP.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterDefines/xHeader/UART_RegisterDefines_UARTPeriphID.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterDefines/xHeader/UART_RegisterDefines_UARTRIS.h>
-#include <xDriver_MCU/UART/Peripheral/Register/RegisterDefines/xHeader/UART_RegisterDefines_UARTRIS.h>
 #include <xDriver_MCU/UART/Peripheral/Register/RegisterDefines/xHeader/UART_RegisterDefines_UARTRSR.h>
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_UART_REGISTERDEFINES_H_ */

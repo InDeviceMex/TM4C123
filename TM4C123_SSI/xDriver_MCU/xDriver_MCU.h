@@ -39,6 +39,7 @@
 #include <xDriver_MCU/WDT/WDT.h>
 #include <xDriver_MCU/ADC/ADC.h>
 #include <xDriver_MCU/UART/UART.h>
+#include <xDriver_MCU/SSI/SSI.h>
 #include <xDriver_MCU/ACMP/ACMP.h>
 
 

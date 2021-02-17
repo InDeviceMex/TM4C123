@@ -25,4 +25,8 @@
 #ifndef XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_SSI_REGISTER_H_
 #define XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_SSI_REGISTER_H_
 
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/SSI_RegisterDefines.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterPeripheral/SSI_RegisterPeripheral.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterPeripheral_Bitbanding/SSI_RegisterPeripheral_Bitbanding.h>
+
 #endif /* XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_SSI_REGISTER_H_ */

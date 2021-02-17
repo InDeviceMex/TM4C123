@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI.h
+ * @file SSI_Data.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 11 feb. 2021 @endverbatim
+ * @verbatim 17 feb. 2021 @endverbatim
  *
  * @author
  * @verbatim vyldram @endverbatim
@@ -19,13 +19,13 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 11 feb. 2021     vyldram    1.0         initial Version@endverbatim
+ * 17 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
+#ifndef XDRIVER_MCU_SSI_DRIVER_XHEADER_SSI_DATA_H_
+#define XDRIVER_MCU_SSI_DRIVER_XHEADER_SSI_DATA_H_
 
-#ifndef XDRIVER_MCU_SSI_SSI_H_
-#define XDRIVER_MCU_SSI_SSI_H_
 
-#include <xDriver_MCU/SSI/Driver/SSI_Driver.h>
-#include <xDriver_MCU/SSI/Peripheral/SSI_Peripheral.h>
 
-#endif /* XDRIVER_MCU_SSI_SSI_H_ */
+
+
+#endif /* XDRIVER_MCU_SSI_DRIVER_XHEADER_SSI_DATA_H_ */
