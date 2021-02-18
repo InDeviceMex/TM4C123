@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI_App.h
+ * @file SSI_Phase.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,10 +21,12 @@
  * Date           Author     Version     Description
  * 17 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_SSI_APP_SSI_APP_H_
-#define XDRIVER_MCU_SSI_APP_SSI_APP_H_
+#ifndef XDRIVER_MCU_SSI_DRIVER_FRAMECONTROL_XHEADER_SSI_CLOCK_PHASE_H_
+#define XDRIVER_MCU_SSI_DRIVER_FRAMECONTROL_XHEADER_SSI_CLOCK_PHASE_H_
 
-#include <xDriver_MCU/UART/App/xHeader/UART_Init.h>
-#include <xDriver_MCU/UART/App/xHeader/UART_Config.h>
+#include <xDriver_MCU/SSI/Peripheral/xHeader/SSI_Enum.h>
 
-#endif /* XDRIVER_MCU_SSI_APP_SSI_APP_H_ */
+SSI_nCLOCK_PHASE SSI__enGetClockPhase(SSI_nMODULE enModule);
+void SSI__vSetClockPhase(SSI_nMODULE enModule, SSI_nCLOCK_PHASE enClockPhaseArg);
+
+#endif /* XDRIVER_MCU_SSI_DRIVER_FRAMECONTROL_XHEADER_SSI_CLOCK_PHASE_H_ */

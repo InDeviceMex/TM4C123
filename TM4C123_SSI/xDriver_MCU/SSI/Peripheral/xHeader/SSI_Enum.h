@@ -87,19 +87,19 @@ typedef enum
 
 typedef enum
 {
-    SSI_enLENGTH_4BITS = 0UL,
-    SSI_enLENGTH_5BITS = 1UL,
-    SSI_enLENGTH_6BITS = 2UL,
-    SSI_enLENGTH_7BITS = 3UL,
-    SSI_enLENGTH_8BITS = 4UL,
-    SSI_enLENGTH_9BITS = 5UL,
-    SSI_enLENGTH_10BITS = 6UL,
-    SSI_enLENGTH_11BITS = 7UL,
-    SSI_enLENGTH_12BITS = 8UL,
-    SSI_enLENGTH_13BITS = 9UL,
-    SSI_enLENGTH_14BITS = 10UL,
-    SSI_enLENGTH_15BITS = 11UL,
-    SSI_enLENGTH_16BITS = 12UL,
+    SSI_enLENGTH_4BITS = 3UL,
+    SSI_enLENGTH_5BITS = 4UL,
+    SSI_enLENGTH_6BITS = 5UL,
+    SSI_enLENGTH_7BITS = 6UL,
+    SSI_enLENGTH_8BITS = 7UL,
+    SSI_enLENGTH_9BITS = 8UL,
+    SSI_enLENGTH_10BITS = 9UL,
+    SSI_enLENGTH_11BITS = 10UL,
+    SSI_enLENGTH_12BITS = 11UL,
+    SSI_enLENGTH_13BITS = 12UL,
+    SSI_enLENGTH_14BITS = 13UL,
+    SSI_enLENGTH_15BITS = 14UL,
+    SSI_enLENGTH_16BITS = 15UL,
     SSI_enLENGTH_UNDEF = 0xFFFFFFFFUL,
 }SSI_nLENGTH;
 
@@ -166,5 +166,66 @@ typedef enum
     SSI_enCLOCK_PIOSC = 5UL,
     SSI_enCLOCK_UNDEF = 0xFFFFFFFFUL,
 }SSI_nCLOCK;
+
+typedef enum
+{
+    SSI_enBUSY_IDLE = 0UL,
+    SSI_enBUSY_BUSY = 1UL,
+    SSI_enBUSY_UNDEF = 0xFFFFFFFFUL,
+}SSI_nBUSY;
+
+typedef enum
+{
+    SSI_enFIFO_NO_EMPTY = 0UL,
+    SSI_enFIFO_EMPTY = 1UL,
+    SSI_enFIFO_EMPTY_UNDEF = 0xFFFFFFFFUL,
+}SSI_nFIFO_EMPTY;
+
+typedef enum
+{
+    SSI_enFIFO_NO_FULL = 0UL,
+    SSI_enFIFO_FULL = 1UL,
+    SSI_enFIFO_FULL_UNDEF = 0xFFFFFFFFUL,
+}SSI_nFIFO_FULL;
+
+typedef enum
+{
+    SSI_enLINE_SELECT_PRIMARY = 0UL,
+    SSI_enLINE_SELECT_ALT = 1UL,
+    SSI_enLINE_SELECT_UNDEF = 0xFFFFFFFFUL,
+}SSI_nLINE_SELECT;
+
+typedef enum
+{
+    SSI_enLINE_DIS = 0UL,
+    SSI_enLINE_EN = 1UL,
+    SSI_enLINE_UNDEF = 0xFFFFFFFFUL,
+}SSI_nLINE;
+
+typedef struct
+{
+        SSI_nEOT enEndOfTransmission;
+        SSI_nLOOPBACK enLoopback;
+        SSI_nLINE enRxLine;
+        SSI_nLINE enTxLine;
+        SSI_nLINE enClkLine;
+        SSI_nLINE enFssLine;
+}SSI_CONTROL_TypeDef;
+
+typedef struct
+{
+        SSI_nLINE_SELECT enRx;
+        SSI_nLINE_SELECT enTx;
+        SSI_nLINE_SELECT enClk;
+        SSI_nLINE_SELECT enFss;
+}SSI_LINE_TypeDef;
+
+typedef struct
+{
+        SSI_nFORMAT enFormat;
+        SSI_nCLOCK_PHASE enClockPhase;
+        SSI_nCLOCK_POLARITY enClockPolarity;
+        SSI_nLENGTH enLengthData;
+}SSI_FRAME_CONTROL_TypeDef;
 
 #endif /* XDRIVER_MCU_SSI_PERIPHERAL_XHEADER_SSI_ENUM_H_ */

@@ -24,6 +24,9 @@
 #ifndef XDRIVER_MCU_SSI_DRIVER_SSI_DRIVER_H_
 #define XDRIVER_MCU_SSI_DRIVER_SSI_DRIVER_H_
 
+#include <xDriver_MCU/SSI/Driver/Control/SSI_Control.h>
+#include <xDriver_MCU/SSI/Driver/Flags/SSI_Flags.h>
+#include <xDriver_MCU/SSI/Driver/FrameControl/SSI_FrameControl.h>
 #include <xDriver_MCU/SSI/Driver/Intrinsics/SSI_Intrinsics.h>
 #include <xDriver_MCU/SSI/Driver/xHeader/SSI_ClockConfig.h>
 #include <xDriver_MCU/SSI/Driver/xHeader/SSI_DMA.h>

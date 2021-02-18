@@ -69,7 +69,7 @@ uint32_t UART__u32GetFifoData(UART_nMODULE enModule, uint32_t* pu32FifoArray)
         pu32UartData = (volatile uint32_t*) u32UartBase;
 
         enFifoEmpty = UART__enIsFifoReceiveEmpty((UART_nMODULE) u32Module);
-        while(UART_enFIFO_EMPTY_NO == enFifoEmpty)
+        while(UART_enFIFO_NO_EMPTY == enFifoEmpty)
         {
             *pu32FifoArray = *pu32UartData;
             pu32FifoArray += 0x1U;
@@ -101,7 +101,7 @@ uint32_t UART__u32GetFifoDataByte(UART_nMODULE enModule, uint8_t* pu8FifoArray)
         pu32UartData = (volatile uint32_t*) u32UartBase;
 
         enFifoEmpty = UART__enIsFifoReceiveEmpty((UART_nMODULE) u32Module);
-        while(UART_enFIFO_EMPTY_NO == enFifoEmpty)
+        while(UART_enFIFO_NO_EMPTY == enFifoEmpty)
         {
             *pu8FifoArray = (uint8_t) *pu32UartData;
             pu8FifoArray += 0x1U;
@@ -134,7 +134,7 @@ uint32_t UART__u32SetFifoData(UART_nMODULE enModule, const uint32_t* pu32FifoArr
         while((u32Count != u32SizeBuffer) && (0UL != u32Timeout))
         {
             enFifoFull = UART__enIsFifoTransmitFull(enModule);
-            if(UART_enFIFO_FULL_NO == enFifoFull)
+            if(UART_enFIFO_NO_FULL == enFifoFull)
             {
                 *pu32UartData = *pu32FifoArray;
                 pu32FifoArray += 0x1U;
@@ -174,7 +174,7 @@ uint32_t UART__u32SetFifoDataByte(UART_nMODULE enModule, const uint8_t* pu8FifoA
         while((u32Count != u32SizeBuffer) && (0UL != u32Timeout))
         {
             enFifoFull = UART__enIsFifoTransmitFull(enModule);
-            if(UART_enFIFO_FULL_NO == enFifoFull)
+            if(UART_enFIFO_NO_FULL == enFifoFull)
             {
                 u8Reg = (uint8_t) (*pu8FifoArray);
                 *pu32UartData = (uint32_t) u8Reg;

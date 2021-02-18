@@ -25,9 +25,9 @@
 #include <xDriver_MCU/UART/Driver/LineControl/UART_LineControl.h>
 
 
-void UART__vSetLineControl(UART_nMODULE enModule, UART_nLENGTH enLengthData, UART_nFIFO enFifoEnable, UART_nSTOP enStopBitsArg, UART_nPARITY enParityState, UART_nPARITY_TYPE enParityTypeArg, UART_nPARITY_STICK enParityStickArg)
+void UART__vSetLineControl(UART_nMODULE enModule, UART_nLENGTH enLengthDataArg, UART_nFIFO enFifoEnable, UART_nSTOP enStopBitsArg, UART_nPARITY enParityState, UART_nPARITY_TYPE enParityTypeArg, UART_nPARITY_STICK enParityStickArg)
 {
-    UART__vSetDataLength(enModule, enLengthData);
+    UART__vSetDataLength(enModule, enLengthDataArg);
     UART__vSetFifoEnable(enModule, enFifoEnable);
     UART__vSetStopBits(enModule, enStopBitsArg);
     UART__vSetParityEnable(enModule, enParityState);
@@ -58,13 +58,13 @@ void UART__vSetLineControlStructPointer(UART_nMODULE enModule, const UART_LINE_C
     }
 }
 
-UART_nSTATUS UART__enSetBaudRateAndLineControl(UART_nMODULE enModule, UART_nLENGTH enLengthData, UART_nFIFO enFifoEnable, UART_nSTOP enStopBitsArg, UART_nPARITY enParityState, UART_nPARITY_TYPE enParityTypeArg, UART_nPARITY_STICK enParityStickArg, uint32_t u32BaudRateArg)
+UART_nSTATUS UART__enSetBaudRateAndLineControl(UART_nMODULE enModule, UART_nLENGTH enLengthDataArg, UART_nFIFO enFifoEnable, UART_nSTOP enStopBitsArg, UART_nPARITY enParityState, UART_nPARITY_TYPE enParityTypeArg, UART_nPARITY_STICK enParityStickArg, uint32_t u32BaudRateArg)
 {
     UART_nSTATUS enStatus = UART_enSTATUS_ERROR;
     enStatus = UART__enSetBaudRate(enModule, u32BaudRateArg);
     if(UART_enSTATUS_OK == enStatus)
     {
-        UART__vSetLineControl(enModule, enLengthData, enFifoEnable, enStopBitsArg, enParityState, enParityTypeArg, enParityStickArg);
+        UART__vSetLineControl(enModule, enLengthDataArg, enFifoEnable, enStopBitsArg, enParityState, enParityTypeArg, enParityStickArg);
     }
     return enStatus;
 }

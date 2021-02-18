@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI_App.h
+ * @file SSI_Enable.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,10 +21,12 @@
  * Date           Author     Version     Description
  * 17 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_SSI_APP_SSI_APP_H_
-#define XDRIVER_MCU_SSI_APP_SSI_APP_H_
+#ifndef XDRIVER_MCU_SSI_DRIVER_CONTROL_XHEADER_SSI_ENABLE_H_
+#define XDRIVER_MCU_SSI_DRIVER_CONTROL_XHEADER_SSI_ENABLE_H_
 
-#include <xDriver_MCU/UART/App/xHeader/UART_Init.h>
-#include <xDriver_MCU/UART/App/xHeader/UART_Config.h>
+#include <xDriver_MCU/SSI/Peripheral/xHeader/SSI_Enum.h>
 
-#endif /* XDRIVER_MCU_SSI_APP_SSI_APP_H_ */
+void SSI__vSetEnable(SSI_nMODULE enModule, SSI_nENABLE enEnableArg);
+SSI_nENABLE SSI__enGetEnable(SSI_nMODULE enModule);
+
+#endif /* XDRIVER_MCU_SSI_DRIVER_CONTROL_XHEADER_SSI_ENABLE_H_ */
