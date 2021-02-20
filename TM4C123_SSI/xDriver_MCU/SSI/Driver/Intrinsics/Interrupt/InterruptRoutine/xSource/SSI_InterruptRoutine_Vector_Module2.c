@@ -76,8 +76,8 @@ void SSI2__vIRQVectorHandler(void)
                 u32RegDMASource &= DMA_DMACHMAP1_R_CH13SEL_MASK;
                 if(DMA_DMACHMAP1_R_CH13SEL_SSI2_TX == u32RegDMASource)
                 {
-                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][DMA_SOURCE_BIT_TX]();
                     DMA_DMACHIS_R = DMA_SOURCE_MASK_TX;
+                    DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_2][DMA_SOURCE_BIT_TX]();
                 }
             }
         }

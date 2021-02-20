@@ -18,11 +18,13 @@
 /*Utils Libraries*/
 #include <xUtils/Math/Math.h>
 #include <xUtils/Conversion/Conversion.h>
+#include <xUtils/Colors/Colors.h>
 #include <xUtils/DataStructure/DataStructure.h>
 #include <xApplication/Printf/Printf.h>
 
 /*Applications*/
 #include <xApplication/EDUMKII/EDUMKII.h>
+#include <xApplication/ST7735/ST7735.h>
 #include <xApplication/GameShip/GameShip.h>
 
 #define ASTEROID_CANT (5UL)
@@ -45,10 +47,16 @@ int32_t main(void)
     int32_t s32AccelerometerZValue = 0UL;
     uint32_t u32JoystickXValue = 0UL;
     uint32_t u32JoystickYValue = 0UL;
+    uint32_t u32LcdPosX= 0UL;
+    uint32_t u32LcdPosY = 0UL;
+    uint32_t u32LcdPosXCurrent= 0UL;
+    uint32_t u32LcdPosYCurrent = 0UL;
+
+    uint32_t u32ColorPos = 0UL;
 
     MAIN_vInitSystem();
     MAIN_vInitEDUMKII();
-
+    ST7735__vInitRModel(ST7735_enINITFLAGS_GREEN);
     GraphTerm__vClearScreen(UART_enMODULE_0);
     GraphTerm__vHideCursor(UART_enMODULE_0);
     /*GraphTerm__vSetFontColor(UART_enMODULE_0, 0xFFUL, 0UL,0UL );*/
@@ -60,10 +68,12 @@ int32_t main(void)
 
     while(1UL)
     {
-        SysTick__vDelayUs(90000.0f);
+        SysTick__vDelayUs(30000.0f);
 
         enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
+        u32LcdPosXCurrent = Math__u32Map(u32JoystickXValue, 4096UL, 0UL, 128UL - 5UL, 5UL);
+        u32LcdPosYCurrent = (uint32_t) Math__s32Map((int32_t) u32JoystickYValue, 4096, 0, 5, 128 - 5);
         EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
         EDUMKII_Microphone_vSample( &u32MicrophoneValue);
 
@@ -79,6 +89,19 @@ int32_t main(void)
         GraphTerm__u32Printf(UART_enMODULE_0, 22UL, 2UL,"%+5d", s32AccelerometerYValue);
         GraphTerm__u32Printf(UART_enMODULE_0, 36UL, 2UL,"%+5d", s32AccelerometerZValue);
         GraphTerm__u32Printf(UART_enMODULE_0, 12UL, 3UL,"%4u", u32MicrophoneValue);
+
+        ST7735__vFillRect((int16_t) u32LcdPosX - 5, (int16_t) u32LcdPosY - 5, 10, 10, (uint16_t) COLORS_enBLACK);
+        ST7735__vFillRect((int16_t) u32LcdPosXCurrent - 5, (int16_t) u32LcdPosYCurrent - 5, 10, 10, (uint16_t) COLORS_enAQUAMARINE);
+        u32LcdPosX = u32LcdPosXCurrent;
+        u32LcdPosY = u32LcdPosYCurrent;
+        if(u32ColorPos < 140UL)
+        {
+            u32ColorPos++;
+        }
+        else
+        {
+            u32ColorPos = 0UL;
+        }
     }
 }
 
@@ -101,6 +124,7 @@ void MAIN_vInitSystem(void)
     DMA__vInit();
     ADC__vInit();
     UART__vInit();
+    SSI__vInit();
 
     MAIN_vUART0Init();
 }

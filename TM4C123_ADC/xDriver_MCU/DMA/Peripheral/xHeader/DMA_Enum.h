@@ -124,7 +124,7 @@ typedef enum
 typedef enum
 {
     DMA_enCH_CTL_PRIMARY    =0u,
-    DMA_enCH_CTL_ALTERTATE  =1u,
+    DMA_enCH_CTL_ALTERNATE  =1u,
     DMA_enCH_CTL_UNDEF      =0xFFFFFFFFu,
 }DMA_nCH_CTL;
 

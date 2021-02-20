@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_SSI_APP_SSI_APP_H_
 #define XDRIVER_MCU_SSI_APP_SSI_APP_H_
 
-#include <xDriver_MCU/UART/App/xHeader/UART_Init.h>
-#include <xDriver_MCU/UART/App/xHeader/UART_Config.h>
+#include <xDriver_MCU/SSI/App/xHeader/SSI_Init.h>
+#include <xDriver_MCU/SSI/App/xHeader/SSI_Config.h>
 
 #endif /* XDRIVER_MCU_SSI_APP_SSI_APP_H_ */

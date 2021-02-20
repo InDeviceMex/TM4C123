@@ -34,7 +34,7 @@ void DMA_CH__vSetPrimaryControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_T
 
 void DMA_CH__vSetAlternateControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef psControl)
 {
-        DMA_CH__vSetControlStruct(enDMAChannel, DMA_enCH_CTL_ALTERTATE, psControl);
+        DMA_CH__vSetControlStruct(enDMAChannel, DMA_enCH_CTL_ALTERNATE, psControl);
 }
 
 void DMA_CH__vSetControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure, DMA_CONTROL_Typedef psControl)
@@ -59,7 +59,7 @@ DMA_nSTATUS DMA_CH__enGetPrimaryControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL
 DMA_nSTATUS DMA_CH__enGetAlternateControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* psControl)
 {
     DMA_nSTATUS enDMAStatus = DMA_enSTATUS_ERROR;
-    enDMAStatus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_ALTERTATE, psControl);
+    enDMAStatus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE, psControl);
     return enDMAStatus;
 }
 
@@ -88,7 +88,7 @@ DMA_CONTROL_Typedef* DMA_CH__psGetPrimaryControl(DMA_nCH_MODULE enDMAChannel)
 
 DMA_CONTROL_Typedef* DMA_CH__psGetAlternateControl(DMA_nCH_MODULE enDMAChannel)
 {
-    return DMA_CH__psGetControl(enDMAChannel, DMA_enCH_CTL_ALTERTATE);
+    return DMA_CH__psGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE);
 }
 
 DMA_CONTROL_Typedef* DMA_CH__psGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure)
