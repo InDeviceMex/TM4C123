@@ -1,6 +1,6 @@
 /**
  *
- * @file Graphics.h
+ * @file Graphics_CheckParams.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,9 +21,11 @@
  * Date           Author     Version     Description
  * 19 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_GRAPHICS_GRAPHICS_H_
-#define XUTILS_GRAPHICS_GRAPHICS_H_
+#ifndef XUTILS_GRAPHICS_XHEADER_GRAPHICS_CHECKPARAMS_H_
+#define XUTILS_GRAPHICS_XHEADER_GRAPHICS_CHECKPARAMS_H_
 
-#include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
+#include <xUtils/Graphics/Common/xHeader/Graphics_Enum.h>
 
-#endif /* XUTILS_GRAPHICS_GRAPHICS_H_ */
+Graphics_nSTATUS Graphics__enCheckParams(uint32_t u32PosStart, uint32_t u32PosOffset, uint32_t u32ValueMax);
+
+#endif /* XUTILS_GRAPHICS_XHEADER_GRAPHICS_CHECKPARAMS_H_ */

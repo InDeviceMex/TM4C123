@@ -72,10 +72,11 @@ int32_t main(void)
 
         enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
-        u32LcdPosXCurrent = Math__u32Map(u32JoystickXValue, 4096UL, 0UL, 128UL - 5UL, 5UL);
-        u32LcdPosYCurrent = (uint32_t) Math__s32Map((int32_t) u32JoystickYValue, 4096, 0, 5, 128 - 5);
+        u32LcdPosXCurrent = Math__u32Map(u32JoystickXValue, 4096UL, 0UL, 128UL - 25UL, 25UL);
+        u32LcdPosYCurrent = (uint32_t) Math__s32Map((int32_t) u32JoystickYValue, 4096, 0, 25, 128 - 25);
         EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
         EDUMKII_Microphone_vSample( &u32MicrophoneValue);
+
 
         enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
         enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
@@ -90,8 +91,8 @@ int32_t main(void)
         GraphTerm__u32Printf(UART_enMODULE_0, 36UL, 2UL,"%+5d", s32AccelerometerZValue);
         GraphTerm__u32Printf(UART_enMODULE_0, 12UL, 3UL,"%4u", u32MicrophoneValue);
 
-        ST7735__vFillRect((int16_t) u32LcdPosX - 5, (int16_t) u32LcdPosY - 5, 10, 10, (uint16_t) COLORS_enBLACK);
-        ST7735__vFillRect((int16_t) u32LcdPosXCurrent - 5, (int16_t) u32LcdPosYCurrent - 5, 10, 10, (uint16_t) COLORS_enAQUAMARINE);
+        ST7735__vFillRect((int16_t) u32LcdPosX - 25, (int16_t) u32LcdPosY - 25, 50, 50, (uint16_t) COLORS_enBLACK);
+        ST7735__vFillRect((int16_t) u32LcdPosXCurrent - 25, (int16_t) u32LcdPosYCurrent - 25, 50, 50, (uint16_t) COLORS_enAQUAMARINE);
         u32LcdPosX = u32LcdPosXCurrent;
         u32LcdPosY = u32LcdPosYCurrent;
         if(u32ColorPos < 140UL)

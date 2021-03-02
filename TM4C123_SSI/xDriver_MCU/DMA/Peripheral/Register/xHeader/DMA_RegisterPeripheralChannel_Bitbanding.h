@@ -29,8 +29,8 @@
 #include <xDriver_MCU/DMA/Peripheral/Register/RegisterDefines/DMA_RegisterDefines.h>
 #include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel_Bitbanding.h>
 
-#define DMACH_BITBANDING    ((DMACH_BITBANDING_TypeDef*) ((uint32_t) DMACH_BITBANDING_BASE + (DMACH_OFFSET*(uint32_t) 32UL)))
-#define DMAALTCH_BITBANDING    ((DMACH_BITBANDING_TypeDef*) ((uint32_t) DMAALTCH_BITBANDING_BASE + (DMAALTCH_OFFSET*(uint32_t) 32UL)))
+#define DMACH_BITBANDING    ((DMACH_BITBANDING_TypeDef*) ((uint32_t) DMACH_BITBANDING_BASE + (DMACH_OFFSET * (uint32_t) 32UL)))
+#define DMAALTCH_BITBANDING    ((DMACH_BITBANDING_TypeDef*) ((uint32_t) DMAALTCH_BITBANDING_BASE + (DMAALTCH_OFFSET * (uint32_t) 32UL)))
 
 /********************************************************************************************
 ************************************** 1 DMASRCENDP **********************************************

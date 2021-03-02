@@ -1,6 +1,6 @@
 /**
  *
- * @file Graphics.h
+ * @file Graphics_Defines.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,9 +21,12 @@
  * Date           Author     Version     Description
  * 19 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_GRAPHICS_GRAPHICS_H_
-#define XUTILS_GRAPHICS_GRAPHICS_H_
+#ifndef XAPPLICATION_ST7735_GRAPHICS_COMMON_XHEADER_GRAPHICS_DEFINES_H_
+#define XAPPLICATION_ST7735_GRAPHICS_COMMON_XHEADER_GRAPHICS_DEFINES_H_
 
-#include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
+#include <xUtils/Graphics/Common/Graphics_Common.h>
 
-#endif /* XUTILS_GRAPHICS_GRAPHICS_H_ */
+typedef Graphics_Layer_TypeDef ST7735_Layer_Typedef;
+typedef Graphics_DIMENSIONS_TypeDef ST7735_DIMENSIONS_Typedef;
+
+#endif /* XAPPLICATION_ST7735_GRAPHICS_COMMON_XHEADER_GRAPHICS_DEFINES_H_ */

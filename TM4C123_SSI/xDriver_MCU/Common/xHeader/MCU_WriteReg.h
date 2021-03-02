@@ -39,5 +39,6 @@ void MCU__vWriteRegister_RAM(uint32_t u32PeripheralBase, uint32_t u32OffsetRegis
 #endif
 
 void MCU__vWriteRegister(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
+void MCU__vWriteRegister_Direct(uint32_t u32PeripheralBase, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_WRITEREG_H_ */

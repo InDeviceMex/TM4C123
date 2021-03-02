@@ -1,6 +1,6 @@
 /**
  *
- * @file Graphics.h
+ * @file Graphics_Enum.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,9 +21,16 @@
  * Date           Author     Version     Description
  * 19 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_GRAPHICS_GRAPHICS_H_
-#define XUTILS_GRAPHICS_GRAPHICS_H_
+#ifndef XUTILS_GRAPHICS_XHEADER_GRAPHICS_ENUM_H_
+#define XUTILS_GRAPHICS_XHEADER_GRAPHICS_ENUM_H_
 
-#include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
+#include <xUtils/Standard/Standard.h>
 
-#endif /* XUTILS_GRAPHICS_GRAPHICS_H_ */
+typedef enum
+{
+    Graphics_enSTATUS_OK = 0UL,
+    Graphics_enSTATUS_ERROR = 1UL,
+    Graphics_enSTATUS_UNDEF = 0xFFFFFFFFUL,
+}Graphics_nSTATUS;
+
+#endif /* XUTILS_GRAPHICS_XHEADER_GRAPHICS_ENUM_H_ */

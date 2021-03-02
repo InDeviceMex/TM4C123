@@ -49,12 +49,12 @@ void EDUMKII_Microphone_vInit(void)
         DMA_enCH_REQTYPE_BOTH,
         DMA_enCH_PERIPHERAL_ENA,
         DMA_enCH_CTL_PRIMARY ,
-        DMA_enCH_PRIO_DEFAULT ,
+        DMA_enCH_PRIO_HIGH ,
         DMA_enCH_ENCODER_0
     };
 
     DMACHCTL_TypeDef enDMAChControl = {
-         DMA_enCH_MODE_PING_PONG,
+         DMA_enCH_MODE_BASIC,
          DMA_enCH_BURST_OFF,
          1UL-1U,
          DMA_enCH_BURST_SIZE_1,
@@ -91,7 +91,7 @@ void EDUMKII_Microphone_vInit(void)
     sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_0, ADC_en_MUX_0, &sADC0SampleConfig);
 
-    ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_0, ADC_enPRI7);
+    ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_0, ADC_enPRI0);
     ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_0, ADC_enSEQ_ENABLE_ENA);
     EDUMKII_Common_vTimerInit();
 }

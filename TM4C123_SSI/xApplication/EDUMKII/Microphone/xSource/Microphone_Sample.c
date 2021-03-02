@@ -37,7 +37,7 @@ void EDUMKII_Microphone_vSample(uint32_t *u32Input)
 void EDUMKII_Microphone_vIRQSourceHandler(void)
 {
     DMACHCTL_TypeDef enChControl = {
-         DMA_enCH_MODE_PING_PONG,
+         DMA_enCH_MODE_BASIC,
          DMA_enCH_BURST_OFF,
          1UL-1U,
          DMA_enCH_BURST_SIZE_1,
@@ -48,16 +48,8 @@ void EDUMKII_Microphone_vIRQSourceHandler(void)
          DMA_enCH_DST_INC_WORD,
     };
 
-    DMA_nCH_CTL enDMAcontrol = DMA_enCH_CTL_UNDEF;
-    enDMAcontrol = DMA_CH__enGetControlStructure(DMA_enCH_MODULE_14);
-    if(DMA_enCH_CTL_PRIMARY == enDMAcontrol)
-    {
-        DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_14, enChControl);
-    }
-    else
-    {
-        DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_14, enChControl);
-    }
+    DMACH->DMACh[14UL].DMACHCTL = *((volatile uint32_t*) &enChControl);
+    DMA_BITBANDING->DMAENASET_Bit.SET14 = (uint32_t)  DMA_enCH_ENA_ENA;
 }
 
 

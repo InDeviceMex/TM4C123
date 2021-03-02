@@ -47,10 +47,10 @@ volatile uint32_t ST7735_vDMATxInteruptStatus = 0UL;
 volatile uint32_t ST7735_u32DMATransferSizeLeft = 0UL;
 
 DMACHCTL_TypeDef enDMAChControlPrim = {
-    DMA_enCH_MODE_PING_PONG,
+    DMA_enCH_MODE_BASIC,
     DMA_enCH_BURST_ON,
     8UL-1U,
-    DMA_enCH_BURST_SIZE_4,
+    DMA_enCH_BURST_SIZE_8,
     0,
     DMA_enCH_SRC_SIZE_HALF_WORD,
     DMA_enCH_SRC_INC_NO,
@@ -58,33 +58,21 @@ DMACHCTL_TypeDef enDMAChControlPrim = {
     DMA_enCH_DST_INC_NO,
 };
 
-DMACHCTL_TypeDef enDMAChControlAlter = {
-    DMA_enCH_MODE_PING_PONG,
-    DMA_enCH_BURST_ON,
-    8UL-1U,
-    DMA_enCH_BURST_SIZE_4,
-    0,
-    DMA_enCH_SRC_SIZE_HALF_WORD,
-    DMA_enCH_SRC_INC_NO,
-    DMA_enCH_DST_SIZE_HALF_WORD,
-    DMA_enCH_DST_INC_NO,
-};
 void ST7735__vInitWriteDMAConfig(void)
 {
     DMA_CONFIG_Typedef enDMAChConfig= {
         DMA_enCH_REQTYPE_BOTH,
         DMA_enCH_PERIPHERAL_ENA,
         DMA_enCH_CTL_PRIMARY ,
-        DMA_enCH_PRIO_HIGH ,
+        DMA_enCH_PRIO_DEFAULT ,
         DMA_enCH_ENCODER_2
     };
 
     DMA__vRegisterIRQSourceHandler( &ST7735__vDMATxInterupt, DMA_enCH_MODULE_13, DMA_enCH_ENCODER_2 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_13, (uint32_t) (SSI2_BASE + SSI_SSIDR_OFFSET));
-    DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_13, (uint32_t) (SSI2_BASE + SSI_SSIDR_OFFSET));
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) 0UL);
-    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) 0UL);
 
+    SSI__vSetDMATx(ST7735_SSI, SSI_enDMA_EN);
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_13, enDMAChConfig);
 
 }
@@ -150,7 +138,7 @@ uint32_t ST7735__u32WriteFifo(uint16_t u16DataArg, uint32_t u32BufferCant)
 }
 
 
-uint32_t ST7735__u32WriteDMA(uint16_t u16DataArg, uint32_t u32BufferCant)
+uint32_t ST7735__u32WriteDMA(uint32_t u32DataArg, uint32_t u32BufferCant)
 {
     uint32_t u32StatusReg = 0UL;
     uint32_t u32ReceiveReg = 0xFFFFFFFFUL;
@@ -160,49 +148,35 @@ uint32_t ST7735__u32WriteDMA(uint16_t u16DataArg, uint32_t u32BufferCant)
         ST7735__vEnableChipSelect();
         ST7735__vSetData();
 
-        ST7735__vSetDMATxInterupt(0UL);
-        SSI__vSetDMATx(ST7735_SSI, SSI_enDMA_EN);
-
+        enDMAChControlPrim.XFERMODE = DMA_enCH_MODE_BASIC;
         if(u32BufferCant > 1024UL)
         {
-            enDMAChControlPrim.XFERMODE = DMA_enCH_MODE_PING_PONG;
             enDMAChControlPrim.XFERSIZE = 1024UL - 1UL;
             u32BufferCant -= 1024UL;
-            if(u32BufferCant > 1024UL)
-            {
-                enDMAChControlAlter.XFERMODE = DMA_enCH_MODE_PING_PONG;
-                enDMAChControlAlter.XFERSIZE = 1024UL - 1UL;
-                u32BufferCant -= 1024UL;
-                ST7735__vSetTransferSizeLeft(u32BufferCant);
-            }
-            else
-            {
-                enDMAChControlAlter.XFERMODE = DMA_enCH_MODE_BASIC;
-                enDMAChControlAlter.XFERSIZE = u32BufferCant - 1UL;
-                ST7735__vSetTransferSizeLeft(0UL);
-            }
         }
-        /*Transfer is basic, no ping-pong needed*/
         else
         {
-            enDMAChControlAlter.XFERMODE = DMA_enCH_MODE_STOP;
-            enDMAChControlPrim.XFERMODE = DMA_enCH_MODE_BASIC;
             enDMAChControlPrim.XFERSIZE = u32BufferCant - 1UL;
-            ST7735__vSetTransferSizeLeft(0UL);
+            u32BufferCant = 0UL;
         }
+        ST7735__vSetTransferSizeLeft(u32BufferCant);
 
-        DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) &u16DataArg);
-        DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) &u16DataArg);
+        DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) &u32DataArg);
         DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_13, enDMAChControlPrim);
-        DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_13, enDMAChControlAlter);
+
         DMA_CH__vSetEnable(DMA_enCH_MODULE_13, DMA_enCH_ENA_ENA);
+
         do
         {
-            u32StatusReg = ST7735__u32GetDMATxInterupt();
-        }while(0UL == u32StatusReg);
+            u32StatusReg = ST7735__u32GetTransferSizeLeft();
+        }while(0UL != u32StatusReg);
 
-        SSI__vSetDMATx(ST7735_SSI, SSI_enDMA_DIS);
-        ST7735__vSetDMATxInterupt(0UL);
+        do
+        {
+            u32StatusReg = (uint32_t) DMA_CH__enGetEnable(DMA_enCH_MODULE_13);
+        }while(0UL != u32StatusReg);
+
+
         ST7735__vDisableChipSelect();
     }
     return u32ReceiveReg;
@@ -210,69 +184,31 @@ uint32_t ST7735__u32WriteDMA(uint16_t u16DataArg, uint32_t u32BufferCant)
 
 void ST7735__vDMATxInterupt(void)
 {
-    DMA_nCH_MODE enDMAmodeAlt = DMA_enCH_MODE_UNDEF;
-    DMA_nCH_MODE enDMAmodePri = DMA_enCH_MODE_UNDEF;
+    DMACHCTL_TypeDef enDMAChControl = {
+        DMA_enCH_MODE_BASIC,
+        DMA_enCH_BURST_ON,
+        8UL-1U,
+        DMA_enCH_BURST_SIZE_8,
+        0,
+        DMA_enCH_SRC_SIZE_HALF_WORD,
+        DMA_enCH_SRC_INC_NO,
+        DMA_enCH_DST_SIZE_HALF_WORD,
+        DMA_enCH_DST_INC_NO,
+    };
 
-    enDMAmodePri = DMA_CH__enGetPrimaryTransferMode(DMA_enCH_MODULE_13);
-    if(DMA_enCH_MODE_STOP == enDMAmodePri)
+    if(0UL != ST7735_u32DMATransferSizeLeft)
     {
-        if(0UL != ST7735_u32DMATransferSizeLeft)
+        if(ST7735_u32DMATransferSizeLeft > 1024UL)
         {
-            if(ST7735_u32DMATransferSizeLeft > 1024UL)
-            {
-                enDMAmodePri = DMA_enCH_MODE_PING_PONG;
-                enDMAChControlPrim.XFERMODE = enDMAmodePri;
-                enDMAChControlPrim.XFERSIZE = 1024UL - 1UL;
-                DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_13, enDMAChControlPrim);
-                ST7735_u32DMATransferSizeLeft -= 1024UL;
-            }
-            else
-            {
-                if(0UL != ST7735_u32DMATransferSizeLeft)
-                {
-                    enDMAmodePri = DMA_enCH_MODE_BASIC;
-                    enDMAChControlPrim.XFERMODE = enDMAmodePri;
-                    enDMAChControlPrim.XFERSIZE = ST7735_u32DMATransferSizeLeft - 1UL;
-                    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_13, enDMAChControlPrim);
-                    ST7735_u32DMATransferSizeLeft = 0UL;
-                }
-            }
+            enDMAChControl.XFERSIZE = 1024UL - 1UL;
+            ST7735_u32DMATransferSizeLeft -= 1024UL;
         }
-    }
-
-    enDMAmodeAlt = DMA_CH__enGetAlternateTransferMode(DMA_enCH_MODULE_13);
-    if(DMA_enCH_MODE_STOP == enDMAmodeAlt)
-    {
-        if(0UL != ST7735_u32DMATransferSizeLeft)
+        else
         {
-            if(ST7735_u32DMATransferSizeLeft > 1024UL)
-            {
-                enDMAmodeAlt = DMA_enCH_MODE_PING_PONG;
-                enDMAChControlAlter.XFERMODE = enDMAmodeAlt;
-                enDMAChControlAlter.XFERSIZE = 1024UL - 1UL;
-                DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_13, enDMAChControlAlter);
-                ST7735_u32DMATransferSizeLeft -= 1024UL;
-            }
-            else
-            {
-                if(0UL != ST7735_u32DMATransferSizeLeft)
-                {
-                    enDMAmodeAlt = DMA_enCH_MODE_BASIC;
-                    enDMAChControlAlter.XFERMODE = enDMAmodeAlt;
-                    enDMAChControlAlter.XFERSIZE = ST7735_u32DMATransferSizeLeft - 1UL;
-                    DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_13, enDMAChControlAlter);
-                    ST7735_u32DMATransferSizeLeft = 0UL;
-                }
-            }
+            enDMAChControl.XFERSIZE = ST7735_u32DMATransferSizeLeft - 1UL;
+            ST7735_u32DMATransferSizeLeft = 0UL;
         }
-    }
-
-    if((DMA_enCH_MODE_STOP == enDMAmodeAlt) && (DMA_enCH_MODE_STOP == enDMAmodePri))
-    {
-        ST7735_vDMATxInteruptStatus = 1UL;
-    }
-    else
-    {
-        DMA_CH__vSetEnable(DMA_enCH_MODULE_13, DMA_enCH_ENA_ENA);
+        DMACH->DMACh[13UL].DMACHCTL = *((volatile uint32_t*) &enDMAChControl);
+        DMA_BITBANDING->DMAENASET_Bit.SET13 = (uint32_t)  DMA_enCH_ENA_ENA;
     }
 }

@@ -28,6 +28,7 @@
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
 
 void DMA_CH__vSetConfigGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Register);
+void DMA_CH__vSetConfigGeneric_Direct(DMA_nCH_MODULE enChannel, uint32_t u32Register);
 uint32_t DMA_CH__u32GetConfigGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Register);
 
 #endif /* XDRIVER_MCU_DMA_DRIVER_INTRINSICS_XHEADER_DMA_CH_CONFIGGENERIC_H_ */

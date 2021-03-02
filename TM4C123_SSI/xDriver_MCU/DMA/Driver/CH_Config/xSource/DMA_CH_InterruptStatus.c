@@ -28,7 +28,7 @@
 
 void DMA_CH__vClearInterruptStatus(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMACHIS_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMACHIS_OFFSET);
 }
 
 DMA_nCH_INT_STATUS DMA_CH__enGetInterruptStatus(DMA_nCH_MODULE enChannel)

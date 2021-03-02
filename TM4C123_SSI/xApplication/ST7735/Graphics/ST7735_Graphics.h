@@ -1,6 +1,6 @@
 /**
  *
- * @file Graphics.h
+ * @file ST7735_Graphics.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,9 +21,11 @@
  * Date           Author     Version     Description
  * 19 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_GRAPHICS_GRAPHICS_H_
-#define XUTILS_GRAPHICS_GRAPHICS_H_
+#ifndef XAPPLICATION_ST7735_GRAPHICS_ST7735_GRAPHICS_H_
+#define XAPPLICATION_ST7735_GRAPHICS_ST7735_GRAPHICS_H_
 
-#include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
 
-#endif /* XUTILS_GRAPHICS_GRAPHICS_H_ */
+#include <xApplication/ST7735/Graphics/xHeader/ST7735_ClearSection.h>
+
+
+#endif /* XAPPLICATION_ST7735_GRAPHICS_ST7735_GRAPHICS_H_ */

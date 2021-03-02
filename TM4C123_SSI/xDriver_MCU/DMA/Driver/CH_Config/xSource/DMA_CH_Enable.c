@@ -31,12 +31,12 @@ static void DMA_CH__vDisable(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vEnable(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAENASET_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAENASET_OFFSET);
 }
 
 static void DMA_CH__vDisable(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAENACLR_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAENACLR_OFFSET);
 }
 
 void DMA_CH__vSetEnable(DMA_nCH_MODULE enChannel, DMA_nCH_ENA enEnable)

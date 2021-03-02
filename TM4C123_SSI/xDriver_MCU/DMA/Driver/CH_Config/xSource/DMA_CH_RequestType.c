@@ -31,12 +31,12 @@ static void DMA_CH__vSetRequestOnlyBurst(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vSetRequestBoth(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAUSEBURSTCLR_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAUSEBURSTCLR_OFFSET);
 }
 
 static void DMA_CH__vSetRequestOnlyBurst(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAUSEBURSTSET_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAUSEBURSTSET_OFFSET);
 }
 
 void DMA_CH__vSetRequestType(DMA_nCH_MODULE enChannel, DMA_nCH_REQTYPE enRequestType)

@@ -31,12 +31,12 @@ static void DMA_CH__vDisPeripheral(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vEnPeripheral(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAREQMASKCLR_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAREQMASKCLR_OFFSET);
 }
 
 static void DMA_CH__vDisPeripheral(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric(enChannel, DMA_DMAREQMASKSET_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAREQMASKSET_OFFSET);
 }
 
 void DMA_CH__vSetPeripheralEnable(DMA_nCH_MODULE enChannel, DMA_nCH_PERIPHERAL enChannelPeripheralEn)

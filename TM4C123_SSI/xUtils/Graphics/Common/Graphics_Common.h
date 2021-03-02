@@ -1,6 +1,6 @@
 /**
  *
- * @file Graphics.h
+ * @file Graphics_Common.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,9 +21,11 @@
  * Date           Author     Version     Description
  * 19 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XUTILS_GRAPHICS_GRAPHICS_H_
-#define XUTILS_GRAPHICS_GRAPHICS_H_
+#ifndef XUTILS_GRAPHICS_COMMON_GRAPHICS_COMMON_H_
+#define XUTILS_GRAPHICS_COMMON_GRAPHICS_COMMON_H_
 
-#include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
+#include <xUtils/Graphics/Common/xHeader/Graphics_CheckParams.h>
+#include <xUtils/Graphics/Common/xHeader/Graphics_Enum.h>
+#include <xUtils/Graphics/Common/xHeader/Graphics_Defines.h>
 
-#endif /* XUTILS_GRAPHICS_GRAPHICS_H_ */
+#endif /* XUTILS_GRAPHICS_COMMON_GRAPHICS_COMMON_H_ */
