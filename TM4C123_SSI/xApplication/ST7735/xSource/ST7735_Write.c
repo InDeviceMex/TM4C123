@@ -48,9 +48,9 @@ volatile uint32_t ST7735_u32DMATransferSizeLeft = 0UL;
 
 DMACHCTL_TypeDef enDMAChControlPrim = {
     DMA_enCH_MODE_BASIC,
-    DMA_enCH_BURST_ON,
-    8UL-1U,
-    DMA_enCH_BURST_SIZE_8,
+    DMA_enCH_BURST_OFF,
+    0UL,
+    DMA_enCH_BURST_SIZE_4,
     0,
     DMA_enCH_SRC_SIZE_HALF_WORD,
     DMA_enCH_SRC_INC_NO,
@@ -147,7 +147,7 @@ uint32_t ST7735__u32WriteDMA(uint32_t u32DataArg, uint32_t u32BufferCant)
     {
         ST7735__vEnableChipSelect();
         ST7735__vSetData();
-
+        ST7735__vSetDMATxInterupt(1UL);
         enDMAChControlPrim.XFERMODE = DMA_enCH_MODE_BASIC;
         if(u32BufferCant > 1024UL)
         {
@@ -168,14 +168,8 @@ uint32_t ST7735__u32WriteDMA(uint32_t u32DataArg, uint32_t u32BufferCant)
 
         do
         {
-            u32StatusReg = ST7735__u32GetTransferSizeLeft();
+            u32StatusReg = ST7735__u32GetDMATxInterupt();
         }while(0UL != u32StatusReg);
-
-        do
-        {
-            u32StatusReg = (uint32_t) DMA_CH__enGetEnable(DMA_enCH_MODULE_13);
-        }while(0UL != u32StatusReg);
-
 
         ST7735__vDisableChipSelect();
     }
@@ -186,9 +180,9 @@ void ST7735__vDMATxInterupt(void)
 {
     DMACHCTL_TypeDef enDMAChControl = {
         DMA_enCH_MODE_BASIC,
-        DMA_enCH_BURST_ON,
-        8UL-1U,
-        DMA_enCH_BURST_SIZE_8,
+        DMA_enCH_BURST_OFF,
+        0UL,
+        DMA_enCH_BURST_SIZE_4,
         0,
         DMA_enCH_SRC_SIZE_HALF_WORD,
         DMA_enCH_SRC_INC_NO,
@@ -210,5 +204,9 @@ void ST7735__vDMATxInterupt(void)
         }
         DMACH->DMACh[13UL].DMACHCTL = *((volatile uint32_t*) &enDMAChControl);
         DMA_BITBANDING->DMAENASET_Bit.SET13 = (uint32_t)  DMA_enCH_ENA_ENA;
+    }
+    else
+    {
+        ST7735_vDMATxInteruptStatus = 0UL;
     }
 }

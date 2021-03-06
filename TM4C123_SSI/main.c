@@ -68,7 +68,7 @@ int32_t main(void)
 
     while(1UL)
     {
-        SysTick__vDelayUs(30000.0f);
+        /*SysTick__vDelayUs(5000.0f);*/
 
         enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
