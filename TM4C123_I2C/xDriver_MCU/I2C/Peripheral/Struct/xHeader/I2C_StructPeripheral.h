@@ -304,7 +304,7 @@ typedef volatile struct
     {
             I2C_TypeDef MODULE [(uint32_t) I2C_enMODULE_MAX];
             I2CS_UNION_TypeDef MODULE_UNION [(uint32_t) I2C_enMODULE_MAX];
-    }
+    };
 } I2CS_TypeDef;
 
 #endif /* XDRIVER_MCU_I2C_PERIPHERAL_STRUCT_XHEADER_I2C_STRUCTPERIPHERAL_H_ */

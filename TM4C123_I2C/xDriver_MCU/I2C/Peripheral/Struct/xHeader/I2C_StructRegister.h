@@ -106,7 +106,7 @@ typedef volatile struct
     volatile uint32_t MFE :1;
     volatile uint32_t SFE :1;
     volatile uint32_t GFE :1;
-    const uint32_t reserved :25;
+    const uint32_t reserved2 :25;
 } I2CMCR_TypeDef;
 
 typedef volatile struct

@@ -106,7 +106,7 @@ typedef volatile struct
     volatile uint32_t MFE;
     volatile uint32_t SFE;
     volatile uint32_t GFE;
-    const uint32_t reserved [25UL];
+    const uint32_t reserved2 [25UL];
 }BITBANDING_I2CMCR_TypeDef;
 
 typedef volatile struct

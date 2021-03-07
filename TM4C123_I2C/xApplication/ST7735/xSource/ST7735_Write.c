@@ -77,7 +77,7 @@ void ST7735__vInitWriteDMAConfig(void)
 
 }
 
-void ST7735__vSetTransferSizeLeft(uint32_t u32SizeArg)
+static void ST7735__vSetTransferSizeLeft(uint32_t u32SizeArg)
 {
     ST7735_u32DMATransferSizeLeft = u32SizeArg;
 }

@@ -24,8 +24,7 @@
 #ifndef XDRIVER_MCU_I2C_I2C_H_
 #define XDRIVER_MCU_I2C_I2C_H_
 
-
-
-
+#include <xDriver_MCU/SSI/Driver/SSI_Driver.h>
+#include <xDriver_MCU/SSI/App/SSI_App.h>
 
 #endif /* XDRIVER_MCU_I2C_I2C_H_ */
