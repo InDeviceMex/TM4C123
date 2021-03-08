@@ -30,9 +30,6 @@
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/GPIO/GPIO.h>
 
-#include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
-
-#include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Source.h>
 
 #endif /* XDRIVER_MCU_I2C_PERIPHERAL_XHEADER_I2C_DEPENDENCIES_H_ */

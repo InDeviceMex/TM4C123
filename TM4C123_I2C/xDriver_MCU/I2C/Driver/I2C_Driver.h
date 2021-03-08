@@ -24,8 +24,6 @@
 #ifndef XDRIVER_MCU_I2C_DRIVER_I2C_DRIVER_H_
 #define XDRIVER_MCU_I2C_DRIVER_I2C_DRIVER_H_
 
-
-
-
+#include <xDriver_MCU/I2C/Driver/Intrinsics/I2C_Intrinsics.h>
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_I2C_DRIVER_H_ */
