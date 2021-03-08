@@ -30,5 +30,3 @@ void (*SSI__pvIRQVectorHandler[(uint32_t) SSI_enMODULE_MAX]) (void)=
 {
     &SSI0__vIRQVectorHandler,&SSI1__vIRQVectorHandler,&SSI2__vIRQVectorHandler,&SSI3__vIRQVectorHandler,
 };
-
-

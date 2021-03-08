@@ -29,11 +29,11 @@
 
 void SSI__vWriteRegister(SSI_nMODULE enModule, uint32_t u32OffsetRegister, uint32_t u32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
-    uint32_t u32UartBase = 0UL;
+    uint32_t u32SsiBase = 0UL;
     uint32_t u32Module = 0UL;
     u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) SSI_enMODULE_MAX);
 
     SSI__vSetReady((SSI_nMODULE) u32Module);
-    u32UartBase = SSI_BLOCK_ADDRESS [u32Module];
-    MCU__vWriteRegister(u32UartBase, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
+    u32SsiBase = SSI_BLOCK_ADDRESS [u32Module];
+    MCU__vWriteRegister(u32SsiBase, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }

@@ -31,7 +31,7 @@ SSI_nSTATUS SSI__enReadRegister(SSI_nMODULE enModule, uint32_t u32OffsetRegister
 {
     SSI_nSTATUS enStatus = SSI_enSTATUS_UNDEF;
     SSI_nREADY enReady = SSI_enNOREADY;
-    uint32_t u32UartBase = 0UL;
+    uint32_t u32SsiBase = 0UL;
     uint32_t u32Module = 0UL;
     u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) SSI_enMODULE_MAX);
 
@@ -39,8 +39,8 @@ SSI_nSTATUS SSI__enReadRegister(SSI_nMODULE enModule, uint32_t u32OffsetRegister
     if((SSI_enREADY == enReady) && (0UL != (uint32_t) pu32FeatureValue))
     {
         enStatus = SSI_enSTATUS_OK;
-        u32UartBase = SSI_BLOCK_ADDRESS [u32Module];
-        *pu32FeatureValue = MCU__u32ReadRegister(u32UartBase, u32OffsetRegister, u32MaskFeature, u32BitFeature);
+        u32SsiBase = SSI_BLOCK_ADDRESS [u32Module];
+        *pu32FeatureValue = MCU__u32ReadRegister(u32SsiBase, u32OffsetRegister, u32MaskFeature, u32BitFeature);
     }
     return enStatus;
 }
