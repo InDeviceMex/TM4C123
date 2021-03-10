@@ -41,7 +41,7 @@ void ST7735__vClearSectionWrapper(ST7735_Layer_Typedef* restrict enLayerArg, ST7
     {
         u32TotalDim = sDimesionsArg.u32Height;
         u32TotalDim *= sDimesionsArg.u32Width;
-        ST7735__vSetWorkingWindow(enLayerArg, sDimesionsArg);
+        ST7735__vSetWorkingArea(enLayerArg, sDimesionsArg);
 
         SSI__vSetDataLength(ST7735_SSI, SSI_enLENGTH_16BITS);
         ST7735__u32WriteDMA(u32Color, u32TotalDim);

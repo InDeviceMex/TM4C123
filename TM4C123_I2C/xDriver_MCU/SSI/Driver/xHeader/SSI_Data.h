@@ -27,7 +27,7 @@
 #include <xDriver_MCU/SSI/Peripheral/xHeader/SSI_Enum.h>
 #include <xUtils/Standard/Standard.h>
 
-inline uint32_t SSI__u32SetData(SSI_nMODULE enModule, uint32_t u32Data);
+uint32_t SSI__u32SetData(SSI_nMODULE enModule, uint32_t u32Data);
 uint32_t SSI__u32GetData(SSI_nMODULE enModule);
 uint32_t SSI__u32GetDataWithStatus(SSI_nMODULE enModule);
 

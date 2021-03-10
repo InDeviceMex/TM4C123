@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_I2C_PERIPHERAL_XHEADER_I2C_ENUM_H_
 #define XDRIVER_MCU_I2C_PERIPHERAL_XHEADER_I2C_ENUM_H_
 
+#include <xUtils/Standard/Standard.h>
+
 typedef enum
 {
     I2C_enSTATUS_OK = 0UL,
@@ -103,5 +105,13 @@ typedef enum
     I2C_enMODE_MAX = 2UL,
     I2C_enMODE_UNDEF = 0xFFFFFFFFUL,
 } I2C_nMODE;
+
+
+typedef enum
+{
+    I2C_enALT_ADDRESS_DIS = 0UL,
+    I2C_enALT_ADDRESS_ENA = 1UL,
+    I2C_enALT_ADDRESS_UNDEF = 0xFFFFFFFFUL,
+} I2C_nALT_ADDRESS;
 
 #endif /* XDRIVER_MCU_I2C_PERIPHERAL_XHEADER_I2C_ENUM_H_ */
