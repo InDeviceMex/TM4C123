@@ -63,7 +63,7 @@ extern uint32_t __STACK_TOP;
 /**/
 /*******************************************************************************/
 #pragma DATA_SECTION(g_pfnVectors, ".intvecs")
-void (* const g_pfnVectors[155])(void) =
+void (*const g_pfnVectors[155])(void) =
 {
     (void (*)(void))((uint32_t) &__STACK_TOP),
                                             /* The initial stack pointer*/
