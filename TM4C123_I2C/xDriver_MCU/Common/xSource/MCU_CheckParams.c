@@ -25,7 +25,7 @@
 
 uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax)
 {
-    if(u32ModuleMax <= u32Module)
+    if((u32ModuleMax <= u32Module) && (0UL != u32ModuleMax))
     {
         u32Module = u32ModuleMax - 1UL;
     }
@@ -34,7 +34,7 @@ uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax)
 
 uint32_t MCU__u32CheckParams_RAM(uint32_t u32Module, uint32_t u32ModuleMax)
 {
-    if(u32ModuleMax <= u32Module)
+    if((u32ModuleMax <= u32Module) && (0UL != u32ModuleMax))
     {
         u32Module = u32ModuleMax - 1UL;
     }

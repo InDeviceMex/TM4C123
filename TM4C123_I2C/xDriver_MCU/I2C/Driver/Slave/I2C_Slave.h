@@ -25,5 +25,7 @@
 #define XDRIVER_MCU_I2C_DRIVER_SLAVE_I2C_SLAVE_H_
 
 #include <xDriver_MCU/I2C/Driver/Slave/xHeader/I2C_OwnAddress.h>
+#include <xDriver_MCU/I2C/Driver/Slave/xHeader/I2C_Enable.h>
+#include <xDriver_MCU/I2C/Driver/Slave/xHeader/I2C_Data.h>
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_I2C_SLAVE_H_ */

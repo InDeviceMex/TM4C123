@@ -24,8 +24,8 @@
 #ifndef XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_ENABLE_H_
 #define XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_ENABLE_H_
 
+#include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
-
-
+void I2C__vSetSlaveEnable(I2C_nMODULE enModule, I2C_nSLAVE_ENABLE enEnableArg);
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_ENABLE_H_ */
