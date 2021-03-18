@@ -58,5 +58,7 @@ dkms.conf
 
 
 RemoteSystemsTempFiles/
+.jxbrowser-data/
+.jxbrowser-data/**
 **/.jxbrowser-data
 **/.jxbrowser-data/**
