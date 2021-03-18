@@ -46,6 +46,7 @@
 **/html
 **/latex
 
+
 # Kernel Module Compile Results
 *.mod*
 .tmp_versions/
@@ -58,3 +59,4 @@ dkms.conf
 
 RemoteSystemsTempFiles/
 .jxbrowser-data/
+.jxbrowser-data/*
