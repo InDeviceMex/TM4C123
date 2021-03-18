@@ -43,6 +43,9 @@
 *.pdb
 **/Debug*
 **/Debug/
+**/Debug/**
+**/Debug__TI/
+**/Debug__TI/**
 
 #Doxygen Generator
 **/html

@@ -1,1 +1,0 @@
-"./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "./Source Driver/FPU.obj" "./Source Driver/MPU.obj" "./Source Driver/NVIC.obj" "./Source Driver/SCB.obj" "./Source Driver/SYSCTL.obj" "./Source Driver/SYSEXC.obj" "./Source Driver/SYSTICK.obj" "../tm4c123gh6pm.cmd" -llibc.a 
