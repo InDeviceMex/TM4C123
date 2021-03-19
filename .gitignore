@@ -61,7 +61,7 @@ Mkfile.old
 dkms.conf
 /.metadata/
 
-
+dvt/
 RemoteSystemsTempFiles/
 .jxbrowser-data/
 .jxbrowser-data/**
