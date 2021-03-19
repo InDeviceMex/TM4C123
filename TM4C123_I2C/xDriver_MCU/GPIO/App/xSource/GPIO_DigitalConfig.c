@@ -66,7 +66,6 @@ GPIO_nSTATUS GPIO__enSetDigitalConfig(GPIO_nDIGITAL_FUNCTION enFunction, GPIO_nC
             GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
             GPIO__vDeleteConfigStruct(psConfig);
             enReturn = GPIO_enSTATUS_OK;
-            GPIO__vDeleteConfigStruct(psConfig);
         }
     }
     return enReturn;
