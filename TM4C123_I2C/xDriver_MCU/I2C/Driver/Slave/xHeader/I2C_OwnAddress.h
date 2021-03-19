@@ -34,4 +34,6 @@ I2C_nALT_ADDRESS I2C__enGetEnableAltOwnAddress(I2C_nMODULE enModule);
 void I2C__vSetAltOwnAddress(I2C_nMODULE enModule, uint32_t u32OwnAddressArg);
 uint32_t I2C__u32GetAltOwnAddress(I2C_nMODULE enModule);
 
+I2C_nSTATUS I2C__enIsAltOwnAddressReceived(I2C_nMODULE enModule);
+
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_OWNADDRESS_H_ */

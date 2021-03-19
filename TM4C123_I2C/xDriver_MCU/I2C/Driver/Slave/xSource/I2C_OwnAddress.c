@@ -45,7 +45,7 @@ void I2C__vSetEnableAltOwnAddress(I2C_nMODULE enModule, I2C_nALT_ADDRESS enAlter
 
 I2C_nALT_ADDRESS I2C__enGetEnableAltOwnAddress(I2C_nMODULE enModule)
 {
-    I2C_nALT_ADDRESS enEnableAltAddressReg = 0xFFFFFFFFUL;
+    I2C_nALT_ADDRESS enEnableAltAddressReg = I2C_enALT_ADDRESS_UNDEF;
     I2C__enReadRegister(enModule, I2C_I2CSOAR2_OFFSET, (uint32_t*) &enEnableAltAddressReg, I2C_I2CSOAR2_OAR2EN_MASK, I2C_I2CSOAR2_R_OAR2EN_BIT);
     return enEnableAltAddressReg;
 }
@@ -61,3 +61,11 @@ uint32_t I2C__u32GetAltOwnAddress(I2C_nMODULE enModule)
     I2C__enReadRegister(enModule, I2C_I2CSOAR2_OFFSET, &u32AltAddressReg, I2C_I2CSOAR2_OAR2_MASK, I2C_I2CSOAR2_R_OAR2_BIT);
     return u32AltAddressReg;
 }
+
+I2C_nSTATUS I2C__enIsAltOwnAddressReceived(I2C_nMODULE enModule)
+{
+    I2C_nSTATUS enAltAddressReg = I2C_enSTATUS_UNDEF;
+    I2C__enReadRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t*) &enAltAddressReg, I2C_I2CSCSR_OAR2SEL_MASK, I2C_I2CSCSR_R_OAR2SEL_BIT);
+    return enAltAddressReg;
+}
+
