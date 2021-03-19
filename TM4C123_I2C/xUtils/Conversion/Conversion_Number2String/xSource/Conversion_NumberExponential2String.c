@@ -230,9 +230,12 @@ CONV_nSTATUS Conv__enNumber2String_Exponential(CONV_OUT_TypeDef pvfOut, char* pc
             }
 
             /* rescale the float dValue*/
-            if (((int64_t) 0LL != s64ExponentialValue) && (uFloatConversion.FLOAT != 0.0f))
+            if ((int64_t) 0LL != s64ExponentialValue)
             {
-              dValue /= uFloatConversion.FLOAT;
+              if((0.0f < uFloatConversion.FLOAT) || ( 0.0f > uFloatConversion.FLOAT))
+              {
+                  dValue /= uFloatConversion.FLOAT;
+              }
             }
 
             /* output the floating part*/
