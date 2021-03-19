@@ -9,8 +9,11 @@
 #define HEADER_DRIVER_SYSTICK_H_
 
 #include "stdint.h"                         /* standard types definitions                      */
+#include "float.h"
 #include "SCB.h"
 #include "SYSCTL.h"
+
+typedef float float32_t;
 
 #define SysTick_BASE            ((uint32_t)0xE000E000u)
 #define SysTick_VALUEMAX        ((uint32_t)0xFFFFFFu)
