@@ -8,7 +8,7 @@
 #ifndef MPU_H_
 #define MPU_H_
 
-#include <xUtils/Standard/Standard.h>
+#include "stdint.h"
 
 #define MPU_BASE            ((uint32_t)0xE000E000u)
 #define MPU_OFFSET          ((uint32_t)0x00000D90u)

@@ -8,9 +8,9 @@
 #ifndef EEPROM_H_
 #define EEPROM_H_
 
-#include <xUtils/Standard/Standard.h>
-#include <NVIC.h>
-#include <SYSCTL.h>
+#include "stdint.h"
+#include "NVIC.h"
+#include "SYSCTL.h"
 
 
 #define EEPROM_BASE            (0x400AF000u)

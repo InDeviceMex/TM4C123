@@ -11,8 +11,8 @@
 
 #define SCB_BASE            (0xE000E000ul)
 
-#include <xUtils/Standard/Standard.h>
-#include <FLASH.h>
+#include "stdint.h"
+#include "FLASH.h"
 
 typedef volatile struct
 {

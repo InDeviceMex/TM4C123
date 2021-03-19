@@ -9,10 +9,10 @@
 #define HEADER_DRIVER_HIB_H_
 
 
-#include <xUtils/Standard/Standard.h>
-#include <NVIC.h>
-#include <SCB.h>
-#include <SYSCTL.h>
+#include "stdint.h"
+#include "NVIC.h"
+#include "SCB.h"
+#include "SYSCTL.h""
 
 #define HIB_BASE            (0x400FC000u)
 #define HIB_BITBANDING_BASE (0x42000000u)

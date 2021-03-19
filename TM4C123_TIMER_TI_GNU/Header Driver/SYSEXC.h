@@ -8,9 +8,9 @@
 #ifndef SYSEXC_H_
 #define SYSEXC_H_
 
-#include <xUtils/Standard/Standard.h>
-#include <NVIC.h>
-#include <SCB.h>
+#include "stdint.h"
+#include "NVIC.h"
+#include "SCB.h"
 
 #define SYSEXC_BASE            (0x400F9000u)
 #define SYSEXC_BITBANDING_BASE (0x42000000u)

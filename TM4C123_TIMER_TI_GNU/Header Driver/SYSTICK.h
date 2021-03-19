@@ -8,7 +8,7 @@
 #ifndef HEADER_DRIVER_SYSTICK_H_
 #define HEADER_DRIVER_SYSTICK_H_
 
-#include <xUtils/Standard/Standard.h>                             /* standard types definitions                      */
+#include "stdint.h"                         /* standard types definitions                      */
 #include "SCB.h"
 #include "SYSCTL.h"
 
