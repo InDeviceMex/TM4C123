@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCT_H_
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCT_H_
 
-#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Struct/WDT_StructPeripheral/WDT_StructPeripheral.h>
-#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Struct/WDT_StructPeripheral_Bitbanding/WDT_StructPeripheral_Bitbanding.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Struct/WDT_StructPeripheral.h>
+#include <xDriver_MCU/Driver_Header/WDT/WDT_Peripheral/WDT_Struct/WDT_StructPeripheral_Bitbanding.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_STRUCT_WDT_STRUCT_H_ */

@@ -24,7 +24,7 @@
 #ifndef XDRIVER_MCU_I2C_PERIPHERAL_STRUCT_I2C_STRUCT_H_
 #define XDRIVER_MCU_I2C_PERIPHERAL_STRUCT_I2C_STRUCT_H_
 
-#include <xDriver_MCU/I2C/Peripheral/Struct/StructPeripheral/I2C_StructPeripheral.h>
-#include <xDriver_MCU/I2C/Peripheral/Struct/StructPeripheral_Bitbanding/I2C_StructPeripheral_Bitbanding.h>
+#include <xDriver_MCU/I2C/Peripheral/Struct/xHeader/I2C_StructPeripheral.h>
+#include <xDriver_MCU/I2C/Peripheral/Struct/xHeader/I2C_StructPeripheral_Bitbanding.h>
 
 #endif /* XDRIVER_MCU_I2C_PERIPHERAL_STRUCT_I2C_STRUCT_H_ */
