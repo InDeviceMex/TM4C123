@@ -26,7 +26,7 @@
 
 #include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
-void I2C__vSetSlaveData(I2C_nMODULE enModule, uint32_t u32Data);
-uint32_t I2C__u32GetSlaveData(I2C_nMODULE enModule);
+void I2C_Slave__vSetData(I2C_nMODULE enModule, uint32_t u32Data);
+uint32_t I2C_Slave__u32GetData(I2C_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_DATA_H_ */

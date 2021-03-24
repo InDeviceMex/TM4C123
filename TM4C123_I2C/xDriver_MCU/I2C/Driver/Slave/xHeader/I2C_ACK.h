@@ -27,10 +27,10 @@
 
 #include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
-void I2C__vSetSlaveACKEnable(I2C_nMODULE enModule, I2C_nSLAVE_ACK_ENABLE enACKEnableArg);
-I2C_nSLAVE_ACK_ENABLE I2C__enGetSlaveACKEnable(I2C_nMODULE enModule);
+void I2C_Slave__vSetACKEnable(I2C_nMODULE enModule, I2C_nSLAVE_ACK_ENABLE enACKEnableArg);
+I2C_nSLAVE_ACK_ENABLE I2C_Slave__enGetACKEnable(I2C_nMODULE enModule);
 
-void I2C__vSetSlaveACKValue(I2C_nMODULE enModule, I2C_nSLAVE_ACK_VALUE enACKArg);
-I2C_nSLAVE_ACK_VALUE I2C__enGetSlaveACKValue(I2C_nMODULE enModule);
+void I2C_Slave__vSetACKValue(I2C_nMODULE enModule, I2C_nSLAVE_ACK_VALUE enACKArg);
+I2C_nSLAVE_ACK_VALUE I2C_Slave__enGetACKValue(I2C_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_ACK_H_ */

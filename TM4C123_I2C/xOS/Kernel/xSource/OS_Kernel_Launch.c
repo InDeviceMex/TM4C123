@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * Mar 23, 2021        indevicemex    1.0         initial Version@endverbatim
  */
-#include<xOS/Kernel/xHeader/OS_Kernel_Init.h>
+#include<xOS/Kernel/xHeader/OS_Kernel_Launch.h>
 #include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
 
 void OS_Kernel_Schedule(void);

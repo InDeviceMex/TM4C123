@@ -26,9 +26,9 @@
 #include <xDriver_MCU/I2C/Driver/Intrinsics/Primitives/I2C_Primitives.h>
 #include <xDriver_MCU/I2C/Peripheral/I2C_Peripheral.h>
 
-void I2C__vSetSlaveEnable(I2C_nMODULE enModule, I2C_nSLAVE_ENABLE enEnableArg)
+void I2C_Slave__vSetEnable(I2C_nMODULE enModule, I2C_nSLAVE_ENABLE enEnableArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t) enEnableArg, I2C_I2CSCSR_DA_MASK, I2C_I2CSCSR_R_DA_BIT);
+    I2C__vWriteRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t) enEnableArg, 0xFFFFFFFFUL, 0UL);
 }
 
 

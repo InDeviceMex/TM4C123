@@ -74,7 +74,7 @@ SysTick_nSTATUS SysTick__enInitTickVector(uint32_t u32Tick, SCB_nSHPR enPriority
 
 SysTick_nSTATUS SysTick__enInitTick(uint32_t u32Tick, SCB_nSHPR enPriority, SysTick_nCLKSOURCE enClockSource)
 {
-    return SysTick__enInitTickVector(u32Tick, enPriority, enClockSource,SysTick__vIRQVectorHandler);
+    return SysTick__enInitTickVector(u32Tick, enPriority, enClockSource,&SysTick__vIRQVectorHandler);
 }
 
 

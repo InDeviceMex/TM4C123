@@ -44,6 +44,10 @@ uint32_t u32MicrophoneValue = 0UL;
 
 int32_t main(void)
 {
+    float32_t fTimeSystickStart_Task1 = 0.0f;
+    float32_t fTimeSystickEnd_Task1 = 0.0f;
+    float32_t fTimeSystickStart_Task2 = 0.0f;
+    float32_t fTimeSystickEnd_Task2 = 0.0f;
     EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
     EDUMKII_nBUTTON enButtonState = EDUMKII_enBUTTON_NO;
     EDUMKII_nBUTTON_STATE enButton1State = EDUMKII_enBUTTON_STATE_NOPRESS;
@@ -63,10 +67,10 @@ int32_t main(void)
 
     MAIN_vInitSystem();
     MAIN_vInitEDUMKII();
-    /*ST7735__vInitRModel(ST7735_enINITFLAGS_GREEN);
+    ST7735__vInitRModel(ST7735_enINITFLAGS_GREEN);
     GraphTerm__vClearScreen(UART_enMODULE_0);
     GraphTerm__vHideCursor(UART_enMODULE_0);
-    GraphTerm__vSetFontColor(UART_enMODULE_0, 0xFFUL, 0UL,0UL );*/
+    GraphTerm__vSetFontColor(UART_enMODULE_0, 0xFFUL, 0UL,0UL );
     GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 0UL,
      "Button1:  , Button2:  \n\r"
      "JoystickX:     , JoystickY:     , Select:  \n\r"
@@ -75,47 +79,86 @@ int32_t main(void)
 
     while(1UL)
     {
-        SysTick__vDelayUs(1000000.0f);
-
-        enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
-        EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
-        u32LcdPosXCurrent = Math__u32Map(u32JoystickXValue, 4096UL, 0UL, 128UL - 5UL, 5UL);
-        u32LcdPosYCurrent = (uint32_t) Math__s32Map((int32_t) u32JoystickYValue, 4096, 0, 5, 128 - 5);
-        EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
-        EDUMKII_Microphone_vSample( &u32MicrophoneValue);
-
-
-        enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
-        enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
-
-        f32Time = SysTick__fGetTimeUs();
-        f32Time /= 1000000.0f;
-        UART__u32Printf(UART_enMODULE_0,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 1\n\r", f32Time, DEBUG_HEADER_PARAMS);
-
-        /*
-        GraphTerm__u32Printf(UART_enMODULE_0, 9UL, 0UL,"%1u", enButton1State);
-        GraphTerm__u32Printf(UART_enMODULE_0, 21UL, 0UL,"%1u", enButton2State);
-        GraphTerm__u32Printf(UART_enMODULE_0, 11UL, 1UL,"%4u", u32JoystickXValue);
-        GraphTerm__u32Printf(UART_enMODULE_0, 28UL, 1UL,"%4u", u32JoystickYValue);
-        GraphTerm__u32Printf(UART_enMODULE_0, 42UL, 1UL,"%1u", enJoystickSelectValue);
-        GraphTerm__u32Printf(UART_enMODULE_0, 8UL, 2UL,"%+5d", s32AccelerometerXValue);
-        GraphTerm__u32Printf(UART_enMODULE_0, 22UL, 2UL,"%+5d", s32AccelerometerYValue);
-        GraphTerm__u32Printf(UART_enMODULE_0, 36UL, 2UL,"%+5d", s32AccelerometerZValue);
-        GraphTerm__u32Printf(UART_enMODULE_0, 12UL, 3UL,"%4u", u32MicrophoneValue);
-
-        ST7735__vFillRect(u32LcdPosX - 5UL, u32LcdPosY - 5UL, 10UL, 10UL, COLORS_enBLACK);
-        ST7735__vFillRect(u32LcdPosXCurrent - 5UL, u32LcdPosYCurrent - 5UL, 10UL, 10UL, COLORS_enAQUAMARINE);
-        u32LcdPosX = u32LcdPosXCurrent;
-        u32LcdPosY = u32LcdPosYCurrent;
-        if(u32ColorPos < 140UL)
+        fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
+        if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
         {
-            u32ColorPos++;
+            fTimeSystickEnd_Task1=( fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
         }
         else
         {
-            u32ColorPos = 0UL;
+            fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
         }
-        */
+        if(fTimeSystickEnd_Task1>=80000.0f)
+        {
+
+            fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
+
+            EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
+            u32LcdPosXCurrent = Math__u32Map(u32JoystickXValue, 4096UL, 0UL, 128UL - 5UL, 5UL);
+            u32LcdPosYCurrent = (uint32_t) Math__s32Map((int32_t) u32JoystickYValue, 4096, 0, 5, 128 - 5);
+
+            f32Time = fTimeSystickStart_Task1;
+            f32Time /= 1000000.0f;
+
+            GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 5UL,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 1", f32Time, DEBUG_HEADER_PARAMS);
+
+            GraphTerm__u32Printf(UART_enMODULE_0, 11UL, 1UL,"%4u", u32JoystickXValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 28UL, 1UL,"%4u", u32JoystickYValue);
+
+            ST7735__vFillRect(u32LcdPosX - 5UL, u32LcdPosY - 5UL, 10UL, 10UL, COLORS_enBLACK);
+            ST7735__vFillRect(u32LcdPosXCurrent - 5UL, u32LcdPosYCurrent - 5UL, 10UL, 10UL, COLORS_u16Values[u32ColorPos]);
+            u32LcdPosX = u32LcdPosXCurrent;
+            u32LcdPosY = u32LcdPosYCurrent;
+        }
+
+        fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
+        if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
+        {
+            fTimeSystickEnd_Task2=( fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
+        }
+        else
+        {
+            fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
+        }
+        if(fTimeSystickEnd_Task2>=700000.0f)
+        {
+            fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+
+            enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
+            EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
+            EDUMKII_Microphone_vSample( &u32MicrophoneValue);
+
+
+            enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
+            enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
+
+            f32Time = fTimeSystickStart_Task2;
+            f32Time /= 1000000.0f;
+
+            GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 6UL,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 2", f32Time, DEBUG_HEADER_PARAMS);
+
+
+            GraphTerm__u32Printf(UART_enMODULE_0, 9UL, 0UL,"%1u", enButton1State);
+            GraphTerm__u32Printf(UART_enMODULE_0, 21UL, 0UL,"%1u", enButton2State);
+            GraphTerm__u32Printf(UART_enMODULE_0, 42UL, 1UL,"%1u", enJoystickSelectValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 8UL, 2UL,"%+5d", s32AccelerometerXValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 22UL, 2UL,"%+5d", s32AccelerometerYValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 36UL, 2UL,"%+5d", s32AccelerometerZValue);
+            GraphTerm__u32Printf(UART_enMODULE_0, 12UL, 3UL,"%4u", u32MicrophoneValue);
+
+            if(EDUMKII_enBUTTON_STATE_PRESS == enButton1State)
+            {
+                if(u32ColorPos < 140UL)
+                {
+                    u32ColorPos++;
+                }
+                else
+                {
+                    u32ColorPos = 0UL;
+                }
+            }
+
+        }
     }
 }
 

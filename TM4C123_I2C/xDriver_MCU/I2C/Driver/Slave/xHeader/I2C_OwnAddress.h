@@ -26,14 +26,7 @@
 
 #include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
-void I2C__vSetMainOwnAddress(I2C_nMODULE enModule, uint32_t u32OwnAddressArg);
-uint32_t I2C__u32GetMainOwnAddress(I2C_nMODULE enModule);
-
-void I2C__vSetEnableAltOwnAddress(I2C_nMODULE enModule, I2C_nALT_ADDRESS enAlternateAddressArg);
-I2C_nALT_ADDRESS I2C__enGetEnableAltOwnAddress(I2C_nMODULE enModule);
-void I2C__vSetAltOwnAddress(I2C_nMODULE enModule, uint32_t u32OwnAddressArg);
-uint32_t I2C__u32GetAltOwnAddress(I2C_nMODULE enModule);
-
-I2C_nSTATUS I2C__enIsAltOwnAddressReceived(I2C_nMODULE enModule);
+void I2C_Slave__vSetMainOwnAddress(I2C_nMODULE enModule, uint32_t u32OwnAddressArg);
+uint32_t I2C_Slave__u32GetMainOwnAddress(I2C_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_OWNADDRESS_H_ */
