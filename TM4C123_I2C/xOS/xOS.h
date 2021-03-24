@@ -25,6 +25,7 @@
 #define XOS_XOS_H_
 
 
+#include <xOS/TCB/OS_TCB.h>
 
 
 

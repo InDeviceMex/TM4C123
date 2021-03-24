@@ -1029,6 +1029,10 @@ encoding//Debug__TI/xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral/xSour
 encoding//Debug__TI/xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/WDT/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xOS/Kernel/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xOS/Kernel/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xOS/TCB/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xOS/TCB/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/Colors/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xUtils/Colors/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xUtils/Conversion/Conversion_Number/xSource/subdir_rules.mk=UTF-8

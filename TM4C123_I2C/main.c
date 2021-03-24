@@ -27,7 +27,13 @@
 #include <xApplication/ST7735/ST7735.h>
 #include <xApplication/GameShip/GameShip.h>
 
+/*OS*/
+#include <xOS/xOS.h>
+
 #define ASTEROID_CANT (5UL)
+
+#define DEBUG_HEADER_STRING "[%s (%d)] "
+#define DEBUG_HEADER_PARAMS __FUNCTION__, __LINE__
 
 void MAIN_vUART0Init(void);
 void MAIN_vInitEDUMKII(void);
@@ -53,13 +59,14 @@ int32_t main(void)
     uint32_t u32LcdPosYCurrent = 0UL;
 
     uint32_t u32ColorPos = 0UL;
+    float32_t f32Time = 0.0f;
 
     MAIN_vInitSystem();
     MAIN_vInitEDUMKII();
-    ST7735__vInitRModel(ST7735_enINITFLAGS_GREEN);
+    /*ST7735__vInitRModel(ST7735_enINITFLAGS_GREEN);
     GraphTerm__vClearScreen(UART_enMODULE_0);
     GraphTerm__vHideCursor(UART_enMODULE_0);
-    /*GraphTerm__vSetFontColor(UART_enMODULE_0, 0xFFUL, 0UL,0UL );*/
+    GraphTerm__vSetFontColor(UART_enMODULE_0, 0xFFUL, 0UL,0UL );*/
     GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 0UL,
      "Button1:  , Button2:  \n\r"
      "JoystickX:     , JoystickY:     , Select:  \n\r"
@@ -68,7 +75,7 @@ int32_t main(void)
 
     while(1UL)
     {
-        SysTick__vDelayUs(10000.0f);
+        SysTick__vDelayUs(1000000.0f);
 
         enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
         EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
@@ -81,6 +88,11 @@ int32_t main(void)
         enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
         enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
 
+        f32Time = SysTick__fGetTimeUs();
+        f32Time /= 1000000.0f;
+        UART__u32Printf(UART_enMODULE_0,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 1\n\r", f32Time, DEBUG_HEADER_PARAMS);
+
+        /*
         GraphTerm__u32Printf(UART_enMODULE_0, 9UL, 0UL,"%1u", enButton1State);
         GraphTerm__u32Printf(UART_enMODULE_0, 21UL, 0UL,"%1u", enButton2State);
         GraphTerm__u32Printf(UART_enMODULE_0, 11UL, 1UL,"%4u", u32JoystickXValue);
@@ -103,6 +115,7 @@ int32_t main(void)
         {
             u32ColorPos = 0UL;
         }
+        */
     }
 }
 
@@ -119,7 +132,7 @@ void MAIN_vInitSystem(void)
     SYSCTL__enInit();/* system clock 80MHz*/
     EEPROM__enInit();
     u32Clock = SYSCTL__u32GetClock();
-    SysTick__enInitUs(((float32_t) u32Clock / 80000.0f),SCB_enSHPR0);
+    SysTick__enInitUs(((float32_t) u32Clock / 8000.0f),SCB_enSHPR0);
     GPIO__vInit();
     TIMER__vInit();
     DMA__vInit();

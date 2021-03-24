@@ -1,6 +1,6 @@
 /**
  *
- * @file OS_Schedule.h
+ * @file OS_Kernel_Init.c
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,22 +11,23 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 10 mar. 2021 @endverbatim
+ * @verbatim Mar 23, 2021 @endverbatim
  *
  * @author
- * @verbatim vyldram @endverbatim
+ * @verbatim indevicemex @endverbatim
  *
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 10 mar. 2021     vyldram    1.0         initial Version@endverbatim
+ * Mar 23, 2021        indevicemex    1.0         initial Version@endverbatim
  */
-
-#ifndef XOS_SCHEDULE_OS_SCHEDULE_H_
-#define XOS_SCHEDULE_OS_SCHEDULE_H_
-
+#include<xOS/Kernel/xHeader/OS_Kernel_Init.h>
+#include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
 
 
+void OS_Kernel__vInit(void)
+{
+}
 
 
-#endif /* XOS_SCHEDULE_OS_SCHEDULE_H_ */
+
