@@ -25,7 +25,7 @@
 
 static void I2C_vIRQSourceHandler_Dummy(void);
 
-void (*I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_MAX][(uint32_t) I2C_enINTERRUPT_SLAVE_MAX]) (void) =
+void (*I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_MAX][(uint32_t) I2C_enSLAVE_INTERRUPT_MAX]) (void) =
 {
     {
          &I2C_vIRQSourceHandler_Dummy,&I2C_vIRQSourceHandler_Dummy,&I2C_vIRQSourceHandler_Dummy,

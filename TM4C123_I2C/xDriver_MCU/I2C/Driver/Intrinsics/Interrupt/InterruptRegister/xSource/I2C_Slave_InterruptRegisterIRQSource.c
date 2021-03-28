@@ -27,14 +27,14 @@
 #include <xDriver_MCU/I2C/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/I2C_Slave_InterruptRoutine_Source.h>
 #include <xDriver_MCU/I2C/Peripheral/I2C_Peripheral.h>
 
-void I2C_Slave__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),I2C_nMODULE enModule, I2C_nINTERRUPT_SLAVE enInterruptSource)
+void I2C_Slave__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),I2C_nMODULE enModule, I2C_nSLAVE_INTERRUPT enInterruptSource)
 {
     uint32_t u32Module = 0UL;
     uint32_t u32InterruptSource = 0UL;
     if(0UL != (uint32_t) pfIrqSourceHandler)
     {
         u32Module = MCU__u32CheckParams( (uint32_t) enModule,  (uint32_t) I2C_enMODULE_MAX);
-        u32InterruptSource = MCU__u32CheckParams( (uint32_t) enInterruptSource,  (uint32_t) I2C_enINTERRUPT_SLAVE_MAX);
+        u32InterruptSource = MCU__u32CheckParams( (uint32_t) enInterruptSource,  (uint32_t) I2C_enSLAVE_INTERRUPT_MAX);
         MCU__vRegisterIRQSourceHandler(pfIrqSourceHandler, &I2C_Slave__vIRQSourceHandler[u32Module][u32InterruptSource], 0UL, 1UL);
     }
 }

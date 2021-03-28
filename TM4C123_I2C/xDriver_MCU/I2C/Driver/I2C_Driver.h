@@ -24,9 +24,12 @@
 #ifndef XDRIVER_MCU_I2C_DRIVER_I2C_DRIVER_H_
 #define XDRIVER_MCU_I2C_DRIVER_I2C_DRIVER_H_
 
-#include <xDriver_MCU/I2C/Driver/Control/I2C_Control.h>
 #include <xDriver_MCU/I2C/Driver/Intrinsics/I2C_Intrinsics.h>
 #include <xDriver_MCU/I2C/Driver/Master/I2C_Master.h>
 #include <xDriver_MCU/I2C/Driver/Slave/I2C_Slave.h>
+
+#include <xDriver_MCU/I2C/Driver/xHeader/I2C_GlitchFilter.h>
+#include <xDriver_MCU/I2C/Driver/xHeader/I2C_HighSpeed.h>
+#include <xDriver_MCU/I2C/Driver/xHeader/I2C_LineState.h>
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_I2C_DRIVER_H_ */

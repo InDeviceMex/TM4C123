@@ -27,37 +27,37 @@
 #include <xDriver_MCU/I2C/Driver/Intrinsics/Primitives/I2C_Primitives.h>
 #include <xDriver_MCU/I2C/Peripheral/I2C_Peripheral.h>
 
-void I2C_Master__vEnInterruptSource(I2C_nMODULE enModule, I2C_nINT_SOURCE_MASTER enSourceInt)
+void I2C_Master__vEnInterruptSource(I2C_nMODULE enModule, I2C_nMASTER_INT_SOURCE enSourceInt)
 {
     uint32_t u32SourceInt = 0UL;
     u32SourceInt = (uint32_t) enSourceInt;
-    u32SourceInt &= (uint32_t) I2C_enINT_SOURCE_MASTER_ALL;
+    u32SourceInt &= (uint32_t) I2C_enMASTER_INT_SOURCE_ALL;
     I2C__vWriteRegister(enModule , I2C_I2CMIMR_OFFSET, u32SourceInt, u32SourceInt, 0UL);
 }
 
-void I2C_Master__vDisInterruptSource(I2C_nMODULE enModule, I2C_nINT_SOURCE_MASTER enSourceInt)
+void I2C_Master__vDisInterruptSource(I2C_nMODULE enModule, I2C_nMASTER_INT_SOURCE enSourceInt)
 {
     uint32_t u32SourceInt = 0UL;
     u32SourceInt = (uint32_t) enSourceInt;
-    u32SourceInt &= (uint32_t) I2C_enINT_SOURCE_MASTER_ALL;
+    u32SourceInt &= (uint32_t) I2C_enMASTER_INT_SOURCE_ALL;
     I2C__vWriteRegister(enModule , I2C_I2CMIMR_OFFSET, 0UL, u32SourceInt, 0UL);
 }
 
-void I2C_Master__vClearInterruptSource(I2C_nMODULE enModule, I2C_nINT_SOURCE_MASTER enSourceInt)
+void I2C_Master__vClearInterruptSource(I2C_nMODULE enModule, I2C_nMASTER_INT_SOURCE enSourceInt)
 {
     uint32_t u32SourceInt = 0UL;
     u32SourceInt = (uint32_t) enSourceInt;
-    u32SourceInt &= (uint32_t) I2C_enINT_SOURCE_MASTER_ALL;
+    u32SourceInt &= (uint32_t) I2C_enMASTER_INT_SOURCE_ALL;
     I2C__vWriteRegister(enModule , I2C_I2CMICR_OFFSET, u32SourceInt, 0xFFFFFFFFUL, 0UL);
 }
 
-I2C_nINT_STATUS I2C_Master__enStatusInterruptSource(I2C_nMODULE enModule, I2C_nINT_SOURCE_MASTER enSourceInt)
+I2C_nINT_STATUS I2C_Master__enStatusInterruptSource(I2C_nMODULE enModule, I2C_nMASTER_INT_SOURCE enSourceInt)
 {
     I2C_nINT_STATUS enInterruptReg = I2C_enINT_STATUS_UNDEF;
     I2C_nSTATUS enStatus = I2C_enSTATUS_UNDEF;
     uint32_t u32SourceInt = 0UL;
     uint32_t u32Register= 0xFFFFFFFFUL;
-    u32SourceInt &= (uint32_t) I2C_enINT_SOURCE_MASTER_ALL;
+    u32SourceInt &= (uint32_t) I2C_enMASTER_INT_SOURCE_ALL;
     enStatus = I2C__enReadRegister(enModule , I2C_I2CMRIS_OFFSET, (uint32_t*) &u32Register, (uint32_t) u32SourceInt, 0UL);
     if(I2C_enSTATUS_OK == enStatus)
     {

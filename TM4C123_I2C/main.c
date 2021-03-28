@@ -82,13 +82,13 @@ int32_t main(void)
         fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
         if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
         {
-            fTimeSystickEnd_Task1=( fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
+            fTimeSystickEnd_Task1 = (fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
         }
         else
         {
-            fTimeSystickEnd_Task1=( fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
+            fTimeSystickEnd_Task1 = (fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
         }
-        if(fTimeSystickEnd_Task1>=80000.0f)
+        if(fTimeSystickEnd_Task1 >= 180000.0f)
         {
 
             fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
@@ -106,21 +106,21 @@ int32_t main(void)
             GraphTerm__u32Printf(UART_enMODULE_0, 28UL, 1UL,"%4u", u32JoystickYValue);
 
             ST7735__vFillRect(u32LcdPosX - 5UL, u32LcdPosY - 5UL, 10UL, 10UL, COLORS_enBLACK);
-            ST7735__vFillRect(u32LcdPosXCurrent - 5UL, u32LcdPosYCurrent - 5UL, 10UL, 10UL, COLORS_u16Values[u32ColorPos]);
+            ST7735__vFillRect(u32LcdPosXCurrent - 5UL, u32LcdPosYCurrent - 5UL, 10UL, 10UL, (uint32_t) COLORS_u16Values[u32ColorPos]);
             u32LcdPosX = u32LcdPosXCurrent;
             u32LcdPosY = u32LcdPosYCurrent;
         }
 
         fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
-        if(fTimeSystickEnd_Task2>=fTimeSystickStart_Task2)
+        if(fTimeSystickEnd_Task2 >= fTimeSystickStart_Task2)
         {
-            fTimeSystickEnd_Task2=( fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
+            fTimeSystickEnd_Task2 = (fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
         }
         else
         {
-            fTimeSystickEnd_Task2=( fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
+            fTimeSystickEnd_Task2 = (fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
         }
-        if(fTimeSystickEnd_Task2>=700000.0f)
+        if(fTimeSystickEnd_Task2 >= 700000.0f)
         {
             fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
 

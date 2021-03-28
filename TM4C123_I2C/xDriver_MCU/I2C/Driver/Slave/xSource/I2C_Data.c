@@ -23,11 +23,6 @@
  */
 #include <xDriver_MCU/I2C/Driver/Slave/xHeader/I2C_Data.h>
 
-#include <xDriver_MCU/Common/MCU_Common.h>
-/*
- * #include <xDriver_MCU/I2C/Driver/Flags/xHeader/I2C_FifoRx.h>
-#include <xDriver_MCU/I2C/Driver/Flags/xHeader/I2C_FifoTx.h>
-*/
 #include <xDriver_MCU/I2C/Driver/Intrinsics/Primitives/I2C_Primitives.h>
 #include <xDriver_MCU/I2C/Peripheral/I2C_Peripheral.h>
 
@@ -42,6 +37,4 @@ inline uint32_t I2C_Slave__u32GetData(I2C_nMODULE enModule)
     I2C__enReadRegister(enModule, I2C_I2CSDR_OFFSET, &u32Reg, I2C_I2CSDR_DATA_MASK, 0UL);
     return u32Reg;
 }
-
-
 

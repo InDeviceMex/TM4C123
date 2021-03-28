@@ -35,30 +35,30 @@ void I2C2__vIRQVectorHandler(void)
     u32RegMaster = (uint32_t) I2C2_I2CMMIS_R;
     u32RegSlave = (uint32_t) I2C2_I2CSMIS_R;
 
-    if((uint32_t) I2C_enINT_SOURCE_MASTER_MASTER & u32RegMaster)
+    if((uint32_t) I2C_enMASTER_INT_SOURCE_MASTER & u32RegMaster)
     {
-        I2C2_I2CMICR_R = (uint32_t) I2C_enINT_SOURCE_MASTER_MASTER;
-        I2C_Master__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enINTERRUPT_MASTER_MASTER]();
+        I2C2_I2CMICR_R = (uint32_t) I2C_enMASTER_INT_SOURCE_MASTER;
+        I2C_Master__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enMASTER_INTERRUPT_MASTER]();
     }
-    if((uint32_t) I2C_enINT_SOURCE_MASTER_CLOCK_TIMEOUT & u32RegMaster)
+    if((uint32_t) I2C_enMASTER_INT_SOURCE_CLOCK_TIMEOUT & u32RegMaster)
     {
-        I2C_Master__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enINTERRUPT_MASTER_CLOCK_TIMEOUT]();
-        I2C2_I2CMICR_R = (uint32_t) I2C_enINT_SOURCE_MASTER_CLOCK_TIMEOUT;
+        I2C_Master__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enMASTER_INTERRUPT_CLOCK_TIMEOUT]();
+        I2C2_I2CMICR_R = (uint32_t) I2C_enMASTER_INT_SOURCE_CLOCK_TIMEOUT;
     }
 
-    if((uint32_t) I2C_enINT_SOURCE_SLAVE_DATA & u32RegSlave)
+    if((uint32_t) I2C_enSLAVE_INT_SOURCE_DATA & u32RegSlave)
     {
-        I2C2_I2CSICR_R = (uint32_t) I2C_enINT_SOURCE_SLAVE_DATA;
-        I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enINTERRUPT_SLAVE_DATA]();
+        I2C2_I2CSICR_R = (uint32_t) I2C_enSLAVE_INT_SOURCE_DATA;
+        I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enSLAVE_INTERRUPT_DATA]();
     }
-    if((uint32_t) I2C_enINT_SOURCE_SLAVE_START & u32RegSlave)
+    if((uint32_t) I2C_enSLAVE_INT_SOURCE_START & u32RegSlave)
     {
-        I2C2_I2CSICR_R = (uint32_t) I2C_enINT_SOURCE_SLAVE_START;
-        I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enINTERRUPT_SLAVE_START]();
+        I2C2_I2CSICR_R = (uint32_t) I2C_enSLAVE_INT_SOURCE_START;
+        I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enSLAVE_INTERRUPT_START]();
     }
-    if((uint32_t) I2C_enINT_SOURCE_SLAVE_STOP & u32RegSlave)
+    if((uint32_t) I2C_enSLAVE_INT_SOURCE_STOP & u32RegSlave)
     {
-        I2C2_I2CSICR_R = (uint32_t) I2C_enINT_SOURCE_SLAVE_STOP;
-        I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enINTERRUPT_SLAVE_STOP]();
+        I2C2_I2CSICR_R = (uint32_t) I2C_enSLAVE_INT_SOURCE_STOP;
+        I2C_Slave__vIRQSourceHandler[(uint32_t) I2C_enMODULE_2][(uint32_t) I2C_enSLAVE_INTERRUPT_STOP]();
     }
 }
