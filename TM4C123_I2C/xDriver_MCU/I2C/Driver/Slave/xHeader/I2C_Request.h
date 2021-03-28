@@ -27,8 +27,6 @@
 
 #include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
-I2C_nSLAVE_REQUEST I2C_Slave__enStatusTransmitRequest(I2C_nMODULE enModule);
-I2C_nSLAVE_REQUEST I2C_Slave__enStatusReceiveRequest(I2C_nMODULE enModule);
-I2C_nSLAVE_REQUEST I2C_Slave__enStatusReceiveFirstByte(I2C_nMODULE enModule);
+I2C_nSLAVE_REQUEST I2C_Slave__enGetRequest(I2C_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_I2C_DRIVER_SLAVE_XHEADER_I2C_REQUEST_H_ */

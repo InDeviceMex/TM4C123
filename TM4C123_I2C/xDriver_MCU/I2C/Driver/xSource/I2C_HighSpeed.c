@@ -28,7 +28,14 @@
 
 void I2C__vSetHighSpeedCapable(I2C_nMODULE enModule, I2C_nHIGHSPEED enHighSpeedCapableArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CPC_OFFSET, (uint32_t) enHighSpeedCapableArg, I2C_I2CPC_HS_MASK, I2C_I2CPC_R_HS_BIT);
+    I2C_nSTATUS enHighSpeedCapableReg = I2C_enSTATUS_UNDEF;
+
+    I2C__vSetReady(enModule);
+    enHighSpeedCapableReg = I2C__enIsHighSpeedCapable(enModule);
+    if(I2C_enSTATUS_OK == enHighSpeedCapableReg)
+    {
+        I2C__vWriteRegister(enModule, I2C_I2CPC_OFFSET, (uint32_t) enHighSpeedCapableArg, I2C_I2CPC_HS_MASK, I2C_I2CPC_R_HS_BIT);
+    }
 }
 
 I2C_nHIGHSPEED I2C__enGetHighSpeedCapable(I2C_nMODULE enModule)

@@ -27,25 +27,12 @@
 #include <xDriver_MCU/I2C/Peripheral/I2C_Peripheral.h>
 
 
-I2C_nSLAVE_REQUEST I2C_Slave__enStatusTransmitRequest(I2C_nMODULE enModule)
+I2C_nSLAVE_REQUEST I2C_Slave__enGetRequest(I2C_nMODULE enModule)
 {
     I2C_nSLAVE_REQUEST enRequestReg = I2C_enSLAVE_REQUEST_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t*) &enRequestReg, I2C_I2CSCSR_TREQ_MASK, I2C_I2CSCSR_R_TREQ_BIT);
+    I2C__enReadRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t*) &enRequestReg,
+                        I2C_I2CSCSR_OAR2SEL_MASK | I2C_I2CSCSR_FBR_MASK | I2C_I2CSCSR_TREQ_MASK | I2C_I2CSCSR_RREQ_MASK,
+                        0UL);
     return enRequestReg;
 
 }
-
-I2C_nSLAVE_REQUEST I2C_Slave__enStatusReceiveRequest(I2C_nMODULE enModule)
-{
-    I2C_nSLAVE_REQUEST enRequestReg = I2C_enSLAVE_REQUEST_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t*) &enRequestReg, I2C_I2CSCSR_RREQ_MASK, I2C_I2CSCSR_R_RREQ_BIT);
-    return enRequestReg;
-}
-
-I2C_nSLAVE_REQUEST I2C_Slave__enStatusReceiveFirstByte(I2C_nMODULE enModule)
-{
-    I2C_nSLAVE_REQUEST enRequestReg = I2C_enSLAVE_REQUEST_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t*) &enRequestReg, I2C_I2CSCSR_FBR_MASK, I2C_I2CSCSR_R_FBR_BIT);
-    return enRequestReg;
-}
-

@@ -49,12 +49,3 @@ uint32_t I2C_Slave__u32GetAltOwnAddress(I2C_nMODULE enModule)
     I2C__enReadRegister(enModule, I2C_I2CSOAR2_OFFSET, &u32AltAddressReg, I2C_I2CSOAR2_OAR2_MASK, I2C_I2CSOAR2_R_OAR2_BIT);
     return u32AltAddressReg;
 }
-
-I2C_nSTATUS I2C_Slave__enIsAltOwnAddressReceived(I2C_nMODULE enModule)
-{
-    I2C_nSTATUS enAltAddressReg = I2C_enSTATUS_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t*) &enAltAddressReg, I2C_I2CSCSR_OAR2SEL_MASK, I2C_I2CSCSR_R_OAR2SEL_BIT);
-    return enAltAddressReg;
-}
-
-
