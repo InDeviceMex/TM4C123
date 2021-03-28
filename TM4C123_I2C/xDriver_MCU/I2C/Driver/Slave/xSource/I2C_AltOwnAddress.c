@@ -38,8 +38,9 @@ I2C_nALT_ADDRESS I2C_Slave__enGetEnableAltOwnAddress(I2C_nMODULE enModule)
     return enEnableAltAddressReg;
 }
 
-void I2C_Slave__vSetAltOwnAddress(I2C_nMODULE enModule, uint32_t u32OwnAddressArg)
+void I2C_Slave__vSetAltOwnAddress(I2C_nMODULE enModule, I2C_nALT_ADDRESS enAlternateAddressArg, uint32_t u32OwnAddressArg)
 {
+    I2C_Slave__vSetEnableAltOwnAddress(enModule, enAlternateAddressArg);
     I2C__vWriteRegister(enModule, I2C_I2CSOAR2_OFFSET, u32OwnAddressArg, I2C_I2CSOAR2_OAR2_MASK, I2C_I2CSOAR2_R_OAR2_BIT);
 }
 

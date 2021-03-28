@@ -50,4 +50,8 @@ I2C_nSLAVE_ACK_VALUE I2C_Slave__enGetACKValue(I2C_nMODULE enModule)
     return enACKValueReg;
 }
 
-
+void I2C_Slave__vSetACK(I2C_nMODULE enModule, I2C_nSLAVE_ACK_ENABLE enACKEnableArg, I2C_nSLAVE_ACK_VALUE enACKValueArg)
+{
+    I2C_Slave__vSetACKValue(enModule, enACKValueArg);
+    I2C_Slave__vSetACKEnable(enModule, enACKEnableArg);
+}

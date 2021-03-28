@@ -29,7 +29,7 @@
 
 void I2C_Slave__vSetEnableAltOwnAddress(I2C_nMODULE enModule, I2C_nALT_ADDRESS enAlternateAddressArg);
 I2C_nALT_ADDRESS I2C_Slave__enGetEnableAltOwnAddress(I2C_nMODULE enModule);
-void I2C_Slave__vSetAltOwnAddress(I2C_nMODULE enModule, uint32_t u32OwnAddressArg);
+void I2C_Slave__vSetAltOwnAddress(I2C_nMODULE enModule, I2C_nALT_ADDRESS enAlternateAddressArg, uint32_t u32OwnAddressArg);
 uint32_t I2C_Slave__u32GetAltOwnAddress(I2C_nMODULE enModule);
 
 

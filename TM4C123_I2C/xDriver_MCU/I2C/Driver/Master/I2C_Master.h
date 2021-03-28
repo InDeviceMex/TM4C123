@@ -25,6 +25,7 @@
 #define XDRIVER_MCU_I2C_DRIVER_MASTER_I2C_MASTER_H_
 
 #include <xDriver_MCU/I2C/Driver/Master/xHeader/I2C_Address.h>
+#include <xDriver_MCU/I2C/Driver/Master/xHeader/I2C_Control.h>
 #include <xDriver_MCU/I2C/Driver/Master/xHeader/I2C_Data.h>
 #include <xDriver_MCU/I2C/Driver/Master/xHeader/I2C_Timeout.h>
 #include <xDriver_MCU/I2C/Driver/Master/xHeader/I2C_TimerPeriod.h>
