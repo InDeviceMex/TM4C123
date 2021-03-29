@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 8 mar. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <I2C/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/I2C_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/I2C/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/I2C_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Dependencies.h>

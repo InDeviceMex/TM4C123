@@ -35,6 +35,27 @@ typedef enum
 
 typedef enum
 {
+    I2C_enBUSY_IDLE = 0UL,
+    I2C_enBUSY_BUSY = 1UL,
+    I2C_enBUSY_UNDEF = 0xFFFFFFFFUL,
+}I2C_nBUSY;
+
+typedef enum
+{
+    I2C_enIDLE_BUSY = 0UL,
+    I2C_enIDLE_IDLE = 1UL,
+    I2C_enIDLE_UNDEF = 0xFFFFFFFFUL,
+}I2C_nIDLE;
+
+typedef enum
+{
+    I2C_enARBITRATION_WON = 0UL,
+    I2C_enARBITRATION_LOST = 1UL,
+    I2C_enARBITRATION_UNDEF = 0xFFFFFFFFUL,
+}I2C_nARBITRATION;
+
+typedef enum
+{
     I2C_enNOREADY = 0UL,
     I2C_enREADY = 1UL,
 }I2C_nREADY;
@@ -207,24 +228,25 @@ typedef enum
 
 typedef enum
 {
+    I2C_enACK_ENABLE_DIS = 0UL,
+    I2C_enACK_ENABLE_ENA = 1UL,
+    I2C_enACK_ENABLE_UNDEF = 0xFFFFFFFFUL,
+} I2C_nACK_ENABLE;
+
+
+typedef enum
+{
+    I2C_enACK_ACK = 0UL,
+    I2C_enACK_NACK = 1UL,
+    I2C_enACK_UNDEF = 0xFFFFFFFFUL,
+} I2C_nACK;
+
+typedef enum
+{
     I2C_enSLAVE_ENABLE_DIS = 0UL,
     I2C_enSLAVE_ENABLE_ENA = 1UL,
     I2C_enSLAVE_ENABLE_UNDEF = 0xFFFFFFFFUL,
 } I2C_nSLAVE_ENABLE;
-
-typedef enum
-{
-    I2C_enSLAVE_ACK_ENABLE_DIS = 0UL,
-    I2C_enSLAVE_ACK_ENABLE_ENA = 1UL,
-    I2C_enSLAVE_ACK_ENABLE_UNDEF = 0xFFFFFFFFUL,
-} I2C_nSLAVE_ACK_ENABLE;
-
-typedef enum
-{
-    I2C_enSLAVE_ACK_VALUE_ACK = 0UL,
-    I2C_enSLAVE_ACK_VALUE_NACK = 1UL,
-    I2C_enSLAVE_ACK_VALUE_UNDEF = 0xFFFFFFFFUL,
-} I2C_nSLAVE_ACK_VALUE;
 
 typedef enum
 {

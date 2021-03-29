@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_I2C_DRIVER_XHEADER_I2C_MODE_H_
 #define XDRIVER_MCU_I2C_DRIVER_XHEADER_I2C_MODE_H_
 
-#include <I2C/Peripheral/xHeader/I2C_Enum.h>
+#include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
 void I2C__vSetMode(I2C_nMODULE enModule, I2C_nMODE enModeArg);
 I2C_nMODE I2C__enGetMode(I2C_nMODULE enModule);

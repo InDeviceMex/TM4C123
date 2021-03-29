@@ -26,26 +26,26 @@
 #include <xDriver_MCU/I2C/Driver/Intrinsics/Primitives/I2C_Primitives.h>
 #include <xDriver_MCU/I2C/Peripheral/I2C_Peripheral.h>
 
-void I2C__vSetSlaveACKEnable(I2C_nMODULE enModule, I2C_nSLAVE_ACK_ENABLE enACKEnableArg)
+void I2C__vSetSlaveACKEnable(I2C_nMODULE enModule, I2C_nACK_ENABLE enACKEnableArg)
 {
     I2C__vWriteRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t) enACKEnableArg, I2C_I2CSACKCTL_ACKOEN_MASK, I2C_I2CSACKCTL_R_ACKOEN_BIT);
 }
 
-I2C_nSLAVE_ACK_ENABLE I2C__enGetSlaveACKEnable(I2C_nMODULE enModule)
+I2C_nACK_ENABLE I2C__enGetSlaveACKEnable(I2C_nMODULE enModule)
 {
-    I2C_nSLAVE_ACK_ENABLE enACKEnableReg = I2C_enSLAVE_ACK_ENABLE_UNDEF;
+    I2C_nACK_ENABLE enACKEnableReg = I2C_enACK_ENABLE_UNDEF;
     I2C__enReadRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t*) &enACKEnableReg, I2C_I2CSACKCTL_ACKOEN_MASK, I2C_I2CSACKCTL_R_ACKOEN_BIT);
     return enACKEnableReg;
 }
 
-void I2C__vSetSlaveACKValue(I2C_nMODULE enModule, I2C_nSLAVE_ACK_VALUE enACKArg)
+void I2C__vSetSlaveACKValue(I2C_nMODULE enModule, I2C_nACK enACKArg)
 {
     I2C__vWriteRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t) enACKArg, I2C_I2CSACKCTL_ACKOVAL_MASK, I2C_I2CSACKCTL_R_ACKOVAL_BIT);
 }
 
-I2C_nSLAVE_ACK_VALUE I2C__enGetSlaveACKValue(I2C_nMODULE enModule)
+I2C_nACK I2C__enGetSlaveACKValue(I2C_nMODULE enModule)
 {
-    I2C_nSLAVE_ACK_VALUE enACKValueReg = I2C_enSLAVE_ACK_VALUE_UNDEF;
+    I2C_nACK enACKValueReg = I2C_enACK_UNDEF;
     I2C__enReadRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t*) &enACKValueReg, I2C_I2CSACKCTL_ACKOVAL_MASK, I2C_I2CSACKCTL_R_ACKOVAL_BIT);
     return enACKValueReg;
 }

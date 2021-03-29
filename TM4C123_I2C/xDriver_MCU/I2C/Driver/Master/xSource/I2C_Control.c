@@ -29,6 +29,6 @@
 void I2C_Master__vSetControl(I2C_nMODULE enModule, I2C_nMASTER_CONTROL enControlArg)
 {
     I2C__vWriteRegister(enModule, I2C_I2CMCS_OFFSET, (uint32_t) enControlArg,
-                        I2C_I2CMCS_HS_MASK | I2C_I2CMCS_ACK_MASK | I2C_I2CMCS_STOP_MASK | I2C_I2CMCS_START_MASK | I2C_I2CMCS_RUN_MASK,
+                        I2C_I2CMCS_R_HS_MASK | I2C_I2CMCS_R_ACK_MASK | I2C_I2CMCS_R_STOP_MASK | I2C_I2CMCS_R_START_MASK | I2C_I2CMCS_R_RUN_MASK,
                         0UL);
 }
