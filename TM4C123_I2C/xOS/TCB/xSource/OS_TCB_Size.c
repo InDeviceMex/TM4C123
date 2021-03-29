@@ -29,7 +29,7 @@ uint32_t OS_TCB__u32GetSize(const OS_TCB_TypeDef* const psTCB)
     return SLinkedList__u32GetSize((const SLinkedList_TypeDef*) psTCB);
 }
 
-OS_TCB_nSTATUS TCB__enIsEmpty(const OS_TCB_TypeDef* const psTCB)
+OS_TCB_nSTATUS OS_TCB__enIsEmpty(const OS_TCB_TypeDef* const psTCB)
 {
     OS_TCB_nSTATUS enStatus = OS_TCB_enSTATUS_ERROR;
     uint32_t u32SizeReg = 0UL;
