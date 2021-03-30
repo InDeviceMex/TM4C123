@@ -42,6 +42,14 @@ int32_t main (void);
 
 uint32_t u32MicrophoneValue = 0UL;
 
+uint8_t pu8LightSensorTransmit1[6UL] = {0x02, 0xC0, 0x00, 0x01, 0xCA, 0x10};
+uint8_t pu8LightSensorTransmit2[1UL] = {0x00};
+uint8_t pu8LightSensorTransmit3[1UL] = {0x01};
+uint8_t pu8LightSensorReceive1[2UL] = {0x00, 0x00};
+uint8_t pu8LightSensorReceive2[2UL] = {0x00, 0x00};
+int32_t s32LightValue = 0L;
+uint16_t u16LightValue = 0U;
+
 int32_t main(void)
 {
     float32_t fTimeSystickStart_Task1 = 0.0f;
@@ -159,6 +167,23 @@ int32_t main(void)
             }
 
         }
+
+        I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit1, 3UL);
+        I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, &pu8LightSensorTransmit1[3UL], 3UL, pu8LightSensorReceive1, 2UL);
+        SysTick__vDelayUs(800000.0f);
+        I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit2, 1UL, pu8LightSensorReceive1, 2UL);
+        u16LightValue = pu8LightSensorReceive1[0UL];
+        u16LightValue <<= 8UL;
+        u16LightValue |= pu8LightSensorReceive1[1UL];
+
+        s32LightValue = (int32_t) (1UL << (uint32_t)((uint32_t)u16LightValue>>12UL));
+        u16LightValue &= 0x0FFFU;
+        s32LightValue *= (int32_t) u16LightValue;
+        I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL, pu8LightSensorReceive2, 2UL);
+        pu8LightSensorReceive2[0UL] &=~ 0x10U;
+        I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorReceive2, 3UL);
+        pu8LightSensorReceive2[0UL] |= 0x10U;
+        I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorReceive2, 3UL);
     }
 }
 
@@ -182,8 +207,12 @@ void MAIN_vInitSystem(void)
     ADC__vInit();
     UART__vInit();
     SSI__vInit();
+    I2C__vInit();
 
     MAIN_vUART0Init();
+    I2C__vInit();
+    I2C__vSetConfig(I2C_enMODULE_1,I2C_enMODE_MASTER, 50000UL);
+    u32Clock = 0x11223344UL;
 }
 
 void MAIN_vInitEDUMKII(void)

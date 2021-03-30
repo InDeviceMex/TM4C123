@@ -24,8 +24,8 @@
 #ifndef XDRIVER_MCU_I2C_APP_I2C_APP_H_
 #define XDRIVER_MCU_I2C_APP_I2C_APP_H_
 
-
-
-
+#include <xDriver_MCU/I2C/App/Operations/I2C_Operations.h>
+#include <xDriver_MCU/I2C/App/xHeader/I2C_Init.h>
+#include <xDriver_MCU/I2C/App/xHeader/I2C_Config.h>
 
 #endif /* XDRIVER_MCU_I2C_APP_I2C_APP_H_ */
