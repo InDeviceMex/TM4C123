@@ -21,17 +21,16 @@
  * Date           Author     Version     Description
  * 4 dic. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/xHeader/ACMP_InterruptSource.h>
 #include <xDriver_MCU/ACMP/Peripheral/ACMP_Peripheral.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/ACMP_Primitives.h>
 
 void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    uint32_t u32Reg = 0U;
+    uint32_t u32Reg = 0UL;
 
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
+    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
     {
         u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
     }
@@ -44,10 +43,10 @@ void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
 
 void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
-    uint32_t u32Reg = 0U;
+    uint32_t u32Reg = 0UL;
 
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
+    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
     {
         u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
     }
@@ -61,7 +60,7 @@ void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
 void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
+    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
     {
         u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
     }
@@ -73,10 +72,10 @@ void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
 ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULEMASK enModuleMask)
 {
     ACMP_nINT_STATUS enInt = ACMP_enINT_STATUS_UNDEF;
-    uint32_t u32Reg = 0U;
+    uint32_t u32Reg = 0UL;
     ACMP_nREADY enReady = ACMP_enNOREADY;
     uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL<u32ModuleMask)
+    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
     {
         u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
     }

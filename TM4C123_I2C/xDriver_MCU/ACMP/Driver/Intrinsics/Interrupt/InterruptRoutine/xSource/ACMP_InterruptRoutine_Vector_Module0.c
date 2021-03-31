@@ -21,14 +21,13 @@
  * Date           Author     Version     Description
  * 4 dic. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ACMP_InterruptRoutine_Vector_Module0.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ACMP_InterruptRoutine_Source.h>
 #include <xDriver_MCU/ACMP/Peripheral/ACMP_Peripheral.h>
 
 void ACMP0__vIRQVectorHandler(void)
 {
-    volatile uint32_t u32Reg = 0U;
+    volatile uint32_t u32Reg = 0UL;
 
     u32Reg = ACMP_ACMIS_R;
     if((uint32_t) ACMP_enMODULEMASK_0 & u32Reg)

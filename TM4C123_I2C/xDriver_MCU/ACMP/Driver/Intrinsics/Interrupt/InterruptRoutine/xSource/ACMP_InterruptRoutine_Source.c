@@ -25,17 +25,14 @@
 
 static void ACMP_vIRQSourceHandler_Dummy(void);
 
-void (*ACMP__vIRQSourceHandler[(uint32_t)ACMP_enMODULE_MAX +1U])(void) =
+void (*ACMP__vIRQSourceHandler[(uint32_t)ACMP_enMODULE_MAX + 1U])(void) =
 {
  &ACMP_vIRQSourceHandler_Dummy, &ACMP_vIRQSourceHandler_Dummy
 };
 
 static void ACMP_vIRQSourceHandler_Dummy(void)
 {
-    while(1U)
+    while(1UL)
     {
     }
 }
-
-
-

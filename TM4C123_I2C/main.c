@@ -1,9 +1,5 @@
 
 
-/**
- * main.c
- */
-
 /*Standard Libraries*/
 #include <xUtils/Standard/Standard.h>
 #include "stdlib.h"
@@ -47,8 +43,10 @@ uint8_t pu8LightSensorTransmit2[1UL] = {0x00};
 uint8_t pu8LightSensorTransmit3[1UL] = {0x01};
 uint8_t pu8LightSensorReceive1[2UL] = {0x00, 0x00};
 uint8_t pu8LightSensorReceive2[2UL] = {0x00, 0x00};
-int32_t s32LightValue = 0L;
+uint32_t u32LightValue = 0L;
+uint32_t u32LightValueTemp = 0L;
 uint16_t u16LightValue = 0U;
+uint16_t u16LightExp= 0U;
 
 int32_t main(void)
 {
@@ -176,9 +174,14 @@ int32_t main(void)
         u16LightValue <<= 8UL;
         u16LightValue |= pu8LightSensorReceive1[1UL];
 
-        s32LightValue = (int32_t) (1UL << (uint32_t)((uint32_t)u16LightValue>>12UL));
+        u16LightExp = u16LightValue;
+        u16LightExp >>= 12UL;
+        u16LightExp = 1U << u16LightExp;
         u16LightValue &= 0x0FFFU;
-        s32LightValue *= (int32_t) u16LightValue;
+        u32LightValueTemp = (uint32_t) u16LightExp;
+        u32LightValueTemp *= (uint32_t) u16LightValue;
+
+        u32LightValue = (uint32_t) u32LightValueTemp;
         I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL, pu8LightSensorReceive2, 2UL);
         pu8LightSensorReceive2[0UL] &=~ 0x10U;
         I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorReceive2, 3UL);
@@ -212,7 +215,6 @@ void MAIN_vInitSystem(void)
     MAIN_vUART0Init();
     I2C__vInit();
     I2C__vSetConfig(I2C_enMODULE_1,I2C_enMODE_MASTER, 50000UL);
-    u32Clock = 0x11223344UL;
 }
 
 void MAIN_vInitEDUMKII(void)

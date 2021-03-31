@@ -24,12 +24,10 @@
 #ifndef XDRIVER_MCU_ACMP_ACMP_H_
 #define XDRIVER_MCU_ACMP_ACMP_H_
 
-
 #include <xDriver_MCU/ACMP/Driver/ACMP_Driver.h>
 #include <xDriver_MCU/ACMP/Peripheral/ACMP_Peripheral.h>
 /*
  * #include <xDriver_MCU/ACMP/App/ACMP_App.h>
 */
-
 
 #endif /* XDRIVER_MCU_ACMP_ACMP_H_ */

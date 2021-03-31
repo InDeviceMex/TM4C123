@@ -24,10 +24,7 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_ACMP_INTRINSICS_H_
 #define XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_ACMP_INTRINSICS_H_
 
-
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/ACMP_Primitives.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/ACMP_Interrupt.h>
-
-
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_ACMP_INTRINSICS_H_ */

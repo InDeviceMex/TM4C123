@@ -30,9 +30,4 @@ void ACMP__vSetReady(void);
 void ACMP__vClearReady(void);
 ACMP_nREADY ACMP__enIsReady(void);
 
-
-
-
-
-
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_ACMP_READY_H_ */

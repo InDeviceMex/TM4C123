@@ -35,6 +35,7 @@ void ACMP__vClearReady(void)
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enACMP;
     SYSCTL__vClearReady(enPeripheral);
 }
+
 ACMP_nREADY ACMP__enIsReady(void)
 {
     ACMP_nREADY enReady = ACMP_enNOREADY;
@@ -42,6 +43,3 @@ ACMP_nREADY ACMP__enIsReady(void)
     enReady = (ACMP_nREADY)SYSCTL__enIsReady(enPeripheral);
     return enReady;
 }
-
-
-

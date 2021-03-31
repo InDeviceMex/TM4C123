@@ -24,7 +24,6 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_ACMP_DRIVER_H_
 #define XDRIVER_MCU_ACMP_DRIVER_ACMP_DRIVER_H_
 
-
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/ACMP_Intrinsics.h>
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_ACMP_DRIVER_H_ */

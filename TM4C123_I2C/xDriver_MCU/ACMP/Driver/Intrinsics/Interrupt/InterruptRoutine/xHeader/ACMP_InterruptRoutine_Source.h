@@ -27,7 +27,6 @@
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
-extern void (*ACMP__vIRQSourceHandler[(uint32_t) ACMP_enMODULE_MAX +1U]) (void);
-
+extern void (*ACMP__vIRQSourceHandler[(uint32_t) ACMP_enMODULE_MAX + 1UL]) (void);
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_XHEADER_ACMP_INTERRUPTROUTINE_SOURCE_H_ */
