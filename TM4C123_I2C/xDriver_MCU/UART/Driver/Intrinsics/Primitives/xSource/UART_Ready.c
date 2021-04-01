@@ -39,11 +39,11 @@ void UART__vSetReady(UART_nMODULE enModule)
     u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) UART_enMODULE_MAX);
 
     enPeripheral = SYSCTL_VECTOR_UART[u32Module];
-    enReady = UART__enIsReady(enModule);
+    enReady = UART__enIsReady((UART_nMODULE) u32Module);
     if(UART_enNOREADY == enReady)
     {
         SYSCTL__vSetReady(enPeripheral);
-        SYSCTL__vReset(SYSCTL_enUART0);
+        SYSCTL__vReset(enPeripheral);
         SYSCTL__vSetReady(enPeripheral);
     }
 }

@@ -24,6 +24,8 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_PRIMITIVES_ACMP_PRIMITIVES_H_
 #define XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_PRIMITIVES_ACMP_PRIMITIVES_H_
 
+#include <xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/xHeader/ACMP_ReadRegister.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/xHeader/ACMP_Ready.h>
+#include <xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/xHeader/ACMP_WriteRegister.h>
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_PRIMITIVES_ACMP_PRIMITIVES_H_ */

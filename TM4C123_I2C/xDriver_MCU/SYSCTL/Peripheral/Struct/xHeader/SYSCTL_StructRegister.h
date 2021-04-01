@@ -539,7 +539,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t ACOMP :1;
+    volatile uint32_t ACMP_ :1;
     const uint32_t reserved:31;
 }PERIPHERAL_ACMP_TypeDef;
 

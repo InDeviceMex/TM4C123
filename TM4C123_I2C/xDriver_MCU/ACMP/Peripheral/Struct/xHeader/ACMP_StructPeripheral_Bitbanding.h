@@ -31,57 +31,59 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t      ACMIS[32U];
+        volatile uint32_t ACMIS [32UL];
         BITBANDING_ACMIS_TypeDef ACMIS_Bit;
     };
     union
     {
-        volatile const uint32_t    ACRIS[32U];
+        volatile const uint32_t ACRIS [32UL];
         BITBANDING_ACRIS_TypeDef ACRIS_Bit;
     };
     union
     {
-        volatile uint32_t    ACINTEN[32U];
+        volatile uint32_t ACINTEN [32UL];
         BITBANDING_ACINTEN_TypeDef ACINTEN_Bit;
     };
-    const uint32_t reserved[32U];
+    const uint32_t reserved [32UL];
     union
     {
-        volatile uint32_t    ACREFCTL[32U];
+        volatile uint32_t ACREFCTL [32UL];
         BITBANDING_ACREFCTL_TypeDef ACREFCTL_Bit;
     };
-    const uint32_t reserved1[3U*32U];
+    const uint32_t reserved1 [3UL * 32UL];
     union
     {
-        volatile uint32_t    ACSTAT0[32U];
+        volatile uint32_t ACSTAT0 [32UL];
         BITBANDING_ACSTAT_TypeDef ACSTAT0_Bit;
     };
     union
     {
-        volatile uint32_t    ACCTL0[32U];
+        volatile uint32_t ACCTL0 [32UL];
         BITBANDING_ACCTL_TypeDef ACCTL0_Bit;
     };
-    const uint32_t reserved2[6U*32U];
+    const uint32_t reserved2 [6UL * 32UL];
     union
     {
-        volatile uint32_t    ACSTAT1[32U];
+        volatile uint32_t ACSTAT1 [32UL];
         BITBANDING_ACSTAT_TypeDef ACSTAT1_Bit;
     };
     union
     {
-        volatile uint32_t    ACCTL1[32U];
+        volatile uint32_t ACCTL1 [32UL];
         BITBANDING_ACCTL_TypeDef ACCTL1_Bit;
     };
-    const uint32_t reserved3[990U*32U];
+    const uint32_t reserved3 [990UL * 32UL];
     union
     {
-        volatile uint32_t ACMPPP[32U];
+        volatile uint32_t ACMPPP [32UL];
         BITBANDING_ACMPPP_TypeDef  ACMPPP_Bit;
     };
-    const uint32_t reserved4[15U*32U];
+    const uint32_t reserved4 [15UL * 32UL];
 }ACMP_BITBANDING_TypeDef;
 
-
-
+typedef volatile struct
+{
+        ACMP_BITBANDING_TypeDef MODULE [(uint32_t) ACMP_enMODULE_MAX];
+}ACMPS_BITBANDING_TypeDef;
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_STRUCT_XHEADER_ACMP_STRUCTPERIPHERAL_BITBANDING_H_ */

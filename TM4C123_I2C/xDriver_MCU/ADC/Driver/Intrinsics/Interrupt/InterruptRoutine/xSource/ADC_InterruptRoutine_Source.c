@@ -73,7 +73,5 @@ void (*ADC_COMP__vIRQSourceHandler[(uint32_t)ADC_enMODULE_MAX][(uint32_t)ADC_enS
 
 static void ADC_vIRQSourceHandler_Dummy(void)
 {
-    while(1UL)
-    {
-    }
+    while(1UL){}
 }

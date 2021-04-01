@@ -88,8 +88,8 @@ void NVIC__vDeInitInterrupts(void)
     NVIC__vClearEnableIRQ(NVIC_enSTIR_ADC0SEQ2);
     NVIC__vClearEnableIRQ(NVIC_enSTIR_ADC0SEQ3);
 
-    NVIC__vClearEnableIRQ(NVIC_enSTIR_ACOMP0);
-    NVIC__vClearEnableIRQ(NVIC_enSTIR_ACOMP1);
+    NVIC__vClearEnableIRQ(NVIC_enSTIR_ACMP0);
+    NVIC__vClearEnableIRQ(NVIC_enSTIR_ACMP1);
 
     NVIC__vClearEnableIRQ(NVIC_enSTIR_PWM0GEN0);
     NVIC__vClearEnableIRQ(NVIC_enSTIR_PWM0GEN1);

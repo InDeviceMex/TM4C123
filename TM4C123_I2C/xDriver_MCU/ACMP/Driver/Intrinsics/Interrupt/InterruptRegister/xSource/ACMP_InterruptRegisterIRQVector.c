@@ -28,20 +28,23 @@
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Dependencies.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/ACMP_InterruptRoutine.h>
 
-void ACMP__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void), ACMP_nMODULE enModule)
+void ACMP__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    SCB_nVECISR enVector = SCB_enVECISR_ACOMP0;
+    SCB_nVECISR enVector = SCB_enVECISR_ACMP0;
     uint32_t u32Module = 0UL;
-    const SCB_nVECISR SCB_enVECISR_ACMP[(uint32_t) ACMP_enMODULE_MAX + 1U]=
+    uint32_t u32Comparator = 0UL;
+
+    const SCB_nVECISR SCB_enVECISR_ACMP[(uint32_t) ACMP_enMODULE_MAX][(uint32_t) ACMP_enCOMP_MAX]=
     {
-        SCB_enVECISR_ACOMP0, SCB_enVECISR_ACOMP1
+        {SCB_enVECISR_ACMP0, SCB_enVECISR_ACMP1},
     };
 
     if(0UL != (uint32_t) pfIrqVectorHandler)
     {
         u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
-        enVector = SCB_enVECISR_ACMP[u32Module];
-        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &ACMP__pvIRQVectorHandler[u32Module], enVector);
+        u32Comparator = MCU__u32CheckParams((uint32_t) enComparatorArg, (uint32_t) ACMP_enCOMP_MAX);
+        enVector = SCB_enVECISR_ACMP[u32Module][u32Comparator];
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &ACMP__pvIRQVectorHandler[u32Module][u32Comparator], enVector);
     }
 }
 

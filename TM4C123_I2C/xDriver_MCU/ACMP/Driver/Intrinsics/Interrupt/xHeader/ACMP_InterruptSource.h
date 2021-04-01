@@ -26,9 +26,9 @@
 
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
-void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask);
-void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask);
-void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask);
-ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULEMASK enModuleMask);
+void ACMP__vEnInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask);
+void ACMP__vDisInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask);
+void ACMP__vClearInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask);
+ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask);
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_INTERRUPT_XHEADER_ACMP_INTERRUPTSOURCE_H_ */

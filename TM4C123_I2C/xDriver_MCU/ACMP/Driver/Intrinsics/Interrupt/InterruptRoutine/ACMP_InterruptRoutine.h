@@ -24,9 +24,9 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_ACMP_INTERRUPTROUTINE_H_
 #define XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_ACMP_INTERRUPTROUTINE_H_
 
-#include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ACMP_InterruptRoutine_Vector_Module0.h>
-#include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ACMP_InterruptRoutine_Vector_Module1.h>
-#include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ACMP_InterruptRoutine_Vector.h>
+#include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/InterruptRoutine_Vector_Module0/ACMP_InterruptRoutine_Vector_Module0.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/ACMP_InterruptRoutine_Source.h>
+
+extern void (*ACMP__pvIRQVectorHandler[(uint32_t) ACMP_enMODULE_MAX][(uint32_t) ACMP_enCOMP_MAX]) (void);
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_ACMP_INTERRUPTROUTINE_H_ */

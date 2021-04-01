@@ -32,58 +32,59 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t      ACMIS;
+        volatile uint32_t ACMIS;
         ACMIS_TypeDef ACMIS_Bit;
     };
     union
     {
-        volatile const uint32_t    ACRIS;
+        volatile const uint32_t ACRIS;
         ACRIS_TypeDef ACRIS_Bit;
     };
     union
     {
-        volatile uint32_t    ACINTEN;
+        volatile uint32_t ACINTEN;
         ACINTEN_TypeDef ACINTEN_Bit;
     };
     const uint32_t reserved;
     union
     {
-        volatile uint32_t    ACREFCTL;
+        volatile uint32_t ACREFCTL;
         ACREFCTL_TypeDef ACREFCTL_Bit;
     };
-    const uint32_t reserved1[3];
+    const uint32_t reserved1 [3UL];
     union
     {
-        volatile uint32_t    ACSTAT0;
+        volatile uint32_t ACSTAT0;
         ACSTAT_TypeDef ACSTAT0_Bit;
     };
     union
     {
-        volatile uint32_t    ACCTL0;
+        volatile uint32_t ACCTL0;
         ACCTL_TypeDef ACCTL0_Bit;
     };
-    const uint32_t reserved2[6];
+    const uint32_t reserved2 [6UL];
     union
     {
-        volatile uint32_t    ACSTAT1;
+        volatile uint32_t ACSTAT1;
         ACSTAT_TypeDef ACSTAT1_Bit;
     };
     union
     {
-        volatile uint32_t    ACCTL1;
+        volatile uint32_t ACCTL1;
         ACCTL_TypeDef ACCTL1_Bit;
     };
-    const uint32_t reserved3[990];
+    const uint32_t reserved3 [990UL];
     union
     {
         volatile uint32_t ACMPPP;
         ACMPPP_TypeDef  ACMPPP_Bit;
     };
-    const uint32_t reserved4[15];
+    const uint32_t reserved4 [15UL];
 }ACMP_TypeDef;
 
-
-
-
+typedef volatile struct
+{
+    ACMP_TypeDef MODULE [(uint32_t) ACMP_enMODULE_MAX];
+}ACMPS_TypeDef;
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_STRUCT_XHEADER_ACMP_STRUCTPERIPHERAL_H_ */

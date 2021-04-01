@@ -25,7 +25,7 @@
 #define XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_ACMP_REGISTER_H_
 
 #include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/ACMP_RegisterDefines.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/xHeader/ACMP_RegisterPeripheral.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/xHeader/ACMP_RegisterPeripheral_Bitbanding.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterPeripheral/ACMP_RegisterPeripheral.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterPeripheral_Bitbanding/ACMP_RegisterPeripheral_Bitbanding.h>
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_ACMP_REGISTER_H_ */

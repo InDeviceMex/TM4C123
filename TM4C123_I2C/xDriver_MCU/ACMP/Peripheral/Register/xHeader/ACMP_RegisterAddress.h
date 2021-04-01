@@ -27,8 +27,10 @@
 #include <xUtils/Standard/Standard.h>
 
 #define ACMP_BASE    ((uint32_t) 0x4003C000U)
+#define ACMP0_BASE    ((uint32_t) 0x4003C000U)
 
 #define ACMP_OFFSET    ((uint32_t) 0x0003C000U)
+#define ACMP0_OFFSET    ((uint32_t) 0x0003C000U)
 
 #define ACMP_BITBANDING_BASE    ((uint32_t) 0x42000000U)
 

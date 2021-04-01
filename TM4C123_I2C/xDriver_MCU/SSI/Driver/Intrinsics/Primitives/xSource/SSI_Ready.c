@@ -39,11 +39,11 @@ void SSI__vSetReady(SSI_nMODULE enModule)
     u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) SSI_enMODULE_MAX);
 
     enPeripheral = SYSCTL_VECTOR_SSI[u32Module];
-    enReady = SSI__enIsReady(enModule);
+    enReady = SSI__enIsReady((SSI_nMODULE) u32Module);
     if(SSI_enNOREADY == enReady)
     {
         SYSCTL__vSetReady(enPeripheral);
-        SYSCTL__vReset(SYSCTL_enSSI0);
+        SYSCTL__vReset(enPeripheral);
         SYSCTL__vSetReady(enPeripheral);
     }
 }

@@ -32,7 +32,7 @@ void ADC_Sample__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC
     uint32_t u32Module = 0UL;
     uint32_t u32Sequencer = 0UL;
 
-    if(0U != (uint32_t) pfIrqSourceHandler)
+    if(0UL != (uint32_t) pfIrqSourceHandler)
     {
         u32Module = MCU__u32CheckParams( (uint32_t) enModule,  (uint32_t) ADC_enMODULE_MAX);
         u32Sequencer = MCU__u32CheckParams( (uint32_t) enSequence,  (uint32_t) ADC_enSEQ_MAX);
@@ -46,7 +46,7 @@ void ADC_Comp__vRegisterIRQSourceHandler(void (*pfIrqSourceHandler) (void),ADC_n
     uint32_t u32Sequencer = 0UL;
     uint32_t u32Comparator = 0UL;
 
-    if(0U != (uint32_t) pfIrqSourceHandler)
+    if(0UL != (uint32_t) pfIrqSourceHandler)
     {
         u32Module = MCU__u32CheckParams( (uint32_t) enModule,  (uint32_t) ADC_enMODULE_MAX);
         u32Sequencer = MCU__u32CheckParams( (uint32_t) enSequence,  (uint32_t) ADC_enSEQ_MAX);

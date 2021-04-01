@@ -38,11 +38,11 @@ void ADC__vSetReady(ADC_nMODULE enModule)
     u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ADC_enMODULE_MAX);
 
     enPeripheral = SYSCTL_VECTOR_ADC[u32Module];
-    enReady = ADC__enIsReady(enModule);
+    enReady = ADC__enIsReady((ADC_nMODULE) u32Module);
     if(ADC_enNOREADY == enReady)
     {
         SYSCTL__vSetReady(enPeripheral);
-        SYSCTL__vReset(SYSCTL_enADC0);
+        SYSCTL__vReset(enPeripheral);
         SYSCTL__vSetReady(enPeripheral);
     }
 }

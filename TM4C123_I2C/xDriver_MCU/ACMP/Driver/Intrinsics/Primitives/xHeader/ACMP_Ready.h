@@ -26,8 +26,8 @@
 
 #include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
-void ACMP__vSetReady(void);
-void ACMP__vClearReady(void);
-ACMP_nREADY ACMP__enIsReady(void);
+void ACMP__vSetReady(ACMP_nMODULE enModule);
+void ACMP__vClearReady(ACMP_nMODULE enModule);
+ACMP_nREADY ACMP__enIsReady(ACMP_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_ACMP_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_ACMP_READY_H_ */

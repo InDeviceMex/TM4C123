@@ -91,9 +91,4 @@ typedef volatile struct
     const uint32_t reserved1: 14;
 }ACMPPP_TypeDef;
 
-
-
-
-
-
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_STRUCT_XHEADER_ACMP_STRUCTREGISTER_H_ */

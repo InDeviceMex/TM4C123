@@ -22,80 +22,67 @@
  * 4 dic. 2020     vyldram    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Interrupt/xHeader/ACMP_InterruptSource.h>
+
+#include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/ACMP/Peripheral/ACMP_Peripheral.h>
 #include <xDriver_MCU/ACMP/Driver/Intrinsics/Primitives/ACMP_Primitives.h>
 
-void ACMP__vEnInterruptSource(ACMP_nMODULEMASK enModuleMask)
+void ACMP__vEnInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    uint32_t u32Reg = 0UL;
+    uint32_t u32Module = 0UL;
+    uint32_t u32CompMask = 0UL;
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
+    u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
 
-    uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
-    {
-        u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
-    }
-    ACMP__vSetReady();
-
-    u32Reg = ACMP->ACINTEN;
-    u32Reg |= u32ModuleMask;
-    ACMP->ACINTEN = u32Reg;
+    ACMP__vWriteRegister((ACMP_nMODULE) u32Module, ACMP_ACINTEN_OFFSET,
+                         u32CompMask, u32CompMask, 0UL);
 }
 
-void ACMP__vDisInterruptSource(ACMP_nMODULEMASK enModuleMask)
+void ACMP__vDisInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    uint32_t u32Reg = 0UL;
+    uint32_t u32Module = 0UL;
+    uint32_t u32CompMask = 0UL;
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
+    u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
 
-    uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
-    {
-        u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
-    }
-    ACMP__vSetReady();
-
-    u32Reg = ACMP->ACINTEN;
-    u32Reg &= ~u32ModuleMask;
-    ACMP->ACINTEN = u32Reg;
+    ACMP__vWriteRegister((ACMP_nMODULE) u32Module, ACMP_ACINTEN_OFFSET,
+                         0UL, u32CompMask, 0UL);
 }
 
-void ACMP__vClearInterruptSource(ACMP_nMODULEMASK enModuleMask)
+void ACMP__vClearInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
-    {
-        u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
-    }
-    ACMP__vSetReady();
+    uint32_t u32Module = 0UL;
+    uint32_t u32CompMask = 0UL;
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
+    u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
 
-    ACMP->ACMIS = u32ModuleMask;
+    ACMP__vWriteRegister((ACMP_nMODULE) u32Module, ACMP_ACMIS_OFFSET,
+                         u32CompMask, 0xFFFFFFFFUL, 0UL);
 }
 
-ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULEMASK enModuleMask)
+ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    ACMP_nINT_STATUS enInt = ACMP_enINT_STATUS_UNDEF;
-    uint32_t u32Reg = 0UL;
-    ACMP_nREADY enReady = ACMP_enNOREADY;
-    uint32_t u32ModuleMask = (uint32_t) enModuleMask;
-    if((uint32_t) ACMP_enMODULEMASK_ALL < u32ModuleMask)
-    {
-        u32ModuleMask = (uint32_t) ACMP_enMODULEMASK_ALL;
-    }
-    enReady = ACMP__enIsReady();
+    ACMP_nINT_STATUS enInterruptReg = ACMP_enINT_STATUS_UNDEF;
+    ACMP_nSTATUS enStatus = ACMP_enSTATUS_UNDEF;
+    uint32_t u32Module = 0UL;
+    uint32_t u32CompMask = 0UL;
+    uint32_t u32Register= 0xFFFFFFFFUL;
 
-    if(ACMP_enREADY == enReady)
+    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
+    u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
+    enStatus = ACMP__enReadRegister((ACMP_nMODULE) u32Module , ACMP_ACRIS_OFFSET, (uint32_t*) &u32Register, u32CompMask, 0UL);
+    if(ACMP_enSTATUS_OK == enStatus)
     {
-        u32Reg = ACMP->ACRIS;
-        u32Reg &= u32ModuleMask;
-
-        if((uint32_t) ACMP_enINT_NOOCCUR == u32Reg)
+        if(0UL != u32Register)
         {
-            enInt = ACMP_enINT_NOOCCUR;
+            enInterruptReg = ACMP_enINT_OCCUR;
         }
         else
         {
-            enInt = ACMP_enINT_OCCUR;
+            enInterruptReg = ACMP_enINT_NOOCCUR;
         }
     }
-    return enInt;
+    return enInterruptReg;
 }
 
 

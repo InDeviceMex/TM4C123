@@ -54,8 +54,8 @@ typedef volatile struct
     volatile uint32_t NVIC_TIMER1B :1;
     volatile uint32_t NVIC_TIMER2A :1;
     volatile uint32_t NVIC_TIMER2B :1;
-    volatile uint32_t NVIC_ACOMP0 :1;
-    volatile uint32_t NVIC_ACOMP1 :1;
+    volatile uint32_t NVIC_ACMP0 :1;
+    volatile uint32_t NVIC_ACMP1 :1;
     volatile uint32_t NVIC_RES43 :1;
     volatile uint32_t NVIC_SYSCTL :1;
     volatile uint32_t NVIC_FLASH :1;
@@ -264,9 +264,9 @@ typedef volatile struct
     const uint32_t reserved :5;
     volatile uint32_t NVIC_TIMER2B :3;/*24*/
     const uint32_t reserved1 :5;
-    volatile uint32_t NVIC_ACOMP0 :3;/*25*/
+    volatile uint32_t NVIC_ACMP0 :3;/*25*/
     const uint32_t reserved2 :5;
-    volatile uint32_t NVIC_ACOMP1 :3;/*26*/
+    volatile uint32_t NVIC_ACMP1 :3;/*26*/
     const uint32_t reserved3 :5;
     volatile uint32_t NVIC_RES43 :3;/*27*/
 }IPR6_TypeDef;

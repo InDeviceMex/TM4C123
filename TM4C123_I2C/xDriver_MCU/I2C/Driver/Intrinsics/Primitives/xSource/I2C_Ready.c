@@ -39,11 +39,11 @@ void I2C__vSetReady(I2C_nMODULE enModule)
     u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) I2C_enMODULE_MAX);
 
     enPeripheral = SYSCTL_VECTOR_I2C[u32Module];
-    enReady = I2C__enIsReady(enModule);
+    enReady = I2C__enIsReady((I2C_nMODULE)u32Module);
     if(I2C_enNOREADY == enReady)
     {
         SYSCTL__vSetReady(enPeripheral);
-        SYSCTL__vReset(SYSCTL_enI2C0);
+        SYSCTL__vReset(enPeripheral);
         SYSCTL__vSetReady(enPeripheral);
     }
 }
