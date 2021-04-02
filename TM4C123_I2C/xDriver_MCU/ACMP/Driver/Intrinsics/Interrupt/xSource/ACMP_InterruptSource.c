@@ -29,34 +29,28 @@
 
 void ACMP__vEnInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    uint32_t u32Module = 0UL;
     uint32_t u32CompMask = 0UL;
-    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
     u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
 
-    ACMP__vWriteRegister((ACMP_nMODULE) u32Module, ACMP_ACINTEN_OFFSET,
+    ACMP__vWriteRegister(enModule, ACMP_ACINTEN_OFFSET,
                          u32CompMask, u32CompMask, 0UL);
 }
 
 void ACMP__vDisInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    uint32_t u32Module = 0UL;
     uint32_t u32CompMask = 0UL;
-    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
     u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
 
-    ACMP__vWriteRegister((ACMP_nMODULE) u32Module, ACMP_ACINTEN_OFFSET,
+    ACMP__vWriteRegister(enModule, ACMP_ACINTEN_OFFSET,
                          0UL, u32CompMask, 0UL);
 }
 
 void ACMP__vClearInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMPMASK enCompMask)
 {
-    uint32_t u32Module = 0UL;
     uint32_t u32CompMask = 0UL;
-    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
     u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
 
-    ACMP__vWriteRegister((ACMP_nMODULE) u32Module, ACMP_ACMIS_OFFSET,
+    ACMP__vWriteRegister(enModule, ACMP_ACMIS_OFFSET,
                          u32CompMask, 0xFFFFFFFFUL, 0UL);
 }
 
@@ -64,13 +58,11 @@ ACMP_nINT_STATUS ACMP__enStatusInterruptSource(ACMP_nMODULE enModule, ACMP_nCOMP
 {
     ACMP_nINT_STATUS enInterruptReg = ACMP_enINT_STATUS_UNDEF;
     ACMP_nSTATUS enStatus = ACMP_enSTATUS_UNDEF;
-    uint32_t u32Module = 0UL;
     uint32_t u32CompMask = 0UL;
     uint32_t u32Register= 0xFFFFFFFFUL;
 
-    u32Module = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enMODULE_MAX);
     u32CompMask = MCU__u32CheckParams((uint32_t) enModule, (uint32_t) ACMP_enCOMPMASK_ALL);
-    enStatus = ACMP__enReadRegister((ACMP_nMODULE) u32Module , ACMP_ACRIS_OFFSET, (uint32_t*) &u32Register, u32CompMask, 0UL);
+    enStatus = ACMP__enReadRegister(enModule , ACMP_ACRIS_OFFSET, (uint32_t*) &u32Register, u32CompMask, 0UL);
     if(ACMP_enSTATUS_OK == enStatus)
     {
         if(0UL != u32Register)
