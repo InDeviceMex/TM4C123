@@ -68,7 +68,8 @@ void EDUMKII_Joystick_vInit(void)
 
     GPIO__vEnInterruptVector(EDUMKII_SELECT_PORT, GPIO_enPRI6);
     GPIO__vClearInterruptSource(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN);
-    GPIO__vEnInterruptSourceConfig(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+    GPIO__vSetInterruptSourceConfig(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+    GPIO__vEnInterruptSource(EDUMKII_SELECT_PORT, EDUMKII_SELECT_PIN);
 
     DMA__vRegisterIRQSourceHandler( &EDUMKII_Joystick_vIRQSourceHandler, DMA_enCH_MODULE_15, DMA_enCH_ENCODER_0 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2UL-1U]);

@@ -36,7 +36,8 @@ void EDUMKII_Button_vInit(EDUMKII_nBUTTON enButtonSelect)
 
         GPIO__vEnInterruptVector(EDUMKII_BUTTON_1_PORT, GPIO_enPRI6);
         GPIO__vClearInterruptSource(EDUMKII_BUTTON_1_PORT, EDUMKII_BUTTON_1_PIN);
-        GPIO__vEnInterruptSourceConfig(EDUMKII_BUTTON_1_PORT, EDUMKII_BUTTON_1_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+        GPIO__vSetInterruptSourceConfig(EDUMKII_BUTTON_1_PORT, EDUMKII_BUTTON_1_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+        GPIO__vEnInterruptSource(EDUMKII_BUTTON_1_PORT, EDUMKII_BUTTON_1_PIN);
     }
 
     if((uint32_t) EDUMKII_enBUTTON_2 == ((uint32_t) enButtonSelect & (uint32_t) EDUMKII_enBUTTON_2))
@@ -46,7 +47,8 @@ void EDUMKII_Button_vInit(EDUMKII_nBUTTON enButtonSelect)
 
         GPIO__vEnInterruptVector(EDUMKII_BUTTON_2_PORT, GPIO_enPRI6);
         GPIO__vClearInterruptSource(EDUMKII_BUTTON_2_PORT, EDUMKII_BUTTON_2_PIN);
-        GPIO__vEnInterruptSourceConfig(EDUMKII_BUTTON_2_PORT, EDUMKII_BUTTON_2_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+        GPIO__vSetInterruptSourceConfig(EDUMKII_BUTTON_2_PORT, EDUMKII_BUTTON_2_PIN, GPIO_enINT_CONFIG_EDGE_BOTH);
+        GPIO__vEnInterruptSource(EDUMKII_BUTTON_2_PORT, EDUMKII_BUTTON_2_PIN);
     }
 }
 

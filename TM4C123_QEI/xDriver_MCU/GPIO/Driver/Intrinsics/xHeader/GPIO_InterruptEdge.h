@@ -11,23 +11,23 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 30 jun. 2020 @endverbatim
+ * @verbatim Apr 6, 2021 @endverbatim
  *
  * @author
- * @verbatim vyldram @endverbatim
+ * @verbatim indevicemex @endverbatim
  *
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * Apr 6, 2021        indevicemex    1.0         initial Version@endverbatim
  */
 
-#ifndef XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTEDGE_H_
-#define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTEDGE_H_
+#ifndef XDRIVER_MCU_GPIO_DRIVER_INTRINSICS_XHEADER_GPIO_INTERRUPTEDGE_H_
+#define XDRIVER_MCU_GPIO_DRIVER_INTRINSICS_XHEADER_GPIO_INTERRUPTEDGE_H_
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
 void GPIO__vSetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nEDGE enEdge);
 GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
-#endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTEDGE_H_ */
+#endif /* XDRIVER_MCU_GPIO_DRIVER_INTRINSICS_XHEADER_GPIO_INTERRUPTEDGE_H_ */

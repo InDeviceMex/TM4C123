@@ -28,6 +28,7 @@
 #include <xDriver_MCU/GPIO/App/Config/GPIO_Config.h>
 #include <xDriver_MCU/GPIO/App/xHeader/GPIO_AnalogFunction.h>
 #include <xDriver_MCU/GPIO/App/xHeader/GPIO_DigitalFunction.h>
+#include <xDriver_MCU/GPIO/App/xHeader/GPIO_InterruptConfig.h>
 #include <xDriver_MCU/GPIO/App/xHeader/GPIO_DigitalConfig.h>
 #include <xDriver_MCU/GPIO/App/xHeader/GPIO_Init.h>
 

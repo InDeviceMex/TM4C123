@@ -11,19 +11,19 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim 30 jun. 2020 @endverbatim
+ * @verbatim Apr 6, 2021 @endverbatim
  *
  * @author
- * @verbatim vyldram @endverbatim
+ * @verbatim indevicemex @endverbatim
  *
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * 30 jun. 2020     vyldram    1.0         initial Version@endverbatim
+ * Apr 6, 2021        indevicemex    1.0         initial Version@endverbatim
  */
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptEdge.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_InterruptEdge.h>
 
-#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/xHeader/GPIO_InterruptSense.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_InterruptSense.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_Generic.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
@@ -60,3 +60,6 @@ GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin)
     }
     return enFeature;
 }
+
+
+
