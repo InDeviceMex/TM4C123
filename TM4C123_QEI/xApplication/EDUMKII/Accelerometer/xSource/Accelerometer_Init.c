@@ -68,7 +68,7 @@ void EDUMKII_Accelerometer_vInit(void)
     GPIO__vSetAnalogFunction(EDUMKII_ACCEL_AXIS_Z);
 
     ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_2, ADC_enSEQ_ENABLE_DIS);
-    ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enSEQ_TRIGGER_TIMER);
+    ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enSEQ_TRIGGER_SOFTWARE);
 
     sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_X_INPUT;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_0, &sADC0SampleConfig);
@@ -86,7 +86,6 @@ void EDUMKII_Accelerometer_vInit(void)
 
     ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enPRI1);
     ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_2, ADC_enSEQ_ENABLE_ENA);
-    EDUMKII_Common_vTimerInit();
 }
 
 

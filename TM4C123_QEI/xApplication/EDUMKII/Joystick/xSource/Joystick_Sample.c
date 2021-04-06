@@ -29,9 +29,13 @@
 
 static volatile EDUMKII_nJOYSTICK enSelectStatus = EDUMKII_enJOYSTICK_NOPRESS;
 volatile uint32_t u32JostickFifoArray[2] = {0UL};
+volatile uint32_t u32JostickFlag = 0UL;
 
 void EDUMKII_Joystick_vSample(uint32_t *u32X, uint32_t *u32Y, EDUMKII_nJOYSTICK *enSelect)
 {
+    u32JostickFlag = 0UL;
+    ADC__vSetSequencerInitConv(ADC_enMODULE_0, ADC_enSEQMASK_1);
+    while(0UL == u32JostickFlag){}
     *u32X = (uint32_t) u32JostickFifoArray[0];
     *u32Y = (uint32_t) u32JostickFifoArray[1];
 
@@ -48,6 +52,7 @@ void EDUMKII_Joystick_vIRQSourceHandler(void)
 
     DMACH->DMACh[15UL].DMACHCTL = *((volatile uint32_t*) &enChControl);
     DMA->DMAENASET = (uint32_t)  DMA_enCH_ENA_ENA << 15UL;
+    u32JostickFlag = 1UL;
 }
 
 

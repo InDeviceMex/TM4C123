@@ -28,9 +28,13 @@
 #include <xDriver_MCU/DMA/DMA.h>
 
 volatile uint32_t u32MicrophoneFifoArray[1] = {0UL};
+volatile uint32_t u32MicrophoneFlag = 0UL;
 
 void EDUMKII_Microphone_vSample(uint32_t *u32Input)
 {
+    u32MicrophoneFlag = 0UL;
+    ADC__vSetSequencerInitConv(ADC_enMODULE_0, ADC_enSEQMASK_0);
+    while(0UL == u32MicrophoneFlag){}
     *u32Input = u32MicrophoneFifoArray[0];
 }
 
@@ -50,6 +54,7 @@ void EDUMKII_Microphone_vIRQSourceHandler(void)
 
     DMACH->DMACh[14UL].DMACHCTL = *((volatile uint32_t*) &enChControl);
     DMA->DMAENASET = (uint32_t)  DMA_enCH_ENA_ENA << 14UL;
+    u32MicrophoneFlag = 1UL;
 }
 
 

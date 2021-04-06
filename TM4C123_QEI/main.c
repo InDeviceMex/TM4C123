@@ -39,6 +39,7 @@ int32_t main (void);
 uint32_t u32MicrophoneValue = 0UL;
 
 uint8_t pu8LightSensorTransmit1[6UL] = {0x02, 0xC0, 0x00, 0x01, 0xCA, 0x10};
+uint8_t pu8LightSensorTransmitInit[6UL] = {0x02, 0xC0, 0x00, 0x01, 0xC8, 0x10};
 uint8_t pu8LightSensorTransmit2[1UL] = {0x00};
 uint8_t pu8LightSensorTransmit3[1UL] = {0x01};
 uint8_t pu8LightSensorReceive1[2UL] = {0x00, 0x00};
@@ -86,7 +87,11 @@ int32_t main(void)
      "JoystickX:     , JoystickY:     , Select:  \n\r"
      "AccelX:      , AccelY:      , AccelZ:      \n\r"
      "Microphone:     \n\r\n\r");
-
+/*
+    I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmitInit, 3UL);
+    I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL,pu8LightSensorReceive1, 2UL);
+    I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, &pu8LightSensorTransmitInit[3UL], 3UL);
+    */
     while(1UL)
     {
         fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
@@ -177,7 +182,8 @@ int32_t main(void)
         {
             fTimeSystickStart_Task3 = SysTick__fGetTimeUs();
             I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit1, 3UL);
-            I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, &pu8LightSensorTransmit1[3UL], 3UL, pu8LightSensorReceive1, 2UL);
+            I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL,pu8LightSensorReceive1, 2UL);
+            I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, &pu8LightSensorTransmit1[3UL], 3UL);
             u32StateTask3 = 1UL;
         }
         else
