@@ -457,6 +457,7 @@ typedef enum
     GPIO_enAIN0 = (uint32_t) (((uint32_t) GPIO_enPORT_E << 8UL) | ((uint32_t) GPIO_enPIN_NUMBER3)),
     GPIO_enAIN9 = (uint32_t) (((uint32_t) GPIO_enPORT_E << 8UL) | ((uint32_t) GPIO_enPIN_NUMBER4)),
     GPIO_enAIN8 = (uint32_t) (((uint32_t) GPIO_enPORT_E << 8UL) | ((uint32_t) GPIO_enPIN_NUMBER5)),
+    GPIO_enAIN_UNDEF = 0xFFFFFFFFUL,
 } GPIO_nANALOG_FUNCTION;
 
 typedef enum

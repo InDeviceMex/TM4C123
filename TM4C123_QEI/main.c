@@ -237,6 +237,7 @@ void MAIN_vInitSystem(void)
     UART__vInit();
     SSI__vInit();
     I2C__vInit();
+    ACMP__vInit();
 
     MAIN_vUART0Init();
 
@@ -245,7 +246,6 @@ void MAIN_vInitSystem(void)
     I2C__vInit();
     I2C__vSetConfig(I2C_enMODULE_1,I2C_enMODE_MASTER, 50000UL);
 
-    ACMP__fSetVoltageReference(ACMP_enMODULE_0, 0.0f);
 }
 
 void MAIN_vInitEDUMKII(void)

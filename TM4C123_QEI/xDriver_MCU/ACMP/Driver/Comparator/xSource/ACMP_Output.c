@@ -30,7 +30,7 @@
 ACMP_nOUTPUT_VALUE ACMP__u32GetComparatorOutput(ACMP_nMODULE enModule, ACMP_nCOMP  enComparatorArg)
 {
     ACMP_nOUTPUT_VALUE enOutputValueReg = ACMP_enOUTPUT_VALUE_UNDEF;
-    enOutputValueReg = (ACMP_nOUTPUT_VALUE) ACMP__u32GetCompGeneric((ACMP_nMODULE) enModule, (ACMP_nCOMP) enComparatorArg, ACMP_ACSTAT_OFFSET, ACMP_ACSTAT_OVAL_MASK, ACMP_ACSTAT_R_OVAL_BIT);
+    enOutputValueReg = (ACMP_nOUTPUT_VALUE) ACMP__u32GetCompGeneric((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACSTAT_OFFSET, ACMP_ACSTAT_OVAL_MASK, ACMP_ACSTAT_R_OVAL_BIT);
     return enOutputValueReg;
 }
 

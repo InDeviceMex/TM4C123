@@ -25,6 +25,10 @@
 #ifndef XDRIVER_MCU_ACMP_APP_ACMP_APP_H_
 #define XDRIVER_MCU_ACMP_APP_ACMP_APP_H_
 
+#include <xDriver_MCU/ACMP/App/xHeader/ACMP_Init.h>
+#include <xDriver_MCU/ACMP/App/xHeader/ACMP_Config.h>
+#include <xDriver_MCU/ACMP/App/xHeader/ACMP_InterruptConfig.h>
+#include <xDriver_MCU/ACMP/App/xHeader/ACMP_ADCTriggerConfig.h>
 
 
 #endif /* XDRIVER_MCU_ACMP_APP_ACMP_APP_H_ */

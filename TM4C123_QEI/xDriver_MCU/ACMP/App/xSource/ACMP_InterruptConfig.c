@@ -26,16 +26,16 @@
 #include <xDriver_MCU/ACMP/Driver/Comparator/Control/xHeader/ACMP_InterruptEdge.h>
 #include <xDriver_MCU/ACMP/Driver/Comparator/Control/xHeader/ACMP_InterruptLevel.h>
 
-void ACMP__vSetInterruptConfig(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nINT_CONFIG enIntConfig)
+void ACMP__vSetInterruptConfig(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nINT_CONFIG enIntConfigArg)
 {
     uint32_t u32Sense = 0UL;
     uint32_t u32Event = 0UL;
 
-    u32Sense = (uint32_t) enIntConfig;
+    u32Sense = (uint32_t) enIntConfigArg;
     u32Sense >>= 8UL;
     u32Sense &= 1UL;
 
-    u32Event = (uint32_t) enIntConfig;
+    u32Event = (uint32_t) enIntConfigArg;
     u32Event &= 0x3UL;
 
     if((uint32_t) ACMP_enINT_SENSE_EDGE == u32Sense)

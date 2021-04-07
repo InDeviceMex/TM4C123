@@ -115,6 +115,13 @@ typedef enum
 
 typedef enum
 {
+    ACMP_enINT_DIS = 0UL,
+    ACMP_enINT_ENA = 1UL,
+    ACMP_enINT_UNDEF = 0xFFFFFFFFUL,
+} ACMP_nINT;
+
+typedef enum
+{
     ACMP_enADC_DIS = 0UL,
     ACMP_enADC_ENA = 1UL,
     ACMP_enADC_UNDEF = 0xFFFFFFFFUL,
@@ -192,5 +199,23 @@ typedef enum
     ACMP_enOUTPUT_INVERT_ENA = 1UL,
     ACMP_enOUTPUT_INVERT_UNDEF = 0xFFFFFFFFUL,
 } ACMP_nOUTPUT_INVERT;
+
+typedef enum
+{
+    ACMP_enOUTPUT_DIS = 0UL,
+    ACMP_enOUTPUT_ENA = 1UL,
+    ACMP_enOUTPUT_UNDEF = 0xFFFFFFFFUL,
+}ACMP_nOUTPUT;
+
+typedef struct
+{
+    ACMP_nINT enIntEnable;
+    ACMP_nADC enADCEnable;
+    ACMP_nOUTPUT enOutputEnable;
+    ACMP_nINT_CONFIG enIntConfig;
+    ACMP_nADC_CONFIG enADCConfig;
+    ACMP_nOUTPUT_INVERT enOutputInvert;
+    ACMP_nVMAX_SOURCE enVmaxSource;
+}ACMP_CONTROL_TypeDef;
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_XHEADER_ACMP_ENUM_H_ */

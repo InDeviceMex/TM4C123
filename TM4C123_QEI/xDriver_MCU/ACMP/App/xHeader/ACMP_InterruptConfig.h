@@ -27,6 +27,6 @@
 
 #include <ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
-void ACMP__vSetInterruptConfig(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nINT_CONFIG enIntConfig);
+void ACMP__vSetInterruptConfig(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nINT_CONFIG enIntConfigArg);
 
 #endif /* XDRIVER_MCU_ACMP_APP_XHEADER_ACMP_INTERRUPTCONFIG_H_ */

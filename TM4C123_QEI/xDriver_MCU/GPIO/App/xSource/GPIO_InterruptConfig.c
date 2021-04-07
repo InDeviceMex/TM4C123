@@ -27,16 +27,16 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_InterruptLevel.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/xHeader/GPIO_InterruptSense.h>
 
-void GPIO__vSetInterruptSourceConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nINT_CONFIG enIntConfig)
+void GPIO__vSetInterruptSourceConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nINT_CONFIG enIntConfigArg)
 {
     uint32_t u32Sense = 0UL;
     uint32_t u32Event = 0UL;
 
-    u32Sense = (uint32_t) enIntConfig;
+    u32Sense = (uint32_t) enIntConfigArg;
     u32Sense >>= 8UL;
     u32Sense &= 1UL;
 
-    u32Event = (uint32_t) enIntConfig;
+    u32Event = (uint32_t) enIntConfigArg;
     u32Event &= 0x3UL;
 
     if((uint32_t) GPIO_enSENSE_EDGE == u32Sense)
