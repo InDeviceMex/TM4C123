@@ -42,6 +42,7 @@
 #include <xDriver_MCU/SSI/SSI.h>
 #include <xDriver_MCU/I2C/I2C.h>
 #include <xDriver_MCU/ACMP/ACMP.h>
+#include <xDriver_MCU/QEI/QEI.h>
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

@@ -87,6 +87,9 @@ int32_t main(void)
      "JoystickX:     , JoystickY:     , Select:  \n\r"
      "AccelX:      , AccelY:      , AccelZ:      \n\r"
      "Microphone:     \n\r\n\r");
+
+    SYSCTL__vSetReady(SYSCTL_enQEI0);
+    QEI0->QEIPOS = 100UL;
 /*
     I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmitInit, 3UL);
     I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL,pu8LightSensorReceive1, 2UL);

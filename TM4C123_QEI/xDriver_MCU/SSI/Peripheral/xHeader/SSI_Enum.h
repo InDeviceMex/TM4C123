@@ -204,28 +204,28 @@ typedef enum
 
 typedef struct
 {
-        SSI_nEOT enEndOfTransmission;
-        SSI_nLOOPBACK enLoopback;
-        SSI_nLINE enRxLine;
-        SSI_nLINE enTxLine;
-        SSI_nLINE enClkLine;
-        SSI_nLINE enFssLine;
+    SSI_nEOT enEndOfTransmission;
+    SSI_nLOOPBACK enLoopback;
+    SSI_nLINE enRxLine;
+    SSI_nLINE enTxLine;
+    SSI_nLINE enClkLine;
+    SSI_nLINE enFssLine;
 }SSI_CONTROL_TypeDef;
 
 typedef struct
 {
-        SSI_nLINE_SELECT enRx;
-        SSI_nLINE_SELECT enTx;
-        SSI_nLINE_SELECT enClk;
-        SSI_nLINE_SELECT enFss;
+    SSI_nLINE_SELECT enRx;
+    SSI_nLINE_SELECT enTx;
+    SSI_nLINE_SELECT enClk;
+    SSI_nLINE_SELECT enFss;
 }SSI_LINE_TypeDef;
 
 typedef struct
 {
-        SSI_nFORMAT enFormat;
-        SSI_nCLOCK_PHASE enClockPhase;
-        SSI_nCLOCK_POLARITY enClockPolarity;
-        SSI_nLENGTH enLengthData;
+    SSI_nFORMAT enFormat;
+    SSI_nCLOCK_PHASE enClockPhase;
+    SSI_nCLOCK_POLARITY enClockPolarity;
+    SSI_nLENGTH enLengthData;
 }SSI_FRAME_CONTROL_TypeDef;
 
 #endif /* XDRIVER_MCU_SSI_PERIPHERAL_XHEADER_SSI_ENUM_H_ */

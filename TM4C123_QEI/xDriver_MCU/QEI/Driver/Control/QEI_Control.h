@@ -1,6 +1,6 @@
 /**
  *
- * @file QEI.h
+ * @file QEI_Control.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -11,7 +11,7 @@
  * @verbatim 1.0 @endverbatim
  *
  * @date
- * @verbatim Apr 5, 2021 @endverbatim
+ * @verbatim Apr 8, 2021 @endverbatim
  *
  * @author
  * @verbatim indevicemex @endverbatim
@@ -19,13 +19,12 @@
  * @par Change History
  * @verbatim
  * Date           Author     Version     Description
- * Apr 5, 2021        indevicemex    1.0         initial Version@endverbatim
+ * Apr 8, 2021        indevicemex    1.0         initial Version@endverbatim
  */
 
-#ifndef XDRIVER_MCU_QEI_QEI_H_
-#define XDRIVER_MCU_QEI_QEI_H_
+#ifndef XDRIVER_MCU_QEI_DRIVER_CONTROL_QEI_CONTROL_H_
+#define XDRIVER_MCU_QEI_DRIVER_CONTROL_QEI_CONTROL_H_
 
-#include <xDriver_MCU/QEI/Driver/QEI_Driver.h>
-#include <xDriver_MCU/QEI/Peripheral/QEI_Peripheral.h>
 
-#endif /* XDRIVER_MCU_QEI_QEI_H_ */
+
+#endif /* XDRIVER_MCU_QEI_DRIVER_CONTROL_QEI_CONTROL_H_ */

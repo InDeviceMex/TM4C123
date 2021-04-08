@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_QEI_PERIPHERAL_REGISTER_QEI_REGISTER_H_
 #define XDRIVER_MCU_QEI_PERIPHERAL_REGISTER_QEI_REGISTER_H_
 
-#include <xDriver_MCU/QEI/Peripheral/Register/RegisterDefines/QEI_RegisterDefines.h>
+#include <xDriver_MCU/QEI/Peripheral/Register/xHeader/QEI_RegisterDefines.h>
 #include <xDriver_MCU/QEI/Peripheral/Register/RegisterPeripheral/QEI_RegisterPeripheral.h>
 #include <xDriver_MCU/QEI/Peripheral/Register/RegisterPeripheral_Bitbanding/QEI_RegisterPeripheral_Bitbanding.h>
 
