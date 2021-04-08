@@ -88,8 +88,6 @@ int32_t main(void)
      "AccelX:      , AccelY:      , AccelZ:      \n\r"
      "Microphone:     \n\r\n\r");
 
-    SYSCTL__vSetReady(SYSCTL_enQEI0);
-    QEI0->QEIPOS = 100UL;
 /*
     I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmitInit, 3UL);
     I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL,pu8LightSensorReceive1, 2UL);
@@ -241,6 +239,7 @@ void MAIN_vInitSystem(void)
     SSI__vInit();
     I2C__vInit();
     ACMP__vInit();
+    QEI__vInit();
 
     MAIN_vUART0Init();
 

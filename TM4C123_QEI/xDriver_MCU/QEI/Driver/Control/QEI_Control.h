@@ -25,6 +25,14 @@
 #ifndef XDRIVER_MCU_QEI_DRIVER_CONTROL_QEI_CONTROL_H_
 #define XDRIVER_MCU_QEI_DRIVER_CONTROL_QEI_CONTROL_H_
 
-
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_CaptureMode.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_Enable.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_InputFilter.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_InvertSignal.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_ResetMode.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_SignalMode.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_Stall.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_SwapSignal.h>
+#include <xDriver_MCU/QEI/Driver/Control/xHeader/QEI_Velocity.h>
 
 #endif /* XDRIVER_MCU_QEI_DRIVER_CONTROL_QEI_CONTROL_H_ */

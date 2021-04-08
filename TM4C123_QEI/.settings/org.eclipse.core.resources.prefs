@@ -903,6 +903,10 @@ encoding//Debug__TI/xDriver_MCU/I2C/Peripheral/Register/RegisterPeripheral/xSour
 encoding//Debug__TI/xDriver_MCU/I2C/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/I2C/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/I2C/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/QEI/App/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/QEI/App/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/QEI/Driver/Control/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TI/xDriver_MCU/QEI/Driver/Control/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/QEI/Driver/Intrinsics/Interrupt/InterruptRegister/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/QEI/Driver/Intrinsics/Interrupt/InterruptRegister/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TI/xDriver_MCU/QEI/Driver/Intrinsics/Interrupt/InterruptRoutine/xSource/subdir_rules.mk=UTF-8
