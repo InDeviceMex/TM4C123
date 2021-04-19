@@ -1,0 +1,27 @@
+/**
+ *
+ * @file WDT_InterruptRoutine.c
+ * @copyright
+ * @verbatim InDeviceMex 2020 @endverbatim
+ *
+ * @par Responsibility
+ * @verbatim InDeviceMex Developers @endverbatim
+ *
+ * @version
+ * @verbatim 1.0 @endverbatim
+ *
+ * @date
+ * @verbatim 22 jul. 2020 @endverbatim
+ *
+ * @author
+ * @verbatim vyldram @endverbatim
+ *
+ * @par Change History
+ * @verbatim
+ * Date           Author     Version     Description
+ * 22 jul. 2020     vyldram    1.0         initial Version@endverbatim
+ */
+#include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/InterruptRoutine/WDT_InterruptRoutine.h>
+#include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
+
+void (*WDT__vIRQVectorHandler[ (uint32_t) WDT_enINT_TYPE_MAX]) (void)= { &WDT_Standard__vIRQVectorHandler, &WDT_NMI__vIRQVectorHandler_Dummy};
