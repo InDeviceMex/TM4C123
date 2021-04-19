@@ -25,6 +25,6 @@
 #ifndef XAPPLICATION_PRINTF_PRINTF_H_
 #define XAPPLICATION_PRINTF_PRINTF_H_
 
-#include <Printf/Generic/Generic.h>
+#include <xApplication/Printf/Generic/Generic.h>
 
 #endif /* XAPPLICATION_PRINTF_PRINTF_H_ */

@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 21 sep. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationAddress.h>
+#include <xDriver_MCU/DMA/Driver/CH_Control/xHeader/DMA_CH_DestinationAddress.h>
 
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Primitives/DMA_Primitives.h>

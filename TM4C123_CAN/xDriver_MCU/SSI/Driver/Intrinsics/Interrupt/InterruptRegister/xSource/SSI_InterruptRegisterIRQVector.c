@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 17 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <SSI/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/SSI_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/SSI/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/SSI_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/SSI/Peripheral/xHeader/SSI_Dependencies.h>

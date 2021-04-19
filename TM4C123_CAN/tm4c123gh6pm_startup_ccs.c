@@ -23,7 +23,7 @@
 /*******************************************************************************/
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU.h>
+#include <xDriver_MCU/xDriver_MCU.h>
 /*******************************************************************************/
 /**/
 /* Forward declaration of the default fault handlers.*/

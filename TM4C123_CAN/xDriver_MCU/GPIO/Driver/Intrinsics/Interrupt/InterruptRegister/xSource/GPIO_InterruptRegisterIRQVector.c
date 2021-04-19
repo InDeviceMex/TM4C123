@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 2 jul. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <GPIO/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/GPIO_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/GPIO_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Dependencies.h>

@@ -95,7 +95,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typ
         enTimerModuleVar = psServoMotor->enTimerModule;
         u32Count = u32ServoMinCount;/*1 ms min value*/
         fDegreeCountVar = psServoMotor->fDegreeCount;
-        if((fAngle >= -90.0f) && (fAngle <= 90.0f))
+        if((-90.0f <= fAngle) && (90.0f >= fAngle))
         {
             fAngleAbsolute += fAngle;
             fAngleAbsolute *= fDegreeCountVar;

@@ -7,7 +7,7 @@
 
 
 
-#include <LCD1602/Generic/LCD1602_Generic.h>
+#include <xApplication/LCD1602/Generic/LCD1602_Generic.h>
 
 typedef LCD1602_nSTATUS (*LCD1602_SET_ADDRESS_TypeDef) (uint8_t u8Column, uint8_t u8Row);
 

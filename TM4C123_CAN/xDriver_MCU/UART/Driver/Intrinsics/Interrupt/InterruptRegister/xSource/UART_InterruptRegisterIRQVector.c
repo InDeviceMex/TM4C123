@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 23 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#include <UART/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/UART_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/UART/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/UART_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/UART/Peripheral/xHeader/UART_Dependencies.h>

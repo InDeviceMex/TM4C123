@@ -59,7 +59,7 @@ typedef enum
  based on the algorithm by David Gay (https://www.ampl.com/netlib/fp/dtoa.c)*/
 typedef union {
   uint64_t UNSIGNED;
-  double   FLOAT;
+  float64_t   FLOAT;
 } CONV_FLOAT_UNION_TypeDef;
 
 typedef void (*CONV_FUNCTION_Typedef) (char cCharacter, void* pvFuncArguments);

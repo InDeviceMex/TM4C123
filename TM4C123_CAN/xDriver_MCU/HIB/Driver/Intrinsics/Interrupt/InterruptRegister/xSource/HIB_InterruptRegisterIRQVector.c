@@ -22,7 +22,7 @@
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <HIB/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/HIB_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/HIB/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/HIB_InterruptRegisterIRQVector.h>
 
 #include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/HIB/Peripheral/xHeader/HIB_Dependencies.h>
