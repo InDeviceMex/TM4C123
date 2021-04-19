@@ -184,7 +184,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-        ADC_BITBANDING_TypeDef MODULE [(uint32_t) ADC_enMODULE_MAX];
+    ADC_BITBANDING_TypeDef MODULE [(uint32_t) ADC_enMODULE_MAX];
 }ADCS_BITBANDING_TypeDef;
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_STRUCT_XHEADER_ADC_STRUCTPERIPHERAL_BITBANDING_H_ */

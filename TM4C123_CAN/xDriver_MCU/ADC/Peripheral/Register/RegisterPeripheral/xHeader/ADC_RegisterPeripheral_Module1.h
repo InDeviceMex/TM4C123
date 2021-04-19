@@ -26,7 +26,6 @@
 #define XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_XHEADER_ADC_REGISTERPERIPHERAL_MODULE1_H_
 
 #include <xDriver_MCU/ADC/Peripheral/Register/xHeader/ADC_RegisterAddress.h>
-#include <xDriver_MCU/ADC/Peripheral/Register/RegisterDefines/ADC_RegisterDefines.h>
 #include <xDriver_MCU/ADC/Peripheral/Struct/xHeader/ADC_StructPeripheral.h>
 
 /******************************************************************************************

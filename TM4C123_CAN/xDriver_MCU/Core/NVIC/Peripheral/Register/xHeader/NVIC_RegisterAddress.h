@@ -32,6 +32,7 @@
 
 #define NVIC_IRQ_MAX    (139UL)
 #define NVIC_MAX    (4UL)
+#define NVIC_PRI_BIT_OFFSET    (5UL)
 #define NVIC_PRI_MAX    (8UL)
 #define NVIC_PRI_MASK    (7UL)
 #define NVIC_IPR_MAX    (35UL)

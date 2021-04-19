@@ -25,7 +25,9 @@
 #ifndef XDRIVER_MCU_CAN_CAN_H_
 #define XDRIVER_MCU_CAN_CAN_H_
 
-#include <xDriver_MCU/CAN/Driver/CAN_Driver.h>
-#include <xDriver_MCU/CAN/App/CAN_App.h>
-
+#include <xDriver_MCU/CAN/Peripheral/CAN_Peripheral.h>
+/*
+ * #include <xDriver_MCU/CAN/Driver/CAN_Driver.h>
+ * #include <xDriver_MCU/CAN/App/CAN_App.h>
+*/
 #endif /* XDRIVER_MCU_CAN_CAN_H_ */

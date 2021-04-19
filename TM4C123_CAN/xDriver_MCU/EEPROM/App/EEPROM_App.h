@@ -25,6 +25,6 @@
 #ifndef XDRIVER_MCU_EEPROM_APP_EEPROM_APP_H_
 #define XDRIVER_MCU_EEPROM_APP_EEPROM_APP_H_
 
-#include <EEPROM/App/xHeader/EEPROM_Init.h>
+#include <xDriver_MCU/EEPROM/App/xHeader/EEPROM_Init.h>
 
 #endif /* XDRIVER_MCU_EEPROM_APP_EEPROM_APP_H_ */

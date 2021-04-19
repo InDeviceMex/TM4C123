@@ -4,10 +4,10 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <EEPROM/Driver/xHeader/EEPROM_Write.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_Write.h>
 
 #include <xDriver_MCU/Common/MCU_Common.h>
-#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address, uint32_t u32VariableType);

@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_ADC_DRIVER_COMPARATOR_RANGE_ADC_COMPARATOR_RANGE_H_
 #define XDRIVER_MCU_ADC_DRIVER_COMPARATOR_RANGE_ADC_COMPARATOR_RANGE_H_
 
-#include <ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeBoth.h>
+#include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeBoth.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeHigher.h>
 #include <xDriver_MCU/ADC/Driver/Comparator/Range/xHeader/ADC_Comparator_RangeLower.h>
 

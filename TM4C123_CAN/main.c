@@ -8,7 +8,7 @@
 #include <string.h>
 
 /*MCU Drivers*/
-#include <xDriver_MCU.h>
+#include <xDriver_MCU/xDriver_MCU.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
 /*Utils Libraries*/

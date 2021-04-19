@@ -22,8 +22,8 @@
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
 
-#include <FLASH/App/xHeader/FLASH_Init.h>
-#include <FLASH/Driver/FLASH_Driver.h>
+#include <xDriver_MCU/FLASH/App/xHeader/FLASH_Init.h>
+#include <xDriver_MCU/FLASH/Driver/FLASH_Driver.h>
 
 FLASH_nSTATUS FLASH__enInit (void)
 {

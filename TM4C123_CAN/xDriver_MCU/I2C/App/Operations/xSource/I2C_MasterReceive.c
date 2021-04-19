@@ -22,7 +22,7 @@
  * Mar 29, 2021        indevicemex    1.0         initial Version@endverbatim
  */
 #include <xDriver_MCU/I2C/App/Operations/xHeader/I2C_MasterReceive.h>
-#include <I2C/App/Operations/xHeader/I2C_Common.h>
+#include <xDriver_MCU/I2C/App/Operations/xHeader/I2C_Common.h>
 #include <xDriver_MCU/I2C/Driver/I2C_Driver.h>
 
 I2C_nSTATUS I2C_Master_enReceiveGeneric(I2C_nMODULE enModule, I2C_nMULTIMASTER enMultiMasterArg, I2C_nSTOPCONDITION enStopConditionArg,

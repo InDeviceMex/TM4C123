@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_COMPARATOR_CONTROL_XHEADER_ACMP_TRIGGERENABLE_H_
 #define XDRIVER_MCU_ACMP_DRIVER_COMPARATOR_CONTROL_XHEADER_ACMP_TRIGGERENABLE_H_
 
-#include <ACMP/Peripheral/xHeader/ACMP_Enum.h>
+#include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
 void ACMP__vSetComparatorADCTrigger(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nADC enTriggerEnable);
 ACMP_nADC ACMP__enGetComparatorADCTrigger(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg);

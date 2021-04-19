@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_I2C_DRIVER_MASTER_XHEADER_I2C_TIMERPERIOD_FREQ_H_
 #define XDRIVER_MCU_I2C_DRIVER_MASTER_XHEADER_I2C_TIMERPERIOD_FREQ_H_
 
-#include <I2C/Peripheral/xHeader/I2C_Enum.h>
+#include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
 I2C_nSTATUS I2C_Master__enSetFrequency(I2C_nMODULE enModule, uint32_t u32FrequencyArg);
 uint32_t I2C_Master__u32GetFrequency(I2C_nMODULE enModule);

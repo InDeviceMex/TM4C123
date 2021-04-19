@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 10 ago. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_BlockCount.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/xHeader/EEPROM_BlockCount.h>
 
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>

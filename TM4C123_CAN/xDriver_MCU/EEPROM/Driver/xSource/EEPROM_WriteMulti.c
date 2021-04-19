@@ -4,10 +4,10 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <EEPROM/Driver/xHeader/EEPROM_WriteMulti.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_WriteMulti.h>
 
-#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
-#include <EEPROM/Driver/xHeader/EEPROM_Write.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_Write.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 EEPROM_nSTATUS EEPROM__enWriteMultiAlt (void* pvData, uint32_t u32Address, uint16_t u16Count, uint32_t u32VariableType);

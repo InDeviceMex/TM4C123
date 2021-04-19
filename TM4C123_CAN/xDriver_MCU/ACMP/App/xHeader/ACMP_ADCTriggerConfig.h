@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_ACMP_APP_XHEADER_ACMP_ADCTRIGGERCONFIG_H_
 #define XDRIVER_MCU_ACMP_APP_XHEADER_ACMP_ADCTRIGGERCONFIG_H_
 
-#include <ACMP/Peripheral/xHeader/ACMP_Enum.h>
+#include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
 void ACMP__vSetADCTriggerConfig(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nADC_CONFIG enIntConfigArg);
 

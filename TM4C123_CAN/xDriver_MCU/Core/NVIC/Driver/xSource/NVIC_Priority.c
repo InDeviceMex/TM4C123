@@ -38,6 +38,7 @@ inline void NVIC__vSetPriorityIRQ(NVIC_nSTIR enIRQ, NVIC_nPRIORITY enPriority)
     u32IRQ = MCU__u32CheckParams( (uint32_t) enIRQ, NVIC_IRQ_MAX);
     u32IsrBit = u32IRQ % 4UL;
     u32IsrBit *= 8UL;
+    u32IsrBit += NVIC_PRI_BIT_OFFSET;
     u32IsrIndex = u32IRQ / 4UL;
     u32IsrIndex *= 4UL;
     u32RegisterOffset += u32IsrIndex;

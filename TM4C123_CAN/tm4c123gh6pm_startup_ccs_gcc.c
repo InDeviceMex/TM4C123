@@ -35,9 +35,6 @@ static void NmiSR(void);
 static void FaultISR(void);
 static void IntDefaultHandler(void);
 
-#ifndef HWREG
-#define HWREG(x) (*((volatile uint32_t *)(x)))
-#endif
 
 /*******************************************************************************/
 /**/
@@ -51,7 +48,7 @@ extern int main(void);
 /* Reserve space for the system stack.*/
 /**/
 /*******************************************************************************/
-static uint32_t pui32Stack[0x200 >> 2] __attribute__((section(".stack")));
+static uint32_t pui32Stack[0x00000600UL >> 2UL] __attribute__((section(".stack")));
 
 /*******************************************************************************/
 /**/
@@ -68,7 +65,7 @@ static uint32_t pui32Stack[0x200 >> 2] __attribute__((section(".stack")));
 /**/
 /*******************************************************************************/
 __attribute__ ((section(".intvecs")))
-void (* const g_pfnVectors[0x100])(void) =
+void (* const g_pfnVectors[0x00000400UL >> 2UL])(void) =
 {
     (void (*)(void))((uint32_t)pui32Stack + sizeof(pui32Stack)),
                                             /* The initial stack pointer*/
@@ -261,20 +258,21 @@ ResetISR(void)
 
     {__asm(" cpsid i");}
 
-    /**/
-    /* Copy the data segment initializers from flash to SRAM.*/
-    /**/
-    pui32Src = &__data_load__;
-    for(pui32Dest = &__data_start__; pui32Dest < &__data_end__; )
-    {
-        *pui32Dest++ = *pui32Src++;
-    }
 
     /**/
     /* Copy the ramcode segment initializers from flash to SRAM.*/
     /**/
     pui32Src = &__ramcode_load__;
     for(pui32Dest = &__ramcode_start__; pui32Dest < &__ramcode_end__; )
+    {
+        *pui32Dest++ = *pui32Src++;
+    }
+
+    /**/
+    /* Copy the data segment initializers from flash to SRAM.*/
+    /**/
+    pui32Src = &__data_load__;
+    for(pui32Dest = &__data_start__; pui32Dest < &__data_end__; )
     {
         *pui32Dest++ = *pui32Src++;
     }
@@ -298,12 +296,6 @@ ResetISR(void)
     /* float32_ting-point registers (which will fault if float32_ting-point is not*/
     /* enabled).  Any configuration of the float32_ting-point unit using DriverLib*/
     /* APIs must be done here prior to the float32_ting-point unit being enabled.*/
-    /**/
-    /* Note that this does not use DriverLib since it might not be included in*/
-    /* this project.*/
-    /**/
-    /*HWREG(0xE000ED88U) = ((HWREG(0xE000ED88U) & ~0x00F00000U) | 0x00F00000U);*/
-    
     /**/
     /* Call the application's entry point.*/
     /**/

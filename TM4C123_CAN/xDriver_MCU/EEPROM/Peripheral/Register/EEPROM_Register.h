@@ -8,8 +8,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_REGISTER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_REGISTER_H_
 
-#include <EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterDefines.h>
-#include <EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterPeripheral.h>
-#include <EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterPeripheral_Bitbanding.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterDefines.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterPeripheral.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterPeripheral_Bitbanding.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_REGISTER_H_ */

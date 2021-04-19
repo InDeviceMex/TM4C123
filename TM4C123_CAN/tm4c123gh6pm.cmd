@@ -38,10 +38,18 @@ SECTIONS
 {
     .intvecs:   > 0x00000000
     .text   :   > FLASH_CODE
+    .glue_7 : > FLASH_CODE
+    .glue_7t : > FLASH_CODE
+    .eh_frame : > FLASH_CODE
+    .ctor: > FLASH_CODE
+    .dtor: > FLASH_CODE
+
     .const  :   > FLASH_CONST
     .cinit  :   > FLASH_CONST
     .pinit  :   > FLASH_CONST
+    .preinit_array: > FLASH_CONST
     .init_array : > FLASH_CONST
+    .fini_array : > FLASH_CONST
 
     .vtable :   > 0x20000000
     .ramcode:	> SRAM_CODE

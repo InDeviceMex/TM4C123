@@ -25,10 +25,10 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_DRIVER_H_
 
-#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
-#include <EEPROM/Driver/xHeader/EEPROM_Read.h>
-#include <EEPROM/Driver/xHeader/EEPROM_ReadMulti.h>
-#include <EEPROM/Driver/xHeader/EEPROM_Write.h>
-#include <EEPROM/Driver/xHeader/EEPROM_WriteMulti.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_Read.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_ReadMulti.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_Write.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_WriteMulti.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_DRIVER_EEPROM_DRIVER_H_ */

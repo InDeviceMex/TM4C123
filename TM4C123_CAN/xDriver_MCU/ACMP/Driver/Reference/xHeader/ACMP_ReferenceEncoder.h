@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_REFERENCE_XHEADER_ACMP_REFERENCEENCODER_H_
 #define XDRIVER_MCU_ACMP_DRIVER_REFERENCE_XHEADER_ACMP_REFERENCEENCODER_H_
 
-#include <ACMP/Peripheral/xHeader/ACMP_Enum.h>
+#include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
 void ACMP__vSetReferenceEncoder(ACMP_nMODULE enModule, uint32_t u32EncoderValue);
 uint32_t ACMP__u32GetReferenceEncoder(ACMP_nMODULE enModule);

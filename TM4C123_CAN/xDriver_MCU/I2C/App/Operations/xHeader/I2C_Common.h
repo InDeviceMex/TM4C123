@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_I2C_APP_OPERATIONS_XHEADER_I2C_COMMON_H_
 #define XDRIVER_MCU_I2C_APP_OPERATIONS_XHEADER_I2C_COMMON_H_
 
-#include <I2C/Peripheral/xHeader/I2C_Enum.h>
+#include <xDriver_MCU/I2C/Peripheral/xHeader/I2C_Enum.h>
 
 #define I2C_TIMEOUT (0xFFFFUL)
 

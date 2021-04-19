@@ -1,9 +1,9 @@
 /**
  * @section Include Files
  */
-#include <EEPROM/App/xHeader/EEPROM_Init.h>
+#include <xDriver_MCU/EEPROM/App/xHeader/EEPROM_Init.h>
 
-#include <EEPROM/Driver/EEPROM_Driver.h>
+#include <xDriver_MCU/EEPROM/Driver/EEPROM_Driver.h>
 
 /**
  *

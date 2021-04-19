@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_ACMP_DRIVER_COMPARATOR_CONTROL_XHEADER_ACMP_TRIGGEREDGE_H_
 #define XDRIVER_MCU_ACMP_DRIVER_COMPARATOR_CONTROL_XHEADER_ACMP_TRIGGEREDGE_H_
 
-#include <ACMP/Peripheral/xHeader/ACMP_Enum.h>
+#include <xDriver_MCU/ACMP/Peripheral/xHeader/ACMP_Enum.h>
 
 void ACMP__vSetComparatorADCTriggerEdge(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nADC_EDGE enTriggerEdgeArg);
 ACMP_nADC_EDGE ACMP__enGetComparatorADCTriggerEdge(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg);

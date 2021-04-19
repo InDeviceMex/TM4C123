@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * 19 nov. 2020     vyldram    1.0         initial Version@endverbatim
  */
-#include <ADC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/ADC_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/ADC/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/ADC_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/ADC/Peripheral/xHeader/ADC_Dependencies.h>

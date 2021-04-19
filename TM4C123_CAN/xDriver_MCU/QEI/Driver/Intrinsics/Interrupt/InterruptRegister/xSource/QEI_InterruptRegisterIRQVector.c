@@ -21,7 +21,7 @@
  * Date           Author     Version     Description
  * Apr 8, 2021        indevicemex    1.0         initial Version@endverbatim
  */
-#include <QEI/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/QEI_InterruptRegisterIRQVector.h>
+#include <xDriver_MCU/QEI/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/QEI_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/QEI/Peripheral/xHeader/QEI_Dependencies.h>

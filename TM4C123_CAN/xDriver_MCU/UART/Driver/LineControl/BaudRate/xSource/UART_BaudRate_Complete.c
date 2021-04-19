@@ -56,7 +56,7 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
 
     /*get uart mode*/
     enUartMode = UART__enGetSMART(enModule);
-    if((65535.0f < fBaudRateDivisor) || (UART_enMODE_SMART_CARD == enUartMode))
+    if((65535.0f < fBaudRateDivisor) || (UART_enSMART_EN == enUartMode))
     {
         fBaudRateDivisor /= 2.0f; /*HSE feature*/
         /*Set HSE to 16 */

@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_QEI_DRIVER_XHEADER_QEI_ERROR_H_
 #define XDRIVER_MCU_QEI_DRIVER_XHEADER_QEI_ERROR_H_
 
-#include <QEI/Peripheral/xHeader/QEI_Enum.h>
+#include <xDriver_MCU/QEI/Peripheral/xHeader/QEI_Enum.h>
 
 QEI_nSTATUS QEI__enIsErrorDetected(QEI_nMODULE enModule);
 

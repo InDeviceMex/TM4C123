@@ -24,10 +24,10 @@
 /**
  * Include Files
  */
-#include <EEPROM/Driver/Intrinsics/xHeader/EEPROM_Wait.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/xHeader/EEPROM_Wait.h>
 
 #include <xDriver_MCU/Common/MCU_Common.h>
-#include <EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/Primitives/EEPROM_Primitives.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 /**

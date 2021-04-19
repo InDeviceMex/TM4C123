@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WAIT_H_
 #define XDRIVER_MCU_EEPROM_DRIVER_INTRINSICS_XHEADER_EEPROM_WAIT_H_
 
-#include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
+#include <xDriver_MCU/EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
 #include <xUtils/Standard/Standard.h>
 
 /**

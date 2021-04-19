@@ -4,10 +4,10 @@
  *  Created on: 16 jun. 2020
  *      Author: vyldram
  */
-#include <EEPROM/Driver/xHeader/EEPROM_Read.h>
+#include <xDriver_MCU/EEPROM/Driver/xHeader/EEPROM_Read.h>
 
 #include <xDriver_MCU/Common/MCU_Common.h>
-#include <EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
+#include <xDriver_MCU/EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
 EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u32VariableType);

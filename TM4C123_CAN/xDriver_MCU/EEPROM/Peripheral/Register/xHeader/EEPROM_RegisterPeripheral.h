@@ -25,8 +25,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_PERIPHERAL_EEPROM_REGISTER_EEPROM_REGISTERPERIPHERAL_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_PERIPHERAL_EEPROM_REGISTER_EEPROM_REGISTERPERIPHERAL_H_
 
-#include <EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterAddress.h>
-#include <EEPROM/Peripheral/Struct/xHeader/EEPROM_StructPeripheral.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterAddress.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Struct/xHeader/EEPROM_StructPeripheral.h>
 
 #define EEPROM    ((EEPROM_TypeDef*) (EEPPROM_BASE))
 

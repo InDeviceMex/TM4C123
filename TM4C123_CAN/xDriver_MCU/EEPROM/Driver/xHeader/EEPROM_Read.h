@@ -8,7 +8,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_READ_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_READ_H_
 
-#include <EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
+#include <xDriver_MCU/EEPROM/Peripheral/xHeader/EEPROM_Enum.h>
 #include <xUtils/Standard/Standard.h>
 
 /*!

@@ -24,9 +24,9 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_PERIPHERAL_EEPROM_REGISTER_EEPROM_REGISTERPERIPHERAL_BITBANDING_H_
 #define XDRIVER_MCU_DRIVER_HEADER_EEPROM_EEPROM_PERIPHERAL_EEPROM_REGISTER_EEPROM_REGISTERPERIPHERAL_BITBANDING_H_
 
-#include <EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterAddress.h>
-#include <EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterDefines.h>
-#include <EEPROM/Peripheral/Struct/xHeader/EEPROM_StructPeripheral_Bitbanding.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterAddress.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Register/xHeader/EEPROM_RegisterDefines.h>
+#include <xDriver_MCU/EEPROM/Peripheral/Struct/xHeader/EEPROM_StructPeripheral_Bitbanding.h>
 
 #define EEPROM_BITBANDING    (((EEPROM_BITBANDING_TypeDef*) (EEPROM_BITBANDING_BASE + (EEPROM_OFFSET * 32UL))))
 

@@ -25,6 +25,6 @@
 #ifndef XDRIVER_MCU_FLASH_APP_FLASH_APP_H_
 #define XDRIVER_MCU_FLASH_APP_FLASH_APP_H_
 
-#include <FLASH/App/xHeader/FLASH_Init.h>
+#include <xDriver_MCU/FLASH/App/xHeader/FLASH_Init.h>
 
 #endif /* XDRIVER_MCU_FLASH_APP_FLASH_APP_H_ */

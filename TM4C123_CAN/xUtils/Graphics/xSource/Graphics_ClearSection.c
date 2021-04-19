@@ -23,7 +23,6 @@
  */
 
 #include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
-#include <xUtils/Graphics/Common/Graphics_Common.h>
 
 void Graphics__vClearSection (void (*pfvCallback)(Graphics_Layer_TypeDef* restrict psLayerArg, Graphics_DIMENSIONS_TypeDef sDimensionsArg, uint32_t  u32Color), Graphics_Layer_TypeDef* restrict psLayerArg, Graphics_DIMENSIONS_TypeDef sDimensionsArg, uint32_t  u32Color)
 {
