@@ -29,18 +29,22 @@
 
 #pragma  CODE_SECTION(MCU__vEnGlobalInterrupt_RAM, ".ramcode")
 #pragma  CODE_SECTION(MCU__vDisGlobalInterrupt_RAM, ".ramcode")
+#pragma  CODE_SECTION(MCU__vWaitForInterrupt_RAM, ".ramcode")
 
 void MCU__vEnGlobalInterrupt_RAM(void);
 void MCU__vDisGlobalInterrupt_RAM(void);
+void MCU__vWaitForInterrupt_RAM(void);
 
 #elif defined (__GNUC__ )
 
 void MCU__vEnGlobalInterrupt_RAM(void) __attribute__((section(".ramcode")));
 void MCU__vDisGlobalInterrupt_RAM(void) __attribute__((section(".ramcode")));
+void MCU__vWaitForInterrupt_RAM(void) __attribute__((section(".ramcode")));
 
 #endif
 
 void MCU__vEnGlobalInterrupt(void);
 void MCU__vDisGlobalInterrupt(void);
+void MCU__vWaitForInterrupt(void);
 
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_INTERRUPT_H_ */

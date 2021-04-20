@@ -37,6 +37,7 @@
 #include <xDriver_MCU/GPIO/GPIO.h>
 #include <xDriver_MCU/SSI/SSI.h>
 #include <xDriver_MCU/SSI/Peripheral/SSI_Peripheral.h>
+#include <xDriver_MCU/Common/xHeader/MCU_Interrupt.h>
 #include <xDriver_MCU/DMA/DMA.h>
 
 void ST7735__vDMATxInterupt(void);
@@ -48,7 +49,7 @@ volatile uint32_t ST7735_u32DMATransferSizeLeft = 0UL;
 
 DMACHCTL_TypeDef enDMAChControlPrim = {
     DMA_enCH_MODE_BASIC,
-    DMA_enCH_BURST_OFF,
+    DMA_enCH_BURST_ON,
     0UL,
     DMA_enCH_BURST_SIZE_8,
     0,
@@ -64,7 +65,7 @@ void ST7735__vInitWriteDMAConfig(void)
         DMA_enCH_REQTYPE_BOTH,
         DMA_enCH_PERIPHERAL_ENA,
         DMA_enCH_CTL_PRIMARY ,
-        DMA_enCH_PRIO_DEFAULT ,
+        DMA_enCH_PRIO_HIGH ,
         DMA_enCH_ENCODER_2
     };
 
@@ -168,6 +169,7 @@ uint32_t ST7735__u32WriteDMA(uint32_t u32DataArg, uint32_t u32BufferCant)
 
         do
         {
+            MCU__vWaitForInterrupt();
             u32StatusReg = ST7735__u32GetDMATxInterupt();
         }while(0UL != u32StatusReg);
 
@@ -180,7 +182,7 @@ void ST7735__vDMATxInterupt(void)
 {
     DMACHCTL_TypeDef enDMAChControl = {
         DMA_enCH_MODE_BASIC,
-        DMA_enCH_BURST_OFF,
+        DMA_enCH_BURST_ON,
         0UL,
         DMA_enCH_BURST_SIZE_8,
         0,

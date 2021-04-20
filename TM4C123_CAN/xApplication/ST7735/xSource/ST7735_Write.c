@@ -37,6 +37,7 @@
 #include <xDriver_MCU/GPIO/GPIO.h>
 #include <xDriver_MCU/SSI/SSI.h>
 #include <xDriver_MCU/SSI/Peripheral/SSI_Peripheral.h>
+#include <xDriver_MCU/Common/xHeader/MCU_Interrupt.h>
 #include <xDriver_MCU/DMA/DMA.h>
 
 void ST7735__vDMATxInterupt(void);
@@ -168,6 +169,7 @@ uint32_t ST7735__u32WriteDMA(uint32_t u32DataArg, uint32_t u32BufferCant)
 
         do
         {
+            MCU__vWaitForInterrupt();
             u32StatusReg = ST7735__u32GetDMATxInterupt();
         }while(0UL != u32StatusReg);
 
