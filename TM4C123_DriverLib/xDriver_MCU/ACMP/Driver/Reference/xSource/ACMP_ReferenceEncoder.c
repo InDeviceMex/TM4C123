@@ -28,14 +28,14 @@
 
 void ACMP__vSetReferenceEncoder(ACMP_nMODULE enModule, uint32_t u32EncoderValue)
 {
-    ACMP__vWriteRegister(enModule , ACMP_ACREFCTL_OFFSET, u32EncoderValue, ACMP_ACREFCTL_VREF_MASK, ACMP_ACREFCTL_R_VREF_BIT);
+    ACMP__vWriteRegister(enModule , ACMP_REFCTL_OFFSET, u32EncoderValue, ACMP_REFCTL_VREF_MASK, ACMP_REFCTL_R_VREF_BIT);
 }
 
 uint32_t ACMP__u32GetReferenceEncoder(ACMP_nMODULE enModule)
 {
     uint32_t u32EncoderValueReg = 0xFFFFFFFFUL;
 
-    ACMP__enReadRegister(enModule, ACMP_ACREFCTL_OFFSET, &u32EncoderValueReg, ACMP_ACREFCTL_VREF_MASK, ACMP_ACREFCTL_R_VREF_BIT);
+    ACMP__enReadRegister(enModule, ACMP_REFCTL_OFFSET, &u32EncoderValueReg, ACMP_REFCTL_VREF_MASK, ACMP_REFCTL_R_VREF_BIT);
     return u32EncoderValueReg;
 }
 

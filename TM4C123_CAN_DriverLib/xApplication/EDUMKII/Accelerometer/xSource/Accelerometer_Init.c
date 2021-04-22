@@ -51,11 +51,11 @@ void EDUMKII_Accelerometer_vInit(void)
 
     DMA__vRegisterIRQSourceHandler( &EDUMKII_Accelerometer_vIRQSourceHandler, DMA_enCH_MODULE_16, DMA_enCH_ENCODER_0 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_16, (uint32_t) &u32AccelerometerFifoArray[4UL-1U]);
-    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_16, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO2_OFFSET));
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_16, (uint32_t) (ADC0_BASE + ADC_SSFIFO2_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_16, enDMAChControl);
 
     DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_16, (uint32_t) &u32AccelerometerFifoArray[4UL-1U]);
-    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_16, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO2_OFFSET));
+    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_16, (uint32_t) (ADC0_BASE + ADC_SSFIFO2_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_16, enDMAChControl);
 
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_16, enDMAChConfig);

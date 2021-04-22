@@ -28,12 +28,12 @@
 
 void ACMP__vSetComparatorInterruptTriggerLevel(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nINT_LEVEL enInterruptLevelArg)
 {
-    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enInterruptLevelArg, ACMP_ACCTL_ISLVAL_MASK, ACMP_ACCTL_R_ISLVAL_BIT);
+    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enInterruptLevelArg, ACMP_CTL_ISLVAL_MASK, ACMP_CTL_R_ISLVAL_BIT);
 }
 
 ACMP_nINT_LEVEL ACMP__enGetComparatorInterruptTriggerLevel(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    return (ACMP_nINT_LEVEL) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACCTL_ISLVAL_MASK, ACMP_ACCTL_R_ISLVAL_BIT);
+    return (ACMP_nINT_LEVEL) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_CTL_ISLVAL_MASK, ACMP_CTL_R_ISLVAL_BIT);
 }
 
 

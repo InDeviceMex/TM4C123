@@ -24,12 +24,12 @@
 #ifndef XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_REGISTERDEFINES_ACMP_REGISTERDEFINES_H_
 #define XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_REGISTERDEFINES_ACMP_REGISTERDEFINES_H_
 
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACCTL.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACINTEN.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACMIS.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACMPPP.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACREFCTL.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACRIS.h>
-#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_ACSTAT.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_CTL.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_INTEN.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_MIS.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_PP.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_REFCTL.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_RIS.h>
+#include <xDriver_MCU/ACMP/Peripheral/Register/RegisterDefines/xHeader/ACMP_RegisterDefines_STAT.h>
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_REGISTERDEFINES_ACMP_REGISTERDEFINES_H_ */

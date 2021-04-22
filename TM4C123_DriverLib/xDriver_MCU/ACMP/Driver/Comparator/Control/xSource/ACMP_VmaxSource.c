@@ -28,12 +28,12 @@
 
 void ACMP__vSetComparatorVmaxSource(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nVMAX_SOURCE enVmaxPinSource)
 {
-    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enVmaxPinSource, ACMP_ACCTL_ASRCP_MASK, ACMP_ACCTL_R_ASRCP_BIT);
+    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enVmaxPinSource, ACMP_CTL_ASRCP_MASK, ACMP_CTL_R_ASRCP_BIT);
 }
 
 ACMP_nVMAX_SOURCE ACMP__enGetComparatorVmaxSource(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    return (ACMP_nVMAX_SOURCE) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACCTL_ASRCP_MASK, ACMP_ACCTL_R_ASRCP_BIT);
+    return (ACMP_nVMAX_SOURCE) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_CTL_ASRCP_MASK, ACMP_CTL_R_ASRCP_BIT);
 }
 
 

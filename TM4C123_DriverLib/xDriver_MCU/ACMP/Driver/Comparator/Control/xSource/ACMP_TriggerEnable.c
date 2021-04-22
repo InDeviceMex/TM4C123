@@ -28,12 +28,12 @@
 
 void ACMP__vSetComparatorADCTrigger(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nADC enTriggerEnable)
 {
-    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enTriggerEnable, ACMP_ACCTL_TOEN_MASK, ACMP_ACCTL_R_TOEN_BIT);
+    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enTriggerEnable, ACMP_CTL_TOEN_MASK, ACMP_CTL_R_TOEN_BIT);
 }
 
 ACMP_nADC ACMP__enGetComparatorADCTrigger(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    return (ACMP_nADC) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACCTL_TOEN_MASK, ACMP_ACCTL_R_TOEN_BIT);
+    return (ACMP_nADC) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_CTL_TOEN_MASK, ACMP_CTL_R_TOEN_BIT);
 }
 
 

@@ -28,12 +28,12 @@
 
 void ACMP__vSetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
-    ACMP__vSetCompGeneric(u32Module , u32Comparator, ACMP_ACCTL_OFFSET, u32Feature, u32FeatureMask, u32FeatureBit);
+    ACMP__vSetCompGeneric(u32Module , u32Comparator, ACMP_CTL_OFFSET, u32Feature, u32FeatureMask, u32FeatureBit);
 }
 
 uint32_t ACMP__u32GetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
-    return ACMP__u32GetCompGeneric(u32Module, u32Comparator, ACMP_ACCTL_OFFSET, u32FeatureMask, u32FeatureBit);
+    return ACMP__u32GetCompGeneric(u32Module, u32Comparator, ACMP_CTL_OFFSET, u32FeatureMask, u32FeatureBit);
 }
 
 

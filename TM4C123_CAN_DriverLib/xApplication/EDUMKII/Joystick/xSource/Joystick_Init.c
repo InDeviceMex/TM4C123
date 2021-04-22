@@ -73,11 +73,11 @@ void EDUMKII_Joystick_vInit(void)
 
     DMA__vRegisterIRQSourceHandler( &EDUMKII_Joystick_vIRQSourceHandler, DMA_enCH_MODULE_15, DMA_enCH_ENCODER_0 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2UL-1U]);
-    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO1_OFFSET));
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_SSFIFO1_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_15, enDMAChControl);
 
     DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_15, (uint32_t) &u32JostickFifoArray[2UL-1U]);
-    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO1_OFFSET));
+    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_15, (uint32_t) (ADC0_BASE + ADC_SSFIFO1_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_15, enDMAChControl);
 
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_15, enDMAChConfig);

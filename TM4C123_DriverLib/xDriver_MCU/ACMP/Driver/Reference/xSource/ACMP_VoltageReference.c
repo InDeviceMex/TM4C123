@@ -110,7 +110,7 @@ float32_t ACMP__fSetVoltageReference(ACMP_nMODULE enModule, float32_t fVoltageRe
         enVoltageRange = ACMP_enREFERENCE_RANGE_LOW;
     }
 
-    if(ACMP_ACREFCTL_VREF_MASK >=  u32VoltageStep)
+    if(ACMP_REFCTL_VREF_MASK >=  u32VoltageStep)
     {
         ACMP__vSetReferenceRange(enModule, enVoltageRange);
         ACMP__vSetReferenceEncoder(enModule, u32VoltageStep);

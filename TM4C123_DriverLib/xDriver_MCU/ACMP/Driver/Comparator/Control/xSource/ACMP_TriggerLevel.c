@@ -28,12 +28,12 @@
 
 void ACMP__vSetComparatorADCTriggerLevel(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nADC_LEVEL enTriggerLevelArg)
 {
-    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enTriggerLevelArg, ACMP_ACCTL_TSLVAL_MASK, ACMP_ACCTL_R_TSLVAL_BIT);
+    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enTriggerLevelArg, ACMP_CTL_TSLVAL_MASK, ACMP_CTL_R_TSLVAL_BIT);
 }
 
 ACMP_nADC_LEVEL ACMP__enGetComparatorADCTriggerLevel(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    return (ACMP_nADC_LEVEL) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACCTL_TSLVAL_MASK, ACMP_ACCTL_R_TSLVAL_BIT);
+    return (ACMP_nADC_LEVEL) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_CTL_TSLVAL_MASK, ACMP_CTL_R_TSLVAL_BIT);
 }
 
 

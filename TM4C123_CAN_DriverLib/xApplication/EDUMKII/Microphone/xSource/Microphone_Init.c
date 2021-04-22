@@ -68,11 +68,11 @@ void EDUMKII_Microphone_vInit(void)
 
     DMA__vRegisterIRQSourceHandler( &EDUMKII_Microphone_vIRQSourceHandler, DMA_enCH_MODULE_14, DMA_enCH_ENCODER_0 );
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1UL-1U]);
-    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO0_OFFSET));
+    DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_SSFIFO0_OFFSET));
     DMA_CH__vSetPrimaryControlWorld(DMA_enCH_MODULE_14, enDMAChControl);
 
     DMA_CH__vSetAlternateDestEndAddress(DMA_enCH_MODULE_14, (uint32_t) &u32MicrophoneFifoArray[1UL-1U]);
-    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_ADCSSFIFO0_OFFSET));
+    DMA_CH__vSetAlternateSourceEndAddress(DMA_enCH_MODULE_14, (uint32_t) (ADC0_BASE + ADC_SSFIFO0_OFFSET));
     DMA_CH__vSetAlternateControlWorld(DMA_enCH_MODULE_14, enDMAChControl);
 
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_14, enDMAChConfig);

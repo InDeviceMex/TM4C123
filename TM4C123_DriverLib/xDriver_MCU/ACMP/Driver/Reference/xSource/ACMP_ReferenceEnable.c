@@ -28,14 +28,14 @@
 
 void ACMP__vSetReferenceEnable(ACMP_nMODULE enModule, ACMP_nREFERENCE enReferenceEnableArg)
 {
-    ACMP__vWriteRegister(enModule , ACMP_ACREFCTL_OFFSET, (uint32_t) enReferenceEnableArg, ACMP_ACREFCTL_EN_MASK, ACMP_ACREFCTL_R_EN_BIT);
+    ACMP__vWriteRegister(enModule , ACMP_REFCTL_OFFSET, (uint32_t) enReferenceEnableArg, ACMP_REFCTL_EN_MASK, ACMP_REFCTL_R_EN_BIT);
 }
 
 ACMP_nREFERENCE ACMP__enGetReferenceEnable(ACMP_nMODULE enModule)
 {
     ACMP_nREFERENCE enReference = ACMP_enREFERENCE_UNDEF;
 
-    ACMP__enReadRegister(enModule, ACMP_ACREFCTL_OFFSET, (uint32_t*) &enReference, ACMP_ACREFCTL_EN_MASK, ACMP_ACREFCTL_R_EN_BIT);
+    ACMP__enReadRegister(enModule, ACMP_REFCTL_OFFSET, (uint32_t*) &enReference, ACMP_REFCTL_EN_MASK, ACMP_REFCTL_R_EN_BIT);
     return enReference;
 }
 

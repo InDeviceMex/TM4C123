@@ -28,10 +28,10 @@
 
 void ACMP__vSetComparatorOutputInvert(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nOUTPUT_INVERT enOutputInvertArg)
 {
-    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enOutputInvertArg, ACMP_ACCTL_CINV_MASK, ACMP_ACCTL_R_CINV_BIT);
+    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enOutputInvertArg, ACMP_CTL_CINV_MASK, ACMP_CTL_R_CINV_BIT);
 }
 
 ACMP_nOUTPUT_INVERT ACMP__enGetComparatorOutputInvert(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    return (ACMP_nOUTPUT_INVERT) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACCTL_CINV_MASK, ACMP_ACCTL_R_CINV_BIT);
+    return (ACMP_nOUTPUT_INVERT) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_CTL_CINV_MASK, ACMP_CTL_R_CINV_BIT);
 }

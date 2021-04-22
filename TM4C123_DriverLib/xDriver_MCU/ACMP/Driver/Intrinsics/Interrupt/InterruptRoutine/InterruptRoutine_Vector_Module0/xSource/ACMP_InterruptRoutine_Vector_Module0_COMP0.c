@@ -30,10 +30,10 @@ void ACMP0_Comp0__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg = 0UL;
 
-    u32Reg = ACMP0_ACMIS_R;
+    u32Reg = ACMP0_MIS_R;
     if((uint32_t) ACMP_enCOMPMASK_0 & u32Reg)
     {
-        ACMP0_ACMIS_R = (uint32_t) ACMP_enCOMPMASK_0;
+        ACMP0_MIS_R = (uint32_t) ACMP_enCOMPMASK_0;
         ACMP__vIRQSourceHandler[(uint32_t) ACMP_enMODULE_0][(uint32_t) ACMP_enCOMP_0]();
     }
 }

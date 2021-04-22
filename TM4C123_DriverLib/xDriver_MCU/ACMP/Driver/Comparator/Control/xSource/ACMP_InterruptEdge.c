@@ -28,12 +28,12 @@
 
 void ACMP__vSetComparatorInterruptTriggerEdge(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg, ACMP_nINT_EDGE enTriggerEdgeArg)
 {
-    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enTriggerEdgeArg, ACMP_ACCTL_ISEN_MASK, ACMP_ACCTL_R_ISEN_BIT);
+    ACMP__vSetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, (uint32_t) enTriggerEdgeArg, ACMP_CTL_ISEN_MASK, ACMP_CTL_R_ISEN_BIT);
 }
 
 ACMP_nINT_EDGE ACMP__enGetComparatorInterruptTriggerEdge(ACMP_nMODULE enModule, ACMP_nCOMP enComparatorArg)
 {
-    return (ACMP_nINT_EDGE) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_ACCTL_ISEN_MASK, ACMP_ACCTL_R_ISEN_BIT);
+    return (ACMP_nINT_EDGE) ACMP__u32GetCompGenericControl((uint32_t) enModule, (uint32_t) enComparatorArg, ACMP_CTL_ISEN_MASK, ACMP_CTL_R_ISEN_BIT);
 }
 
 

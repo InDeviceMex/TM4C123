@@ -31,52 +31,52 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t ACMIS [32UL];
-        BITBANDING_ACMIS_TypeDef ACMIS_Bit;
+        volatile uint32_t MIS [32UL];
+        BITBANDING_ACMIS_TypeDef MIS_Bit;
     };
     union
     {
-        volatile const uint32_t ACRIS [32UL];
-        BITBANDING_ACRIS_TypeDef ACRIS_Bit;
+        volatile const uint32_t RIS [32UL];
+        BITBANDING_ACRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile uint32_t ACINTEN [32UL];
-        BITBANDING_ACINTEN_TypeDef ACINTEN_Bit;
+        volatile uint32_t INTEN [32UL];
+        BITBANDING_ACINTEN_TypeDef INTEN_Bit;
     };
     const uint32_t reserved [32UL];
     union
     {
-        volatile uint32_t ACREFCTL [32UL];
-        BITBANDING_ACREFCTL_TypeDef ACREFCTL_Bit;
+        volatile uint32_t REFCTL [32UL];
+        BITBANDING_ACREFCTL_TypeDef REFCTL_Bit;
     };
     const uint32_t reserved1 [3UL * 32UL];
     union
     {
-        volatile uint32_t ACSTAT0 [32UL];
-        BITBANDING_ACSTAT_TypeDef ACSTAT0_Bit;
+        volatile uint32_t STAT0 [32UL];
+        BITBANDING_ACSTAT_TypeDef STAT0_Bit;
     };
     union
     {
-        volatile uint32_t ACCTL0 [32UL];
-        BITBANDING_ACCTL_TypeDef ACCTL0_Bit;
+        volatile uint32_t CTL0 [32UL];
+        BITBANDING_ACCTL_TypeDef CTL0_Bit;
     };
     const uint32_t reserved2 [6UL * 32UL];
     union
     {
-        volatile uint32_t ACSTAT1 [32UL];
-        BITBANDING_ACSTAT_TypeDef ACSTAT1_Bit;
+        volatile uint32_t STAT1 [32UL];
+        BITBANDING_ACSTAT_TypeDef STAT1_Bit;
     };
     union
     {
-        volatile uint32_t ACCTL1 [32UL];
-        BITBANDING_ACCTL_TypeDef ACCTL1_Bit;
+        volatile uint32_t CTL1 [32UL];
+        BITBANDING_ACCTL_TypeDef CTL1_Bit;
     };
     const uint32_t reserved3 [990UL * 32UL];
     union
     {
-        volatile uint32_t ACMPPP [32UL];
-        BITBANDING_ACMPPP_TypeDef  ACMPPP_Bit;
+        volatile uint32_t PP [32UL];
+        BITBANDING_ACMPPP_TypeDef  PP_Bit;
     };
     const uint32_t reserved4 [15UL * 32UL];
 }ACMP_BITBANDING_TypeDef;
