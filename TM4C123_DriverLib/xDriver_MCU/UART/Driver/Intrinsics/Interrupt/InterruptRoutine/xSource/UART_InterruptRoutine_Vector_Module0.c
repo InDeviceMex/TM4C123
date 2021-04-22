@@ -39,7 +39,7 @@ void UART0__vIRQVectorHandler(void)
     volatile uint32_t u32Reg = 0U;
     volatile uint32_t u32RegDMAEn = 0UL;
     volatile uint32_t u32RegDMAOccur = 0UL;
-    volatile uint32_t u32RegDMAPeriph = 0UL;
+    volatile uint32_t u32RegPeriph = 0UL;
     volatile uint32_t u32RegDMASource = 0UL;
 
     u32RegDMAEn = SYSCTL_RCGCDMA_R;
@@ -47,38 +47,38 @@ void UART0__vIRQVectorHandler(void)
     if(0UL != u32RegDMAEn)
     {
         /*RX*/
-        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur = DMA_CHIS_R;
         u32RegDMAOccur &= DMA_SOURCE_MASK_RX;
         if(0UL != u32RegDMAOccur)
         {
-            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
-            u32RegDMAPeriph &= DMA_SOURCE_MASK_RX;
-            if(0UL == u32RegDMAPeriph)
+            u32RegPeriph = DMA_REQMASKSET_R;
+            u32RegPeriph &= DMA_SOURCE_MASK_RX;
+            if(0UL == u32RegPeriph)
             {
-                u32RegDMASource = DMA_DMACHMAP1_R;
-                u32RegDMASource &= DMA_DMACHMAP1_R_CH8SEL_MASK;
-                if(DMA_DMACHMAP1_R_CH8SEL_UART0_RX == u32RegDMASource)
+                u32RegDMASource = DMA_CHMAP1_R;
+                u32RegDMASource &= DMA_CHMAP1_R_CH8SEL_MASK;
+                if(DMA_CHMAP1_R_CH8SEL_UART0_RX == u32RegDMASource)
                 {
                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_0][DMA_SOURCE_BIT_RX]();
-                    DMA_DMACHIS_R = DMA_SOURCE_MASK_RX;
+                    DMA_CHIS_R = DMA_SOURCE_MASK_RX;
                 }
             }
         }
         /*TX*/
-        u32RegDMAOccur = DMA_DMACHIS_R;
+        u32RegDMAOccur = DMA_CHIS_R;
         u32RegDMAOccur &= DMA_SOURCE_MASK_TX;
         if(0UL != u32RegDMAOccur)
         {
-            u32RegDMAPeriph = DMA_DMAREQMASKSET_R;
-            u32RegDMAPeriph &= DMA_SOURCE_MASK_TX;
-            if(0UL == u32RegDMAPeriph)
+            u32RegPeriph = DMA_REQMASKSET_R;
+            u32RegPeriph &= DMA_SOURCE_MASK_TX;
+            if(0UL == u32RegPeriph)
             {
-                u32RegDMASource = DMA_DMACHMAP1_R;
-                u32RegDMASource &= DMA_DMACHMAP1_R_CH9SEL_MASK;
-                if(DMA_DMACHMAP1_R_CH9SEL_UART0_TX == u32RegDMASource)
+                u32RegDMASource = DMA_CHMAP1_R;
+                u32RegDMASource &= DMA_CHMAP1_R_CH9SEL_MASK;
+                if(DMA_CHMAP1_R_CH9SEL_UART0_TX == u32RegDMASource)
                 {
                     DMA_CH__vIRQSourceHandler[(uint32_t) DMA_enCH_ENCODER_0][DMA_SOURCE_BIT_TX]();
-                    DMA_DMACHIS_R = DMA_SOURCE_MASK_TX;
+                    DMA_CHIS_R = DMA_SOURCE_MASK_TX;
                 }
             }
         }

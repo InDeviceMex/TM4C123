@@ -51,21 +51,21 @@ void DMA_CH__vSetControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChanne
 
 DMA_nSTATUS DMA_CH__enGetPrimaryControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* psControl)
 {
-    DMA_nSTATUS enDMAStatus = DMA_enSTATUS_ERROR;
-    enDMAStatus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_PRIMARY, psControl);
-    return enDMAStatus;
+    DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
+    enSTATus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_PRIMARY, psControl);
+    return enSTATus;
 }
 
 DMA_nSTATUS DMA_CH__enGetAlternateControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* psControl)
 {
-    DMA_nSTATUS enDMAStatus = DMA_enSTATUS_ERROR;
-    enDMAStatus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE, psControl);
-    return enDMAStatus;
+    DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
+    enSTATus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE, psControl);
+    return enSTATus;
 }
 
 DMA_nSTATUS DMA_CH__enGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure, DMA_CONTROL_Typedef* psControl)
 {
-    DMA_nSTATUS enDMAStatus = DMA_enSTATUS_ERROR;
+    DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
 
       if(0UL != (uint32_t) psControl)
       {
@@ -78,7 +78,7 @@ DMA_nSTATUS DMA_CH__enGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChan
           psControl->enDestSize = DMA_CH__enGetDestinationSize(enDMAChannel, enChannelStructure);
           psControl->enDestInc = DMA_CH__enGetDestinationIncrement(enDMAChannel, enChannelStructure);
       }
-      return enDMAStatus;
+      return enSTATus;
 }
 
 DMA_CONTROL_Typedef* DMA_CH__psGetPrimaryControl(DMA_nCH_MODULE enDMAChannel)

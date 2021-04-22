@@ -28,12 +28,12 @@
 
 void DMA_CH__vSetPrimarySourceEndAddress(DMA_nCH_MODULE enChannel, uint32_t u32SourceAddress)
 {
-    DMA_CH__vWriteRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_DMASRCENDP_OFFSET, u32SourceAddress, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vWriteRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_SRCENDP_OFFSET, u32SourceAddress, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetAlternateSourceEndAddress(DMA_nCH_MODULE enChannel, uint32_t u32SourceAddress)
 {
-    DMA_CH__vWriteRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_DMASRCENDP_OFFSET, u32SourceAddress, 0xFFFFFFFFUL, 0UL);
+    DMA_CH__vWriteRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_SRCENDP_OFFSET, u32SourceAddress, 0xFFFFFFFFUL, 0UL);
 }
 
 void DMA_CH__vSetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32SourceAddress)
@@ -51,14 +51,14 @@ void DMA_CH__vSetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChanne
 uint32_t DMA_CH__u32GetPrimarySourceEndAddress(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
-    u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_DMASRCENDP_OFFSET, 0xFFFFFFFFUL, 0UL);
+    u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_SRCENDP_OFFSET, 0xFFFFFFFFUL, 0UL);
     return u32Reg;
 }
 
 uint32_t DMA_CH__u32GetAlternateSourceEndAddress(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
-    u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_DMASRCENDP_OFFSET, 0xFFFFFFFFUL, 0UL);
+    u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_SRCENDP_OFFSET, 0xFFFFFFFFUL, 0UL);
     return u32Reg;
 }
 

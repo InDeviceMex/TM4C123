@@ -40,7 +40,7 @@ void DMA_CH__vSetEncoder(DMA_nCH_MODULE enChannel, DMA_nCH_ENCODER enChannelEnco
 
     u32ChannelReg = u32Channel / 8UL;
     u32ChannelReg *= 4UL;
-    u32RegisterOffset = DMA_DMACHMAP_OFFSET;
+    u32RegisterOffset = DMA_CHMAP_OFFSET;
     u32RegisterOffset += u32ChannelReg;
 
     u32ChannelPos = u32Channel % 8UL;
@@ -78,7 +78,7 @@ DMA_nCH_ENCODER DMA_CH__enGetEncoder(DMA_nCH_MODULE enChannel)
 
     u32ChannelReg = u32Channel / 8UL;
     u32ChannelReg *= 4UL;
-    u32RegisterOffset = DMA_DMACHMAP_OFFSET;
+    u32RegisterOffset = DMA_CHMAP_OFFSET;
     u32RegisterOffset += u32ChannelReg;
 
     u32ChannelPos = u32Channel % 8UL;

@@ -30,8 +30,8 @@
 void DMA_SW__vIRQVectorHandler(void)
 {
     uint32_t u32Channel = 0UL;
-    uint32_t u32Priority = DMA_DMAPRIOSET_R;
-    uint32_t u32IntStatus = DMA_DMACHIS_R;
+    uint32_t u32Priority = DMA_PRIOSET_R;
+    uint32_t u32IntStatus = DMA_CHIS_R;
     uint32_t u32Pos = 1UL;
 
     for(u32Channel = 0UL; u32Channel < (uint32_t) DMA_enCH_MODULE_MAX; u32Channel++)
@@ -41,7 +41,7 @@ void DMA_SW__vIRQVectorHandler(void)
             if(0UL != (u32Priority & u32Pos))
             {
                 DMA_CH__vIRQSourceHandler [(uint32_t) DMA_enCH_ENCODER_4] [u32Channel]();
-                DMA_DMACHIS_R = u32Pos;
+                DMA_CHIS_R = u32Pos;
             }
         }
         u32Pos <<= 1UL;
@@ -54,7 +54,7 @@ void DMA_SW__vIRQVectorHandler(void)
         if(0UL != (u32IntStatus & u32Pos))
         {
             DMA_CH__vIRQSourceHandler [(uint32_t) DMA_enCH_ENCODER_4] [u32Channel]();
-            DMA_DMACHIS_R = u32Pos;
+            DMA_CHIS_R = u32Pos;
         }
         u32Pos <<= 1UL;
     }

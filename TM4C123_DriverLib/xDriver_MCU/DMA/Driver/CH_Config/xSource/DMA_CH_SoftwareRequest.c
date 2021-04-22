@@ -28,5 +28,5 @@
 
 void DMA_CH__vSetSoftwareRequest(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMASWREQ_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_SWREQ_OFFSET);
 }

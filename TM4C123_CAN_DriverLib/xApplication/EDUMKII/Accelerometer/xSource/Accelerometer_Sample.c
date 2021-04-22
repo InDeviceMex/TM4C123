@@ -46,8 +46,8 @@ void EDUMKII_Accelerometer_vIRQSourceHandler(void)
          DMA_enCH_SRC_SIZE_WORD, DMA_enCH_SRC_INC_NO, DMA_enCH_DST_SIZE_WORD, DMA_enCH_DST_INC_WORD,
     };
 
-    DMACH->DMACh[16UL].DMACHCTL = *((volatile uint32_t*) &enChControl);
-    DMA->DMAENASET = (uint32_t)  DMA_enCH_ENA_ENA << 16UL;
+    DMACH->DMACh[16UL].CHCTL = *((volatile uint32_t*) &enChControl);
+    DMA->ENASET = (uint32_t)  DMA_enCH_ENA_ENA << 16UL;
     u32AccelerometerFlag = 1UL;
 }
 

@@ -204,12 +204,12 @@ void ST7735__vDMATxInterupt(void)
             enDMAChControl.XFERSIZE = ST7735_u32DMATransferSizeLeft - 1UL;
             ST7735_u32DMATransferSizeLeft = 0UL;
         }
-        DMACH->DMACh[13UL].DMACHCTL = *((volatile uint32_t*) &enDMAChControl);
-        DMA->DMAENASET = (uint32_t)  DMA_enCH_ENA_ENA << 13UL;
+        DMACH->DMACh[13UL].CHCTL = *((volatile uint32_t*) &enDMAChControl);
+        DMA->ENASET = (uint32_t)  DMA_enCH_ENA_ENA << 13UL;
     }
     else
     {
         ST7735_vDMATxInteruptStatus = 0UL;
-        DMA->DMAENACLR = (uint32_t)  DMA_enCH_ENA_ENA << 13UL;
+        DMA->ENACLR = (uint32_t)  DMA_enCH_ENA_ENA << 13UL;
     }
 }

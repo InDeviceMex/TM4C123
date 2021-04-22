@@ -52,8 +52,8 @@ void EDUMKII_Microphone_vIRQSourceHandler(void)
          DMA_enCH_DST_INC_WORD,
     };
 
-    DMACH->DMACh[14UL].DMACHCTL = *((volatile uint32_t*) &enChControl);
-    DMA->DMAENASET = (uint32_t)  DMA_enCH_ENA_ENA << 14UL;
+    DMACH->DMACh[14UL].CHCTL = *((volatile uint32_t*) &enChControl);
+    DMA->ENASET = (uint32_t)  DMA_enCH_ENA_ENA << 14UL;
     u32MicrophoneFlag = 1UL;
 }
 

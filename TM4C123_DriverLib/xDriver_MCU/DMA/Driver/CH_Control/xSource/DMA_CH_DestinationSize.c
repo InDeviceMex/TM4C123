@@ -28,37 +28,37 @@
 
 void DMA_CH__vSetPrimaryDestinationSize(DMA_nCH_MODULE enChannel, DMA_nCH_DST_SIZE enChannelDestinationSize)
 {
-    DMA_CH__vSetPrimaryControlGeneric(enChannel, (uint32_t) enChannelDestinationSize, DMACH_DMACHCTL_DSTSIZE_MASK, DMACH_DMACHCTL_R_DSTSIZE_BIT);
+    DMA_CH__vSetPrimaryControlGeneric(enChannel, (uint32_t) enChannelDestinationSize, DMACH_CHCTL_DSTSIZE_MASK, DMACH_CHCTL_R_DSTSIZE_BIT);
 }
 
 void DMA_CH__vSetAlternateDestinationSize(DMA_nCH_MODULE enChannel, DMA_nCH_DST_SIZE enChannelDestinationSize)
 {
-    DMA_CH__vSetAlternateControlGeneric(enChannel, (uint32_t) enChannelDestinationSize, DMAALTCH_DMACHCTL_DSTSIZE_MASK, DMAALTCH_DMACHCTL_R_DSTSIZE_BIT);
+    DMA_CH__vSetAlternateControlGeneric(enChannel, (uint32_t) enChannelDestinationSize, DMAALTCH_CHCTL_DSTSIZE_MASK, DMAALTCH_CHCTL_R_DSTSIZE_BIT);
 }
 
 void DMA_CH__vSetDestinationSize(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, DMA_nCH_DST_SIZE enChannelDestinationSize)
 {
-    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure, (uint32_t) enChannelDestinationSize, DMACH_DMACHCTL_DSTSIZE_MASK, DMACH_DMACHCTL_R_DSTSIZE_BIT);
+    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure, (uint32_t) enChannelDestinationSize, DMACH_CHCTL_DSTSIZE_MASK, DMACH_CHCTL_R_DSTSIZE_BIT);
 }
 
 DMA_nCH_DST_SIZE DMA_CH__enGetPrimaryDestinationSize(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_DST_SIZE enReg = DMA_enCH_DST_SIZE_UNDEF;
-    enReg = (DMA_nCH_DST_SIZE) DMA_CH__u32GetPrimaryControlGeneric(enChannel, DMACH_DMACHCTL_DSTSIZE_MASK, DMACH_DMACHCTL_R_DSTSIZE_BIT);
+    enReg = (DMA_nCH_DST_SIZE) DMA_CH__u32GetPrimaryControlGeneric(enChannel, DMACH_CHCTL_DSTSIZE_MASK, DMACH_CHCTL_R_DSTSIZE_BIT);
     return enReg;
 }
 
 DMA_nCH_DST_SIZE DMA_CH__enGetAlternateDestinationSize(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_DST_SIZE enReg = DMA_enCH_DST_SIZE_UNDEF;
-    enReg = (DMA_nCH_DST_SIZE) DMA_CH__u32GetAlternateControlGeneric(enChannel, DMAALTCH_DMACHCTL_DSTSIZE_MASK, DMAALTCH_DMACHCTL_R_DSTSIZE_BIT);
+    enReg = (DMA_nCH_DST_SIZE) DMA_CH__u32GetAlternateControlGeneric(enChannel, DMAALTCH_CHCTL_DSTSIZE_MASK, DMAALTCH_CHCTL_R_DSTSIZE_BIT);
     return enReg;
 }
 
 DMA_nCH_DST_SIZE DMA_CH__enGetDestinationSize(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
 {
     DMA_nCH_DST_SIZE enReg = DMA_enCH_DST_SIZE_UNDEF;
-    enReg = (DMA_nCH_DST_SIZE) DMA_CH__u32GetControlGeneric(enChannel, enChannelStructure, DMACH_DMACHCTL_DSTSIZE_MASK, DMACH_DMACHCTL_R_DSTSIZE_BIT);
+    enReg = (DMA_nCH_DST_SIZE) DMA_CH__u32GetControlGeneric(enChannel, enChannelStructure, DMACH_CHCTL_DSTSIZE_MASK, DMACH_CHCTL_R_DSTSIZE_BIT);
     return enReg;
 }
 

@@ -31,12 +31,12 @@ static void DMA_CH__vSetHighPriority(DMA_nCH_MODULE enChannel);
 
 static void DMA_CH__vSetDefaultPriority(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAPRIOCLR_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_PRIOCLR_OFFSET);
 }
 
 static void DMA_CH__vSetHighPriority(DMA_nCH_MODULE enChannel)
 {
-    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_DMAPRIOSET_OFFSET);
+    DMA_CH__vSetConfigGeneric_Direct(enChannel, DMA_PRIOSET_OFFSET);
 }
 
 void DMA_CH__vSetPriority(DMA_nCH_MODULE enChannel, DMA_nCH_PRIO enDMAChannelPriority)
@@ -54,6 +54,6 @@ void DMA_CH__vSetPriority(DMA_nCH_MODULE enChannel, DMA_nCH_PRIO enDMAChannelPri
 DMA_nCH_PRIO DMA_CH__enGetPriority(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_PRIO enChannelPrio = DMA_enCH_PRIO_UNDEF;
-    enChannelPrio = (DMA_nCH_PRIO) DMA_CH__u32GetConfigGeneric(enChannel, DMA_DMAPRIOSET_OFFSET);
+    enChannelPrio = (DMA_nCH_PRIO) DMA_CH__u32GetConfigGeneric(enChannel, DMA_PRIOSET_OFFSET);
     return enChannelPrio;
 }

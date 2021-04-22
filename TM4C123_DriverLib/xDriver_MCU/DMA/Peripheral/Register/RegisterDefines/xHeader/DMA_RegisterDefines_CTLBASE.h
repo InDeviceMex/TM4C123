@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /**************************************************************************************
-************************************* 6 DMACTLBASE *************************************
+************************************* 6 CTLBASE *************************************
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMACTLBASE_R_ADDR_MASK    ((uint32_t) 0xFFFFFC00UL)
-#define DMA_DMACTLBASE_R_ADDR_BIT    ((uint32_t) 10UL)
+#define DMA_CTLBASE_R_ADDR_MASK    ((uint32_t) 0xFFFFFC00UL)
+#define DMA_CTLBASE_R_ADDR_BIT    ((uint32_t) 10UL)
 
-#define DMA_DMACTLBASE_ADDR_MASK    ((uint32_t) 0x003FFFFFUL)
+#define DMA_CTLBASE_ADDR_MASK    ((uint32_t) 0x003FFFFFUL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CTLBASE_H_ */

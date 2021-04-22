@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /**************************************************************************************
-************************************* 7 DMAALTBASE ******************************************
+************************************* 7 ALTBASE ******************************************
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMAALTBASE_R_ADDR_MASK    ((uint32_t) 0xFFFFFFFFUL)
-#define DMA_DMAALTBASE_R_ADDR_BIT    ((uint32_t) 0UL)
+#define DMA_ALTBASE_R_ADDR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define DMA_ALTBASE_R_ADDR_BIT    ((uint32_t) 0UL)
 
-#define DMA_DMAALTBASE_ADDR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define DMA_ALTBASE_ADDR_MASK    ((uint32_t) 0xFFFFFFFFUL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_ALTBASE_H_ */

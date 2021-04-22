@@ -28,36 +28,36 @@
 
 void DMA_CH__vSetPrimaryDestinationIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_DST_INC enChannelDestinationIncrement)
 {
-    DMA_CH__vSetPrimaryControlGeneric(enChannel, (uint32_t) enChannelDestinationIncrement, DMACH_DMACHCTL_DSTINC_MASK, DMACH_DMACHCTL_R_DSTINC_BIT);
+    DMA_CH__vSetPrimaryControlGeneric(enChannel, (uint32_t) enChannelDestinationIncrement, DMACH_CHCTL_DSTINC_MASK, DMACH_CHCTL_R_DSTINC_BIT);
 }
 
 void DMA_CH__vSetAlternateDestinationIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_DST_INC enChannelDestinationIncrement)
 {
-    DMA_CH__vSetAlternateControlGeneric(enChannel, (uint32_t) enChannelDestinationIncrement, DMAALTCH_DMACHCTL_DSTINC_MASK, DMAALTCH_DMACHCTL_R_DSTINC_BIT);
+    DMA_CH__vSetAlternateControlGeneric(enChannel, (uint32_t) enChannelDestinationIncrement, DMAALTCH_CHCTL_DSTINC_MASK, DMAALTCH_CHCTL_R_DSTINC_BIT);
 }
 
 void DMA_CH__vSetDestinationIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, DMA_nCH_DST_INC enChannelDestinationIncrement)
 {
-    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure, (uint32_t) enChannelDestinationIncrement, DMACH_DMACHCTL_DSTINC_MASK, DMACH_DMACHCTL_R_DSTINC_BIT);
+    DMA_CH__vSetControlGeneric(enChannel, enChannelStructure, (uint32_t) enChannelDestinationIncrement, DMACH_CHCTL_DSTINC_MASK, DMACH_CHCTL_R_DSTINC_BIT);
 }
 
 DMA_nCH_DST_INC DMA_CH__enGetPrimaryDestinationIncrement(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_DST_INC enReg = DMA_enCH_DST_INC_UNDEF;
-    enReg = (DMA_nCH_DST_INC)DMA_CH__u32GetPrimaryControlGeneric(enChannel, DMACH_DMACHCTL_DSTINC_MASK, DMACH_DMACHCTL_R_DSTINC_BIT);
+    enReg = (DMA_nCH_DST_INC)DMA_CH__u32GetPrimaryControlGeneric(enChannel, DMACH_CHCTL_DSTINC_MASK, DMACH_CHCTL_R_DSTINC_BIT);
     return enReg;
 }
 
 DMA_nCH_DST_INC DMA_CH__enGetAlternateDestinationIncrement(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_DST_INC enReg = DMA_enCH_DST_INC_UNDEF;
-    enReg = (DMA_nCH_DST_INC) DMA_CH__u32GetAlternateControlGeneric(enChannel, DMAALTCH_DMACHCTL_DSTINC_MASK, DMAALTCH_DMACHCTL_R_DSTINC_BIT);
+    enReg = (DMA_nCH_DST_INC) DMA_CH__u32GetAlternateControlGeneric(enChannel, DMAALTCH_CHCTL_DSTINC_MASK, DMAALTCH_CHCTL_R_DSTINC_BIT);
     return enReg;
 }
 
 DMA_nCH_DST_INC DMA_CH__enGetDestinationIncrement(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
 {
     DMA_nCH_DST_INC enReg = DMA_enCH_DST_INC_UNDEF;
-    enReg = (DMA_nCH_DST_INC) DMA_CH__u32GetControlGeneric(enChannel, enChannelStructure, DMACH_DMACHCTL_DSTINC_MASK, DMACH_DMACHCTL_R_DSTINC_BIT);
+    enReg = (DMA_nCH_DST_INC) DMA_CH__u32GetControlGeneric(enChannel, enChannelStructure, DMACH_CHCTL_DSTINC_MASK, DMACH_CHCTL_R_DSTINC_BIT);
     return enReg;
 }

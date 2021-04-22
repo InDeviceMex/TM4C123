@@ -28,18 +28,18 @@
 #include <xUtils/Standard/Standard.h>
 
 /**************************************************************************************
-************************************* 5 DMACFG *************************************
+************************************* 5 CFG *************************************
 ****************************************************************************************/
 
 /*--------*/
-#define DMA_DMACFG_R_MASTEN_MASK    ((uint32_t) 0x00000001UL)
-#define DMA_DMACFG_R_MASTEN_BIT    ((uint32_t) 0UL)
-#define DMA_DMACFG_R_MASTEN_DIS    ((uint32_t) 0x00000000UL)
-#define DMA_DMACFG_R_MASTEN_EN    ((uint32_t) 0x00000001UL)
+#define DMA_CFG_R_MASTEN_MASK    ((uint32_t) 0x00000001UL)
+#define DMA_CFG_R_MASTEN_BIT    ((uint32_t) 0UL)
+#define DMA_CFG_R_MASTEN_DIS    ((uint32_t) 0x00000000UL)
+#define DMA_CFG_R_MASTEN_EN    ((uint32_t) 0x00000001UL)
 
-#define DMA_DMACFG_MASTEN_MASK    ((uint32_t) 0x00000001UL)
-#define DMA_DMACFG_MASTEN_DIS    ((uint32_t) 0x00000000UL)
-#define DMA_DMACFG_MASTEN_EN    ((uint32_t) 0x00000001UL)
+#define DMA_CFG_MASTEN_MASK    ((uint32_t) 0x00000001UL)
+#define DMA_CFG_MASTEN_DIS    ((uint32_t) 0x00000000UL)
+#define DMA_CFG_MASTEN_EN    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DMA_DMA_PERIPHERAL_DMA_REGISTER_DMA_REGISTERDEFINES_DMA_REGISTERDEFINES_CFG_H_ */

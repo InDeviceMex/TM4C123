@@ -34,7 +34,7 @@ DMA_nCH_WAITING DMA_CH__enGetWaitStatus(DMA_nCH_MODULE enChannel)
     enModuleEnable = DMA__enGetModuleEnable();
     if(DMA_enENABLE_EN == enModuleEnable)
     {
-        enChannelWaiting = (DMA_nCH_WAITING) DMA_CH__u32GetConfigGeneric(enChannel, DMA_DMAWAITSTAT_OFFSET);
+        enChannelWaiting = (DMA_nCH_WAITING) DMA_CH__u32GetConfigGeneric(enChannel, DMA_WAITSTAT_OFFSET);
     }
     return enChannelWaiting;
 }
