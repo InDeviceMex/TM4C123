@@ -31,7 +31,7 @@ HIB_nSTATUS HIB__enGetLoad(uint32_t* pu32Load)
     HIB_nSTATUS enReturn = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) pu32Load)
     {
-        enReturn = HIB__enReadRegister(HIB_HIBRTCLD_OFFSET, pu32Load, HIB_HIBRTCLD_RTCLD_MASK, HIB_HIBRTCLD_R_RTCLD_BIT);
+        enReturn = HIB__enReadRegister(HIB_RTCLD_OFFSET, pu32Load, HIB_RTCLD_RTCLD_MASK, HIB_RTCLD_R_RTCLD_BIT);
     }
     return enReturn;
 }
@@ -39,6 +39,6 @@ HIB_nSTATUS HIB__enGetLoad(uint32_t* pu32Load)
 HIB_nSTATUS HIB__enSetLoad(uint32_t u32Load)
 {
     HIB_nSTATUS enReturn = HIB_enSTATUS_ERROR;
-    enReturn = HIB__enWriteRegister(HIB_HIBRTCLD_OFFSET, u32Load, HIB_HIBRTCLD_RTCLD_MASK, HIB_HIBRTCLD_R_RTCLD_BIT);
+    enReturn = HIB__enWriteRegister(HIB_RTCLD_OFFSET, u32Load, HIB_RTCLD_RTCLD_MASK, HIB_RTCLD_R_RTCLD_BIT);
     return enReturn;
 }

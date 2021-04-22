@@ -31,60 +31,60 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t HIBRTCC;
-        HIBRTCC_TypeDef HIBRTCC_Bit;
+        volatile const uint32_t RTCC;
+        HIBRTCC_TypeDef RTCC_Bit;
     };
     union
     {
-        volatile uint32_t HIBRTCM0;
-        HIBRTCM0_TypeDef HIBRTCM0_Bit;
+        volatile uint32_t RTCM0;
+        HIBRTCM0_TypeDef RTCM0_Bit;
     };
     const uint32_t reserved;
     union
     {
-        volatile uint32_t HIBRTCLD;
-        HIBRTCLD_TypeDef HIBRTCLD_Bit;
+        volatile uint32_t RTCLD;
+        HIBRTCLD_TypeDef RTCLD_Bit;
     };
     union
     {
-        volatile uint32_t HIBCTL;
-        HIBCTL_TypeDef HIBCTL_Bit;
+        volatile uint32_t CTL;
+        HIBCTL_TypeDef CTL_Bit;
     };
     union
     {
-        volatile uint32_t HIBIM;
-        HIBIM_TypeDef HIBIM_Bit;
+        volatile uint32_t IM;
+        HIBIM_TypeDef IM_Bit;
     };
     union
     {
-        volatile const uint32_t HIBRIS;
-        HIBRIS_TypeDef HIBRIS_Bit;
+        volatile const uint32_t RIS;
+        HIBRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile const uint32_t HIBMIS;
-        HIBMIS_TypeDef HIBMIS_Bit;
+        volatile const uint32_t MIS;
+        HIBMIS_TypeDef MIS_Bit;
     };
     union
     {
-        volatile uint32_t HIBIC;
-        HIBIC_TypeDef HIBIC_Bit;
+        volatile uint32_t IC;
+        HIBIC_TypeDef IC_Bit;
     };
     union
     {
-        volatile uint32_t HIBRTCT;
-        HIBRTCT_TypeDef HIBRTCT_Bit;
+        volatile uint32_t RTCT;
+        HIBRTCT_TypeDef RTCT_Bit;
     };
     union
     {
-        volatile uint32_t HIBRTCSS;
-        HIBRTCSS_TypeDef HIBRTCSS_Bit;
+        volatile uint32_t RTCSS;
+        HIBRTCSS_TypeDef RTCSS_Bit;
     };
     const uint32_t reserved1;
     union
     {
-        volatile uint32_t HIBDATA [16UL];
-        HIBDATA_TypeDef HIBDATA_Bit [16UL];
+        volatile uint32_t DATA [16UL];
+        HIBDATA_TypeDef DATA_Bit [16UL];
     };
 }HIB_TypeDef;
 

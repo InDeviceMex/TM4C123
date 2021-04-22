@@ -31,60 +31,60 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t HIBRTCC [32UL];
-        BITBANDING_HIBRTCC_TypeDef HIBRTCC_Bit;
+        volatile const uint32_t RTCC [32UL];
+        BITBANDING_HIBRTCC_TypeDef RTCC_Bit;
     };
     union
     {
-        volatile uint32_t HIBRTCM0 [32UL];
-        BITBANDING_HIBRTCM0_TypeDef HIBRTCM0_Bit;
+        volatile uint32_t RTCM0 [32UL];
+        BITBANDING_HIBRTCM0_TypeDef RTCM0_Bit;
     };
     const uint32_t reserved[32UL];
     union
     {
-        volatile uint32_t HIBRTCLD [32UL];
-        BITBANDING_HIBRTCLD_TypeDef HIBRTCLD_Bit;
+        volatile uint32_t RTCLD [32UL];
+        BITBANDING_HIBRTCLD_TypeDef RTCLD_Bit;
     };
     union
     {
-        volatile uint32_t HIBCTL [32UL];
-        BITBANDING_HIBCTL_TypeDef HIBCTL_Bit;
+        volatile uint32_t CTL [32UL];
+        BITBANDING_HIBCTL_TypeDef CTL_Bit;
     };
     union
     {
-        volatile uint32_t HIBIM [32UL];
-        BITBANDING_HIBIM_TypeDef HIBIM_Bit;
+        volatile uint32_t IM [32UL];
+        BITBANDING_HIBIM_TypeDef IM_Bit;
     };
     union
     {
-        volatile const uint32_t HIBRIS [32UL];
-        BITBANDING_HIBRIS_TypeDef HIBRIS_Bit;
+        volatile const uint32_t RIS [32UL];
+        BITBANDING_HIBRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile const uint32_t HIBMIS [32UL];
-        BITBANDING_HIBMIS_TypeDef HIBMIS_Bit;
+        volatile const uint32_t MIS [32UL];
+        BITBANDING_HIBMIS_TypeDef MIS_Bit;
     };
     union
     {
-        volatile uint32_t HIBIC [32UL];
-        BITBANDING_HIBIC_TypeDef HIBIC_Bit;
+        volatile uint32_t IC [32UL];
+        BITBANDING_HIBIC_TypeDef IC_Bit;
     };
     union
     {
-        volatile uint32_t HIBRTCT [32UL];
-        BITBANDING_HIBRTCT_TypeDef HIBRTCT_Bit;
+        volatile uint32_t RTCT [32UL];
+        BITBANDING_HIBRTCT_TypeDef RTCT_Bit;
     };
     union
     {
-        volatile uint32_t HIBRTCSS [32UL];
-        BITBANDING_HIBRTCSS_TypeDef HIBRTCSS_Bit;
+        volatile uint32_t RTCSS [32UL];
+        BITBANDING_HIBRTCSS_TypeDef RTCSS_Bit;
     };
     const uint32_t reserved1[32UL];
     union
     {
-        volatile uint32_t HIBDATA [16UL][32UL];
-        BITBANDING_HIBDATA_TypeDef HIBDATA_Bit [16UL];
+        volatile uint32_t DATA [16UL][32UL];
+        BITBANDING_HIBDATA_TypeDef DATA_Bit [16UL];
     };
 }HIB_BITBANDING_TypeDef;
 

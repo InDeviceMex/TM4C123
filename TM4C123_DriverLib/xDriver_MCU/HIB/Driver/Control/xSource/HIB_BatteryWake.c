@@ -28,17 +28,17 @@
 
 HIB_nSTATUS HIB__enEnLowBatteryWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enBATWAKE_EN, HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enBATWAKE_EN, HIB_CTL_BATWKEN_MASK, HIB_CTL_R_BATWKEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisLowBatteryWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enBATWAKE_DIS, HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enBATWAKE_DIS, HIB_CTL_BATWKEN_MASK, HIB_CTL_R_BATWKEN_BIT);
 }
 
 HIB_nSTATUS HIB__enSetLowBatteryWakeUp(HIB_nBATWAKE enBatWake)
 {
-    return HIB__enSetControlGeneric( (uint32_t) enBatWake, HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enBatWake, HIB_CTL_BATWKEN_MASK, HIB_CTL_R_BATWKEN_BIT);
 }
 
 HIB_nSTATUS HIB__enGetLowBatteryWakeUp(HIB_nBATWAKE* enFeatureValue)
@@ -46,7 +46,7 @@ HIB_nSTATUS HIB__enGetLowBatteryWakeUp(HIB_nBATWAKE* enFeatureValue)
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) enFeatureValue)
     {
-        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_BATWKEN_MASK, HIB_HIBCTL_R_BATWKEN_BIT);
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_CTL_BATWKEN_MASK, HIB_CTL_R_BATWKEN_BIT);
     }
     return enStatus;
 }

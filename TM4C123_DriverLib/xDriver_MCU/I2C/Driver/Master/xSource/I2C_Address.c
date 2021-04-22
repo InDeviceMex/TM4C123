@@ -28,25 +28,25 @@
 
 void I2C_Master__vSetSlaveAddress(I2C_nMODULE enModule, uint32_t u32SlaveAddressArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CMSA_OFFSET, u32SlaveAddressArg, I2C_I2CMSA_SA_MASK, I2C_I2CMSA_R_SA_BIT);
+    I2C__vWriteRegister(enModule, I2C_MSA_OFFSET, u32SlaveAddressArg, I2C_MSA_SA_MASK, I2C_MSA_R_SA_BIT);
 }
 
 uint32_t I2C_Master__u32GetSlaveAddress(I2C_nMODULE enModule)
 {
     uint32_t u32SlaveAddressReg = 0xFFFFFFFFUL;
-    I2C__enReadRegister(enModule, I2C_I2CMSA_OFFSET, &u32SlaveAddressReg, I2C_I2CMSA_SA_MASK, I2C_I2CMSA_R_SA_BIT);
+    I2C__enReadRegister(enModule, I2C_MSA_OFFSET, &u32SlaveAddressReg, I2C_MSA_SA_MASK, I2C_MSA_R_SA_BIT);
     return u32SlaveAddressReg;
 }
 
 void I2C_Master__vSetOperation(I2C_nMODULE enModule, I2C_nOPERATION enOperationArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CMSA_OFFSET, enOperationArg, I2C_I2CMSA_RS_MASK, I2C_I2CMSA_R_RS_BIT);
+    I2C__vWriteRegister(enModule, I2C_MSA_OFFSET, enOperationArg, I2C_MSA_RS_MASK, I2C_MSA_R_RS_BIT);
 }
 
 uint32_t I2C_Master__u32GetOperation(I2C_nMODULE enModule)
 {
     I2C_nOPERATION enOperationReg = I2C_enOPERATION_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CMSA_OFFSET, (uint32_t*) &enOperationReg, I2C_I2CMSA_RS_MASK, I2C_I2CMSA_R_RS_BIT);
+    I2C__enReadRegister(enModule, I2C_MSA_OFFSET, (uint32_t*) &enOperationReg, I2C_MSA_RS_MASK, I2C_MSA_R_RS_BIT);
     return enOperationReg;
 }
 

@@ -125,7 +125,7 @@ void (*const g_pfnVectors[155])(void) =
     &IntDefaultHandler,                      /* CAN1*/
     0,                                      /* Reserved*/
     0,                                      /* Reserved*/
-    &IntDefaultHandler,                      /* Hibernate*/
+    &IntDefaultHandler,                      /* ernate*/
     &IntDefaultHandler,                      /* USB0*/
     &IntDefaultHandler,                      /* PWM Generator 3*/
     &IntDefaultHandler,                      /* uDMA Software Transfer*/

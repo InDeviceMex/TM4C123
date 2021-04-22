@@ -28,17 +28,17 @@
 
 HIB_nSTATUS HIB__enEnPinWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enPINWAKE_EN, HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enPINWAKE_EN, HIB_CTL_PINWEN_MASK, HIB_CTL_R_PINWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisPinWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enPINWAKE_DIS, HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enPINWAKE_DIS, HIB_CTL_PINWEN_MASK, HIB_CTL_R_PINWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enSetPinWakeUp(HIB_nPINWAKE enPinWake)
 {
-    return HIB__enSetControlGeneric( (uint32_t) enPinWake, HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enPinWake, HIB_CTL_PINWEN_MASK, HIB_CTL_R_PINWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enGetPinWakeUp(HIB_nPINWAKE* enFeatureValue)
@@ -46,7 +46,7 @@ HIB_nSTATUS HIB__enGetPinWakeUp(HIB_nPINWAKE* enFeatureValue)
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) enFeatureValue)
     {
-        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_PINWEN_MASK, HIB_HIBCTL_R_PINWEN_BIT);
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_CTL_PINWEN_MASK, HIB_CTL_R_PINWEN_BIT);
     }
     return enStatus;
 }

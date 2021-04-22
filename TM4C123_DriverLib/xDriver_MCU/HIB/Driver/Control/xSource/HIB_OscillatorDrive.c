@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enSetOscillatorDrive(HIB_nOSCDRIVE enOscDrive)
 {
-    return HIB__enSetControlGeneric( (uint32_t) enOscDrive, HIB_HIBCTL_OSCDRV_MASK, HIB_HIBCTL_R_OSCDRV_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enOscDrive, HIB_CTL_OSCDRV_MASK, HIB_CTL_R_OSCDRV_BIT);
 }
 
 HIB_nSTATUS HIB__enGetOscillatorDrive(HIB_nOSCDRIVE* enFeatureValue)
@@ -36,7 +36,7 @@ HIB_nSTATUS HIB__enGetOscillatorDrive(HIB_nOSCDRIVE* enFeatureValue)
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) enFeatureValue)
     {
-        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_OSCDRV_MASK, HIB_HIBCTL_R_OSCDRV_BIT);
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_CTL_OSCDRV_MASK, HIB_CTL_R_OSCDRV_BIT);
     }
     return enStatus;
 }

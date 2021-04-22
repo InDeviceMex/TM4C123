@@ -28,5 +28,5 @@
 
 void I2C_Slave__vSetEnable(I2C_nMODULE enModule, I2C_nSLAVE_ENABLE enEnableArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CSCSR_OFFSET, (uint32_t) enEnableArg, 0xFFFFFFFFUL, 0UL);
+    I2C__vWriteRegister(enModule, I2C_SCSR_OFFSET, (uint32_t) enEnableArg, 0xFFFFFFFFUL, 0UL);
 }

@@ -28,17 +28,17 @@
 
 HIB_nSTATUS HIB__enEnRTCTimer(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_EN, HIB_HIBCTL_RTCEN_MASK, HIB_HIBCTL_R_RTCEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_EN, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisRTCTimer(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_EN, HIB_HIBCTL_RTCEN_MASK, HIB_HIBCTL_R_RTCEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_EN, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
 }
 
 HIB_nSTATUS HIB__enSetRTCTimer(HIB_nRTC enRTC)
 {
-    return HIB__enSetControlGeneric( (uint32_t) enRTC, HIB_HIBCTL_RTCEN_MASK, HIB_HIBCTL_R_RTCEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enRTC, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
 }
 
 HIB_nSTATUS HIB__enGetRTCTimer(HIB_nRTC* enFeatureValue)
@@ -46,7 +46,7 @@ HIB_nSTATUS HIB__enGetRTCTimer(HIB_nRTC* enFeatureValue)
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) enFeatureValue)
     {
-        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_RTCEN_MASK, HIB_HIBCTL_R_RTCEN_BIT);
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
     }
     return enStatus;
 }

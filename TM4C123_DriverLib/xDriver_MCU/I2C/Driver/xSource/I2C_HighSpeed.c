@@ -34,21 +34,21 @@ void I2C__vSetHighSpeedCapable(I2C_nMODULE enModule, I2C_nHIGHSPEED enHighSpeedC
     enHighSpeedCapableReg = I2C__enIsHighSpeedCapable(enModule);
     if(I2C_enSTATUS_OK == enHighSpeedCapableReg)
     {
-        I2C__vWriteRegister(enModule, I2C_I2CPC_OFFSET, (uint32_t) enHighSpeedCapableArg, I2C_I2CPC_HS_MASK, I2C_I2CPC_R_HS_BIT);
+        I2C__vWriteRegister(enModule, I2C_PC_OFFSET, (uint32_t) enHighSpeedCapableArg, I2C_PC_HS_MASK, I2C_PC_R_HS_BIT);
     }
 }
 
 I2C_nHIGHSPEED I2C__enGetHighSpeedCapable(I2C_nMODULE enModule)
 {
     I2C_nHIGHSPEED enHighSpeedCapableReg = I2C_enHIGHSPEED_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CPC_OFFSET, (uint32_t*) &enHighSpeedCapableReg, I2C_I2CPC_HS_MASK, I2C_I2CPC_R_HS_BIT);
+    I2C__enReadRegister(enModule, I2C_PC_OFFSET, (uint32_t*) &enHighSpeedCapableReg, I2C_PC_HS_MASK, I2C_PC_R_HS_BIT);
     return enHighSpeedCapableReg;
 }
 
 I2C_nSTATUS I2C__enIsHighSpeedCapable(I2C_nMODULE enModule)
 {
     I2C_nSTATUS enSupported = I2C_enSTATUS_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CPP_OFFSET, (uint32_t*) enSupported, I2C_I2CPP_HS_MASK, I2C_I2CPP_R_HS_BIT);
+    I2C__enReadRegister(enModule, I2C_PP_OFFSET, (uint32_t*) enSupported, I2C_PP_HS_MASK, I2C_PP_R_HS_BIT);
     return enSupported;
 }
 

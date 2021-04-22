@@ -28,25 +28,25 @@
 
 void I2C_Slave__vSetACKEnable(I2C_nMODULE enModule, I2C_nACK_ENABLE enACKEnableArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t) enACKEnableArg, I2C_I2CSACKCTL_ACKOEN_MASK, I2C_I2CSACKCTL_R_ACKOEN_BIT);
+    I2C__vWriteRegister(enModule, I2C_SACKCTL_OFFSET, (uint32_t) enACKEnableArg, I2C_SACKCTL_ACKOEN_MASK, I2C_SACKCTL_R_ACKOEN_BIT);
 }
 
 I2C_nACK_ENABLE I2C_Slave__enGetACKEnable(I2C_nMODULE enModule)
 {
     I2C_nACK_ENABLE enACKEnableReg = I2C_enACK_ENABLE_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t*) &enACKEnableReg, I2C_I2CSACKCTL_ACKOEN_MASK, I2C_I2CSACKCTL_R_ACKOEN_BIT);
+    I2C__enReadRegister(enModule, I2C_SACKCTL_OFFSET, (uint32_t*) &enACKEnableReg, I2C_SACKCTL_ACKOEN_MASK, I2C_SACKCTL_R_ACKOEN_BIT);
     return enACKEnableReg;
 }
 
 void I2C_Slave__vSetACKValue(I2C_nMODULE enModule, I2C_nACK enACKArg)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t) enACKArg, I2C_I2CSACKCTL_ACKOVAL_MASK, I2C_I2CSACKCTL_R_ACKOVAL_BIT);
+    I2C__vWriteRegister(enModule, I2C_SACKCTL_OFFSET, (uint32_t) enACKArg, I2C_SACKCTL_ACKOVAL_MASK, I2C_SACKCTL_R_ACKOVAL_BIT);
 }
 
 I2C_nACK I2C_Slave__enGetACKValue(I2C_nMODULE enModule)
 {
     I2C_nACK enACKValueReg = I2C_enACK_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CSACKCTL_OFFSET, (uint32_t*) &enACKValueReg, I2C_I2CSACKCTL_ACKOVAL_MASK, I2C_I2CSACKCTL_R_ACKOVAL_BIT);
+    I2C__enReadRegister(enModule, I2C_SACKCTL_OFFSET, (uint32_t*) &enACKValueReg, I2C_SACKCTL_ACKOVAL_MASK, I2C_SACKCTL_R_ACKOVAL_BIT);
     return enACKValueReg;
 }
 

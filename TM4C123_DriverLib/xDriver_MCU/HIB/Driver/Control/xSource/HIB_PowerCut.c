@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enSetPowerCut(HIB_nVABORT enVAbort)
 {
-    return HIB__enSetControlGeneric( (uint32_t) enVAbort, HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enVAbort, HIB_CTL_VABORT_MASK, HIB_CTL_R_VABORT_BIT);
 }
 
 HIB_nSTATUS HIB__enGetPowerCut(HIB_nVABORT* enFeatureValue)
@@ -36,7 +36,7 @@ HIB_nSTATUS HIB__enGetPowerCut(HIB_nVABORT* enFeatureValue)
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) enFeatureValue)
     {
-        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_VABORT_MASK, HIB_HIBCTL_R_VABORT_BIT);
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_CTL_VABORT_MASK, HIB_CTL_R_VABORT_BIT);
     }
     return enStatus;
 }

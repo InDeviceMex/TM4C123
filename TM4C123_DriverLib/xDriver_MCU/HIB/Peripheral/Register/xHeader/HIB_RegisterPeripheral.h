@@ -31,119 +31,119 @@
 #define HIB    ((HIB_TypeDef*) HIB_BASE)
 
 /******************************************************************************************
-************************************ 1 HIBRTCC *********************************************
+************************************ 1 RTCC *********************************************
 ******************************************************************************************/
-#define HIB_HIBRTCC    ((HIBRTCC_TypeDef*) (HIB_BASE + HIB_HIBRTCC_OFFSET))
-#define HIB_HIBRTCC_R    (*((volatile const uint32_t*) (HIB_BASE + HIB_HIBRTCC_OFFSET)))
+#define HIB_RTCC    ((HIBRTCC_TypeDef*) (HIB_BASE + HIB_RTCC_OFFSET))
+#define HIB_RTCC_R    (*((volatile const uint32_t*) (HIB_BASE + HIB_RTCC_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 HIBRTCM0 *********************************************
+************************************ 2 RTCM0 *********************************************
 ******************************************************************************************/
-#define HIB_HIBRTCM0    ((HIBRTCM0_TypeDef*) (HIB_BASE + HIB_HIBRTCM0_OFFSET))
-#define HIB_HIBRTCM0_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBRTCM0_OFFSET)))
+#define HIB_RTCM0    ((HIBRTCM0_TypeDef*) (HIB_BASE + HIB_RTCM0_OFFSET))
+#define HIB_RTCM0_R    (*((volatile uint32_t*) (HIB_BASE + HIB_RTCM0_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 HIBRTCLD *********************************************
+************************************ 3 RTCLD *********************************************
 ******************************************************************************************/
-#define HIB_HIBRTCLD    ((HIBRTCLD_TypeDef*) (HIB_BASE + HIB_HIBRTCLD_OFFSET))
-#define HIB_HIBRTCLD_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBRTCLD_OFFSET)))
+#define HIB_RTCLD    ((HIBRTCLD_TypeDef*) (HIB_BASE + HIB_RTCLD_OFFSET))
+#define HIB_RTCLD_R    (*((volatile uint32_t*) (HIB_BASE + HIB_RTCLD_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 HIBCTL *********************************************
+************************************ 4 CTL *********************************************
 ******************************************************************************************/
-#define HIB_HIBCTL    ((HIBCTL_TypeDef*) (HIB_BASE + HIB_HIBCTL_OFFSET))
-#define HIB_HIBCTL_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBCTL_OFFSET)))
+#define HIB_CTL    ((HIBCTL_TypeDef*) (HIB_BASE + HIB_CTL_OFFSET))
+#define HIB_CTL_R    (*((volatile uint32_t*) (HIB_BASE + HIB_CTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 HIBIM *********************************************
+************************************ 5 IM *********************************************
 ******************************************************************************************/
-#define HIB_HIBIM    ((HIBIM_TypeDef*) (HIB_BASE + HIB_HIBIM_OFFSET))
-#define HIB_HIBIM_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBIM_OFFSET)))
+#define HIB_IM    ((HIBIM_TypeDef*) (HIB_BASE + HIB_IM_OFFSET))
+#define HIB_IM_R    (*((volatile uint32_t*) (HIB_BASE + HIB_IM_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 HIBRIS *********************************************
+************************************ 6 RIS *********************************************
 ******************************************************************************************/
-#define HIB_HIBRIS    ((HIBRIS_TypeDef*) (HIB_BASE + HIB_HIBRIS_OFFSET))
-#define HIB_HIBRIS_R    (*((volatile const uint32_t*) (HIB_BASE + HIB_HIBRIS_OFFSET)))
+#define HIB_RIS    ((HIBRIS_TypeDef*) (HIB_BASE + HIB_RIS_OFFSET))
+#define HIB_RIS_R    (*((volatile const uint32_t*) (HIB_BASE + HIB_RIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 HIBMIS *********************************************
+************************************ 7 MIS *********************************************
 ******************************************************************************************/
-#define HIB_HIBMIS    ((HIBMIS_TypeDef*) (HIB_BASE + HIB_HIBMIS_OFFSET))
-#define HIB_HIBMIS_R    (*((volatile const uint32_t*) (HIB_BASE + HIB_HIBMIS_OFFSET)))
+#define HIB_MIS    ((HIBMIS_TypeDef*) (HIB_BASE + HIB_MIS_OFFSET))
+#define HIB_MIS_R    (*((volatile const uint32_t*) (HIB_BASE + HIB_MIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 HIBIC *********************************************
+************************************ 8 IC *********************************************
 ******************************************************************************************/
-#define HIB_HIBIC    ((HIBIC_TypeDef*) (HIB_BASE + HIB_HIBIC_OFFSET))
-#define HIB_HIBIC_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBIC_OFFSET)))
+#define HIB_IC    ((HIBIC_TypeDef*) (HIB_BASE + HIB_IC_OFFSET))
+#define HIB_IC_R    (*((volatile uint32_t*) (HIB_BASE + HIB_IC_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 HIBRTCT *********************************************
+************************************ 9 RTCT *********************************************
 ******************************************************************************************/
-#define HIB_HIBRTCT    ((HIBRTCT_TypeDef*) (HIB_BASE + HIB_HIBRTCT_OFFSET))
-#define HIB_HIBRTCT_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBRTCT_OFFSET)))
+#define HIB_RTCT    ((HIBRTCT_TypeDef*) (HIB_BASE + HIB_RTCT_OFFSET))
+#define HIB_RTCT_R    (*((volatile uint32_t*) (HIB_BASE + HIB_RTCT_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 HIBRTCSS *********************************************
+************************************ 10 RTCSS *********************************************
 ******************************************************************************************/
-#define HIB_HIBRTCSS    ((HIBRTCSS_TypeDef*) (HIB_BASE + HIB_HIBRTCSS_OFFSET))
-#define HIB_HIBRTCSS_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBRTCSS_OFFSET)))
+#define HIB_RTCSS    ((HIBRTCSS_TypeDef*) (HIB_BASE + HIB_RTCSS_OFFSET))
+#define HIB_RTCSS_R    (*((volatile uint32_t*) (HIB_BASE + HIB_RTCSS_OFFSET)))
 
 /******************************************************************************************
-************************************ HIBDATA *********************************************
+************************************ DATA *********************************************
 ******************************************************************************************/
-#define HIB_HIBDATA    ((HIBDATA_ARRAY_TypeDef*) (HIB_BASE + HIB_HIBDATA_OFFSET))
+#define HIB_DATA    ((HIBDATA_ARRAY_TypeDef*) (HIB_BASE + HIB_DATA_OFFSET))
 
 /******************************************************************************************
-************************************ 11 HIBDATA0 *********************************************
+************************************ 11 DATA0 *********************************************
 ******************************************************************************************/
-#define HIB_HIBDATA0    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA0_OFFSET))
-#define HIB_HIBDATA0_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA0_OFFSET)))
+#define HIB_DATA0    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA0_OFFSET))
+#define HIB_DATA0_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA0_OFFSET)))
 
-#define HIB_HIBDATA1    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA1_OFFSET))
-#define HIB_HIBDATA1_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA1_OFFSET)))
+#define HIB_DATA1    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA1_OFFSET))
+#define HIB_DATA1_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA1_OFFSET)))
 
-#define HIB_HIBDATA2    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA2_OFFSET))
-#define HIB_HIBDATA2_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA2_OFFSET)))
+#define HIB_DATA2    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA2_OFFSET))
+#define HIB_DATA2_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA2_OFFSET)))
 
-#define HIB_HIBDATA3    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA3_OFFSET))
-#define HIB_HIBDATA3_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA3_OFFSET)))
+#define HIB_DATA3    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA3_OFFSET))
+#define HIB_DATA3_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA3_OFFSET)))
 
-#define HIB_HIBDATA4    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA4_OFFSET))
-#define HIB_HIBDATA4_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA4_OFFSET)))
+#define HIB_DATA4    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA4_OFFSET))
+#define HIB_DATA4_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA4_OFFSET)))
 
-#define HIB_HIBDATA5    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA5_OFFSET))
-#define HIB_HIBDATA5_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA5_OFFSET)))
+#define HIB_DATA5    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA5_OFFSET))
+#define HIB_DATA5_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA5_OFFSET)))
 
-#define HIB_HIBDATA6    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA6_OFFSET))
-#define HIB_HIBDATA6_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA6_OFFSET)))
+#define HIB_DATA6    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA6_OFFSET))
+#define HIB_DATA6_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA6_OFFSET)))
 
-#define HIB_HIBDATA7    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA7_OFFSET))
-#define HIB_HIBDATA7_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA7_OFFSET)))
+#define HIB_DATA7    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA7_OFFSET))
+#define HIB_DATA7_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA7_OFFSET)))
 
-#define HIB_HIBDATA8    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA8_OFFSET))
-#define HIB_HIBDATA8_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA8_OFFSET)))
+#define HIB_DATA8    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA8_OFFSET))
+#define HIB_DATA8_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA8_OFFSET)))
 
-#define HIB_HIBDATA9    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA9_OFFSET))
-#define HIB_HIBDATA9_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA9_OFFSET)))
+#define HIB_DATA9    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA9_OFFSET))
+#define HIB_DATA9_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA9_OFFSET)))
 
-#define HIB_HIBDATA10    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA10_OFFSET))
-#define HIB_HIBDATA10_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA10_OFFSET)))
+#define HIB_DATA10    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA10_OFFSET))
+#define HIB_DATA10_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA10_OFFSET)))
 
-#define HIB_HIBDATA11    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA11_OFFSET))
-#define HIB_HIBDATA11_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA11_OFFSET)))
+#define HIB_DATA11    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA11_OFFSET))
+#define HIB_DATA11_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA11_OFFSET)))
 
-#define HIB_HIBDATA12    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA12_OFFSET))
-#define HIB_HIBDATA12_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA12_OFFSET)))
+#define HIB_DATA12    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA12_OFFSET))
+#define HIB_DATA12_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA12_OFFSET)))
 
-#define HIB_HIBDATA13    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA13_OFFSET))
-#define HIB_HIBDATA13_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA13_OFFSET)))
+#define HIB_DATA13    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA13_OFFSET))
+#define HIB_DATA13_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA13_OFFSET)))
 
-#define HIB_HIBDATA14    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA14_OFFSET))
-#define HIB_HIBDATA14_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA14_OFFSET)))
+#define HIB_DATA14    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA14_OFFSET))
+#define HIB_DATA14_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA14_OFFSET)))
 
-#define HIB_HIBDATA15    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_HIBDATA15_OFFSET))
-#define HIB_HIBDATA15_R    (*((volatile uint32_t*) (HIB_BASE + HIB_HIBDATA15_OFFSET)))
+#define HIB_DATA15    ((HIBDATA_TypeDef*) (HIB_BASE + HIB_DATA15_OFFSET))
+#define HIB_DATA15_R    (*((volatile uint32_t*) (HIB_BASE + HIB_DATA15_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_REGISTER_HIB_REGISTERPERIPHERAL_H_ */

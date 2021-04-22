@@ -57,7 +57,7 @@ I2C_nSTATUS I2C_Master__enSetFrequency(I2C_nMODULE enModule, uint32_t u32Frequen
         fSysFrec /= (float32_t) u32FrequencyArg;
         fSysFrec += 0.5f;
         u32SysFrec = (uint32_t) fSysFrec;
-        if((0UL < u32SysFrec) && ( (I2C_I2CMTPR_TPR_MASK + 1UL) >= u32SysFrec))
+        if((0UL < u32SysFrec) && ( (I2C_MTPR_TPR_MASK + 1UL) >= u32SysFrec))
         {
             enStatus = I2C_enSTATUS_OK;
             u32SysFrec -= 1UL;

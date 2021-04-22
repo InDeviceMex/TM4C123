@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enSetOscillatorBypass(HIB_nOSCBYP enOscByp)
 {
-    return HIB__enSetControlGeneric( (uint32_t) enOscByp, HIB_HIBCTL_OSCBYP_MASK, HIB_HIBCTL_R_OSCBYP_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) enOscByp, HIB_CTL_OSCBYP_MASK, HIB_CTL_R_OSCBYP_BIT);
 }
 
 HIB_nSTATUS HIB__enGetOscillatorBypass(HIB_nOSCBYP* enFeatureValue)
@@ -36,7 +36,7 @@ HIB_nSTATUS HIB__enGetOscillatorBypass(HIB_nOSCBYP* enFeatureValue)
     HIB_nSTATUS enStatus = HIB_enSTATUS_UNDEF;
     if(0UL != (uint32_t) enFeatureValue)
     {
-        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_HIBCTL_OSCBYP_MASK, HIB_HIBCTL_R_OSCBYP_BIT);
+        enStatus = HIB__enGetControlGeneric( (uint32_t*) enFeatureValue, HIB_CTL_OSCBYP_MASK, HIB_CTL_R_OSCBYP_BIT);
     }
     return enStatus;
 }

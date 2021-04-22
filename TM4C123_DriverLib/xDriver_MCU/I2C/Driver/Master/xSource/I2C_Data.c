@@ -28,12 +28,12 @@
 
 inline void I2C_Master__vSetData(I2C_nMODULE enModule, uint32_t u32Data)
 {
-    I2C__vWriteRegister(enModule, I2C_I2CMDR_OFFSET, u32Data, 0xFFFFFFFFUL, 0UL);
+    I2C__vWriteRegister(enModule, I2C_MDR_OFFSET, u32Data, 0xFFFFFFFFUL, 0UL);
 }
 
 inline uint32_t I2C_Master__u32GetData(I2C_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    I2C__enReadRegister(enModule, I2C_I2CMDR_OFFSET, &u32Reg, I2C_I2CMDR_DATA_MASK, I2C_I2CMDR_R_DATA_BIT);
+    I2C__enReadRegister(enModule, I2C_MDR_OFFSET, &u32Reg, I2C_MDR_DATA_MASK, I2C_MDR_R_DATA_BIT);
     return u32Reg;
 }

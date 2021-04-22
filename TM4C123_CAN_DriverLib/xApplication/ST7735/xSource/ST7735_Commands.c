@@ -90,7 +90,7 @@ void ST7735__vCommandList(const uint8_t * pu8AddressArg)
         u8NumArguments  = *(pu8AddressArg);
         pu8AddressArg += 1UL;
         u16Delay = (uint16_t) u8NumArguments;
-        u16Delay &= (uint16_t) ST7735_enCOMMAND_DELAY;          /*   If hibit set, delay follows args*/
+        u16Delay &= (uint16_t) ST7735_enCOMMAND_DELAY;          /*   If it set, delay follows args*/
         u8Reg = ((uint8_t) ST7735_enCOMMAND_DELAY);
         u8Reg = ~u8Reg;
         u8NumArguments &= u8Reg;                   /*   Mask out delay bit*/

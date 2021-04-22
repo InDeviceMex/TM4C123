@@ -11,5 +11,5 @@
 
 HIB_nSTATUS HIB__enRequestHibernation(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enREQUEST_INIT, HIB_HIBCTL_HIBREQ_MASK, HIB_HIBCTL_R_HIBREQ_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enREQUEST_INIT, HIB_CTL_REQ_MASK, HIB_CTL_R_REQ_BIT);
 }

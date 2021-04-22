@@ -45,7 +45,7 @@ typedef volatile struct
 typedef volatile struct
 {
     volatile uint32_t RTCEN :1;
-    volatile uint32_t HIBREQ :1;
+    volatile uint32_t REQ :1;
     const uint32_t reserved :1;
     volatile uint32_t RTCWEN :1;
     volatile uint32_t PINWEN :1;
@@ -120,7 +120,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t HIBDATA [16UL];
+    volatile uint32_t DATA [16UL];
 }HIBDATA_ARRAY_TypeDef;
 
 typedef volatile struct

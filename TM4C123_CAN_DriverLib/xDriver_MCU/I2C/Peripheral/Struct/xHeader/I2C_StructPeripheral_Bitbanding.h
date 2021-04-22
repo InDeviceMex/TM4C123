@@ -32,124 +32,124 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t I2CMSA [32UL];
-        BITBANDING_I2CMSA_TypeDef I2CMSA_Bit;
+        volatile uint32_t MSA [32UL];
+        BITBANDING_I2CMSA_TypeDef MSA_Bit;
     };
     union
     {
-        volatile uint32_t I2CMCS [32UL];
-        BITBANDING_I2CMCS_STATUS_TypeDef I2CMCS_STATUS_Bit;
-        BITBANDING_I2CMCS_CONTROL_TypeDef I2CMCS_CONTROL_Bit;
+        volatile uint32_t MCS [32UL];
+        BITBANDING_I2CMCS_STATUS_TypeDef MCS_STATUS_Bit;
+        BITBANDING_I2CMCS_CONTROL_TypeDef MCS_CONTROL_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMDR [32UL];
-        BITBANDING_I2CMDR_TypeDef I2CMDR_Bit;
+        volatile const uint32_t MDR [32UL];
+        BITBANDING_I2CMDR_TypeDef MDR_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMTPR [32UL];
-        BITBANDING_I2CMTPR_TypeDef I2CMTPR_Bit;
+        volatile const uint32_t MTPR [32UL];
+        BITBANDING_I2CMTPR_TypeDef MTPR_Bit;
     };
     union
     {
-        volatile uint32_t I2CMIMR [32UL];
-        BITBANDING_I2CMIMR_TypeDef I2CMIMR_Bit;
+        volatile uint32_t MIMR [32UL];
+        BITBANDING_I2CMIMR_TypeDef MIMR_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMRIS [32UL];
-        BITBANDING_I2CMRIS_TypeDef I2CMRIS_Bit;
+        volatile const uint32_t MRIS [32UL];
+        BITBANDING_I2CMRIS_TypeDef MRIS_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMMIS [32UL];
-        BITBANDING_I2CMMIS_TypeDef I2CMMIS_Bit;
+        volatile const uint32_t MMIS [32UL];
+        BITBANDING_I2CMMIS_TypeDef MMIS_Bit;
     };
     union
     {
-        volatile uint32_t I2CMICR [32UL];
-        BITBANDING_I2CMICR_TypeDef I2CMICR_Bit;
+        volatile uint32_t MICR [32UL];
+        BITBANDING_I2CMICR_TypeDef MICR_Bit;
     };
     union
     {
-        volatile uint32_t I2CMCR [32UL];
-        BITBANDING_I2CMCR_TypeDef I2CMCR_Bit;
+        volatile uint32_t MCR [32UL];
+        BITBANDING_I2CMCR_TypeDef MCR_Bit;
     };
     union
     {
-        volatile uint32_t I2CMCLKOCNT [32UL];
-        BITBANDING_I2CMCLKOCNT_TypeDef I2CMCLKOCNT_Bit;
+        volatile uint32_t MCLKOCNT [32UL];
+        BITBANDING_I2CMCLKOCNT_TypeDef MCLKOCNT_Bit;
     };
     const uint32_t reserved [1UL * 32UL];
     union
     {
-        volatile uint32_t I2CMBMON [32UL];
-        BITBANDING_I2CMBMON_TypeDef I2CMBMON_Bit;
+        volatile uint32_t MBMON [32UL];
+        BITBANDING_I2CMBMON_TypeDef MBMON_Bit;
     };
     const uint32_t reserved2 [2UL * 32UL];
     union
     {
-        volatile uint32_t I2CMCR2 [32UL];
-        BITBANDING_I2CMCR2_TypeDef I2CMCR2_Bit;
+        volatile uint32_t MCR2 [32UL];
+        BITBANDING_I2CMCR2_TypeDef MCR2_Bit;
     };
     const uint32_t reserved3 [497UL * 32UL];
     union
     {
-        volatile uint32_t I2CSOAR [32UL];
-        BITBANDING_I2CSOAR_TypeDef I2CSOAR_Bit;
+        volatile uint32_t SOAR [32UL];
+        BITBANDING_I2CSOAR_TypeDef SOAR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSCSR [32UL];
-        BITBANDING_I2CSCSR_STATUS_TypeDef I2CSCSR_STATUS_Bit;
-        BITBANDING_I2CSCSR_CONTROL_TypeDef I2CSCSR_CONTROL_Bit;
+        volatile uint32_t SCSR [32UL];
+        BITBANDING_I2CSCSR_STATUS_TypeDef SCSR_STATUS_Bit;
+        BITBANDING_I2CSCSR_CONTROL_TypeDef SCSR_CONTROL_Bit;
     };
     union
     {
-        volatile uint32_t I2CSDR [32UL];
-        BITBANDING_I2CSDR_TypeDef I2CSDR_Bit;
+        volatile uint32_t SDR [32UL];
+        BITBANDING_I2CSDR_TypeDef SDR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSIMR [32UL];
-        BITBANDING_I2CSIMR_TypeDef I2CSIMR_Bit;
+        volatile uint32_t SIMR [32UL];
+        BITBANDING_I2CSIMR_TypeDef SIMR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSRIS [32UL];
-        BITBANDING_I2CSRIS_TypeDef I2CSRIS_Bit;
+        volatile uint32_t SRIS [32UL];
+        BITBANDING_I2CSRIS_TypeDef SRIS_Bit;
     };
     union
     {
-        volatile uint32_t I2CSMIS [32UL];
-        BITBANDING_I2CSMIS_TypeDef I2CSMIS_Bit;
+        volatile uint32_t SMIS [32UL];
+        BITBANDING_I2CSMIS_TypeDef SMIS_Bit;
     };
     union
     {
-        volatile uint32_t I2CSICR [32UL];
-        BITBANDING_I2CSICR_TypeDef I2CSICR_Bit;
+        volatile uint32_t SICR [32UL];
+        BITBANDING_I2CSICR_TypeDef SICR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSOAR2 [32UL];
-        BITBANDING_I2CSOAR2_TypeDef I2CSOAR2_Bit;
+        volatile uint32_t SOAR2 [32UL];
+        BITBANDING_I2CSOAR2_TypeDef SOAR2_Bit;
     };
     union
     {
-        volatile uint32_t I2CSACKCTL [32UL];
-        BITBANDING_I2CSACKCTL_TypeDef I2CSACKCTL_Bit;
+        volatile uint32_t SACKCTL [32UL];
+        BITBANDING_I2CSACKCTL_TypeDef SACKCTL_Bit;
     };
     const uint32_t reserved4 [487UL * 32UL];
     union
     {
-        volatile const uint32_t I2CPP [32UL];
-        BITBANDING_I2CPP_TypeDef I2CPP_Bit;
+        volatile const uint32_t PP [32UL];
+        BITBANDING_I2CPP_TypeDef PP_Bit;
     };
     union
     {
-        volatile const uint32_t I2CPC [32UL];
-        BITBANDING_I2CPC_TypeDef I2CPC_Bit;
+        volatile const uint32_t PC [32UL];
+        BITBANDING_I2CPC_TypeDef PC_Bit;
     };
     const uint32_t reserved5 [14UL * 32UL];
 } I2C_BITBANDING_TypeDef;
@@ -159,66 +159,66 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t I2CMSA [32UL];
-        BITBANDING_I2CMSA_TypeDef I2CMSA_Bit;
+        volatile uint32_t MSA [32UL];
+        BITBANDING_I2CMSA_TypeDef MSA_Bit;
     };
     union
     {
-        volatile uint32_t I2CMCS [32UL];
-        BITBANDING_I2CMCS_STATUS_TypeDef I2CMCS_STATUS_Bit;
-        BITBANDING_I2CMCS_CONTROL_TypeDef I2CMCS_CONTROL_Bit;
+        volatile uint32_t MCS [32UL];
+        BITBANDING_I2CMCS_STATUS_TypeDef MCS_STATUS_Bit;
+        BITBANDING_I2CMCS_CONTROL_TypeDef MCS_CONTROL_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMDR [32UL];
-        BITBANDING_I2CMDR_TypeDef I2CMDR_Bit;
+        volatile const uint32_t MDR [32UL];
+        BITBANDING_I2CMDR_TypeDef MDR_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMTPR [32UL];
-        BITBANDING_I2CMTPR_TypeDef I2CMTPR_Bit;
+        volatile const uint32_t MTPR [32UL];
+        BITBANDING_I2CMTPR_TypeDef MTPR_Bit;
     };
     union
     {
-        volatile uint32_t I2CMIMR [32UL];
-        BITBANDING_I2CMIMR_TypeDef I2CMIMR_Bit;
+        volatile uint32_t MIMR [32UL];
+        BITBANDING_I2CMIMR_TypeDef MIMR_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMRIS [32UL];
-        BITBANDING_I2CMRIS_TypeDef I2CMRIS_Bit;
+        volatile const uint32_t MRIS [32UL];
+        BITBANDING_I2CMRIS_TypeDef MRIS_Bit;
     };
     union
     {
-        volatile const uint32_t I2CMMIS [32UL];
-        BITBANDING_I2CMMIS_TypeDef I2CMMIS_Bit;
+        volatile const uint32_t MMIS [32UL];
+        BITBANDING_I2CMMIS_TypeDef MMIS_Bit;
     };
     union
     {
-        volatile uint32_t I2CMICR [32UL];
-        BITBANDING_I2CMICR_TypeDef I2CMICR_Bit;
+        volatile uint32_t MICR [32UL];
+        BITBANDING_I2CMICR_TypeDef MICR_Bit;
     };
     union
     {
-        volatile uint32_t I2CMCR [32UL];
-        BITBANDING_I2CMCR_TypeDef I2CMCR_Bit;
+        volatile uint32_t MCR [32UL];
+        BITBANDING_I2CMCR_TypeDef MCR_Bit;
     };
     union
     {
-        volatile uint32_t I2CMCLKOCNT [32UL];
-        BITBANDING_I2CMCLKOCNT_TypeDef I2CMCLKOCNT_Bit;
+        volatile uint32_t MCLKOCNT [32UL];
+        BITBANDING_I2CMCLKOCNT_TypeDef MCLKOCNT_Bit;
     };
     const uint32_t reserved [1UL * 32UL];
     union
     {
-        volatile uint32_t I2CMBMON [32UL];
-        BITBANDING_I2CMBMON_TypeDef I2CMBMON_Bit;
+        volatile uint32_t MBMON [32UL];
+        BITBANDING_I2CMBMON_TypeDef MBMON_Bit;
     };
     const uint32_t reserved2 [2UL * 32UL];
     union
     {
-        volatile uint32_t I2CMCR2 [32UL];
-        BITBANDING_I2CMCR2_TypeDef I2CMCR2_Bit;
+        volatile uint32_t MCR2 [32UL];
+        BITBANDING_I2CMCR2_TypeDef MCR2_Bit;
     };
     const uint32_t reserved3 [497UL * 32UL];
 } I2C_MASTER_BITBANDING_TypeDef;
@@ -228,49 +228,49 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t I2CSOAR [32UL];
-        BITBANDING_I2CSOAR_TypeDef I2CSOAR_Bit;
+        volatile uint32_t SOAR [32UL];
+        BITBANDING_I2CSOAR_TypeDef SOAR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSCSR [32UL];
-        BITBANDING_I2CSCSR_STATUS_TypeDef I2CSCSR_STATUS_Bit;
-        BITBANDING_I2CSCSR_CONTROL_TypeDef I2CSCSR_CONTROL_Bit;
+        volatile uint32_t SCSR [32UL];
+        BITBANDING_I2CSCSR_STATUS_TypeDef SCSR_STATUS_Bit;
+        BITBANDING_I2CSCSR_CONTROL_TypeDef SCSR_CONTROL_Bit;
     };
     union
     {
-        volatile uint32_t I2CSDR [32UL];
-        BITBANDING_I2CSDR_TypeDef I2CSDR_Bit;
+        volatile uint32_t SDR [32UL];
+        BITBANDING_I2CSDR_TypeDef SDR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSIMR [32UL];
-        BITBANDING_I2CSIMR_TypeDef I2CSIMR_Bit;
+        volatile uint32_t SIMR [32UL];
+        BITBANDING_I2CSIMR_TypeDef SIMR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSRIS [32UL];
-        BITBANDING_I2CSRIS_TypeDef I2CSRIS_Bit;
+        volatile uint32_t SRIS [32UL];
+        BITBANDING_I2CSRIS_TypeDef SRIS_Bit;
     };
     union
     {
-        volatile uint32_t I2CSMIS [32UL];
-        BITBANDING_I2CSMIS_TypeDef I2CSMIS_Bit;
+        volatile uint32_t SMIS [32UL];
+        BITBANDING_I2CSMIS_TypeDef SMIS_Bit;
     };
     union
     {
-        volatile uint32_t I2CSICR [32UL];
-        BITBANDING_I2CSICR_TypeDef I2CSICR_Bit;
+        volatile uint32_t SICR [32UL];
+        BITBANDING_I2CSICR_TypeDef SICR_Bit;
     };
     union
     {
-        volatile uint32_t I2CSOAR2 [32UL];
-        BITBANDING_I2CSOAR2_TypeDef I2CSOAR2_Bit;
+        volatile uint32_t SOAR2 [32UL];
+        BITBANDING_I2CSOAR2_TypeDef SOAR2_Bit;
     };
     union
     {
-        volatile uint32_t I2CSACKCTL [32UL];
-        BITBANDING_I2CSACKCTL_TypeDef I2CSACKCTL_Bit;
+        volatile uint32_t SACKCTL [32UL];
+        BITBANDING_I2CSACKCTL_TypeDef SACKCTL_Bit;
     };
     const uint32_t reserved4 [487UL * 32UL];
 } I2C_SLAVE_BITBANDING_TypeDef;
@@ -280,13 +280,13 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t I2CPP [32UL];
-        BITBANDING_I2CPP_TypeDef I2CPP_Bit;
+        volatile const uint32_t PP [32UL];
+        BITBANDING_I2CPP_TypeDef PP_Bit;
     };
     union
     {
-        volatile const uint32_t I2CPC [32UL];
-        BITBANDING_I2CPC_TypeDef I2CPC_Bit;
+        volatile const uint32_t PC [32UL];
+        BITBANDING_I2CPC_TypeDef PC_Bit;
     };
     const uint32_t reserved5 [14UL * 32UL];
 } I2C_CONTROL_BITBANDING_TypeDef;

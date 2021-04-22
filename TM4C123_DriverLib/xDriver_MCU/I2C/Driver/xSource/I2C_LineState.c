@@ -29,7 +29,7 @@
 I2C_nLINE_STATE I2C__enGetLineState(I2C_nMODULE enModule, I2C_nLINE enLineArg)
 {
     I2C_nLINE_STATE enLineStatereg = I2C_enLINE_STATE_UNDEF;
-    I2C__enReadRegister(enModule, I2C_I2CMBMON_OFFSET, (uint32_t*) &enLineStatereg, 0x1UL, (uint32_t) enLineArg);
+    I2C__enReadRegister(enModule, I2C_MBMON_OFFSET, (uint32_t*) &enLineStatereg, 0x1UL, (uint32_t) enLineArg);
     return enLineStatereg;
 }
 
