@@ -32,58 +32,58 @@ typedef volatile struct
 {
     union
     {
-      volatile uint32_t CANIFnCRQ;
-      CANIFnCRQ_TypeDef CANIFnCRQ_Bit;
+      volatile uint32_t IFnCRQ;
+      CANIFnCRQ_TypeDef IFnCRQ_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnCMSK;
-      CANIFnCMSK_TypeDef CANIF1CMSK_Bit;
+      volatile uint32_t IFnCMSK;
+      CANIFnCMSK_TypeDef IF1CMSK_Bit;
     };
     union
     {
-      volatile const uint32_t CANIFnMSK1;
-      CANIFnMSK1_TypeDef CANIFnMSK1_Bit;
+      volatile const uint32_t IFnMSK1;
+      CANIFnMSK1_TypeDef IFnMSK1_Bit;
     };
     union
     {
-      volatile const uint32_t CANIFnMSK2;
-      CANIFnMSK2_TypeDef CANIFnMSK2_Bit;
+      volatile const uint32_t IFnMSK2;
+      CANIFnMSK2_TypeDef IFnMSK2_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnARB1;
-      CANIFnARB1_TypeDef CANIFnARB1_Bit;
+      volatile uint32_t IFnARB1;
+      CANIFnARB1_TypeDef IFnARB1_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnARB2;
-      CANIFnARB2_TypeDef CANIFnARB2_Bit;
+      volatile uint32_t IFnARB2;
+      CANIFnARB2_TypeDef IFnARB2_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnMCTL;
-      CANIFnMCTL_TypeDef CANIFnMCTL_Bit;
+      volatile uint32_t IFnMCTL;
+      CANIFnMCTL_TypeDef IFnMCTL_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnDA1;
-      CANIFnDA1_TypeDef CANIFnDA1_Bit;
+      volatile uint32_t IFnDA1;
+      CANIFnDA1_TypeDef IFnDA1_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnDA2;
-      CANIFnDA2_TypeDef CANIFnDA2_Bit;
+      volatile uint32_t IFnDA2;
+      CANIFnDA2_TypeDef IFnDA2_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnDB1;
-      CANIFnDB1_TypeDef CANIFnDB1_Bit;
+      volatile uint32_t IFnDB1;
+      CANIFnDB1_TypeDef IFnDB1_Bit;
     };
     union
     {
-      volatile uint32_t CANIFnDB2;
-      CANIFnDB2_TypeDef CANIFnDB2_Bit;
+      volatile uint32_t IFnDB2;
+      CANIFnDB2_TypeDef IFnDB2_Bit;
     };
     const uint32_t reserved [13UL];
 }CANINTERFACE_TypeDef;
@@ -93,62 +93,62 @@ typedef volatile struct
 
     union
     {
-      volatile uint32_t CANTXRQ1;
-      volatile uint32_t CANTXRQ_LOW;
-      CANTXRQn_TypeDef CANTXRQ1_Bit;
-      CANTXRQn_TypeDef CANTXRQ_LOW_Bit;
+      volatile uint32_t TXRQ1;
+      volatile uint32_t TXRQ_LOW;
+      CANTXRQn_TypeDef TXRQ1_Bit;
+      CANTXRQn_TypeDef TXRQ_LOW_Bit;
     };
     union
     {
-      volatile uint32_t CANTXRQ2;
-      volatile uint32_t CANTXRQ_HIGH;
-      CANTXRQn_TypeDef CANTXRQ2_Bit;
-      CANTXRQn_TypeDef CANTXRQ_HIGH_Bit;
+      volatile uint32_t TXRQ2;
+      volatile uint32_t TXRQ_HIGH;
+      CANTXRQn_TypeDef TXRQ2_Bit;
+      CANTXRQn_TypeDef TXRQ_HIGH_Bit;
     };
     const uint32_t reserved [6UL];
     union
     {
-      volatile const uint32_t CANNWDA1;
-      volatile const uint32_t CANNWDA_LOW;
-      CANNWDAn_TypeDef CANNWDA1_Bit;
-      CANNWDAn_TypeDef CANNWDA_LOW_Bit;
+      volatile const uint32_t NWDA1;
+      volatile const uint32_t NWDA_LOW;
+      CANNWDAn_TypeDef NWDA1_Bit;
+      CANNWDAn_TypeDef NWDA_LOW_Bit;
     };
     union
     {
-      volatile const uint32_t CANNWDA2;
-      volatile const uint32_t CANNWDA_HIGH;
-      CANNWDAn_TypeDef CANNWDA2_Bit;
-      CANNWDAn_TypeDef CANNWDA_HIGH_Bit;
+      volatile const uint32_t NWDA2;
+      volatile const uint32_t NWDA_HIGH;
+      CANNWDAn_TypeDef NWDA2_Bit;
+      CANNWDAn_TypeDef NWDA_HIGH_Bit;
     };
     const uint32_t reserved1 [6UL];
     union
     {
-      volatile uint32_t CANMSG1INT;
-      volatile uint32_t CANMSGINT_LOW;
-      CANMSGnINT_TypeDef CANMSG1INT_Bit;
-      CANMSGnINT_TypeDef CANMSGINT_LOW_Bit;
+      volatile uint32_t MSG1INT;
+      volatile uint32_t MSGINT_LOW;
+      CANMSGnINT_TypeDef MSG1INT_Bit;
+      CANMSGnINT_TypeDef MSGINT_LOW_Bit;
     };
     union
     {
-      volatile uint32_t CANMSG2INT;
-      volatile uint32_t CANMSGINT_HIGH;
-      CANMSGnINT_TypeDef CANMSG2INT_Bit;
-      CANMSGnINT_TypeDef CANMSGINT_HIGH_Bit;
+      volatile uint32_t MSG2INT;
+      volatile uint32_t MSGINT_HIGH;
+      CANMSGnINT_TypeDef MSG2INT_Bit;
+      CANMSGnINT_TypeDef MSGINT_HIGH_Bit;
     };
     const uint32_t reserved2 [6UL];
     union
     {
-      volatile uint32_t CANMSG1VAL;
-      volatile uint32_t CANMSGVAL_LOW;
-      CANMSGnVAL_TypeDef CANMSG1VAL_Bit;
-      CANMSGnVAL_TypeDef CANMSGVAL_LOW_Bit;
+      volatile uint32_t MSG1VAL;
+      volatile uint32_t MSGVAL_LOW;
+      CANMSGnVAL_TypeDef MSG1VAL_Bit;
+      CANMSGnVAL_TypeDef MSGVAL_LOW_Bit;
     };
     union
     {
-      volatile uint32_t CANMSG2VAL;
-      volatile uint32_t CANMSGVAL_HIGH;
-      CANMSGnVAL_TypeDef CANMSG2VAL_Bit;
-      CANMSGnVAL_TypeDef CANMSGVAL_HIGH_Bit;
+      volatile uint32_t MSG2VAL;
+      volatile uint32_t MSGVAL_HIGH;
+      CANMSGnVAL_TypeDef MSG2VAL_Bit;
+      CANMSGnVAL_TypeDef MSGVAL_HIGH_Bit;
     };
 }CANMESSAGE_TypeDef;
 
@@ -156,46 +156,46 @@ typedef volatile struct
 {
     union
     {
-      volatile uint32_t CANCTL;
-      CANCTL_TypeDef CANCTL_Bit;
+      volatile uint32_t CTL;
+      CANCTL_TypeDef CTL_Bit;
     };
     union
     {
-      volatile uint32_t CANSTS;
-      CANSTS_TypeDef CANSTS_Bit;
+      volatile uint32_t STS;
+      CANSTS_TypeDef STS_Bit;
     };
     union
     {
-      volatile const uint32_t CANERR;
-      CANERR_TypeDef CANERR_Bit;
+      volatile const uint32_t ERR;
+      CANERR_TypeDef ERR_Bit;
     };
     union
     {
-      volatile uint32_t CANBIT;
-      CANBIT_TypeDef CANBIT_Bit;
+      volatile uint32_t BIT;
+      CANBIT_TypeDef BIT_Bit;
     };
     union
     {
-      volatile const uint32_t CANINT;
-      CANINT_TypeDef CANINT_Bit;
+      volatile const uint32_t INT;
+      CANINT_TypeDef INT_Bit;
     };
     union
     {
-      volatile uint32_t CANTST;
-      CANTST_TypeDef CANTST_Bit;
+      volatile uint32_t TST;
+      CANTST_TypeDef TST_Bit;
     };
     union
     {
-      volatile uint32_t CANBRPE;
-      CANBRPE_TypeDef CANBRPE_Bit;
+      volatile uint32_t BRPE;
+      CANBRPE_TypeDef BRPE_Bit;
     };
     const uint32_t reserved [1UL];
 
-    CANINTERFACE_TypeDef CANINTERFACE[2UL];
+    CANINTERFACE_TypeDef INTERFACE[2UL];
 
     const uint32_t reserved1 [7UL];
 
-    CANMESSAGE_TypeDef CANMESSAGE;
+    CANMESSAGE_TypeDef MESSAGE;
 
     const uint32_t reserved2 [934UL];
 }CAN_TypeDef;

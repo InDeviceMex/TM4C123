@@ -35,192 +35,192 @@
 #define CAN1    ((CAN_TypeDef*) (CAN1_BASE))
 
 /******************************************************************************************
-************************************ 1 CANCTL *********************************************
+************************************ 1 CTL *********************************************
 ******************************************************************************************/
-#define CAN1_CANCTL    ((CANCTL_TypeDef*) (CAN1_BASE + CAN_CANCTL_OFFSET))
-#define CAN1_CANCTL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANCTL_OFFSET)))
+#define CAN1_CTL    ((CANCTL_TypeDef*) (CAN1_BASE + CAN_CTL_OFFSET))
+#define CAN1_CTL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 CANSTS *********************************************
+************************************ 2 STS *********************************************
 ******************************************************************************************/
-#define CAN1_CANSTS    ((CANSTS_TypeDef*) (CAN1_BASE + CAN_CANSTS_OFFSET))
-#define CAN1_CANSTS_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANSTS_OFFSET)))
+#define CAN1_STS    ((CANSTS_TypeDef*) (CAN1_BASE + CAN_STS_OFFSET))
+#define CAN1_STS_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_STS_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 CANERR *********************************************
+************************************ 3 ERR *********************************************
 ******************************************************************************************/
-#define CAN1_CANERR    ((CANERR_TypeDef*) (CAN1_BASE + CAN_CANERR_OFFSET))
-#define CAN1_CANERR_R    (*((volatile const uint32_t*) (CAN1_BASE + CAN_CANERR_OFFSET)))
+#define CAN1_ERR    ((CANERR_TypeDef*) (CAN1_BASE + CAN_ERR_OFFSET))
+#define CAN1_ERR_R    (*((volatile const uint32_t*) (CAN1_BASE + CAN_ERR_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 CANBIT *********************************************
+************************************ 4 BIT *********************************************
 ******************************************************************************************/
-#define CAN1_CANBIT    ((CANBIT_TypeDef*) (CAN1_BASE + CAN_CANBIT_OFFSET))
-#define CAN1_CANBIT_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANBIT_OFFSET)))
+#define CAN1_BIT    ((CANBIT_TypeDef*) (CAN1_BASE + CAN_BIT_OFFSET))
+#define CAN1_BIT_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_BIT_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 CANINT *********************************************
+************************************ 5 INT *********************************************
 ******************************************************************************************/
-#define CAN1_CANINT    ((CANINT_TypeDef*) (CAN1_BASE + CAN_CANINT_OFFSET))
-#define CAN1_CANINT_R    (*((volatile const uint32_t*) (CAN1_BASE + CAN_CANINT_OFFSET)))
+#define CAN1_INT    ((CANINT_TypeDef*) (CAN1_BASE + CAN_INT_OFFSET))
+#define CAN1_INT_R    (*((volatile const uint32_t*) (CAN1_BASE + CAN_INT_OFFSET)))
 
 /******************************************************************************************
-************************************6 CANTST *********************************************
+************************************6 TST *********************************************
 ******************************************************************************************/
-#define CAN1_CANTST    ((CANTST_TypeDef*) (CAN1_BASE + CAN_CANTST_OFFSET))
-#define CAN1_CANTST_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANTST_OFFSET)))
+#define CAN1_TST    ((CANTST_TypeDef*) (CAN1_BASE + CAN_TST_OFFSET))
+#define CAN1_TST_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_TST_OFFSET)))
 
 /******************************************************************************************
-************************************7 CANBRPE *********************************************
+************************************7 BRPE *********************************************
 ******************************************************************************************/
-#define CAN1_CANBRPE    ((CANBRPE_TypeDef*) (CAN1_BASE + CAN_CANBRPE_OFFSET))
-#define CAN1_CANBRPE_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANBRPE_OFFSET)))
+#define CAN1_BRPE    ((CANBRPE_TypeDef*) (CAN1_BASE + CAN_BRPE_OFFSET))
+#define CAN1_BRPE_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_BRPE_OFFSET)))
 
 /******************************************************************************************
-************************************8-9 CANIFnCRQ *********************************************
+************************************8-9 IFnCRQ *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1CRQ    ((CANIFnCRQ_TypeDef*) (CAN1_BASE + CAN_CANIF1CRQ_OFFSET))
-#define CAN1_CANIF1CRQ_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1CRQ_OFFSET)))
+#define CAN1_IF1CRQ    ((CANIFnCRQ_TypeDef*) (CAN1_BASE + CAN_IF1CRQ_OFFSET))
+#define CAN1_IF1CRQ_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1CRQ_OFFSET)))
 
-#define CAN1_CANIF2CRQ    ((CANIFnCRQ_TypeDef*) (CAN1_BASE + CAN_CANIF2CRQ_OFFSET))
-#define CAN1_CANIF2CRQ_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2CRQ_OFFSET)))
+#define CAN1_IF2CRQ    ((CANIFnCRQ_TypeDef*) (CAN1_BASE + CAN_IF2CRQ_OFFSET))
+#define CAN1_IF2CRQ_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2CRQ_OFFSET)))
 
 /******************************************************************************************
-************************************10-11 CANIFnCMSK *********************************************
+************************************10-11 IFnCMSK *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1CMSK    ((CANIFnCMSK_TypeDef*) (CAN1_BASE + CAN_CANIF1CMSK_OFFSET))
-#define CAN1_CANIF1CMSK_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1CMSK_OFFSET)))
+#define CAN1_IF1CMSK    ((CANIFnCMSK_TypeDef*) (CAN1_BASE + CAN_IF1CMSK_OFFSET))
+#define CAN1_IF1CMSK_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1CMSK_OFFSET)))
 
-#define CAN1_CANIF2CMSK    ((CANIFnCMSK_TypeDef*) (CAN1_BASE + CAN_CANIF2CMSK_OFFSET))
-#define CAN1_CANIF2CMSK_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2CMSK_OFFSET)))
+#define CAN1_IF2CMSK    ((CANIFnCMSK_TypeDef*) (CAN1_BASE + CAN_IF2CMSK_OFFSET))
+#define CAN1_IF2CMSK_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2CMSK_OFFSET)))
 
 /******************************************************************************************
-************************************12-13 CANIFnMSK1 *********************************************
+************************************12-13 IFnMSK1 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1MSK1    ((CANIFnMSK1_TypeDef*) (CAN1_BASE + CAN_CANIF1MSK1_OFFSET))
-#define CAN1_CANIF1MSK1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1MSK1_OFFSET)))
+#define CAN1_IF1MSK1    ((CANIFnMSK1_TypeDef*) (CAN1_BASE + CAN_IF1MSK1_OFFSET))
+#define CAN1_IF1MSK1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1MSK1_OFFSET)))
 
-#define CAN1_CANIF2MSK1    ((CANIFnMSK1_TypeDef*) (CAN1_BASE + CAN_CANIF2MSK1_OFFSET))
-#define CAN1_CANIF2MSK1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2MSK1_OFFSET)))
+#define CAN1_IF2MSK1    ((CANIFnMSK1_TypeDef*) (CAN1_BASE + CAN_IF2MSK1_OFFSET))
+#define CAN1_IF2MSK1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2MSK1_OFFSET)))
 
 /******************************************************************************************
-************************************14-15 CANIFnMSK2 *********************************************
+************************************14-15 IFnMSK2 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1MSK2    ((CANIFnMSK2_TypeDef*) (CAN1_BASE + CAN_CANIF1MSK2_OFFSET))
-#define CAN1_CANIF1MSK2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1MSK2_OFFSET)))
+#define CAN1_IF1MSK2    ((CANIFnMSK2_TypeDef*) (CAN1_BASE + CAN_IF1MSK2_OFFSET))
+#define CAN1_IF1MSK2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1MSK2_OFFSET)))
 
-#define CAN1_CANIF2MSK2    ((CANIFnMSK2_TypeDef*) (CAN1_BASE + CAN_CANIF2MSK2_OFFSET))
-#define CAN1_CANIF2MSK2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2MSK2_OFFSET)))
+#define CAN1_IF2MSK2    ((CANIFnMSK2_TypeDef*) (CAN1_BASE + CAN_IF2MSK2_OFFSET))
+#define CAN1_IF2MSK2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2MSK2_OFFSET)))
 
 /******************************************************************************************
-************************************16-17 CANIFnARB1 *********************************************
+************************************16-17 IFnARB1 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1ARB1    ((CANIFnARB1_TypeDef*) (CAN1_BASE + CAN_CANIF1ARB1_OFFSET))
-#define CAN1_CANIF1ARB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1ARB1_OFFSET)))
+#define CAN1_IF1ARB1    ((CANIFnARB1_TypeDef*) (CAN1_BASE + CAN_IF1ARB1_OFFSET))
+#define CAN1_IF1ARB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1ARB1_OFFSET)))
 
-#define CAN1_CANIF2ARB1    ((CANIFnARB1_TypeDef*) (CAN1_BASE + CAN_CANIF2ARB1_OFFSET))
-#define CAN1_CANIF2ARB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2ARB1_OFFSET)))
+#define CAN1_IF2ARB1    ((CANIFnARB1_TypeDef*) (CAN1_BASE + CAN_IF2ARB1_OFFSET))
+#define CAN1_IF2ARB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2ARB1_OFFSET)))
 
 /******************************************************************************************
-************************************18-19 CANIFnARB2 *********************************************
+************************************18-19 IFnARB2 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1ARB2    ((CANIFnARB2_TypeDef*) (CAN1_BASE + CAN_CANIF1ARB2_OFFSET))
-#define CAN1_CANIF1ARB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1ARB2_OFFSET)))
+#define CAN1_IF1ARB2    ((CANIFnARB2_TypeDef*) (CAN1_BASE + CAN_IF1ARB2_OFFSET))
+#define CAN1_IF1ARB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1ARB2_OFFSET)))
 
-#define CAN1_CANIF2ARB2    ((CANIFnARB2_TypeDef*) (CAN1_BASE + CAN_CANIF2ARB2_OFFSET))
-#define CAN1_CANIF2ARB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2ARB2_OFFSET)))
+#define CAN1_IF2ARB2    ((CANIFnARB2_TypeDef*) (CAN1_BASE + CAN_IF2ARB2_OFFSET))
+#define CAN1_IF2ARB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2ARB2_OFFSET)))
 
 /******************************************************************************************
-************************************20-21 CANIFnMCTL *********************************************
+************************************20-21 IFnMCTL *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1MCTL    ((CANIFnMCTL_TypeDef*) (CAN1_BASE + CAN_CANIF1MCTL_OFFSET))
-#define CAN1_CANIF1MCTL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1MCTL_OFFSET)))
+#define CAN1_IF1MCTL    ((CANIFnMCTL_TypeDef*) (CAN1_BASE + CAN_IF1MCTL_OFFSET))
+#define CAN1_IF1MCTL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1MCTL_OFFSET)))
 
-#define CAN1_CANIF2MCTL    ((CANIFnMCTL_TypeDef*) (CAN1_BASE + CAN_CANIF2MCTL_OFFSET))
-#define CAN1_CANIF2MCTL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2MCTL_OFFSET)))
+#define CAN1_IF2MCTL    ((CANIFnMCTL_TypeDef*) (CAN1_BASE + CAN_IF2MCTL_OFFSET))
+#define CAN1_IF2MCTL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2MCTL_OFFSET)))
 
 /******************************************************************************************
-************************************22-23 CANIFnDA1 *********************************************
+************************************22-23 IFnDA1 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1DA1    ((CANIFnDA1_TypeDef*) (CAN1_BASE + CAN_CANIF1DA1_OFFSET))
-#define CAN1_CANIF1DA1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1DA1_OFFSET)))
+#define CAN1_IF1DA1    ((CANIFnDA1_TypeDef*) (CAN1_BASE + CAN_IF1DA1_OFFSET))
+#define CAN1_IF1DA1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1DA1_OFFSET)))
 
-#define CAN1_CANIF2DA1    ((CANIFnDA1_TypeDef*) (CAN1_BASE + CAN_CANIF2DA1_OFFSET))
-#define CAN1_CANIF2DA1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2DA1_OFFSET)))
+#define CAN1_IF2DA1    ((CANIFnDA1_TypeDef*) (CAN1_BASE + CAN_IF2DA1_OFFSET))
+#define CAN1_IF2DA1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2DA1_OFFSET)))
 
 /******************************************************************************************
-************************************24-25 CANIFnDA2 *********************************************
+************************************24-25 IFnDA2 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1DA2    ((CANIFnDA2_TypeDef*) (CAN1_BASE + CAN_CANIF1DA2_OFFSET))
-#define CAN1_CANIF1DA2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1DA2_OFFSET)))
+#define CAN1_IF1DA2    ((CANIFnDA2_TypeDef*) (CAN1_BASE + CAN_IF1DA2_OFFSET))
+#define CAN1_IF1DA2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1DA2_OFFSET)))
 
-#define CAN1_CANIF2DA2    ((CANIFnDA2_TypeDef*) (CAN1_BASE + CAN_CANIF2DA2_OFFSET))
-#define CAN1_CANIF2DA2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2DA2_OFFSET)))
+#define CAN1_IF2DA2    ((CANIFnDA2_TypeDef*) (CAN1_BASE + CAN_IF2DA2_OFFSET))
+#define CAN1_IF2DA2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2DA2_OFFSET)))
 
 /******************************************************************************************
-************************************26-27 CANIFnDB1 *********************************************
+************************************26-27 IFnDB1 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1DB1    ((CANIFnDB1_TypeDef*) (CAN1_BASE + CAN_CANIF1DB1_OFFSET))
-#define CAN1_CANIF1DB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1DB1_OFFSET)))
+#define CAN1_IF1DB1    ((CANIFnDB1_TypeDef*) (CAN1_BASE + CAN_IF1DB1_OFFSET))
+#define CAN1_IF1DB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1DB1_OFFSET)))
 
-#define CAN1_CANIF2DB1    ((CANIFnDB1_TypeDef*) (CAN1_BASE + CAN_CANIF2DB1_OFFSET))
-#define CAN1_CANIF2DB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2DB1_OFFSET)))
+#define CAN1_IF2DB1    ((CANIFnDB1_TypeDef*) (CAN1_BASE + CAN_IF2DB1_OFFSET))
+#define CAN1_IF2DB1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2DB1_OFFSET)))
 
 /******************************************************************************************
-************************************28-29 CANIFnDB2 *********************************************
+************************************28-29 IFnDB2 *********************************************
 ******************************************************************************************/
-#define CAN1_CANIF1DB2    ((CANIFnDB2_TypeDef*) (CAN1_BASE + CAN_CANIF1DB2_OFFSET))
-#define CAN1_CANIF1DB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF1DB2_OFFSET)))
+#define CAN1_IF1DB2    ((CANIFnDB2_TypeDef*) (CAN1_BASE + CAN_IF1DB2_OFFSET))
+#define CAN1_IF1DB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF1DB2_OFFSET)))
 
-#define CAN1_CANIF2DB2    ((CANIFnDB2_TypeDef*) (CAN1_BASE + CAN_CANIF2DB2_OFFSET))
-#define CAN1_CANIF2DB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANIF2DB2_OFFSET)))
+#define CAN1_IF2DB2    ((CANIFnDB2_TypeDef*) (CAN1_BASE + CAN_IF2DB2_OFFSET))
+#define CAN1_IF2DB2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_IF2DB2_OFFSET)))
 
 /******************************************************************************************
-************************************30-31 CANTXRQn *********************************************
+************************************30-31 TXRQn *********************************************
 ******************************************************************************************/
-#define CAN1_CANTXRQ    ((CANTXRQ_TypeDef*) (CAN1_BASE + CAN_CANTXRQ_OFFSET))
-#define CAN1_CANTXRQ_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_CANTXRQ_OFFSET)))
+#define CAN1_TXRQ    ((CANTXRQ_TypeDef*) (CAN1_BASE + CAN_TXRQ_OFFSET))
+#define CAN1_TXRQ_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_TXRQ_OFFSET)))
 
-#define CAN1_CANTXRQ1    ((CANTXRQn_TypeDef*) (CAN1_BASE + CAN_CANTXRQ1_OFFSET))
-#define CAN1_CANTXRQ1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANTXRQ1_OFFSET)))
+#define CAN1_TXRQ1    ((CANTXRQn_TypeDef*) (CAN1_BASE + CAN_TXRQ1_OFFSET))
+#define CAN1_TXRQ1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_TXRQ1_OFFSET)))
 
-#define CAN1_CANTXRQ2    ((CANTXRQn_TypeDef*) (CAN1_BASE + CAN_CANTXRQ2_OFFSET))
-#define CAN1_CANTXRQ2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANTXRQ2_OFFSET)))
+#define CAN1_TXRQ2    ((CANTXRQn_TypeDef*) (CAN1_BASE + CAN_TXRQ2_OFFSET))
+#define CAN1_TXRQ2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_TXRQ2_OFFSET)))
 
 /******************************************************************************************
-************************************32-33 CANNWDAn *********************************************
+************************************32-33 NWDAn *********************************************
 ******************************************************************************************/
-#define CAN1_CANNWDA    ((CANNWDA_TypeDef*) (CAN1_BASE + CAN_CANNWDA_OFFSET))
-#define CAN1_CANNWDA_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_CANNWDA_OFFSET)))
+#define CAN1_NWDA    ((CANNWDA_TypeDef*) (CAN1_BASE + CAN_NWDA_OFFSET))
+#define CAN1_NWDA_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_NWDA_OFFSET)))
 
-#define CAN1_CANNWDA1    ((CANNWDAn_TypeDef*) (CAN1_BASE + CAN_CANNWDA1_OFFSET))
-#define CAN1_CANNWDA1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANNWDA1_OFFSET)))
+#define CAN1_NWDA1    ((CANNWDAn_TypeDef*) (CAN1_BASE + CAN_NWDA1_OFFSET))
+#define CAN1_NWDA1_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_NWDA1_OFFSET)))
 
-#define CAN1_CANNWDA2    ((CANNWDAn_TypeDef*) (CAN1_BASE + CAN_CANNWDA2_OFFSET))
-#define CAN1_CANNWDA2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANNWDA2_OFFSET)))
+#define CAN1_NWDA2    ((CANNWDAn_TypeDef*) (CAN1_BASE + CAN_NWDA2_OFFSET))
+#define CAN1_NWDA2_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_NWDA2_OFFSET)))
 
 /******************************************************************************************
-************************************34-35 CANMSGnINT *********************************************
+************************************34-35 MSGnINT *********************************************
 ******************************************************************************************/
-#define CAN1_CANMSGINT    ((CANMSGINT_TypeDef*) (CAN1_BASE + CAN_CANMSGINT_OFFSET))
-#define CAN1_CANMSGINT_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_CANMSGINT_OFFSET)))
+#define CAN1_MSGINT    ((CANMSGINT_TypeDef*) (CAN1_BASE + CAN_MSGINT_OFFSET))
+#define CAN1_MSGINT_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_MSGINT_OFFSET)))
 
-#define CAN1_CANMSG1INT    ((CANMSGnINT_TypeDef*) (CAN1_BASE + CAN_CANMSG1INT_OFFSET))
-#define CAN1_CANMSG1INT_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANMSG1INT_OFFSET)))
+#define CAN1_MSG1INT    ((CANMSGnINT_TypeDef*) (CAN1_BASE + CAN_MSG1INT_OFFSET))
+#define CAN1_MSG1INT_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_MSG1INT_OFFSET)))
 
-#define CAN1_CANMSG2INT    ((CANMSGnINT_TypeDef*) (CAN1_BASE + CAN_CANMSG2INT_OFFSET))
-#define CAN1_CANMSG2INT_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANMSG2INT_OFFSET)))
+#define CAN1_MSG2INT    ((CANMSGnINT_TypeDef*) (CAN1_BASE + CAN_MSG2INT_OFFSET))
+#define CAN1_MSG2INT_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_MSG2INT_OFFSET)))
 
 /******************************************************************************************
-************************************36-37 CANMSGnVAL *********************************************
+************************************36-37 MSGnVAL *********************************************
 ******************************************************************************************/
-#define CAN1_CANMSGVAL    ((CANMSGVAL_TypeDef*) (CAN1_BASE + CAN_CANMSGVAL_OFFSET))
-#define CAN1_CANMSGVAL_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_CANMSGVAL_OFFSET)))
+#define CAN1_MSGVAL    ((CANMSGVAL_TypeDef*) (CAN1_BASE + CAN_MSGVAL_OFFSET))
+#define CAN1_MSGVAL_R    (*((volatile uint64_t*) (CAN1_BASE + CAN_MSGVAL_OFFSET)))
 
-#define CAN1_CANMSG1VAL    ((CANMSGnVAL_TypeDef*) (CAN1_BASE + CAN_CANMSG1VAL_OFFSET))
-#define CAN1_CANMSG1VAL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANMSG1VAL_OFFSET)))
+#define CAN1_MSG1VAL    ((CANMSGnVAL_TypeDef*) (CAN1_BASE + CAN_MSG1VAL_OFFSET))
+#define CAN1_MSG1VAL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_MSG1VAL_OFFSET)))
 
-#define CAN1_CANMSG2VAL    ((CANMSGnVAL_TypeDef*) (CAN1_BASE + CAN_CANMSG2VAL_OFFSET))
-#define CAN1_CANMSG2VAL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_CANMSG2VAL_OFFSET)))
+#define CAN1_MSG2VAL    ((CANMSGnVAL_TypeDef*) (CAN1_BASE + CAN_MSG2VAL_OFFSET))
+#define CAN1_MSG2VAL_R    (*((volatile uint32_t*) (CAN1_BASE + CAN_MSG2VAL_OFFSET)))
 
 #endif /* XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_XHEADER_CAN_REGISTERPERIPHERAL_MODULE1_H_ */

@@ -25,15 +25,15 @@
 #ifndef XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_REGISTERDEFINES_CAN_REGISTERDEFINES_H_
 #define XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_REGISTERDEFINES_CAN_REGISTERDEFINES_H_
 
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANBIT.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANBRPE.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANCTL.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANERR.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANINT.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANSTS.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANTST.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_BIT.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_BRPE.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CTL.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_ERR.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_INT.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_STS.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_TST.h>
 
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANIFnCMSK.h>
-#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_CANIFnCRQ.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_IFnCMSK.h>
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/xHeader/CAN_RegisterDefines_IFnCRQ.h>
 
 #endif /* XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_REGISTERDEFINES_CAN_REGISTERDEFINES_H_ */

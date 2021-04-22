@@ -173,28 +173,28 @@ typedef volatile struct
     volatile uint32_t DATA0: 8;
     volatile uint32_t DATA1: 8;
     const uint32_t reserved: 16;
-}CANIFnDA1_TypeDef; /*CANIFnDA1*/
+}CANIFnDA1_TypeDef; /*IFnDA1*/
 
 typedef volatile struct
 {
     volatile uint32_t DATA2: 8;
     volatile uint32_t DATA3: 8;
     const uint32_t reserved: 16;
-}CANIFnDA2_TypeDef; /*CANIFnDA2*/
+}CANIFnDA2_TypeDef; /*IFnDA2*/
 
 typedef volatile struct
 {
     volatile uint32_t DATA4: 8;
     volatile uint32_t DATA5: 8;
     const uint32_t reserved: 16;
-}CANIFnDB1_TypeDef; /*CANIFnDB1*/
+}CANIFnDB1_TypeDef; /*IFnDB1*/
 
 typedef volatile struct
 {
     volatile uint32_t DATA6: 8;
     volatile uint32_t DATA7: 8;
     const uint32_t reserved: 16;
-}CANIFnDB2_TypeDef; /*CANIFnDB2*/
+}CANIFnDB2_TypeDef; /*IFnDB2*/
 
 typedef volatile struct
 {
