@@ -36,199 +36,199 @@
 #define UART6    ((UART_TypeDef*) (UART6_BASE))
 
 /******************************************************************************************
-************************************ 1 UARTDR *********************************************
+************************************ 1 DR *********************************************
 ******************************************************************************************/
-#define UART6_UARTDR    ((UARTDR_TypeDef*) (UART6_BASE + UART_UARTDR_OFFSET ))
-#define UART6_UARTDR_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTDR_OFFSET)))
+#define UART6_DR    ((UARTDR_TypeDef*) (UART6_BASE + UART_DR_OFFSET ))
+#define UART6_DR_R    (*((volatile uint32_t*) (UART6_BASE + UART_DR_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 UARTRSR *********************************************
-************************************ 2 UARTECR *********************************************
+************************************ 2 RSR *********************************************
+************************************ 2 ECR *********************************************
 ******************************************************************************************/
-#define UART6_UARTRSR    ((UARTRSR_TypeDef*) (UART6_BASE + UART_UARTRSR_OFFSET ))
-#define UART6_UARTRSR_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTRSR_OFFSET)))
-#define UART6_UARTECR    ((UARTECR_TypeDef*) (UART6_BASE + UART_UARTECR_OFFSET ))
-#define UART6_UARTECR_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTECR_OFFSET)))
+#define UART6_RSR    ((UARTRSR_TypeDef*) (UART6_BASE + UART_RSR_OFFSET ))
+#define UART6_RSR_R    (*((volatile const uint32_t*) (UART6_BASE + UART_RSR_OFFSET)))
+#define UART6_ECR    ((UARTECR_TypeDef*) (UART6_BASE + UART_ECR_OFFSET ))
+#define UART6_ECR_R    (*((volatile uint32_t*) (UART6_BASE + UART_ECR_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 UARTFR *********************************************
+************************************ 3 FR *********************************************
 ******************************************************************************************/
-#define UART6_UARTFR    ((UARTFR_TypeDef*) (UART6_BASE + UART_UARTFR_OFFSET ))
-#define UART6_UARTFR_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTFR_OFFSET)))
+#define UART6_FR    ((UARTFR_TypeDef*) (UART6_BASE + UART_FR_OFFSET ))
+#define UART6_FR_R    (*((volatile const uint32_t*) (UART6_BASE + UART_FR_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 UARTILPR *********************************************
+************************************ 4 ILPR *********************************************
 ******************************************************************************************/
-#define UART6_UARTILPR    ((UARTILPR_TypeDef*) (UART6_BASE + UART_UARTILPR_OFFSET ))
-#define UART6_UARTILPR_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTILPR_OFFSET)))
+#define UART6_ILPR    ((UARTILPR_TypeDef*) (UART6_BASE + UART_ILPR_OFFSET ))
+#define UART6_ILPR_R    (*((volatile uint32_t*) (UART6_BASE + UART_ILPR_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 UARTIBRD *********************************************
+************************************ 5 IBRD *********************************************
 ******************************************************************************************/
-#define UART6_UARTIBRD    ((UARTIBRD_TypeDef*) (UART6_BASE + UART_UARTIBRD_OFFSET ))
-#define UART6_UARTIBRD_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTIBRD_OFFSET)))
+#define UART6_IBRD    ((UARTIBRD_TypeDef*) (UART6_BASE + UART_IBRD_OFFSET ))
+#define UART6_IBRD_R    (*((volatile uint32_t*) (UART6_BASE + UART_IBRD_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 UARTFBRD *********************************************
+************************************ 6 FBRD *********************************************
 ******************************************************************************************/
-#define UART6_UARTFBRD    ((UARTFBRD_TypeDef*) (UART6_BASE + UART_UARTFBRD_OFFSET ))
-#define UART6_UARTFBRD_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTFBRD_OFFSET)))
+#define UART6_FBRD    ((UARTFBRD_TypeDef*) (UART6_BASE + UART_FBRD_OFFSET ))
+#define UART6_FBRD_R    (*((volatile uint32_t*) (UART6_BASE + UART_FBRD_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 UARTLCRH *********************************************
+************************************ 7 LCRH *********************************************
 ******************************************************************************************/
-#define UART6_UARTLCRH    ((UARTLCRH_TypeDef*) (UART6_BASE + UART_UARTLCRH_OFFSET ))
-#define UART6_UARTLCRH_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTLCRH_OFFSET)))
+#define UART6_LCRH    ((UARTLCRH_TypeDef*) (UART6_BASE + UART_LCRH_OFFSET ))
+#define UART6_LCRH_R    (*((volatile uint32_t*) (UART6_BASE + UART_LCRH_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 UARTDMACTL *********************************************
+************************************ 8 DMACTL *********************************************
 ******************************************************************************************/
-#define UART6_UARTDMACTL    ((UARTDMACTL_TypeDef*) (UART6_BASE + UART_UARTDMACTL_OFFSET ))
-#define UART6_UARTDMACTL_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTDMACTL_OFFSET)))
+#define UART6_DMACTL    ((UARTDMACTL_TypeDef*) (UART6_BASE + UART_DMACTL_OFFSET ))
+#define UART6_DMACTL_R    (*((volatile uint32_t*) (UART6_BASE + UART_DMACTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 UARTIFLS *********************************************
+************************************ 9 IFLS *********************************************
 ******************************************************************************************/
-#define UART6_UARTIFLS    ((UARTIFLS_TypeDef*) (UART6_BASE + UART_UARTIFLS_OFFSET ))
-#define UART6_UARTIFLS_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTIFLS_OFFSET)))
+#define UART6_IFLS    ((UARTIFLS_TypeDef*) (UART6_BASE + UART_IFLS_OFFSET ))
+#define UART6_IFLS_R    (*((volatile uint32_t*) (UART6_BASE + UART_IFLS_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 UARTIM *********************************************
+************************************ 10 IM *********************************************
 ******************************************************************************************/
-#define UART6_UARTIM    ((UARTIM_TypeDef*) (UART6_BASE + UART_UARTIM_OFFSET ))
-#define UART6_UARTIM_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTIM_OFFSET)))
+#define UART6_IM    ((UARTIM_TypeDef*) (UART6_BASE + UART_IM_OFFSET ))
+#define UART6_IM_R    (*((volatile uint32_t*) (UART6_BASE + UART_IM_OFFSET)))
 
 /******************************************************************************************
-************************************ 11 UARTRIS *********************************************
+************************************ 11 RIS *********************************************
 ******************************************************************************************/
-#define UART6_UARTRIS    ((UARTRIS_TypeDef*) (UART6_BASE + UART_UARTRIS_OFFSET ))
-#define UART6_UARTRIS_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTRIS_OFFSET)))
+#define UART6_RIS    ((UARTRIS_TypeDef*) (UART6_BASE + UART_RIS_OFFSET ))
+#define UART6_RIS_R    (*((volatile const uint32_t*) (UART6_BASE + UART_RIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 12 UARTMIS *********************************************
+************************************ 12 MIS *********************************************
 ******************************************************************************************/
-#define UART6_UARTMIS    ((UARTMIS_TypeDef*) (UART6_BASE + UART_UARTMIS_OFFSET ))
-#define UART6_UARTMIS_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTMIS_OFFSET)))
+#define UART6_MIS    ((UARTMIS_TypeDef*) (UART6_BASE + UART_MIS_OFFSET ))
+#define UART6_MIS_R    (*((volatile const uint32_t*) (UART6_BASE + UART_MIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 13 UARTICR *********************************************
+************************************ 13 ICR *********************************************
 ******************************************************************************************/
-#define UART6_UARTICR    ((UARTICR_TypeDef*) (UART6_BASE + UART_UARTICR_OFFSET ))
-#define UART6_UARTICR_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTICR_OFFSET)))
+#define UART6_ICR    ((UARTICR_TypeDef*) (UART6_BASE + UART_ICR_OFFSET ))
+#define UART6_ICR_R    (*((volatile uint32_t*) (UART6_BASE + UART_ICR_OFFSET)))
 
 /******************************************************************************************
-************************************ 14 UARTDMACTL *********************************************
+************************************ 14 DMACTL *********************************************
 ******************************************************************************************/
-#define UART6_UARTDMACTL    ((UARTDMACTL_TypeDef*) (UART6_BASE + UART_UARTDMACTL_OFFSET ))
-#define UART6_UARTDMACTL_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTDMACTL_OFFSET)))
+#define UART6_DMACTL    ((UARTDMACTL_TypeDef*) (UART6_BASE + UART_DMACTL_OFFSET ))
+#define UART6_DMACTL_R    (*((volatile uint32_t*) (UART6_BASE + UART_DMACTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 15 UART9BITADDR *********************************************
+************************************ 15 9BITADDR *********************************************
 ******************************************************************************************/
-#define UART6_UART9BITADDR    ((UART9BITADDR8_TypeDef*) (UART6_BASE + UART_UART9BITADDR_OFFSET ))
-#define UART6_UART9BITADDR_R    (*((volatile uint32_t*) (UART6_BASE + UART_UART9BITADDR_OFFSET)))
+#define UART6_9BITADDR    ((UART9BITADDR8_TypeDef*) (UART6_BASE + UART_9BITADDR_OFFSET ))
+#define UART6_9BITADDR_R    (*((volatile uint32_t*) (UART6_BASE + UART_9BITADDR_OFFSET)))
 
 /******************************************************************************************
-************************************ 16 UART9BITAMASK *********************************************
+************************************ 16 9BITAMASK *********************************************
 ******************************************************************************************/
-#define UART6_UART9BITAMASK    ((UART9BITAMASK8_TypeDef*) (UART6_BASE + UART_UART9BITAMASK_OFFSET ))
-#define UART6_UART9BITAMASK_R    (*((volatile uint32_t*) (UART6_BASE + UART_UART9BITAMASK_OFFSET)))
+#define UART6_9BITAMASK    ((UART9BITAMASK8_TypeDef*) (UART6_BASE + UART_9BITAMASK_OFFSET ))
+#define UART6_9BITAMASK_R    (*((volatile uint32_t*) (UART6_BASE + UART_9BITAMASK_OFFSET)))
 
 /******************************************************************************************
-************************************ 17 UARTPP *********************************************
+************************************ 17 PP *********************************************
 ******************************************************************************************/
-#define UART6_UARTPP    ((UARTPP_TypeDef*) (UART6_BASE + UART_UARTPP_OFFSET ))
-#define UART6_UARTPP_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPP_OFFSET)))
+#define UART6_PP    ((UARTPP_TypeDef*) (UART6_BASE + UART_PP_OFFSET ))
+#define UART6_PP_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PP_OFFSET)))
 
 /******************************************************************************************
-************************************ 18 UARTCC *********************************************
+************************************ 18 CC *********************************************
 ******************************************************************************************/
-#define UART6_UARTCC    ((UARTCC_TypeDef*) (UART6_BASE + UART_UARTCC_OFFSET ))
-#define UART6_UARTCC_R    (*((volatile uint32_t*) (UART6_BASE + UART_UARTCC_OFFSET)))
+#define UART6_CC    ((UARTCC_TypeDef*) (UART6_BASE + UART_CC_OFFSET ))
+#define UART6_CC_R    (*((volatile uint32_t*) (UART6_BASE + UART_CC_OFFSET)))
 
 
 /******************************************************************************************
- ************************************ 19 UARTPeriphID4 *********************************************
+ ************************************ 19 PeriphID4 *********************************************
  ******************************************************************************************/
 /* UART6 PID4*/
-#define UART6_UARTPeriphID4    ((UARTPeriphID4_TypeDef*) (UART6_BASE + UART_UARTPeriphID4_OFFSET))
-#define UART6_UARTPeriphID4_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID4_OFFSET)))
+#define UART6_PeriphID4    ((UARTPeriphID4_TypeDef*) (UART6_BASE + UART_PeriphID4_OFFSET))
+#define UART6_PeriphID4_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID4_OFFSET)))
 
 /******************************************************************************************
- ************************************ 20 UARTPeriphID5 *********************************************
+ ************************************ 20 PeriphID5 *********************************************
  ******************************************************************************************/
 /* UART6 PID5*/
-#define UART6_UARTPeriphID5    ((UARTPeriphID5_TypeDef*) (UART6_BASE + UART_UARTPeriphID5_OFFSET))
-#define UART6_UARTPeriphID5_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID5_OFFSET)))
+#define UART6_PeriphID5    ((UARTPeriphID5_TypeDef*) (UART6_BASE + UART_PeriphID5_OFFSET))
+#define UART6_PeriphID5_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID5_OFFSET)))
 
 /******************************************************************************************
- ************************************ 21 UARTPeriphID6 *********************************************
+ ************************************ 21 PeriphID6 *********************************************
  ******************************************************************************************/
 /* UART6 PID6*/
-#define UART6_UARTPeriphID6    ((UARTPeriphID6_TypeDef*) (UART6_BASE + UART_UARTPeriphID6_OFFSET))
-#define UART6_UARTPeriphID6_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID6_OFFSET)))
+#define UART6_PeriphID6    ((UARTPeriphID6_TypeDef*) (UART6_BASE + UART_PeriphID6_OFFSET))
+#define UART6_PeriphID6_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID6_OFFSET)))
 
 /******************************************************************************************
- ************************************ 22 UARTPeriphID7 *********************************************
+ ************************************ 22 PeriphID7 *********************************************
  ******************************************************************************************/
 /* UART6 PID7*/
-#define UART6_UARTPeriphID7    ((UARTPeriphID7_TypeDef*) (UART6_BASE + UART_UARTPeriphID7_OFFSET))
-#define UART6_UARTPeriphID7_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID7_OFFSET)))
+#define UART6_PeriphID7    ((UARTPeriphID7_TypeDef*) (UART6_BASE + UART_PeriphID7_OFFSET))
+#define UART6_PeriphID7_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID7_OFFSET)))
 
 /******************************************************************************************
- ************************************ 23 UARTPeriphID0 *********************************************
+ ************************************ 23 PeriphID0 *********************************************
  ******************************************************************************************/
 /* UART6 PID0*/
-#define UART6_UARTPeriphID0    ((UARTPeriphID0_TypeDef*) (UART6_BASE + UART_UARTPeriphID0_OFFSET))
-#define UART6_UARTPeriphID0_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID0_OFFSET)))
+#define UART6_PeriphID0    ((UARTPeriphID0_TypeDef*) (UART6_BASE + UART_PeriphID0_OFFSET))
+#define UART6_PeriphID0_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID0_OFFSET)))
 
 /******************************************************************************************
- ************************************ 24 UARTPeriphID1 *********************************************
+ ************************************ 24 PeriphID1 *********************************************
  ******************************************************************************************/
 /* UART6 PID1*/
-#define UART6_UARTPeriphID1    ((UARTPeriphID1_TypeDef*) (UART6_BASE + UART_UARTPeriphID1_OFFSET))
-#define UART6_UARTPeriphID1_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID1_OFFSET)))
+#define UART6_PeriphID1    ((UARTPeriphID1_TypeDef*) (UART6_BASE + UART_PeriphID1_OFFSET))
+#define UART6_PeriphID1_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID1_OFFSET)))
 
 /******************************************************************************************
- ************************************ 25 UARTPeriphID2 *********************************************
+ ************************************ 25 PeriphID2 *********************************************
  ******************************************************************************************/
 /* UART6 PID2*/
-#define UART6_UARTPeriphID2    ((UARTPeriphID2_TypeDef*) (UART6_BASE + UART_UARTPeriphID2_OFFSET))
-#define UART6_UARTPeriphID2_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID2_OFFSET)))
+#define UART6_PeriphID2    ((UARTPeriphID2_TypeDef*) (UART6_BASE + UART_PeriphID2_OFFSET))
+#define UART6_PeriphID2_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID2_OFFSET)))
 
 /******************************************************************************************
- ************************************ 26 UARTPeriphID3 *********************************************
+ ************************************ 26 PeriphID3 *********************************************
  ******************************************************************************************/
 /* UART6 PID3*/
-#define UART6_UARTPeriphID3    ((UARTPeriphID3_TypeDef*) (UART6_BASE + UART_UARTPeriphID3_OFFSET))
-#define UART6_UARTPeriphID3_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTPeriphID3_OFFSET)))
+#define UART6_PeriphID3    ((UARTPeriphID3_TypeDef*) (UART6_BASE + UART_PeriphID3_OFFSET))
+#define UART6_PeriphID3_R    (*((volatile const uint32_t*) (UART6_BASE + UART_PeriphID3_OFFSET)))
 
 /******************************************************************************************
- ************************************ 27 UARTCellID0 *********************************************
+ ************************************ 27 CellID0 *********************************************
  ******************************************************************************************/
 /* UART6 CID0*/
-#define UART6_UARTCellID0    ((UARTCellID0_TypeDef*) (UART6_BASE + UART_UARTCellID0_OFFSET))
-#define UART6_UARTCellID0_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTCellID0_OFFSET)))
+#define UART6_CellID0    ((UARTCellID0_TypeDef*) (UART6_BASE + UART_CellID0_OFFSET))
+#define UART6_CellID0_R    (*((volatile const uint32_t*) (UART6_BASE + UART_CellID0_OFFSET)))
 
 /******************************************************************************************
- ************************************ 28 UARTCellID1 *********************************************
+ ************************************ 28 CellID1 *********************************************
  ******************************************************************************************/
 /* UART6 CID1*/
-#define UART6_UARTCellID1    ((UARTCellID1_TypeDef*) (UART6_BASE + UART_UARTCellID1_OFFSET))
-#define UART6_UARTCellID1_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTCellID1_OFFSET)))
+#define UART6_CellID1    ((UARTCellID1_TypeDef*) (UART6_BASE + UART_CellID1_OFFSET))
+#define UART6_CellID1_R    (*((volatile const uint32_t*) (UART6_BASE + UART_CellID1_OFFSET)))
 
 /******************************************************************************************
- ************************************ 29 UARTCellID2 *********************************************
+ ************************************ 29 CellID2 *********************************************
  ******************************************************************************************/
 /* UART6 CID2*/
-#define UART6_UARTCellID2    ((UARTCellID2_TypeDef*) (UART6_BASE + UART_UARTCellID2_OFFSET))
-#define UART6_UARTCellID2_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTCellID2_OFFSET)))
+#define UART6_CellID2    ((UARTCellID2_TypeDef*) (UART6_BASE + UART_CellID2_OFFSET))
+#define UART6_CellID2_R    (*((volatile const uint32_t*) (UART6_BASE + UART_CellID2_OFFSET)))
 
 /******************************************************************************************
- ************************************ 30 UARTCellID3 *********************************************
+ ************************************ 30 CellID3 *********************************************
  ******************************************************************************************/
 /* UART6 CID3*/
-#define UART6_UARTCellID3    ((UARTCellID3_TypeDef*) (UART6_BASE + UART_UARTCellID3_OFFSET))
-#define UART6_UARTCellID3_R    (*((volatile const uint32_t*) (UART6_BASE + UART_UARTCellID3_OFFSET)))
+#define UART6_CellID3    ((UARTCellID3_TypeDef*) (UART6_BASE + UART_CellID3_OFFSET))
+#define UART6_CellID3_R    (*((volatile const uint32_t*) (UART6_BASE + UART_CellID3_OFFSET)))
 
 #endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_XHEADER_UART_REGISTERPERIPHERAL_MODULE6_H_ */
