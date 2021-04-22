@@ -31,7 +31,7 @@ QEI_nSTATUS QEI__enGetTimer(QEI_nMODULE enModule, uint32_t* pu32TimerArg)
     QEI_nSTATUS enStatus = QEI_enSTATUS_UNDEF;
     if(0UL != (uint32_t) pu32TimerArg)
     {
-        enStatus = QEI__enReadRegister(enModule, QEI_QEITIME_OFFSET, (uint32_t*) &pu32TimerArg, QEI_QEITIME_TIME_MASK, QEI_QEITIME_R_TIME_BIT);
+        enStatus = QEI__enReadRegister(enModule, QEI_TIME_OFFSET, (uint32_t*) &pu32TimerArg, QEI_TIME_TIME_MASK, QEI_TIME_R_TIME_BIT);
     }
     return enStatus;
 }

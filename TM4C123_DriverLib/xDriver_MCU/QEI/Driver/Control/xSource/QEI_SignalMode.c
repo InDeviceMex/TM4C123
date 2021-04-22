@@ -28,13 +28,13 @@
 
 void QEI__vSetSignalMode(QEI_nMODULE enModule, QEI_nMODE enSignalModeArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enSignalModeArg, QEI_QEICTL_SIGMODE_MASK, QEI_QEICTL_R_SIGMODE_BIT);
+    QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enSignalModeArg, QEI_CTL_SIGMODE_MASK, QEI_CTL_R_SIGMODE_BIT);
 }
 
 QEI_nMODE QEI__enGetSignalMode(QEI_nMODULE enModule)
 {
     QEI_nMODE enSignalModeReg = QEI_enMODE_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t*) &enSignalModeReg, QEI_QEICTL_SIGMODE_MASK, QEI_QEICTL_R_SIGMODE_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, (uint32_t*) &enSignalModeReg, QEI_CTL_SIGMODE_MASK, QEI_CTL_R_SIGMODE_BIT);
     return enSignalModeReg;
 }
 

@@ -29,7 +29,7 @@
 QEI_nSTATUS QEI__enIsErrorDetected(QEI_nMODULE enModule)
 {
     QEI_nSTATUS enErrorReg = QEI_enSTATUS_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEISTAT_OFFSET, (uint32_t*) &enErrorReg, QEI_QEISTAT_ERROR_MASK, QEI_QEISTAT_R_ERROR_BIT);
+    QEI__enReadRegister(enModule, QEI_STAT_OFFSET, (uint32_t*) &enErrorReg, QEI_STAT_ERROR_MASK, QEI_STAT_R_ERROR_BIT);
     return enErrorReg;
 }
 

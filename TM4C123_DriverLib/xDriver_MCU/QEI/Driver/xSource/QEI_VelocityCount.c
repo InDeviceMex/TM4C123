@@ -31,7 +31,7 @@ QEI_nSTATUS QEI__enGetVelocityCount(QEI_nMODULE enModule, uint32_t* pu32Velocity
     QEI_nSTATUS enStatus = QEI_enSTATUS_UNDEF;
     if(0UL != (uint32_t) pu32VelocityCountArg)
     {
-        enStatus = QEI__enReadRegister(enModule, QEI_QEICOUNT_OFFSET, (uint32_t*) &pu32VelocityCountArg, QEI_QEICOUNT_COUNT_MASK, QEI_QEICOUNT_R_COUNT_BIT);
+        enStatus = QEI__enReadRegister(enModule, QEI_COUNT_OFFSET, (uint32_t*) &pu32VelocityCountArg, QEI_COUNT_COUNT_MASK, QEI_COUNT_R_COUNT_BIT);
     }
     return enStatus;
 }

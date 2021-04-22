@@ -28,7 +28,7 @@
 
 void QEI__vSetPosition(QEI_nMODULE enModule, uint32_t u32PositionArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEIPOS_OFFSET, u32PositionArg, QEI_QEIPOS_POSITION_MASK, QEI_QEIPOS_R_POSITION_BIT);
+    QEI__vWriteRegister(enModule, QEI_POS_OFFSET, u32PositionArg, QEI_POS_POSITION_MASK, QEI_POS_R_POSITION_BIT);
 }
 
 QEI_nSTATUS QEI__enGetPosition(QEI_nMODULE enModule, uint32_t* pu32PositionArg)
@@ -36,7 +36,7 @@ QEI_nSTATUS QEI__enGetPosition(QEI_nMODULE enModule, uint32_t* pu32PositionArg)
     QEI_nSTATUS enStatus = QEI_enSTATUS_UNDEF;
     if(0UL != (uint32_t) pu32PositionArg)
     {
-        enStatus = QEI__enReadRegister(enModule, QEI_QEIPOS_OFFSET, (uint32_t*) &pu32PositionArg, QEI_QEIPOS_POSITION_MASK, QEI_QEIPOS_R_POSITION_BIT);
+        enStatus = QEI__enReadRegister(enModule, QEI_POS_OFFSET, (uint32_t*) &pu32PositionArg, QEI_POS_POSITION_MASK, QEI_POS_R_POSITION_BIT);
     }
     return enStatus;
 }

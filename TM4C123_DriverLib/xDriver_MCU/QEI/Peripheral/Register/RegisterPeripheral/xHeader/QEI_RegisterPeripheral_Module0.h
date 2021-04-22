@@ -36,69 +36,69 @@
 #define QEI0    (((QEI_TypeDef*) (QEI0_BASE)))
 
 /******************************************************************************************
-************************************ 1 QEICTL *********************************************
+************************************ 1 CTL *********************************************
 ******************************************************************************************/
-#define QEI0_QEICTL    (((QEICTL_TypeDef*) (QEI0_BASE + QEI_QEICTL_OFFSET )))
-#define QEI0_QEICTL_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_QEICTL_OFFSET)))
+#define QEI0_CTL    (((QEICTL_TypeDef*) (QEI0_BASE + QEI_CTL_OFFSET )))
+#define QEI0_CTL_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_CTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 QEISTAT *********************************************
+************************************ 2 STAT *********************************************
 ******************************************************************************************/
-#define QEI0_QEISTAT    (((QEISTAT_TypeDef*) (QEI0_BASE + QEI_QEISTAT_OFFSET )))
-#define QEI0_QEISTAT_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_QEISTAT_OFFSET)))
+#define QEI0_STAT    (((QEISTAT_TypeDef*) (QEI0_BASE + QEI_STAT_OFFSET )))
+#define QEI0_STAT_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_STAT_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 QEIPOS *********************************************
+************************************ 3 POS *********************************************
 ******************************************************************************************/
-#define QEI0_QEIPOS    (((QEIPOS_TypeDef*) (QEI0_BASE + QEI_QEIPOS_OFFSET )))
-#define QEI0_QEIPOS_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_QEIPOS_OFFSET)))
+#define QEI0_POS    (((QEIPOS_TypeDef*) (QEI0_BASE + QEI_POS_OFFSET )))
+#define QEI0_POS_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_POS_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 QEIMAXPOS *********************************************
+************************************ 4 MAXPOS *********************************************
 ******************************************************************************************/
-#define QEI0_QEIMAXPOS    (((QEIMAXPOS_TypeDef*) (QEI0_BASE + QEI_QEIMAXPOS_OFFSET )))
-#define QEI0_QEIMAXPOS_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_QEIMAXPOS_OFFSET)))
+#define QEI0_MAXPOS    (((QEIMAXPOS_TypeDef*) (QEI0_BASE + QEI_MAXPOS_OFFSET )))
+#define QEI0_MAXPOS_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_MAXPOS_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 QEILOAD *********************************************
+************************************ 5 LOAD *********************************************
 ******************************************************************************************/
-#define QEI0_QEILOAD    (((QEILOAD_TypeDef*) (QEI0_BASE + QEI_QEILOAD_OFFSET )))
-#define QEI0_QEILOAD_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_QEILOAD_OFFSET)))
+#define QEI0_LOAD    (((QEILOAD_TypeDef*) (QEI0_BASE + QEI_LOAD_OFFSET )))
+#define QEI0_LOAD_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_LOAD_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 QEITIME *********************************************
+************************************ 6 TIME *********************************************
 ******************************************************************************************/
-#define QEI0_QEITIME    (((QEITIME_TypeDef*) (QEI0_BASE + QEI_QEITIME_OFFSET )))
-#define QEI0_QEITIME_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_QEITIME_OFFSET)))
+#define QEI0_TIME    (((QEITIME_TypeDef*) (QEI0_BASE + QEI_TIME_OFFSET )))
+#define QEI0_TIME_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_TIME_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 QEICOUNT *********************************************
+************************************ 7 COUNT *********************************************
 ******************************************************************************************/
-#define QEI0_QEICOUNT    (((QEICOUNT_TypeDef*) (QEI0_BASE + QEI_QEICOUNT_OFFSET )))
-#define QEI0_QEICOUNT_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_QEICOUNT_OFFSET)))
+#define QEI0_COUNT    (((QEICOUNT_TypeDef*) (QEI0_BASE + QEI_COUNT_OFFSET )))
+#define QEI0_COUNT_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_COUNT_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 QEISPEED *********************************************
+************************************ 8 SPEED *********************************************
 ******************************************************************************************/
-#define QEI0_QEISPEED    (((QEISPEED_TypeDef*) (QEI0_BASE + QEI_QEISPEED_OFFSET )))
-#define QEI0_QEISPEED_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_QEISPEED_OFFSET)))
+#define QEI0_SPEED    (((QEISPEED_TypeDef*) (QEI0_BASE + QEI_SPEED_OFFSET )))
+#define QEI0_SPEED_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_SPEED_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 QEIINTEN *********************************************
+************************************ 9 INTEN *********************************************
 ******************************************************************************************/
-#define QEI0_QEIINTEN    (((QEIINTEN_TypeDef*) (QEI0_BASE + QEI_QEIINTEN_OFFSET )))
-#define QEI0_QEIINTEN_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_QEIINTEN_OFFSET)))
+#define QEI0_INTEN    (((QEIINTEN_TypeDef*) (QEI0_BASE + QEI_INTEN_OFFSET )))
+#define QEI0_INTEN_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_INTEN_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 QEIRIS *********************************************
+************************************ 10 RIS *********************************************
 ******************************************************************************************/
-#define QEI0_QEIRIS    (((QEIRIS_TypeDef*) (QEI0_BASE + QEI_QEIRIS_OFFSET )))
-#define QEI0_QEIRIS_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_QEIRIS_OFFSET)))
+#define QEI0_RIS    (((QEIRIS_TypeDef*) (QEI0_BASE + QEI_RIS_OFFSET )))
+#define QEI0_RIS_R    (*((volatile const uint32_t*) (QEI0_BASE + QEI_RIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 11 QEIISC *********************************************
+************************************ 11 ISC *********************************************
 ******************************************************************************************/
-#define QEI0_QEIISC    (((QEIISC_TypeDef*) (QEI0_BASE + QEI_QEIISC_OFFSET )))
-#define QEI0_QEIISC_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_QEIISC_OFFSET)))
+#define QEI0_ISC    (((QEIISC_TypeDef*) (QEI0_BASE + QEI_ISC_OFFSET )))
+#define QEI0_ISC_R    (*((volatile uint32_t*) (QEI0_BASE + QEI_ISC_OFFSET)))
 
 #endif /* XDRIVER_MCU_QEI_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_XHEADER_QEI_REGISTERPERIPHERAL_MODULE0_H_ */

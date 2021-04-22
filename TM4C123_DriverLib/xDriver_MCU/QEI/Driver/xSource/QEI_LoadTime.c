@@ -28,7 +28,7 @@
 
 void QEI__vSetLoadTimer(QEI_nMODULE enModule, uint32_t u32LoadTimerArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEILOAD_OFFSET, u32LoadTimerArg, QEI_QEILOAD_LOAD_MASK, QEI_QEILOAD_R_LOAD_BIT);
+    QEI__vWriteRegister(enModule, QEI_LOAD_OFFSET, u32LoadTimerArg, QEI_LOAD_LOAD_MASK, QEI_LOAD_R_LOAD_BIT);
 }
 
 QEI_nSTATUS QEI__enGetLoadTimer(QEI_nMODULE enModule, uint32_t* pu32LoadTimerArg)
@@ -36,7 +36,7 @@ QEI_nSTATUS QEI__enGetLoadTimer(QEI_nMODULE enModule, uint32_t* pu32LoadTimerArg
     QEI_nSTATUS enStatus = QEI_enSTATUS_UNDEF;
     if(0UL != (uint32_t) pu32LoadTimerArg)
     {
-        enStatus = QEI__enReadRegister(enModule, QEI_QEILOAD_OFFSET, (uint32_t*) &pu32LoadTimerArg, QEI_QEILOAD_LOAD_MASK, QEI_QEILOAD_R_LOAD_BIT);
+        enStatus = QEI__enReadRegister(enModule, QEI_LOAD_OFFSET, (uint32_t*) &pu32LoadTimerArg, QEI_LOAD_LOAD_MASK, QEI_LOAD_R_LOAD_BIT);
     }
     return enStatus;
 }

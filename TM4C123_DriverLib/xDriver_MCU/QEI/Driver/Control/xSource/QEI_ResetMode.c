@@ -28,13 +28,13 @@
 
 void QEI__vSetResetMode(QEI_nMODULE enModule, QEI_nRESET enResetModeArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enResetModeArg, QEI_QEICTL_RESMODE_MASK, QEI_QEICTL_R_RESMODE_BIT);
+    QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enResetModeArg, QEI_CTL_RESMODE_MASK, QEI_CTL_R_RESMODE_BIT);
 }
 
 QEI_nRESET QEI__enGetResetMode(QEI_nMODULE enModule)
 {
     QEI_nRESET enResetModeReg = QEI_enRESET_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t*) &enResetModeReg, QEI_QEICTL_RESMODE_MASK, QEI_QEICTL_R_RESMODE_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, (uint32_t*) &enResetModeReg, QEI_CTL_RESMODE_MASK, QEI_CTL_R_RESMODE_BIT);
     return enResetModeReg;
 }
 

@@ -28,13 +28,13 @@
 
 void QEI__vSetCaptureMode(QEI_nMODULE enModule, QEI_nCAPTURE enCaptureModeArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enCaptureModeArg, QEI_QEICTL_CAPMODE_MASK, QEI_QEICTL_R_CAPMODE_BIT);
+    QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enCaptureModeArg, QEI_CTL_CAPMODE_MASK, QEI_CTL_R_CAPMODE_BIT);
 }
 
 QEI_nCAPTURE QEI__enGetCaptureMode(QEI_nMODULE enModule)
 {
     QEI_nCAPTURE enCaptureModeReg = QEI_enCAPTURE_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t*) &enCaptureModeReg, QEI_QEICTL_CAPMODE_MASK, QEI_QEICTL_R_CAPMODE_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, (uint32_t*) &enCaptureModeReg, QEI_CTL_CAPMODE_MASK, QEI_CTL_R_CAPMODE_BIT);
     return enCaptureModeReg;
 }
 

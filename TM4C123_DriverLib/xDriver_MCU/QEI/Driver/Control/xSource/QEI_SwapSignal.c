@@ -28,13 +28,13 @@
 
 void QEI__vSetSwapSignals(QEI_nMODULE enModule, QEI_nSWAP enSwapSignalsArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enSwapSignalsArg, QEI_QEICTL_SWAP_MASK, QEI_QEICTL_R_SWAP_BIT);
+    QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enSwapSignalsArg, QEI_CTL_SWAP_MASK, QEI_CTL_R_SWAP_BIT);
 }
 
 QEI_nSWAP QEI__enGetSwapSignals(QEI_nMODULE enModule)
 {
     QEI_nSWAP enSwapSignalsReg = QEI_enSWAP_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t*) &enSwapSignalsReg, QEI_QEICTL_SWAP_MASK, QEI_QEICTL_R_SWAP_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, (uint32_t*) &enSwapSignalsReg, QEI_CTL_SWAP_MASK, QEI_CTL_R_SWAP_BIT);
     return enSwapSignalsReg;
 }
 

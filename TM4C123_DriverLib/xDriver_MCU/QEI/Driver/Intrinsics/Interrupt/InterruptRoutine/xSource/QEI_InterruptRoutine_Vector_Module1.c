@@ -30,17 +30,17 @@ void QEI1__vIRQVectorHandler(void)
 {
     volatile uint32_t u32Reg = 0UL;
 
-    u32Reg = (uint32_t) QEI1_QEIISC_R;
+    u32Reg = (uint32_t) QEI1_ISC_R;
 
     if((uint32_t) QEI_enINT_SOURCE_INDEX & u32Reg)
     {
-        QEI1_QEIISC_R = (uint32_t) QEI_enINT_SOURCE_INDEX;
+        QEI1_ISC_R = (uint32_t) QEI_enINT_SOURCE_INDEX;
         QEI__vIRQSourceHandler[(uint32_t) QEI_enMODULE_1][(uint32_t) QEI_enINTERRUPT_INDEX]();
     }
     if((uint32_t) QEI_enINT_SOURCE_TIMER & u32Reg)
     {
         QEI__vIRQSourceHandler[(uint32_t) QEI_enMODULE_1][(uint32_t) QEI_enINTERRUPT_TIMER]();
-        QEI1_QEIISC_R = (uint32_t) QEI_enINT_SOURCE_TIMER;
+        QEI1_ISC_R = (uint32_t) QEI_enINT_SOURCE_TIMER;
     }
     if((uint32_t) QEI_enINT_SOURCE_DIRECTION & u32Reg)
     {

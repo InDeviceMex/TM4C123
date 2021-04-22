@@ -30,11 +30,11 @@ void QEI__vSetInvertSignals(QEI_nMODULE enModule, QEI_nSIGNAL enSignalsArg, QEI_
 {
     if(QEI_enINVERT_DIS == enInvertSignalsArg)
     {
-        QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enSignalsArg, (uint32_t) enSignalsArg, QEI_QEICTL_R_INVA_BIT);
+        QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enSignalsArg, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
     }
     else
     {
-        QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, 0UL, (uint32_t) enSignalsArg, QEI_QEICTL_R_INVA_BIT);
+        QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, 0UL, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
     }
 }
 
@@ -42,7 +42,7 @@ QEI_nINVERT QEI__enGetInvertSignals(QEI_nMODULE enModule, QEI_nSIGNAL enSignalsA
 {
     uint32_t u32InvertSignalsReg = 0xFFFFFFFFUL;
     QEI_nINVERT enInvertSignalsReg = QEI_enINVERT_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, &u32InvertSignalsReg, (uint32_t) enSignalsArg, QEI_QEICTL_R_INVA_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, &u32InvertSignalsReg, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
     if(0UL != u32InvertSignalsReg)
     {
         if(0xFFFFFFFFUL != u32InvertSignalsReg)

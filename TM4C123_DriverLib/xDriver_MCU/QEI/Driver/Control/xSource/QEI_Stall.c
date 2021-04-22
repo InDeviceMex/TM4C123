@@ -28,13 +28,13 @@
 
 void QEI__vSetStall(QEI_nMODULE enModule, QEI_nSTALL enStallArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enStallArg, QEI_QEICTL_STALLEN_MASK, QEI_QEICTL_R_STALLEN_BIT);
+    QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enStallArg, QEI_CTL_STALLEN_MASK, QEI_CTL_R_STALLEN_BIT);
 }
 
 QEI_nSTALL QEI__enGetStall(QEI_nMODULE enModule)
 {
     QEI_nSTALL enStallReg = QEI_enSTALL_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t*) &enStallReg, QEI_QEICTL_STALLEN_MASK, QEI_QEICTL_R_STALLEN_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, (uint32_t*) &enStallReg, QEI_CTL_STALLEN_MASK, QEI_CTL_R_STALLEN_BIT);
     return enStallReg;
 }
 

@@ -29,6 +29,6 @@
 QEI_nDIRECTION QEI__enGetDirection(QEI_nMODULE enModule)
 {
     QEI_nDIRECTION enDirectionReg = QEI_enDIRECTION_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEISTAT_OFFSET, (uint32_t*) &enDirectionReg, QEI_QEISTAT_DIRECTION_MASK, QEI_QEISTAT_R_DIRECTION_BIT);
+    QEI__enReadRegister(enModule, QEI_STAT_OFFSET, (uint32_t*) &enDirectionReg, QEI_STAT_DIRECTION_MASK, QEI_STAT_R_DIRECTION_BIT);
     return enDirectionReg;
 }

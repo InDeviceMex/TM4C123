@@ -28,7 +28,7 @@
 
 void QEI__vSetMaxPosition(QEI_nMODULE enModule, uint32_t u32MaxPositionArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEIMAXPOS_OFFSET, u32MaxPositionArg, QEI_QEIMAXPOS_MAXPOS_MASK, QEI_QEIMAXPOS_R_MAXPOS_BIT);
+    QEI__vWriteRegister(enModule, QEI_MAXPOS_OFFSET, u32MaxPositionArg, QEI_MAXPOS_MAXPOS_MASK, QEI_MAXPOS_R_MAXPOS_BIT);
 }
 
 QEI_nSTATUS QEI__enGetMaxPosition(QEI_nMODULE enModule, uint32_t* pu32MaxPositionArg)
@@ -36,7 +36,7 @@ QEI_nSTATUS QEI__enGetMaxPosition(QEI_nMODULE enModule, uint32_t* pu32MaxPositio
     QEI_nSTATUS enStatus = QEI_enSTATUS_UNDEF;
     if(0UL != (uint32_t) pu32MaxPositionArg)
     {
-        enStatus = QEI__enReadRegister(enModule, QEI_QEIMAXPOS_OFFSET, (uint32_t*) &pu32MaxPositionArg, QEI_QEIMAXPOS_MAXPOS_MASK, QEI_QEIMAXPOS_R_MAXPOS_BIT);
+        enStatus = QEI__enReadRegister(enModule, QEI_MAXPOS_OFFSET, (uint32_t*) &pu32MaxPositionArg, QEI_MAXPOS_MAXPOS_MASK, QEI_MAXPOS_R_MAXPOS_BIT);
     }
     return enStatus;
 }

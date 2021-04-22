@@ -28,13 +28,13 @@
 
 void QEI__vSetEnable(QEI_nMODULE enModule, QEI_nENABLE enEnableArg)
 {
-    QEI__vWriteRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t) enEnableArg, QEI_QEICTL_ENABLE_MASK, QEI_QEICTL_R_ENABLE_BIT);
+    QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enEnableArg, QEI_CTL_ENABLE_MASK, QEI_CTL_R_ENABLE_BIT);
 }
 
 QEI_nENABLE QEI__enGetEnable(QEI_nMODULE enModule)
 {
     QEI_nENABLE enEnableReg = QEI_enENABLE_UNDEF;
-    QEI__enReadRegister(enModule, QEI_QEICTL_OFFSET, (uint32_t*) &enEnableReg, QEI_QEICTL_ENABLE_MASK, QEI_QEICTL_R_ENABLE_BIT);
+    QEI__enReadRegister(enModule, QEI_CTL_OFFSET, (uint32_t*) &enEnableReg, QEI_CTL_ENABLE_MASK, QEI_CTL_R_ENABLE_BIT);
     return enEnableReg;
 }
 
