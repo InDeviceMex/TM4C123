@@ -38,8 +38,8 @@ void WDT__vWaitWrite(WDT_nMODULE enModule)
         WDT__vSetReady(enModule);
         do
         {
-            u32RegWrite1 = MCU__u32ReadRegister(WDT1_BASE, WDT_WDTCTL_OFFSET, WDT_WDTCTL_WRC_MASK, WDT_WDTCTL_R_WRC_BIT);
+            u32RegWrite1 = MCU__u32ReadRegister(WDT1_BASE, WDT_CTL_OFFSET, WDT_CTL_WRC_MASK, WDT_CTL_R_WRC_BIT);
             u32Timeout--;
-        }while((WDT_WDTCTL_WRC_PROGRESS == u32RegWrite1) && (0U != u32Timeout));
+        }while((WDT_CTL_WRC_PROGRESS == u32RegWrite1) && (0U != u32Timeout));
     }
 }

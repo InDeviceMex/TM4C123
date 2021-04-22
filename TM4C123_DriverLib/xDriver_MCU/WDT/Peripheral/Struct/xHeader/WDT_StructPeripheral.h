@@ -31,108 +31,108 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t WDTLOAD;
-        WDTLOAD_TypeDef WDTLOAD_Bit;
+        volatile uint32_t LOAD;
+        WDTLOAD_TypeDef LOAD_Bit;
     };
     union
     {
-        volatile const uint32_t WDTVALUE;
-        WDTVALUE_TypeDef WDTVALUE_Bit;
+        volatile const uint32_t VALUE;
+        WDTVALUE_TypeDef VALUE_Bit;
     };
     union
     {
-        volatile uint32_t WDTCTL;
-        WDTCTL_TypeDef WDTCTL_Bit;
+        volatile uint32_t CTL;
+        WDTCTL_TypeDef CTL_Bit;
     };
     union
     {
-        volatile uint32_t WDTICR;
-        WDTICR_TypeDef WDTICR_Bit;
+        volatile uint32_t ICR;
+        WDTICR_TypeDef ICR_Bit;
     };
     union
     {
-    volatile const uint32_t WDTRIS;
-    WDTRIS_TypeDef WDTRIS_Bit;
+    volatile const uint32_t RIS;
+    WDTRIS_TypeDef RIS_Bit;
     };
     union
     {
-    volatile const uint32_t WDTMIS;
-    WDTMIS_TypeDef WDTMIS_Bit;
+    volatile const uint32_t MIS;
+    WDTMIS_TypeDef MIS_Bit;
     };
 
     const uint32_t reserved [256UL];
     union
     {
-    volatile uint32_t WDTTEST;
-    WDTTEST_TypeDef WDTTEST_Bit;
+    volatile uint32_t TEST;
+    WDTTEST_TypeDef TEST_Bit;
     };
 
     const uint32_t reserved1 [505UL];
     union
     {
-        volatile uint32_t WDTLOCK;
-        WDTLOCK_TypeDef WDTLOCK_Bit;
+        volatile uint32_t LOCK;
+        WDTLOCK_TypeDef LOCK_Bit;
     };
     const uint32_t reserved2 [243UL];
     union
     {
-        volatile uint32_t WDTPeriphID4;
-        WDTPeriphID4_TypeDef WDTPeriphID4_Bit;
+        volatile uint32_t PeriphID4;
+        WDTPeriphID4_TypeDef PeriphID4_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID5;
-        WDTPeriphID5_TypeDef WDTPeriphID5_Bit;
+        volatile uint32_t PeriphID5;
+        WDTPeriphID5_TypeDef PeriphID5_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID6;
-        WDTPeriphID6_TypeDef WDTPeriphID6_Bit;
+        volatile uint32_t PeriphID6;
+        WDTPeriphID6_TypeDef PeriphID6_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID7;
-        WDTPeriphID7_TypeDef WDTPeriphID7_Bit;
+        volatile uint32_t PeriphID7;
+        WDTPeriphID7_TypeDef PeriphID7_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID0;
-        WDTPeriphID0_TypeDef WDTPeriphID0_Bit;
+        volatile uint32_t PeriphID0;
+        WDTPeriphID0_TypeDef PeriphID0_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID1;
-        WDTPeriphID1_TypeDef WDTPeriphID1_Bit;
+        volatile uint32_t PeriphID1;
+        WDTPeriphID1_TypeDef PeriphID1_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID2;
-        WDTPeriphID2_TypeDef WDTPeriphID2_Bit;
+        volatile uint32_t PeriphID2;
+        WDTPeriphID2_TypeDef PeriphID2_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID3;
-        WDTPeriphID3_TypeDef WDTPeriphID3_Bit;
+        volatile uint32_t PeriphID3;
+        WDTPeriphID3_TypeDef PeriphID3_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID0;
-        WDTPCellID0_TypeDef WDTPCellID0_Bit;
+        volatile uint32_t PCellID0;
+        WDTPCellID0_TypeDef PCellID0_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID1;
-        WDTPCellID1_TypeDef WDTPCellID1_Bit;
+        volatile uint32_t PCellID1;
+        WDTPCellID1_TypeDef PCellID1_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID2;
-        WDTPCellID2_TypeDef WDTPCellID2_Bit;
+        volatile uint32_t PCellID2;
+        WDTPCellID2_TypeDef PCellID2_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID3;
-        WDTPCellID3_TypeDef WDTPCellID3_Bit;
+        volatile uint32_t PCellID3;
+        WDTPCellID3_TypeDef PCellID3_Bit;
     };
 }WDT_TypeDef;
 

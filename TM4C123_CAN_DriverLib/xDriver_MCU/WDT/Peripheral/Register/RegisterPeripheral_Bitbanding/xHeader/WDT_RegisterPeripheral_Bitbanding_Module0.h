@@ -33,114 +33,114 @@
 #define WDT0_BITBANDING    ((WDT_BITBANDING_TypeDef*) (WDT_BITBANDING_BASE + (WDT0_OFFSET * 32UL)))
 
 /******************************************************************************************
-************************************ 1 WDTLOAD *********************************************
+************************************ 1 LOAD *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTLOAD     ((BITBANDING_WDTLOAD_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTLOAD_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_LOAD     ((BITBANDING_WDTLOAD_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_LOAD_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 2 WDTVALUE *********************************************
+************************************ 2 VALUE *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTVALUE     ((BITBANDING_WDTVALUE_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTVALUE_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_VALUE     ((BITBANDING_WDTVALUE_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_VALUE_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 3 WDTCTL *********************************************
+************************************ 3 CTL *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTCTL     ((BITBANDING_WDTCTL_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTCTL_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_CTL     ((BITBANDING_WDTCTL_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_CTL_OFFSET) * 32UL)))
 
-#define WDT0_BITBANDING_WDTCTL_INTEN    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTCTL_OFFSET) * 32UL) + (WDT_WDTCTL_R_INTEN_BIT * 4UL))))
-#define WDT0_BITBANDING_WDTCTL_RESEN    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTCTL_OFFSET) * 32UL) + (WDT_WDTCTL_R_RESEN_BIT * 4UL))))
-#define WDT0_BITBANDING_WDTCTL_INTTYPE    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTCTL_OFFSET) * 32UL) + (WDT_WDTCTL_R_INTTYPE_BIT * 4UL))))
-#define WDT0_BITBANDING_WDTCTL_WRC    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTCTL_OFFSET) * 32UL) + (WDT_WDTCTL_R_WRC_BIT * 4UL))))
+#define WDT0_BITBANDING_CTL_INTEN    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_CTL_OFFSET) * 32UL) + (WDT_CTL_R_INTEN_BIT * 4UL))))
+#define WDT0_BITBANDING_CTL_RESEN    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_CTL_OFFSET) * 32UL) + (WDT_CTL_R_RESEN_BIT * 4UL))))
+#define WDT0_BITBANDING_CTL_INTTYPE    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_CTL_OFFSET) * 32UL) + (WDT_CTL_R_INTTYPE_BIT * 4UL))))
+#define WDT0_BITBANDING_CTL_WRC    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_CTL_OFFSET) * 32UL) + (WDT_CTL_R_WRC_BIT * 4UL))))
 
 /******************************************************************************************
-************************************ 4 WDTICR *********************************************
+************************************ 4 ICR *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTICR     ((BITBANDING_WDTICR_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTICR_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_ICR     ((BITBANDING_WDTICR_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_ICR_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 5 WDTRIS *********************************************
+************************************ 5 RIS *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTRIS     ((BITBANDING_WDTRIS_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTRIS_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_RIS     ((BITBANDING_WDTRIS_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_RIS_OFFSET) * 32UL)))
 
-#define WDT0_BITBANDING_WDTRIS_WDTRIS    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTRIS_OFFSET) * 32UL) + (WDT_WDTRIS_R_WDTRIS_BIT * 4UL))))
+#define WDT0_BITBANDING_RIS_RIS    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_RIS_OFFSET) * 32UL) + (WDT_RIS_R_RIS_BIT * 4UL))))
 
 /******************************************************************************************
-************************************ 6 WDTMIS *********************************************
+************************************ 6 MIS *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTMIS     ((BITBANDING_WDTMIS_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTMIS_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_MIS     ((BITBANDING_WDTMIS_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_MIS_OFFSET) * 32UL)))
 
-#define WDT0_BITBANDING_WDTMIS_WDTMIS    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTMIS_OFFSET) * 32UL) + (WDT_WDTMIS_R_WDTMIS_BIT * 4UL))))
+#define WDT0_BITBANDING_MIS_MIS    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_MIS_OFFSET) * 32UL) + (WDT_MIS_R_MIS_BIT * 4UL))))
 
 /******************************************************************************************
-************************************ 7 WDTTEST *********************************************
+************************************ 7 TEST *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTTEST     ((BITBANDING_WDTTEST_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTTEST_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_TEST     ((BITBANDING_WDTTEST_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_TEST_OFFSET) * 32UL)))
 
-#define WDT0_BITBANDING_STALL_WDTTEST    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTTEST_OFFSET) * 32UL) + (WDT_WDTTEST_R_STALL_BIT * 4UL))))
-
-/******************************************************************************************
-************************************ 8 WDTLOCK *********************************************
-******************************************************************************************/
-#define WDT0_BITBANDING_WDTLOCK     ((BITBANDING_WDTLOCK_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTLOCK_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_STALL_TEST    (*((volatile uint32_t*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_TEST_OFFSET) * 32UL) + (WDT_TEST_R_STALL_BIT * 4UL))))
 
 /******************************************************************************************
-************************************ 9 WDTPeriphID4 *********************************************
+************************************ 8 LOCK *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID4     ((BITBANDING_WDTPeriphID4_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID4_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_LOCK     ((BITBANDING_WDTLOCK_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_LOCK_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 10 WDTPeriphID5 *********************************************
+************************************ 9 PeriphID4 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID5     ((BITBANDING_WDTPeriphID5_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID5_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID4     ((BITBANDING_WDTPeriphID4_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID4_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 11 WDTPeriphID6 *********************************************
+************************************ 10 PeriphID5 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID6     ((BITBANDING_WDTPeriphID6_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID6_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID5     ((BITBANDING_WDTPeriphID5_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID5_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 12 WDTPeriphID7 *********************************************
+************************************ 11 PeriphID6 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID7     ((BITBANDING_WDTPeriphID7_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID7_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID6     ((BITBANDING_WDTPeriphID6_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID6_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 13 WDTPeriphID0 *********************************************
+************************************ 12 PeriphID7 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID0     ((BITBANDING_WDTPeriphID0_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID0_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID7     ((BITBANDING_WDTPeriphID7_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID7_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 14 WDTPeriphID1 *********************************************
+************************************ 13 PeriphID0 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID1     ((BITBANDING_WDTPeriphID1_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID1_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID0     ((BITBANDING_WDTPeriphID0_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID0_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 15 WDTPeriphID2 *********************************************
+************************************ 14 PeriphID1 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID2     ((BITBANDING_WDTPeriphID2_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID2_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID1     ((BITBANDING_WDTPeriphID1_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID1_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 16 WDTPeriphID3 *********************************************
+************************************ 15 PeriphID2 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPeriphID3     ((BITBANDING_WDTPeriphID3_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPeriphID3_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PeriphID2     ((BITBANDING_WDTPeriphID2_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID2_OFFSET) * 32UL)))
+
+/******************************************************************************************
+************************************ 16 PeriphID3 *********************************************
+******************************************************************************************/
+#define WDT0_BITBANDING_PeriphID3     ((BITBANDING_WDTPeriphID3_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PeriphID3_OFFSET) * 32UL)))
 
 /*****************************************************************************************
-************************************ 17 WDTPCellID0 *********************************************
+************************************ 17 PCellID0 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPCellID0     ((BITBANDING_WDTPCellID0_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPCellID0_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PCellID0     ((BITBANDING_WDTPCellID0_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PCellID0_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 18 WDTPCellID1 *********************************************
+************************************ 18 PCellID1 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPCellID1     ((BITBANDING_WDTPCellID1_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPCellID1_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PCellID1     ((BITBANDING_WDTPCellID1_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PCellID1_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 19 WDTPCellID2 *********************************************
+************************************ 19 PCellID2 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPCellID2     ((BITBANDING_WDTPCellID2_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPCellID2_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PCellID2     ((BITBANDING_WDTPCellID2_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PCellID2_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 20 WDTPCellID3 *********************************************
+************************************ 20 PCellID3 *********************************************
 ******************************************************************************************/
-#define WDT0_BITBANDING_WDTPCellID3     ((BITBANDING_WDTPCellID3_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_WDTPCellID3_OFFSET) * 32UL)))
+#define WDT0_BITBANDING_PCellID3     ((BITBANDING_WDTPCellID3_TypeDef*) (WDT_BITBANDING_BASE + ((WDT0_OFFSET + WDT_PCellID3_OFFSET) * 32UL)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_REGISTER_WDT_REGISTERPERIPHERAL_BITBANDING_WDT_REGISTERPERIPHERAL_BITBANDING_MODULE0_H_ */

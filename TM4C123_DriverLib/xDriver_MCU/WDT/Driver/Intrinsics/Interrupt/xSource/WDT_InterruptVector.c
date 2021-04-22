@@ -25,9 +25,9 @@
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Dependencies.h>
 #include <xDriver_MCU/WDT/Driver/Intrinsics/Interrupt/xHeader/WDT_InterruptVector.h>
 
-void WDT__vEnInterruptVector(WDT_nPRIORITY enWDTPriority)
+void WDT__vEnInterruptVector(WDT_nPRIORITY enPriority)
 {
-    NVIC__vSetEnableIRQ(NVIC_enSTIR_WDT01, (NVIC_nPRIORITY) enWDTPriority);
+    NVIC__vSetEnableIRQ(NVIC_enSTIR_WDT01, (NVIC_nPRIORITY) enPriority);
 }
 
 void WDT__vDisInterruptVector(void)

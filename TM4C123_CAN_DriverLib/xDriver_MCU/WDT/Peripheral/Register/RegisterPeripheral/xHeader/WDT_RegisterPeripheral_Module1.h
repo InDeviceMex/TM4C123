@@ -35,124 +35,124 @@
 #define WDT1    ((WDT_TypeDef*) (WDT1_BASE))
 
 /******************************************************************************************
-************************************ 1 WDTLOAD *********************************************
+************************************ 1 LOAD *********************************************
 ******************************************************************************************/
-#define WDT1_WDTLOAD    ((WDTLOAD_TypeDef*) (WDT1_BASE + WDT_WDTLOAD_OFFSET))
-#define WDT1_WDTLOAD_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTLOAD_OFFSET)))
+#define WDT1_LOAD    ((WDTLOAD_TypeDef*) (WDT1_BASE + WDT_LOAD_OFFSET))
+#define WDT1_LOAD_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_LOAD_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 WDTVALUE *********************************************
+************************************ 2 VALUE *********************************************
 ******************************************************************************************/
-#define WDT1_WDTVALUE    ((WDTVALUE_TypeDef*) (WDT1_BASE + WDT_WDTVALUE_OFFSET))
-#define WDT1_WDTVALUE_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTVALUE_OFFSET)))
+#define WDT1_VALUE    ((WDTVALUE_TypeDef*) (WDT1_BASE + WDT_VALUE_OFFSET))
+#define WDT1_VALUE_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_VALUE_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 WDTCTL *********************************************
+************************************ 3 CTL *********************************************
 ******************************************************************************************/
-#define WDT1_WDTCTL    ((WDTCTL_TypeDef*) (WDT1_BASE + WDT_WDTCTL_OFFSET))
-#define WDT1_WDTCTL_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTCTL_OFFSET)))
+#define WDT1_CTL    ((WDTCTL_TypeDef*) (WDT1_BASE + WDT_CTL_OFFSET))
+#define WDT1_CTL_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_CTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 WDTICR *********************************************
+************************************ 4 ICR *********************************************
 ******************************************************************************************/
-#define WDT1_WDTICR    ((WDTICR_TypeDef*) (WDT1_BASE + WDT_WDTICR_OFFSET))
-#define WDT1_WDTICR_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTICR_OFFSET)))
+#define WDT1_ICR    ((WDTICR_TypeDef*) (WDT1_BASE + WDT_ICR_OFFSET))
+#define WDT1_ICR_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_ICR_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 WDTRIS *********************************************
+************************************ 5 RIS *********************************************
 ******************************************************************************************/
-#define WDT1_WDTRIS    ((WDTRIS_TypeDef*) (WDT1_BASE + WDT_WDTRIS_OFFSET))
-#define WDT1_WDTRIS_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTRIS_OFFSET)))
+#define WDT1_RIS    ((WDTRIS_TypeDef*) (WDT1_BASE + WDT_RIS_OFFSET))
+#define WDT1_RIS_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_RIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 WDTMIS *********************************************
+************************************ 6 MIS *********************************************
 ******************************************************************************************/
-#define WDT1_WDTMIS    ((WDTMIS_TypeDef*) (WDT1_BASE + WDT_WDTMIS_OFFSET))
-#define WDT1_WDTMIS_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTMIS_OFFSET)))
+#define WDT1_MIS    ((WDTMIS_TypeDef*) (WDT1_BASE + WDT_MIS_OFFSET))
+#define WDT1_MIS_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_MIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 WDTTEST *********************************************
+************************************ 7 TEST *********************************************
 ******************************************************************************************/
-#define WDT1_WDTTEST    ((WDTTEST_TypeDef*) (WDT1_BASE + WDT_WDTTEST_OFFSET))
-#define WDT1_WDTTEST_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTTEST_OFFSET)))
+#define WDT1_TEST    ((WDTTEST_TypeDef*) (WDT1_BASE + WDT_TEST_OFFSET))
+#define WDT1_TEST_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_TEST_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 WDTLOCK *********************************************
+************************************ 8 LOCK *********************************************
 ******************************************************************************************/
-#define WDT1_WDTLOCK    ((WDTLOCK_TypeDef*) (WDT1_BASE + WDT_WDTLOCK_OFFSET))
-#define WDT1_WDTLOCK_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_WDTLOCK_OFFSET)))
+#define WDT1_LOCK    ((WDTLOCK_TypeDef*) (WDT1_BASE + WDT_LOCK_OFFSET))
+#define WDT1_LOCK_R    (*((volatile uint32_t*) (WDT1_BASE + WDT_LOCK_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 WDTPeriphID4 *********************************************
+************************************ 9 PeriphID4 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID4    ((WDTPeriphID4_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID4_OFFSET))
-#define WDT1_WDTPeriphID4_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID4_OFFSET)))
+#define WDT1_PeriphID4    ((WDTPeriphID4_TypeDef*) (WDT1_BASE + WDT_PeriphID4_OFFSET))
+#define WDT1_PeriphID4_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID4_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 WDTPeriphID5 *********************************************
+************************************ 10 PeriphID5 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID5    ((WDTPeriphID5_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID5_OFFSET))
-#define WDT1_WDTPeriphID5_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID5_OFFSET)))
+#define WDT1_PeriphID5    ((WDTPeriphID5_TypeDef*) (WDT1_BASE + WDT_PeriphID5_OFFSET))
+#define WDT1_PeriphID5_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID5_OFFSET)))
 
 /******************************************************************************************
-************************************ 11 WDTPeriphID6 *********************************************
+************************************ 11 PeriphID6 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID6    ((WDTPeriphID6_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID6_OFFSET))
-#define WDT1_WDTPeriphID6_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID6_OFFSET)))
+#define WDT1_PeriphID6    ((WDTPeriphID6_TypeDef*) (WDT1_BASE + WDT_PeriphID6_OFFSET))
+#define WDT1_PeriphID6_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID6_OFFSET)))
 
 /******************************************************************************************
-************************************ 12 WDTPeriphID7 *********************************************
+************************************ 12 PeriphID7 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID7    ((WDTPeriphID7_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID7_OFFSET))
-#define WDT1_WDTPeriphID7_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID7_OFFSET)))
+#define WDT1_PeriphID7    ((WDTPeriphID7_TypeDef*) (WDT1_BASE + WDT_PeriphID7_OFFSET))
+#define WDT1_PeriphID7_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID7_OFFSET)))
 
 /******************************************************************************************
-************************************ 13 WDTPeriphID0 *********************************************
+************************************ 13 PeriphID0 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID0    ((WDTPeriphID0_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID0_OFFSET))
-#define WDT1_WDTPeriphID0_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID0_OFFSET)))
+#define WDT1_PeriphID0    ((WDTPeriphID0_TypeDef*) (WDT1_BASE + WDT_PeriphID0_OFFSET))
+#define WDT1_PeriphID0_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID0_OFFSET)))
 
 /******************************************************************************************
-************************************ 14 WDTPeriphID1 *********************************************
+************************************ 14 PeriphID1 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID1    ((WDTPeriphID1_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID1_OFFSET))
-#define WDT1_WDTPeriphID1_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID1_OFFSET)))
+#define WDT1_PeriphID1    ((WDTPeriphID1_TypeDef*) (WDT1_BASE + WDT_PeriphID1_OFFSET))
+#define WDT1_PeriphID1_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID1_OFFSET)))
 
 /******************************************************************************************
-************************************ 15 WDTPeriphID2 *********************************************
+************************************ 15 PeriphID2 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID2    ((WDTPeriphID2_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID2_OFFSET))
-#define WDT1_WDTPeriphID2_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID2_OFFSET)))
+#define WDT1_PeriphID2    ((WDTPeriphID2_TypeDef*) (WDT1_BASE + WDT_PeriphID2_OFFSET))
+#define WDT1_PeriphID2_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID2_OFFSET)))
 
 /******************************************************************************************
-************************************ 16 WDTPeriphID3 *********************************************
+************************************ 16 PeriphID3 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPeriphID3    ((WDTPeriphID3_TypeDef*) (WDT1_BASE + WDT_WDTPeriphID3_OFFSET))
-#define WDT1_WDTPeriphID3_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPeriphID3_OFFSET)))
+#define WDT1_PeriphID3    ((WDTPeriphID3_TypeDef*) (WDT1_BASE + WDT_PeriphID3_OFFSET))
+#define WDT1_PeriphID3_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PeriphID3_OFFSET)))
 
 /******************************************************************************************
-************************************ 17 WDTPCellID0 *********************************************
+************************************ 17 PCellID0 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPCellID0    ((WDTPCellID0_TypeDef*) (WDT1_BASE + WDT_WDTPCellID0_OFFSET))
-#define WDT1_WDTPCellID0_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPCellID0_OFFSET)))
+#define WDT1_PCellID0    ((WDTPCellID0_TypeDef*) (WDT1_BASE + WDT_PCellID0_OFFSET))
+#define WDT1_PCellID0_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PCellID0_OFFSET)))
 
 
 /******************************************************************************************
-************************************ 18 WDTPCellID1 *********************************************
+************************************ 18 PCellID1 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPCellID1    ((WDTPCellID1_TypeDef*) (WDT1_BASE + WDT_WDTPCellID1_OFFSET))
-#define WDT1_WDTPCellID1_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPCellID1_OFFSET)))
+#define WDT1_PCellID1    ((WDTPCellID1_TypeDef*) (WDT1_BASE + WDT_PCellID1_OFFSET))
+#define WDT1_PCellID1_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PCellID1_OFFSET)))
 
 /******************************************************************************************
-************************************ 19 WDTPCellID2 *********************************************
+************************************ 19 PCellID2 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPCellID2    ((WDTPCellID2_TypeDef*) (WDT1_BASE + WDT_WDTPCellID2_OFFSET))
-#define WDT1_WDTPCellID2_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPCellID2_OFFSET)))
+#define WDT1_PCellID2    ((WDTPCellID2_TypeDef*) (WDT1_BASE + WDT_PCellID2_OFFSET))
+#define WDT1_PCellID2_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PCellID2_OFFSET)))
 
 /******************************************************************************************
-************************************ 20 WDTPCellID3 *********************************************
+************************************ 20 PCellID3 *********************************************
 ******************************************************************************************/
-#define WDT1_WDTPCellID3    ((WDTPCellID3_TypeDef*) (WDT1_BASE + WDT_WDTPCellID3_OFFSET))
-#define WDT1_WDTPCellID3_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_WDTPCellID3_OFFSET)))
+#define WDT1_PCellID3    ((WDTPCellID3_TypeDef*) (WDT1_BASE + WDT_PCellID3_OFFSET))
+#define WDT1_PCellID3_R    (*((volatile const uint32_t*) (WDT1_BASE + WDT_PCellID3_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_REGISTER_WDT_REGISTERPERIPHERAL_WDT_REGISTERPERIPHERAL_MODULE1_H_ */

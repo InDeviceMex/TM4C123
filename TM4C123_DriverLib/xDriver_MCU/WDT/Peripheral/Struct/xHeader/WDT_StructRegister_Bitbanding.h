@@ -29,12 +29,12 @@
 
 typedef volatile struct
 {
-    volatile uint32_t WDTLOAD [32UL];
+    volatile uint32_t LOAD [32UL];
 }BITBANDING_WDTLOAD_TypeDef;
 
 typedef volatile struct
 {
-    volatile const uint32_t WDTVALUE [32UL];
+    volatile const uint32_t VALUE [32UL];
 }BITBANDING_WDTVALUE_TypeDef;
 
 typedef volatile struct
@@ -49,14 +49,14 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t WDTINTCLR [32UL];
+    volatile uint32_t INTCLR [32UL];
 }BITBANDING_WDTICR_TypeDef;
 
 
 
 typedef volatile struct
 {
-    volatile const uint32_t WDTRIS;
+    volatile const uint32_t RIS;
     const uint32_t reserved [31UL];
 }BITBANDING_WDTRIS_TypeDef;
 
@@ -64,7 +64,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile const uint32_t WDTMIS;
+    volatile const uint32_t MIS;
     const uint32_t reserved [31UL];
 }BITBANDING_WDTMIS_TypeDef;
 
@@ -77,7 +77,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    volatile uint32_t WDTLOCK [32UL];
+    volatile uint32_t LOCK [32UL];
 }BITBANDING_WDTLOCK_TypeDef;
 
 

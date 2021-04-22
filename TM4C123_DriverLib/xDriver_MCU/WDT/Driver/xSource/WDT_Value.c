@@ -30,7 +30,7 @@ WDT_nSTATUS WDT__enGetValue(WDT_nMODULE enModule, uint32_t* pu32ValueArg)
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule, pu32ValueArg, WDT_WDTVALUE_OFFSET, WDT_WDTVALUE_WDTVALUE_MASK, WDT_WDTVALUE_R_WDTVALUE_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, pu32ValueArg, WDT_VALUE_OFFSET, WDT_VALUE_VALUE_MASK, WDT_VALUE_R_VALUE_BIT);
 
     return enStatusRead;
 }

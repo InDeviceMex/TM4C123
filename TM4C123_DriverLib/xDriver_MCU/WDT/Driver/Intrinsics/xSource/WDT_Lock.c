@@ -30,17 +30,17 @@ WDT_nSTATUS WDT__enGetLock(WDT_nMODULE enModule, WDT_nLOCK* penFeatureArg)
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_WDTLOCK_OFFSET, WDT_WDTLOCK_WDTLOCK_MASK, WDT_WDTLOCK_R_WDTLOCK_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_LOCK_OFFSET, WDT_LOCK_LOCK_MASK, WDT_LOCK_R_LOCK_BIT);
 
     return enStatusRead;
 }
 
 void WDT__vUnlock(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTLOCK_OFFSET, (uint32_t) WDT_enKEY_UNLOCK, WDT_WDTLOCK_WDTLOCK_MASK, WDT_WDTLOCK_R_WDTLOCK_BIT);
+    WDT__vWriteRegister(enModule, WDT_LOCK_OFFSET, (uint32_t) WDT_enKEY_UNLOCK, WDT_LOCK_LOCK_MASK, WDT_LOCK_R_LOCK_BIT);
 }
 
 void WDT__vLock(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTLOCK_OFFSET, (uint32_t) WDT_enKEY_LOCK, WDT_WDTLOCK_WDTLOCK_MASK, WDT_WDTLOCK_R_WDTLOCK_BIT);
+    WDT__vWriteRegister(enModule, WDT_LOCK_OFFSET, (uint32_t) WDT_enKEY_LOCK, WDT_LOCK_LOCK_MASK, WDT_LOCK_R_LOCK_BIT);
 }

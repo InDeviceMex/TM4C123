@@ -29,24 +29,24 @@
 
 void WDT__vEnStall(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTTEST_OFFSET, WDT_WDTTEST_STALL_FREEZE, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
+    WDT__vWriteRegister(enModule, WDT_TEST_OFFSET, WDT_TEST_STALL_FREEZE, WDT_TEST_STALL_MASK, WDT_TEST_R_STALL_BIT);
 }
 
 void WDT__vDisStall(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTTEST_OFFSET, WDT_WDTTEST_STALL_CONTINUE, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
+    WDT__vWriteRegister(enModule, WDT_TEST_OFFSET, WDT_TEST_STALL_CONTINUE, WDT_TEST_STALL_MASK, WDT_TEST_R_STALL_BIT);
 }
 
 void WDT__vSetStall(WDT_nMODULE enModule, WDT_nSTALL enStallValue)
 {
-    WDT__vWriteRegister(enModule, WDT_WDTTEST_OFFSET, (uint32_t) enStallValue, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
+    WDT__vWriteRegister(enModule, WDT_TEST_OFFSET, (uint32_t) enStallValue, WDT_TEST_STALL_MASK, WDT_TEST_R_STALL_BIT);
 }
 
 WDT_nSTATUS WDT__enGetStall(WDT_nMODULE enModule, WDT_nSTALL* penFeatureArg)
 {
     WDT_nSTATUS enStatusRead = WDT_enSTATUS_UNDEF;
 
-    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_WDTTEST_OFFSET, WDT_WDTTEST_STALL_MASK, WDT_WDTTEST_R_STALL_BIT);
+    enStatusRead = WDT__enReadRegister(enModule, (uint32_t*)penFeatureArg, WDT_TEST_OFFSET, WDT_TEST_STALL_MASK, WDT_TEST_R_STALL_BIT);
 
     return enStatusRead;
 }

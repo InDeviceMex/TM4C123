@@ -30,107 +30,107 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t WDTLOAD [32UL];
-        BITBANDING_WDTLOAD_TypeDef WDTLOAD_Bit;
+        volatile uint32_t LOAD [32UL];
+        BITBANDING_WDTLOAD_TypeDef LOAD_Bit;
     };
     union
     {
-        volatile const uint32_t WDTVALUE [32UL];
-        BITBANDING_WDTVALUE_TypeDef WDTVALUE_Bit;
+        volatile const uint32_t VALUE [32UL];
+        BITBANDING_WDTVALUE_TypeDef VALUE_Bit;
     };
     union
     {
-        volatile uint32_t WDTCTL [32UL];
-        BITBANDING_WDTCTL_TypeDef WDTCTL_Bit;
+        volatile uint32_t CTL [32UL];
+        BITBANDING_WDTCTL_TypeDef CTL_Bit;
     };
     union
     {
-        volatile uint32_t WDTICR [32UL];
-        BITBANDING_WDTICR_TypeDef WDTICR_Bit;
+        volatile uint32_t ICR [32UL];
+        BITBANDING_WDTICR_TypeDef ICR_Bit;
     };
     union
     {
-        volatile const uint32_t WDTRIS [32UL];
-        BITBANDING_WDTRIS_TypeDef WDTRIS_Bit;
+        volatile const uint32_t RIS [32UL];
+        BITBANDING_WDTRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile const uint32_t WDTMIS [32UL];
-        BITBANDING_WDTMIS_TypeDef WDTMIS_Bit;
+        volatile const uint32_t MIS [32UL];
+        BITBANDING_WDTMIS_TypeDef MIS_Bit;
     };
     const uint32_t reserved [256UL * 32UL];
     union
     {
-        volatile uint32_t WDTTEST [32UL];
-        BITBANDING_WDTTEST_TypeDef WDTTEST_Bit;
+        volatile uint32_t TEST [32UL];
+        BITBANDING_WDTTEST_TypeDef TEST_Bit;
     };
 
     const uint32_t reserved1 [505UL * 32UL];
     union
     {
-        volatile uint32_t WDTLOCK [32UL];
-        BITBANDING_WDTLOCK_TypeDef WDTLOCK_Bit;
+        volatile uint32_t LOCK [32UL];
+        BITBANDING_WDTLOCK_TypeDef LOCK_Bit;
     };
     const uint32_t reserved2 [243UL * 32UL];
     union
     {
-        volatile uint32_t WDTPeriphID4 [32UL];
-        BITBANDING_WDTPeriphID4_TypeDef WDTPeriphID4_Bit;
+        volatile uint32_t PeriphID4 [32UL];
+        BITBANDING_WDTPeriphID4_TypeDef PeriphID4_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID5 [32UL];
-        BITBANDING_WDTPeriphID5_TypeDef WDTPeriphID5_Bit;
+        volatile uint32_t PeriphID5 [32UL];
+        BITBANDING_WDTPeriphID5_TypeDef PeriphID5_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID6 [32UL];
-        BITBANDING_WDTPeriphID6_TypeDef WDTPeriphID6_Bit;
+        volatile uint32_t PeriphID6 [32UL];
+        BITBANDING_WDTPeriphID6_TypeDef PeriphID6_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID7 [32UL];
-        BITBANDING_WDTPeriphID7_TypeDef WDTPeriphID7_Bit;
+        volatile uint32_t PeriphID7 [32UL];
+        BITBANDING_WDTPeriphID7_TypeDef PeriphID7_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID0 [32UL];
-        BITBANDING_WDTPeriphID0_TypeDef WDTPeriphID0_Bit;
+        volatile uint32_t PeriphID0 [32UL];
+        BITBANDING_WDTPeriphID0_TypeDef PeriphID0_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID1 [32UL];
-        BITBANDING_WDTPeriphID1_TypeDef WDTPeriphID1_Bit;
+        volatile uint32_t PeriphID1 [32UL];
+        BITBANDING_WDTPeriphID1_TypeDef PeriphID1_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID2 [32UL];
-        BITBANDING_WDTPeriphID2_TypeDef WDTPeriphID2_Bit;
+        volatile uint32_t PeriphID2 [32UL];
+        BITBANDING_WDTPeriphID2_TypeDef PeriphID2_Bit;
     };
     union
     {
-        volatile uint32_t WDTPeriphID3 [32UL];
-        BITBANDING_WDTPeriphID3_TypeDef WDTPeriphID3_Bit;
+        volatile uint32_t PeriphID3 [32UL];
+        BITBANDING_WDTPeriphID3_TypeDef PeriphID3_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID0 [32UL];
-        BITBANDING_WDTPCellID0_TypeDef WDTPCellID0_Bit;
+        volatile uint32_t PCellID0 [32UL];
+        BITBANDING_WDTPCellID0_TypeDef PCellID0_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID1 [32UL];
-        BITBANDING_WDTPCellID1_TypeDef WDTPCellID1_Bit;
+        volatile uint32_t PCellID1 [32UL];
+        BITBANDING_WDTPCellID1_TypeDef PCellID1_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID2 [32UL];
-        BITBANDING_WDTPCellID2_TypeDef WDTPCellID2_Bit;
+        volatile uint32_t PCellID2 [32UL];
+        BITBANDING_WDTPCellID2_TypeDef PCellID2_Bit;
     };
     union
     {
-        volatile uint32_t WDTPCellID3 [32UL];
-        BITBANDING_WDTPCellID3_TypeDef WDTPCellID3_Bit;
+        volatile uint32_t PCellID3 [32UL];
+        BITBANDING_WDTPCellID3_TypeDef PCellID3_Bit;
     };
 }WDT_BITBANDING_TypeDef;
 

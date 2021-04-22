@@ -35,27 +35,27 @@ void WDT_Standard__vIRQVectorHandler(void)
 
     if((uint32_t) 0U != (SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT0_MASK ) )
     {
-        u32Reg0 = WDT0_WDTMIS_R;
-        u32Reg0 &= WDT_WDTMIS_R_WDTMIS_MASK;
+        u32Reg0 = WDT0_MIS_R;
+        u32Reg0 &= WDT_MIS_R_MIS_MASK;
         if((uint32_t) WDT_enINT_STATUS_OCCUR == u32Reg0 )
         {
-            WDT0_WDTICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
+            WDT0_ICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
             WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_STANDARD][(uint32_t) WDT_enMODULE_0]();
         }
     }
 
     if((uint32_t) 0U != (SYSCTL_PRWD_R & SYSCTL_PRWD_R_WDT1_MASK ) )
     {
-        u32Reg1 = WDT1_WDTMIS_R;
-        u32Reg1 &= WDT_WDTMIS_R_WDTMIS_MASK;
+        u32Reg1 = WDT1_MIS_R;
+        u32Reg1 &= WDT_MIS_R_MIS_MASK;
         if((uint32_t) WDT_enINT_STATUS_OCCUR == u32Reg1 )
         {
-            WDT1_WDTICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
+            WDT1_ICR_R = (uint32_t) WDT_enINT_STATUS_OCCUR;
             do
             {
-                u32RegWrite1 = WDT1_WDTCTL_R;
-                u32RegWrite1 &= WDT_WDTCTL_R_WRC_MASK;
-            }while(WDT_WDTCTL_R_WRC_PROGRESS == u32RegWrite1);
+                u32RegWrite1 = WDT1_CTL_R;
+                u32RegWrite1 &= WDT_CTL_R_WRC_MASK;
+            }while(WDT_CTL_R_WRC_PROGRESS == u32RegWrite1);
 
             WDT__vIRQSourceHandler[(uint32_t) WDT_enINT_TYPE_STANDARD][(uint32_t) WDT_enMODULE_1]();
         }
