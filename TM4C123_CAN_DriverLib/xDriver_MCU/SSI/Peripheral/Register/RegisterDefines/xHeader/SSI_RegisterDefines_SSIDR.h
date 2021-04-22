@@ -1,6 +1,6 @@
 /**
  *
- * @file SSI_RegisterDefines_DR.h
+ * @file SSI_RegisterDefines_SSIDR.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,19 +21,19 @@
  * Date           Author     Version     Description
  * 17 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_SSI_REGISTERDEFINES_DR_H_
-#define XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_SSI_REGISTERDEFINES_DR_H_
+#ifndef XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_SSI_REGISTERDEFINES_SSIDR_H_
+#define XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_SSI_REGISTERDEFINES_SSIDR_H_
 
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 3 DR *********************************************
+************************************ 3 SSIDR *********************************************
 ******************************************************************************************/
 /*--------*/
-#define SSI_DR_R_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
-#define SSI_DR_R_DATA_BIT    ((uint32_t) 0UL)
+#define SSI_SSIDR_R_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
+#define SSI_SSIDR_R_DATA_BIT    ((uint32_t) 0UL)
 
-#define SSI_DR_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
+#define SSI_SSIDR_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
 /*--------*/
 
-#endif /* XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_SSI_REGISTERDEFINES_DR_H_ */
+#endif /* XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_SSI_REGISTERDEFINES_SSIDR_H_ */

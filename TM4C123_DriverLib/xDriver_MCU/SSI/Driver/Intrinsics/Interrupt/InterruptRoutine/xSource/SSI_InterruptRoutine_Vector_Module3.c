@@ -83,17 +83,17 @@ void SSI3__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = (uint32_t) SSI3_MIS_R;
+    u32Reg = (uint32_t) SSI3_SSIMIS_R;
 
     if((uint32_t) SSI_enINT_SOURCE_RECEIVE_OVERRUN & u32Reg)
     {
-        SSI3_ICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_OVERRUN;
+        SSI3_SSIICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_OVERRUN;
         SSI__vIRQSourceHandler[(uint32_t) SSI_enMODULE_3][(uint32_t) SSI_enINTERRUPT_RECEIVE_OVERRUN]();
     }
     if((uint32_t) SSI_enINT_SOURCE_RECEIVE_TIMEOUT & u32Reg)
     {
         SSI__vIRQSourceHandler[(uint32_t) SSI_enMODULE_3][(uint32_t) SSI_enINTERRUPT_RECEIVE_TIMEOUT]();
-        SSI3_ICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_TIMEOUT;
+        SSI3_SSIICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_TIMEOUT;
     }
     if((uint32_t) SSI_enINT_SOURCE_RECEIVE & u32Reg)
     {

@@ -35,153 +35,153 @@
 #define SSI2    ((SSI_TypeDef*) (SSI2_BASE))
 
 /******************************************************************************************
-************************************ 1 CR0 *********************************************
+************************************ 1 SSICR0 *********************************************
 ******************************************************************************************/
-#define SSI2_CR0    ((SSICR0_TypeDef*) (SSI2_BASE + SSI_CR0_OFFSET ))
-#define SSI2_CR0_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_CR0_OFFSET)))
+#define SSI2_SSICR0    ((SSICR0_TypeDef*) (SSI2_BASE + SSI_SSICR0_OFFSET ))
+#define SSI2_SSICR0_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSICR0_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 CR1 *********************************************
+************************************ 2 SSICR1 *********************************************
 ******************************************************************************************/
-#define SSI2_CR1    ((SSICR1_TypeDef*) (SSI2_BASE + SSI_CR1_OFFSET ))
-#define SSI2_CR1_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_CR1_OFFSET)))
+#define SSI2_SSICR1    ((SSICR1_TypeDef*) (SSI2_BASE + SSI_SSICR1_OFFSET ))
+#define SSI2_SSICR1_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSICR1_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 DR *********************************************
+************************************ 3 SSIDR *********************************************
 ******************************************************************************************/
-#define SSI2_DR    ((SSIDR_TypeDef*) (SSI2_BASE + SSI_DR_OFFSET ))
-#define SSI2_DR_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_DR_OFFSET)))
+#define SSI2_SSIDR    ((SSIDR_TypeDef*) (SSI2_BASE + SSI_SSIDR_OFFSET ))
+#define SSI2_SSIDR_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSIDR_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 SR *********************************************
+************************************ 4 SSISR *********************************************
 ******************************************************************************************/
-#define SSI2_SR    ((SSISR_TypeDef*) (SSI2_BASE + SSI_SR_OFFSET ))
-#define SSI2_SR_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SR_OFFSET)))
+#define SSI2_SSISR    ((SSISR_TypeDef*) (SSI2_BASE + SSI_SSISR_OFFSET ))
+#define SSI2_SSISR_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSISR_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 CPSR *********************************************
+************************************ 5 SSICPSR *********************************************
 ******************************************************************************************/
-#define SSI2_CPSR    ((SSICPSR_TypeDef*) (SSI2_BASE + SSI_CPSR_OFFSET ))
-#define SSI2_CPSR_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_CPSR_OFFSET)))
+#define SSI2_SSICPSR    ((SSICPSR_TypeDef*) (SSI2_BASE + SSI_SSICPSR_OFFSET ))
+#define SSI2_SSICPSR_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSICPSR_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 IM *********************************************
+************************************ 6 SSIIM *********************************************
 ******************************************************************************************/
-#define SSI2_IM    ((SSIIM_TypeDef*) (SSI2_BASE + SSI_IM_OFFSET ))
-#define SSI2_IM_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_IM_OFFSET)))
+#define SSI2_SSIIM    ((SSIIM_TypeDef*) (SSI2_BASE + SSI_SSIIM_OFFSET ))
+#define SSI2_SSIIM_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSIIM_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 RIS *********************************************
+************************************ 7 SSIRIS *********************************************
 ******************************************************************************************/
-#define SSI2_RIS    ((SSIRIS_TypeDef*) (SSI2_BASE + SSI_RIS_OFFSET ))
-#define SSI2_RIS_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_RIS_OFFSET)))
+#define SSI2_SSIRIS    ((SSIRIS_TypeDef*) (SSI2_BASE + SSI_SSIRIS_OFFSET ))
+#define SSI2_SSIRIS_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIRIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 MIS *********************************************
+************************************ 8 SSIMIS *********************************************
 ******************************************************************************************/
-#define SSI2_MIS    ((SSIMIS_TypeDef*) (SSI2_BASE + SSI_MIS_OFFSET ))
-#define SSI2_MIS_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_MIS_OFFSET)))
+#define SSI2_SSIMIS    ((SSIMIS_TypeDef*) (SSI2_BASE + SSI_SSIMIS_OFFSET ))
+#define SSI2_SSIMIS_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIMIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 ICR *********************************************
+************************************ 9 SSIICR *********************************************
 ******************************************************************************************/
-#define SSI2_ICR    ((SSIICR_TypeDef*) (SSI2_BASE + SSI_ICR_OFFSET ))
-#define SSI2_ICR_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_ICR_OFFSET)))
+#define SSI2_SSIICR    ((SSIICR_TypeDef*) (SSI2_BASE + SSI_SSIICR_OFFSET ))
+#define SSI2_SSIICR_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSIICR_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 DMACTL *********************************************
+************************************ 10 SSIDMACTL *********************************************
 ******************************************************************************************/
-#define SSI2_DMACTL    ((SSIDMACTL_TypeDef*) (SSI2_BASE + SSI_DMACTL_OFFSET ))
-#define SSI2_DMACTL_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_DMACTL_OFFSET)))
+#define SSI2_SSIDMACTL    ((SSIDMACTL_TypeDef*) (SSI2_BASE + SSI_SSIDMACTL_OFFSET ))
+#define SSI2_SSIDMACTL_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSIDMACTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 11 CC *********************************************
+************************************ 11 SSICC *********************************************
 ******************************************************************************************/
-#define SSI2_CC    ((SSICC_TypeDef*) (SSI2_BASE + SSI_CC_OFFSET ))
-#define SSI2_CC_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_CC_OFFSET)))
+#define SSI2_SSICC    ((SSICC_TypeDef*) (SSI2_BASE + SSI_SSICC_OFFSET ))
+#define SSI2_SSICC_R    (*((volatile uint32_t*) (SSI2_BASE + SSI_SSICC_OFFSET)))
 
 /******************************************************************************************
- ************************************ 12 PeriphID4 *********************************************
+ ************************************ 12 SSIPeriphID4 *********************************************
  ******************************************************************************************/
 /* SSI2 PID4*/
-#define SSI2_PeriphID4    ((SSIPeriphID4_TypeDef*) (SSI2_BASE + SSI_PeriphID4_OFFSET))
-#define SSI2_PeriphID4_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID4_OFFSET)))
+#define SSI2_SSIPeriphID4    ((SSIPeriphID4_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID4_OFFSET))
+#define SSI2_SSIPeriphID4_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID4_OFFSET)))
 
 /******************************************************************************************
- ************************************ 13 PeriphID5 *********************************************
+ ************************************ 13 SSIPeriphID5 *********************************************
  ******************************************************************************************/
 /* SSI2 PID5*/
-#define SSI2_PeriphID5    ((SSIPeriphID5_TypeDef*) (SSI2_BASE + SSI_PeriphID5_OFFSET))
-#define SSI2_PeriphID5_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID5_OFFSET)))
+#define SSI2_SSIPeriphID5    ((SSIPeriphID5_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID5_OFFSET))
+#define SSI2_SSIPeriphID5_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID5_OFFSET)))
 
 /******************************************************************************************
- ************************************ 14 PeriphID6 *********************************************
+ ************************************ 14 SSIPeriphID6 *********************************************
  ******************************************************************************************/
 /* SSI2 PID6*/
-#define SSI2_PeriphID6    ((SSIPeriphID6_TypeDef*) (SSI2_BASE + SSI_PeriphID6_OFFSET))
-#define SSI2_PeriphID6_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID6_OFFSET)))
+#define SSI2_SSIPeriphID6    ((SSIPeriphID6_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID6_OFFSET))
+#define SSI2_SSIPeriphID6_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID6_OFFSET)))
 
 /******************************************************************************************
- ************************************ 15 PeriphID7 *********************************************
+ ************************************ 15 SSIPeriphID7 *********************************************
  ******************************************************************************************/
 /* SSI2 PID7*/
-#define SSI2_PeriphID7    ((SSIPeriphID7_TypeDef*) (SSI2_BASE + SSI_PeriphID7_OFFSET))
-#define SSI2_PeriphID7_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID7_OFFSET)))
+#define SSI2_SSIPeriphID7    ((SSIPeriphID7_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID7_OFFSET))
+#define SSI2_SSIPeriphID7_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID7_OFFSET)))
 
 /******************************************************************************************
- ************************************ 16 PeriphID0 *********************************************
+ ************************************ 16 SSIPeriphID0 *********************************************
  ******************************************************************************************/
 /* SSI2 PID0*/
-#define SSI2_PeriphID0    ((SSIPeriphID0_TypeDef*) (SSI2_BASE + SSI_PeriphID0_OFFSET))
-#define SSI2_PeriphID0_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID0_OFFSET)))
+#define SSI2_SSIPeriphID0    ((SSIPeriphID0_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID0_OFFSET))
+#define SSI2_SSIPeriphID0_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID0_OFFSET)))
 
 /******************************************************************************************
- ************************************ 17 PeriphID1 *********************************************
+ ************************************ 17 SSIPeriphID1 *********************************************
  ******************************************************************************************/
 /* SSI2 PID1*/
-#define SSI2_PeriphID1    ((SSIPeriphID1_TypeDef*) (SSI2_BASE + SSI_PeriphID1_OFFSET))
-#define SSI2_PeriphID1_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID1_OFFSET)))
+#define SSI2_SSIPeriphID1    ((SSIPeriphID1_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID1_OFFSET))
+#define SSI2_SSIPeriphID1_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID1_OFFSET)))
 
 /******************************************************************************************
- ************************************ 18 PeriphID2 *********************************************
+ ************************************ 18 SSIPeriphID2 *********************************************
  ******************************************************************************************/
 /* SSI2 PID2*/
-#define SSI2_PeriphID2    ((SSIPeriphID2_TypeDef*) (SSI2_BASE + SSI_PeriphID2_OFFSET))
-#define SSI2_PeriphID2_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID2_OFFSET)))
+#define SSI2_SSIPeriphID2    ((SSIPeriphID2_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID2_OFFSET))
+#define SSI2_SSIPeriphID2_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID2_OFFSET)))
 
 /******************************************************************************************
- ************************************ 19 PeriphID3 *********************************************
+ ************************************ 19 SSIPeriphID3 *********************************************
  ******************************************************************************************/
 /* SSI2 PID3*/
-#define SSI2_PeriphID3    ((SSIPeriphID3_TypeDef*) (SSI2_BASE + SSI_PeriphID3_OFFSET))
-#define SSI2_PeriphID3_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_PeriphID3_OFFSET)))
+#define SSI2_SSIPeriphID3    ((SSIPeriphID3_TypeDef*) (SSI2_BASE + SSI_SSIPeriphID3_OFFSET))
+#define SSI2_SSIPeriphID3_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSIPeriphID3_OFFSET)))
 
 /******************************************************************************************
- ************************************ 20 CellID0 *********************************************
+ ************************************ 20 SSICellID0 *********************************************
  ******************************************************************************************/
 /* SSI2 CID0*/
-#define SSI2_CellID0    ((SSICellID0_TypeDef*) (SSI2_BASE + SSI_CellID0_OFFSET))
-#define SSI2_CellID0_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_CellID0_OFFSET)))
+#define SSI2_SSICellID0    ((SSICellID0_TypeDef*) (SSI2_BASE + SSI_SSICellID0_OFFSET))
+#define SSI2_SSICellID0_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSICellID0_OFFSET)))
 
 /******************************************************************************************
- ************************************ 21 CellID1 *********************************************
+ ************************************ 21 SSICellID1 *********************************************
  ******************************************************************************************/
 /* SSI2 CID1*/
-#define SSI2_CellID1    ((SSICellID1_TypeDef*) (SSI2_BASE + SSI_CellID1_OFFSET))
-#define SSI2_CellID1_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_CellID1_OFFSET)))
+#define SSI2_SSICellID1    ((SSICellID1_TypeDef*) (SSI2_BASE + SSI_SSICellID1_OFFSET))
+#define SSI2_SSICellID1_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSICellID1_OFFSET)))
 
 /******************************************************************************************
- ************************************ 22 CellID2 *********************************************
+ ************************************ 22 SSICellID2 *********************************************
  ******************************************************************************************/
 /* SSI2 CID2*/
-#define SSI2_CellID2    ((SSICellID2_TypeDef*) (SSI2_BASE + SSI_CellID2_OFFSET))
-#define SSI2_CellID2_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_CellID2_OFFSET)))
+#define SSI2_SSICellID2    ((SSICellID2_TypeDef*) (SSI2_BASE + SSI_SSICellID2_OFFSET))
+#define SSI2_SSICellID2_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSICellID2_OFFSET)))
 
 /******************************************************************************************
- ************************************ 23 CellID3 *********************************************
+ ************************************ 23 SSICellID3 *********************************************
  ******************************************************************************************/
 /* SSI2 CID3*/
-#define SSI2_CellID3    ((SSICellID3_TypeDef*) (SSI2_BASE + SSI_CellID3_OFFSET))
-#define SSI2_CellID3_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_CellID3_OFFSET)))
+#define SSI2_SSICellID3    ((SSICellID3_TypeDef*) (SSI2_BASE + SSI_SSICellID3_OFFSET))
+#define SSI2_SSICellID3_R    (*((volatile const uint32_t*) (SSI2_BASE + SSI_SSICellID3_OFFSET)))
 
 #endif /* XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_XHEADER_SSI_REGISTERPERIPHERAL_MODULE2_H_ */

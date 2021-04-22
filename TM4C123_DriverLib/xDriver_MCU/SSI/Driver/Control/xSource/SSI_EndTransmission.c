@@ -28,13 +28,13 @@
 
 void SSI__vSetEndTransmission(SSI_nMODULE enModule, SSI_nEOT enEndTransmissionArg)
 {
-    SSI__vWriteRegister(enModule, SSI_CR1_OFFSET, (uint32_t) enEndTransmissionArg, SSI_CR1_EOT_MASK, SSI_CR1_R_EOT_BIT);
+    SSI__vWriteRegister(enModule, SSI_SSICR1_OFFSET, (uint32_t) enEndTransmissionArg, SSI_SSICR1_EOT_MASK, SSI_SSICR1_R_EOT_BIT);
 }
 
 SSI_nEOT SSI__enGetEndTransmission(SSI_nMODULE enModule)
 {
     SSI_nEOT enEndTransmissionReg = SSI_enEOT_UNDEF;
-    SSI__enReadRegister(enModule, SSI_CR1_OFFSET, (uint32_t*) &enEndTransmissionReg, SSI_CR1_EOT_MASK, SSI_CR1_R_EOT_BIT);
+    SSI__enReadRegister(enModule, SSI_SSICR1_OFFSET, (uint32_t*) &enEndTransmissionReg, SSI_SSICR1_EOT_MASK, SSI_SSICR1_R_EOT_BIT);
     return enEndTransmissionReg;
 }
 

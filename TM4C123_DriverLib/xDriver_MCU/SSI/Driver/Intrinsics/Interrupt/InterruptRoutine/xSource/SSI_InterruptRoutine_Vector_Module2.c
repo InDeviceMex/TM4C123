@@ -83,17 +83,17 @@ void SSI2__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = (uint32_t) SSI2_MIS_R;
+    u32Reg = (uint32_t) SSI2_SSIMIS_R;
 
     if((uint32_t) SSI_enINT_SOURCE_RECEIVE_OVERRUN & u32Reg)
     {
-        SSI2_ICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_OVERRUN;
+        SSI2_SSIICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_OVERRUN;
         SSI__vIRQSourceHandler[(uint32_t) SSI_enMODULE_2][(uint32_t) SSI_enINTERRUPT_RECEIVE_OVERRUN]();
     }
     if((uint32_t) SSI_enINT_SOURCE_RECEIVE_TIMEOUT & u32Reg)
     {
         SSI__vIRQSourceHandler[(uint32_t) SSI_enMODULE_2][(uint32_t) SSI_enINTERRUPT_RECEIVE_TIMEOUT]();
-        SSI2_ICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_TIMEOUT;
+        SSI2_SSIICR_R = (uint32_t) SSI_enINT_SOURCE_RECEIVE_TIMEOUT;
     }
     if((uint32_t) SSI_enINT_SOURCE_RECEIVE & u32Reg)
     {

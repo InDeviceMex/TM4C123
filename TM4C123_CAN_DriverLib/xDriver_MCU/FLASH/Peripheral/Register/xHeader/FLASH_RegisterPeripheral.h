@@ -186,10 +186,10 @@
 #define FLASH_FSIZE_R    (*((volatile const uint32_t*) (FLASH_BASE + FLASH_FSIZE_OFFSET)))
 
 /******************************************************************************************
-************************************ 42 ZE *********************************************
+************************************ 42 SSIZE *********************************************
 ******************************************************************************************/
-#define FLASH_ZE    ((SSIZE_TypeDef*) (FLASH_BASE + FLASH_ZE_OFFSET))
-#define FLASH_ZE_R    (*((volatile const uint32_t*) (FLASH_BASE + FLASH_ZE_OFFSET)))
+#define FLASH_SSIZE    ((SSIZE_TypeDef*) (FLASH_BASE + FLASH_SSIZE_OFFSET))
+#define FLASH_SSIZE_R    (*((volatile const uint32_t*) (FLASH_BASE + FLASH_SSIZE_OFFSET)))
 
 /******************************************************************************************
 ************************************ 43 ROMSWMAP *********************************************
