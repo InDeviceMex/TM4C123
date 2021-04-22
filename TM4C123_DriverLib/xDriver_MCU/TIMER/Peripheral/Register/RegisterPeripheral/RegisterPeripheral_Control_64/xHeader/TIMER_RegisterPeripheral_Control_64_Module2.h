@@ -31,16 +31,16 @@
 #define GPWTM2_CTL    (((GPWTM_CTL_TypeDef*) (GPWTM2_BASE)))
 
 /******************************************************************************************
-************************************ 1 CFG *********************************************
+************************************ 1 GPTMCFG *********************************************
 ******************************************************************************************/
-#define GPWTM2_CTL_CFG    ((GPTMCFG_TypeDef*) (GPWTM2_BASE + GPWTM_CTL_CFG_OFFSET))
-#define GPWTM2_CTL_CFG_R    (*((volatile uint32_t*) (GPWTM2_BASE + GPWTM_CTL_CFG_OFFSET)))
+#define GPWTM2_CTL_GPTMCFG    ((GPTMCFG_TypeDef*) (GPWTM2_BASE + GPWTM_CTL_GPTMCFG_OFFSET))
+#define GPWTM2_CTL_GPTMCFG_R    (*((volatile uint32_t*) (GPWTM2_BASE + GPWTM_CTL_GPTMCFG_OFFSET)))
 
 /******************************************************************************************
-************************************ 27 PP *********************************************
+************************************ 27 GPTMPP *********************************************
 ******************************************************************************************/
 
-#define GPWTM2_CTL_PP    ((GPTMPP_TypeDef*) (GPWTM2_BASE + GPWTM_CTL_PP_OFFSET))
-#define GPWTM2_CTL_PP_R    (*((volatile uint32_t*) (GPWTM2_BASE + GPWTM_CTL_PP_OFFSET)))
+#define GPWTM2_CTL_GPTMPP    ((GPTMPP_TypeDef*) (GPWTM2_BASE + GPWTM_CTL_GPTMPP_OFFSET))
+#define GPWTM2_CTL_GPTMPP_R    (*((volatile uint32_t*) (GPWTM2_BASE + GPWTM_CTL_GPTMPP_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_CONTROL_64_TIMER_REGISTERPERIPHERAL_CONTROL_64_MODULE2_H_ */

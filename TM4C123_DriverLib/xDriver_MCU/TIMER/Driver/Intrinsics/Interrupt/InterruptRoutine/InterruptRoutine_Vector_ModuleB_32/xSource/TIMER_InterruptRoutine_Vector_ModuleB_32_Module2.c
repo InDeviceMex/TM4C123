@@ -61,26 +61,26 @@ void WTIMER2B__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = (uint32_t) GPWTM2_TB_TnMIS_R;
+    u32Reg = (uint32_t) GPWTM2_TB_GPTMTnMIS_R;
 
     if((uint32_t) TIMER_enINT_TB_TIMEOUT & u32Reg)
     {
-        GPWTM2_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_TIMEOUT;
+        GPWTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_TIMEOUT;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_TIMEOUT]();
     }
     if((uint32_t) TIMER_enINT_TB_CAPTURE_MATCH & u32Reg)
     {
-        GPWTM2_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_MATCH;
+        GPWTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_CAPTURE_MATCH]();
     }
     if((uint32_t) TIMER_enINT_TB_CAPTURE_EVENT & u32Reg)
     {
-        GPWTM2_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_EVENT;
+        GPWTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_CAPTURE_EVENT]();
     }
     if((uint32_t) TIMER_enINT_TB_MATCH & u32Reg)
     {
-        GPWTM2_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_MATCH;
+        GPWTM2_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_2][(uint32_t) TIMER_enINTERRUPT_MATCH]();
     }
 }

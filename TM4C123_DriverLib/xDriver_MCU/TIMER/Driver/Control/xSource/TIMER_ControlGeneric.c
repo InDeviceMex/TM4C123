@@ -36,16 +36,16 @@ void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32FeatureValue,
     TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
     u32Shift = 8UL * u32SubModule;
-    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, (uint32_t*) &enTimerEnable, GPTM_CTL_TAEN_MASK, u32Shift);
+    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, (uint32_t*) &enTimerEnable, GPTM_GPTMCTL_TAEN_MASK, u32Shift);
     if(TIMER_enENABLE_START == enTimerEnable)
     {
-        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, GPTM_CTL_TAEN_DIS, GPTM_CTL_TAEN_MASK, u32Shift);
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, GPTM_GPTMCTL_TAEN_DIS, GPTM_GPTMCTL_TAEN_MASK, u32Shift);
     }
     u32Shift += u32BitFeature;
-    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, u32FeatureValue, u32MaskFeature, u32Shift);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, u32FeatureValue, u32MaskFeature, u32Shift);
     if(TIMER_enENABLE_START == enTimerEnable)
     {
-        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, GPTM_CTL_TAEN_EN, GPTM_CTL_TAEN_MASK, u32Shift);
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, GPTM_GPTMCTL_TAEN_EN, GPTM_GPTMCTL_TAEN_MASK, u32Shift);
     }
 }
 
@@ -60,6 +60,6 @@ uint32_t TIMER__u32GetControlGeneric(TIMER_nMODULE enModule, uint32_t u32MaskFea
     u32SubModule &= 0x1UL;
     u32Shift = 8UL * u32SubModule;
     u32Shift += u32BitFeature;
-    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, &u32FeatureValue, u32MaskFeature, u32Shift);
+    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, &u32FeatureValue, u32MaskFeature, u32Shift);
     return u32FeatureValue;
 }

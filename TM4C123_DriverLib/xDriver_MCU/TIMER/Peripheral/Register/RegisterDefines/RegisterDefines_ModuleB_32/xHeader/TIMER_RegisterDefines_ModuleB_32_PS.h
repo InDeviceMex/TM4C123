@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 24 TBPS *********************************************
+************************************ 24 GPTMTBPS *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TB_TnPS_R_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPWTM_TB_TnPS_R_PSS_BIT    (0UL)
+#define GPWTM_TB_GPTMTnPS_R_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPWTM_TB_GPTMTnPS_R_PSS_BIT    (0UL)
 
-#define GPWTM_TB_TnPS_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPWTM_TB_GPTMTnPS_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_32_TIMER_REGISTERDEFINES_MODULEB_32_PS_H_ */

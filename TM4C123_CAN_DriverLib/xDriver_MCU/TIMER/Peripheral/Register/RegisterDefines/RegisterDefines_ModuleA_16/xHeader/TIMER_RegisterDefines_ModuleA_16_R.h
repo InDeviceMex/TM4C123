@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 18 TAR *********************************************
+************************************ 18 GPTMTAR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TA_TnR_R_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPTM_TA_TnR_R_TnR_BIT    (0UL)
+#define GPTM_TA_GPTMTnR_R_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPTM_TA_GPTMTnR_R_TnR_BIT    (0UL)
 
-#define GPTM_TA_TnR_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPTM_TA_GPTMTnR_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEA_16_TIMER_REGISTERDEFINES_MODULEA_16_R_H_ */

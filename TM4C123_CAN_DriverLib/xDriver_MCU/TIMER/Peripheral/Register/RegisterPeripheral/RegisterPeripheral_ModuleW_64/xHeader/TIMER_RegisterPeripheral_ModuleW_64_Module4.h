@@ -32,94 +32,94 @@
 #define GPWTM4_TW    (((GPWTM_TW_TypeDef*) (GPWTM4_BASE)))
 
 /******************************************************************************************
-************************************ 2 TAMR *********************************************
+************************************ 2 GPTMTAMR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnMR    ((TW_GPTMMR_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnMR_OFFSET))
-#define GPWTM4_TW_TnMR_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnMR_OFFSET)))
+#define GPWTM4_TW_GPTMTnMR    ((TW_GPTMMR_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMR_OFFSET))
+#define GPWTM4_TW_GPTMTnMR_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMR_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 CTL *********************************************
+************************************ 4 GPTMCTL *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnCTL    ((TW_GPTMCTL_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnCTL_OFFSET))
-#define GPWTM4_TW_TnCTL_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnCTL_OFFSET)))
+#define GPWTM4_TW_GPTMTnCTL    ((TW_GPTMCTL_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnCTL_OFFSET))
+#define GPWTM4_TW_GPTMTnCTL_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnCTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 IMR *********************************************
+************************************ 6 GPTMIMR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnIMR    ((TW_GPWTMIMR_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnIMR_OFFSET))
-#define GPWTM4_TW_TnIMR_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnIMR_OFFSET)))
+#define GPWTM4_TW_GPTMTnIMR    ((TW_GPWTMIMR_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnIMR_OFFSET))
+#define GPWTM4_TW_GPTMTnIMR_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnIMR_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 RIS *********************************************
+************************************ 7 GPTMRIS *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnRIS    ((TW_GPWTMRIS_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnRIS_OFFSET))
-#define GPWTM4_TW_TnRIS_R    (*((volatile const uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnRIS_OFFSET)))
+#define GPWTM4_TW_GPTMTnRIS    ((TW_GPWTMRIS_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnRIS_OFFSET))
+#define GPWTM4_TW_GPTMTnRIS_R    (*((volatile const uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnRIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 MIS *********************************************
+************************************ 8 GPTMMIS *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnMIS    ((TW_GPWTMMIS_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnMIS_OFFSET))
-#define GPWTM4_TW_TnMIS_R    (*((volatile const uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnMIS_OFFSET)))
+#define GPWTM4_TW_GPTMTnMIS    ((TW_GPWTMMIS_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMIS_OFFSET))
+#define GPWTM4_TW_GPTMTnMIS_R    (*((volatile const uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 ICR *********************************************
+************************************ 9 GPTMICR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnICR    ((TW_GPWTMICR_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnICR_OFFSET))
-#define GPWTM4_TW_TnICR_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnICR_OFFSET)))
+#define GPWTM4_TW_GPTMTnICR    ((TW_GPWTMICR_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnICR_OFFSET))
+#define GPWTM4_TW_GPTMTnICR_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnICR_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 TAILR *********************************************
+************************************ 10 GPTMTAILR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnILR_LOW    ((TW_GPWTMILR_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnILR_LOW_OFFSET))
-#define GPWTM4_TW_TnILR_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnILR_LOW_OFFSET)))
+#define GPWTM4_TW_GPTMTnILR_LOW    ((TW_GPWTMILR_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET))
+#define GPWTM4_TW_GPTMTnILR_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnILR_LOW_OFFSET)))
 
 /******************************************************************************************
-************************************ 11 TBILR *********************************************
+************************************ 11 GPTMTBILR *********************************************
 ******************************************************************************************/
 
-#define GPWTM4_TW_TnILR_HIGH    ((TW_GPWTMILR_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnILR_HIGH_OFFSET))
-#define GPWTM4_TW_TnILR_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnILR_HIGH_OFFSET)))
-
-/******************************************************************************************
-************************************ 12 TAMATCHR *********************************************
-******************************************************************************************/
-#define GPWTM4_TW_TnMATCHR_LOW    ((TW_GPWTMMATCHR_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnMATCHR_LOW_OFFSET))
-#define GPWTM4_TW_TnMATCHR_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnMATCHR_LOW_OFFSET)))
+#define GPWTM4_TW_GPTMTnILR_HIGH    ((TW_GPWTMILR_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET))
+#define GPWTM4_TW_GPTMTnILR_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnILR_HIGH_OFFSET)))
 
 /******************************************************************************************
-************************************ 13 TBMATCHR *********************************************
+************************************ 12 GPTMTAMATCHR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnMATCHR_HIGH    ((TW_GPWTMMATCHR_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnMATCHR_HIGH_OFFSET))
-#define GPWTM4_TW_TnMATCHR_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnMATCHR_HIGH_OFFSET)))
+#define GPWTM4_TW_GPTMTnMATCHR_LOW    ((TW_GPWTMMATCHR_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET))
+#define GPWTM4_TW_GPTMTnMATCHR_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_LOW_OFFSET)))
 
 /******************************************************************************************
-************************************ 18 TAR *********************************************
+************************************ 13 GPTMTBMATCHR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnR_LOW    ((TW_GPWTMR_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnR_LOW_OFFSET))
-#define GPWTM4_TW_TnR_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnR_LOW_OFFSET)))
+#define GPWTM4_TW_GPTMTnMATCHR_HIGH    ((TW_GPWTMMATCHR_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET))
+#define GPWTM4_TW_GPTMTnMATCHR_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnMATCHR_HIGH_OFFSET)))
 
 /******************************************************************************************
-************************************ 19 TBR *********************************************
+************************************ 18 GPTMTAR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnR_HIGH    ((TW_GPWTMR_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnR_HIGH_OFFSET))
-#define GPWTM4_TW_TnR_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnR_HIGH_OFFSET)))
+#define GPWTM4_TW_GPTMTnR_LOW    ((TW_GPWTMR_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET))
+#define GPWTM4_TW_GPTMTnR_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnR_LOW_OFFSET)))
 
 /******************************************************************************************
-************************************ 20 TAV *********************************************
+************************************ 19 GPTMTBR *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnV_LOW    ((TW_GPWTMV_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnV_LOW_OFFSET))
-#define GPWTM4_TW_TnV_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnV_LOW_OFFSET)))
+#define GPWTM4_TW_GPTMTnR_HIGH    ((TW_GPWTMR_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET))
+#define GPWTM4_TW_GPTMTnR_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnR_HIGH_OFFSET)))
 
 /******************************************************************************************
-************************************ 21 TBV *********************************************
+************************************ 20 GPTMTAV *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_TnV_HIGH    ((TW_GPWTMV_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_TnV_HIGH_OFFSET))
-#define GPWTM4_TW_TnV_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_TnV_HIGH_OFFSET)))
+#define GPWTM4_TW_GPTMTnV_LOW    ((TW_GPWTMV_LOW_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET))
+#define GPWTM4_TW_GPTMTnV_LOW_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnV_LOW_OFFSET)))
 
 /******************************************************************************************
-************************************ 22 RTCPD *********************************************
+************************************ 21 GPTMTBV *********************************************
 ******************************************************************************************/
-#define GPWTM4_TW_RTCPD    ((TW_GPTMRTCPD_TypeDef*) (GPWTM4_BASE + GPWTM_TW_RTCPD_OFFSET))
-#define GPWTM4_TW_RTCPD_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_RTCPD_OFFSET)))
+#define GPWTM4_TW_GPTMTnV_HIGH    ((TW_GPWTMV_HIGH_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET))
+#define GPWTM4_TW_GPTMTnV_HIGH_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMTnV_HIGH_OFFSET)))
+
+/******************************************************************************************
+************************************ 22 GPTMRTCPD *********************************************
+******************************************************************************************/
+#define GPWTM4_TW_GPTMRTCPD    ((TW_GPTMRTCPD_TypeDef*) (GPWTM4_BASE + GPWTM_TW_GPTMRTCPD_OFFSET))
+#define GPWTM4_TW_GPTMRTCPD_R    (*((volatile uint32_t*) (GPWTM4_BASE + GPWTM_TW_GPTMRTCPD_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_MODULEW_64_TIMER_REGISTERPERIPHERAL_MODULEW_64_MODULE4_H_ */

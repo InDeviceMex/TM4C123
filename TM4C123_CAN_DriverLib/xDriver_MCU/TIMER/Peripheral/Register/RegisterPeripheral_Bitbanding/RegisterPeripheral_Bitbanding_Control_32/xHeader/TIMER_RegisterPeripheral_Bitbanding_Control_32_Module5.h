@@ -31,13 +31,13 @@
 #define GPTM5_BITBANDING_CTL    ((GPTM_BITBANDING_CTL_TypeDef*) (GPTM_BITBANDING_BASE + (GPTM5_OFFSET * 32UL)))
 
 /******************************************************************************************
-*********************************** * 1 CFG *********************************************
+*********************************** * 1 GPTMCFG *********************************************
 ******************************************************************************************/
-#define GPTM5_BITBANDING_CTL_CFG    ((BITBANDING_GPTMCFG_TypeDef*) (GPTM_BITBANDING_BASE + ((GPTM5_OFFSET + GPTM_CTL_CFG_OFFSET) * 32UL)))
+#define GPTM5_BITBANDING_CTL_GPTMCFG    ((BITBANDING_GPTMCFG_TypeDef*) (GPTM_BITBANDING_BASE + ((GPTM5_OFFSET + GPTM_CTL_GPTMCFG_OFFSET) * 32UL)))
 
 /******************************************************************************************
-*********************************** * 27 PP *********************************************
+*********************************** * 27 GPTMPP *********************************************
 ******************************************************************************************/
-#define GPTM5_BITBANDING_CTL_PP    ((BITBANDING_GPTMPP_TypeDef*) (GPTM_BITBANDING_BASE + ((GPTM5_OFFSET + GPTM_CTL_PP_OFFSET) * 32UL)))
+#define GPTM5_BITBANDING_CTL_GPTMPP    ((BITBANDING_GPTMPP_TypeDef*) (GPTM_BITBANDING_BASE + ((GPTM5_OFFSET + GPTM_CTL_GPTMPP_OFFSET) * 32UL)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_BITBANDING_TIMER_REGISTERPERIPHERAL_BITBANDING_CONTROL_32_TIMER_REGISTERPERIPHERAL_BITBANDING_CONTROL_32_MODULE5_H_ */

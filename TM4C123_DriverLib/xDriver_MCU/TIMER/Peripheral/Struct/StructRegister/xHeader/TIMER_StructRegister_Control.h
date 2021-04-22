@@ -33,7 +33,7 @@
 
 typedef volatile struct
 {
-    volatile uint32_t CFG :3;
+    volatile uint32_t GPTMCFG :3;
     const uint32_t reserved :29;
 }GPTMCFG_TypeDef;
 

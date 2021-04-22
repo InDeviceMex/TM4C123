@@ -28,10 +28,10 @@
 
 void TIMER__vSetWaitTrigger(TIMER_nMODULE enModule, TIMER_nWAIT enWaitTriggerParam)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enWaitTriggerParam, GPTM_TA_TnMR_TnWOT_MASK, GPTM_TA_TnMR_R_TnWOT_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enWaitTriggerParam, GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
 }
 
 TIMER_nWAIT TIMER__enGetWaitTrigger(TIMER_nMODULE enModule)
 {
-    return (TIMER_nWAIT) TIMER__u32GetModeGeneric(enModule, GPTM_TA_TnMR_TnWOT_MASK, GPTM_TA_TnMR_R_TnWOT_BIT);
+    return (TIMER_nWAIT) TIMER__u32GetModeGeneric(enModule, GPTM_TA_GPTMTnMR_TnWOT_MASK, GPTM_TA_GPTMTnMR_R_TnWOT_BIT);
 }

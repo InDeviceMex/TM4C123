@@ -61,36 +61,36 @@ void WTIMER3A__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = GPWTM3_TW_TnMIS_R;
+    u32Reg = GPWTM3_TW_GPTMTnMIS_R;
 
     if((uint32_t) TIMER_enINT_TA_TIMEOUT & u32Reg)
     {
-        GPWTM3_TW_TnICR_R = (uint32_t) TIMER_enINT_TA_TIMEOUT;
+        GPWTM3_TW_GPTMTnICR_R = (uint32_t) TIMER_enINT_TA_TIMEOUT;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_A][(uint32_t) TIMER_enMODULE_NUM_3][(uint32_t) TIMER_enINTERRUPT_TIMEOUT]();
     }
     if((uint32_t) TIMER_enINT_TA_CAPTURE_MATCH & u32Reg)
     {
-        GPWTM3_TW_TnICR_R = (uint32_t) TIMER_enINT_TA_CAPTURE_MATCH;
+        GPWTM3_TW_GPTMTnICR_R = (uint32_t) TIMER_enINT_TA_CAPTURE_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_A][(uint32_t) TIMER_enMODULE_NUM_3][(uint32_t) TIMER_enINTERRUPT_CAPTURE_MATCH]();
     }
     if((uint32_t) TIMER_enINT_TA_CAPTURE_EVENT & u32Reg)
     {
-        GPWTM3_TW_TnICR_R = (uint32_t) TIMER_enINT_TA_CAPTURE_EVENT;
+        GPWTM3_TW_GPTMTnICR_R = (uint32_t) TIMER_enINT_TA_CAPTURE_EVENT;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_A][(uint32_t) TIMER_enMODULE_NUM_3][(uint32_t) TIMER_enINTERRUPT_CAPTURE_EVENT]();
     }
     if((uint32_t) TIMER_enINT_TA_MATCH & u32Reg)
     {
-        GPWTM3_TW_TnICR_R = (uint32_t) TIMER_enINT_TA_MATCH;
+        GPWTM3_TW_GPTMTnICR_R = (uint32_t) TIMER_enINT_TA_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_A][(uint32_t) TIMER_enMODULE_NUM_3][(uint32_t) TIMER_enINTERRUPT_MATCH]();
     }
     if((uint32_t) TIMER_enINT_TW_RTC & u32Reg)
     {
-        GPWTM3_TW_TnICR_R = (uint32_t) TIMER_enINT_TW_RTC;
+        GPWTM3_TW_GPTMTnICR_R = (uint32_t) TIMER_enINT_TW_RTC;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_A][(uint32_t) TIMER_enMODULE_NUM_3][(uint32_t) TIMER_enINTERRUPT_RTC]();
     }
     if((uint32_t) TIMER_enINT_TW_WRITE_UPDATE & u32Reg)
     {
-        GPWTM3_TW_TnICR_R = (uint32_t) TIMER_enINT_TW_WRITE_UPDATE;
+        GPWTM3_TW_GPTMTnICR_R = (uint32_t) TIMER_enINT_TW_WRITE_UPDATE;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_64][(uint32_t) TIMER_enSUBMODULE_A][(uint32_t) TIMER_enMODULE_NUM_3][(uint32_t) TIMER_enINTERRUPT_WRITE_UPDATE]();
     }
 

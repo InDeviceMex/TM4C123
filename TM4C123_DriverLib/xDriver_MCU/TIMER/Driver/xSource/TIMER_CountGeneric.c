@@ -229,9 +229,9 @@ uint64_t  TIMER_u64GetCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMo
 
     u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-    u32TimerRegisterHigh = u32TimerBase + GPTM_TBR_OFFSET;
-    u32TimerRegisterPredivider = u32TimerBase + GPTM_RTCPD_OFFSET;
-    u32TimerRegisterLow = u32TimerBase + GPTM_TAR_OFFSET;
+    u32TimerRegisterHigh = u32TimerBase + GPTM_GPTMTBR_OFFSET;
+    u32TimerRegisterPredivider = u32TimerBase + GPTM_GPTMRTCPD_OFFSET;
+    u32TimerRegisterLow = u32TimerBase + GPTM_GPTMTAR_OFFSET;
 
     do
     {
@@ -268,9 +268,9 @@ uint64_t  TIMER_u64GetFreeCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM 
 
     u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-    u32TimerRegisterHigh = u32TimerBase + GPTM_TBV_OFFSET;
-    u32TimerRegisterPredivider = u32TimerBase + GPTM_RTCPD_OFFSET;
-    u32TimerRegisterLow = u32TimerBase + GPTM_TAV_OFFSET;
+    u32TimerRegisterHigh = u32TimerBase + GPTM_GPTMTBV_OFFSET;
+    u32TimerRegisterPredivider = u32TimerBase + GPTM_GPTMRTCPD_OFFSET;
+    u32TimerRegisterLow = u32TimerBase + GPTM_GPTMTAV_OFFSET;
 
     do
     {

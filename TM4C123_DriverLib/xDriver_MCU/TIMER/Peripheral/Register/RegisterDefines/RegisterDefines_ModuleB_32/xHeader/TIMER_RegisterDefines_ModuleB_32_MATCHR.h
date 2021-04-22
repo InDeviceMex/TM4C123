@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 12 TBMATCHR *********************************************
+************************************ 12 GPTMTBMATCHR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TB_TnMATCHR_R_TnMR_MASK    ((uint32_t) 0xFFFFFFFFUL)
-#define GPWTM_TB_TnMATCHR_R_TnMR_BIT    (0UL)
+#define GPWTM_TB_GPTMTnMATCHR_R_TnMR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPWTM_TB_GPTMTnMATCHR_R_TnMR_BIT    (0UL)
 
-#define GPWTM_TB_TnMATCHR_TnMR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPWTM_TB_GPTMTnMATCHR_TnMR_MASK    ((uint32_t) 0xFFFFFFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_32_TIMER_REGISTERDEFINES_MODULEB_32_MATCHR_H_ */

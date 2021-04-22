@@ -31,14 +31,14 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t CFG;
-        GPTMCFG_TypeDef CFG_Bit;
+        volatile uint32_t GPTMCFG;
+        GPTMCFG_TypeDef GPTMCFG_Bit;
     };
     const uint32_t reserved1 [1007UL];
     union
     {
-        volatile uint32_t PP;
-        GPTMPP_TypeDef PP_Bit;
+        volatile uint32_t GPTMPP;
+        GPTMPP_TypeDef GPTMPP_Bit;
     };
     const uint32_t reserved2 [15UL];
 }GPWTM_CTL_TypeDef;

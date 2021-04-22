@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 26 TBPV *********************************************
+************************************ 26 GPTMTBPV *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TBPV_R_PSV_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPWTM_TBPV_R_PSV_BIT    (0UL)
+#define GPWTM_GPTMTBPV_R_PSV_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPWTM_GPTMTBPV_R_PSV_BIT    (0UL)
 
-#define GPWTM_TBPV_PSV_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPWTM_GPTMTBPV_PSV_MASK    ((uint32_t) 0x0000FFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_64_TIMER_REGISTERDEFINES_STANDARD_64_TBPV_H_ */

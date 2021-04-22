@@ -61,26 +61,26 @@ void TIMER5B__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = (uint32_t) GPTM5_TB_TnMIS_R;
+    u32Reg = (uint32_t) GPTM5_TB_GPTMTnMIS_R;
 
     if((uint32_t) TIMER_enINT_TB_TIMEOUT & u32Reg)
     {
-        GPTM5_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_TIMEOUT;
+        GPTM5_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_TIMEOUT;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_5][(uint32_t) TIMER_enINTERRUPT_TIMEOUT]();
     }
     if((uint32_t) TIMER_enINT_TB_CAPTURE_MATCH & u32Reg)
     {
-        GPTM5_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_MATCH;
+        GPTM5_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_5][(uint32_t) TIMER_enINTERRUPT_CAPTURE_MATCH]();
     }
     if((uint32_t) TIMER_enINT_TB_CAPTURE_EVENT & u32Reg)
     {
-        GPTM5_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_EVENT;
+        GPTM5_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_CAPTURE_EVENT;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_5][(uint32_t) TIMER_enINTERRUPT_CAPTURE_EVENT]();
     }
     if((uint32_t) TIMER_enINT_TB_MATCH & u32Reg)
     {
-        GPTM5_TB_TnICR_R = (uint32_t) TIMER_enINT_TB_MATCH;
+        GPTM5_TB_GPTMTnICR_R = (uint32_t) TIMER_enINT_TB_MATCH;
         TIMER__vIRQSourceHandler[(uint32_t) TIMER_enSIZE_32][(uint32_t) TIMER_enSUBMODULE_B][(uint32_t) TIMER_enMODULE_NUM_5][(uint32_t) TIMER_enINTERRUPT_MATCH]();
     }
 }

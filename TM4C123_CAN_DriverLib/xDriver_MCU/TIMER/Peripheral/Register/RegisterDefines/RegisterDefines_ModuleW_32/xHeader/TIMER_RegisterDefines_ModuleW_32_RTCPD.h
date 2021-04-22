@@ -28,17 +28,17 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 22 RTCPD *********************************************
+************************************ 22 GPTMRTCPD *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TW_RTCPD_R_RTCPD_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPTM_TW_RTCPD_R_RTCPD_BIT    (0UL)
-#define GPTM_TW_RTCPD_R_RTCPD_DEFAULT    ((uint32_t) 0x00007FFFUL)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_BIT    (0UL)
+#define GPTM_TW_GPTMRTCPD_R_RTCPD_DEFAULT    ((uint32_t) 0x00007FFFUL)
 
 
-#define GPTM_TW_RTCPD_RTCPD_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPTM_TW_RTCPD_RTCPD_DEFAULT    ((uint32_t) 0x00007FFFUL)
+#define GPTM_TW_GPTMRTCPD_RTCPD_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPTM_TW_GPTMRTCPD_RTCPD_DEFAULT    ((uint32_t) 0x00007FFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEW_32_TIMER_REGISTERDEFINES_MODULEW_32_RTCPD_H_ */

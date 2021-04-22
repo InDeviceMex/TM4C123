@@ -67,7 +67,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                 {
                     case TIMER_enCONFIG_WIDE:
                     case TIMER_enCONFIG_RTC:
-                        sCount32Config.u32CountRegister = GPTM_TAR_OFFSET;
+                        sCount32Config.u32CountRegister = GPTM_GPTMTAR_OFFSET;
                         sCount32Config.u32CountMask = 0xFFFFFFFFUL;
                         sCount32Config.u32CountShiftRight = 0UL;
                         sCount32Config.pu32CountValue = &TimerValue;
@@ -85,7 +85,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                             enDirectionVar = TIMER__enGetCountDir(enModule);
                             enSnapshotVar = TIMER__enGetSnapShot(enModule);
 
-                            sCount64Config.u32CountHighRegister = GPTM_TAR_OFFSET + (4UL * u32SubModule);
+                            sCount64Config.u32CountHighRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);
                             sCount64Config.u32CountHighMask = 0xFFFFUL;
                             sCount64Config.u32CountLowMask = 0xFFUL;
                             sCount64Config.u32CountHighShiftRight = 0UL;
@@ -97,12 +97,12 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                                 sCount64Config.u32CountLowShiftLeft = 0UL;
                                 if(TIMER_enSNAPSHOT_DIS == enSnapshotVar)
                                 {
-                                    sCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                                    sCount64Config.u32CountLowRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
                                     sCount64Config.u32CountLowShiftRight = 16UL;
                                 }
                                 else
                                 {
-                                    sCount64Config.u32CountLowRegister = GPTM_TAPS_OFFSET + (4UL * u32SubModule);
+                                    sCount64Config.u32CountLowRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);
                                     sCount64Config.u32CountLowShiftRight = 0UL;
 
                                 }
@@ -113,12 +113,12 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                                 sCount64Config.u32CountLowShiftLeft = 16UL;
                                 if(TIMER_enSNAPSHOT_DIS == enSnapshotVar)
                                 {
-                                    sCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                                    sCount64Config.u32CountLowRegister = GPTM_GPTMTAV_OFFSET + (4UL * u32SubModule);
                                     sCount64Config.u32CountLowShiftRight = 16UL;
                                 }
                                 else
                                 {
-                                    sCount64Config.u32CountLowRegister = GPTM_TAPS_OFFSET + (4UL * u32SubModule);
+                                    sCount64Config.u32CountLowRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);
                                     sCount64Config.u32CountLowShiftRight = 0UL;
                                 }
                             }
@@ -127,7 +127,7 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                         /*Edge count, Edge Time or PWM*/
                         else
                         {
-                            sCount32Config.u32CountRegister = GPTM_TAR_OFFSET + (4UL * u32SubModule);
+                            sCount32Config.u32CountRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);
                             sCount32Config.u32CountMask = 0xFFFFFFUL;
                             sCount32Config.u32CountShiftRight = 0UL;
                             sCount32Config.pu32CountValue = &TimerValue;
@@ -146,12 +146,12 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                 switch (enConfigVar)
                 {
                     case TIMER_enCONFIG_WIDE:
-                        sCount64Config.u32CountHighRegister = GPTM_TBR_OFFSET;
+                        sCount64Config.u32CountHighRegister = GPTM_GPTMTBR_OFFSET;
                         sCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
                         sCount64Config.u32CountHighShiftRight = 0UL;
                         sCount64Config.u32CountHighShiftLeft = 32UL;
 
-                        sCount64Config.u32CountLowRegister = GPTM_TAR_OFFSET;
+                        sCount64Config.u32CountLowRegister = GPTM_GPTMTAR_OFFSET;
                         sCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
                         sCount64Config.u32CountLowShiftRight = 0UL;
                         sCount64Config.u32CountLowShiftLeft = 0UL;
@@ -179,22 +179,22 @@ TIMER_nSTATUS TIMER__enGetCount(TIMER_nMODULE enModule, uint64_t* pu64Count)
                         /*One shot and periodic Down, no PWM no Capture*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
-                            sCount64Config.u32CountHighRegister = GPTM_TAR_OFFSET + (4UL * u32SubModule);
+                            sCount64Config.u32CountHighRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);
                             sCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
                             sCount64Config.u32CountHighShiftLeft = 16UL;
 
-                            sCount64Config.u32CountLowRegister = GPTM_TAPS_OFFSET + (4UL * u32SubModule);
+                            sCount64Config.u32CountLowRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);
                             sCount64Config.u32CountLowMask = 0xFFFFUL;
                         }
                         /*Time Extension*/
                         /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
-                            sCount64Config.u32CountHighRegister = GPTM_TAPS_OFFSET + (4UL * u32SubModule);
+                            sCount64Config.u32CountHighRegister = GPTM_GPTMTAPS_OFFSET + (4UL * u32SubModule);
                             sCount64Config.u32CountHighMask = 0xFFFFUL;
                             sCount64Config.u32CountHighShiftLeft = 32UL;
 
-                            sCount64Config.u32CountLowRegister = GPTM_TAR_OFFSET + (4UL * u32SubModule);
+                            sCount64Config.u32CountLowRegister = GPTM_GPTMTAR_OFFSET + (4UL * u32SubModule);
                             sCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
 
                         }

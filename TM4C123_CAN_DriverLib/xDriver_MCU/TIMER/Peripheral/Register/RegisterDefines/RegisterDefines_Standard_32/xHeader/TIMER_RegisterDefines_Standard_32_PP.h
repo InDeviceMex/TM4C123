@@ -28,19 +28,19 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 27 PP *********************************************
+************************************ 27 GPTMPP *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_PP_R_SIZE_MASK    ((uint32_t) 0x0000000FUL)
-#define GPTM_PP_R_SIZE_BIT    (0UL)
-#define GPTM_PP_R_SIZE_16b    ((uint32_t) 0x00000000UL)
-#define GPTM_PP_R_SIZE_32b    ((uint32_t) 0x00000001UL)
+#define GPTM_GPTMPP_R_SIZE_MASK    ((uint32_t) 0x0000000FUL)
+#define GPTM_GPTMPP_R_SIZE_BIT    (0UL)
+#define GPTM_GPTMPP_R_SIZE_16b    ((uint32_t) 0x00000000UL)
+#define GPTM_GPTMPP_R_SIZE_32b    ((uint32_t) 0x00000001UL)
 
-#define GPTM_PP_SIZE_MASK    ((uint32_t) 0x0000000FUL)
-#define GPTM_PP_SIZE_BOTH    ((uint32_t) 0x00000000UL)
-#define GPTM_PP_SIZE_16b    ((uint32_t) 0x00000000UL)
-#define GPTM_PP_SIZE_32b    ((uint32_t) 0x00000001UL)
+#define GPTM_GPTMPP_SIZE_MASK    ((uint32_t) 0x0000000FUL)
+#define GPTM_GPTMPP_SIZE_BOTH    ((uint32_t) 0x00000000UL)
+#define GPTM_GPTMPP_SIZE_16b    ((uint32_t) 0x00000000UL)
+#define GPTM_GPTMPP_SIZE_32b    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_32_TIMER_REGISTERDEFINES_STANDARD_32_PP_H_ */

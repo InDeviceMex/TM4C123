@@ -31,69 +31,69 @@
 #define GPTM0_TW    (((GPTM_TW_TypeDef*) (GPTM0_BASE)))
 
 /******************************************************************************************
-************************************ 2 TAMR *********************************************
+************************************ 2 GPTMTAMR *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnMR    ((TW_GPTMMR_TypeDef*) (GPTM0_BASE + GPTM_TW_TnMR_OFFSET))
-#define GPTM0_TW_TnMR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnMR_OFFSET)))
+#define GPTM0_TW_GPTMTnMR    ((TW_GPTMMR_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnMR_OFFSET))
+#define GPTM0_TW_GPTMTnMR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnMR_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 CTL *********************************************
+************************************ 4 GPTMCTL *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnCTL    ((TW_GPTMCTL_TypeDef*) (GPTM0_BASE + GPTM_TW_TnCTL_OFFSET))
-#define GPTM0_TW_TnCTL_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnCTL_OFFSET)))
+#define GPTM0_TW_GPTMTnCTL    ((TW_GPTMCTL_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnCTL_OFFSET))
+#define GPTM0_TW_GPTMTnCTL_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnCTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 IMR *********************************************
+************************************ 6 GPTMIMR *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnIMR    ((TW_GPTMIMR_TypeDef*) (GPTM0_BASE + GPTM_TW_TnIMR_OFFSET))
-#define GPTM0_TW_TnIMR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnIMR_OFFSET)))
+#define GPTM0_TW_GPTMTnIMR    ((TW_GPTMIMR_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnIMR_OFFSET))
+#define GPTM0_TW_GPTMTnIMR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnIMR_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 RIS *********************************************
+************************************ 7 GPTMRIS *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnRIS    ((TW_GPTMRIS_TypeDef*) (GPTM0_BASE + GPTM_TW_TnRIS_OFFSET))
-#define GPTM0_TW_TnRIS_R    (*((volatile const uint32_t*) (GPTM0_BASE + GPTM_TW_TnRIS_OFFSET)))
+#define GPTM0_TW_GPTMTnRIS    ((TW_GPTMRIS_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnRIS_OFFSET))
+#define GPTM0_TW_GPTMTnRIS_R    (*((volatile const uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnRIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 MIS *********************************************
+************************************ 8 GPTMMIS *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnMIS    ((TW_GPTMMIS_TypeDef*) (GPTM0_BASE + GPTM_TW_TnMIS_OFFSET))
-#define GPTM0_TW_TnMIS_R    (*((volatile const uint32_t*) (GPTM0_BASE + GPTM_TW_TnMIS_OFFSET)))
+#define GPTM0_TW_GPTMTnMIS    ((TW_GPTMMIS_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnMIS_OFFSET))
+#define GPTM0_TW_GPTMTnMIS_R    (*((volatile const uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnMIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 ICR *********************************************
+************************************ 9 GPTMICR *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnICR    ((TW_GPTMICR_TypeDef*) (GPTM0_BASE + GPTM_TW_TnICR_OFFSET))
-#define GPTM0_TW_TnICR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnICR_OFFSET)))
+#define GPTM0_TW_GPTMTnICR    ((TW_GPTMICR_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnICR_OFFSET))
+#define GPTM0_TW_GPTMTnICR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnICR_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 TAILR *********************************************
+************************************ 10 GPTMTAILR *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnILR    ((TW_GPTMILR_TypeDef*) (GPTM0_BASE + GPTM_TW_TnILR_OFFSET))
-#define GPTM0_TW_TnILR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnILR_OFFSET)))
+#define GPTM0_TW_GPTMTnILR    ((TW_GPTMILR_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnILR_OFFSET))
+#define GPTM0_TW_GPTMTnILR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnILR_OFFSET)))
 
 /******************************************************************************************
-************************************ 12 TAMATCHR *********************************************
+************************************ 12 GPTMTAMATCHR *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnMATCHR    ((TW_GPTMMATCHR_TypeDef*) (GPTM0_BASE + GPTM_TW_TnMATCHR_OFFSET))
-#define GPTM0_TW_TnMATCHR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnMATCHR_OFFSET)))
+#define GPTM0_TW_GPTMTnMATCHR    ((TW_GPTMMATCHR_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET))
+#define GPTM0_TW_GPTMTnMATCHR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnMATCHR_OFFSET)))
 
 /******************************************************************************************
-************************************ 18 TAR *********************************************
+************************************ 18 GPTMTAR *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnR    ((TW_GPTMR_TypeDef*) (GPTM0_BASE + GPTM_TW_TnR_OFFSET))
-#define GPTM0_TW_TnR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnR_OFFSET)))
+#define GPTM0_TW_GPTMTnR    ((TW_GPTMR_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnR_OFFSET))
+#define GPTM0_TW_GPTMTnR_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnR_OFFSET)))
 
 /******************************************************************************************
-************************************ 20 TAV *********************************************
+************************************ 20 GPTMTAV *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_TnV    ((TW_GPTMV_TypeDef*) (GPTM0_BASE + GPTM_TW_TnV_OFFSET))
-#define GPTM0_TW_TnV_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_TnV_OFFSET)))
+#define GPTM0_TW_GPTMTnV    ((TW_GPTMV_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMTnV_OFFSET))
+#define GPTM0_TW_GPTMTnV_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMTnV_OFFSET)))
 
 /******************************************************************************************
-************************************ 22 RTCPD *********************************************
+************************************ 22 GPTMRTCPD *********************************************
 ******************************************************************************************/
-#define GPTM0_TW_RTCPD    ((TW_GPTMRTCPD_TypeDef*) (GPTM0_BASE + GPTM_TW_RTCPD_OFFSET))
-#define GPTM0_TW_RTCPD_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_RTCPD_OFFSET)))
+#define GPTM0_TW_GPTMRTCPD    ((TW_GPTMRTCPD_TypeDef*) (GPTM0_BASE + GPTM_TW_GPTMRTCPD_OFFSET))
+#define GPTM0_TW_GPTMRTCPD_R    (*((volatile uint32_t*) (GPTM0_BASE + GPTM_TW_GPTMRTCPD_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_MODULEW_32_TIMER_REGISTERPERIPHERAL_MODULEW_32_MODULE0_H_ */

@@ -28,51 +28,51 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 7 RIS *********************************************
+************************************ 7 GPTMRIS *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TA_TnRIS_R_TnTORIS_MASK    ((uint32_t) 0x00000001UL)
-#define GPWTM_TA_TnRIS_R_TnTORIS_BIT    (0UL)
-#define GPWTM_TA_TnRIS_R_TnTORIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_R_TnTORIS_ACTIVE    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnTORIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnTORIS_BIT    (0UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnTORIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnTORIS_ACTIVE    ((uint32_t) 0x00000001UL)
 
-#define GPWTM_TA_TnRIS_TnTORIS_MASK    ((uint32_t) 0x00000001UL)
-#define GPWTM_TA_TnRIS_TnTORIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_TnTORIS_ACTIVE    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_TnTORIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_TnTORIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_TnTORIS_ACTIVE    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TA_TnRIS_R_CnMRIS_MASK    ((uint32_t) 0x00000002UL)
-#define GPWTM_TA_TnRIS_R_CnMRIS_BIT    (1UL)
-#define GPWTM_TA_TnRIS_R_CnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_R_CnMRIS_ACTIVE    ((uint32_t) 0x00000002UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnMRIS_MASK    ((uint32_t) 0x00000002UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnMRIS_BIT    (1UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnMRIS_ACTIVE    ((uint32_t) 0x00000002UL)
 
-#define GPWTM_TA_TnRIS_CnMRIS_MASK    ((uint32_t) 0x00000001UL)
-#define GPWTM_TA_TnRIS_CnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_CnMRIS_ACTIVE    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_CnMRIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_CnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_CnMRIS_ACTIVE    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TA_TnRIS_R_CnERIS_MASK    ((uint32_t) 0x00000004UL)
-#define GPWTM_TA_TnRIS_R_CnERIS_BIT    (2UL)
-#define GPWTM_TA_TnRIS_R_CnERIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_R_CnERIS_ACTIVE    ((uint32_t) 0x00000004UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnERIS_MASK    ((uint32_t) 0x00000004UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnERIS_BIT    (2UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnERIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_R_CnERIS_ACTIVE    ((uint32_t) 0x00000004UL)
 
-#define GPWTM_TA_TnRIS_CnERIS_MASK    ((uint32_t) 0x00000001UL)
-#define GPWTM_TA_TnRIS_CnERIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_CnERIS_ACTIVE    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_CnERIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_CnERIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_CnERIS_ACTIVE    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TA_TnRIS_R_TnMRIS_MASK    ((uint32_t) 0x00000010UL)
-#define GPWTM_TA_TnRIS_R_TnMRIS_BIT    (4UL)
-#define GPWTM_TA_TnRIS_R_TnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_R_TnMRIS_ACTIVE    ((uint32_t) 0x00000010UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnMRIS_MASK    ((uint32_t) 0x00000010UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnMRIS_BIT    (4UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_R_TnMRIS_ACTIVE    ((uint32_t) 0x00000010UL)
 
-#define GPWTM_TA_TnRIS_TnMRIS_MASK    ((uint32_t) 0x00000001UL)
-#define GPWTM_TA_TnRIS_TnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
-#define GPWTM_TA_TnRIS_TnMRIS_ACTIVE    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_TnMRIS_MASK    ((uint32_t) 0x00000001UL)
+#define GPWTM_TA_GPTMTnRIS_TnMRIS_NOACTIVE    ((uint32_t) 0x00000000UL)
+#define GPWTM_TA_GPTMTnRIS_TnMRIS_ACTIVE    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEA_32_TIMER_REGISTERDEFINES_MODULEA_32_RIS_H_ */

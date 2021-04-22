@@ -76,7 +76,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPar
     }
 #endif
     u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule, enInterruptParam);
-    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_IMR_OFFSET, u32InterruptValue, u32InterruptValue, 0UL);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMIMR_OFFSET, u32InterruptValue, u32InterruptValue, 0UL);
 }
 
 void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
@@ -105,7 +105,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
     }
 #endif
     u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule, enInterruptParam);
-    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_IMR_OFFSET, 0UL, u32InterruptValue, 0UL);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMIMR_OFFSET, 0UL, u32InterruptValue, 0UL);
 }
 
 void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
@@ -116,7 +116,7 @@ void TIMER__vClearInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterrupt
     uint32_t u32ModuleNumber = 0UL;
     TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule, enInterruptParam);
-    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_ICR_OFFSET, u32InterruptValue, u32InterruptValue, 0UL);
+    TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMICR_OFFSET, u32InterruptValue, u32InterruptValue, 0UL);
 }
 
 TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptParam)
@@ -131,7 +131,7 @@ TIMER_nINT_STATUS TIMER__enStatusInterruptSource(TIMER_nMODULE enModule, TIMER_n
     TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32InterruptValue = TIMER__u32GetInterruptValue( (TIMER_nSUBMODULE) u32SubModule, enInterruptParam);
     u32InterruptMask = u32InterruptValue;
-    enStatus = TIMER__enReadRegister((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_RIS_OFFSET, &u32InterruptValue, u32InterruptMask, 0UL);
+    enStatus = TIMER__enReadRegister((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMRIS_OFFSET, &u32InterruptValue, u32InterruptMask, 0UL);
     if(TIMER_enSTATUS_OK == enStatus)
     {
         if(0UL != u32InterruptValue)

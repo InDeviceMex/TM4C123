@@ -33,18 +33,18 @@ void TIMER__vSetSubMode(TIMER_nMODULE enModule, TIMER_nSUB_MODE enSubModeParam)
     TIMER__vGetSubParams(enModule, (uint32_t*) 0UL, &u32Submodule, (uint32_t*) 0UL);
     if((uint32_t) TIMER_enSUBMODULE_W != u32Submodule)
     {
-        TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_TnMR_TnMR_MASK, GPTM_TA_TnMR_R_TnMR_BIT);
+        TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
     }
     else
     {
         if((uint32_t) TIMER_enSUB_MODE_CAPTURE > (uint32_t) enSubModeParam)
         {
-            TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_TnMR_TnMR_MASK, GPTM_TA_TnMR_R_TnMR_BIT);
+            TIMER__vSetModeGeneric(enModule, (uint32_t) enSubModeParam, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
         }
     }
 }
 
 TIMER_nSUB_MODE TIMER__enGetSubMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nSUB_MODE) TIMER__u32GetModeGeneric(enModule, GPTM_TA_TnMR_TnMR_MASK, GPTM_TA_TnMR_R_TnMR_BIT);
+    return (TIMER_nSUB_MODE) TIMER__u32GetModeGeneric(enModule, GPTM_TA_GPTMTnMR_TnMR_MASK, GPTM_TA_GPTMTnMR_R_TnMR_BIT);
 }

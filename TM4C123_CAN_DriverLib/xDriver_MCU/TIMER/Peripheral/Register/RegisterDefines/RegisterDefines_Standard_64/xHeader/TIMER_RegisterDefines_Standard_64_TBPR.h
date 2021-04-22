@@ -28,21 +28,21 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 15 TBPR *********************************************
+************************************ 15 GPTMTBPR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TBPR_R_TBPSR_MASK    ((uint32_t) 0x000000FFUL)
-#define GPWTM_TBPR_R_TBPSR_BIT    (0UL)
+#define GPWTM_GPTMTBPR_R_TBPSR_MASK    ((uint32_t) 0x000000FFUL)
+#define GPWTM_GPTMTBPR_R_TBPSR_BIT    (0UL)
 
-#define GPWTM_TBPR_TBPSR_MASK    ((uint32_t) 0x000000FFUL)
+#define GPWTM_GPTMTBPR_TBPSR_MASK    ((uint32_t) 0x000000FFUL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_TBPR_R_TBPSRH_MASK    ((uint32_t) 0x0000FF00UL)
-#define GPWTM_TBPR_R_TBPSRH_BIT    (8UL)
+#define GPWTM_GPTMTBPR_R_TBPSRH_MASK    ((uint32_t) 0x0000FF00UL)
+#define GPWTM_GPTMTBPR_R_TBPSRH_BIT    (8UL)
 
-#define GPWTM_TBPR_TBPSRH_MASK    ((uint32_t) 0x000000FFUL)
+#define GPWTM_GPTMTBPR_TBPSRH_MASK    ((uint32_t) 0x000000FFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_64_TIMER_REGISTERDEFINES_STANDARD_64_TBPR_H_ */
