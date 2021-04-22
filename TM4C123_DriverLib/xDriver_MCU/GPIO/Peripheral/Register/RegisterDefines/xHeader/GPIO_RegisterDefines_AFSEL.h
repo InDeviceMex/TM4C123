@@ -31,10 +31,10 @@
  ************************************ 10 AFSEL *********************************************
  ******************************************************************************************/
 /*----------*/
-#define GPIOF_APB_AFSEL_R_AFSEL_MASK    ((uint32_t) 0x000000FFUL)
-#define GPIOF_APB_AFSEL_R_AFSEL_BIT    (0UL)
-#define GPIOF_APB_AFSEL_R_AFSEL0_GPIO    ((uint32_t) 0x00000000UL)
-#define GPIOF_APB_AFSEL_R_AFSEL0_ALT    ((uint32_t) 0x000000FFUL)
+#define GPIOF_AFSEL_R_AFSEL_MASK    ((uint32_t) 0x000000FFUL)
+#define GPIOF_AFSEL_R_AFSEL_BIT    (0UL)
+#define GPIOF_AFSEL_R_AFSEL0_GPIO    ((uint32_t) 0x00000000UL)
+#define GPIOF_AFSEL_R_AFSEL0_ALT    ((uint32_t) 0x000000FFUL)
 
 #define GPIO_AFSEL_AFSEL_MASK    ((uint32_t) 0x000000FFUL)
 #define GPIO_AFSEL_AFSEL_GPIO    ((uint32_t) 0x00000000UL)

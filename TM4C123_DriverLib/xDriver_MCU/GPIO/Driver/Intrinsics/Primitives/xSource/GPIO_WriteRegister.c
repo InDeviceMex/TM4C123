@@ -34,7 +34,7 @@ void GPIO__vWriteRegisterBus(GPIO_nPORT enPort, GPIO_nBUS enBus, uint32_t u32Off
     enPort = (GPIO_nPORT) MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enBus = (GPIO_nBUS) MCU__u32CheckParams( (uint32_t) enBus, (uint32_t) GPIO_enBUS_MAX);
     GPIO__vSetReady(enPort);
-    u32PortBase = GPIO_BLOCK_BASE[(uint32_t) enBus][ (uint32_t) enPort];
+    u32PortBase = GPIO_M_BLOCK_BASE[(uint32_t) enBus][ (uint32_t) enPort];
     MCU__vWriteRegister(u32PortBase, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }
 
@@ -45,6 +45,6 @@ void GPIO__vWriteRegister(GPIO_nPORT enPort, uint32_t u32OffsetRegister, uint32_
     enPort = (GPIO_nPORT) MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enBus = GPIO__enGetBus(enPort);
     GPIO__vSetReady(enPort);
-    u32PortBase = GPIO_BLOCK_BASE[(uint32_t) enBus][ (uint32_t) enPort];
+    u32PortBase = GPIO_M_BLOCK_BASE[(uint32_t) enBus][ (uint32_t) enPort];
     MCU__vWriteRegister(u32PortBase, u32OffsetRegister, u32FeatureValue, u32MaskFeature, u32BitFeature);
 }
