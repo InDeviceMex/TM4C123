@@ -33,7 +33,7 @@
 
 typedef volatile struct
 {
-    volatile uint32_t GPTMCFG [3UL];
+    volatile uint32_t CFG [3UL];
     const uint32_t reserved [29UL];
 }BITBANDING_GPTMCFG_TypeDef;
 

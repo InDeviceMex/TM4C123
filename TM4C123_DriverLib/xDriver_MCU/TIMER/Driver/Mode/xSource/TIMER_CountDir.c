@@ -28,10 +28,10 @@
 
 void TIMER__vSetCountDir(TIMER_nMODULE enModule, TIMER_nCOUNT_DIR enCountDir)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enCountDir, GPTM_TA_GPTMTnMR_TnCDIR_MASK, GPTM_TA_GPTMTnMR_R_TnCDIR_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enCountDir, GPTM_TA_TnMR_TnCDIR_MASK, GPTM_TA_TnMR_R_TnCDIR_BIT);
 }
 
 TIMER_nCOUNT_DIR TIMER__enGetCountDir(TIMER_nMODULE enModule)
 {
-    return (TIMER_nCOUNT_DIR) TIMER__u32GetModeGeneric(enModule, GPTM_TA_GPTMTnMR_TnCDIR_MASK, GPTM_TA_GPTMTnMR_R_TnCDIR_BIT);
+    return (TIMER_nCOUNT_DIR) TIMER__u32GetModeGeneric(enModule, GPTM_TA_TnMR_TnCDIR_MASK, GPTM_TA_TnMR_R_TnCDIR_BIT);
 }

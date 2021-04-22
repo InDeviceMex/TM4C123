@@ -32,137 +32,137 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t GPTMCFG;
-        GPTMCFG_TypeDef GPTMCFG_Bit;
+        volatile uint32_t CFG;
+        GPTMCFG_TypeDef CFG_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTAMR;
-        GPTMTAMR_TypeDef GPTMTAMR_Bit;
+        volatile uint32_t TAMR;
+        GPTMTAMR_TypeDef TAMR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTBMR;
-        GPTMTBMR_TypeDef GPTMTBMR_Bit;
+        volatile uint32_t TBMR;
+        GPTMTBMR_TypeDef TBMR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMCTL;
-        GPTMCTL_TypeDef GPTMCTL_Bit;
+        volatile uint32_t CTL;
+        GPTMCTL_TypeDef CTL_Bit;
     };
     union
     {
-        volatile uint32_t GPTMSYNC;
-        GPTMSYNC_TypeDef GPTMSYNC_Bit;
+        volatile uint32_t SYNC;
+        GPTMSYNC_TypeDef SYNC_Bit;
     };
     const uint32_t reserved;
 
     union
     {
-        volatile uint32_t GPTMIMR;
-        GPTMIMR_TypeDef GPTMIMR_Bit;
+        volatile uint32_t IMR;
+        GPTMIMR_TypeDef IMR_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMRIS;
-        GPTMRIS_TypeDef GPTMRIS_Bit;
+        volatile const uint32_t RIS;
+        GPTMRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMMIS;
-        GPTMMIS_TypeDef GPTMMIS_Bit;
+        volatile const uint32_t MIS;
+        GPTMMIS_TypeDef MIS_Bit;
     };
     union
     {
-        volatile uint32_t GPTMICR;
-        GPTMICR_TypeDef GPTMICR_Bit;
+        volatile uint32_t ICR;
+        GPTMICR_TypeDef ICR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTAILR;
-        GPTMTAILR_TypeDef GPTMTAILR_Bit;
+        volatile uint32_t TAILR;
+        GPTMTAILR_TypeDef TAILR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTBILR;
-        GPTMTBILR_TypeDef GPTMTBILR_Bit;
+        volatile uint32_t TBILR;
+        GPTMTBILR_TypeDef TBILR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTAMATCHR;
-        GPTMTAMATCHR_TypeDef GPTMTAMATCHR_Bit;
-    };
-
-    union
-    {
-        volatile uint32_t GPTMTBMATCHR;
-        GPTMTBMATCHR_TypeDef GPTMTBMATCHR_Bit;
-    };
-    union
-    {
-        volatile uint32_t GPTMTAPR;
-        GPTMTAPR_TypeDef GPTMTAPR_Bit;
+        volatile uint32_t TAMATCHR;
+        GPTMTAMATCHR_TypeDef TAMATCHR_Bit;
     };
 
     union
     {
-        volatile uint32_t GPTMTBPR;
-        GPTMTBPR_TypeDef GPTMTBPR_Bit;
+        volatile uint32_t TBMATCHR;
+        GPTMTBMATCHR_TypeDef TBMATCHR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTAPMR;
-        GPTMTAPMR_TypeDef GPTMTAPMR_Bit;
+        volatile uint32_t TAPR;
+        GPTMTAPR_TypeDef TAPR_Bit;
+    };
+
+    union
+    {
+        volatile uint32_t TBPR;
+        GPTMTBPR_TypeDef TBPR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTBPMR;
-        GPTMTBPMR_TypeDef GPTMTBPMR_Bit;
+        volatile uint32_t TAPMR;
+        GPTMTAPMR_TypeDef TAPMR_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMTAR;
-        GPTMTAR_TypeDef GPTMTAR_Bit;
+        volatile uint32_t TBPMR;
+        GPTMTBPMR_TypeDef TBPMR_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMTBR;
-        GPTMTBR_TypeDef GPTMTBR_Bit;
+        volatile const uint32_t TAR;
+        GPTMTAR_TypeDef TAR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTAV;
-        GPTMTAV_TypeDef GPTMTAV_Bit;
+        volatile const uint32_t TBR;
+        GPTMTBR_TypeDef TBR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTBV;
-        GPTMTBV_TypeDef GPTMTBV_Bit;
+        volatile uint32_t TAV;
+        GPTMTAV_TypeDef TAV_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMRTCPD;
-        GPTMRTCPD_TypeDef GPTMRTCPD_Bit;
+        volatile uint32_t TBV;
+        GPTMTBV_TypeDef TBV_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMTAPS;
-        GPTMTAPS_TypeDef GPTMTAPS_Bit;
+        volatile const uint32_t RTCPD;
+        GPTMRTCPD_TypeDef RTCPD_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMTBPS;
-        GPTMTBPS_TypeDef GPTMTBPS_Bit;
+        volatile const uint32_t TAPS;
+        GPTMTAPS_TypeDef TAPS_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMTAPV;
-        GPTMTAPV_TypeDef GPTMTAPV_Bit;
+        volatile const uint32_t TBPS;
+        GPTMTBPS_TypeDef TBPS_Bit;
     };
     union
     {
-        volatile const uint32_t GPTMTBPV;
-        GPTMTBPV_TypeDef GPTMTBPV_Bit;
+        volatile const uint32_t TAPV;
+        GPTMTAPV_TypeDef TAPV_Bit;
+    };
+    union
+    {
+        volatile const uint32_t TBPV;
+        GPTMTBPV_TypeDef TBPV_Bit;
     };
 
     const uint32_t reserved1 [981UL];
@@ -170,8 +170,8 @@ typedef volatile struct
 
     union
     {
-        volatile const uint32_t GPTMPP;
-        GPTMPP_TypeDef GPTMPP_Bit;
+        volatile const uint32_t PP;
+        GPTMPP_TypeDef PP_Bit;
     };
 
     const uint32_t reserved2 [15UL];

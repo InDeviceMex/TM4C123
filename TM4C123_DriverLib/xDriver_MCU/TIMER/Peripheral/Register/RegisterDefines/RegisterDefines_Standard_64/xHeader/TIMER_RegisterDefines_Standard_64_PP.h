@@ -28,18 +28,18 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 27 GPTMPP *********************************************
+************************************ 27 PP *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_GPTMPP_R_SIZE_MASK    ((uint32_t) 0x0000000FUL)
-#define GPWTM_GPTMPP_R_SIZE_BIT    (0UL)
-#define GWPTM_GPTMPP_R_SIZE_16b    ((uint32_t) 0x00000000UL)
-#define GWPTM_GPTMPP_R_SIZE_32b    ((uint32_t) 0x00000001UL)
+#define GPWTM_PP_R_SIZE_MASK    ((uint32_t) 0x0000000FUL)
+#define GPWTM_PP_R_SIZE_BIT    (0UL)
+#define GWPTM_PP_R_SIZE_16b    ((uint32_t) 0x00000000UL)
+#define GWPTM_PP_R_SIZE_32b    ((uint32_t) 0x00000001UL)
 
-#define GPWTM_GPTMPP_SIZE_MASK    ((uint32_t) 0x0000000FUL)
-#define GPWTM_GPTMPP_SIZE_16b    ((uint32_t) 0x00000000UL)
-#define GPWTM_GPTMPP_SIZE_32b    ((uint32_t) 0x00000001UL)
+#define GPWTM_PP_SIZE_MASK    ((uint32_t) 0x0000000FUL)
+#define GPWTM_PP_SIZE_16b    ((uint32_t) 0x00000000UL)
+#define GPWTM_PP_SIZE_32b    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_64_TIMER_REGISTERDEFINES_STANDARD_64_PP_H_ */

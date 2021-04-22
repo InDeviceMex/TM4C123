@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 11 GPTMILR_HIGH *********************************************
+************************************ 11 ILR_HIGH *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TW_GPTMTnILR_HIGH_R_TnILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
-#define GPWTM_TW_GPTMTnILR_HIGH_R_TnILR_BIT    (0UL)
+#define GPWTM_TW_TnILR_HIGH_R_TnILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPWTM_TW_TnILR_HIGH_R_TnILR_BIT    (0UL)
 
-#define GPWTM_TW_GPTMTnILR_HIGH_TnILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPWTM_TW_TnILR_HIGH_TnILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEW_64_TIMER_REGISTERDEFINES_MODULEW_64_ILR_HIGH_H_ */

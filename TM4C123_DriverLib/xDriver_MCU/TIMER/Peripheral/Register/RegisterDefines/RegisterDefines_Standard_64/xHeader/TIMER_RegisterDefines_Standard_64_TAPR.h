@@ -28,21 +28,21 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 14 GPTMTAPR *********************************************
+************************************ 14 TAPR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_GPTMTAPR_R_TAPSR_MASK    ((uint32_t) 0x000000FFUL)
-#define GPWTM_GPTMTAPR_R_TAPSR_BIT    (0UL)
+#define GPWTM_TAPR_R_TAPSR_MASK    ((uint32_t) 0x000000FFUL)
+#define GPWTM_TAPR_R_TAPSR_BIT    (0UL)
 
-#define GPWTM_GPTMTAPR_TAPSR_MASK    ((uint32_t) 0x000000FFUL)
+#define GPWTM_TAPR_TAPSR_MASK    ((uint32_t) 0x000000FFUL)
 /*----------*/
 
 /*----------*/
-#define GPWTM_GPTMTAPR_R_TAPSRH_MASK    ((uint32_t) 0x0000FF00UL)
-#define GPWTM_GPTMTAPR_R_TAPSRH_BIT    (8UL)
+#define GPWTM_TAPR_R_TAPSRH_MASK    ((uint32_t) 0x0000FF00UL)
+#define GPWTM_TAPR_R_TAPSRH_BIT    (8UL)
 
-#define GPWTM_GPTMTAPR_TAPSRH_MASK    ((uint32_t) 0x000000FFUL)
+#define GPWTM_TAPR_TAPSRH_MASK    ((uint32_t) 0x000000FFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_64_TIMER_REGISTERDEFINES_STANDARD_64_TAPR_H_ */

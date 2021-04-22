@@ -28,10 +28,10 @@
 
 void TIMER__vSetEdgeMode(TIMER_nMODULE enModule, TIMER_nEDGE_MODE enEdgeModeVar)
 {
-    TIMER__vSetModeGeneric(enModule, (uint32_t) enEdgeModeVar, GPTM_TA_GPTMTnMR_TnCMR_MASK, GPTM_TA_GPTMTnMR_R_TnCMR_BIT);
+    TIMER__vSetModeGeneric(enModule, (uint32_t) enEdgeModeVar, GPTM_TA_TnMR_TnCMR_MASK, GPTM_TA_TnMR_R_TnCMR_BIT);
 }
 
 TIMER_nEDGE_MODE TIMER__enGetEdgeMode(TIMER_nMODULE enModule)
 {
-    return (TIMER_nEDGE_MODE) TIMER__u32GetModeGeneric(enModule, GPTM_TA_GPTMTnMR_TnCMR_MASK, GPTM_TA_GPTMTnMR_R_TnCMR_BIT);
+    return (TIMER_nEDGE_MODE) TIMER__u32GetModeGeneric(enModule, GPTM_TA_TnMR_TnCMR_MASK, GPTM_TA_TnMR_R_TnCMR_BIT);
 }

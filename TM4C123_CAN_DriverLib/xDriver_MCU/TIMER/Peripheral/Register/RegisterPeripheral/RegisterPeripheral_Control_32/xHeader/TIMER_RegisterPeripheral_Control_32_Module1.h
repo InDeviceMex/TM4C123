@@ -31,15 +31,15 @@
 #define GPTM1_CTL    (((GPTM_CTL_TypeDef*) (GPTM1_BASE)))
 
 /******************************************************************************************
-************************************ 1 GPTMCFG *********************************************
+************************************ 1 CFG *********************************************
 ******************************************************************************************/
-#define GPTM1_CTL_GPTMCFG    ((GPTMCFG_TypeDef*) (GPTM1_BASE + GPTM_CTL_GPTMCFG_OFFSET))
-#define GPTM1_CTL_GPTMCFG_R    (*((volatile uint32_t*) (GPTM1_BASE + GPTM_CTL_GPTMCFG_OFFSET)))
+#define GPTM1_CTL_CFG    ((GPTMCFG_TypeDef*) (GPTM1_BASE + GPTM_CTL_CFG_OFFSET))
+#define GPTM1_CTL_CFG_R    (*((volatile uint32_t*) (GPTM1_BASE + GPTM_CTL_CFG_OFFSET)))
 
 /******************************************************************************************
-************************************ 27 GPTMPP *********************************************
+************************************ 27 PP *********************************************
 ******************************************************************************************/
-#define GPTM1_CTL_GPTMPP    ((GPTMPP_TypeDef*) (GPTM1_BASE + GPTM_CTL_GPTMPP_OFFSET))
-#define GPTM1_CTL_GPTMPP_R    (*((volatile uint32_t*) (GPTM1_BASE + GPTM_CTL_GPTMPP_OFFSET)))
+#define GPTM1_CTL_PP    ((GPTMPP_TypeDef*) (GPTM1_BASE + GPTM_CTL_PP_OFFSET))
+#define GPTM1_CTL_PP_R    (*((volatile uint32_t*) (GPTM1_BASE + GPTM_CTL_PP_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_CONTROL_32_TIMER_REGISTERPERIPHERAL_CONTROL_32_MODULE1_H_ */

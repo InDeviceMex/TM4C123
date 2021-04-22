@@ -31,18 +31,18 @@
 #define GPTM0_CTL_BITBANDING    ((GPTM_CTL_BITBANDING_TypeDef*) (GPTM_BASE_BITBANDING + (GPTM0_OFFSET * 32UL)))
 
 /******************************************************************************************
-*********************************** * 1 GPTMCFG *********************************************
+*********************************** * 1 CFG *********************************************
 ******************************************************************************************/
-#define GPTM0_CTL_BITBANDING_GPTMCFG    ((BITBANDING_GPTMCFG_TypeDef*) (GPTM_BASE_BITBANDING + ((GPTM0_OFFSET + GPTM_CTL_GPTMCFG_OFFSET) * 32UL)))
+#define GPTM0_CTL_BITBANDING_CFG    ((BITBANDING_GPTMCFG_TypeDef*) (GPTM_BASE_BITBANDING + ((GPTM0_OFFSET + GPTM_CTL_CFG_OFFSET) * 32UL)))
 
 /******************************************************************************************
-*********************************** * 5 GPTMSYNC *********************************************
+*********************************** * 5 SYNC *********************************************
 ******************************************************************************************/
-#define GPTM0_CTL_BITBANDING_GPTMSYNC    ((BITBANDING_GPTMSYNC_TypeDef*) (GPTM_BASE_BITBANDING + ((GPTM0_OFFSET + GPTM_CTL_GPTMSYNC_OFFSET) * 32UL)))
+#define GPTM0_CTL_BITBANDING_SYNC    ((BITBANDING_GPTMSYNC_TypeDef*) (GPTM_BASE_BITBANDING + ((GPTM0_OFFSET + GPTM_CTL_SYNC_OFFSET) * 32UL)))
 
 /******************************************************************************************
-*********************************** * 27 GPTMPP *********************************************
+*********************************** * 27 PP *********************************************
 ******************************************************************************************/
-#define GPTM0_CTL_BITBANDING_GPTMPP    ((BITBANDING_GPTMPP_TypeDef*) (GPTM_BASE_BITBANDING + ((GPTM0_OFFSET + GPTM_CTL_GPTMPP_OFFSET) * 32UL)))
+#define GPTM0_CTL_BITBANDING_PP    ((BITBANDING_GPTMPP_TypeDef*) (GPTM_BASE_BITBANDING + ((GPTM0_OFFSET + GPTM_CTL_PP_OFFSET) * 32UL)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_BITBANDING_TIMER_REGISTERPERIPHERAL_BITBANDING_CONTROL_32_TIMER_REGISTERPERIPHERAL_BITBANDING_CONTROL_32_MODULE0_H_ */

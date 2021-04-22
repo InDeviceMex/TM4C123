@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 19 GPTMTBR *********************************************
+************************************ 19 TBR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_TB_GPTMTnR_R_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPTM_TB_GPTMTnR_R_TnR_BIT    (0UL)
+#define GPTM_TB_TnR_R_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPTM_TB_TnR_R_TnR_BIT    (0UL)
 
-#define GPTM_TB_GPTMTnR_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPTM_TB_TnR_TnR_MASK    ((uint32_t) 0x0000FFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEB_16_TIMER_REGISTERDEFINES_MODULEB_16_R_H_ */
