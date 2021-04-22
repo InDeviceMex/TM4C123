@@ -107,13 +107,13 @@ typedef volatile struct
     const uint32_t reserved2 [22UL * 32UL];
     union
     {
-        volatile uint32_t 9BITADDR [32UL];
-        BITBANDING_UART9BITADDR_TypeDef 9BITADDR_Bit;
+        volatile uint32_t UART9BITADDR [32UL];
+        BITBANDING_9BITADDR_TypeDef UART9BITADDR_Bit;
     };
     union
     {
-        volatile uint32_t 9BITAMASK [32UL];
-        BITBANDING_UART9BITAMASK_TypeDef 9BITAMASK_Bit;
+        volatile uint32_t UART9BITAMASK [32UL];
+        BITBANDING_9BITAMASK_TypeDef UART9BITAMASK_Bit;
     };
     const uint32_t reserved3 [965UL * 32UL];
     union

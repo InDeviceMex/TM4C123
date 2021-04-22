@@ -200,12 +200,12 @@
 /******************************************************************************************
 *********************************** * 15 9BITADDR *********************************************
 ******************************************************************************************/
-#define UART5_BITBANDING_9BITADDR    ((BITBANDING_UART9BITADDR_TypeDef*) (UART_BITBANDING_BASE + ((UART5_OFFSET + UART_9BITADDR_OFFSET) * 32U)))
+#define UART5_BITBANDING_9BITADDR    ((BITBANDING_9BITADDR_TypeDef*) (UART_BITBANDING_BASE + ((UART5_OFFSET + UART_9BITADDR_OFFSET) * 32U)))
 
 /******************************************************************************************
 *********************************** * 16 9BITAMASK *********************************************
 ******************************************************************************************/
-#define UART5_BITBANDING_9BITAMASK    ((BITBANDING_UART9BITAMASK_TypeDef*) (UART_BITBANDING_BASE + ((UART5_OFFSET + UART_9BITAMASK_OFFSET) * 32U)))
+#define UART5_BITBANDING_9BITAMASK    ((BITBANDING_9BITAMASK_TypeDef*) (UART_BITBANDING_BASE + ((UART5_OFFSET + UART_9BITAMASK_OFFSET) * 32U)))
 
 /******************************************************************************************
 *********************************** * 17 PP *********************************************

@@ -203,13 +203,13 @@ typedef volatile struct
         const uint32_t reserved [7UL];
         volatile uint32_t BIT9EN;
         const uint32_t reserved1 [16UL];
-}BITBANDING_UART9BITADDR_TypeDef;
+}BITBANDING_9BITADDR_TypeDef;
 
 typedef volatile struct
 {
         volatile uint32_t MASK [8UL];
         const uint32_t reserved [24UL];
-}BITBANDING_UART9BITAMASK_TypeDef;
+}BITBANDING_9BITAMASK_TypeDef;
 
 typedef volatile struct
 {
