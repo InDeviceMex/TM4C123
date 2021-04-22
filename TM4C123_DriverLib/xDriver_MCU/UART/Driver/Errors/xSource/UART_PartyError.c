@@ -29,6 +29,6 @@
 UART_nERROR UART__enGetParityErrorState(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTRSR_OFFSET, &u32Reg, UART_UARTRSR_PE_MASK, UART_UARTRSR_R_PE_BIT);
+    UART__enReadRegister(enModule, UART_RSR_OFFSET, &u32Reg, UART_RSR_PE_MASK, UART_RSR_R_PE_BIT);
     return (UART_nERROR)  u32Reg;
 }

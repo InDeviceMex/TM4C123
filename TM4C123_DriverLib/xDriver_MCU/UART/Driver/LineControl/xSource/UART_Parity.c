@@ -28,42 +28,42 @@
 
 void UART__vSetParityEnable(UART_nMODULE enModule, UART_nPARITY enParityState)
 {
-    UART__vWriteRegister(enModule, UART_UARTLCRH_OFFSET, (uint32_t) enParityState,
-                         UART_UARTLCRH_PEN_MASK, UART_UARTLCRH_R_PEN_BIT);
+    UART__vWriteRegister(enModule, UART_LCRH_OFFSET, (uint32_t) enParityState,
+                         UART_LCRH_PEN_MASK, UART_LCRH_R_PEN_BIT);
 }
 
 
 UART_nPARITY UART__enGetParityEnable(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTLCRH_OFFSET, &u32Reg, UART_UARTLCRH_PEN_MASK, UART_UARTLCRH_R_PEN_BIT);
+    UART__enReadRegister(enModule, UART_LCRH_OFFSET, &u32Reg, UART_LCRH_PEN_MASK, UART_LCRH_R_PEN_BIT);
     return (UART_nPARITY) u32Reg;
 }
 
 
 void UART__vSetParityType(UART_nMODULE enModule, UART_nPARITY_TYPE enParityTypeArg)
 {
-    UART__vWriteRegister(enModule, UART_UARTLCRH_OFFSET, (uint32_t) enParityTypeArg,
-                         UART_UARTLCRH_EPS_MASK, UART_UARTLCRH_R_EPS_BIT);
+    UART__vWriteRegister(enModule, UART_LCRH_OFFSET, (uint32_t) enParityTypeArg,
+                         UART_LCRH_EPS_MASK, UART_LCRH_R_EPS_BIT);
 }
 
 UART_nPARITY_TYPE UART__enGetParityType(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTLCRH_OFFSET, &u32Reg, UART_UARTLCRH_EPS_MASK, UART_UARTLCRH_R_EPS_BIT);
+    UART__enReadRegister(enModule, UART_LCRH_OFFSET, &u32Reg, UART_LCRH_EPS_MASK, UART_LCRH_R_EPS_BIT);
     return (UART_nPARITY_TYPE) u32Reg;
 }
 
 void UART__vSetParityStick(UART_nMODULE enModule, UART_nPARITY_STICK enParityStickArg)
 {
-    UART__vWriteRegister(enModule, UART_UARTLCRH_OFFSET, (uint32_t) enParityStickArg,
-                         UART_UARTLCRH_SPS_MASK, UART_UARTLCRH_R_SPS_BIT);
+    UART__vWriteRegister(enModule, UART_LCRH_OFFSET, (uint32_t) enParityStickArg,
+                         UART_LCRH_SPS_MASK, UART_LCRH_R_SPS_BIT);
 }
 
 UART_nPARITY_STICK UART__enGetParityStick(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTLCRH_OFFSET, &u32Reg, UART_UARTLCRH_SPS_MASK, UART_UARTLCRH_R_SPS_BIT);
+    UART__enReadRegister(enModule, UART_LCRH_OFFSET, &u32Reg, UART_LCRH_SPS_MASK, UART_LCRH_R_SPS_BIT);
     return (UART_nPARITY_STICK) u32Reg;
 }
 

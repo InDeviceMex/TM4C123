@@ -28,12 +28,12 @@
 
 void UART__vSetSMART(UART_nMODULE enModule, UART_nSMART enSmartArg)
 {
-    UART__vWriteRegister(enModule, UART_UARTCTL_OFFSET, (uint32_t) enSmartArg, UART_UARTCTL_SMART_MASK, UART_UARTCTL_R_SMART_BIT);
+    UART__vWriteRegister(enModule, UART_CTL_OFFSET, (uint32_t) enSmartArg, UART_CTL_SMART_MASK, UART_CTL_R_SMART_BIT);
 }
 
 UART_nSMART UART__enGetSMART(UART_nMODULE enModule)
 {
     UART_nSMART enSmartReg = UART_enSMART_UNDEF;
-    UART__enReadRegister(enModule, UART_UARTCTL_OFFSET, (uint32_t*) &enSmartReg, UART_UARTCTL_SMART_MASK, UART_UARTCTL_R_SMART_BIT);
+    UART__enReadRegister(enModule, UART_CTL_OFFSET, (uint32_t*) &enSmartReg, UART_CTL_SMART_MASK, UART_CTL_R_SMART_BIT);
     return enSmartReg;
 }

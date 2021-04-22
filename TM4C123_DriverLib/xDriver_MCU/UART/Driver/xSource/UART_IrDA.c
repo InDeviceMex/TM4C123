@@ -28,13 +28,13 @@
 
 void UART__vSetIrDALowPowerDivider(UART_nMODULE enModule, uint32_t u32Divider)
 {
-    UART__vWriteRegister(enModule, UART_UARTILPR_OFFSET, u32Divider, UART_UARTILPR_ILPDVSR_MASK, UART_UARTILPR_R_ILPDVSR_BIT);
+    UART__vWriteRegister(enModule, UART_ILPR_OFFSET, u32Divider, UART_ILPR_ILPDVSR_MASK, UART_ILPR_R_ILPDVSR_BIT);
 }
 
 uint32_t UART__u32GetIrDALowPowerDivider(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTDR_OFFSET, &u32Reg, UART_UARTILPR_ILPDVSR_MASK, UART_UARTILPR_R_ILPDVSR_BIT);
+    UART__enReadRegister(enModule, UART_DR_OFFSET, &u32Reg, UART_ILPR_ILPDVSR_MASK, UART_ILPR_R_ILPDVSR_BIT);
     return u32Reg;
 }
 

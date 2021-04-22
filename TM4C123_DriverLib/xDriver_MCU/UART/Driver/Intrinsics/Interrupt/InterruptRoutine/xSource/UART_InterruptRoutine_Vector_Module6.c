@@ -84,60 +84,60 @@ void UART6__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = (uint32_t) UART6_UARTMIS_R;
+    u32Reg = (uint32_t) UART6_MIS_R;
 
     if((uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_CLEAR_TO_SEND;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_CLEAR_TO_SEND]();
     }
     if((uint32_t) UART_enINT_SOURCE_RECEIVE & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_RECEIVE]();
     }
     if((uint32_t) UART_enINT_SOURCE_TRANSMIT & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_TRANSMIT;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_TRANSMIT;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_TRANSMIT]();
     }
     if((uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_RECEIVE_TIMEOUT;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_RECEIVE_TIMEOUT]();
     }
     if((uint32_t) UART_enINT_SOURCE_FRAME_ERROR & u32Reg)
     {
         u32ErrorFlag = 1UL;
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_FRAME_ERROR;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_FRAME_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_FRAME_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_PARITY_ERROR & u32Reg)
     {
         u32ErrorFlag = 1UL;
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_PARITY_ERROR;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_PARITY_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_PARITY_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_BREAK_ERROR & u32Reg)
     {
         u32ErrorFlag = 1UL;
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BREAK_ERROR;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_BREAK_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_BREAK_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR & u32Reg)
     {
         u32ErrorFlag = 1UL;
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_OVERRUN_ERROR;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_OVERRUN_ERROR]();
     }
     if((uint32_t) UART_enINT_SOURCE_BIT9_MODE & u32Reg)
     {
-        UART6_UARTICR_R = (uint32_t) UART_enINT_SOURCE_BIT9_MODE;
+        UART6_ICR_R = (uint32_t) UART_enINT_SOURCE_BIT9_MODE;
         UART__vIRQSourceHandler[(uint32_t) UART_enMODULE_6][(uint32_t) UART_enINTERRUPT_BIT9_MODE]();
     }
 
     if(1UL == u32ErrorFlag)
     {
-        UART6_UARTECR_R = 0xFFUL;
+        UART6_ECR_R = 0xFFUL;
     }
 }

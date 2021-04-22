@@ -29,11 +29,11 @@
 UART_nFIFO UART__enGetFifoEnable(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTLCRH_OFFSET, &u32Reg, UART_UARTLCRH_FEN_MASK, UART_UARTLCRH_R_FEN_BIT);
+    UART__enReadRegister(enModule, UART_LCRH_OFFSET, &u32Reg, UART_LCRH_FEN_MASK, UART_LCRH_R_FEN_BIT);
     return (UART_nFIFO) u32Reg;
 }
 
 void UART__vSetFifoEnable(UART_nMODULE enModule, UART_nFIFO enFifoEnable)
 {
-    UART__vWriteRegister(enModule, UART_UARTLCRH_OFFSET, (uint32_t) enFifoEnable, UART_UARTLCRH_FEN_MASK, UART_UARTLCRH_R_FEN_BIT);
+    UART__vWriteRegister(enModule, UART_LCRH_OFFSET, (uint32_t) enFifoEnable, UART_LCRH_FEN_MASK, UART_LCRH_R_FEN_BIT);
 }

@@ -28,24 +28,24 @@
 
 void UART__vSetBaudRateIntegerPart(UART_nMODULE enModule, uint32_t u32Integer)
 {
-    UART__vWriteRegister(enModule, UART_UARTIBRD_OFFSET, u32Integer, UART_UARTIBRD_DIVINT_MASK, UART_UARTIBRD_R_DIVINT_BIT);
+    UART__vWriteRegister(enModule, UART_IBRD_OFFSET, u32Integer, UART_IBRD_DIVINT_MASK, UART_IBRD_R_DIVINT_BIT);
 }
 
 uint32_t UART__u32GetBaudRateIntegerPart(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTIBRD_OFFSET, &u32Reg, UART_UARTIBRD_DIVINT_MASK, UART_UARTIBRD_R_DIVINT_BIT);
+    UART__enReadRegister(enModule, UART_IBRD_OFFSET, &u32Reg, UART_IBRD_DIVINT_MASK, UART_IBRD_R_DIVINT_BIT);
     return u32Reg;
 }
 
 void UART__vSetBaudRateFractionalPart(UART_nMODULE enModule, uint32_t u32Fractional)
 {
-    UART__vWriteRegister(enModule, UART_UARTFBRD_OFFSET, u32Fractional, UART_UARTFBRD_DIVFRAC_MASK, UART_UARTFBRD_R_DIVFRAC_BIT);
+    UART__vWriteRegister(enModule, UART_FBRD_OFFSET, u32Fractional, UART_FBRD_DIVFRAC_MASK, UART_FBRD_R_DIVFRAC_BIT);
 }
 
 uint32_t UART__u32GetBaudRateFractionalPart(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTFBRD_OFFSET, &u32Reg, UART_UARTFBRD_DIVFRAC_MASK, UART_UARTFBRD_R_DIVFRAC_BIT);
+    UART__enReadRegister(enModule, UART_FBRD_OFFSET, &u32Reg, UART_FBRD_DIVFRAC_MASK, UART_FBRD_R_DIVFRAC_BIT);
     return u32Reg;
 }

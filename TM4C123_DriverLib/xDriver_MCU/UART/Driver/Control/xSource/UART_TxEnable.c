@@ -28,12 +28,12 @@
 
 void UART__vSetTxEnable(UART_nMODULE enModule, UART_nLINE enLineArg)
 {
-    UART__vWriteRegister(enModule, UART_UARTCTL_OFFSET, (uint32_t) enLineArg, UART_UARTCTL_TXE_MASK, UART_UARTCTL_R_TXE_BIT);
+    UART__vWriteRegister(enModule, UART_CTL_OFFSET, (uint32_t) enLineArg, UART_CTL_TXE_MASK, UART_CTL_R_TXE_BIT);
 }
 
 UART_nLINE UART__enGetTxEnable(UART_nMODULE enModule)
 {
     UART_nLINE enLineReg = UART_enLINE_UNDEF;
-    UART__enReadRegister(enModule, UART_UARTCTL_OFFSET, (uint32_t*) &enLineReg, UART_UARTCTL_TXE_MASK, UART_UARTCTL_R_TXE_BIT);
+    UART__enReadRegister(enModule, UART_CTL_OFFSET, (uint32_t*) &enLineReg, UART_CTL_TXE_MASK, UART_CTL_R_TXE_BIT);
     return enLineReg;
 }

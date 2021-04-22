@@ -31,20 +31,20 @@
 
 inline void UART__vSetData(UART_nMODULE enModule, uint32_t u32Data)
 {
-    UART__vWriteRegister(enModule, UART_UARTDR_OFFSET, u32Data, 0xFFFFFFFFUL, 0UL);
+    UART__vWriteRegister(enModule, UART_DR_OFFSET, u32Data, 0xFFFFFFFFUL, 0UL);
 }
 
 inline uint32_t UART__u32GetData(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTDR_OFFSET, &u32Reg, UART_UARTDR_DATA_MASK, 0UL);
+    UART__enReadRegister(enModule, UART_DR_OFFSET, &u32Reg, UART_DR_DATA_MASK, 0UL);
     return u32Reg;
 }
 
 inline uint32_t UART__u32GetDataWithStatus(UART_nMODULE enModule)
 {
     uint32_t u32Reg = 0xFFFFFFFFUL;
-    UART__enReadRegister(enModule, UART_UARTDR_OFFSET, &u32Reg, 0xFFFFFFFFUL, 0UL);
+    UART__enReadRegister(enModule, UART_DR_OFFSET, &u32Reg, 0xFFFFFFFFUL, 0UL);
     return u32Reg;
 }
 
@@ -65,7 +65,7 @@ uint32_t UART__u32GetFifoData(UART_nMODULE enModule, uint32_t* pu32FifoArray)
     if((UART_enREADY == enReady) && ((uint32_t) 0UL != (uint32_t) pu32FifoArray))
     {
         u32UartBase = UART_BLOCK_ADDRESS[u32Module];
-        u32UartBase += UART_UARTDR_OFFSET;
+        u32UartBase += UART_DR_OFFSET;
         pu32UartData = (volatile uint32_t*) u32UartBase;
 
         enFifoEmpty = UART__enIsFifoReceiveEmpty((UART_nMODULE) u32Module);
@@ -97,7 +97,7 @@ uint32_t UART__u32GetFifoDataByte(UART_nMODULE enModule, uint8_t* pu8FifoArray)
     if((UART_enREADY == enReady) && ((uint32_t) 0UL != (uint32_t) pu8FifoArray))
     {
         u32UartBase = UART_BLOCK_ADDRESS[u32Module];
-        u32UartBase += UART_UARTDR_OFFSET;
+        u32UartBase += UART_DR_OFFSET;
         pu32UartData = (volatile uint32_t*) u32UartBase;
 
         enFifoEmpty = UART__enIsFifoReceiveEmpty((UART_nMODULE) u32Module);
@@ -129,7 +129,7 @@ uint32_t UART__u32SetFifoData(UART_nMODULE enModule, const uint32_t* pu32FifoArr
     if((uint32_t) 0UL != (uint32_t) pu32FifoArray)
     {
         u32UartBase = UART_BLOCK_ADDRESS[u32Module];
-        u32UartBase += UART_UARTDR_OFFSET;
+        u32UartBase += UART_DR_OFFSET;
         pu32UartData = (volatile uint32_t*) u32UartBase;
         while((u32Count != u32SizeBuffer) && (0UL != u32Timeout))
         {
@@ -168,7 +168,7 @@ uint32_t UART__u32SetFifoDataByte(UART_nMODULE enModule, const uint8_t* pu8FifoA
     if((uint32_t) 0UL != (uint32_t) pu8FifoArray)
     {
         u32UartBase = UART_BLOCK_ADDRESS[u32Module];
-        u32UartBase += UART_UARTDR_OFFSET;
+        u32UartBase += UART_DR_OFFSET;
         pu32UartData = (volatile uint32_t*) u32UartBase;
 
         while((u32Count != u32SizeBuffer) && (0UL != u32Timeout))
