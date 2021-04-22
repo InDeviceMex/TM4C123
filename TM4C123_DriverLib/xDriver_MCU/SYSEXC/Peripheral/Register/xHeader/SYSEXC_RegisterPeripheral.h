@@ -30,27 +30,27 @@
 #define SYSEXC    ((SYSEXC_TypeDef*) (SYSEXC_BASE))
 
 /******************************************************************************************
-************************************ 1 SYSEXCRIS *********************************************
+************************************ 1 RIS *********************************************
 ******************************************************************************************/
-#define SYSEXC_SYSEXCRIS    ((SYSEXCRIS_TypeDef*) (SYSEXC_BASE + SYSEXC_SYSEXCRIS_OFFSET))
-#define SYSEXC_SYSEXCRIS_R    (*((volatile const uint32_t*) (SYSEXC_BASE + SYSEXC_SYSEXCRIS_OFFSET)))
+#define SYSEXC_RIS    ((SYSEXCRIS_TypeDef*) (SYSEXC_BASE + SYSEXC_RIS_OFFSET))
+#define SYSEXC_RIS_R    (*((volatile const uint32_t*) (SYSEXC_BASE + SYSEXC_RIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 SYSEXCIM *********************************************
+************************************ 2 IM *********************************************
 ******************************************************************************************/
-#define SYSEXC_SYSEXCIM    ((SYSEXCIM_TypeDef*) (SYSEXC_BASE + SYSEXC_SYSEXCIM_OFFSET))
-#define SYSEXC_SYSEXCIM_R    (*((volatile uint32_t*) (SYSEXC_BASE + SYSEXC_SYSEXCIM_OFFSET)))
+#define SYSEXC_IM    ((SYSEXCIM_TypeDef*) (SYSEXC_BASE + SYSEXC_IM_OFFSET))
+#define SYSEXC_IM_R    (*((volatile uint32_t*) (SYSEXC_BASE + SYSEXC_IM_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 SYSEXCMIS *********************************************
+************************************ 3 MIS *********************************************
 ******************************************************************************************/
-#define SYSEXC_SYSEXCMIS    ((SYSEXCMIS_TypeDef*) (SYSEXC_BASE + SYSEXC_SYSEXCMIS_OFFSET))
-#define SYSEXC_SYSEXCMIS_R    (*((volatile const uint32_t*) (SYSEXC_BASE + SYSEXC_SYSEXCMIS_OFFSET)))
+#define SYSEXC_MIS    ((SYSEXCMIS_TypeDef*) (SYSEXC_BASE + SYSEXC_MIS_OFFSET))
+#define SYSEXC_MIS_R    (*((volatile const uint32_t*) (SYSEXC_BASE + SYSEXC_MIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 SYSEXCIC *********************************************
+************************************ 4 IC *********************************************
 ******************************************************************************************/
-#define SYSEXC_SYSEXCIC    ((SYSEXCIC_TypeDef*) (SYSEXC_BASE + SYSEXC_SYSEXCIC_OFFSET))
-#define SYSEXC_SYSEXCIC_R    (*((volatile uint32_t*) (SYSEXC_BASE + SYSEXC_SYSEXCIC_OFFSET)))
+#define SYSEXC_IC    ((SYSEXCIC_TypeDef*) (SYSEXC_BASE + SYSEXC_IC_OFFSET))
+#define SYSEXC_IC_R    (*((volatile uint32_t*) (SYSEXC_BASE + SYSEXC_IC_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSEXC_SYSEXC_PERIPHERAL_SYSEXC_REGISTER_SYSEXC_REGISTERPERIPHERAL_H_ */

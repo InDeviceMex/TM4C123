@@ -31,23 +31,23 @@ typedef volatile struct
 {
     union
     {
-        volatile const uint32_t SYSEXCRIS [32UL];
-        BITBANDING_SYSEXCRIS_TypeDef SYSEXCRIS_Bit;
+        volatile const uint32_t RIS [32UL];
+        BITBANDING_SYSEXCRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile uint32_t SYSEXCIM [32UL];
-        BITBANDING_SYSEXCIM_TypeDef SYSEXCIM_Bit;
+        volatile uint32_t IM [32UL];
+        BITBANDING_SYSEXCIM_TypeDef IM_Bit;
     };
     union
     {
-        volatile const uint32_t SYSEXCMIS [32UL];
-        BITBANDING_SYSEXCMIS_TypeDef SYSEXCMIS_Bit;
+        volatile const uint32_t MIS [32UL];
+        BITBANDING_SYSEXCMIS_TypeDef MIS_Bit;
     };
     union
     {
-        volatile uint32_t SYSEXCIC [32UL];
-        BITBANDING_SYSEXCIC_TypeDef SYSEXCIC_Bit;
+        volatile uint32_t IC [32UL];
+        BITBANDING_SYSEXCIC_TypeDef IC_Bit;
     };
 }SYSEXC_BITBANDING_TypeDef;
 
