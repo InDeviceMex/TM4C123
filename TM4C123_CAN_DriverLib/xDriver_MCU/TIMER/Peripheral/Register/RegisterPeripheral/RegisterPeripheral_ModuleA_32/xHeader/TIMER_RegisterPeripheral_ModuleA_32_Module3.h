@@ -31,88 +31,88 @@
 #define GPWTM3_TA    (((GPWTM_TA_TypeDef*) (GPWTM3_BASE)))
 
 /******************************************************************************************
-************************************ 2 GPTMTAMR *********************************************
+************************************ 2 TAMR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnMR    ((TA_GPTMMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMR_OFFSET))
-#define GPWTM3_TA_GPTMTnMR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMR_OFFSET)))
+#define GPWTM3_TA_TnMR    ((TA_GPTMMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnMR_OFFSET))
+#define GPWTM3_TA_TnMR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnMR_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 GPTMCTL *********************************************
+************************************ 4 CTL *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnCTL    ((TA_GPTMCTL_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnCTL_OFFSET))
-#define GPWTM3_TA_GPTMTnCTL_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnCTL_OFFSET)))
+#define GPWTM3_TA_TnCTL    ((TA_GPTMCTL_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnCTL_OFFSET))
+#define GPWTM3_TA_TnCTL_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnCTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 GPTMIMR *********************************************
+************************************ 6 IMR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnIMR    ((TA_GPTMIMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnIMR_OFFSET))
-#define GPWTM3_TA_GPTMTnIMR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnIMR_OFFSET)))
+#define GPWTM3_TA_TnIMR    ((TA_GPTMIMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnIMR_OFFSET))
+#define GPWTM3_TA_TnIMR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnIMR_OFFSET)))
 
 
 /******************************************************************************************
-************************************ 7 GPTMRIS *********************************************
+************************************ 7 RIS *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnRIS    ((TA_GPTMRIS_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnRIS_OFFSET))
-#define GPWTM3_TA_GPTMTnRIS_R    (*((volatile const uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnRIS_OFFSET)))
+#define GPWTM3_TA_TnRIS    ((TA_GPTMRIS_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnRIS_OFFSET))
+#define GPWTM3_TA_TnRIS_R    (*((volatile const uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnRIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 GPTMMIS *********************************************
+************************************ 8 MIS *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnMIS    ((TA_GPTMMIS_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMIS_OFFSET))
-#define GPWTM3_TA_GPTMTnMIS_R    (*((volatile const uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMIS_OFFSET)))
+#define GPWTM3_TA_TnMIS    ((TA_GPTMMIS_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnMIS_OFFSET))
+#define GPWTM3_TA_TnMIS_R    (*((volatile const uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnMIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 GPTMICR *********************************************
+************************************ 9 ICR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnICR    ((TA_GPTMICR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnICR_OFFSET))
-#define GPWTM3_TA_GPTMTnICR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnICR_OFFSET)))
+#define GPWTM3_TA_TnICR    ((TA_GPTMICR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnICR_OFFSET))
+#define GPWTM3_TA_TnICR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnICR_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 GPTMTAILR *********************************************
+************************************ 10 TAILR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnILR    ((TA_GPWTMILR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnILR_OFFSET))
-#define GPWTM3_TA_GPTMTnILR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnILR_OFFSET)))
+#define GPWTM3_TA_TnILR    ((TA_GPWTMILR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnILR_OFFSET))
+#define GPWTM3_TA_TnILR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnILR_OFFSET)))
 
 /******************************************************************************************
-************************************ 12 GPTMTAMATCHR *********************************************
+************************************ 12 TAMATCHR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnMATCHR    ((TA_GPWTMMATCHR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET))
-#define GPWTM3_TA_GPTMTnMATCHR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnMATCHR_OFFSET)))
+#define GPWTM3_TA_TnMATCHR    ((TA_GPWTMMATCHR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnMATCHR_OFFSET))
+#define GPWTM3_TA_TnMATCHR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnMATCHR_OFFSET)))
 
 /******************************************************************************************
-************************************ 14 GPTMTAPR *********************************************
+************************************ 14 TAPR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnPR    ((TA_GPWTMPR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPR_OFFSET))
-#define GPWTM3_TA_GPTMTnPR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPR_OFFSET)))
+#define GPWTM3_TA_TnPR    ((TA_GPWTMPR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnPR_OFFSET))
+#define GPWTM3_TA_TnPR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnPR_OFFSET)))
 
 /******************************************************************************************
-************************************ 16 GPTMTAPMR *********************************************
+************************************ 16 TAPMR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnPMR    ((TA_GPWTMPMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPMR_OFFSET))
-#define GPWTM3_TA_GPTMTnPMR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPMR_OFFSET)))
+#define GPWTM3_TA_TnPMR    ((TA_GPWTMPMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnPMR_OFFSET))
+#define GPWTM3_TA_TnPMR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnPMR_OFFSET)))
 
 /******************************************************************************************
-************************************ 18 GPTMTAR *********************************************
+************************************ 18 TAR *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnR    ((TA_GPTMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnR_OFFSET))
-#define GPWTM3_TA_GPTMTnR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnR_OFFSET)))
+#define GPWTM3_TA_TnR    ((TA_GPTMR_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnR_OFFSET))
+#define GPWTM3_TA_TnR_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnR_OFFSET)))
 
 /******************************************************************************************
-************************************ 20 GPTMTAV *********************************************
+************************************ 20 TAV *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnV    ((TA_GPTMV_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnV_OFFSET))
-#define GPWTM3_TA_GPTMTnV_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnV_OFFSET)))
+#define GPWTM3_TA_TnV    ((TA_GPTMV_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnV_OFFSET))
+#define GPWTM3_TA_TnV_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnV_OFFSET)))
 
 /******************************************************************************************
-************************************ 23 GPTMTAPS *********************************************
+************************************ 23 TAPS *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnPS    ((TA_GPWTMPS_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPS_OFFSET))
-#define GPWTM3_TA_GPTMTnPS_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPS_OFFSET)))
+#define GPWTM3_TA_TnPS    ((TA_GPWTMPS_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnPS_OFFSET))
+#define GPWTM3_TA_TnPS_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnPS_OFFSET)))
 
 /******************************************************************************************
-************************************ 25 GPTMTAPV *********************************************
+************************************ 25 TAPV *********************************************
 ******************************************************************************************/
-#define GPWTM3_TA_GPTMTnPV    ((TA_GPWTMPV_TypeDef*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPV_OFFSET))
-#define GPWTM3_TA_GPTMTnPV_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_GPTMTnPV_OFFSET)))
+#define GPWTM3_TA_TnPV    ((TA_GPWTMPV_TypeDef*) (GPWTM3_BASE + GPWTM_TA_TnPV_OFFSET))
+#define GPWTM3_TA_TnPV_R    (*((volatile uint32_t*) (GPWTM3_BASE + GPWTM_TA_TnPV_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERPERIPHERAL_TIMER_REGISTERPERIPHERAL_MODULEA_32_TIMER_REGISTERPERIPHERAL_MODULEA_32_MODULE3_H_ */

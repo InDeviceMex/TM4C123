@@ -33,15 +33,15 @@ void TIMER__vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32FeatureValue, ui
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
     uint32_t u32Shift = 0UL;
-    uint32_t u32Register = GPTM_TA_GPTMTnMR_OFFSET;
+    uint32_t u32Register = GPTM_TA_TnMR_OFFSET;
     uint32_t u32RegisterOffset = 0UL;
     TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;
     u32Shift = 8UL * u32SubModule;
-    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, (uint32_t*) &enTimerEnable, GPTM_GPTMCTL_TAEN_MASK, u32Shift);
+    TIMER__enReadRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, (uint32_t*) &enTimerEnable, GPTM_CTL_TAEN_MASK, u32Shift);
     if(TIMER_enENABLE_START == enTimerEnable)
     {
-        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, GPTM_GPTMCTL_TAEN_DIS, GPTM_GPTMCTL_TAEN_MASK, u32Shift);
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, GPTM_CTL_TAEN_DIS, GPTM_CTL_TAEN_MASK, u32Shift);
     }
     u32RegisterOffset = 4UL;
     u32RegisterOffset *= u32SubModule;
@@ -49,7 +49,7 @@ void TIMER__vSetModeGeneric(TIMER_nMODULE enModule, uint32_t u32FeatureValue, ui
     TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, u32Register, u32FeatureValue, u32MaskFeature, u32BitFeature);
     if(TIMER_enENABLE_START == enTimerEnable)
     {
-        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_GPTMCTL_OFFSET, GPTM_GPTMCTL_TAEN_EN, GPTM_GPTMCTL_TAEN_MASK, u32Shift);
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, GPTM_CTL_TAEN_EN, GPTM_CTL_TAEN_MASK, u32Shift);
     }
 }
 
@@ -59,7 +59,7 @@ uint32_t TIMER__u32GetModeGeneric(TIMER_nMODULE enModule, uint32_t u32MaskFeatur
     uint32_t u32ModuleSize = 0UL;
     uint32_t u32SubModule = 0UL;
     uint32_t u32ModuleNumber = 0UL;
-    uint32_t u32Register = GPTM_TA_GPTMTnMR_OFFSET;
+    uint32_t u32Register = GPTM_TA_TnMR_OFFSET;
     uint32_t u32RegisterOffset = 0UL;
     TIMER__vGetSubParams(enModule, &u32ModuleSize, &u32SubModule, &u32ModuleNumber);
     u32SubModule &= 0x1UL;

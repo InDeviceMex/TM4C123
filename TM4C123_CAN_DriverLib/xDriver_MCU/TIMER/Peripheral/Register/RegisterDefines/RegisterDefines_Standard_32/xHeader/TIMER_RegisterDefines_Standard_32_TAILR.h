@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 10 GPTMTAILR *********************************************
+************************************ 10 TAILR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_GPTMTAILR_R_TAILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
-#define GPTM_GPTMTAILR_R_TAILR_BIT    (0UL)
+#define GPTM_TAILR_R_TAILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPTM_TAILR_R_TAILR_BIT    (0UL)
 
-#define GPTM_GPTMTAILR_TAILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPTM_TAILR_TAILR_MASK    ((uint32_t) 0xFFFFFFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_32_TIMER_REGISTERDEFINES_STANDARD_32_TAILR_H_ */

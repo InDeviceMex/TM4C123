@@ -63,7 +63,7 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule, uint64_t u64Match)
                 case TIMER_enCONFIG_RTC:
 
                     TimerValue = (uint32_t) u64Match;
-                    sMatch32Config.u32CountRegister = GPTM_GPTMTAMATCHR_OFFSET;
+                    sMatch32Config.u32CountRegister = GPTM_TAMATCHR_OFFSET;
                     sMatch32Config.u32CountMask = 0xFFFFFFFFUL;
                     sMatch32Config.u32CountShiftRight = 0UL;
                     sMatch32Config.pu32CountValue = &TimerValue;
@@ -82,21 +82,21 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule, uint64_t u64Match)
                     sMatch64Config.pu64CountValue = (uint64_t*) &TimerValue;
                     if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                     {
-                        sMatch64Config.u32CountHighRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountHighRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountHighMask = 0xFFFFUL;
                         sMatch64Config.u32CountHighShiftRight = 8UL;
 
-                        sMatch64Config.u32CountLowRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountLowRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountLowMask = 0xFFUL;
 
                     }
                     else
                     {
-                        sMatch64Config.u32CountHighRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountHighRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountHighMask = 0xFFUL;
                         sMatch64Config.u32CountHighShiftRight = 16UL;
 
-                        sMatch64Config.u32CountLowRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountLowRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountLowMask = 0xFFFFUL;
                     }
                     TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sMatch64Config);
@@ -113,12 +113,12 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule, uint64_t u64Match)
                 case TIMER_enCONFIG_RTC:
 
                     u64TimerValue = u64Match;
-                    sMatch64Config.u32CountHighRegister = GPTM_GPTMTBMATCHR_OFFSET;
+                    sMatch64Config.u32CountHighRegister = GPTM_TBMATCHR_OFFSET;
                     sMatch64Config.u32CountHighMask = 0xFFFFFFFFUL;
                     sMatch64Config.u32CountHighShiftRight = 32UL;
                     sMatch64Config.u32CountHighShiftLeft = 0UL;
 
-                    sMatch64Config.u32CountLowRegister = GPTM_GPTMTAMATCHR_OFFSET;
+                    sMatch64Config.u32CountLowRegister = GPTM_TAMATCHR_OFFSET;
                     sMatch64Config.u32CountLowMask = 0xFFFFFFFFUL;
                     sMatch64Config.u32CountLowShiftRight = 0UL;
                     sMatch64Config.u32CountLowShiftLeft = 0UL;
@@ -139,20 +139,20 @@ void TIMER__vSetMatch(TIMER_nMODULE enModule, uint64_t u64Match)
                     sMatch64Config.pu64CountValue = &u64TimerValue;
                     if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                     {
-                        sMatch64Config.u32CountHighRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountHighRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountHighMask = 0xFFFFFFFFUL;
                         sMatch64Config.u32CountHighShiftRight = 16UL;
 
-                        sMatch64Config.u32CountLowRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountLowRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountLowMask = 0xFFFFUL;
                     }
                     else
                     {
-                        sMatch64Config.u32CountHighRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountHighRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountHighMask = 0xFFFFUL;
                         sMatch64Config.u32CountHighShiftRight = 32UL;
 
-                        sMatch64Config.u32CountLowRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                        sMatch64Config.u32CountLowRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                         sMatch64Config.u32CountLowMask = 0xFFFFFFFFUL;
                     }
                     TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sMatch64Config);
@@ -199,7 +199,7 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule, uint64_t* pu64Match)
                 {
                     case TIMER_enCONFIG_WIDE:
                     case TIMER_enCONFIG_RTC:
-                        sMatch32Config.u32CountRegister = GPTM_GPTMTAMATCHR_OFFSET;
+                        sMatch32Config.u32CountRegister = GPTM_TAMATCHR_OFFSET;
                         sMatch32Config.u32CountMask = 0xFFFFFFFFUL;
                         sMatch32Config.u32CountShiftRight = 0UL;
                         sMatch32Config.pu32CountValue = &TimerValue;
@@ -216,12 +216,12 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule, uint64_t* pu64Match)
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
 
-                            sMatch64Config.u32CountHighRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountHighRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountHighMask = 0xFFFFUL;
                             sMatch64Config.u32CountHighShiftRight = 0UL;
                             sMatch64Config.u32CountHighShiftLeft = 8UL;
 
-                            sMatch64Config.u32CountLowRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountLowRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountLowMask = 0xFFUL;
                             sMatch64Config.u32CountLowShiftLeft = 0UL;
                             sMatch64Config.u32CountLowShiftRight = 0UL;
@@ -232,12 +232,12 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule, uint64_t* pu64Match)
                         else
                         {
 
-                            sMatch64Config.u32CountHighRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountHighRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountHighMask = 0xFFUL;
                             sMatch64Config.u32CountHighShiftRight = 0UL;
                             sMatch64Config.u32CountHighShiftLeft = 16UL;
 
-                            sMatch64Config.u32CountLowRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountLowRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountLowMask = 0xFFFFUL;
                             sMatch64Config.u32CountLowShiftRight = 0UL;
                             sMatch64Config.u32CountLowShiftLeft = 0UL;
@@ -258,12 +258,12 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule, uint64_t* pu64Match)
                     case TIMER_enCONFIG_WIDE:
                     case TIMER_enCONFIG_RTC:
 
-                        sMatch64Config.u32CountHighRegister = GPTM_GPTMTBMATCHR_OFFSET;
+                        sMatch64Config.u32CountHighRegister = GPTM_TBMATCHR_OFFSET;
                         sMatch64Config.u32CountHighMask = 0xFFFFFFFFUL;
                         sMatch64Config.u32CountHighShiftRight = 0UL;
                         sMatch64Config.u32CountHighShiftLeft = 32UL;
 
-                        sMatch64Config.u32CountLowRegister = GPTM_GPTMTAMATCHR_OFFSET;
+                        sMatch64Config.u32CountLowRegister = GPTM_TAMATCHR_OFFSET;
                         sMatch64Config.u32CountLowMask = 0xFFFFFFFFUL;
                         sMatch64Config.u32CountLowShiftRight = 0UL;
                         sMatch64Config.u32CountLowShiftLeft = 0UL;
@@ -285,22 +285,22 @@ TIMER_nSTATUS TIMER__enGetMatch(TIMER_nMODULE enModule, uint64_t* pu64Match)
                         /*One shot and periodic Down, no PWM no Capture*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
-                            sMatch64Config.u32CountHighRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountHighRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountHighMask = 0xFFFFFFFFUL;
                             sMatch64Config.u32CountHighShiftLeft = 16UL;
 
-                            sMatch64Config.u32CountLowRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountLowRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountLowMask = 0xFFFFUL;
                         }
                         /*Time Extension*/
                         /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
-                            sMatch64Config.u32CountHighRegister = GPTM_GPTMTAPMR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountHighRegister = GPTM_TAPMR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountHighMask = 0xFFFFUL;
                             sMatch64Config.u32CountHighShiftLeft = 32UL;
 
-                            sMatch64Config.u32CountLowRegister = GPTM_GPTMTAMATCHR_OFFSET + (4UL * u32SubModule);
+                            sMatch64Config.u32CountLowRegister = GPTM_TAMATCHR_OFFSET + (4UL * u32SubModule);
                             sMatch64Config.u32CountLowMask = 0xFFFFFFFFUL;
 
                         }

@@ -28,14 +28,14 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 23 GPTMTAPS *********************************************
+************************************ 23 TAPS *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPWTM_TA_GPTMTnPS_R_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
-#define GPWTM_TA_GPTMTnPS_R_PSS_BIT    (0UL)
+#define GPWTM_TA_TnPS_R_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPWTM_TA_TnPS_R_PSS_BIT    (0UL)
 
-#define GPWTM_TA_GPTMTnPS_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
+#define GPWTM_TA_TnPS_PSS_MASK    ((uint32_t) 0x0000FFFFUL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_MODULEA_32_TIMER_REGISTERDEFINES_MODULEA_32_PS_H_ */

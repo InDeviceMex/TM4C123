@@ -28,130 +28,130 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 2 GPTMTAMR *********************************************
+************************************ 2 TAMR *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAMR_MASK    ((uint32_t) 0x00000003UL)
-#define GPTM_GPTMTAMR_R_TAMR_BIT    (0UL)
-#define GPTM_GPTMTAMR_R_TAMR_ONESHOT    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_R_TAMR_PERIOD    ((uint32_t) 0x00000002UL)
-#define GPTM_GPTMTAMR_R_TAMR_CAPTURE    ((uint32_t) 0x00000003UL)
+#define GPTM_TAMR_R_TAMR_MASK    ((uint32_t) 0x00000003UL)
+#define GPTM_TAMR_R_TAMR_BIT    (0UL)
+#define GPTM_TAMR_R_TAMR_ONESHOT    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_R_TAMR_PERIOD    ((uint32_t) 0x00000002UL)
+#define GPTM_TAMR_R_TAMR_CAPTURE    ((uint32_t) 0x00000003UL)
 
-#define GPTM_GPTMTAMR_TAMR_MASK    ((uint32_t) 0x00000003UL)
-#define GPTM_GPTMTAMR_TAMR_ONESHOT    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAMR_PERIOD    ((uint32_t) 0x00000002UL)
-#define GPTM_GPTMTAMR_TAMR_CAPTURE    ((uint32_t) 0x00000003UL)
+#define GPTM_TAMR_TAMR_MASK    ((uint32_t) 0x00000003UL)
+#define GPTM_TAMR_TAMR_ONESHOT    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAMR_PERIOD    ((uint32_t) 0x00000002UL)
+#define GPTM_TAMR_TAMR_CAPTURE    ((uint32_t) 0x00000003UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TACMR_MASK    ((uint32_t) 0x00000004UL)
-#define GPTM_GPTMTAMR_R_TACMR_BIT    (2UL)
-#define GPTM_GPTMTAMR_R_TACMR_EDGECOUNT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TACMR_EDGETIME    ((uint32_t) 0x00000004UL)
+#define GPTM_TAMR_R_TACMR_MASK    ((uint32_t) 0x00000004UL)
+#define GPTM_TAMR_R_TACMR_BIT    (2UL)
+#define GPTM_TAMR_R_TACMR_EDGECOUNT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TACMR_EDGETIME    ((uint32_t) 0x00000004UL)
 
-#define GPTM_GPTMTAMR_TACMR_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TACMR_EDGECOUNT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TACMR_EDGETIME    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TACMR_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TACMR_EDGECOUNT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TACMR_EDGETIME    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAAMS_MASK    ((uint32_t) 0x00000008UL)
-#define GPTM_GPTMTAMR_R_TAAMS_BIT    (3UL)
-#define GPTM_GPTMTAMR_R_TAAMS_CAPCOMP    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAAMS_PWM    ((uint32_t) 0x00000008UL)
+#define GPTM_TAMR_R_TAAMS_MASK    ((uint32_t) 0x00000008UL)
+#define GPTM_TAMR_R_TAAMS_BIT    (3UL)
+#define GPTM_TAMR_R_TAAMS_CAPCOMP    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAAMS_PWM    ((uint32_t) 0x00000008UL)
 
-#define GPTM_GPTMTAMR_TAAMS_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAAMS_CAPCOMP    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAAMS_PWM    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAAMS_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAAMS_CAPCOMP    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAAMS_PWM    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TACDIR_MASK    ((uint32_t) 0x00000010UL)
-#define GPTM_GPTMTAMR_R_TACDIR_BIT    (4UL)
-#define GPTM_GPTMTAMR_R_TACDIR_DOWN    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TACDIR_UP    ((uint32_t) 0x00000010UL)
+#define GPTM_TAMR_R_TACDIR_MASK    ((uint32_t) 0x00000010UL)
+#define GPTM_TAMR_R_TACDIR_BIT    (4UL)
+#define GPTM_TAMR_R_TACDIR_DOWN    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TACDIR_UP    ((uint32_t) 0x00000010UL)
 
-#define GPTM_GPTMTAMR_TACDIR_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TACDIR_DOWN    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TACDIR_UP    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TACDIR_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TACDIR_DOWN    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TACDIR_UP    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAMIE_MASK    ((uint32_t) 0x00000020UL)
-#define GPTM_GPTMTAMR_R_TAMIE_BIT    (5UL)
-#define GPTM_GPTMTAMR_R_TAMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAMIE_EN    ((uint32_t) 0x00000020UL)
+#define GPTM_TAMR_R_TAMIE_MASK    ((uint32_t) 0x00000020UL)
+#define GPTM_TAMR_R_TAMIE_BIT    (5UL)
+#define GPTM_TAMR_R_TAMIE_DIS    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAMIE_EN    ((uint32_t) 0x00000020UL)
 
-#define GPTM_GPTMTAMR_TAMIE_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAMIE_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAMIE_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAMIE_DIS    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAMIE_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAWOT_MASK    ((uint32_t) 0x00000040UL)
-#define GPTM_GPTMTAMR_R_TAWOT_BIT    (6UL)
-#define GPTM_GPTMTAMR_R_TAWOT_INSTANT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAWOT_TRIGGER    ((uint32_t) 0x00000040UL)
+#define GPTM_TAMR_R_TAWOT_MASK    ((uint32_t) 0x00000040UL)
+#define GPTM_TAMR_R_TAWOT_BIT    (6UL)
+#define GPTM_TAMR_R_TAWOT_INSTANT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAWOT_TRIGGER    ((uint32_t) 0x00000040UL)
 
-#define GPTM_GPTMTAMR_TAWOT_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAWOT_INSTANT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAWOT_TRIGGER    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAWOT_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAWOT_INSTANT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAWOT_TRIGGER    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TASNAPS_MASK    ((uint32_t) 0x00000080UL)
-#define GPTM_GPTMTAMR_R_TASNAPS_BIT    (7UL)
-#define GPTM_GPTMTAMR_R_TASNAPS_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TASNAPS_EN    ((uint32_t) 0x00000080UL)
+#define GPTM_TAMR_R_TASNAPS_MASK    ((uint32_t) 0x00000080UL)
+#define GPTM_TAMR_R_TASNAPS_BIT    (7UL)
+#define GPTM_TAMR_R_TASNAPS_DIS    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TASNAPS_EN    ((uint32_t) 0x00000080UL)
 
-#define GPTM_GPTMTAMR_TASNAPS_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TASNAPS_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TASNAPS_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TASNAPS_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TASNAPS_DIS    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TASNAPS_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAILD_MASK    ((uint32_t) 0x00000100UL)
-#define GPTM_GPTMTAMR_R_TAILD_BIT    (8UL)
-#define GPTM_GPTMTAMR_R_TAILD_NEXT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAILD_TIMEOUT    ((uint32_t) 0x00000100UL)
+#define GPTM_TAMR_R_TAILD_MASK    ((uint32_t) 0x00000100UL)
+#define GPTM_TAMR_R_TAILD_BIT    (8UL)
+#define GPTM_TAMR_R_TAILD_NEXT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAILD_TIMEOUT    ((uint32_t) 0x00000100UL)
 
-#define GPTM_GPTMTAMR_TAILD_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAILD_NEXT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAILD_TIMEOUT    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAILD_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAILD_NEXT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAILD_TIMEOUT    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAPWMIE_MASK    ((uint32_t) 0x00000200UL)
-#define GPTM_GPTMTAMR_R_TAPWMIE_BIT    (9UL)
-#define GPTM_GPTMTAMR_R_TAPWMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAPWMIE_EN    ((uint32_t) 0x00000200UL)
+#define GPTM_TAMR_R_TAPWMIE_MASK    ((uint32_t) 0x00000200UL)
+#define GPTM_TAMR_R_TAPWMIE_BIT    (9UL)
+#define GPTM_TAMR_R_TAPWMIE_DIS    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAPWMIE_EN    ((uint32_t) 0x00000200UL)
 
-#define GPTM_GPTMTAMR_TAPWMIE_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAPWMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAPWMIE_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAPWMIE_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAPWMIE_DIS    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAPWMIE_EN    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAMRSU_MASK    ((uint32_t) 0x00000400UL)
-#define GPTM_GPTMTAMR_R_TAMRSU_BIT    (10UL)
-#define GPTM_GPTMTAMR_R_TAMRSU_NEXT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAMRSU_TIMEOUT    ((uint32_t) 0x00000400UL)
+#define GPTM_TAMR_R_TAMRSU_MASK    ((uint32_t) 0x00000400UL)
+#define GPTM_TAMR_R_TAMRSU_BIT    (10UL)
+#define GPTM_TAMR_R_TAMRSU_NEXT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAMRSU_TIMEOUT    ((uint32_t) 0x00000400UL)
 
-#define GPTM_GPTMTAMR_TAMRSU_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAMRSU_NEXT    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAMRSU_TIMEOUT    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAMRSU_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAMRSU_NEXT    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAMRSU_TIMEOUT    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
-#define GPTM_GPTMTAMR_R_TAPLO_MASK    ((uint32_t) 0x00000800UL)
-#define GPTM_GPTMTAMR_R_TAPLO_BIT    (11UL)
-#define GPTM_GPTMTAMR_R_TAPLO_LOW    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_R_TAPLO_HIGH    ((uint32_t) 0x00000800UL)
+#define GPTM_TAMR_R_TAPLO_MASK    ((uint32_t) 0x00000800UL)
+#define GPTM_TAMR_R_TAPLO_BIT    (11UL)
+#define GPTM_TAMR_R_TAPLO_LOW    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_R_TAPLO_HIGH    ((uint32_t) 0x00000800UL)
 
-#define GPTM_GPTMTAMR_TAPLO_MASK    ((uint32_t) 0x00000001UL)
-#define GPTM_GPTMTAMR_TAPLO_LOW    ((uint32_t) 0x00000000UL)
-#define GPTM_GPTMTAMR_TAPLO_HIGH    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAPLO_MASK    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAPLO_LOW    ((uint32_t) 0x00000000UL)
+#define GPTM_TAMR_TAPLO_HIGH    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_PERIPHERAL_TIMER_REGISTER_TIMER_REGISTERDEFINES_TIMER_REGISTERDEFINES_STANDARD_32_TIMER_REGISTERDEFINES_STANDARD_32_TAMR_H_ */

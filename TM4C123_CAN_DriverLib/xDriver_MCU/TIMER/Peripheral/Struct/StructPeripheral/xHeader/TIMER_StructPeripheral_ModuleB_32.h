@@ -33,82 +33,82 @@ typedef volatile struct
     const uint32_t reserved [2UL];
     union
     {
-        volatile uint32_t GPTMTnMR;
-        TB_GPTMMR_TypeDef GPTMTnMR_Bit;
+        volatile uint32_t TnMR;
+        TB_GPTMMR_TypeDef TnMR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTnCTL;
-        TB_GPTMCTL_TypeDef GPTMTnCTL_Bit;
+        volatile uint32_t TnCTL;
+        TB_GPTMCTL_TypeDef TnCTL_Bit;
     };
     const uint32_t reserved3 [2UL];
     union
     {
-        volatile uint32_t GPTMTnIMR;
-        TB_GPTMIMR_TypeDef GPTMTnIMR_Bit;
+        volatile uint32_t TnIMR;
+        TB_GPTMIMR_TypeDef TnIMR_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTnRIS;
-        TB_GPTMRIS_TypeDef GPTMTnRIS_Bit;
+        volatile uint32_t TnRIS;
+        TB_GPTMRIS_TypeDef TnRIS_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTnMIS;
-        TB_GPTMMIS_TypeDef GPTMTnMIS_Bit;
+        volatile uint32_t TnMIS;
+        TB_GPTMMIS_TypeDef TnMIS_Bit;
     };
     union
     {
-        volatile uint32_t GPTMTnICR;
-        TB_GPTMICR_TypeDef GPTMTnICR_Bit;
+        volatile uint32_t TnICR;
+        TB_GPTMICR_TypeDef TnICR_Bit;
     };
     const uint32_t reserved9;
     union
     {
-        volatile uint32_t GPTMTnILR;
-        TB_GPWTMILR_TypeDef GPTMTnILR_Bit;
+        volatile uint32_t TnILR;
+        TB_GPWTMILR_TypeDef TnILR_Bit;
     };
     const uint32_t reserved11;
     union
     {
-        volatile uint32_t GPTMTnMATCHR;
-        TB_GPWTMMATCHR_TypeDef GPTMTnMATCHR_Bit;
+        volatile uint32_t TnMATCHR;
+        TB_GPWTMMATCHR_TypeDef TnMATCHR_Bit;
     };
     const uint32_t reserved13;
     union
     {
-        volatile uint32_t GPTMTnPR;
-        TB_GPWTMPR_TypeDef GPTMTnPR_Bit;
+        volatile uint32_t TnPR;
+        TB_GPWTMPR_TypeDef TnPR_Bit;
     };
     const uint32_t reserved15;
     union
     {
-        volatile uint32_t GPTMTnPMR;
-        TB_GPWTMPMR_TypeDef GPTMTnPMR_Bit;
+        volatile uint32_t TnPMR;
+        TB_GPWTMPMR_TypeDef TnPMR_Bit;
     };
     const uint32_t reserved17;
     union
     {
-        volatile const uint32_t GPTMTnR;
-        TB_GPTMR_TypeDef GPTMTnR_Bit;
+        volatile const uint32_t TnR;
+        TB_GPTMR_TypeDef TnR_Bit;
     };
     const uint32_t reserved18;
     union
     {
-        volatile uint32_t GPTMTnV;
-        TB_GPTMV_TypeDef GPTMTnV_Bit;
+        volatile uint32_t TnV;
+        TB_GPTMV_TypeDef TnV_Bit;
     };
     const uint32_t reserved19 [2UL];
     union
     {
-        volatile const uint32_t GPTMTnPS;
-        TB_GPTMPS_TypeDef GPTMTnPS_Bit;
+        volatile const uint32_t TnPS;
+        TB_GPTMPS_TypeDef TnPS_Bit;
     };
     const uint32_t reserved21;
     union
     {
-        volatile const uint32_t GPTMTnPV;
-        TB_GPWTMPV_TypeDef GPTMTnPV_Bit;
+        volatile const uint32_t TnPV;
+        TB_GPWTMPV_TypeDef TnPV_Bit;
     };
     const uint32_t reserved23 [997UL];
 }GPWTM_TB_TypeDef;
