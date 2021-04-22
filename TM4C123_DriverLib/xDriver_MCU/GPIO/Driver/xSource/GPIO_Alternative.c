@@ -30,23 +30,23 @@
 void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
-    GPIO__vEnGeneric(enPort, GPIO_GPIOAFSEL_OFFSET, enPin);
+    GPIO__vEnGeneric(enPort, GPIO_AFSEL_OFFSET, enPin);
 }
 
 void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
-    GPIO__vDisGeneric(enPort, GPIO_GPIOAFSEL_OFFSET, enPin);
+    GPIO__vDisGeneric(enPort, GPIO_AFSEL_OFFSET, enPin);
 }
 
 void GPIO__vSetAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nALT_FUNCTION enFeature)
 {
-    GPIO__vSetGeneric(enPort, GPIO_GPIOAFSEL_OFFSET, enPin, (uint32_t) enFeature);
+    GPIO__vSetGeneric(enPort, GPIO_AFSEL_OFFSET, enPin, (uint32_t) enFeature);
 }
 
 GPIO_nALT_FUNCTION GPIO__enGetAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nALT_FUNCTION enFeature = GPIO_enALT_FUNCTION_UNDEF;
-    enFeature = (GPIO_nALT_FUNCTION) GPIO__u32GetGeneric(enPort, GPIO_GPIOAFSEL_OFFSET, enPin);
+    enFeature = (GPIO_nALT_FUNCTION) GPIO__u32GetGeneric(enPort, GPIO_AFSEL_OFFSET, enPin);
     return enFeature;
 }

@@ -39,7 +39,7 @@ inline void GPIO_AHB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32D
         u32Pin &= (uint32_t) GPIO_enPIN_ALL;
         u32OffsetRegister = u32Pin;
         u32OffsetRegister *= 4UL;
-        u32OffsetRegister += GPIO_GPIODATA_MASK_OFFSET;
+        u32OffsetRegister += GPIO_DATA_MASK_OFFSET;
 
         GPIO__vWriteRegisterBus(enPort, enBus, u32OffsetRegister, u32Data, 0xFFFFFFFFUL, 0UL);
     }
@@ -59,7 +59,7 @@ inline GPIO_nSTATUS GPIO_AHB__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint
         u32Pin &= (uint32_t) GPIO_enPIN_ALL;
         u32OffsetRegister = u32Pin;
         u32OffsetRegister *= 4UL;
-        u32OffsetRegister += GPIO_GPIODATA_MASK_OFFSET;
+        u32OffsetRegister += GPIO_DATA_MASK_OFFSET;
 
         enStatus = GPIO__enReadRegisterBus(enPort, enBus, u32OffsetRegister, u32Feature, 0xFFFFFFFFUL, 0UL);
     }
@@ -68,12 +68,12 @@ inline GPIO_nSTATUS GPIO_AHB__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint
 
 inline void GPIO_AHB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
-    GPIO_AHB->AHB[(uint32_t) enPort].GPIODATA_MASK[enPin] = u32Data;
+    GPIO_AHB->AHB[(uint32_t) enPort].DATA_MASK[enPin] = u32Data;
 }
 
 inline uint32_t GPIO_AHB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     uint32_t u32Reg = 0UL;
-    u32Reg = GPIO_AHB->AHB[(uint32_t) enPort].GPIODATA_MASK[enPin];
+    u32Reg = GPIO_AHB->AHB[(uint32_t) enPort].DATA_MASK[enPin];
     return u32Reg;
 }

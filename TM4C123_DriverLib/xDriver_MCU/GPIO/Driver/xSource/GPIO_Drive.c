@@ -41,17 +41,17 @@ void GPIO__vSetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDRIVE enDrivePara
 
     u32OffsetRegisterDRR = u32Drive;
     u32OffsetRegisterDRR *= 4UL;
-    u32OffsetRegisterDRR += GPIO_GPIODRR_OFFSET;
+    u32OffsetRegisterDRR += GPIO_DRR_OFFSET;
 
     GPIO__vEnGeneric(enPort, u32OffsetRegisterDRR, enPin);
-    GPIO__vSetGeneric(enPort, GPIO_GPIOSLR_OFFSET, enPin, (uint32_t) u32SlewRate);
+    GPIO__vSetGeneric(enPort, GPIO_SLR_OFFSET, enPin, (uint32_t) u32SlewRate);
 }
 
 GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDRIVE enDriveVar = GPIO_enDRIVE_UNDEF;
     uint32_t u32DriveParam = 0UL;
-    uint32_t u32OffsetRegisterDRR = GPIO_GPIODRR_OFFSET;
+    uint32_t u32OffsetRegisterDRR = GPIO_DRR_OFFSET;
 
     for(enDriveVar = GPIO_enDRIVE_2mA; enDriveVar <= GPIO_enDRIVE_8mA; enDriveVar++)
     {
@@ -67,7 +67,7 @@ GPIO_nDRIVE GPIO__enGetDrive(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         if(GPIO_enDRIVE_8mA == enDriveVar)
         {
-            u32DriveParam = GPIO__u32GetGeneric(enPort, GPIO_GPIOSLR_OFFSET, enPin);
+            u32DriveParam = GPIO__u32GetGeneric(enPort, GPIO_SLR_OFFSET, enPin);
             if(1UL == u32DriveParam)
             {
                 enDriveVar = GPIO_enDRIVE_8mA_SLR;

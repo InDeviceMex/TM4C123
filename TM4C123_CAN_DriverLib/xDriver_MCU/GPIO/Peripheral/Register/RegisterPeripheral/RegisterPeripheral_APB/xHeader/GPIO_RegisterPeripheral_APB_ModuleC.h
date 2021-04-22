@@ -32,271 +32,271 @@
 #define GPIOC_APB_AUX    ((GPIO_AUX_TypeDef*) (GPIOC_APB_BASE))
 
 /******************************************************************************************
- ************************************ 1 GPIODATA *********************************************
+ ************************************ 1 DATA *********************************************
  ******************************************************************************************/
 /* GPIOC APB DATA*/
-#define GPIOC_APB_GPIODATA_MASK    ((GPIODATA_MASK_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODATA_MASK_OFFSET))
-#define GPIOC_APB_GPIODATA0_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA0_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA1_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA1_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA2_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA2_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA3_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA3_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA4_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA4_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA5_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA5_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA6_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA6_MASK_OFFSET )))
-#define GPIOC_APB_GPIODATA7_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA7_MASK_OFFSET )))
+#define GPIOC_APB_DATA_MASK    ((GPIODATA_MASK_TypeDef*) (GPIOC_APB_BASE + GPIO_DATA_MASK_OFFSET))
+#define GPIOC_APB_DATA0_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA0_MASK_OFFSET )))
+#define GPIOC_APB_DATA1_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA1_MASK_OFFSET )))
+#define GPIOC_APB_DATA2_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA2_MASK_OFFSET )))
+#define GPIOC_APB_DATA3_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA3_MASK_OFFSET )))
+#define GPIOC_APB_DATA4_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA4_MASK_OFFSET )))
+#define GPIOC_APB_DATA5_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA5_MASK_OFFSET )))
+#define GPIOC_APB_DATA6_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA6_MASK_OFFSET )))
+#define GPIOC_APB_DATA7_MASK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA7_MASK_OFFSET )))
 
-#define GPIOC_APB_GPIODATA    ((GPIODATA_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODATA_OFFSET))
-#define GPIOC_APB_GPIODATA_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODATA_OFFSET)))
+#define GPIOC_APB_DATA    ((GPIODATA_TypeDef*) (GPIOC_APB_BASE + GPIO_DATA_OFFSET))
+#define GPIOC_APB_DATA_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DATA_OFFSET)))
 
 /******************************************************************************************
- ************************************ 2 GPIODIR *********************************************
+ ************************************ 2 DIR *********************************************
  ******************************************************************************************/
 /* GPIOC APB DIR*/
-#define GPIOC_APB_GPIODIR    ((GPIODIR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODIR_OFFSET))
-#define GPIOC_APB_GPIODIR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODIR_OFFSET)))
+#define GPIOC_APB_DIR    ((GPIODIR_TypeDef*) (GPIOC_APB_BASE + GPIO_DIR_OFFSET))
+#define GPIOC_APB_DIR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DIR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 3 GPIOIS *********************************************
+ ************************************ 3 IS *********************************************
  ******************************************************************************************/
 /* GPIOC APB IS*/
-#define GPIOC_APB_GPIOIS    ((GPIOIS_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOIS_OFFSET))
-#define GPIOC_APB_GPIOIS_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOIS_OFFSET)))
+#define GPIOC_APB_IS    ((GPIOIS_TypeDef*) (GPIOC_APB_BASE + GPIO_IS_OFFSET))
+#define GPIOC_APB_IS_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_IS_OFFSET)))
 
 /******************************************************************************************
- ************************************ 4 GPIOIBE *********************************************
+ ************************************ 4 IBE *********************************************
  ******************************************************************************************/
 /* GPIOC APB IBE*/
-#define GPIOC_APB_GPIOIBE    ((GPIOIBE_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOIBE_OFFSET))
-#define GPIOC_APB_GPIOIBE_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOIBE_OFFSET)))
+#define GPIOC_APB_IBE    ((GPIOIBE_TypeDef*) (GPIOC_APB_BASE + GPIO_IBE_OFFSET))
+#define GPIOC_APB_IBE_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_IBE_OFFSET)))
 
 /******************************************************************************************
- ************************************ 5 GPIOIEV *********************************************
+ ************************************ 5 IEV *********************************************
  ******************************************************************************************/
 /* GPIOC APB IEV*/
-#define GPIOC_APB_GPIOIEV    ((GPIOIEV_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOIEV_OFFSET))
-#define GPIOC_APB_GPIOIEV_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOIEV_OFFSET)))
+#define GPIOC_APB_IEV    ((GPIOIEV_TypeDef*) (GPIOC_APB_BASE + GPIO_IEV_OFFSET))
+#define GPIOC_APB_IEV_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_IEV_OFFSET)))
 
 /******************************************************************************************
- ************************************ 6 GPIOIM *********************************************
+ ************************************ 6 IM *********************************************
  ******************************************************************************************/
 /* GPIOC APB IME*/
-#define GPIOC_APB_GPIOIM    ((GPIOIM_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOIM_OFFSET))
-#define GPIOC_APB_GPIOIM_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOIM_OFFSET)))
+#define GPIOC_APB_IM    ((GPIOIM_TypeDef*) (GPIOC_APB_BASE + GPIO_IM_OFFSET))
+#define GPIOC_APB_IM_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_IM_OFFSET)))
 
 /******************************************************************************************
- ************************************ 7 GPIORIS *********************************************
+ ************************************ 7 RIS *********************************************
  ******************************************************************************************/
 /* GPIOC APB RIS*/
-#define GPIOC_APB_GPIORIS    ((GPIORIS_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIORIS_OFFSET))
-#define GPIOC_APB_GPIORIS_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIORIS_OFFSET)))
+#define GPIOC_APB_RIS    ((GPIORIS_TypeDef*) (GPIOC_APB_BASE + GPIO_RIS_OFFSET))
+#define GPIOC_APB_RIS_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_RIS_OFFSET)))
 
 /******************************************************************************************
- ************************************ 8 GPIOMIS *********************************************
+ ************************************ 8 MIS *********************************************
  ******************************************************************************************/
 /* GPIOC APB MIS*/
-#define GPIOC_APB_GPIOMIS    ((GPIOMIS_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOMIS_OFFSET))
-#define GPIOC_APB_GPIOMIS_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOMIS_OFFSET)))
+#define GPIOC_APB_MIS    ((GPIOMIS_TypeDef*) (GPIOC_APB_BASE + GPIO_MIS_OFFSET))
+#define GPIOC_APB_MIS_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_MIS_OFFSET)))
 
 /******************************************************************************************
- ************************************ 9 GPIOICR *********************************************
+ ************************************ 9 ICR *********************************************
  ******************************************************************************************/
 /* GPIOC APB IC*/
-#define GPIOC_APB_GPIOICR    ((GPIOICR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOICR_OFFSET))
-#define GPIOC_APB_GPIOICR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOICR_OFFSET)))
+#define GPIOC_APB_ICR    ((GPIOICR_TypeDef*) (GPIOC_APB_BASE + GPIO_ICR_OFFSET))
+#define GPIOC_APB_ICR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_ICR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 10 GPIOAFSEL *********************************************
+ ************************************ 10 AFSEL *********************************************
  ******************************************************************************************/
 /* GPIOC APB AFSEL*/
-#define GPIOC_APB_GPIOAFSEL    ((GPIOAFSEL_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOAFSEL_OFFSET))
-#define GPIOC_APB_GPIOAFSEL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOAFSEL_OFFSET)))
+#define GPIOC_APB_AFSEL    ((GPIOAFSEL_TypeDef*) (GPIOC_APB_BASE + GPIO_AFSEL_OFFSET))
+#define GPIOC_APB_AFSEL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_AFSEL_OFFSET)))
 
 /******************************************************************************************
- ************************************ 11 GPIODRR ARRAY *********************************************
+ ************************************ 11 DRR ARRAY *********************************************
  ******************************************************************************************/
 /* GPIOC APB DRV2*/
-#define GPIOC_APB_GPIODRR    ((GPIODRR_ARRAY_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODR2R_OFFSET))
+#define GPIOC_APB_DRR    ((GPIODRR_ARRAY_TypeDef*) (GPIOC_APB_BASE + GPIO_DR2R_OFFSET))
 
 /******************************************************************************************
- ************************************ 11 GPIODR2R *********************************************
+ ************************************ 11 DR2R *********************************************
  ******************************************************************************************/
 /* GPIOC APB DRV2*/
-#define GPIOC_APB_GPIODR2R    ((GPIODR2R_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODR2R_OFFSET))
-#define GPIOC_APB_GPIODR2R_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODR2R_OFFSET)))
+#define GPIOC_APB_DR2R    ((GPIODR2R_TypeDef*) (GPIOC_APB_BASE + GPIO_DR2R_OFFSET))
+#define GPIOC_APB_DR2R_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DR2R_OFFSET)))
 
 /******************************************************************************************
- ************************************ 12 GPIODR4R *********************************************
+ ************************************ 12 DR4R *********************************************
  ******************************************************************************************/
 /* GPIOC APB DRV4*/
-#define GPIOC_APB_GPIODR4R    ((GPIODR4R_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODR4R_OFFSET))
-#define GPIOC_APB_GPIODR4R_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODR4R_OFFSET)))
+#define GPIOC_APB_DR4R    ((GPIODR4R_TypeDef*) (GPIOC_APB_BASE + GPIO_DR4R_OFFSET))
+#define GPIOC_APB_DR4R_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DR4R_OFFSET)))
 
 /******************************************************************************************
- ************************************ 13 GPIODR8R *********************************************
+ ************************************ 13 DR8R *********************************************
  ******************************************************************************************/
 /* GPIOC APB DRV8*/
-#define GPIOC_APB_GPIODR8R    ((GPIODR8R_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODR8R_OFFSET))
-#define GPIOC_APB_GPIODR8R_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODR8R_OFFSET)))
+#define GPIOC_APB_DR8R    ((GPIODR8R_TypeDef*) (GPIOC_APB_BASE + GPIO_DR8R_OFFSET))
+#define GPIOC_APB_DR8R_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DR8R_OFFSET)))
 
 /******************************************************************************************
- ************************************ 14 GPIOODR *********************************************
+ ************************************ 14 ODR *********************************************
  ******************************************************************************************/
 /* GPIOC APB ODE*/
-#define GPIOC_APB_GPIOODR    ((GPIOODR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOODR_OFFSET))
-#define GPIOC_APB_GPIOODR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOODR_OFFSET)))
+#define GPIOC_APB_ODR    ((GPIOODR_TypeDef*) (GPIOC_APB_BASE + GPIO_ODR_OFFSET))
+#define GPIOC_APB_ODR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_ODR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 15 GPIOPUR *********************************************
+ ************************************ 15 PUR *********************************************
  ******************************************************************************************/
 /* GPIOC APB PUE*/
-#define GPIOC_APB_GPIOPUR    ((GPIOPUR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPUR_OFFSET))
-#define GPIOC_APB_GPIOPUR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPUR_OFFSET)))
+#define GPIOC_APB_PUR    ((GPIOPUR_TypeDef*) (GPIOC_APB_BASE + GPIO_PUR_OFFSET))
+#define GPIOC_APB_PUR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PUR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 16 GPIOPDR *********************************************
+ ************************************ 16 PDR *********************************************
  ******************************************************************************************/
 /* GPIOC APB PDE*/
-#define GPIOC_APB_GPIOPDR    ((GPIOPDR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPDR_OFFSET))
-#define GPIOC_APB_GPIOPDR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPDR_OFFSET)))
+#define GPIOC_APB_PDR    ((GPIOPDR_TypeDef*) (GPIOC_APB_BASE + GPIO_PDR_OFFSET))
+#define GPIOC_APB_PDR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PDR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 17 GPIOSLR *********************************************
+ ************************************ 17 SLR *********************************************
  ******************************************************************************************/
 /* GPIOC APB SLR*/
-#define GPIOC_APB_GPIOSLR    ((GPIOSLR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOSLR_OFFSET))
-#define GPIOC_APB_GPIOSLR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOSLR_OFFSET)))
+#define GPIOC_APB_SLR    ((GPIOSLR_TypeDef*) (GPIOC_APB_BASE + GPIO_SLR_OFFSET))
+#define GPIOC_APB_SLR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_SLR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 18 GPIODEN *********************************************
+ ************************************ 18 DEN *********************************************
  ******************************************************************************************/
 /* GPIOC APB DEN*/
-#define GPIOC_APB_GPIODEN    ((GPIODEN_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODEN_OFFSET))
-#define GPIOC_APB_GPIODEN_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODEN_OFFSET)))
+#define GPIOC_APB_DEN    ((GPIODEN_TypeDef*) (GPIOC_APB_BASE + GPIO_DEN_OFFSET))
+#define GPIOC_APB_DEN_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DEN_OFFSET)))
 
 /******************************************************************************************
- ************************************ 19 GPIOLOCK *********************************************
+ ************************************ 19 LOCK *********************************************
  ******************************************************************************************/
 /* GPIOC APB LOCK*/
-#define GPIOC_APB_GPIOLOCK    ((GPIOLOCK_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOLOCK_OFFSET))
-#define GPIOC_APB_GPIOLOCK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOLOCK_OFFSET)))
+#define GPIOC_APB_LOCK    ((GPIOLOCK_TypeDef*) (GPIOC_APB_BASE + GPIO_LOCK_OFFSET))
+#define GPIOC_APB_LOCK_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_LOCK_OFFSET)))
 
 /******************************************************************************************
- ************************************ 20 GPIOCR *********************************************
+ ************************************ 20 CR *********************************************
  ******************************************************************************************/
 /* GPIOC APB CR*/
-#define GPIOC_APB_GPIOCR    ((GPIOCR_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOCR_OFFSET))
-#define GPIOC_APB_GPIOCR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOCR_OFFSET)))
+#define GPIOC_APB_CR    ((GPIOCR_TypeDef*) (GPIOC_APB_BASE + GPIO_CR_OFFSET))
+#define GPIOC_APB_CR_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_CR_OFFSET)))
 
 /******************************************************************************************
- ************************************ 21 GPIOAMSEL *********************************************
+ ************************************ 21 AMSEL *********************************************
  ******************************************************************************************/
 /* GPIOC APB AMSEL*/
-#define GPIOC_APB_GPIOAMSEL    ((GPIOAMSEL_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOAMSEL_OFFSET))
-#define GPIOC_APB_GPIOAMSEL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOAMSEL_OFFSET)))
+#define GPIOC_APB_AMSEL    ((GPIOAMSEL_TypeDef*) (GPIOC_APB_BASE + GPIO_AMSEL_OFFSET))
+#define GPIOC_APB_AMSEL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_AMSEL_OFFSET)))
 
 /******************************************************************************************
- ************************************ 22 GPIOPCTL *********************************************
+ ************************************ 22 PCTL *********************************************
  ******************************************************************************************/
 /* GPIOC APB PCM*/
-#define GPIOC_APB_GPIOPCTL    ((GPIOPCTL_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPCTL_OFFSET))
-#define GPIOC_APB_GPIOPCTL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPCTL_OFFSET)))
+#define GPIOC_APB_PCTL    ((GPIOPCTL_TypeDef*) (GPIOC_APB_BASE + GPIO_PCTL_OFFSET))
+#define GPIOC_APB_PCTL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PCTL_OFFSET)))
 
 /******************************************************************************************
- ************************************ 23 GPIOADCCTL *********************************************
+ ************************************ 23 ADCCTL *********************************************
  ******************************************************************************************/
 /* GPIOC APB ADCEN*/
-#define GPIOC_APB_GPIOADCCTL    ((GPIOADCCTL_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOADCCTL_OFFSET))
-#define GPIOC_APB_GPIOADCCTL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOADCCTL_OFFSET)))
+#define GPIOC_APB_ADCCTL    ((GPIOADCCTL_TypeDef*) (GPIOC_APB_BASE + GPIO_ADCCTL_OFFSET))
+#define GPIOC_APB_ADCCTL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_ADCCTL_OFFSET)))
 
 /******************************************************************************************
- ************************************ 24 GPIODMACTL *********************************************
+ ************************************ 24 DMACTL *********************************************
  ******************************************************************************************/
 /* GPIOC APB DMAEN*/
-#define GPIOC_APB_GPIODMACTL    ((GPIODMACTL_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIODMACTL_OFFSET))
-#define GPIOC_APB_GPIODMACTL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIODMACTL_OFFSET)))
+#define GPIOC_APB_DMACTL    ((GPIODMACTL_TypeDef*) (GPIOC_APB_BASE + GPIO_DMACTL_OFFSET))
+#define GPIOC_APB_DMACTL_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_DMACTL_OFFSET)))
 
 /******************************************************************************************
- ************************************ 25 GPIOPeriphID4 *********************************************
+ ************************************ 25 PeriphID4 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID4*/
-#define GPIOC_APB_GPIOPeriphID4    ((GPIOPeriphID4_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID4_OFFSET))
-#define GPIOC_APB_GPIOPeriphID4_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID4_OFFSET)))
+#define GPIOC_APB_PeriphID4    ((GPIOPeriphID4_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID4_OFFSET))
+#define GPIOC_APB_PeriphID4_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID4_OFFSET)))
 
 /******************************************************************************************
- ************************************ 26 GPIOPeriphID5 *********************************************
+ ************************************ 26 PeriphID5 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID5*/
-#define GPIOC_APB_GPIOPeriphID5    ((GPIOPeriphID5_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID5_OFFSET))
-#define GPIOC_APB_GPIOPeriphID5_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID5_OFFSET)))
+#define GPIOC_APB_PeriphID5    ((GPIOPeriphID5_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID5_OFFSET))
+#define GPIOC_APB_PeriphID5_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID5_OFFSET)))
 
 /******************************************************************************************
- ************************************ 27 GPIOPeriphID6 *********************************************
+ ************************************ 27 PeriphID6 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID6*/
-#define GPIOC_APB_GPIOPeriphID6    ((GPIOPeriphID6_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID6_OFFSET))
-#define GPIOC_APB_GPIOPeriphID6_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID6_OFFSET)))
+#define GPIOC_APB_PeriphID6    ((GPIOPeriphID6_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID6_OFFSET))
+#define GPIOC_APB_PeriphID6_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID6_OFFSET)))
 
 /******************************************************************************************
- ************************************ 28 GPIOPeriphID7 *********************************************
+ ************************************ 28 PeriphID7 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID7*/
-#define GPIOC_APB_GPIOPeriphID7    ((GPIOPeriphID7_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID7_OFFSET))
-#define GPIOC_APB_GPIOPeriphID7_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID7_OFFSET)))
+#define GPIOC_APB_PeriphID7    ((GPIOPeriphID7_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID7_OFFSET))
+#define GPIOC_APB_PeriphID7_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID7_OFFSET)))
 
 /******************************************************************************************
- ************************************ 29 GPIOPeriphID0 *********************************************
+ ************************************ 29 PeriphID0 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID0*/
-#define GPIOC_APB_GPIOPeriphID0    ((GPIOPeriphID0_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID0_OFFSET))
-#define GPIOC_APB_GPIOPeriphID0_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID0_OFFSET)))
+#define GPIOC_APB_PeriphID0    ((GPIOPeriphID0_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID0_OFFSET))
+#define GPIOC_APB_PeriphID0_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID0_OFFSET)))
 
 /******************************************************************************************
- ************************************ 30 GPIOPeriphID1 *********************************************
+ ************************************ 30 PeriphID1 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID1*/
-#define GPIOC_APB_GPIOPeriphID1    ((GPIOPeriphID1_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID1_OFFSET))
-#define GPIOC_APB_GPIOPeriphID1_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID1_OFFSET)))
+#define GPIOC_APB_PeriphID1    ((GPIOPeriphID1_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID1_OFFSET))
+#define GPIOC_APB_PeriphID1_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID1_OFFSET)))
 
 /******************************************************************************************
- ************************************ 31 GPIOPeriphID2 *********************************************
+ ************************************ 31 PeriphID2 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID2*/
-#define GPIOC_APB_GPIOPeriphID2    ((GPIOPeriphID2_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID2_OFFSET))
-#define GPIOC_APB_GPIOPeriphID2_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID2_OFFSET)))
+#define GPIOC_APB_PeriphID2    ((GPIOPeriphID2_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID2_OFFSET))
+#define GPIOC_APB_PeriphID2_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID2_OFFSET)))
 
 /******************************************************************************************
- ************************************ 32 GPIOPeriphID3 *********************************************
+ ************************************ 32 PeriphID3 *********************************************
  ******************************************************************************************/
 /* GPIOC APB PID3*/
-#define GPIOC_APB_GPIOPeriphID3    ((GPIOPeriphID3_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOPeriphID3_OFFSET))
-#define GPIOC_APB_GPIOPeriphID3_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOPeriphID3_OFFSET)))
+#define GPIOC_APB_PeriphID3    ((GPIOPeriphID3_TypeDef*) (GPIOC_APB_BASE + GPIO_PeriphID3_OFFSET))
+#define GPIOC_APB_PeriphID3_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_PeriphID3_OFFSET)))
 
 /******************************************************************************************
- ************************************ 33 GPIOCellID0 *********************************************
+ ************************************ 33 CellID0 *********************************************
  ******************************************************************************************/
 /* GPIOC APB CID0*/
-#define GPIOC_APB_GPIOCellID0    ((GPIOCellID0_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOCellID0_OFFSET))
-#define GPIOC_APB_GPIOCellID0_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOCellID0_OFFSET)))
+#define GPIOC_APB_CellID0    ((GPIOCellID0_TypeDef*) (GPIOC_APB_BASE + GPIO_CellID0_OFFSET))
+#define GPIOC_APB_CellID0_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_CellID0_OFFSET)))
 
 /******************************************************************************************
- ************************************ 34 GPIOCellID1 *********************************************
+ ************************************ 34 CellID1 *********************************************
  ******************************************************************************************/
 /* GPIOC APB CID1*/
-#define GPIOC_APB_GPIOCellID1    ((GPIOCellID1_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOCellID1_OFFSET))
-#define GPIOC_APB_GPIOCellID1_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOCellID1_OFFSET)))
+#define GPIOC_APB_CellID1    ((GPIOCellID1_TypeDef*) (GPIOC_APB_BASE + GPIO_CellID1_OFFSET))
+#define GPIOC_APB_CellID1_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_CellID1_OFFSET)))
 
 /******************************************************************************************
- ************************************ 35 GPIOCellID2 *********************************************
+ ************************************ 35 CellID2 *********************************************
  ******************************************************************************************/
 /* GPIOC APB CID2*/
-#define GPIOC_APB_GPIOCellID2    ((GPIOCellID2_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOCellID2_OFFSET))
-#define GPIOC_APB_GPIOCellID2_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOCellID2_OFFSET)))
+#define GPIOC_APB_CellID2    ((GPIOCellID2_TypeDef*) (GPIOC_APB_BASE + GPIO_CellID2_OFFSET))
+#define GPIOC_APB_CellID2_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_CellID2_OFFSET)))
 
 /******************************************************************************************
- ************************************ 36 GPIOCellID3 *********************************************
+ ************************************ 36 CellID3 *********************************************
  ******************************************************************************************/
 /* GPIOC APB CID3*/
-#define GPIOC_APB_GPIOCellID3    ((GPIOCellID3_TypeDef*) (GPIOC_APB_BASE + GPIO_GPIOCellID3_OFFSET))
-#define GPIOC_APB_GPIOCellID3_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_GPIOCellID3_OFFSET)))
+#define GPIOC_APB_CellID3    ((GPIOCellID3_TypeDef*) (GPIOC_APB_BASE + GPIO_CellID3_OFFSET))
+#define GPIOC_APB_CellID3_R    (*((volatile uint32_t *) (GPIOC_APB_BASE + GPIO_CellID3_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERPERIPHERAL_GPIO_REGISTERPERIPHERAL_APB_GPIO_REGISTERPERIPHERAL_APB_MODULEC_H_ */

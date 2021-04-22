@@ -135,8 +135,8 @@ typedef volatile struct
     const uint32_t reserved3 [2UL];
     union
     {
-        volatile uint32_t GPIOHBCTL;
-        GPIOHBCTL_TypeDef GPIOHBCTL_Bit;
+        volatile uint32_t HBCTL;
+        GPIOHBCTL_TypeDef HBCTL_Bit;
     };
     union
     {

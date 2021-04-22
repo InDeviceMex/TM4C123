@@ -79,7 +79,7 @@
 #define SYSCTL_RCC_R    (*((volatile uint32_t*) (SYSCTL_BASE + SYSCTL_RCC_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 GPIOHBCTL *********************************************
+************************************ 9 HBCTL *********************************************
 ******************************************************************************************/
 #define SYSCTL_GPIOHBCTL    ((GPIOHBCTL_TypeDef*) (SYSCTL_BASE + SYSCTL_GPIOHBCTL_OFFSET))
 #define SYSCTL_GPIOHBCTL_R    (*((volatile uint32_t*) (SYSCTL_BASE + SYSCTL_GPIOHBCTL_OFFSET)))

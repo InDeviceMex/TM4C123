@@ -28,12 +28,12 @@
 
 void GPIO__vSetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIR enFeature)
 {
-    GPIO__vSetGeneric(enPort, GPIO_GPIODIR_OFFSET, enPin, (uint32_t) enFeature);
+    GPIO__vSetGeneric(enPort, GPIO_DIR_OFFSET, enPin, (uint32_t) enFeature);
 }
 
 GPIO_nDIR GPIO__enGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDIR enFeature = GPIO_enDIR_UNDEF;
-    enFeature = (GPIO_nDIR) GPIO__u32GetGeneric(enPort, GPIO_GPIODIR_OFFSET, enPin);
+    enFeature = (GPIO_nDIR) GPIO__u32GetGeneric(enPort, GPIO_DIR_OFFSET, enPin);
     return enFeature;
 }

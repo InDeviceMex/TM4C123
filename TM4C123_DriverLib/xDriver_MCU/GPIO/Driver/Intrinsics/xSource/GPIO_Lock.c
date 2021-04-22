@@ -28,17 +28,17 @@
 
 void GPIO__vUnlock(GPIO_nPORT enPort)
 {
-    GPIO__vWriteRegister(enPort, GPIO_GPIOLOCK_OFFSET, GPIO_GPIOLOCK_R_LOCK_KEY, GPIO_GPIOLOCK_R_LOCK_MASK, 0UL);
+    GPIO__vWriteRegister(enPort, GPIO_LOCK_OFFSET, GPIO_LOCK_R_LOCK_KEY, GPIO_LOCK_R_LOCK_MASK, 0UL);
 }
 
 void GPIO__vLock(GPIO_nPORT enPort)
 {
-    GPIO__vWriteRegister(enPort, GPIO_GPIOLOCK_OFFSET, GPIO_GPIOLOCK_R_LOCK_LOCK, GPIO_GPIOLOCK_R_LOCK_MASK, 0UL);
+    GPIO__vWriteRegister(enPort, GPIO_LOCK_OFFSET, GPIO_LOCK_R_LOCK_LOCK, GPIO_LOCK_R_LOCK_MASK, 0UL);
 }
 
 GPIO_nLOCK GPIO__enIsLocked(GPIO_nPORT enPort)
 {
     GPIO_nLOCK enReg = GPIO_enLOCK_UNDEF;
-    GPIO__enReadRegister(enPort, GPIO_GPIOLOCK_OFFSET, (uint32_t*) &enReg, GPIO_GPIOLOCK_R_LOCK_LOCK, 0UL);
+    GPIO__enReadRegister(enPort, GPIO_LOCK_OFFSET, (uint32_t*) &enReg, GPIO_LOCK_R_LOCK_LOCK, 0UL);
     return enReg;
 }

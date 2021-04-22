@@ -33,16 +33,16 @@ void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nRESMODE en
     switch(enMode)
     {
         case GPIO_enRESMODE_INACTIVE:
-            GPIO__vDisGeneric(enPort, GPIO_GPIOPUR_OFFSET, enPin);
-            GPIO__vDisGeneric(enPort, GPIO_GPIOPDR_OFFSET, enPin);
+            GPIO__vDisGeneric(enPort, GPIO_PUR_OFFSET, enPin);
+            GPIO__vDisGeneric(enPort, GPIO_PDR_OFFSET, enPin);
             break;
         case GPIO_enRESMODE_PULLUP:
-            GPIO__vEnGeneric(enPort, GPIO_GPIOPUR_OFFSET, enPin);
-            GPIO__vDisGeneric(enPort, GPIO_GPIOPDR_OFFSET, enPin);
+            GPIO__vEnGeneric(enPort, GPIO_PUR_OFFSET, enPin);
+            GPIO__vDisGeneric(enPort, GPIO_PDR_OFFSET, enPin);
             break;
         case GPIO_enRESMODE_PULLDOWN:
-            GPIO__vDisGeneric(enPort, GPIO_GPIOPUR_OFFSET, enPin);
-            GPIO__vEnGeneric(enPort, GPIO_GPIOPDR_OFFSET, enPin);
+            GPIO__vDisGeneric(enPort, GPIO_PUR_OFFSET, enPin);
+            GPIO__vEnGeneric(enPort, GPIO_PDR_OFFSET, enPin);
             break;
         default:
             break;
@@ -54,8 +54,8 @@ GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
     GPIO_nRESMODE enResistorType = GPIO_enRESMODE_UNDEF;
     uint32_t u32PullUp = 0UL;
     uint32_t u32PullDown = 0UL;
-    u32PullUp = GPIO__u32GetGeneric(enPort, GPIO_GPIOPUR_OFFSET, enPin);
-    u32PullDown = GPIO__u32GetGeneric(enPort, GPIO_GPIOPDR_OFFSET, enPin);
+    u32PullUp = GPIO__u32GetGeneric(enPort, GPIO_PUR_OFFSET, enPin);
+    u32PullDown = GPIO__u32GetGeneric(enPort, GPIO_PDR_OFFSET, enPin);
 
     if((0UL == u32PullUp) && (0UL == u32PullDown))
     {

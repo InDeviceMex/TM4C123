@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_DRIVER_SYSCTL_DRIVER_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SYSCTL_SYSCTL_DRIVER_SYSCTL_DRIVER_H_
 
-#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_GPIOBus.h>
+#include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_Bus.h>
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_Init.h>
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralDeepSleepMode.h>
 #include <xDriver_MCU/SYSCTL/Driver/xHeader/SYSCTL_PeripheralPresent.h>

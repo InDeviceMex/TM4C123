@@ -57,7 +57,7 @@ uint32_t GPIO__u32GetGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
     uint32_t u32Reg = 0UL;
     enPin &= (uint32_t) GPIO_enPIN_ALL;
-    enStatus = GPIO__enReadRegister(enPort, GPIO_GPIOADCCTL_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
+    enStatus = GPIO__enReadRegister(enPort, GPIO_ADCCTL_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
     if(GPIO_enSTATUS_OK == enStatus)
     {
         if(0UL != u32Reg)

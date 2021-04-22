@@ -28,19 +28,19 @@
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
- ************************************ 19 GPIOLOCK *********************************************
+ ************************************ 19 LOCK *********************************************
  ******************************************************************************************/
 /*----------*/
-#define GPIO_GPIOLOCK_R_LOCK_MASK    ((uint32_t) 0xFFFFFFFFUL)
-#define GPIO_GPIOLOCK_R_LOCK_BIT    (0UL)
-#define GPIO_GPIOLOCK_R_LOCK_KEY    ((uint32_t) 0x4C4F434BUL)
-#define GPIO_GPIOLOCK_R_LOCK_UNLOCK    ((uint32_t) 0x00000000UL)
-#define GPIO_GPIOLOCK_R_LOCK_LOCK    ((uint32_t) 0x00000001UL)
+#define GPIO_LOCK_R_LOCK_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPIO_LOCK_R_LOCK_BIT    (0UL)
+#define GPIO_LOCK_R_LOCK_KEY    ((uint32_t) 0x4C4F434BUL)
+#define GPIO_LOCK_R_LOCK_UNLOCK    ((uint32_t) 0x00000000UL)
+#define GPIO_LOCK_R_LOCK_LOCK    ((uint32_t) 0x00000001UL)
 
-#define GPIO_GPIOLOCK_LOCK_MASK    ((uint32_t) 0xFFFFFFFFUL)
-#define GPIO_GPIOLOCK_LOCK_KEY    ((uint32_t) 0x4C4F434BUL)
-#define GPIO_GPIOLOCK_LOCK_UNLOCK    ((uint32_t) 0x00000000UL)
-#define GPIO_GPIOLOCK_LOCK_LOCK    ((uint32_t) 0x00000001UL)
+#define GPIO_LOCK_LOCK_MASK    ((uint32_t) 0xFFFFFFFFUL)
+#define GPIO_LOCK_LOCK_KEY    ((uint32_t) 0x4C4F434BUL)
+#define GPIO_LOCK_LOCK_UNLOCK    ((uint32_t) 0x00000000UL)
+#define GPIO_LOCK_LOCK_LOCK    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_REGISTER_GPIO_REGISTERDEFINES_GPIO_REGISTERDEFINES_LOCK_H_ */

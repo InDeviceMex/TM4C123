@@ -28,22 +28,22 @@
 
 void GPIO__vEnAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vEnGeneric(enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
+    GPIO__vEnGeneric(enPort, GPIO_AMSEL_OFFSET, enPin);
 }
 
 void GPIO__vDisAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vDisGeneric(enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
+    GPIO__vDisGeneric(enPort, GPIO_AMSEL_OFFSET, enPin);
 }
 
 void GPIO__vSetAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nANALOG_MODE enFeature)
 {
-    GPIO__vSetGeneric(enPort, GPIO_GPIOAMSEL_OFFSET, enPin, (uint32_t) enFeature);
+    GPIO__vSetGeneric(enPort, GPIO_AMSEL_OFFSET, enPin, (uint32_t) enFeature);
 }
 
 GPIO_nANALOG_MODE GPIO__enGetAnalog(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nANALOG_MODE enFeature = GPIO_enANALOG_MODE_UNDEF;
-    enFeature = (GPIO_nANALOG_MODE) GPIO__u32GetGeneric(enPort, GPIO_GPIOAMSEL_OFFSET, enPin);
+    enFeature = (GPIO_nANALOG_MODE) GPIO__u32GetGeneric(enPort, GPIO_AMSEL_OFFSET, enPin);
     return enFeature;
 }

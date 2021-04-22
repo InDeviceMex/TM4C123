@@ -30,23 +30,23 @@
 void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
-    GPIO__vEnGeneric(enPort, GPIO_GPIODEN_OFFSET, enPin);
+    GPIO__vEnGeneric(enPort, GPIO_DEN_OFFSET, enPin);
 }
 
 void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
-    GPIO__vDisGeneric(enPort, GPIO_GPIODEN_OFFSET, enPin);
+    GPIO__vDisGeneric(enPort, GPIO_DEN_OFFSET, enPin);
 }
 
 void GPIO__vSetDigital(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nDIGITAL enFeature)
 {
-    GPIO__vSetGeneric(enPort, GPIO_GPIODEN_OFFSET, enPin, (uint32_t) enFeature);
+    GPIO__vSetGeneric(enPort, GPIO_DEN_OFFSET, enPin, (uint32_t) enFeature);
 }
 
 GPIO_nDIGITAL GPIO__enGetDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDIGITAL enFeature = GPIO_enDIGITAL_UNDEF;
-    enFeature = (GPIO_nDIGITAL) GPIO__u32GetGeneric(enPort, GPIO_GPIODEN_OFFSET, enPin);
+    enFeature = (GPIO_nDIGITAL) GPIO__u32GetGeneric(enPort, GPIO_DEN_OFFSET, enPin);
     return enFeature;
 }
