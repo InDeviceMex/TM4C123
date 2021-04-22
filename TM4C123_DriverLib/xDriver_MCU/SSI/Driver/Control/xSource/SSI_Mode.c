@@ -28,12 +28,12 @@
 
 void SSI__vSetMode(SSI_nMODULE enModule, SSI_nMODE enModeArg)
 {
-    SSI__vWriteRegister(enModule, SSI_SSICR1_OFFSET, (uint32_t) enModeArg, SSI_SSICR1_MS_MASK, SSI_SSICR1_R_MS_BIT);
+    SSI__vWriteRegister(enModule, SSI_CR1_OFFSET, (uint32_t) enModeArg, SSI_CR1_MS_MASK, SSI_CR1_R_MS_BIT);
 }
 
 SSI_nMODE SSI__enGetMode(SSI_nMODULE enModule)
 {
     SSI_nMODE enModeReg = SSI_enMODE_UNDEF;
-    SSI__enReadRegister(enModule, SSI_SSICR1_OFFSET, (uint32_t*) &enModeReg, SSI_SSICR1_MS_MASK, SSI_SSICR1_R_MS_BIT);
+    SSI__enReadRegister(enModule, SSI_CR1_OFFSET, (uint32_t*) &enModeReg, SSI_CR1_MS_MASK, SSI_CR1_R_MS_BIT);
     return enModeReg;
 }

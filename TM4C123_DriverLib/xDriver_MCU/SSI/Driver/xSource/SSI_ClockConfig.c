@@ -28,12 +28,12 @@
 
 void SSI__vSetClockConfig(SSI_nMODULE enModule, SSI_nCLOCK enClock)
 {
-    SSI__vWriteRegister(enModule, SSI_SSICC_OFFSET, (uint32_t) enClock, SSI_SSICC_CS_MASK, SSI_SSICC_R_CS_BIT);
+    SSI__vWriteRegister(enModule, SSI_CC_OFFSET, (uint32_t) enClock, SSI_CC_CS_MASK, SSI_CC_R_CS_BIT);
 }
 
 SSI_nCLOCK SSI__enGetClockConfig(SSI_nMODULE enModule)
 {
     SSI_nCLOCK enClockReg = SSI_enCLOCK_UNDEF;
-    SSI__enReadRegister(enModule, SSI_SSICC_OFFSET, (uint32_t*) &enClockReg, SSI_SSICC_CS_MASK, SSI_SSICC_R_CS_BIT);
+    SSI__enReadRegister(enModule, SSI_CC_OFFSET, (uint32_t*) &enClockReg, SSI_CC_CS_MASK, SSI_CC_R_CS_BIT);
     return enClockReg;
 }

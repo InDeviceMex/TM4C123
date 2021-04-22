@@ -70,7 +70,7 @@ void ST7735__vInitWriteDMAConfig(void)
     };
 
     DMA__vRegisterIRQSourceHandler( &ST7735__vDMATxInterupt, DMA_enCH_MODULE_13, DMA_enCH_ENCODER_2 );
-    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_13, (uint32_t) (SSI2_BASE + SSI_SSIDR_OFFSET));
+    DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_13, (uint32_t) (SSI2_BASE + SSI_DR_OFFSET));
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) 0UL);
 
     SSI__vSetDMATx(ST7735_SSI, SSI_enDMA_EN);

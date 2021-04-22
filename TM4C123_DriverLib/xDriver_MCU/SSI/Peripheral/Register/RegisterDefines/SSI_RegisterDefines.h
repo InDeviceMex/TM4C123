@@ -25,18 +25,18 @@
 #ifndef XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_SSI_REGISTERDEFINES_H_
 #define XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_SSI_REGISTERDEFINES_H_
 
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSICR0.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSICR1.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIDR.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSISR.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSICPSR.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIIM.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIRIS.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIMIS.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIICR.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIDMACTL.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSICC.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSIPeriphID.h>
-#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SSICellID.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_CR0.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_CR1.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_DR.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_SR.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_CPSR.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_IM.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_RIS.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_MIS.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_ICR.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_DMACTL.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_CC.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_PeriphID.h>
+#include <xDriver_MCU/SSI/Peripheral/Register/RegisterDefines/xHeader/SSI_RegisterDefines_CellID.h>
 
 #endif /* XDRIVER_MCU_SSI_PERIPHERAL_REGISTER_REGISTERDEFINES_SSI_REGISTERDEFINES_H_ */
