@@ -32,7 +32,7 @@ void SSI__vEnInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOURCE enSourceInt)
     uint32_t u32SourceInt = 0UL;
     u32SourceInt = (uint32_t) enSourceInt;
     u32SourceInt &= (uint32_t) SSI_enINT_SOURCE_ALL;
-    SSI__vWriteRegister(enModule , SSI_SSIIM_OFFSET, u32SourceInt, u32SourceInt, 0UL);
+    SSI__vWriteRegister(enModule , SSI_IM_OFFSET, u32SourceInt, u32SourceInt, 0UL);
 }
 
 void SSI__vDisInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOURCE enSourceInt)
@@ -40,7 +40,7 @@ void SSI__vDisInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOURCE enSourceInt)
     uint32_t u32SourceInt = 0UL;
     u32SourceInt = (uint32_t) enSourceInt;
     u32SourceInt &= (uint32_t) SSI_enINT_SOURCE_ALL;
-    SSI__vWriteRegister(enModule , SSI_SSIIM_OFFSET, 0UL, u32SourceInt, 0UL);
+    SSI__vWriteRegister(enModule , SSI_IM_OFFSET, 0UL, u32SourceInt, 0UL);
 }
 
 void SSI__vClearInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOURCE enSourceInt)
@@ -48,7 +48,7 @@ void SSI__vClearInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOURCE enSourceIn
     uint32_t u32SourceInt = 0UL;
     u32SourceInt = (uint32_t) enSourceInt;
     u32SourceInt &= (uint32_t) SSI_enINT_SOURCE_ALL;
-    SSI__vWriteRegister(enModule , SSI_SSIICR_OFFSET, u32SourceInt, 0xFFFFFFFFUL, 0UL);
+    SSI__vWriteRegister(enModule , SSI_ICR_OFFSET, u32SourceInt, 0xFFFFFFFFUL, 0UL);
 }
 
 SSI_nINT_STATUS SSI__enStatusInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOURCE enSourceInt)
@@ -58,7 +58,7 @@ SSI_nINT_STATUS SSI__enStatusInterruptSource(SSI_nMODULE enModule, SSI_nINT_SOUR
     uint32_t u32SourceInt = 0UL;
     uint32_t u32Register= 0xFFFFFFFFUL;
     u32SourceInt &= (uint32_t) SSI_enINT_SOURCE_ALL;
-    enStatus = SSI__enReadRegister(enModule , SSI_SSIRIS_OFFSET, (uint32_t*) &u32Register, (uint32_t) u32SourceInt, 0UL);
+    enStatus = SSI__enReadRegister(enModule , SSI_RIS_OFFSET, (uint32_t*) &u32Register, (uint32_t) u32SourceInt, 0UL);
     if(SSI_enSTATUS_OK == enStatus)
     {
         if(0UL != u32Register)

@@ -775,16 +775,16 @@
 /*----------*/
 
 /******************************************************************************************
-************************************ 42 SSIZE *********************************************
+************************************ 42 ZE *********************************************
 ******************************************************************************************/
 
 /*----------*/
-#define FLASH_SSIZE_R_SIZE_MASK    ((uint32_t) 0x0000FFFFUL)
-#define FLASH_SSIZE_R_SIZE_BIT    (0UL)
-#define FLASH_SSIZE_R_SIZE_32KB    ((uint32_t) 0x0000007FUL)
+#define FLASH_ZE_R_SIZE_MASK    ((uint32_t) 0x0000FFFFUL)
+#define FLASH_ZE_R_SIZE_BIT    (0UL)
+#define FLASH_ZE_R_SIZE_32KB    ((uint32_t) 0x0000007FUL)
 
-#define FLASH_SSIZE_SIZE_MASK    ((uint32_t) 0x0000FFFFUL)
-#define FLASH_SSIZE_SIZE_32KB    ((uint32_t) 0x0000007FUL)
+#define FLASH_ZE_SIZE_MASK    ((uint32_t) 0x0000FFFFUL)
+#define FLASH_ZE_SIZE_32KB    ((uint32_t) 0x0000007FUL)
 /*----------*/
 
 /******************************************************************************************

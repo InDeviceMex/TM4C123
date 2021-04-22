@@ -32,120 +32,120 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t SSICR0 [32UL];
-        BITBANDING_SSICR0_TypeDef SSICR0_Bit;
+        volatile uint32_t CR0 [32UL];
+        BITBANDING_SSICR0_TypeDef CR0_Bit;
     };
     union
     {
-        volatile uint32_t SSICR1 [32UL];
-        BITBANDING_SSICR1_TypeDef SSICR1_Bit;
+        volatile uint32_t CR1 [32UL];
+        BITBANDING_SSICR1_TypeDef CR1_Bit;
     };
     union
     {
-        volatile const uint32_t SSIDR [32UL];
-        BITBANDING_SSIDR_TypeDef SSIDR_Bit;
+        volatile const uint32_t DR [32UL];
+        BITBANDING_SSIDR_TypeDef DR_Bit;
     };
     union
     {
-        volatile const uint32_t SSISR [32UL];
-        BITBANDING_SSISR_TypeDef SSISR_Bit;
+        volatile const uint32_t SR [32UL];
+        BITBANDING_SSISR_TypeDef SR_Bit;
     };
     union
     {
-        volatile uint32_t SSICPSR [32UL];
-        BITBANDING_SSICPSR_TypeDef SSICPSR_Bit;
+        volatile uint32_t CPSR [32UL];
+        BITBANDING_SSICPSR_TypeDef CPSR_Bit;
     };
     union
     {
-        volatile uint32_t SSIIM [32UL];
-        BITBANDING_SSIIM_TypeDef SSIIM_Bit;
+        volatile uint32_t IM [32UL];
+        BITBANDING_SSIIM_TypeDef IM_Bit;
     };
     union
     {
-        volatile const uint32_t SSIRIS [32UL];
-        BITBANDING_SSIRIS_TypeDef SSIRIS_Bit;
+        volatile const uint32_t RIS [32UL];
+        BITBANDING_SSIRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile const uint32_t SSIMIS [32UL];
-        BITBANDING_SSIMIS_TypeDef SSIMIS_Bit;
+        volatile const uint32_t MIS [32UL];
+        BITBANDING_SSIMIS_TypeDef MIS_Bit;
     };
     union
     {
-        volatile uint32_t SSIICR [32UL];
-        BITBANDING_SSIICR_TypeDef SSIICR_Bit;
+        volatile uint32_t ICR [32UL];
+        BITBANDING_SSIICR_TypeDef ICR_Bit;
     };
     union
     {
-        volatile uint32_t SSIDMACTL [32UL];
-        BITBANDING_SSIDMACTL_TypeDef SSIDMACTL_Bit;
+        volatile uint32_t DMACTL [32UL];
+        BITBANDING_SSIDMACTL_TypeDef DMACTL_Bit;
     };
     const uint32_t reserved [1000UL * 32UL];
     union
     {
-        volatile uint32_t SSICC [32UL];
-        BITBANDING_SSICC_TypeDef SSICC_Bit;
+        volatile uint32_t CC [32UL];
+        BITBANDING_SSICC_TypeDef CC_Bit;
     };
     const uint32_t reserved5 [1UL * 32UL];
     union
     {
-        volatile const uint32_t SSIPeriphID4 [32UL];
-        BITBANDING_SSIPeriphID4_TypeDef SSIPeriphID4_Bit;
+        volatile const uint32_t PeriphID4 [32UL];
+        BITBANDING_SSIPeriphID4_TypeDef PeriphID4_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID5 [32UL];
-        BITBANDING_SSIPeriphID5_TypeDef SSIPeriphID5_Bit;
+        volatile const uint32_t PeriphID5 [32UL];
+        BITBANDING_SSIPeriphID5_TypeDef PeriphID5_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID6 [32UL];
-        BITBANDING_SSIPeriphID6_TypeDef SSIPeriphID6_Bit;
+        volatile const uint32_t PeriphID6 [32UL];
+        BITBANDING_SSIPeriphID6_TypeDef PeriphID6_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID7 [32UL];
-        BITBANDING_SSIPeriphID7_TypeDef SSIPeriphID7_Bit;
+        volatile const uint32_t PeriphID7 [32UL];
+        BITBANDING_SSIPeriphID7_TypeDef PeriphID7_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID0 [32UL];
-        BITBANDING_SSIPeriphID0_TypeDef SSIPeriphID0_Bit;
+        volatile const uint32_t PeriphID0 [32UL];
+        BITBANDING_SSIPeriphID0_TypeDef PeriphID0_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID1 [32UL];
-        BITBANDING_SSIPeriphID1_TypeDef SSIPeriphID1_Bit;
+        volatile const uint32_t PeriphID1 [32UL];
+        BITBANDING_SSIPeriphID1_TypeDef PeriphID1_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID2 [32UL];
-        BITBANDING_SSIPeriphID2_TypeDef SSIPeriphID2_Bit;
+        volatile const uint32_t PeriphID2 [32UL];
+        BITBANDING_SSIPeriphID2_TypeDef PeriphID2_Bit;
     };
     union
     {
-        volatile const uint32_t SSIPeriphID3 [32UL];
-        BITBANDING_SSIPeriphID3_TypeDef SSIPeriphID3_Bit;
+        volatile const uint32_t PeriphID3 [32UL];
+        BITBANDING_SSIPeriphID3_TypeDef PeriphID3_Bit;
     };
     union
     {
-        volatile const uint32_t SSICellID0 [32UL];
-        BITBANDING_SSICellID0_TypeDef SSICellID0_Bit;
+        volatile const uint32_t CellID0 [32UL];
+        BITBANDING_SSICellID0_TypeDef CellID0_Bit;
     };
     union
     {
-        volatile const uint32_t SSICellID1 [32UL];
-        BITBANDING_SSICellID1_TypeDef SSICellID1_Bit;
+        volatile const uint32_t CellID1 [32UL];
+        BITBANDING_SSICellID1_TypeDef CellID1_Bit;
     };
     union
     {
-        volatile const uint32_t SSICellID2 [32UL];
-        BITBANDING_SSICellID2_TypeDef SSICellID2_Bit;
+        volatile const uint32_t CellID2 [32UL];
+        BITBANDING_SSICellID2_TypeDef CellID2_Bit;
     };
     union
     {
-        volatile const uint32_t SSICellID3 [32UL];
-        BITBANDING_SSICellID3_TypeDef SSICellID3_Bit;
+        volatile const uint32_t CellID3 [32UL];
+        BITBANDING_SSICellID3_TypeDef CellID3_Bit;
     };
 } SSI_BITBANDING_TypeDef;
 

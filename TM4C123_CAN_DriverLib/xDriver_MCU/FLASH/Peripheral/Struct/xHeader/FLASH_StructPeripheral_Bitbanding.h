@@ -86,8 +86,8 @@ typedef volatile struct
     };
     union
     {
-        volatile const uint32_t SSIZE [32UL];
-        BITBANDING_SSIZE_TypeDef SSIZE_Bit;
+        volatile const uint32_t ZE [32UL];
+        BITBANDING_SSIZE_TypeDef ZE_Bit;
     };
     const uint32_t reserved3 [2UL * 32UL];
     union

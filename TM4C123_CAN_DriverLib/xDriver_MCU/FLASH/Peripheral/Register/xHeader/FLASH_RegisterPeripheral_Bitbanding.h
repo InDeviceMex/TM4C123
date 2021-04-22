@@ -209,9 +209,9 @@
 #define FLASH_BITBANDING_FSIZE    ((BITBANDING_FSIZE_TypeDef*) (FLASH_BITBANDING_BASE + ((FLASH_OFFSET + FLASH_FSIZE_OFFSET) * 32UL)))
 
 /******************************************************************************************
-************************************ 42 SSIZE *********************************************
+************************************ 42 ZE *********************************************
 ******************************************************************************************/
-#define FLASH_BITBANDING_SSIZE    ((BITBANDING_SSIZE_TypeDef*) (FLASH_BITBANDING_BASE + ((FLASH_OFFSET + FLASH_SSIZE_OFFSET) * 32UL)))
+#define FLASH_BITBANDING_ZE    ((BITBANDING_SSIZE_TypeDef*) (FLASH_BITBANDING_BASE + ((FLASH_OFFSET + FLASH_ZE_OFFSET) * 32UL)))
 
 /******************************************************************************************
 ************************************ 43 ROMSWMAP *********************************************
