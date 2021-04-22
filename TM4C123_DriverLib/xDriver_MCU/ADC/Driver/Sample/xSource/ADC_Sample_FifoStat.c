@@ -41,13 +41,13 @@ ADC_nSEQ_FIFO ADC__enGetSampleFifoStat(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
 
     u32SequencerReg *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32SequencerReg *= 4UL;
-    u32SequencerReg += ADC_ADCSSMUX0_OFFSET;
-    u32SequencerReg += ADC_ADCSSFSTAT_OFFSET;
+    u32SequencerReg += ADC_SSMUX0_OFFSET;
+    u32SequencerReg += ADC_SSFSTAT_OFFSET;
 
-    enStatus = ADC__enReadRegister(enModule , u32SequencerReg, &u32RegEmpty, ADC_ADCSSFSTAT_EMPTY_MASK, ADC_ADCSSFSTAT_R_EMPTY_BIT);
+    enStatus = ADC__enReadRegister(enModule , u32SequencerReg, &u32RegEmpty, ADC_SSFSTAT_EMPTY_MASK, ADC_SSFSTAT_R_EMPTY_BIT);
     if(ADC_enSTATUS_OK == enStatus)
     {
-        ADC__enReadRegister(enModule , u32SequencerReg, &u32RegFull, ADC_ADCSSFSTAT_FULL_MASK, ADC_ADCSSFSTAT_R_FULL_BIT);
+        ADC__enReadRegister(enModule , u32SequencerReg, &u32RegFull, ADC_SSFSTAT_FULL_MASK, ADC_SSFSTAT_R_FULL_BIT);
         if(1UL == u32RegEmpty)
         {
             enFeature = ADC_enSEQ_FIFO_EMPTY;
@@ -87,8 +87,8 @@ uint32_t ADC__u32GetSampleFifoValue(ADC_nMODULE enModule, ADC_nSEQUENCER enSeque
         u32SequencerReg = u32Sequencer;
         u32SequencerReg *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
         u32SequencerReg *= 4UL;
-        u32SequencerReg += ADC_ADCSSMUX0_OFFSET;
-        u32SequencerReg += ADC_ADCSSFIFO_OFFSET;
+        u32SequencerReg += ADC_SSMUX0_OFFSET;
+        u32SequencerReg += ADC_SSFIFO_OFFSET;
         u32AdcBase += u32SequencerReg;
         pu32AdcSeq = (volatile uint32_t*) u32AdcBase;
 

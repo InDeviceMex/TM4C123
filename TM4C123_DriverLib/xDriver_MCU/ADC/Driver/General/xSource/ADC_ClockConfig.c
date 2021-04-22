@@ -28,15 +28,15 @@
 
 void ADC__vSetClockConfig(ADC_nMODULE enModule, ADC_nCLOCK enClock)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCCC_OFFSET, (uint32_t) enClock, ADC_ADCCC_CS_MASK, ADC_ADCCC_R_CS_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_CC_OFFSET, (uint32_t) enClock, ADC_CC_CS_MASK, ADC_CC_R_CS_BIT);
 }
 
 ADC_nCLOCK ADC__enGetClockConfig(ADC_nMODULE enModule)
 {
-    return (ADC_nCLOCK) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCCC_OFFSET, ADC_ADCCC_CS_MASK, ADC_ADCCC_R_CS_BIT);
+    return (ADC_nCLOCK) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_CC_OFFSET, ADC_CC_CS_MASK, ADC_CC_R_CS_BIT);
 }
 
 ADC_nCLOCK ADC__enGetMaxClockConfig(ADC_nMODULE enModule)
 {
-    return (ADC_nCLOCK) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPP_OFFSET, ADC_ADCPP_MSR_MASK, ADC_ADCPP_R_MSR_BIT);
+    return (ADC_nCLOCK) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_PP_OFFSET, ADC_PP_MSR_MASK, ADC_PP_R_MSR_BIT);
 }

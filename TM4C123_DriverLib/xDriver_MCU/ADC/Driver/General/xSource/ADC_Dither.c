@@ -28,10 +28,10 @@
 
 void ADC__vSetDither(ADC_nMODULE enModule, ADC_nDITHER enDither)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCCTL_OFFSET, (uint32_t) enDither, ADC_ADCCTL_DITHER_MASK, ADC_ADCCTL_R_DITHER_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_CTL_OFFSET, (uint32_t) enDither, ADC_CTL_DITHER_MASK, ADC_CTL_R_DITHER_BIT);
 }
 
 ADC_nDITHER ADC__enGetDither(ADC_nMODULE enModule)
 {
-    return (ADC_nDITHER) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCCTL_OFFSET, ADC_ADCCTL_DITHER_MASK, ADC_ADCCTL_R_DITHER_BIT);
+    return (ADC_nDITHER) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_CTL_OFFSET, ADC_CTL_DITHER_MASK, ADC_CTL_R_DITHER_BIT);
 }

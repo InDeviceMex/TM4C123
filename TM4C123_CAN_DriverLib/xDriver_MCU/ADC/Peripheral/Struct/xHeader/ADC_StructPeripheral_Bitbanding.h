@@ -32,33 +32,33 @@ typedef volatile struct
 {
         union
           {
-              volatile uint32_t ADCSSMUX [32UL];
-              BITBANDING_ADCSSMUX8_TypeDef ADCSSMUX_Bit;
+              volatile uint32_t SSMUX [32UL];
+              BITBANDING_ADCSSMUX8_TypeDef SSMUX_Bit;
           };
           union
           {
-              volatile uint32_t ADCSSCTL [32UL];
-              BITBANDING_ADCSSCTL8_TypeDef ADCSSCTL_Bit;
+              volatile uint32_t SSCTL [32UL];
+              BITBANDING_ADCSSCTL8_TypeDef SSCTL_Bit;
           };
           union
           {
-              volatile const uint32_t ADCSSFIFO [32UL];
-              BITBANDING_ADCSSFIFO_TypeDef ADCSSFIFO_Bit;
+              volatile const uint32_t SSFIFO [32UL];
+              BITBANDING_ADCSSFIFO_TypeDef SSFIFO_Bit;
           };
           union
           {
-              volatile const uint32_t ADCSSFSTAT [32UL];
-              BITBANDING_ADCSSFSTAT_TypeDef ADCSSFSTAT_Bit;
+              volatile const uint32_t SSFSTAT [32UL];
+              BITBANDING_ADCSSFSTAT_TypeDef SSFSTAT_Bit;
           };
           union
           {
-              volatile uint32_t ADCSSOP [32UL];
-              BITBANDING_ADCSSOP8_TypeDef ADCSSOP_Bit;
+              volatile uint32_t SSOP [32UL];
+              BITBANDING_ADCSSOP8_TypeDef SSOP_Bit;
           };
           union
           {
-              volatile uint32_t ADCSSDC [32UL];
-              BITBANDING_ADCSSDC8_TypeDef ADCSSDC_Bit;
+              volatile uint32_t SSDC [32UL];
+              BITBANDING_ADCSSDC8_TypeDef SSDC_Bit;
           };
           const uint32_t reserved2 [2UL * 32UL];
 }BITBANDING_ADCINPUT_Typedef;
@@ -67,116 +67,116 @@ typedef volatile struct
 {
     union
     {
-        volatile uint32_t ADCACTSS [32UL];
-        BITBANDING_ADCACTSS_TypeDef ADCACTSS_Bit;
+        volatile uint32_t ACTSS [32UL];
+        BITBANDING_ADCACTSS_TypeDef ACTSS_Bit;
     };
     union
     {
-        volatile const uint32_t ADCRIS [32UL];
-        BITBANDING_ADCRIS_TypeDef ADCRIS_Bit;
+        volatile const uint32_t RIS [32UL];
+        BITBANDING_ADCRIS_TypeDef RIS_Bit;
     };
     union
     {
-        volatile uint32_t ADCIM [32UL];
-        BITBANDING_ADCIM_TypeDef ADCIM_Bit;
+        volatile uint32_t IM [32UL];
+        BITBANDING_ADCIM_TypeDef IM_Bit;
     };
     union
     {
-        volatile uint32_t ADCISC [32UL];
-        BITBANDING_ADCISC_TypeDef ADCISC_Bit;
+        volatile uint32_t ISC [32UL];
+        BITBANDING_ADCISC_TypeDef ISC_Bit;
     };
     union
     {
-        volatile uint32_t ADCOSTAT [32UL];
-        BITBANDING_ADCOSTAT_TypeDef ADCOSTAT_Bit;
+        volatile uint32_t OSTAT [32UL];
+        BITBANDING_ADCOSTAT_TypeDef OSTAT_Bit;
     };
     union
     {
-        volatile uint32_t ADCEMUX [32UL];
-        BITBANDING_ADCEMUX_TypeDef ADCEMUX_Bit;
+        volatile uint32_t EMUX [32UL];
+        BITBANDING_ADCEMUX_TypeDef EMUX_Bit;
     };
     union
     {
-        volatile uint32_t ADCUSTAT [32UL];
-        BITBANDING_ADCUSTAT_TypeDef ADCUSTAT_Bit;
+        volatile uint32_t USTAT [32UL];
+        BITBANDING_ADCUSTAT_TypeDef USTAT_Bit;
     };
     union
     {
-        volatile uint32_t ADCTSSEL [32UL];
-        BITBANDING_ADCTSSEL_TypeDef ADCTSSEL_Bit;
+        volatile uint32_t TSSEL [32UL];
+        BITBANDING_ADCTSSEL_TypeDef TSSEL_Bit;
     };
     union
     {
-        volatile uint32_t ADCSSPRI [32UL];
-        BITBANDING_ADCSSPRI_TypeDef ADCSSPRI_Bit;
+        volatile uint32_t SSPRI [32UL];
+        BITBANDING_ADCSSPRI_TypeDef SSPRI_Bit;
     };
     union
     {
-        volatile uint32_t ADCSPC [32UL];
-        BITBANDING_ADCSPC_TypeDef ADCSPC_Bit;
+        volatile uint32_t SPC [32UL];
+        BITBANDING_ADCSPC_TypeDef SPC_Bit;
     };
     union
     {
-        volatile uint32_t ADCPSSI [32UL];
-        BITBANDING_ADCPSSI_TypeDef ADCPSSI_Bit;
+        volatile uint32_t PSSI [32UL];
+        BITBANDING_ADCPSSI_TypeDef PSSI_Bit;
     };
 
     const uint32_t reserved [32UL];
     union
     {
-        volatile uint32_t ADCSAC [32UL];
-        BITBANDING_ADCSAC_TypeDef ADCSAC_Bit;
+        volatile uint32_t SAC [32UL];
+        BITBANDING_ADCSAC_TypeDef SAC_Bit;
     };
     union
     {
-        volatile uint32_t ADCDCISC [32UL];
-        BITBANDING_ADCDCISC_TypeDef ADCDCISC_Bit;
+        volatile uint32_t DCISC [32UL];
+        BITBANDING_ADCDCISC_TypeDef DCISC_Bit;
     };
     union
     {
-        volatile uint32_t ADCCTL [32UL];
-        BITBANDING_ADCCTL_TypeDef ADCCTL_Bit;
+        volatile uint32_t CTL [32UL];
+        BITBANDING_ADCCTL_TypeDef CTL_Bit;
     };
 
     const uint32_t reserved1 [32UL];
 
-    BITBANDING_ADCINPUT_Typedef ADCINPUT [4UL];
+    BITBANDING_ADCINPUT_Typedef INPUT [4UL];
 
     const uint32_t reserved5 [32UL * 784UL];
     union
     {
-        volatile uint32_t ADCDCRIC [32UL];
-        BITBANDING_ADCDCRIC_TypeDef ADCDCRIC_Bit;
+        volatile uint32_t DCRIC [32UL];
+        BITBANDING_ADCDCRIC_TypeDef DCRIC_Bit;
     };
 
     const uint32_t reserved6 [63UL * 32UL];
     union
     {
-        volatile uint32_t ADCDCCTL [8UL][32UL];
-        BITBANDING_ADCDCCTL_TypeDef ADCDCCTL_Bit [8UL];
+        volatile uint32_t DCCTL [8UL][32UL];
+        BITBANDING_ADCDCCTL_TypeDef DCCTL_Bit [8UL];
     };
     const uint32_t reserved7 [8UL * 32UL];
     union
     {
-        volatile uint32_t ADCDCCMP [8UL][32UL];
-        BITBANDING_ADCDCCMP_TypeDef ADCDCCMP_Bit;
+        volatile uint32_t DCCMP [8UL][32UL];
+        BITBANDING_ADCDCCMP_TypeDef DCCMP_Bit;
     };
 
     const uint32_t reserved8 [88UL * 32UL];
     union
     {
-        volatile const uint32_t ADCPP [32UL];
-        BITBANDING_ADCPP_TypeDef ADCPP_Bit;
+        volatile const uint32_t PP [32UL];
+        BITBANDING_ADCPP_TypeDef PP_Bit;
     };
     union
     {
-        volatile uint32_t ADCPC [32UL];
-        BITBANDING_ADCPC_TypeDef ADCPC_Bit;
+        volatile uint32_t PC [32UL];
+        BITBANDING_ADCPC_TypeDef PC_Bit;
     };
     union
     {
-        volatile uint32_t ADCCC [32UL];
-        BITBANDING_ADCCC_TypeDef ADCCC_Bit;
+        volatile uint32_t CC [32UL];
+        BITBANDING_ADCCC_TypeDef CC_Bit;
     };
 
     const uint32_t reserved9 [13UL * 32UL];

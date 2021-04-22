@@ -28,10 +28,10 @@
 
 void ADC__vSetSampleDirection(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux, ADC_nSEQ_INPUT_DIR enSampleDirection)
 {
-    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSOP_OFFSET, (uint32_t) enMux, (uint32_t) enSampleDirection, ADC_ADCSSOP_S0DCOP_MASK, ADC_ADCSSOP_R_S0DCOP_BIT);
+    ADC__vSetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_SSOP_OFFSET, (uint32_t) enMux, (uint32_t) enSampleDirection, ADC_SSOP_S0DCOP_MASK, ADC_SSOP_R_S0DCOP_BIT);
 }
 
 ADC_nSEQ_INPUT_DIR ADC__enGetSampleDirection(ADC_nMODULE enModule, ADC_nSEQUENCER enSequencer, ADC_nMUX enMux)
 {
-    return (ADC_nSEQ_INPUT_DIR) ADC__u32GetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_ADCSSOP_OFFSET, (uint32_t) enMux, ADC_ADCSSOP_S0DCOP_MASK, ADC_ADCSSOP_R_S0DCOP_BIT);
+    return (ADC_nSEQ_INPUT_DIR) ADC__u32GetSampleGeneric((uint32_t) enModule, (uint32_t) enSequencer, ADC_SSOP_OFFSET, (uint32_t) enMux, ADC_SSOP_S0DCOP_MASK, ADC_SSOP_R_S0DCOP_BIT);
 }

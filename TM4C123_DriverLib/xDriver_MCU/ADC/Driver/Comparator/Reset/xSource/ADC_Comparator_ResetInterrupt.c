@@ -28,5 +28,5 @@
 
 void ADC__vResetCompIntConditions(ADC_nMODULE enModule, ADC_nCOMPMASK  enActCompMask)
 {
-    ADC__vWriteRegister(enModule, ADC_ADCDCRIC_OFFSET, (uint32_t) enActCompMask, (uint32_t) ADC_en_COMPMASK_MAX, ADC_ADCDCRIC_R_DCINT0_BIT);
+    ADC__vWriteRegister(enModule, ADC_DCRIC_OFFSET, (uint32_t) enActCompMask, (uint32_t) ADC_en_COMPMASK_MAX, ADC_DCRIC_R_DCINT0_BIT);
 }

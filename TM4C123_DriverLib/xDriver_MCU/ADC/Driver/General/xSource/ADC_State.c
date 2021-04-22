@@ -28,5 +28,5 @@
 
 ADC_nSTATE ADC__enGetState(ADC_nMODULE enModule)
 {
-    return (ADC_nSTATE) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCACTSS_OFFSET, ADC_ADCACTSS_BUSY_MASK, ADC_ADCACTSS_R_BUSY_BIT);
+    return (ADC_nSTATE) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ACTSS_OFFSET, ADC_ACTSS_BUSY_MASK, ADC_ACTSS_R_BUSY_BIT);
 }

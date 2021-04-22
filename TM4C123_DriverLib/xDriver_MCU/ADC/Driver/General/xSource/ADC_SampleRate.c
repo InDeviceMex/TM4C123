@@ -28,10 +28,10 @@
 
 void ADC__vSetSampleRate(ADC_nMODULE enModule, ADC_nSAMPLE_RATE enSample)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCPC_OFFSET, (uint32_t) enSample, ADC_ADCPC_SR_MASK, ADC_ADCPC_R_SR_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_PC_OFFSET, (uint32_t) enSample, ADC_PC_SR_MASK, ADC_PC_R_SR_BIT);
 }
 
 ADC_nSAMPLE_RATE ADC__enGetSampleRate(ADC_nMODULE enModule)
 {
-    return (ADC_nSAMPLE_RATE) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPC_OFFSET, ADC_ADCPC_SR_MASK, ADC_ADCPC_R_SR_BIT);
+    return (ADC_nSAMPLE_RATE) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_PC_OFFSET, ADC_PC_SR_MASK, ADC_PC_R_SR_BIT);
 }

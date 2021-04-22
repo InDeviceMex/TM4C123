@@ -39,14 +39,14 @@ void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequence
     u32MuxInput = MCU__u32CheckParams((uint32_t) enMuxInput, u32MuxMax);
 
     u32MuxInput *= 4UL; /* each mux have 4 bits*/
-    u32MuxInput += ADC_ADCSSCTL_R_IE0_BIT;
+    u32MuxInput += ADC_SSCTL_R_IE0_BIT;
 
     u32Sequencer *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32Sequencer *= 4UL;
-    u32Sequencer += ADC_ADCSSMUX0_OFFSET;
-    u32Sequencer += ADC_ADCSSCTL_OFFSET;
+    u32Sequencer += ADC_SSMUX0_OFFSET;
+    u32Sequencer += ADC_SSCTL_OFFSET;
 
-    ADC__vWriteRegister(enModule , u32Sequencer, ADC_ADCSSCTL_IE0_EN, ADC_ADCSSCTL_IE0_MASK, u32MuxInput);
+    ADC__vWriteRegister(enModule , u32Sequencer, ADC_SSCTL_IE0_EN, ADC_SSCTL_IE0_MASK, u32MuxInput);
 }
 
 void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
@@ -59,14 +59,14 @@ void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequenc
     u32MuxInput = MCU__u32CheckParams((uint32_t) enMuxInput, u32MuxMax);
 
     u32MuxInput *= 4UL; /* each mux have 4 bits*/
-    u32MuxInput += ADC_ADCSSCTL_R_IE0_BIT;
+    u32MuxInput += ADC_SSCTL_R_IE0_BIT;
 
     u32Sequencer *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32Sequencer *= 4UL;
-    u32Sequencer += ADC_ADCSSMUX0_OFFSET;
-    u32Sequencer += ADC_ADCSSCTL_OFFSET;
+    u32Sequencer += ADC_SSMUX0_OFFSET;
+    u32Sequencer += ADC_SSCTL_OFFSET;
 
-    ADC__vWriteRegister(enModule , u32Sequencer, ADC_ADCSSCTL_IE0_DIS, ADC_ADCSSCTL_IE0_MASK, u32MuxInput);
+    ADC__vWriteRegister(enModule , u32Sequencer, ADC_SSCTL_IE0_DIS, ADC_SSCTL_IE0_MASK, u32MuxInput);
 }
 
 ADC_nSEQ_INPUT_INT ADC__enGetSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)
@@ -80,14 +80,14 @@ ADC_nSEQ_INPUT_INT ADC__enGetSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUE
     u32MuxInput = MCU__u32CheckParams((uint32_t) enMuxInput, u32MuxMax);
 
     u32MuxInput *= 4UL; /* each mux have 4 bits*/
-    u32MuxInput += ADC_ADCSSCTL_R_IE0_BIT;
+    u32MuxInput += ADC_SSCTL_R_IE0_BIT;
 
     u32Sequencer *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32Sequencer *= 4UL;
-    u32Sequencer += ADC_ADCSSMUX0_OFFSET;
-    u32Sequencer += ADC_ADCSSCTL_OFFSET;
+    u32Sequencer += ADC_SSMUX0_OFFSET;
+    u32Sequencer += ADC_SSCTL_OFFSET;
 
-    ADC__enReadRegister(enModule, u32Sequencer, (uint32_t*) &enIntInputState, ADC_ADCSSCTL_IE0_MASK, u32MuxInput);
+    ADC__enReadRegister(enModule, u32Sequencer, (uint32_t*) &enIntInputState, ADC_SSCTL_IE0_MASK, u32MuxInput);
     return enIntInputState;
 }
 

@@ -28,10 +28,10 @@
 
 void ADC__vSetGlobalSync(ADC_nMODULE enModule, ADC_nGLOBAL_SYNC enGlobalSync)
 {
-    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_ADCPSSI_OFFSET, (uint32_t) enGlobalSync, ADC_ADCPSSI_GSYNC_MASK, ADC_ADCPSSI_R_GSYNC_BIT);
+    ADC__vSetGeneralGeneric((uint32_t) enModule, ADC_PSSI_OFFSET, (uint32_t) enGlobalSync, ADC_PSSI_GSYNC_MASK, ADC_PSSI_R_GSYNC_BIT);
 }
 
 ADC_nGLOBAL_SYNC ADC__enGetGlobalSync(ADC_nMODULE enModule)
 {
-    return (ADC_nGLOBAL_SYNC) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_ADCPSSI_OFFSET, ADC_ADCPSSI_GSYNC_MASK, ADC_ADCPSSI_R_GSYNC_BIT);
+    return (ADC_nGLOBAL_SYNC) ADC__u32GetGeneralGeneric((uint32_t) enModule, ADC_PSSI_OFFSET, ADC_PSSI_GSYNC_MASK, ADC_PSSI_R_GSYNC_BIT);
 }

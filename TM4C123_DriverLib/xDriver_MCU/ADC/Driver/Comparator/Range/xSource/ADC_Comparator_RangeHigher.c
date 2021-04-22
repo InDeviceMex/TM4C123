@@ -28,10 +28,10 @@
 
 void ADC__vSetCompRangeHigh(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp, uint32_t u32CompRangeHigh)
 {
-    ADC__vSetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, u32CompRangeHigh, ADC_ADCDCCMP_COMP1_MASK, ADC_ADCDCCMP_R_COMP1_BIT);
+    ADC__vSetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, u32CompRangeHigh, ADC_DCCMP_COMP1_MASK, ADC_DCCMP_R_COMP1_BIT);
 }
 
 uint32_t ADC__u32GetCompRangeHigh(ADC_nMODULE enModule, ADC_nCOMPARATOR enActComp)
 {
-    return ADC__u32GetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, ADC_ADCDCCMP_COMP1_MASK, ADC_ADCDCCMP_R_COMP1_BIT);
+    return ADC__u32GetCompGenericRange((uint32_t) enModule, (uint32_t) enActComp, ADC_DCCMP_COMP1_MASK, ADC_DCCMP_R_COMP1_BIT);
 }

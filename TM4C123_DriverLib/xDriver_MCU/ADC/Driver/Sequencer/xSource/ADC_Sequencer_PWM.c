@@ -28,10 +28,10 @@
 
 void ADC__vSetSequencerPWMTrigger(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence, ADC_nSEQ_PWM enSeqPWMTrigger)
 {
-    ADC__vSetSequencerGenericBit((uint32_t) enModule, ADC_ADCTSSEL_OFFSET, (uint32_t) enSequence, (uint32_t) enSeqPWMTrigger, ADC_ADCTSSEL_PS0_MASK, (ADC_ADCTSSEL_R_PS1_BIT - ADC_ADCTSSEL_R_PS0_BIT), ADC_ADCTSSEL_R_PS0_BIT);
+    ADC__vSetSequencerGenericBit((uint32_t) enModule, ADC_TSSEL_OFFSET, (uint32_t) enSequence, (uint32_t) enSeqPWMTrigger, ADC_TSSEL_PS0_MASK, (ADC_TSSEL_R_PS1_BIT - ADC_TSSEL_R_PS0_BIT), ADC_TSSEL_R_PS0_BIT);
 }
 
 ADC_nSEQ_PWM ADC__enGetSequencerPWMTrigger(ADC_nMODULE enModule, ADC_nSEQUENCER enSequence)
 {
-    return (ADC_nSEQ_PWM) (ADC__u32GetSequencerGenericBit((uint32_t) enModule, ADC_ADCTSSEL_OFFSET, (uint32_t) enSequence, ADC_ADCTSSEL_PS0_MASK,  (ADC_ADCTSSEL_R_PS1_BIT - ADC_ADCTSSEL_R_PS0_BIT), ADC_ADCTSSEL_R_PS0_BIT));
+    return (ADC_nSEQ_PWM) (ADC__u32GetSequencerGenericBit((uint32_t) enModule, ADC_TSSEL_OFFSET, (uint32_t) enSequence, ADC_TSSEL_PS0_MASK,  (ADC_TSSEL_R_PS1_BIT - ADC_TSSEL_R_PS0_BIT), ADC_TSSEL_R_PS0_BIT));
 }

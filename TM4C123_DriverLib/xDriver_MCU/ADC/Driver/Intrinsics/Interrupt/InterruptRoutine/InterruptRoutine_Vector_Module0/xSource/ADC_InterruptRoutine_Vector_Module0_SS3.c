@@ -64,24 +64,24 @@ void ADC0_SS3__vIRQVectorHandler(void)
         }
     }
 
-    u32Reg = ADC0_ADCISC_R;
-    u32RegCompInterrupt = ADC0_ADCDCISC_R;
-    u32RegCompSelect = ADC0_ADCSSOP3_R;
+    u32Reg = ADC0_ISC_R;
+    u32RegCompInterrupt = ADC0_DCISC_R;
+    u32RegCompSelect = ADC0_SSOP3_R;
     if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_3))
     {
-        ADC0_ADCISC_R = ((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_3);
+        ADC0_ISC_R = ((uint32_t) ADC_enSEQ_SOURCE_SAMPLE << (uint32_t) ADC_enSEQ_3);
         ADC_SAMPLE__vIRQSourceHandler[(uint32_t) ADC_enMODULE_0][(uint32_t) ADC_enSEQ_3]();
     }
     if(u32Reg & ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_3))
      {
-         ADC0_ADCISC_R = ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_3);
+         ADC0_ISC_R = ((uint32_t) ADC_enSEQ_SOURCE_COMP << (uint32_t) ADC_enSEQ_3);
          if(u32RegCompSelect & ((uint32_t) 0x1UL << (ADC_en_MUX_0 * 0x4UL)))
          {
-             u32RegCompMux = ADC0_ADCSSDC3_R >> (ADC_en_MUX_0 * 0x4UL);
+             u32RegCompMux = ADC0_SSDC3_R >> (ADC_en_MUX_0 * 0x4UL);
              u32RegCompMux &= 0xFUL;
              if(u32RegCompInterrupt & ((uint32_t) 1UL << u32RegCompMux))
              {
-                 ADC0_ADCDCISC_R = ((uint32_t) 1UL << u32RegCompMux);
+                 ADC0_DCISC_R = ((uint32_t) 1UL << u32RegCompMux);
                  ADC_COMP__vIRQSourceHandler[(uint32_t) ADC_enMODULE_0][(uint32_t) ADC_enSEQ_3][u32RegCompMux]();
              }
          }

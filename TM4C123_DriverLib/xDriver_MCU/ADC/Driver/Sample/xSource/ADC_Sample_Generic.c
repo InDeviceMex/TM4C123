@@ -44,7 +44,7 @@ void ADC__vSetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, uint32_t
 
     u32SequencerReg *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32SequencerReg *= 4UL;
-    u32SequencerReg += ADC_ADCSSMUX0_OFFSET;
+    u32SequencerReg += ADC_SSMUX0_OFFSET;
     u32SequencerReg += u32OffsetRegister;
 
     ADC__vWriteRegister((ADC_nMODULE) u32Module , u32SequencerReg, u32Feature, u32FeatureMask, u32MuxInputReg);
@@ -66,7 +66,7 @@ uint32_t ADC__u32GetSampleGeneric(uint32_t u32Module, uint32_t  u32Sequencer, ui
 
     u32SequencerReg *= ADC_INPUT_REGISTER_NUM; /*Add offset for input sequencer*/
     u32SequencerReg *= 4UL;
-    u32SequencerReg += ADC_ADCSSMUX0_OFFSET;
+    u32SequencerReg += ADC_SSMUX0_OFFSET;
     u32SequencerReg += u32OffsetRegister;
 
     ADC__enReadRegister((ADC_nMODULE) u32Module , u32SequencerReg, (uint32_t*) &u32Feature, u32FeatureMask, u32MuxInputReg);

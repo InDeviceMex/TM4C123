@@ -35,255 +35,255 @@
 #define ADC0    ((ADC_TypeDef*) (ADC0_BASE))
 
 /******************************************************************************************
-************************************ 1 ADCACTSS *********************************************
+************************************ 1 ACTSS *********************************************
 ******************************************************************************************/
-#define ADC0_ADCACTSS    ((ADCACTSS_TypeDef*) (ADC0_BASE + ADC_ADCACTSS_OFFSET))
-#define ADC0_ADCACTSS_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCACTSS_OFFSET)))
+#define ADC0_ACTSS    ((ADCACTSS_TypeDef*) (ADC0_BASE + ADC_ACTSS_OFFSET))
+#define ADC0_ACTSS_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ACTSS_OFFSET)))
 
 /******************************************************************************************
-************************************ 2 ADCRIS *********************************************
+************************************ 2 RIS *********************************************
 ******************************************************************************************/
-#define ADC0_ADCRIS    ((ADCRIS_TypeDef*) (ADC0_BASE + ADC_ADCRIS_OFFSET))
-#define ADC0_ADCRIS_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCRIS_OFFSET)))
+#define ADC0_RIS    ((ADCRIS_TypeDef*) (ADC0_BASE + ADC_RIS_OFFSET))
+#define ADC0_RIS_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_RIS_OFFSET)))
 
 /******************************************************************************************
-************************************ 3 ADCIM *********************************************
+************************************ 3 IM *********************************************
 ******************************************************************************************/
-#define ADC0_ADCIM    ((ADCIM_TypeDef*) (ADC0_BASE + ADC_ADCIM_OFFSET))
-#define ADC0_ADCIM_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCIM_OFFSET)))
+#define ADC0_IM    ((ADCIM_TypeDef*) (ADC0_BASE + ADC_IM_OFFSET))
+#define ADC0_IM_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_IM_OFFSET)))
 
 /******************************************************************************************
-************************************ 4 ADCISC *********************************************
+************************************ 4 ISC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCISC    ((ADCISC_TypeDef*) (ADC0_BASE + ADC_ADCISC_OFFSET))
-#define ADC0_ADCISC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCISC_OFFSET)))
+#define ADC0_ISC    ((ADCISC_TypeDef*) (ADC0_BASE + ADC_ISC_OFFSET))
+#define ADC0_ISC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ISC_OFFSET)))
 
 /******************************************************************************************
-************************************ 5 ADCOSTAT *********************************************
+************************************ 5 OSTAT *********************************************
 ******************************************************************************************/
-#define ADC0_ADCOSTAT    ((ADCOSTAT_TypeDef*) (ADC0_BASE + ADC_ADCOSTAT_OFFSET))
-#define ADC0_ADCOSTAT_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCOSTAT_OFFSET)))
+#define ADC0_OSTAT    ((ADCOSTAT_TypeDef*) (ADC0_BASE + ADC_OSTAT_OFFSET))
+#define ADC0_OSTAT_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_OSTAT_OFFSET)))
 
 /******************************************************************************************
-************************************ 6 ADCEMUX *********************************************
+************************************ 6 EMUX *********************************************
 ******************************************************************************************/
-#define ADC0_ADCEMUX    ((ADCEMUX_TypeDef*) (ADC0_BASE + ADC_ADCEMUX_OFFSET))
-#define ADC0_ADCEMUX_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCEMUX_OFFSET)))
+#define ADC0_EMUX    ((ADCEMUX_TypeDef*) (ADC0_BASE + ADC_EMUX_OFFSET))
+#define ADC0_EMUX_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_EMUX_OFFSET)))
 
 /******************************************************************************************
-************************************ 7 ADCUSTAT *********************************************
+************************************ 7 USTAT *********************************************
 ******************************************************************************************/
-#define ADC0_ADCUSTAT    ((ADCUSTAT_TypeDef*) (ADC0_BASE + ADC_ADCUSTAT_OFFSET))
-#define ADC0_ADCUSTAT_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCUSTAT_OFFSET)))
+#define ADC0_USTAT    ((ADCUSTAT_TypeDef*) (ADC0_BASE + ADC_USTAT_OFFSET))
+#define ADC0_USTAT_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_USTAT_OFFSET)))
 
 /******************************************************************************************
-************************************ 8 ADCTSSEL *********************************************
+************************************ 8 TSSEL *********************************************
 ******************************************************************************************/
-#define ADC0_ADCTSSEL    ((ADCTSSEL_TypeDef*) (ADC0_BASE + ADC_ADCTSSEL_OFFSET))
-#define ADC0_ADCTSSEL_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCTSSEL_OFFSET)))
+#define ADC0_TSSEL    ((ADCTSSEL_TypeDef*) (ADC0_BASE + ADC_TSSEL_OFFSET))
+#define ADC0_TSSEL_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_TSSEL_OFFSET)))
 
 /******************************************************************************************
-************************************ 9 ADCSSPRI *********************************************
+************************************ 9 SSPRI *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSPRI    ((ADCSSPRI_TypeDef*) (ADC0_BASE + ADC_ADCSSPRI_OFFSET))
-#define ADC0_ADCSSPRI_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSPRI_OFFSET)))
+#define ADC0_SSPRI    ((ADCSSPRI_TypeDef*) (ADC0_BASE + ADC_SSPRI_OFFSET))
+#define ADC0_SSPRI_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSPRI_OFFSET)))
 
 /******************************************************************************************
-************************************ 10 ADCSPC *********************************************
+************************************ 10 SPC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSPC    ((ADCSPC_TypeDef*) (ADC0_BASE + ADC_ADCSPC_OFFSET))
-#define ADC0_ADCSPC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSPC_OFFSET)))
+#define ADC0_SPC    ((ADCSPC_TypeDef*) (ADC0_BASE + ADC_SPC_OFFSET))
+#define ADC0_SPC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SPC_OFFSET)))
 
 /******************************************************************************************
-************************************ 11 ADCPSSI *********************************************
+************************************ 11 PSSI *********************************************
 ******************************************************************************************/
-#define ADC0_ADCPSSI    ((ADCPSSI_TypeDef*) (ADC0_BASE + ADC_ADCPSSI_OFFSET))
-#define ADC0_ADCPSSI_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCPSSI_OFFSET)))
+#define ADC0_PSSI    ((ADCPSSI_TypeDef*) (ADC0_BASE + ADC_PSSI_OFFSET))
+#define ADC0_PSSI_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_PSSI_OFFSET)))
 
 /******************************************************************************************
-************************************ 12 ADCSAC *********************************************
+************************************ 12 SAC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSAC    ((ADCSAC_TypeDef*) (ADC0_BASE + ADC_ADCSAC_OFFSET))
-#define ADC0_ADCSAC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSAC_OFFSET)))
+#define ADC0_SAC    ((ADCSAC_TypeDef*) (ADC0_BASE + ADC_SAC_OFFSET))
+#define ADC0_SAC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SAC_OFFSET)))
 
 /******************************************************************************************
-************************************ 13 ADCDCISC *********************************************
+************************************ 13 DCISC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCDCISC    ((ADCDCISC_TypeDef*) (ADC0_BASE + ADC_ADCDCISC_OFFSET))
-#define ADC0_ADCDCISC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCISC_OFFSET)))
+#define ADC0_DCISC    ((ADCDCISC_TypeDef*) (ADC0_BASE + ADC_DCISC_OFFSET))
+#define ADC0_DCISC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCISC_OFFSET)))
 
 /******************************************************************************************
-************************************ 14 ADCCTL *********************************************
+************************************ 14 CTL *********************************************
 ******************************************************************************************/
-#define ADC0_ADCCTL    ((ADCCTL_TypeDef*) (ADC0_BASE + ADC_ADCCTL_OFFSET))
-#define ADC0_ADCCTL_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCCTL_OFFSET)))
+#define ADC0_CTL    ((ADCCTL_TypeDef*) (ADC0_BASE + ADC_CTL_OFFSET))
+#define ADC0_CTL_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_CTL_OFFSET)))
 
 /******************************************************************************************
-************************************ 15 ADCSSMUX *********************************************
+************************************ 15 SSMUX *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSMUX0    ((ADCSSMUX8_TypeDef*) (ADC0_BASE + ADC_ADCSSMUX0_OFFSET))
-#define ADC0_ADCSSMUX0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSMUX0_OFFSET)))
+#define ADC0_SSMUX0    ((ADCSSMUX8_TypeDef*) (ADC0_BASE + ADC_SSMUX0_OFFSET))
+#define ADC0_SSMUX0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSMUX0_OFFSET)))
 
-#define ADC0_ADCSSMUX1    ((ADCSSMUX4_TypeDef*) (ADC0_BASE + ADC_ADCSSMUX1_OFFSET))
-#define ADC0_ADCSSMUX1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSMUX1_OFFSET)))
+#define ADC0_SSMUX1    ((ADCSSMUX4_TypeDef*) (ADC0_BASE + ADC_SSMUX1_OFFSET))
+#define ADC0_SSMUX1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSMUX1_OFFSET)))
 
-#define ADC0_ADCSSMUX2    ((ADCSSMUX4_TypeDef*) (ADC0_BASE + ADC_ADCSSMUX2_OFFSET))
-#define ADC0_ADCSSMUX2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSMUX2_OFFSET)))
+#define ADC0_SSMUX2    ((ADCSSMUX4_TypeDef*) (ADC0_BASE + ADC_SSMUX2_OFFSET))
+#define ADC0_SSMUX2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSMUX2_OFFSET)))
 
-#define ADC0_ADCSSMUX3    ((ADCSSMUX1_TypeDef*) (ADC0_BASE + ADC_ADCSSMUX3_OFFSET))
-#define ADC0_ADCSSMUX3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSMUX3_OFFSET)))
+#define ADC0_SSMUX3    ((ADCSSMUX1_TypeDef*) (ADC0_BASE + ADC_SSMUX3_OFFSET))
+#define ADC0_SSMUX3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSMUX3_OFFSET)))
 
 /******************************************************************************************
-************************************ 16 ADCSSCTL *********************************************
+************************************ 16 SSCTL *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSCTL0    ((ADCSSCTL8_TypeDef*) (ADC0_BASE + ADC_ADCSSCTL0_OFFSET))
-#define ADC0_ADCSSCTL0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSCTL0_OFFSET)))
+#define ADC0_SSCTL0    ((ADCSSCTL8_TypeDef*) (ADC0_BASE + ADC_SSCTL0_OFFSET))
+#define ADC0_SSCTL0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSCTL0_OFFSET)))
 
-#define ADC0_ADCSSCTL1    ((ADCSSCTL4_TypeDef*) (ADC0_BASE + ADC_ADCSSCTL1_OFFSET))
-#define ADC0_ADCSSCTL1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSCTL1_OFFSET)))
+#define ADC0_SSCTL1    ((ADCSSCTL4_TypeDef*) (ADC0_BASE + ADC_SSCTL1_OFFSET))
+#define ADC0_SSCTL1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSCTL1_OFFSET)))
 
-#define ADC0_ADCSSCTL2    ((ADCSSCTL4_TypeDef*) (ADC0_BASE + ADC_ADCSSCTL2_OFFSET))
-#define ADC0_ADCSSCTL2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSCTL2_OFFSET)))
+#define ADC0_SSCTL2    ((ADCSSCTL4_TypeDef*) (ADC0_BASE + ADC_SSCTL2_OFFSET))
+#define ADC0_SSCTL2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSCTL2_OFFSET)))
 
-#define ADC0_ADCSSCTL3    ((ADCSSCTL1_TypeDef*) (ADC0_BASE + ADC_ADCSSCTL3_OFFSET))
-#define ADC0_ADCSSCTL3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSCTL3_OFFSET)))
+#define ADC0_SSCTL3    ((ADCSSCTL1_TypeDef*) (ADC0_BASE + ADC_SSCTL3_OFFSET))
+#define ADC0_SSCTL3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSCTL3_OFFSET)))
 
 /******************************************************************************************
-************************************ 17 ADCSSFIFO *********************************************
+************************************ 17 SSFIFO *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSFIFO0    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_ADCSSFIFO0_OFFSET))
-#define ADC0_ADCSSFIFO0_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFIFO0_OFFSET)))
+#define ADC0_SSFIFO0    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_SSFIFO0_OFFSET))
+#define ADC0_SSFIFO0_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFIFO0_OFFSET)))
 
-#define ADC0_ADCSSFIFO1    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_ADCSSFIFO1_OFFSET))
-#define ADC0_ADCSSFIFO1_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFIFO1_OFFSET)))
+#define ADC0_SSFIFO1    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_SSFIFO1_OFFSET))
+#define ADC0_SSFIFO1_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFIFO1_OFFSET)))
 
-#define ADC0_ADCSSFIFO2    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_ADCSSFIFO2_OFFSET))
-#define ADC0_ADCSSFIFO2_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFIFO2_OFFSET)))
+#define ADC0_SSFIFO2    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_SSFIFO2_OFFSET))
+#define ADC0_SSFIFO2_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFIFO2_OFFSET)))
 
-#define ADC0_ADCSSFIFO3    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_ADCSSFIFO3_OFFSET))
-#define ADC0_ADCSSFIFO3_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFIFO3_OFFSET)))
+#define ADC0_SSFIFO3    ((ADCSSFIFO_TypeDef*) (ADC0_BASE + ADC_SSFIFO3_OFFSET))
+#define ADC0_SSFIFO3_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFIFO3_OFFSET)))
 
 /******************************************************************************************
-************************************ 18 ADCSSFSTAT *********************************************
+************************************ 18 SSFSTAT *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSFSTAT0    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_ADCSSFSTAT0_OFFSET))
-#define ADC0_ADCSSFSTAT0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSFSTAT0_OFFSET)))
+#define ADC0_SSFSTAT0    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_SSFSTAT0_OFFSET))
+#define ADC0_SSFSTAT0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSFSTAT0_OFFSET)))
 
-#define ADC0_ADCSSFSTAT1    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_ADCSSFSTAT1_OFFSET))
-#define ADC0_ADCSSFSTAT1_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFSTAT1_OFFSET)))
+#define ADC0_SSFSTAT1    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_SSFSTAT1_OFFSET))
+#define ADC0_SSFSTAT1_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFSTAT1_OFFSET)))
 
-#define ADC0_ADCSSFSTAT2    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_ADCSSFSTAT2_OFFSET))
-#define ADC0_ADCSSFSTAT2_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFSTAT2_OFFSET)))
+#define ADC0_SSFSTAT2    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_SSFSTAT2_OFFSET))
+#define ADC0_SSFSTAT2_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFSTAT2_OFFSET)))
 
-#define ADC0_ADCSSFSTAT3    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_ADCSSFSTAT3_OFFSET))
-#define ADC0_ADCSSFSTAT3_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCSSFSTAT3_OFFSET)))
+#define ADC0_SSFSTAT3    ((ADCSSFSTAT_TypeDef*) (ADC0_BASE + ADC_SSFSTAT3_OFFSET))
+#define ADC0_SSFSTAT3_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_SSFSTAT3_OFFSET)))
 
 /******************************************************************************************
-************************************ 19 ADCSSOP *********************************************
+************************************ 19 SSOP *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSOP0    ((ADCSSOP8_TypeDef*) (ADC0_BASE + ADC_ADCSSOP0_OFFSET))
-#define ADC0_ADCSSOP0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSOP0_OFFSET)))
+#define ADC0_SSOP0    ((ADCSSOP8_TypeDef*) (ADC0_BASE + ADC_SSOP0_OFFSET))
+#define ADC0_SSOP0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSOP0_OFFSET)))
 
-#define ADC0_ADCSSOP1    ((ADCSSOP4_TypeDef*) (ADC0_BASE + ADC_ADCSSOP1_OFFSET))
-#define ADC0_ADCSSOP1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSOP1_OFFSET)))
+#define ADC0_SSOP1    ((ADCSSOP4_TypeDef*) (ADC0_BASE + ADC_SSOP1_OFFSET))
+#define ADC0_SSOP1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSOP1_OFFSET)))
 
-#define ADC0_ADCSSOP2    ((ADCSSOP4_TypeDef*) (ADC0_BASE + ADC_ADCSSOP2_OFFSET))
-#define ADC0_ADCSSOP2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSOP2_OFFSET)))
+#define ADC0_SSOP2    ((ADCSSOP4_TypeDef*) (ADC0_BASE + ADC_SSOP2_OFFSET))
+#define ADC0_SSOP2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSOP2_OFFSET)))
 
-#define ADC0_ADCSSOP3    ((ADCSSOP1_TypeDef*) (ADC0_BASE + ADC_ADCSSOP3_OFFSET))
-#define ADC0_ADCSSOP3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSOP3_OFFSET)))
+#define ADC0_SSOP3    ((ADCSSOP1_TypeDef*) (ADC0_BASE + ADC_SSOP3_OFFSET))
+#define ADC0_SSOP3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSOP3_OFFSET)))
 
 /******************************************************************************************
-************************************ 20 ADCSSDC *********************************************
+************************************ 20 SSDC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCSSDC0    ((ADCSSDC8_TypeDef*) (ADC0_BASE + ADC_ADCSSDC0_OFFSET))
-#define ADC0_ADCSSDC0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSDC0_OFFSET)))
+#define ADC0_SSDC0    ((ADCSSDC8_TypeDef*) (ADC0_BASE + ADC_SSDC0_OFFSET))
+#define ADC0_SSDC0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSDC0_OFFSET)))
 
-#define ADC0_ADCSSDC1    ((ADCSSDC4_TypeDef*) (ADC0_BASE + ADC_ADCSSDC1_OFFSET))
-#define ADC0_ADCSSDC1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSDC1_OFFSET)))
+#define ADC0_SSDC1    ((ADCSSDC4_TypeDef*) (ADC0_BASE + ADC_SSDC1_OFFSET))
+#define ADC0_SSDC1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSDC1_OFFSET)))
 
-#define ADC0_ADCSSDC2    ((ADCSSDC4_TypeDef*) (ADC0_BASE + ADC_ADCSSDC2_OFFSET))
-#define ADC0_ADCSSDC2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSDC2_OFFSET)))
+#define ADC0_SSDC2    ((ADCSSDC4_TypeDef*) (ADC0_BASE + ADC_SSDC2_OFFSET))
+#define ADC0_SSDC2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSDC2_OFFSET)))
 
-#define ADC0_ADCSSDC3    ((ADCSSDC1_TypeDef*) (ADC0_BASE + ADC_ADCSSDC3_OFFSET))
-#define ADC0_ADCSSDC3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCSSDC3_OFFSET)))
+#define ADC0_SSDC3    ((ADCSSDC1_TypeDef*) (ADC0_BASE + ADC_SSDC3_OFFSET))
+#define ADC0_SSDC3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_SSDC3_OFFSET)))
 
 /******************************************************************************************
-************************************ 21 ADCDCRIC *********************************************
+************************************ 21 DCRIC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCDCRIC    ((ADCDCRIC_TypeDef*) (ADC0_BASE + ADC_ADCDCRIC_OFFSET))
-#define ADC0_ADCDCRIC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCRIC_OFFSET)))
+#define ADC0_DCRIC    ((ADCDCRIC_TypeDef*) (ADC0_BASE + ADC_DCRIC_OFFSET))
+#define ADC0_DCRIC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCRIC_OFFSET)))
 
 /******************************************************************************************
-************************************ 22 ADCDCCTL *********************************************
+************************************ 22 DCCTL *********************************************
 ******************************************************************************************/
-#define ADC0_ADCDCCTL0    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL0_OFFSET))
-#define ADC0_ADCDCCTL0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL0_OFFSET)))
+#define ADC0_DCCTL0    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL0_OFFSET))
+#define ADC0_DCCTL0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL0_OFFSET)))
 
-#define ADC0_ADCDCCTL1    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL1_OFFSET))
-#define ADC0_ADCDCCTL1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL1_OFFSET)))
+#define ADC0_DCCTL1    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL1_OFFSET))
+#define ADC0_DCCTL1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL1_OFFSET)))
 
-#define ADC0_ADCDCCTL2    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL2_OFFSET))
-#define ADC0_ADCDCCTL2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL2_OFFSET)))
+#define ADC0_DCCTL2    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL2_OFFSET))
+#define ADC0_DCCTL2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL2_OFFSET)))
 
-#define ADC0_ADCDCCTL3    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL3_OFFSET))
-#define ADC0_ADCDCCTL3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL3_OFFSET)))
+#define ADC0_DCCTL3    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL3_OFFSET))
+#define ADC0_DCCTL3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL3_OFFSET)))
 
-#define ADC0_ADCDCCTL4    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL4_OFFSET))
-#define ADC0_ADCDCCTL4_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL4_OFFSET)))
+#define ADC0_DCCTL4    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL4_OFFSET))
+#define ADC0_DCCTL4_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL4_OFFSET)))
 
-#define ADC0_ADCDCCTL5    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL5_OFFSET))
-#define ADC0_ADCDCCTL5_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL5_OFFSET)))
+#define ADC0_DCCTL5    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL5_OFFSET))
+#define ADC0_DCCTL5_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL5_OFFSET)))
 
-#define ADC0_ADCDCCTL6    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL6_OFFSET))
-#define ADC0_ADCDCCTL6_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL6_OFFSET)))
+#define ADC0_DCCTL6    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL6_OFFSET))
+#define ADC0_DCCTL6_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL6_OFFSET)))
 
-#define ADC0_ADCDCCTL7    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_ADCDCCTL7_OFFSET))
-#define ADC0_ADCDCCTL7_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCTL7_OFFSET)))
+#define ADC0_DCCTL7    ((ADCDCCTL_TypeDef*) (ADC0_BASE + ADC_DCCTL7_OFFSET))
+#define ADC0_DCCTL7_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCTL7_OFFSET)))
 
 /******************************************************************************************
-************************************ 23 ADCDCCMP *********************************************
+************************************ 23 DCCMP *********************************************
 ******************************************************************************************/
-#define ADC0_ADCDCCMP0    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP0_OFFSET))
-#define ADC0_ADCDCCMP0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP0_OFFSET)))
+#define ADC0_DCCMP0    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP0_OFFSET))
+#define ADC0_DCCMP0_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP0_OFFSET)))
 
-#define ADC0_ADCDCCMP1    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP1_OFFSET))
-#define ADC0_ADCDCCMP1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP1_OFFSET)))
+#define ADC0_DCCMP1    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP1_OFFSET))
+#define ADC0_DCCMP1_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP1_OFFSET)))
 
-#define ADC0_ADCDCCMP2    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP2_OFFSET))
-#define ADC0_ADCDCCMP2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP2_OFFSET)))
+#define ADC0_DCCMP2    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP2_OFFSET))
+#define ADC0_DCCMP2_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP2_OFFSET)))
 
-#define ADC0_ADCDCCMP3    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP3_OFFSET))
-#define ADC0_ADCDCCMP3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP3_OFFSET)))
+#define ADC0_DCCMP3    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP3_OFFSET))
+#define ADC0_DCCMP3_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP3_OFFSET)))
 
-#define ADC0_ADCDCCMP4    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP4_OFFSET))
-#define ADC0_ADCDCCMP4_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP4_OFFSET)))
+#define ADC0_DCCMP4    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP4_OFFSET))
+#define ADC0_DCCMP4_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP4_OFFSET)))
 
-#define ADC0_ADCDCCMP5    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP5_OFFSET))
-#define ADC0_ADCDCCMP5_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP5_OFFSET)))
+#define ADC0_DCCMP5    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP5_OFFSET))
+#define ADC0_DCCMP5_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP5_OFFSET)))
 
-#define ADC0_ADCDCCMP6    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP6_OFFSET))
-#define ADC0_ADCDCCMP6_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP6_OFFSET)))
+#define ADC0_DCCMP6    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP6_OFFSET))
+#define ADC0_DCCMP6_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP6_OFFSET)))
 
-#define ADC0_ADCDCCMP7    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_ADCDCCMP7_OFFSET))
-#define ADC0_ADCDCCMP7_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCDCCMP7_OFFSET)))
+#define ADC0_DCCMP7    ((ADCDCCMP_TypeDef*) (ADC0_BASE + ADC_DCCMP7_OFFSET))
+#define ADC0_DCCMP7_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_DCCMP7_OFFSET)))
 
 /******************************************************************************************
-************************************ 24 ADCPP *********************************************
+************************************ 24 PP *********************************************
 ******************************************************************************************/
-#define ADC0_ADCPP    ((ADCPP_TypeDef*) (ADC0_BASE + ADC_ADCPP_OFFSET))
-#define ADC0_ADCPP_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_ADCPP_OFFSET)))
+#define ADC0_PP    ((ADCPP_TypeDef*) (ADC0_BASE + ADC_PP_OFFSET))
+#define ADC0_PP_R    (*((volatile const uint32_t*) (ADC0_BASE +ADC_PP_OFFSET)))
 
 /******************************************************************************************
-************************************ 25 ADCPC *********************************************
+************************************ 25 PC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCPC    ((ADCPC_TypeDef*) (ADC0_BASE + ADC_ADCPC_OFFSET))
-#define ADC0_ADCPC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCPC_OFFSET)))
+#define ADC0_PC    ((ADCPC_TypeDef*) (ADC0_BASE + ADC_PC_OFFSET))
+#define ADC0_PC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_PC_OFFSET)))
 
 /******************************************************************************************
-************************************ 26 ADCCC *********************************************
+************************************ 26 CC *********************************************
 ******************************************************************************************/
-#define ADC0_ADCCC    ((ADCCC_TypeDef*) (ADC0_BASE + ADC_ADCCC_OFFSET))
-#define ADC0_ADCCC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_ADCCC_OFFSET)))
+#define ADC0_CC    ((ADCCC_TypeDef*) (ADC0_BASE + ADC_CC_OFFSET))
+#define ADC0_CC_R    (*((volatile uint32_t*) (ADC0_BASE +ADC_CC_OFFSET)))
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_XHEADER_ADC_REGISTERPERIPHERAL_MODULE0_H_ */

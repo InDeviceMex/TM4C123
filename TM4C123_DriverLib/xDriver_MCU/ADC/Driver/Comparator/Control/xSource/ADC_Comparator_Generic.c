@@ -28,10 +28,10 @@
 
 void ADC__vSetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32Feature, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
-    ADC__vSetCompGeneric(u32Module , u32Comparator, ADC_ADCDCCTL_OFFSET, u32Feature, u32FeatureMask, u32FeatureBit);
+    ADC__vSetCompGeneric(u32Module , u32Comparator, ADC_DCCTL_OFFSET, u32Feature, u32FeatureMask, u32FeatureBit);
 }
 
 uint32_t ADC__u32GetCompGenericControl(uint32_t u32Module, uint32_t  u32Comparator, uint32_t u32FeatureMask, uint32_t u32FeatureBit)
 {
-    return ADC__u32GetCompGeneric(u32Module, u32Comparator, ADC_ADCDCCTL_OFFSET, u32FeatureMask, u32FeatureBit);
+    return ADC__u32GetCompGeneric(u32Module, u32Comparator, ADC_DCCTL_OFFSET, u32FeatureMask, u32FeatureBit);
 }
