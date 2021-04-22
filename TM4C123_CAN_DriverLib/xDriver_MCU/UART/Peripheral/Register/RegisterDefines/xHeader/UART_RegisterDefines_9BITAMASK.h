@@ -1,6 +1,6 @@
 /**
  *
- * @file UART_RegisterDefines_UART9BITAMASK.h
+ * @file UART_RegisterDefines_9BITAMASK.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -21,19 +21,19 @@
  * Date           Author     Version     Description
  * 23 ene. 2021     vyldram    1.0         initial Version@endverbatim
  */
-#ifndef XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UART9BITAMASK_H_
-#define XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UART9BITAMASK_H_
+#ifndef XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_9BITAMASK_H_
+#define XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_9BITAMASK_H_
 
 #include <xUtils/Standard/Standard.h>
 
 /******************************************************************************************
-************************************ 16 UART9BITAMASK *********************************************
+************************************ 16 9BITAMASK *********************************************
 ******************************************************************************************/
 /*--------*/
-#define UART_UART9BITAMASK_R_MASK_MASK    ((uint32_t) 0x000000FFUL)
-#define UART_UART9BITAMASK_R_MASK_BIT    ((uint32_t) 0UL)
+#define UART_9BITAMASK_R_MASK_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_9BITAMASK_R_MASK_BIT    ((uint32_t) 0UL)
 
-#define UART_UART9BITAMASK_MASK_MASK    ((uint32_t) 0x000000FFUL)
+#define UART_9BITAMASK_MASK_MASK    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
-#endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_UART9BITAMASK_H_ */
+#endif /* XDRIVER_MCU_UART_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_UART_REGISTERDEFINES_9BITAMASK_H_ */
