@@ -45,7 +45,7 @@ SCB_nSHPR SCB_MemoryFault__enGetPriority(void)
 
 inline void SCB_MemoryFault__vEnable(void)
 {
-    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, (uint32_t) SCB_SHCSR_MEMFAULTENA_EN, SCB_SHCSR_MEMFAULTENA_MASK, SCB_SHCSR_R_MEMFAULTENA_BIT);
+    MCU__vWriteRegister(SCB_BASE, SCB_SHCSR_OFFSET, (uint32_t) SCB_SHCSR_MEMFAULTENA_ENA, SCB_SHCSR_MEMFAULTENA_MASK, SCB_SHCSR_R_MEMFAULTENA_BIT);
 }
 
 inline void SCB_MemoryFault__vDisable(void)

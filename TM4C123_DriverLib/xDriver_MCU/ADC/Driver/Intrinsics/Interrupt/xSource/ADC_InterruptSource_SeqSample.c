@@ -46,7 +46,7 @@ void ADC__vEnSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequence
     u32Sequencer += ADC_SSMUX0_OFFSET;
     u32Sequencer += ADC_SSCTL_OFFSET;
 
-    ADC__vWriteRegister(enModule , u32Sequencer, ADC_SSCTL_IE0_EN, ADC_SSCTL_IE0_MASK, u32MuxInput);
+    ADC__vWriteRegister(enModule , u32Sequencer, ADC_SSCTL_IE0_ENA, ADC_SSCTL_IE0_MASK, u32MuxInput);
 }
 
 void ADC__vDisSeqInterruptSample(ADC_nMODULE enModule, ADC_nSEQUENCER  enSequencer, ADC_nMUX enMuxInput)

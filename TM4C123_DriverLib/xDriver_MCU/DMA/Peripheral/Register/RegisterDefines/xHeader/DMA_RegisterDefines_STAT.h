@@ -35,11 +35,11 @@
 #define DMA_STAT_R_MASTEN_MASK    ((uint32_t) 0x00000001UL)
 #define DMA_STAT_R_MASTEN_BIT    ((uint32_t) 0UL)
 #define DMA_STAT_R_MASTEN_DIS    ((uint32_t) 0x00000000UL)
-#define DMA_STAT_R_MASTEN_EN    ((uint32_t) 0x00000001UL)
+#define DMA_STAT_R_MASTEN_ENA    ((uint32_t) 0x00000001UL)
 
 #define DMA_STAT_MASTEN_MASK    ((uint32_t) 0x00000001UL)
 #define DMA_STAT_MASTEN_DIS    ((uint32_t) 0x00000000UL)
-#define DMA_STAT_MASTEN_EN    ((uint32_t) 0x00000001UL)
+#define DMA_STAT_MASTEN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/

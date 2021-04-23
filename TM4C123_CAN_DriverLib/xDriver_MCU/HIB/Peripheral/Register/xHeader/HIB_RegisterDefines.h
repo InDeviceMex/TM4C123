@@ -68,11 +68,11 @@
 #define HIB_CTL_R_RTCEN_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_R_RTCEN_BIT    (0UL)
 #define HIB_CTL_R_RTCEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_RTCEN_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_R_RTCEN_ENA    ((uint32_t) 0x00000001UL)
 
 #define HIB_CTL_RTCEN_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_RTCEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_RTCEN_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_RTCEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -90,66 +90,66 @@
 #define HIB_CTL_R_RTCWEN_MASK    ((uint32_t) 0x00000008UL)
 #define HIB_CTL_R_RTCWEN_BIT    (3UL)
 #define HIB_CTL_R_RTCWEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_RTCWEN_EN    ((uint32_t) 0x00000008UL)
+#define HIB_CTL_R_RTCWEN_ENA    ((uint32_t) 0x00000008UL)
 
 #define HIB_CTL_RTCWEN_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_RTCWEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_RTCWEN_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_RTCWEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_CTL_R_PINWEN_MASK    ((uint32_t) 0x00000010UL)
 #define HIB_CTL_R_PINWEN_BIT    (4UL)
 #define HIB_CTL_R_PINWEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_PINWEN_EN    ((uint32_t) 0x00000010UL)
+#define HIB_CTL_R_PINWEN_ENA    ((uint32_t) 0x00000010UL)
 
 #define HIB_CTL_PINWEN_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_PINWEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_PINWEN_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_PINWEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_CTL_R_CLK32EN_MASK    ((uint32_t) 0x00000040UL)
 #define HIB_CTL_R_CLK32EN_BIT    (6UL)
 #define HIB_CTL_R_CLK32EN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_CLK32EN_EN    ((uint32_t) 0x00000040UL)
+#define HIB_CTL_R_CLK32EN_ENA    ((uint32_t) 0x00000040UL)
 
 #define HIB_CTL_CLK32EN_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_CLK32EN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_CLK32EN_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_CLK32EN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_CTL_R_VABORT_MASK    ((uint32_t) 0x00000080UL)
 #define HIB_CTL_R_VABORT_BIT    (7UL)
 #define HIB_CTL_R_VABORT_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_VABORT_EN    ((uint32_t) 0x00000080UL)
+#define HIB_CTL_R_VABORT_ENA    ((uint32_t) 0x00000080UL)
 
 #define HIB_CTL_VABORT_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_VABORT_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_VABORT_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_VABORT_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_CTL_R_VDD3ON_MASK    ((uint32_t) 0x00000100UL)
 #define HIB_CTL_R_VDD3ON_BIT    (8UL)
 #define HIB_CTL_R_VDD3ON_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_VDD3ON_EN    ((uint32_t) 0x00000100UL)
+#define HIB_CTL_R_VDD3ON_ENA    ((uint32_t) 0x00000100UL)
 
 #define HIB_CTL_VDD3ON_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_VDD3ON_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_VDD3ON_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_VDD3ON_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_CTL_R_BATWKEN_MASK    ((uint32_t) 0x00000200UL)
 #define HIB_CTL_R_BATWKEN_BIT    (9UL)
 #define HIB_CTL_R_BATWKEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_R_BATWKEN_EN    ((uint32_t) 0x00000200UL)
+#define HIB_CTL_R_BATWKEN_ENA    ((uint32_t) 0x00000200UL)
 
 #define HIB_CTL_BATWKEN_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_CTL_BATWKEN_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_CTL_BATWKEN_EN    ((uint32_t) 0x00000001UL)
+#define HIB_CTL_BATWKEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -183,11 +183,11 @@
 /*----------*/
 #define HIB_CTL_R_OSCBYP_MASK    ((uint32_t) 0x00010000UL)
 #define HIB_CTL_R_OSCBYP_BIT    (16UL)
-#define HIB_CTL_R_OSCBYP_EN    ((uint32_t) 0x00000000UL)
+#define HIB_CTL_R_OSCBYP_ENA    ((uint32_t) 0x00000000UL)
 #define HIB_CTL_R_OSCBYP_DIS    ((uint32_t) 0x00010000UL)
 
 #define HIB_CTL_OSCBYP_MASK    ((uint32_t) 0x00000001UL)
-#define HIB_CTL_OSCBYP_EN    ((uint32_t) 0x00000000UL)
+#define HIB_CTL_OSCBYP_ENA    ((uint32_t) 0x00000000UL)
 #define HIB_CTL_OSCBYP_DIS    ((uint32_t) 0x00000001UL)
 /*----------*/
 
@@ -221,44 +221,44 @@
 #define HIB_IM_R_RTCALT0_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_IM_R_RTCALT0_BIT    (0UL)
 #define HIB_IM_R_RTCALT0_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_R_RTCALT0_EN    ((uint32_t) 0x00000001UL)
+#define HIB_IM_R_RTCALT0_ENA    ((uint32_t) 0x00000001UL)
 
 #define HIB_IM_RTCALT0_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_IM_RTCALT0_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_RTCALT0_EN    ((uint32_t) 0x00000001UL)
+#define HIB_IM_RTCALT0_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_IM_R_LOWBAT_MASK    ((uint32_t) 0x00000004UL)
 #define HIB_IM_R_LOWBAT_BIT    (2UL)
 #define HIB_IM_R_LOWBAT_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_R_LOWBAT_EN    ((uint32_t) 0x00000004UL)
+#define HIB_IM_R_LOWBAT_ENA    ((uint32_t) 0x00000004UL)
 
 #define HIB_IM_LOWBAT_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_IM_LOWBAT_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_LOWBAT_EN    ((uint32_t) 0x00000001UL)
+#define HIB_IM_LOWBAT_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_IM_R_EXTW_MASK    ((uint32_t) 0x00000008UL)
 #define HIB_IM_R_EXTW_BIT    (3UL)
 #define HIB_IM_R_EXTW_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_R_EXTW_EN    ((uint32_t) 0x00000008UL)
+#define HIB_IM_R_EXTW_ENA    ((uint32_t) 0x00000008UL)
 
 #define HIB_IM_EXTW_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_IM_EXTW_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_EXTW_EN    ((uint32_t) 0x00000001UL)
+#define HIB_IM_EXTW_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define HIB_IM_R_WC_MASK    ((uint32_t) 0x00000010UL)
 #define HIB_IM_R_WC_BIT    (4UL)
 #define HIB_IM_R_WC_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_R_WC_EN    ((uint32_t) 0x00000010UL)
+#define HIB_IM_R_WC_ENA    ((uint32_t) 0x00000010UL)
 
 #define HIB_IM_WC_MASK    ((uint32_t) 0x00000001UL)
 #define HIB_IM_WC_DIS    ((uint32_t) 0x00000000UL)
-#define HIB_IM_WC_EN    ((uint32_t) 0x00000001UL)
+#define HIB_IM_WC_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /******************************************************************************************

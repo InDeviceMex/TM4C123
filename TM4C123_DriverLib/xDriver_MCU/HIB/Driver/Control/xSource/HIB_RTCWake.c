@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enEnRTCWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTCWAKE_EN, HIB_CTL_RTCWEN_MASK, HIB_CTL_R_RTCWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTCWAKE_ENA, HIB_CTL_RTCWEN_MASK, HIB_CTL_R_RTCWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisRTCWakeUp(void)

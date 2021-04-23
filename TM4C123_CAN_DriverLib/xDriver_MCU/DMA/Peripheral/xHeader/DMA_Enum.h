@@ -56,7 +56,7 @@ typedef enum
 typedef enum
 {
     DMA_enENABLE_DIS = 0UL,
-    DMA_enENABLE_EN = 1UL,
+    DMA_enENABLE_ENA = 1UL,
     DMA_enENABLE_UNDEF = 0xFFFFFFFFUL,
 }DMA_nENABLE;
 

@@ -69,7 +69,7 @@
 #define ACMP0_BITBANDING_REFCTL_VREF_2    (*((volatile uint32_t *) (ACMP_BITBANDING_BASE+((ACMP0_OFFSET+ACMP_REFCTL_OFFSET)*32U)+((ACMP_REFCTL_R_VREF_BIT+2)*4U))))
 #define ACMP0_BITBANDING_REFCTL_VREF_3    (*((volatile uint32_t *) (ACMP_BITBANDING_BASE+((ACMP0_OFFSET+ACMP_REFCTL_OFFSET)*32U)+((ACMP_REFCTL_R_VREF_BIT+3)*4U))))
 #define ACMP0_BITBANDING_REFCTL_RNG    (*((volatile uint32_t *) (ACMP_BITBANDING_BASE+((ACMP0_OFFSET+ACMP_REFCTL_OFFSET)*32U)+(ACMP_REFCTL_R_RNG_BIT*4U))))
-#define ACMP0_BITBANDING_REFCTL_EN    (*((volatile uint32_t *) (ACMP_BITBANDING_BASE+((ACMP0_OFFSET+ACMP_REFCTL_OFFSET)*32U)+(ACMP_REFCTL_R_EN_BIT*4U))))
+#define ACMP0_BITBANDING_REFCTL_ENA    (*((volatile uint32_t *) (ACMP_BITBANDING_BASE+((ACMP0_OFFSET+ACMP_REFCTL_OFFSET)*32U)+(ACMP_REFCTL_R_EN_BIT*4U))))
 
 /******************************************************************************************
 ************************************ 5 STAT *********************************************

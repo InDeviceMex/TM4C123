@@ -33,11 +33,11 @@
 /*--------*/
 #define SYSCTL_RCC_R_MOSCDIS_MASK    ((uint32_t) 0x00000001UL)
 #define SYSCTL_RCC_R_MOSCDIS_BIT    (0UL)
-#define SYSCTL_RCC_R_MOSCDIS_EN    ((uint32_t) 0x00000000UL)
+#define SYSCTL_RCC_R_MOSCDIS_ENA    ((uint32_t) 0x00000000UL)
 #define SYSCTL_RCC_R_MOSCDIS_DIS    ((uint32_t) 0x00000001UL)
 
 #define SYSCTL_RCC_MOSCDIS_MASK    ((uint32_t) 0x00000001UL)
-#define SYSCTL_RCC_MOSCDIS_EN    ((uint32_t) 0x00000000UL)
+#define SYSCTL_RCC_MOSCDIS_ENA    ((uint32_t) 0x00000000UL)
 #define SYSCTL_RCC_MOSCDIS_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 

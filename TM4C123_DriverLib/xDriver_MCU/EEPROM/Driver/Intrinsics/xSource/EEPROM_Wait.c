@@ -46,7 +46,7 @@ EEPROM_nSTATUS EEPROM__enGetStatus (void)
     {
         enReturn = EEPROM_enOK;
         u32Reg = MCU__u32ReadRegister(EEPROM_BASE, EEPROM_EEDONE_OFFSET, EEPROM_EEDONE_WORKING_MASK, EEPROM_EEDONE_R_WORKING_BIT);
-        if(EEPROM_EEDONE_WORKING_EN == u32Reg)
+        if(EEPROM_EEDONE_WORKING_ENA == u32Reg)
         {
             enReturn = EEPROM_enBUSY;
         }

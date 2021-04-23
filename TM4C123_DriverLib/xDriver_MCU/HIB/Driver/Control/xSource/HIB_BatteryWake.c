@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enEnLowBatteryWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enBATWAKE_EN, HIB_CTL_BATWKEN_MASK, HIB_CTL_R_BATWKEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enBATWAKE_ENA, HIB_CTL_BATWKEN_MASK, HIB_CTL_R_BATWKEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisLowBatteryWakeUp(void)

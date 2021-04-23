@@ -28,12 +28,12 @@
 
 HIB_nSTATUS HIB__enEnRTCTimer(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_EN, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_ENA, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisRTCTimer(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_EN, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enRTC_ENA, HIB_CTL_RTCEN_MASK, HIB_CTL_R_RTCEN_BIT);
 }
 
 HIB_nSTATUS HIB__enSetRTCTimer(HIB_nRTC enRTC)

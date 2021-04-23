@@ -107,11 +107,11 @@
 #define ACMP_CTL_R_TOEN_MASK    ((uint32_t) 0x00000800U)
 #define ACMP_CTL_R_TOEN_BIT    ((uint32_t) 11U)
 #define ACMP_CTL_R_TOEN_DIS    ((uint32_t) 0x00000000U)
-#define ACMP_CTL_R_TOEN_EN    ((uint32_t) 0x00000800U)
+#define ACMP_CTL_R_TOEN_ENA    ((uint32_t) 0x00000800U)
 
 #define ACMP_CTL_TOEN_MASK    ((uint32_t) 0x00000001U)
 #define ACMP_CTL_TOEN_DIS    ((uint32_t) 0x00000000U)
-#define ACMP_CTL_TOEN_EN    ((uint32_t) 0x00000001U)
+#define ACMP_CTL_TOEN_ENA    ((uint32_t) 0x00000001U)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ACMP_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ACMP_REGISTERDEFINES_CTL_H_ */

@@ -106,7 +106,7 @@ uint32_t SYSCTL__u32GetClock_RCC2(void)
     case SYSCTL_RCC2_OSCSRC2_MOSC:
         u32Reg = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_MOSCDIS_MASK, SYSCTL_RCC_R_MOSCDIS_BIT);
         /*Verify is MOSC is enable*/
-        if(SYSCTL_RCC_MOSCDIS_EN == u32Reg)
+        if(SYSCTL_RCC_MOSCDIS_ENA == u32Reg)
         {
             u32RegXTAL = MCU__u32ReadRegister(SYSCTL_BASE, SYSCTL_RCC_OFFSET, SYSCTL_RCC_XTAL_MASK, SYSCTL_RCC_R_XTAL_BIT);
             /*Initial Frequency, from XTAL configuration*/

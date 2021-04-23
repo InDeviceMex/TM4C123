@@ -103,66 +103,66 @@
 #define SYSEXC_IM_R_FPIDCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_R_FPIDCIM_BIT    ((uint32_t) 0)
 #define SYSEXC_IM_R_FPIDCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_R_FPIDCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_R_FPIDCIM_ENA    ((uint32_t) 0x00000001UL)
 
 #define SYSEXC_IM_FPIDCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_FPIDCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_FPIDCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_FPIDCIM_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SYSEXC_IM_R_FPDZCIM_MASK    ((uint32_t) 0x00000002UL)
 #define SYSEXC_IM_R_FPDZCIM_BIT    ((uint32_t) 1)
 #define SYSEXC_IM_R_FPDZCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_R_FPDZCIM_EN    ((uint32_t) 0x00000002UL)
+#define SYSEXC_IM_R_FPDZCIM_ENA    ((uint32_t) 0x00000002UL)
 
 #define SYSEXC_IM_FPDZCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_FPDZCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_FPDZCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_FPDZCIM_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SYSEXC_IM_R_FPIOCIM_MASK    ((uint32_t) 0x00000004UL)
 #define SYSEXC_IM_R_FPIOCIM_BIT    (2UL)
 #define SYSEXC_IM_R_FPIOCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_R_FPIOCIM_EN    ((uint32_t) 0x00000004UL)
+#define SYSEXC_IM_R_FPIOCIM_ENA    ((uint32_t) 0x00000004UL)
 
 #define SYSEXC_IM_FPIOCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_FPIOCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_FPIOCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_FPIOCIM_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SYSEXC_IM_R_FPUFCIM_MASK    ((uint32_t) 0x00000008UL)
 #define SYSEXC_IM_R_FPUFCIM_BIT    (3UL)
 #define SYSEXC_IM_R_FPUFCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_R_FPUFCIM_EN    ((uint32_t) 0x00000008UL)
+#define SYSEXC_IM_R_FPUFCIM_ENA    ((uint32_t) 0x00000008UL)
 
 #define SYSEXC_IM_FPUFCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_FPUFCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_FPUFCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_FPUFCIM_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SYSEXC_IM_R_FPOFCIM_MASK    ((uint32_t) 0x00000010UL)
 #define SYSEXC_IM_R_FPOFCIM_BIT    (4UL)
 #define SYSEXC_IM_R_FPOFCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_R_FPOFCIM_EN    ((uint32_t) 0x00000010UL)
+#define SYSEXC_IM_R_FPOFCIM_ENA    ((uint32_t) 0x00000010UL)
 
 #define SYSEXC_IM_FPOFCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_FPOFCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_FPOFCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_FPOFCIM_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SYSEXC_IM_R_FPIXCIM_MASK    ((uint32_t) 0x00000020UL)
 #define SYSEXC_IM_R_FPIXCIM_BIT    (5UL)
 #define SYSEXC_IM_R_FPIXCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_R_FPIXCIM_EN    ((uint32_t) 0x00000010UL)
+#define SYSEXC_IM_R_FPIXCIM_ENA    ((uint32_t) 0x00000010UL)
 
 #define SYSEXC_IM_FPIXCIM_MASK    ((uint32_t) 0x00000001UL)
 #define SYSEXC_IM_FPIXCIM_DIS    ((uint32_t) 0x00000000UL)
-#define SYSEXC_IM_FPIXCIM_EN    ((uint32_t) 0x00000001UL)
+#define SYSEXC_IM_FPIXCIM_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /******************************************************************************************

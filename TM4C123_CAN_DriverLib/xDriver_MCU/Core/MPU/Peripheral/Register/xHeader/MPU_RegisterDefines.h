@@ -70,33 +70,33 @@
 #define MPU_CTRL_R_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_CTRL_R_ENABLE_BIT    (0UL)
 #define MPU_CTRL_R_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_CTRL_R_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_CTRL_R_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 
 #define MPU_CTRL_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_CTRL_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_CTRL_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_CTRL_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_CTRL_R_HFNMIENA_MASK    ((uint32_t) 0x00000002UL)
 #define MPU_CTRL_R_HFNMIENA_BIT    (1UL)
 #define MPU_CTRL_R_HFNMIENA_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_CTRL_R_HFNMIENA_EN    ((uint32_t) 0x00000002UL)
+#define MPU_CTRL_R_HFNMIENA_ENA    ((uint32_t) 0x00000002UL)
 
 #define MPU_CTRL_HFNMIENA_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_CTRL_HFNMIENA_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_CTRL_HFNMIENA_EN    ((uint32_t) 0x00000001UL)
+#define MPU_CTRL_HFNMIENA_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_CTRL_R_PRIVDEFENA_MASK    ((uint32_t) 0x00000004UL)
 #define MPU_CTRL_R_PRIVDEFENA_BIT    (2UL)
 #define MPU_CTRL_R_PRIVDEFENA_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_CTRL_R_PRIVDEFENA_EN    ((uint32_t) 0x00000004UL)
+#define MPU_CTRL_R_PRIVDEFENA_ENA    ((uint32_t) 0x00000004UL)
 
 #define MPU_CTRL_PRIVDEFENA_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_CTRL_PRIVDEFENA_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_CTRL_PRIVDEFENA_EN    ((uint32_t) 0x00000001UL)
+#define MPU_CTRL_PRIVDEFENA_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /**********************************************************************************************
@@ -189,11 +189,11 @@
 #define MPU_RBAR_R_VALID_MASK    ((uint32_t) 0x00000010UL)
 #define MPU_RBAR_R_VALID_BIT    (4UL)
 #define MPU_RBAR_R_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR_R_VALID_EN    ((uint32_t) 0x00000010UL)
+#define MPU_RBAR_R_VALID_ENA    ((uint32_t) 0x00000010UL)
 
 #define MPU_RBAR_VALID_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RBAR_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR_VALID_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RBAR_VALID_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -211,11 +211,11 @@
 #define MPU_RASR_R_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR_R_ENABLE_BIT    (0UL)
 #define MPU_RASR_R_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_R_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR_R_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 
 #define MPU_RASR_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 
@@ -239,99 +239,99 @@
 /*--------*/
 #define MPU_RASR_R_SRD_MASK    ((uint32_t) 0x0000FF00UL)
 #define MPU_RASR_R_SRD_BIT    (8UL)
-#define MPU_RASR_R_SRD_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD_DIS    ((uint32_t) 0x0000FF00UL)
 
 #define MPU_RASR_SRD_MASK    ((uint32_t) 0x000000FFUL)
-#define MPU_RASR_SRD_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD_DIS    ((uint32_t) 0x000000FFUL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD0_MASK    ((uint32_t) 0x00000100UL)
 #define MPU_RASR_R_SRD0_BIT    (8UL)
-#define MPU_RASR_R_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD0_DIS    ((uint32_t) 0x00000100UL)
 
 #define MPU_RASR_SRD0_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD0_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD1_MASK    ((uint32_t) 0x00000200UL)
 #define MPU_RASR_R_SRD1_BIT    (9UL)
-#define MPU_RASR_R_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD1_DIS    ((uint32_t) 0x00000200UL)
 
 #define MPU_RASR_SRD1_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD1_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD2_MASK    ((uint32_t) 0x00000400UL)
 #define MPU_RASR_R_SRD2_BIT    (10UL)
-#define MPU_RASR_R_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD2_DIS    ((uint32_t) 0x00000400UL)
 
 #define MPU_RASR_SRD2_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD2_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD3_MASK    ((uint32_t) 0x00000800UL)
 #define MPU_RASR_R_SRD3_BIT    (11UL)
-#define MPU_RASR_R_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD3_DIS    ((uint32_t) 0x00000800UL)
 
 #define MPU_RASR_SRD3_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD3_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD4_MASK    ((uint32_t) 0x00001000UL)
 #define MPU_RASR_R_SRD4_BIT    (12UL)
-#define MPU_RASR_R_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD4_DIS    ((uint32_t) 0x00001000UL)
 
 #define MPU_RASR_SRD4_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD4_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD5_MASK    ((uint32_t) 0x00002000UL)
 #define MPU_RASR_R_SRD5_BIT    (13UL)
-#define MPU_RASR_R_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD5_DIS    ((uint32_t) 0x00002000UL)
 
 #define MPU_RASR_SRD5_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD5_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD6_MASK    ((uint32_t) 0x00004000UL)
 #define MPU_RASR_R_SRD6_BIT    (14UL)
-#define MPU_RASR_R_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD6_DIS    ((uint32_t) 0x00004000UL)
 
 #define MPU_RASR_SRD6_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD6_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_SRD7_MASK    ((uint32_t) 0x00008000UL)
 #define MPU_RASR_R_SRD7_BIT    (15UL)
-#define MPU_RASR_R_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_R_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_R_SRD7_DIS    ((uint32_t) 0x00008000UL)
 
 #define MPU_RASR_SRD7_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR_SRD7_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
@@ -339,33 +339,33 @@
 #define MPU_RASR_R_B_MASK    ((uint32_t) 0x00010000UL)
 #define MPU_RASR_R_B_BIT    (16UL)
 #define MPU_RASR_R_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_R_B_EN    ((uint32_t) 0x00010000UL)
+#define MPU_RASR_R_B_ENA    ((uint32_t) 0x00010000UL)
 
 #define MPU_RASR_B_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_B_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR_B_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_C_MASK    ((uint32_t) 0x00020000UL)
 #define MPU_RASR_R_C_BIT    (17UL)
 #define MPU_RASR_R_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_R_C_EN    ((uint32_t) 0x00020000UL)
+#define MPU_RASR_R_C_ENA    ((uint32_t) 0x00020000UL)
 
 #define MPU_RASR_C_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_C_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR_C_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR_R_S_MASK    ((uint32_t) 0x00040000UL)
 #define MPU_RASR_R_S_BIT    (18UL)
 #define MPU_RASR_R_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_R_S_EN    ((uint32_t) 0x00040000UL)
+#define MPU_RASR_R_S_ENA    ((uint32_t) 0x00040000UL)
 
 #define MPU_RASR_S_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_S_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR_S_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -406,11 +406,11 @@
 #define MPU_RASR_R_XN_MASK    ((uint32_t) 0x10000000UL)
 #define MPU_RASR_R_XN_BIT    (28UL)
 #define MPU_RASR_R_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_R_XN_EN    ((uint32_t) 0x10000000UL)
+#define MPU_RASR_R_XN_ENA    ((uint32_t) 0x10000000UL)
 
 #define MPU_RASR_XN_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR_XN_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR_XN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /**********************************************************************************************
@@ -460,11 +460,11 @@
 #define MPU_RBAR1_R_VALID_MASK    ((uint32_t) 0x00000010UL)
 #define MPU_RBAR1_R_VALID_BIT    (4UL)
 #define MPU_RBAR1_R_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR1_R_VALID_EN    ((uint32_t) 0x00000010UL)
+#define MPU_RBAR1_R_VALID_ENA    ((uint32_t) 0x00000010UL)
 
 #define MPU_RBAR1_VALID_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RBAR1_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR1_VALID_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RBAR1_VALID_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -482,11 +482,11 @@
 #define MPU_RASR1_R_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR1_R_ENABLE_BIT    (0UL)
 #define MPU_RASR1_R_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_R_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR1_R_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 
 #define MPU_RASR1_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR1_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR1_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -509,88 +509,88 @@
 /*--------*/
 #define MPU_RASR1_R_SRD0_MASK    ((uint32_t) 0x00000100UL)
 #define MPU_RASR1_R_SRD0_BIT    (8UL)
-#define MPU_RASR1_R_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD0_DIS    ((uint32_t) 0x00000100UL)
 
 #define MPU_RASR1_SRD0_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD0_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD1_MASK    ((uint32_t) 0x00000200UL)
 #define MPU_RASR1_R_SRD1_BIT    (9UL)
-#define MPU_RASR1_R_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD1_DIS    ((uint32_t) 0x00000200UL)
 
 #define MPU_RASR1_SRD1_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD1_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD2_MASK    ((uint32_t) 0x00000400UL)
 #define MPU_RASR1_R_SRD2_BIT    (10UL)
-#define MPU_RASR1_R_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD2_DIS    ((uint32_t) 0x00000400UL)
 
 #define MPU_RASR1_SRD2_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD2_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD3_MASK    ((uint32_t) 0x00000800UL)
 #define MPU_RASR1_R_SRD3_BIT    (11UL)
-#define MPU_RASR1_R_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD3_DIS    ((uint32_t) 0x00000800UL)
 
 #define MPU_RASR1_SRD3_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD3_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD4_MASK    ((uint32_t) 0x00001000UL)
 #define MPU_RASR1_R_SRD4_BIT    (12UL)
-#define MPU_RASR1_R_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD4_DIS    ((uint32_t) 0x00001000UL)
 
 #define MPU_RASR1_SRD4_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD4_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD5_MASK    ((uint32_t) 0x00002000UL)
 #define MPU_RASR1_R_SRD5_BIT    (13UL)
-#define MPU_RASR1_R_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD5_DIS    ((uint32_t) 0x00002000UL)
 
 #define MPU_RASR1_SRD5_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD5_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD6_MASK    ((uint32_t) 0x00004000UL)
 #define MPU_RASR1_R_SRD6_BIT    (14UL)
-#define MPU_RASR1_R_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD6_DIS    ((uint32_t) 0x00004000UL)
 
 #define MPU_RASR1_SRD6_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD6_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_SRD7_MASK    ((uint32_t) 0x00008000UL)
 #define MPU_RASR1_R_SRD7_BIT    (15UL)
-#define MPU_RASR1_R_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_R_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_R_SRD7_DIS    ((uint32_t) 0x00008000UL)
 
 #define MPU_RASR1_SRD7_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR1_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR1_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR1_SRD7_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
@@ -598,33 +598,33 @@
 #define MPU_RASR1_R_B_MASK    ((uint32_t) 0x00010000UL)
 #define MPU_RASR1_R_B_BIT    (16UL)
 #define MPU_RASR1_R_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_R_B_EN    ((uint32_t) 0x00010000UL)
+#define MPU_RASR1_R_B_ENA    ((uint32_t) 0x00010000UL)
 
 #define MPU_RASR1_B_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR1_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_B_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR1_B_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_C_MASK    ((uint32_t) 0x00020000UL)
 #define MPU_RASR1_R_C_BIT    (17UL)
 #define MPU_RASR1_R_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_R_C_EN    ((uint32_t) 0x00020000UL)
+#define MPU_RASR1_R_C_ENA    ((uint32_t) 0x00020000UL)
 
 #define MPU_RASR1_C_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR1_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_C_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR1_C_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR1_R_S_MASK    ((uint32_t) 0x00040000UL)
 #define MPU_RASR1_R_S_BIT    (18UL)
 #define MPU_RASR1_R_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_R_S_EN    ((uint32_t) 0x00040000UL)
+#define MPU_RASR1_R_S_ENA    ((uint32_t) 0x00040000UL)
 
 #define MPU_RASR1_S_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR1_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_S_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR1_S_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -665,11 +665,11 @@
 #define MPU_RASR1_R_XN_MASK    ((uint32_t) 0x10000000UL)
 #define MPU_RASR1_R_XN_BIT    (28UL)
 #define MPU_RASR1_R_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_R_XN_EN    ((uint32_t) 0x10000000UL)
+#define MPU_RASR1_R_XN_ENA    ((uint32_t) 0x10000000UL)
 
 #define MPU_RASR1_XN_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR1_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR1_XN_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR1_XN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /**********************************************************************************************
@@ -719,11 +719,11 @@
 #define MPU_RBAR2_R_VALID_MASK    ((uint32_t) 0x00000010UL)
 #define MPU_RBAR2_R_VALID_BIT    (4UL)
 #define MPU_RBAR2_R_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR2_R_VALID_EN    ((uint32_t) 0x00000010UL)
+#define MPU_RBAR2_R_VALID_ENA    ((uint32_t) 0x00000010UL)
 
 #define MPU_RBAR2_VALID_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RBAR2_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR2_VALID_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RBAR2_VALID_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -741,11 +741,11 @@
 #define MPU_RASR2_R_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR2_R_ENABLE_BIT    (0UL)
 #define MPU_RASR2_R_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_R_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR2_R_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 
 #define MPU_RASR2_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR2_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR2_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -768,88 +768,88 @@
 /*--------*/
 #define MPU_RASR2_R_SRD0_MASK    ((uint32_t) 0x00000100UL)
 #define MPU_RASR2_R_SRD0_BIT    (8UL)
-#define MPU_RASR2_R_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD0_DIS    ((uint32_t) 0x00000100UL)
 
 #define MPU_RASR2_SRD0_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD0_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD1_MASK    ((uint32_t) 0x00000200UL)
 #define MPU_RASR2_R_SRD1_BIT    (9UL)
-#define MPU_RASR2_R_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD1_DIS    ((uint32_t) 0x00000200UL)
 
 #define MPU_RASR2_SRD1_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD1_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD2_MASK    ((uint32_t) 0x00000400UL)
 #define MPU_RASR2_R_SRD2_BIT    (10UL)
-#define MPU_RASR2_R_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD2_DIS    ((uint32_t) 0x00000400UL)
 
 #define MPU_RASR2_SRD2_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD2_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD3_MASK    ((uint32_t) 0x00000800UL)
 #define MPU_RASR2_R_SRD3_BIT    (11UL)
-#define MPU_RASR2_R_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD3_DIS    ((uint32_t) 0x00000800UL)
 
 #define MPU_RASR2_SRD3_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD3_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD4_MASK    ((uint32_t) 0x00001000UL)
 #define MPU_RASR2_R_SRD4_BIT    (12UL)
-#define MPU_RASR2_R_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD4_DIS    ((uint32_t) 0x00001000UL)
 
 #define MPU_RASR2_SRD4_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD4_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD5_MASK    ((uint32_t) 0x00002000UL)
 #define MPU_RASR2_R_SRD5_BIT    (13UL)
-#define MPU_RASR2_R_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD5_DIS    ((uint32_t) 0x00002000UL)
 
 #define MPU_RASR2_SRD5_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD5_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD6_MASK    ((uint32_t) 0x00004000UL)
 #define MPU_RASR2_R_SRD6_BIT    (14UL)
-#define MPU_RASR2_R_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD6_DIS    ((uint32_t) 0x00004000UL)
 
 #define MPU_RASR2_SRD6_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD6_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_SRD7_MASK    ((uint32_t) 0x00008000UL)
 #define MPU_RASR2_R_SRD7_BIT    (15UL)
-#define MPU_RASR2_R_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_R_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_R_SRD7_DIS    ((uint32_t) 0x00008000UL)
 
 #define MPU_RASR2_SRD7_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR2_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR2_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR2_SRD7_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
@@ -857,33 +857,33 @@
 #define MPU_RASR2_R_B_MASK    ((uint32_t) 0x00010000UL)
 #define MPU_RASR2_R_B_BIT    (16UL)
 #define MPU_RASR2_R_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_R_B_EN    ((uint32_t) 0x00010000UL)
+#define MPU_RASR2_R_B_ENA    ((uint32_t) 0x00010000UL)
 
 #define MPU_RASR2_B_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR2_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_B_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR2_B_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_C_MASK    ((uint32_t) 0x00020000UL)
 #define MPU_RASR2_R_C_BIT    (17UL)
 #define MPU_RASR2_R_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_R_C_EN    ((uint32_t) 0x00020000UL)
+#define MPU_RASR2_R_C_ENA    ((uint32_t) 0x00020000UL)
 
 #define MPU_RASR2_C_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR2_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_C_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR2_C_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR2_R_S_MASK    ((uint32_t) 0x00040000UL)
 #define MPU_RASR2_R_S_BIT    (18UL)
 #define MPU_RASR2_R_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_R_S_EN    ((uint32_t) 0x00040000UL)
+#define MPU_RASR2_R_S_ENA    ((uint32_t) 0x00040000UL)
 
 #define MPU_RASR2_S_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR2_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_S_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR2_S_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -924,11 +924,11 @@
 #define MPU_RASR2_R_XN_MASK    ((uint32_t) 0x10000000UL)
 #define MPU_RASR2_R_XN_BIT    (28UL)
 #define MPU_RASR2_R_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_R_XN_EN    ((uint32_t) 0x10000000UL)
+#define MPU_RASR2_R_XN_ENA    ((uint32_t) 0x10000000UL)
 
 #define MPU_RASR2_XN_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR2_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR2_XN_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR2_XN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /**********************************************************************************************
@@ -978,11 +978,11 @@
 #define MPU_RBAR3_R_VALID_MASK    ((uint32_t) 0x00000010UL)
 #define MPU_RBAR3_R_VALID_BIT    (4UL)
 #define MPU_RBAR3_R_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR3_R_VALID_EN    ((uint32_t) 0x00000010UL)
+#define MPU_RBAR3_R_VALID_ENA    ((uint32_t) 0x00000010UL)
 
 #define MPU_RBAR3_VALID_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RBAR3_VALID_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RBAR3_VALID_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RBAR3_VALID_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -1000,11 +1000,11 @@
 #define MPU_RASR3_R_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR3_R_ENABLE_BIT    (0UL)
 #define MPU_RASR3_R_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_R_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR3_R_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 
 #define MPU_RASR3_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR3_ENABLE_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR3_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -1027,88 +1027,88 @@
 /*--------*/
 #define MPU_RASR3_R_SRD0_MASK    ((uint32_t) 0x00000100UL)
 #define MPU_RASR3_R_SRD0_BIT    (8UL)
-#define MPU_RASR3_R_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD0_DIS    ((uint32_t) 0x00000100UL)
 
 #define MPU_RASR3_SRD0_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD0_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD0_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD0_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD1_MASK    ((uint32_t) 0x00000200UL)
 #define MPU_RASR3_R_SRD1_BIT    (9UL)
-#define MPU_RASR3_R_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD1_DIS    ((uint32_t) 0x00000200UL)
 
 #define MPU_RASR3_SRD1_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD1_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD1_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD1_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD2_MASK    ((uint32_t) 0x00000400UL)
 #define MPU_RASR3_R_SRD2_BIT    (10UL)
-#define MPU_RASR3_R_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD2_DIS    ((uint32_t) 0x00000400UL)
 
 #define MPU_RASR3_SRD2_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD2_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD2_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD2_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD3_MASK    ((uint32_t) 0x00000800UL)
 #define MPU_RASR3_R_SRD3_BIT    (11UL)
-#define MPU_RASR3_R_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD3_DIS    ((uint32_t) 0x00000800UL)
 
 #define MPU_RASR3_SRD3_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD3_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD3_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD3_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD4_MASK    ((uint32_t) 0x00001000UL)
 #define MPU_RASR3_R_SRD4_BIT    (12UL)
-#define MPU_RASR3_R_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD4_DIS    ((uint32_t) 0x00001000UL)
 
 #define MPU_RASR3_SRD4_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD4_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD4_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD4_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD5_MASK    ((uint32_t) 0x00002000UL)
 #define MPU_RASR3_R_SRD5_BIT    (13UL)
-#define MPU_RASR3_R_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD5_DIS    ((uint32_t) 0x00002000UL)
 
 #define MPU_RASR3_SRD5_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD5_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD5_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD5_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD6_MASK    ((uint32_t) 0x00004000UL)
 #define MPU_RASR3_R_SRD6_BIT    (14UL)
-#define MPU_RASR3_R_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD6_DIS    ((uint32_t) 0x00004000UL)
 
 #define MPU_RASR3_SRD6_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD6_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD6_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD6_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_SRD7_MASK    ((uint32_t) 0x00008000UL)
 #define MPU_RASR3_R_SRD7_BIT    (15UL)
-#define MPU_RASR3_R_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_R_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_R_SRD7_DIS    ((uint32_t) 0x00008000UL)
 
 #define MPU_RASR3_SRD7_MASK    ((uint32_t) 0x00000001UL)
-#define MPU_RASR3_SRD7_EN    ((uint32_t) 0x00000000UL)
+#define MPU_RASR3_SRD7_ENA    ((uint32_t) 0x00000000UL)
 #define MPU_RASR3_SRD7_DIS    ((uint32_t) 0x00000001UL)
 /*--------*/
 
@@ -1116,33 +1116,33 @@
 #define MPU_RASR3_R_B_MASK    ((uint32_t) 0x00010000UL)
 #define MPU_RASR3_R_B_BIT    (16UL)
 #define MPU_RASR3_R_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_R_B_EN    ((uint32_t) 0x00010000UL)
+#define MPU_RASR3_R_B_ENA    ((uint32_t) 0x00010000UL)
 
 #define MPU_RASR3_B_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR3_B_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_B_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR3_B_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_C_MASK    ((uint32_t) 0x00020000UL)
 #define MPU_RASR3_R_C_BIT    (17UL)
 #define MPU_RASR3_R_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_R_C_EN    ((uint32_t) 0x00020000UL)
+#define MPU_RASR3_R_C_ENA    ((uint32_t) 0x00020000UL)
 
 #define MPU_RASR3_C_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR3_C_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_C_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR3_C_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define MPU_RASR3_R_S_MASK    ((uint32_t) 0x00040000UL)
 #define MPU_RASR3_R_S_BIT    (18UL)
 #define MPU_RASR3_R_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_R_S_EN    ((uint32_t) 0x00040000UL)
+#define MPU_RASR3_R_S_ENA    ((uint32_t) 0x00040000UL)
 
 #define MPU_RASR3_S_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR3_S_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_S_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR3_S_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -1183,11 +1183,11 @@
 #define MPU_RASR3_R_XN_MASK    ((uint32_t) 0x10000000UL)
 #define MPU_RASR3_R_XN_BIT    (28UL)
 #define MPU_RASR3_R_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_R_XN_EN    ((uint32_t) 0x10000000UL)
+#define MPU_RASR3_R_XN_ENA    ((uint32_t) 0x10000000UL)
 
 #define MPU_RASR3_XN_MASK    ((uint32_t) 0x00000001UL)
 #define MPU_RASR3_XN_DIS    ((uint32_t) 0x00000000UL)
-#define MPU_RASR3_XN_EN    ((uint32_t) 0x00000001UL)
+#define MPU_RASR3_XN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_MPU_PERIPHERAL_REGISTER_MPU_REGISTERDEFINES_H_ */

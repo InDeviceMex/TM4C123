@@ -35,11 +35,11 @@
 #define GPWTM_CTL_R_TAEN_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_CTL_R_TAEN_BIT    (0UL)
 #define GPWTM_CTL_R_TAEN_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_R_TAEN_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_CTL_R_TAEN_ENA    ((uint32_t) 0x00000001UL)
 
 #define GPWTM_CTL_TAEN_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_CTL_TAEN_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_TAEN_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_CTL_TAEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -81,11 +81,11 @@
 #define GPWTM_CTL_R_TAOTE_MASK    ((uint32_t) 0x00000020UL)
 #define GPWTM_CTL_R_TAOTE_BIT    (5UL)
 #define GPWTM_CTL_R_TAOTE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_R_TAOTE_EN    ((uint32_t) 0x00000020UL)
+#define GPWTM_CTL_R_TAOTE_ENA    ((uint32_t) 0x00000020UL)
 
 #define GPWTM_CTL_TAOTE_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_CTL_TAOTE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_TAOTE_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_CTL_TAOTE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -103,11 +103,11 @@
 #define GPWTM_CTL_R_TBEN_MASK    ((uint32_t) 0x00000100UL)
 #define GPWTM_CTL_R_TBEN_BIT    (8UL)
 #define GPWTM_CTL_R_TBEN_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_R_TBEN_EN    ((uint32_t) 0x00000100UL)
+#define GPWTM_CTL_R_TBEN_ENA    ((uint32_t) 0x00000100UL)
 
 #define GPWTM_CTL_TBEN_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_CTL_TBEN_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_TBEN_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_CTL_TBEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -138,11 +138,11 @@
 #define GPWTM_CTL_R_TBOTE_MASK    ((uint32_t) 0x00002000UL)
 #define GPWTM_CTL_R_TBOTE_BIT    (13UL)
 #define GPWTM_CTL_R_TBOTE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_R_TBOTE_EN    ((uint32_t) 0x00002000UL)
+#define GPWTM_CTL_R_TBOTE_ENA    ((uint32_t) 0x00002000UL)
 
 #define GPWTM_CTL_TBOTE_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_CTL_TBOTE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_CTL_TBOTE_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_CTL_TBOTE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/

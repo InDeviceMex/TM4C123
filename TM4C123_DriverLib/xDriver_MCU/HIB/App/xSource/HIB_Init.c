@@ -48,7 +48,7 @@ HIB_nSTATUS HIB__enInit(uint32_t u32Match, uint32_t u32SubMatch, void (*pfIrqrRT
     HIB__enSetModuleClock(HIB_enCLOCK_DIS);
 
     /*Enable WC Interrupt*/
-    HIB__enSetModuleClock(HIB_enCLOCK_EN);
+    HIB__enSetModuleClock(HIB_enCLOCK_ENA);
     HIB__enSetTrim(0x7FFFUL);
     HIB__enSetBatteryComparator(HIB_enBATCOMP_2_5V);
     HIB__enSetOscillatorBypass(HIB_enOSCBYP_INTERNAL);

@@ -101,7 +101,7 @@
 ******************************************************************************************/
 #define UART2_BITBANDING_CTL    ((BITBANDING_UARTCTL_TypeDef*) (UART_BITBANDING_BASE + ((UART2_OFFSET + UART_CTL_OFFSET) * 32U)))
 
-#define UART2_BITBANDING_CTL_EN    (*((volatile uint32_t *) (UART_BITBANDING_BASE + ((UART2_OFFSET + UART_CTL_OFFSET) * 32U) + (UART_CTL_R_EN_BIT * 4U))))
+#define UART2_BITBANDING_CTL_ENA    (*((volatile uint32_t *) (UART_BITBANDING_BASE + ((UART2_OFFSET + UART_CTL_OFFSET) * 32U) + (UART_CTL_R_EN_BIT * 4U))))
 #define UART2_BITBANDING_CTL_SIREN    (*((volatile uint32_t *) (UART_BITBANDING_BASE + ((UART2_OFFSET + UART_CTL_OFFSET) * 32U) + (UART_CTL_R_SIREN_BIT * 4U))))
 #define UART2_BITBANDING_CTL_SIRLP    (*((volatile uint32_t *) (UART_BITBANDING_BASE + ((UART2_OFFSET + UART_CTL_OFFSET) * 32U) + (UART_CTL_R_SIRLP_BIT * 4U))))
 #define UART2_BITBANDING_CTL_SMART    (*((volatile uint32_t *) (UART_BITBANDING_BASE + ((UART2_OFFSET + UART_CTL_OFFSET) * 32U) + (UART_CTL_R_SMART_BIT * 4U))))

@@ -80,8 +80,8 @@ void EDUMKII_Accelerometer_vInit(void)
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_2, &sADC0SampleConfig);
 
     sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
-    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_EN;
-    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
+    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_ENA;
+    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_ENA;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_3, &sADC0SampleConfig);
 
     ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enPRI1);

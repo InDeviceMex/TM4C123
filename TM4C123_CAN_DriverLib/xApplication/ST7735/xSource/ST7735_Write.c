@@ -73,7 +73,7 @@ void ST7735__vInitWriteDMAConfig(void)
     DMA_CH__vSetPrimaryDestEndAddress(DMA_enCH_MODULE_13, (uint32_t) (SSI2_BASE + SSI_DR_OFFSET));
     DMA_CH__vSetPrimarySourceEndAddress(DMA_enCH_MODULE_13, (uint32_t) 0UL);
 
-    SSI__vSetDMATx(ST7735_SSI, SSI_enDMA_EN);
+    SSI__vSetDMATx(ST7735_SSI, SSI_enDMA_ENA);
     DMA_CH__vSetConfigStruct(DMA_enCH_MODULE_13, enDMAChConfig);
 
 }

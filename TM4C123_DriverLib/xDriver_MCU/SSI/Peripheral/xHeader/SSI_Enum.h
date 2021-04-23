@@ -128,7 +128,7 @@ typedef enum
 typedef enum
 {
     SSI_enLOOPBACK_DIS = 0UL,
-    SSI_enLOOPBACK_EN = 1UL,
+    SSI_enLOOPBACK_ENA = 1UL,
     SSI_enLOOPBACK_UNDEF = 0xFFFFFFFFUL,
 }SSI_nLOOPBACK;
 
@@ -156,7 +156,7 @@ typedef enum
 typedef enum
 {
     SSI_enDMA_DIS = 0UL,
-    SSI_enDMA_EN = 1UL,
+    SSI_enDMA_ENA = 1UL,
     SSI_enDMA_UNDEF = 0xFFFFFFFFUL,
 }SSI_nDMA;
 
@@ -198,7 +198,7 @@ typedef enum
 typedef enum
 {
     SSI_enLINE_DIS = 0UL,
-    SSI_enLINE_EN = 1UL,
+    SSI_enLINE_ENA = 1UL,
     SSI_enLINE_UNDEF = 0xFFFFFFFFUL,
 }SSI_nLINE;
 

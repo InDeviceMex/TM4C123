@@ -363,11 +363,11 @@
 /*----------*/
 #define SCB_CCR_R_USERSETMPEND_MASK    ((uint32_t) 0x00000002UL)
 #define SCB_CCR_R_USERSETMPEND_BIT    (1UL)
-#define SCB_CCR_R_USERSETMPEND_EN    ((uint32_t) 0x00000002UL)
+#define SCB_CCR_R_USERSETMPEND_ENA    ((uint32_t) 0x00000002UL)
 #define SCB_CCR_R_USERSETMPEND_DIS    ((uint32_t) 0x00000000UL)
 
 #define SCB_CCR_USERSETMPEND_MASK    ((uint32_t) 0x00000001UL)
-#define SCB_CCR_USERSETMPEND_EN    ((uint32_t) 0x00000001UL)
+#define SCB_CCR_USERSETMPEND_ENA    ((uint32_t) 0x00000001UL)
 #define SCB_CCR_USERSETMPEND_DIS    ((uint32_t) 0x00000000UL)
 /*----------*/
 
@@ -396,11 +396,11 @@
 /*----------*/
 #define SCB_CCR_R_BFHFNMIGN_MASK    ((uint32_t) 0x00000100UL)
 #define SCB_CCR_R_BFHFNMIGN_BIT    (8UL)
-#define SCB_CCR_R_BFHFNMIGN_EN    ((uint32_t) 0x00000100UL)
+#define SCB_CCR_R_BFHFNMIGN_ENA    ((uint32_t) 0x00000100UL)
 #define SCB_CCR_R_BFHFNMIGN_DIS    ((uint32_t) 0x00000000UL)
 
 #define SCB_CCR_BFHFNMIGN_MASK    ((uint32_t) 0x00000001UL)
-#define SCB_CCR_BFHFNMIGN_EN    ((uint32_t) 0x00000001UL)
+#define SCB_CCR_BFHFNMIGN_ENA    ((uint32_t) 0x00000001UL)
 #define SCB_CCR_BFHFNMIGN_DIS    ((uint32_t) 0x00000000UL)
 /*----------*/
 
@@ -714,33 +714,33 @@
 #define SCB_SHCSR_R_MEMFAULTENA_MASK    ((uint32_t) 0x00010000UL)
 #define SCB_SHCSR_R_MEMFAULTENA_BIT    (16UL)
 #define SCB_SHCSR_R_MEMFAULTENA_DIS    ((uint32_t) 0x00000000UL)
-#define SCB_SHCSR_R_MEMFAULTENA_EN    ((uint32_t) 0x00010000UL)
+#define SCB_SHCSR_R_MEMFAULTENA_ENA    ((uint32_t) 0x00010000UL)
 
 #define SCB_SHCSR_MEMFAULTENA_MASK    ((uint32_t) 0x00000001UL)
 #define SCB_SHCSR_MEMFAULTENA_DIS    ((uint32_t) 0x00000000UL)
-#define SCB_SHCSR_MEMFAULTENA_EN    ((uint32_t) 0x00000001UL)
+#define SCB_SHCSR_MEMFAULTENA_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SCB_SHCSR_R_BUSFAULTENA_MASK    ((uint32_t) 0x00020000UL)
 #define SCB_SHCSR_R_BUSFAULTENA_BIT    (17UL)
 #define SCB_SHCSR_R_BUSFAULTENA_DIS    ((uint32_t) 0x00000000UL)
-#define SCB_SHCSR_R_BUSFAULTENA_EN    ((uint32_t) 0x00020000UL)
+#define SCB_SHCSR_R_BUSFAULTENA_ENA    ((uint32_t) 0x00020000UL)
 
 #define SCB_SHCSR_BUSFAULTENA_MASK    ((uint32_t) 0x00000001UL)
 #define SCB_SHCSR_BUSFAULTENA_DIS    ((uint32_t) 0x00000000UL)
-#define SCB_SHCSR_BUSFAULTENA_EN    ((uint32_t) 0x00000001UL)
+#define SCB_SHCSR_BUSFAULTENA_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define SCB_SHCSR_R_USGFAULTENA_MASK    ((uint32_t) 0x00040000UL)
 #define SCB_SHCSR_R_USGFAULTENA_BIT    (18UL)
 #define SCB_SHCSR_R_USGFAULTENA_DIS    ((uint32_t) 0x00000000UL)
-#define SCB_SHCSR_R_USGFAULTENA_EN    ((uint32_t) 0x00040000UL)
+#define SCB_SHCSR_R_USGFAULTENA_ENA    ((uint32_t) 0x00040000UL)
 
 #define SCB_SHCSR_USGFAULTENA_MASK    ((uint32_t) 0x00000001UL)
 #define SCB_SHCSR_USGFAULTENA_DIS    ((uint32_t) 0x00000000UL)
-#define SCB_SHCSR_USGFAULTENA_EN    ((uint32_t) 0x00000001UL)
+#define SCB_SHCSR_USGFAULTENA_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /********************************************************************************************/

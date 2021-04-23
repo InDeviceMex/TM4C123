@@ -35,11 +35,11 @@
 #define GPTM_TA_TnCTL_R_TnEN_MASK    ((uint32_t) 0x00000001UL)
 #define GPTM_TA_TnCTL_R_TnEN_BIT    (0UL)
 #define GPTM_TA_TnCTL_R_TnEN_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TA_TnCTL_R_TnEN_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TA_TnCTL_R_TnEN_ENA    ((uint32_t) 0x00000001UL)
 
 #define GPTM_TA_TnCTL_TnEN_MASK    ((uint32_t) 0x00000001UL)
 #define GPTM_TA_TnCTL_TnEN_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TA_TnCTL_TnEN_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TA_TnCTL_TnEN_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -70,11 +70,11 @@
 #define GPTM_TA_TnCTL_R_TnOTE_MASK    ((uint32_t) 0x00000020UL)
 #define GPTM_TA_TnCTL_R_TnOTE_BIT    (5UL)
 #define GPTM_TA_TnCTL_R_TnOTE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TA_TnCTL_R_TnOTE_EN    ((uint32_t) 0x00000020UL)
+#define GPTM_TA_TnCTL_R_TnOTE_ENA    ((uint32_t) 0x00000020UL)
 
 #define GPTM_TA_TnCTL_TnOTE_MASK    ((uint32_t) 0x00000001UL)
 #define GPTM_TA_TnCTL_TnOTE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TA_TnCTL_TnOTE_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TA_TnCTL_TnOTE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/

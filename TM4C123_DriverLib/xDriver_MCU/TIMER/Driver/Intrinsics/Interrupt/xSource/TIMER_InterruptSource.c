@@ -63,7 +63,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPar
     {
         if(TIMER_enEVENT_INT_DIS == TIMER__enGetMatchEventInterrupt)
         {
-            TIMER__vSetMatchEventInterrupt(enModule, TIMER_enEVENT_INT_EN);
+            TIMER__vSetMatchEventInterrupt(enModule, TIMER_enEVENT_INT_ENA);
         }
     }
 
@@ -71,7 +71,7 @@ void TIMER__vEnInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPar
     {
         if(TIMER_enPWM_INT_DIS == TIMER__enGetPWMInterrupt)
         {
-            TIMER__vSetPWMInterrupt(enModule, TIMER_enPWM_INT_EN);
+            TIMER__vSetPWMInterrupt(enModule, TIMER_enPWM_INT_ENA);
         }
     }
 #endif
@@ -90,7 +90,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
 #if 0
     if(enInterruptParam & TIMER_enINT_MATCH)
     {
-        if(TIMER_enEVENT_INT_EN == TIMER__enGetMatchEventInterrupt)
+        if(TIMER_enEVENT_INT_ENA == TIMER__enGetMatchEventInterrupt)
         {
             TIMER__vSetMatchEventInterrupt(enModule, TIMER_enEVENT_INT_DIS);
         }
@@ -98,7 +98,7 @@ void TIMER__vDisInterruptSource(TIMER_nMODULE enModule, TIMER_nINT enInterruptPa
 
     if(enInterruptParam & TIMER_enINT_CAPTURE_EVENT)
     {
-        if(TIMER_enPWM_INT_EN == TIMER__enGetPWMInterrupt)
+        if(TIMER_enPWM_INT_ENA == TIMER__enGetPWMInterrupt)
         {
             TIMER__vSetPWMInterrupt(enModule, TIMER_enPWM_INT_DIS);
         }

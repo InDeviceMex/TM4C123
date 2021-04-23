@@ -29,13 +29,13 @@
 
 void GPIO__vEnDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
+    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_ENA);
     GPIO__vEnGeneric(enPort, GPIO_DEN_OFFSET, enPin);
 }
 
 void GPIO__vDisDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
+    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_ENA);
     GPIO__vDisGeneric(enPort, GPIO_DEN_OFFSET, enPin);
 }
 

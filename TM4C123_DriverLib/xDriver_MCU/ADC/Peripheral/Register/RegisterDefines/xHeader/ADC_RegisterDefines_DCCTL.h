@@ -63,11 +63,11 @@
 #define ADC_DCCTL_R_CIE_MASK    ((uint32_t) 0x00000010UL)
 #define ADC_DCCTL_R_CIE_BIT    ((uint32_t) 4UL)
 #define ADC_DCCTL_R_CIE_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_DCCTL_R_CIE_EN    ((uint32_t) 0x00000010UL)
+#define ADC_DCCTL_R_CIE_ENA    ((uint32_t) 0x00000010UL)
 
 #define ADC_DCCTL_CIE_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_DCCTL_CIE_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_DCCTL_CIE_EN    ((uint32_t) 0x00000001UL)
+#define ADC_DCCTL_CIE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 
@@ -103,11 +103,11 @@
 #define ADC_DCCTL_R_CTE_MASK    ((uint32_t) 0x00001000UL)
 #define ADC_DCCTL_R_CTE_BIT    ((uint32_t) 12UL)
 #define ADC_DCCTL_R_CTE_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_DCCTL_R_CTE_EN    ((uint32_t) 0x00001000UL)
+#define ADC_DCCTL_R_CTE_ENA    ((uint32_t) 0x00001000UL)
 
 #define ADC_DCCTL_CTE_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_DCCTL_CTE_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_DCCTL_CTE_EN    ((uint32_t) 0x00000001UL)
+#define ADC_DCCTL_CTE_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 #endif /* XDRIVER_MCU_ADC_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_ADC_REGISTERDEFINES_DCCTL_H_ */

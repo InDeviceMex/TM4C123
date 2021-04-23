@@ -205,77 +205,77 @@
 #define FLASH_FCIM_R_AMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_R_AMASK_BIT    (0UL)
 #define FLASH_FCIM_R_AMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_AMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_R_AMASK_ENA    ((uint32_t) 0x00000001UL)
 
 #define FLASH_FCIM_AMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_AMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_AMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_AMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define FLASH_FCIM_R_PMASK_MASK    ((uint32_t) 0x00000002UL)
 #define FLASH_FCIM_R_PMASK_BIT    (1UL)
 #define FLASH_FCIM_R_PMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_PMASK_EN    ((uint32_t) 0x00000002UL)
+#define FLASH_FCIM_R_PMASK_ENA    ((uint32_t) 0x00000002UL)
 
 #define FLASH_FCIM_PMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_PMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_PMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_PMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define FLASH_FCIM_R_EMASK_MASK    ((uint32_t) 0x00000004UL)
 #define FLASH_FCIM_R_EMASK_BIT    (2UL)
 #define FLASH_FCIM_R_EMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_EMASK_EN    ((uint32_t) 0x00000004UL)
+#define FLASH_FCIM_R_EMASK_ENA    ((uint32_t) 0x00000004UL)
 
 #define FLASH_FCIM_EMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_EMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_EMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_EMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define FLASH_FCIM_R_VOLTMASK_MASK    ((uint32_t) 0x00000200UL)
 #define FLASH_FCIM_R_VOLTMASK_BIT    (9UL)
 #define FLASH_FCIM_R_VOLTMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_VOLTMASK_EN    ((uint32_t) 0x00000200UL)
+#define FLASH_FCIM_R_VOLTMASK_ENA    ((uint32_t) 0x00000200UL)
 
 #define FLASH_FCIM_VOLTMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_VOLTMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_VOLTMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_VOLTMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define FLASH_FCIM_R_INVDMASK_MASK    ((uint32_t) 0x00000400UL)
 #define FLASH_FCIM_R_INVDMASK_BIT    (10UL)
 #define FLASH_FCIM_R_INVDMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_INVDMASK_EN    ((uint32_t) 0x00000400UL)
+#define FLASH_FCIM_R_INVDMASK_ENA    ((uint32_t) 0x00000400UL)
 
 #define FLASH_FCIM_INVDMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_INVDMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_INVDMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_INVDMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define FLASH_FCIM_R_ERMASK_MASK    ((uint32_t) 0x00000800UL)
 #define FLASH_FCIM_R_ERMASK_BIT    (11UL)
 #define FLASH_FCIM_R_ERMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_ERMASK_EN    ((uint32_t) 0x00000800UL)
+#define FLASH_FCIM_R_ERMASK_ENA    ((uint32_t) 0x00000800UL)
 
 #define FLASH_FCIM_ERMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_ERMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_ERMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_ERMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
 #define FLASH_FCIM_R_PROGMASK_MASK    ((uint32_t) 0x00002000UL)
 #define FLASH_FCIM_R_PROGMASK_BIT    (13UL)
 #define FLASH_FCIM_R_PROGMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_R_PROGMASK_EN    ((uint32_t) 0x00002000UL)
+#define FLASH_FCIM_R_PROGMASK_ENA    ((uint32_t) 0x00002000UL)
 
 #define FLASH_FCIM_PROGMASK_MASK    ((uint32_t) 0x00000001UL)
 #define FLASH_FCIM_PROGMASK_DIS    ((uint32_t) 0x00000000UL)
-#define FLASH_FCIM_PROGMASK_EN    ((uint32_t) 0x00000001UL)
+#define FLASH_FCIM_PROGMASK_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /******************************************************************************************

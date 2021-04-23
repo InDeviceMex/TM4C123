@@ -34,11 +34,11 @@
 #define SYSCTL_RMCTL_R_BA_MASK    ((uint32_t) 0x00000001UL)
 #define SYSCTL_RMCTL_R_BA_BIT    (0UL)
 #define SYSCTL_RMCTL_R_BA_DIS    ((uint32_t) 0x00000000UL)
-#define SYSCTL_RMCTL_R_BA_EN    ((uint32_t) 0x00000001UL)
+#define SYSCTL_RMCTL_R_BA_ENA    ((uint32_t) 0x00000001UL)
 
 #define SYSCTL_RMCTL_BA_MASK    ((uint32_t) 0x00000001UL)
 #define SYSCTL_RMCTL_BA_DIS    ((uint32_t) 0x00000000UL)
-#define SYSCTL_RMCTL_BA_EN    ((uint32_t) 0x00000001UL)
+#define SYSCTL_RMCTL_BA_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /******************************************************************************************
@@ -241,11 +241,11 @@
 #define SYSCTL_BOOTCFG_R_NW_MASK    ((uint32_t) 0x80000000UL)
 #define SYSCTL_BOOTCFG_R_NW_BIT    (31UL)
 #define SYSCTL_BOOTCFG_R_NW_DIS    ((uint32_t) 0x00000000UL)
-#define SYSCTL_BOOTCFG_R_NW_EN    ((uint32_t) 0x80000000UL)
+#define SYSCTL_BOOTCFG_R_NW_ENA    ((uint32_t) 0x80000000UL)
 
 #define SYSCTL_BOOTCFG_NW_MASK    ((uint32_t) 0x00000001UL)
 #define SYSCTL_BOOTCFG_NW_DIS    ((uint32_t) 0x00000000UL)
-#define SYSCTL_BOOTCFG_NW_EN    ((uint32_t) 0x00000001UL)
+#define SYSCTL_BOOTCFG_NW_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /******************************************************************************************

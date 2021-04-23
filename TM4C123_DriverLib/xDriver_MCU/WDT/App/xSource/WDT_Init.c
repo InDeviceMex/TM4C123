@@ -33,5 +33,5 @@ void WDT__vInit(uint32_t u32ReloadValue)
     WDT__vRegisterIRQVectorHandler( &WDT_NMI__vIRQVectorHandler, WDT_enINT_TYPE_NMI);
     WDT__vEnInterruptVector(WDT_enPRI4);
     WDT__vEnInterruptSource(WDT_enMODULE_0);
-    WDT__enSetMode_Load(WDT_enMODULE_0, WDT_enMODE_NORESET_NMI_FREEZE_EN, u32ReloadValue);
+    WDT__enSetMode_Load(WDT_enMODULE_0, WDT_enMODE_NORESET_NMI_FREEZE_ENA, u32ReloadValue);
 }

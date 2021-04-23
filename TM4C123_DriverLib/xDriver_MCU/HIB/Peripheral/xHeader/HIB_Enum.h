@@ -100,7 +100,7 @@ typedef enum
 typedef enum
 {
     HIB_enBATWAKE_DIS = 0UL,
-    HIB_enBATWAKE_EN = 1UL,
+    HIB_enBATWAKE_ENA = 1UL,
     HIB_enBATWAKE_UNDEF = 0xFFFFFFFFUL,
 }HIB_nBATWAKE;
 
@@ -121,21 +121,21 @@ typedef enum
 typedef enum
 {
     HIB_enCLOCK_DIS = 0UL,
-    HIB_enCLOCK_EN = 1UL,
+    HIB_enCLOCK_ENA = 1UL,
     HIB_enCLOCK_UNDEF = 0xFFFFFFFFUL,
 }HIB_nCLOCK;
 
 typedef enum
 {
     HIB_enPINWAKE_DIS = 0UL,
-    HIB_enPINWAKE_EN = 1UL,
+    HIB_enPINWAKE_ENA = 1UL,
     HIB_enPINWAKE_UNDEF = 0xFFFFFFFFUL,
 }HIB_nPINWAKE;
 
 typedef enum
 {
     HIB_enRTCWAKE_DIS = 0UL,
-    HIB_enRTCWAKE_EN = 1UL,
+    HIB_enRTCWAKE_ENA = 1UL,
     HIB_enRTCWAKE_UNDEF = 0xFFFFFFFFUL,
 }HIB_nRTCWAKE;
 
@@ -149,7 +149,7 @@ typedef enum
 typedef enum
 {
     HIB_enRTC_DIS = 0UL,
-    HIB_enRTC_EN = 1UL,
+    HIB_enRTC_ENA = 1UL,
     HIB_enRTC_UNDEF = 0xFFFFFFFFUL,
 }HIB_nRTC;
 

@@ -266,8 +266,8 @@ void MAIN_vUART0Init(void)
     {
         UART_enEOT_ALL,
         UART_enLOOPBACK_DIS,
-        UART_enLINE_EN,
-        UART_enLINE_EN,
+        UART_enLINE_ENA,
+        UART_enLINE_ENA,
         UART_enRTS_MODE_SOFT,
         UART_enCTS_MODE_SOFT,
     };

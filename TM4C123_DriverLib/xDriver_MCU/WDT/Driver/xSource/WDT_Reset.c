@@ -28,7 +28,7 @@
 
 void WDT__vEnResetOutput(WDT_nMODULE enModule)
 {
-    WDT__vWriteRegister(enModule, WDT_CTL_OFFSET, WDT_CTL_RESEN_EN, WDT_CTL_RESEN_MASK, WDT_CTL_R_RESEN_BIT);
+    WDT__vWriteRegister(enModule, WDT_CTL_OFFSET, WDT_CTL_RESEN_ENA, WDT_CTL_RESEN_MASK, WDT_CTL_R_RESEN_BIT);
 }
 
 void WDT__vDisResetOutput(WDT_nMODULE enModule)

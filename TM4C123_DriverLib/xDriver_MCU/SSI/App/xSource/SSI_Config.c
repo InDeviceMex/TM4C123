@@ -73,7 +73,7 @@ SSI_nSTATUS SSI__enSetConfig(SSI_nMODULE enModule, SSI_nMODE enModeArg , const S
         u32Line[CLK_LINE] = MCU__u32CheckParams((uint32_t) pstLineConfig->enClk, 2UL);
         u32Line[FSS_LINE] = MCU__u32CheckParams((uint32_t) pstLineConfig->enFss, 2UL);
 
-        if(SSI_enLINE_EN == pstControlConfig->enFssLine)
+        if(SSI_enLINE_ENA == pstControlConfig->enFssLine)
         {
             if(SSI_enMODE_MASTER == enModeArg)
             {
@@ -85,15 +85,15 @@ SSI_nSTATUS SSI__enSetConfig(SSI_nMODULE enModule, SSI_nMODE enModeArg , const S
             }
         }
 
-        if(SSI_enLINE_EN == pstControlConfig->enRxLine)
+        if(SSI_enLINE_ENA == pstControlConfig->enRxLine)
         {
             GPIO__enSetDigitalConfig(SSI_enGpioInput[u32Line[RX_LINE]][(uint32_t) enModuleFilter][RX_LINE], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN_PULLUP);
         }
-        if(SSI_enLINE_EN == pstControlConfig->enTxLine)
+        if(SSI_enLINE_ENA == pstControlConfig->enTxLine)
         {
             GPIO__enSetDigitalConfig(SSI_enGpioInput[u32Line[TX_LINE]][(uint32_t) enModuleFilter][TX_LINE], GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
         }
-        if(SSI_enLINE_EN == pstControlConfig->enClkLine)
+        if(SSI_enLINE_ENA == pstControlConfig->enClkLine)
         {
             if(SSI_enMODE_MASTER == enModeArg)
             {

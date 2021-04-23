@@ -207,21 +207,21 @@ typedef enum
 typedef enum
 {
     UART_enDMA_DIS = 0UL,
-    UART_enDMA_EN = 1UL,
+    UART_enDMA_ENA = 1UL,
     UART_enDMA_UNDEF = 0xFFFFFFFFUL,
 }UART_nDMA;
 
 typedef enum
 {
     UART_en9BIT_DIS = 0UL,
-    UART_en9BIT_EN = 1UL,
+    UART_en9BIT_ENA = 1UL,
     UART_en9BIT_UNDEF = 0xFFFFFFFFUL,
 }UART_n9BIT;
 
 typedef enum
 {
     UART_enHIGH_SPEED_DIS = 0UL,
-    UART_enHIGH_SPEED_EN = 1UL,
+    UART_enHIGH_SPEED_ENA = 1UL,
     UART_enHIGH_SPEED_UNDEF = 0xFFFFFFFFUL,
 }UART_nHIGH_SPEED;
 
@@ -256,14 +256,14 @@ typedef enum
 typedef enum
 {
     UART_enLINE_DIS = 0UL,
-    UART_enLINE_EN = 1UL,
+    UART_enLINE_ENA = 1UL,
     UART_enLINE_UNDEF = 0xFFFFFFFFUL,
 }UART_nLINE;
 
 typedef enum
 {
     UART_enLOOPBACK_DIS = 0UL,
-    UART_enLOOPBACK_EN = 1UL,
+    UART_enLOOPBACK_ENA = 1UL,
     UART_enLOOPBACK_UNDEF = 0xFFFFFFFFUL,
 }UART_nLOOPBACK;
 
@@ -298,21 +298,21 @@ typedef enum
 typedef enum
 {
     UART_enSMART_DIS = 0UL,
-    UART_enSMART_EN = 1UL,
+    UART_enSMART_ENA = 1UL,
     UART_enSMART_UNDEF = 0xFFFFFFFFUL,
 }UART_nSMART;
 
 typedef enum
 {
     UART_enSIR_DIS = 0UL,
-    UART_enSIR_EN = 1UL,
+    UART_enSIR_ENA = 1UL,
     UART_enSIR_UNDEF = 0xFFFFFFFFUL,
 }UART_nSIR;
 
 typedef enum
 {
     UART_enSIR_LP_DIS = 0UL,
-    UART_enSIR_LP_EN = 1UL,
+    UART_enSIR_LP_ENA = 1UL,
     UART_enSIR_LP_UNDEF = 0xFFFFFFFFUL,
 }UART_nSIR_LP;
 

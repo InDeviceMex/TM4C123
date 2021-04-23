@@ -34,55 +34,55 @@
 #define ADC_ACTSS_R_ASEN_MASK    ((uint32_t) 0x0000000FUL)
 #define ADC_ACTSS_R_ASEN_BIT    ((uint32_t) 0UL)
 #define ADC_ACTSS_R_ASEN_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_R_ASEN_EN    ((uint32_t) 0x0000000FUL)
+#define ADC_ACTSS_R_ASEN_ENA    ((uint32_t) 0x0000000FUL)
 
 #define ADC_ACTSS_ASEN_MASK    ((uint32_t) 0x0000000FUL)
 #define ADC_ACTSS_ASEN_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_ASEN_EN    ((uint32_t) 0x0000000FUL)
+#define ADC_ACTSS_ASEN_ENA    ((uint32_t) 0x0000000FUL)
 /*--------*/
 
 /*--------*/
 #define ADC_ACTSS_R_ASEN0_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_ACTSS_R_ASEN0_BIT    ((uint32_t) 0UL)
 #define ADC_ACTSS_R_ASEN0_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_R_ASEN0_EN    ((uint32_t) 0x00000001UL)
+#define ADC_ACTSS_R_ASEN0_ENA    ((uint32_t) 0x00000001UL)
 
 #define ADC_ACTSS_ASEN0_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_ACTSS_ASEN0_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_ASEN0_EN    ((uint32_t) 0x00000001UL)
+#define ADC_ACTSS_ASEN0_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define ADC_ACTSS_R_ASEN1_MASK    ((uint32_t) 0x00000002UL)
 #define ADC_ACTSS_R_ASEN1_BIT    ((uint32_t) 1UL)
 #define ADC_ACTSS_R_ASEN1_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_R_ASEN1_EN    ((uint32_t) 0x00000002UL)
+#define ADC_ACTSS_R_ASEN1_ENA    ((uint32_t) 0x00000002UL)
 
 #define ADC_ACTSS_ASEN1_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_ACTSS_ASEN1_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_ASEN1_EN    ((uint32_t) 0x00000001UL)
+#define ADC_ACTSS_ASEN1_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define ADC_ACTSS_R_ASEN2_MASK    ((uint32_t) 0x00000004UL)
 #define ADC_ACTSS_R_ASEN2_BIT    ((uint32_t) 2UL)
 #define ADC_ACTSS_R_ASEN2_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_R_ASEN2_EN    ((uint32_t) 0x00000004UL)
+#define ADC_ACTSS_R_ASEN2_ENA    ((uint32_t) 0x00000004UL)
 
 #define ADC_ACTSS_ASEN2_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_ACTSS_ASEN2_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_ASEN2_EN    ((uint32_t) 0x00000001UL)
+#define ADC_ACTSS_ASEN2_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define ADC_ACTSS_R_ASEN3_MASK    ((uint32_t) 0x00000008UL)
 #define ADC_ACTSS_R_ASEN3_BIT    ((uint32_t) 3UL)
 #define ADC_ACTSS_R_ASEN3_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_R_ASEN3_EN    ((uint32_t) 0x00000008UL)
+#define ADC_ACTSS_R_ASEN3_ENA    ((uint32_t) 0x00000008UL)
 
 #define ADC_ACTSS_ASEN3_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_ACTSS_ASEN3_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_ACTSS_ASEN3_EN    ((uint32_t) 0x00000001UL)
+#define ADC_ACTSS_ASEN3_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/

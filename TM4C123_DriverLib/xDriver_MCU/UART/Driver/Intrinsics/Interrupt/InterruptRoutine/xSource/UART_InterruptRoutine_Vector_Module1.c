@@ -47,7 +47,7 @@ void UART1__vIRQVectorHandler(void)
     volatile uint32_t u32RegDMASource = 0UL;
 
     u32RegDMAEn = SYSCTL_RCGCDMA_R;
-    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_EN;
+    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_ENA;
     if(0UL != u32RegDMAEn)
     {
         /*RX*/

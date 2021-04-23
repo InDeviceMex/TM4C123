@@ -66,7 +66,7 @@ SysTick_nSTATUS SysTick__enInitTickVector(uint32_t u32Tick, SCB_nSHPR enPriority
         MCU__vWriteRegister(SysTick_BASE, SysTick_RVR_OFFSET, u32Tick-1U, SysTick_RVR_RELOAD_MASK,
                             SysTick_RVR_R_RELOAD_BIT);
         MCU__vWriteRegister(SysTick_BASE, SysTick_CVR_OFFSET, 0UL, 0xFFFFFFFFUL, 0UL);
-        MCU__vWriteRegister(SysTick_BASE, SysTick_CSR_OFFSET, SysTick_CSR_R_TICKINT_EN | SysTick_CSR_R_ENABLE_EN,
+        MCU__vWriteRegister(SysTick_BASE, SysTick_CSR_OFFSET, SysTick_CSR_R_TICKINT_ENA | SysTick_CSR_R_ENABLE_ENA,
                             SysTick_CSR_R_TICKINT_MASK | SysTick_CSR_R_ENABLE_MASK, 0UL);
     }
     else
@@ -140,7 +140,7 @@ SysTick_nSTATUS SysTick__enInitFrequency(float32_t fFrequency, SCB_nSHPR enPrior
             MCU__vWriteRegister(SysTick_BASE, SysTick_RVR_OFFSET, u32CountTick - 1U, SysTick_RVR_RELOAD_MASK,
                                 SysTick_RVR_R_RELOAD_BIT);
             MCU__vWriteRegister(SysTick_BASE, SysTick_CVR_OFFSET, 0UL, 0xFFFFFFFFUL, 0UL);
-            MCU__vWriteRegister(SysTick_BASE, SysTick_CSR_OFFSET, SysTick_CSR_R_TICKINT_EN | SysTick_CSR_R_ENABLE_EN,
+            MCU__vWriteRegister(SysTick_BASE, SysTick_CSR_OFFSET, SysTick_CSR_R_TICKINT_ENA | SysTick_CSR_R_ENABLE_ENA,
                                 SysTick_CSR_R_TICKINT_MASK | SysTick_CSR_R_ENABLE_MASK, 0UL);
         }
     }
@@ -214,7 +214,7 @@ SysTick_nSTATUS SysTick__enInitUs(float32_t fTimeUs, SCB_nSHPR enPriority)
             MCU__vWriteRegister(SysTick_BASE, SysTick_RVR_OFFSET, u32CountTick - 1UL, SysTick_RVR_RELOAD_MASK,
                                 SysTick_RVR_R_RELOAD_BIT);
             MCU__vWriteRegister(SysTick_BASE, SysTick_CVR_OFFSET, 0UL, 0xFFFFFFFFUL, 0UL);
-            MCU__vWriteRegister(SysTick_BASE, SysTick_CSR_OFFSET, SysTick_CSR_R_TICKINT_EN | SysTick_CSR_R_ENABLE_EN,
+            MCU__vWriteRegister(SysTick_BASE, SysTick_CSR_OFFSET, SysTick_CSR_R_TICKINT_ENA | SysTick_CSR_R_ENABLE_ENA,
                                 SysTick_CSR_R_TICKINT_MASK | SysTick_CSR_R_ENABLE_MASK, 0UL);
         }
     }

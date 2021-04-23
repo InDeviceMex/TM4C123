@@ -29,13 +29,13 @@
 
 void GPIO__vEnAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
+    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_ENA);
     GPIO__vEnGeneric(enPort, GPIO_AFSEL_OFFSET, enPin);
 }
 
 void GPIO__vDisAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
+    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_ENA);
     GPIO__vDisGeneric(enPort, GPIO_AFSEL_OFFSET, enPin);
 }
 

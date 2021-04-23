@@ -34,11 +34,11 @@
 #define SYSCTL_MOSCCTL_R_CVAL_MASK    ((uint32_t) 0x00000001UL)
 #define SYSCTL_MOSCCTL_R_CVAL_BIT    (0UL)
 #define SYSCTL_MOSCCTL_R_CVAL_DIS    ((uint32_t) 0x00000000UL)
-#define SYSCTL_MOSCCTL_R_CVAL_EN    ((uint32_t) 0x00000001UL)
+#define SYSCTL_MOSCCTL_R_CVAL_ENA    ((uint32_t) 0x00000001UL)
 
 #define SYSCTL_MOSCCTL_CVAL_MASK    ((uint32_t) 0x00000001UL)
 #define SYSCTL_MOSCCTL_CVAL_DIS    ((uint32_t) 0x00000000UL)
-#define SYSCTL_MOSCCTL_CVAL_EN    ((uint32_t) 0x00000001UL)
+#define SYSCTL_MOSCCTL_CVAL_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/

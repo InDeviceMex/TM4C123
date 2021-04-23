@@ -44,7 +44,7 @@ ADC_nSTATUS ADC__enSetSampleConfigGpio(ADC_nMODULE enModule, ADC_nSEQUENCER enSe
         ADC__vSetSampleDifferential(enModule, enSequencer, enMux, psSampleConfig->enDifferential);
         ADC__vSetSampleDirection(enModule, enSequencer, enMux, psSampleConfig->enDirection);
         ADC__vSetSampleCompSelection(enModule, enSequencer, enMux, psSampleConfig->enComparator);
-        if(ADC_enSEQ_INPUT_INT_EN == psSampleConfig->enInterrupt)
+        if(ADC_enSEQ_INPUT_INT_ENA == psSampleConfig->enInterrupt)
         {
             ADC__vEnSeqInterruptSample(enModule, enSequencer, enMux);
         }
@@ -68,7 +68,7 @@ ADC_nSTATUS ADC__enSetSampleConfig(ADC_nMODULE enModule, ADC_nSEQUENCER enSequen
         ADC__vSetSampleDifferential(enModule, enSequencer, enMux, psSampleConfig->enDifferential);
         ADC__vSetSampleDirection(enModule, enSequencer, enMux, psSampleConfig->enDirection);
         ADC__vSetSampleCompSelection(enModule, enSequencer, enMux, psSampleConfig->enComparator);
-        if(ADC_enSEQ_INPUT_INT_EN == psSampleConfig->enInterrupt)
+        if(ADC_enSEQ_INPUT_INT_ENA == psSampleConfig->enInterrupt)
         {
             ADC__vEnSeqInterruptSample(enModule, enSequencer, enMux);
         }

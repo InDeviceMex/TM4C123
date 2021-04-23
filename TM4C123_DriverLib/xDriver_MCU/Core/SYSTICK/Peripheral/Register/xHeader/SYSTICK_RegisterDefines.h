@@ -55,22 +55,22 @@
 /*--------*/
 #define SysTick_CSR_R_TICKINT_MASK    ((uint32_t) 0x00000002UL)
 #define SysTick_CSR_R_TICKINT_BIT    (1UL)
-#define SysTick_CSR_R_TICKINT_EN    ((uint32_t) 0x00000002UL)
+#define SysTick_CSR_R_TICKINT_ENA    ((uint32_t) 0x00000002UL)
 #define SysTick_CSR_R_TICKINT_DIS    ((uint32_t) 0x00000000UL)
 
 #define SysTick_CSR_TICKINT_MASK    ((uint32_t) 0x00000001UL)
-#define SysTick_CSR_TICKINT_EN    ((uint32_t) 0x00000001UL)
+#define SysTick_CSR_TICKINT_ENA    ((uint32_t) 0x00000001UL)
 #define SysTick_CSR_TICKINT_DIS    ((uint32_t) 0x00000000UL)
 /*--------*/
 
 /*--------*/
 #define SysTick_CSR_R_ENABLE_MASK    ((uint32_t) 0x00000001UL)
 #define SysTick_CSR_R_ENABLE_BIT    (0UL)
-#define SysTick_CSR_R_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define SysTick_CSR_R_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 #define SysTick_CSR_R_ENABLE_DIS    ((uint32_t) 0x00000000UL)
 
 #define SysTick_CSR_ENABLE_MASK    ((uint32_t) 0x00000001UL)
-#define SysTick_CSR_ENABLE_EN    ((uint32_t) 0x00000001UL)
+#define SysTick_CSR_ENABLE_ENA    ((uint32_t) 0x00000001UL)
 #define SysTick_CSR_ENABLE_DIS    ((uint32_t) 0x00000000UL)
 /*--------*/
 

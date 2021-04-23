@@ -40,7 +40,7 @@ void GPIOF__vIRQVectorHandler(void)
     uint32_t u32RegBUS = 0UL;
 
     u32RegDMAEn = SYSCTL_RCGCDMA_R;
-    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_EN;
+    u32RegDMAEn &= SYSCTL_RCGCDMA_R_UDMA_ENA;
     if(0UL != u32RegDMAEn)
     {
         u32RegDMAOccur = DMA_CHIS_R;

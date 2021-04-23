@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enEnModuleClock(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enCLOCK_EN, HIB_CTL_CLK32EN_MASK, HIB_CTL_R_CLK32EN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enCLOCK_ENA, HIB_CTL_CLK32EN_MASK, HIB_CTL_R_CLK32EN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisModuleClock(void)

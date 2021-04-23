@@ -40,7 +40,7 @@ void EDUMKII_Common_vTimerInit(void)
         psExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
         psExtraMode.enStall = TIMER_enSTALL_FREEZE;
         psExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
-        psExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_EN;
+        psExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_ENA;
 
         TIMER__enSetExtraModeStruct(TIMER_enT5A, &psExtraMode);
         TIMER__enSetMode_Reload(TIMER_enT5A, TIMER_enMODE_PERIODIC_INDIVIDUAL_UP, 800000U-1U);

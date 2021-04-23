@@ -95,8 +95,8 @@ void EDUMKII_Joystick_vInit(void)
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_1, ADC_en_MUX_0, &sADC0SampleConfig);
 
     sADC0SampleConfig.enInput = EDUMKII_AXIS_Y_INPUT;
-    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_EN;
-    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_EN;
+    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_ENA;
+    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_ENA;
     ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_1, ADC_en_MUX_1, &sADC0SampleConfig);
 
     ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_1, ADC_enPRI1);

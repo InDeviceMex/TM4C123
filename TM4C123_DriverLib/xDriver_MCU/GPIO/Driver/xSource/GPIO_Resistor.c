@@ -29,7 +29,7 @@
 
 void GPIO__vSetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nRESMODE enMode)
 {
-    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_EN);
+    GPIO__vSetCommit(enPort, enPin, GPIO_enCOMMIT_ENA);
     switch(enMode)
     {
         case GPIO_enRESMODE_INACTIVE:

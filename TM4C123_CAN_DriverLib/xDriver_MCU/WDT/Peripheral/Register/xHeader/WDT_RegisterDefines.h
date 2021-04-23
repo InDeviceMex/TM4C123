@@ -56,22 +56,22 @@
 #define WDT_CTL_R_INTEN_MASK    ((uint32_t) 0x00000001UL)
 #define WDT_CTL_R_INTEN_BIT    ((uint32_t) 0UL)
 #define WDT_CTL_R_INTEN_DIS    ((uint32_t) 0x00000000UL)
-#define WDT_CTL_R_INTEN_EN    ((uint32_t) 0x00000001UL)
+#define WDT_CTL_R_INTEN_ENA    ((uint32_t) 0x00000001UL)
 
 #define WDT_CTL_INTEN_MASK    ((uint32_t) 0x00000001UL)
 #define WDT_CTL_INTEN_DIS    ((uint32_t) 0x00000000UL)
-#define WDT_CTL_INTEN_EN    ((uint32_t) 0x00000001UL)
+#define WDT_CTL_INTEN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
 #define WDT_CTL_R_RESEN_MASK    ((uint32_t) 0x00000002UL)
 #define WDT_CTL_R_RESEN_BIT    ((uint32_t) 1UL)
 #define WDT_CTL_R_RESEN_DIS    ((uint32_t) 0x00000000UL)
-#define WDT_CTL_R_RESEN_EN    ((uint32_t) 0x00000002UL)
+#define WDT_CTL_R_RESEN_ENA    ((uint32_t) 0x00000002UL)
 
 #define WDT_CTL_RESEN_MASK    ((uint32_t) 0x00000001UL)
 #define WDT_CTL_RESEN_DIS    ((uint32_t) 0x00000000UL)
-#define WDT_CTL_RESEN_EN    ((uint32_t) 0x00000001UL)
+#define WDT_CTL_RESEN_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/

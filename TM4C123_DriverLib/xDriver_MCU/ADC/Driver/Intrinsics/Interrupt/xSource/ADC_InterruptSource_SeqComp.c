@@ -34,7 +34,7 @@ void ADC__vEnInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparato
     u32Comparator = MCU__u32CheckParams((uint32_t) enSeqComparator, (uint32_t) ADC_en_COMPARATOR_MAX);
     u32Comparator *= 4UL;
     u32RegisterOffset += u32Comparator;
-    ADC__vWriteRegister(enModule , u32RegisterOffset, ADC_DCCTL_CIE_EN, ADC_DCCTL_CIE_MASK, ADC_DCCTL_R_CIE_BIT);
+    ADC__vWriteRegister(enModule , u32RegisterOffset, ADC_DCCTL_CIE_ENA, ADC_DCCTL_CIE_MASK, ADC_DCCTL_R_CIE_BIT);
 }
 
 void ADC__vDisInterruptComp(ADC_nMODULE enModule, ADC_nCOMPARATOR  enSeqComparator)

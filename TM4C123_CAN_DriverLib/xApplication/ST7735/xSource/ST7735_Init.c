@@ -57,8 +57,8 @@ void ST7735__vInit(const uint8_t *pu8CommandList)
         SSI_enEOT_ALL,
         SSI_enLOOPBACK_DIS,
         SSI_enLINE_DIS,
-        SSI_enLINE_EN,
-        SSI_enLINE_EN,
+        SSI_enLINE_ENA,
+        SSI_enLINE_ENA,
         SSI_enLINE_DIS,
     };
     const SSI_FRAME_CONTROL_TypeDef pstFrameControlConfigReg =

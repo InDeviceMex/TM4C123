@@ -81,11 +81,11 @@
 #define GPWTM_TW_TnMR_R_TnMIE_MASK    ((uint32_t) 0x00000020UL)
 #define GPWTM_TW_TnMR_R_TnMIE_BIT    (5UL)
 #define GPWTM_TW_TnMR_R_TnMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_TW_TnMR_R_TnMIE_EN    ((uint32_t) 0x00000020UL)
+#define GPWTM_TW_TnMR_R_TnMIE_ENA    ((uint32_t) 0x00000020UL)
 
 #define GPWTM_TW_TnMR_TnMIE_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_TW_TnMR_TnMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_TW_TnMR_TnMIE_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_TW_TnMR_TnMIE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -103,11 +103,11 @@
 #define GPWTM_TW_TnMR_R_TnSNAPS_MASK    ((uint32_t) 0x00000080UL)
 #define GPWTM_TW_TnMR_R_TnSNAPS_BIT    (7UL)
 #define GPWTM_TW_TnMR_R_TnSNAPS_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_TW_TnMR_R_TnSNAPS_EN    ((uint32_t) 0x00000080UL)
+#define GPWTM_TW_TnMR_R_TnSNAPS_ENA    ((uint32_t) 0x00000080UL)
 
 #define GPWTM_TW_TnMR_TnSNAPS_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_TW_TnMR_TnSNAPS_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_TW_TnMR_TnSNAPS_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_TW_TnMR_TnSNAPS_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -125,11 +125,11 @@
 #define GPWTM_TW_TnMR_R_TnPWMIE_MASK    ((uint32_t) 0x00000200UL)
 #define GPWTM_TW_TnMR_R_TnPWMIE_BIT    (9UL)
 #define GPWTM_TW_TnMR_R_TnPWMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_TW_TnMR_R_TnPWMIE_EN    ((uint32_t) 0x00000200UL)
+#define GPWTM_TW_TnMR_R_TnPWMIE_ENA    ((uint32_t) 0x00000200UL)
 
 #define GPWTM_TW_TnMR_TnPWMIE_MASK    ((uint32_t) 0x00000001UL)
 #define GPWTM_TW_TnMR_TnPWMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPWTM_TW_TnMR_TnPWMIE_EN    ((uint32_t) 0x00000001UL)
+#define GPWTM_TW_TnMR_TnPWMIE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/

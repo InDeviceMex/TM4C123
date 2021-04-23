@@ -89,11 +89,11 @@
 #define ADC_PSSI_R_SYNCWAIT_MASK    ((uint32_t) 0x08000000UL)
 #define ADC_PSSI_R_SYNCWAIT_BIT    ((uint32_t) 27UL)
 #define ADC_PSSI_R_SYNCWAIT_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_PSSI_R_SYNCWAIT_EN    ((uint32_t) 0x08000000UL)
+#define ADC_PSSI_R_SYNCWAIT_ENA    ((uint32_t) 0x08000000UL)
 
 #define ADC_PSSI_SYNCWAIT_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_PSSI_SYNCWAIT_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_PSSI_SYNCWAIT_EN    ((uint32_t) 0x00000001UL)
+#define ADC_PSSI_SYNCWAIT_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/

@@ -56,11 +56,11 @@
 #define ADC_SSCTL_R_IE0_MASK    ((uint32_t) 0x00000004UL)
 #define ADC_SSCTL_R_IE0_BIT    ((uint32_t) 2UL)
 #define ADC_SSCTL_R_IE0_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE0_EN    ((uint32_t) 0x00000004UL)
+#define ADC_SSCTL_R_IE0_ENA    ((uint32_t) 0x00000004UL)
 
 #define ADC_SSCTL_IE0_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE0_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE0_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE0_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -100,11 +100,11 @@
 #define ADC_SSCTL_R_IE1_MASK    ((uint32_t) 0x00000040UL)
 #define ADC_SSCTL_R_IE1_BIT    ((uint32_t) 6UL)
 #define ADC_SSCTL_R_IE1_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE1_EN    ((uint32_t) 0x00000040UL)
+#define ADC_SSCTL_R_IE1_ENA    ((uint32_t) 0x00000040UL)
 
 #define ADC_SSCTL_IE1_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE1_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE1_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE1_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -144,11 +144,11 @@
 #define ADC_SSCTL_R_IE2_MASK    ((uint32_t) 0x00000400UL)
 #define ADC_SSCTL_R_IE2_BIT    ((uint32_t) 10UL)
 #define ADC_SSCTL_R_IE2_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE2_EN    ((uint32_t) 0x00000400UL)
+#define ADC_SSCTL_R_IE2_ENA    ((uint32_t) 0x00000400UL)
 
 #define ADC_SSCTL_IE2_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE2_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE2_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE2_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -188,11 +188,11 @@
 #define ADC_SSCTL_R_IE3_MASK    ((uint32_t) 0x00004000UL)
 #define ADC_SSCTL_R_IE3_BIT    ((uint32_t) 14UL)
 #define ADC_SSCTL_R_IE3_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE3_EN    ((uint32_t) 0x00004000UL)
+#define ADC_SSCTL_R_IE3_ENA    ((uint32_t) 0x00004000UL)
 
 #define ADC_SSCTL_IE3_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE3_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE3_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE3_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -232,11 +232,11 @@
 #define ADC_SSCTL_R_IE4_MASK    ((uint32_t) 0x00040000UL)
 #define ADC_SSCTL_R_IE4_BIT    ((uint32_t) 18UL)
 #define ADC_SSCTL_R_IE4_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE4_EN    ((uint32_t) 0x00040000UL)
+#define ADC_SSCTL_R_IE4_ENA    ((uint32_t) 0x00040000UL)
 
 #define ADC_SSCTL_IE4_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE4_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE4_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE4_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -276,11 +276,11 @@
 #define ADC_SSCTL_R_IE5_MASK    ((uint32_t) 0x00400000UL)
 #define ADC_SSCTL_R_IE5_BIT    ((uint32_t) 22UL)
 #define ADC_SSCTL_R_IE5_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE5_EN    ((uint32_t) 0x00400000UL)
+#define ADC_SSCTL_R_IE5_ENA    ((uint32_t) 0x00400000UL)
 
 #define ADC_SSCTL_IE5_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE5_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE5_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE5_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -321,11 +321,11 @@
 #define ADC_SSCTL_R_IE6_MASK    ((uint32_t) 0x04000000UL)
 #define ADC_SSCTL_R_IE6_BIT    ((uint32_t) 26UL)
 #define ADC_SSCTL_R_IE6_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE6_EN    ((uint32_t) 0x04000000UL)
+#define ADC_SSCTL_R_IE6_ENA    ((uint32_t) 0x04000000UL)
 
 #define ADC_SSCTL_IE6_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE6_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE6_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE6_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/
@@ -365,11 +365,11 @@
 #define ADC_SSCTL_R_IE7_MASK    ((uint32_t) 0x40000000UL)
 #define ADC_SSCTL_R_IE7_BIT    ((uint32_t) 30UL)
 #define ADC_SSCTL_R_IE7_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_R_IE7_EN    ((uint32_t) 0x40000000UL)
+#define ADC_SSCTL_R_IE7_ENA    ((uint32_t) 0x40000000UL)
 
 #define ADC_SSCTL_IE7_MASK    ((uint32_t) 0x00000001UL)
 #define ADC_SSCTL_IE7_DIS    ((uint32_t) 0x00000000UL)
-#define ADC_SSCTL_IE7_EN    ((uint32_t) 0x00000001UL)
+#define ADC_SSCTL_IE7_ENA    ((uint32_t) 0x00000001UL)
 /*--------*/
 
 /*--------*/

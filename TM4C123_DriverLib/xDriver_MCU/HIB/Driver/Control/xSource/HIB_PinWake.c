@@ -28,7 +28,7 @@
 
 HIB_nSTATUS HIB__enEnPinWakeUp(void)
 {
-    return HIB__enSetControlGeneric( (uint32_t) HIB_enPINWAKE_EN, HIB_CTL_PINWEN_MASK, HIB_CTL_R_PINWEN_BIT);
+    return HIB__enSetControlGeneric( (uint32_t) HIB_enPINWAKE_ENA, HIB_CTL_PINWEN_MASK, HIB_CTL_R_PINWEN_BIT);
 }
 
 HIB_nSTATUS HIB__enDisPinWakeUp(void)

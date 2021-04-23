@@ -81,11 +81,11 @@
 #define GPTM_TAMR_R_TAMIE_MASK    ((uint32_t) 0x00000020UL)
 #define GPTM_TAMR_R_TAMIE_BIT    (5UL)
 #define GPTM_TAMR_R_TAMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TAMR_R_TAMIE_EN    ((uint32_t) 0x00000020UL)
+#define GPTM_TAMR_R_TAMIE_ENA    ((uint32_t) 0x00000020UL)
 
 #define GPTM_TAMR_TAMIE_MASK    ((uint32_t) 0x00000001UL)
 #define GPTM_TAMR_TAMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TAMR_TAMIE_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAMIE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -103,11 +103,11 @@
 #define GPTM_TAMR_R_TASNAPS_MASK    ((uint32_t) 0x00000080UL)
 #define GPTM_TAMR_R_TASNAPS_BIT    (7UL)
 #define GPTM_TAMR_R_TASNAPS_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TAMR_R_TASNAPS_EN    ((uint32_t) 0x00000080UL)
+#define GPTM_TAMR_R_TASNAPS_ENA    ((uint32_t) 0x00000080UL)
 
 #define GPTM_TAMR_TASNAPS_MASK    ((uint32_t) 0x00000001UL)
 #define GPTM_TAMR_TASNAPS_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TAMR_TASNAPS_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TASNAPS_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/
@@ -125,11 +125,11 @@
 #define GPTM_TAMR_R_TAPWMIE_MASK    ((uint32_t) 0x00000200UL)
 #define GPTM_TAMR_R_TAPWMIE_BIT    (9UL)
 #define GPTM_TAMR_R_TAPWMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TAMR_R_TAPWMIE_EN    ((uint32_t) 0x00000200UL)
+#define GPTM_TAMR_R_TAPWMIE_ENA    ((uint32_t) 0x00000200UL)
 
 #define GPTM_TAMR_TAPWMIE_MASK    ((uint32_t) 0x00000001UL)
 #define GPTM_TAMR_TAPWMIE_DIS    ((uint32_t) 0x00000000UL)
-#define GPTM_TAMR_TAPWMIE_EN    ((uint32_t) 0x00000001UL)
+#define GPTM_TAMR_TAPWMIE_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
 /*----------*/

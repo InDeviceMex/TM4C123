@@ -45,7 +45,7 @@ void TIMER__vSetControlGeneric(TIMER_nMODULE enModule, uint32_t u32FeatureValue,
     TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, u32FeatureValue, u32MaskFeature, u32Shift);
     if(TIMER_enENABLE_START == enTimerEnable)
     {
-        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, GPTM_CTL_TAEN_EN, GPTM_CTL_TAEN_MASK, u32Shift);
+        TIMER__vWriteRegister( (TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, GPTM_CTL_OFFSET, GPTM_CTL_TAEN_ENA, GPTM_CTL_TAEN_MASK, u32Shift);
     }
 }
 
