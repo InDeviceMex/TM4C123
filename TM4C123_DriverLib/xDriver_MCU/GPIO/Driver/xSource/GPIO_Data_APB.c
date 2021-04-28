@@ -26,7 +26,7 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Primitives/GPIO_Primitives.h>
 #include <xDriver_MCU/GPIO/Peripheral/GPIO_Peripheral.h>
 
-inline void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
+inline void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
     GPIO_nBUS enBus = GPIO_enBUS_APB;
     uint32_t u32OffsetRegister = 0UL;
@@ -45,7 +45,7 @@ inline void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
     }
 }
 
-inline GPIO_nSTATUS GPIO__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* u32Feature)
+inline GPIO_nSTATUS GPIO_APB__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* u32Feature)
 {
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
     GPIO_nBUS enBus = GPIO_enBUS_APB;
@@ -66,12 +66,12 @@ inline GPIO_nSTATUS GPIO__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t
     return enStatus;
 }
 
-inline void GPIO__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
+inline void GPIO_APB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
     GPIO_BLOCK[(uint32_t) enPort]->DATA_MASK[enPin] = u32Data;
 }
 
-inline uint32_t GPIO__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin)
+inline uint32_t GPIO_APB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     uint32_t u32Reg = 0;
     u32Reg = GPIO_BLOCK[(uint32_t) enPort]->DATA_MASK[enPin];

@@ -27,10 +27,10 @@
 
 #include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
-void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-GPIO_nSTATUS GPIO__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* u32Feature);
+void GPIO_APB__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+GPIO_nSTATUS GPIO_APB__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* u32Feature);
 
-void GPIO__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
-uint32_t GPIO__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
+void GPIO_APB__vSetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data);
+uint32_t GPIO_APB__u32GetDataOpt(GPIO_nPORT enPort, GPIO_nPIN enPin);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_DATA_APB_H_ */
