@@ -27,8 +27,10 @@
 
 void EEPROM__vSetReady(void)
 {
+#if !defined(Opt_Check)
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
     SYSCTL__vSetReady(enPeripheral);
+#endif
 }
 
 void EEPROM__vClearReady(void)
@@ -38,8 +40,12 @@ void EEPROM__vClearReady(void)
 }
 EEPROM_nREADY EEPROM__enIsReady(void)
 {
+#if !defined(Opt_Check)
     EEPROM_nREADY enReady = EEPROM_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enEEPROM;
     enReady = (EEPROM_nREADY) SYSCTL__enIsReady(enPeripheral);
+#else
+    EEPROM_nREADY enReady = EEPROM_enREADY;
+#endif
     return enReady;
 }

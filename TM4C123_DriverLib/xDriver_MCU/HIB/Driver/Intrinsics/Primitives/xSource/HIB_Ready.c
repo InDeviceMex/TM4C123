@@ -27,8 +27,10 @@
 
 void HIB__vSetReady(void)
 {
+#if !defined(Opt_Check)
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enHIB;
     SYSCTL__vSetReady(enPeripheral);
+#endif
 }
 
 void HIB__vReset(void)
@@ -45,8 +47,12 @@ void HIB__vClearReady(void)
 
 HIB_nREADY HIB__enIsReady(void)
 {
+#if !defined(Opt_Check)
     HIB_nREADY enReady = HIB_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enHIB;
     enReady = (HIB_nREADY) SYSCTL__enIsReady(enPeripheral);
+#else
+    HIB_nREADY enReady = HIB_enREADY;
+#endif
     return enReady;
 }

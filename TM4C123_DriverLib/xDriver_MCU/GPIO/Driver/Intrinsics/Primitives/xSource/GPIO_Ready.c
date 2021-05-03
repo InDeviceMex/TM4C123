@@ -28,10 +28,12 @@
 
 void GPIO__vSetReady(GPIO_nPORT enPort)
 {
+#if !defined(Opt_Check)
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enGPIOA;
     enPort = (GPIO_nPORT) MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enPeripheral |= enPort;
     SYSCTL__vSetReady(enPeripheral);
+#endif
 }
 
 void GPIO__vClearReady(GPIO_nPORT enPort)
@@ -43,10 +45,14 @@ void GPIO__vClearReady(GPIO_nPORT enPort)
 }
 GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 {
+#if !defined(Opt_Check)
     GPIO_nREADY enReady = GPIO_enNOREADY;
     SYSCTL_nPERIPHERAL enPeripheral = SYSCTL_enGPIOA;
     enPort = (GPIO_nPORT) MCU__u32CheckParams( (uint32_t) enPort, (uint32_t) GPIO_enPORT_MAX);
     enPeripheral |= enPort;
     enReady = (GPIO_nREADY) SYSCTL__enIsReady(enPeripheral);
+#else
+    GPIO_nREADY enReady = GPIO_enREADY;
+#endif
     return enReady;
 }
