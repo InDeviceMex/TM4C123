@@ -84,7 +84,7 @@ void ST7735__vInit(const uint8_t *pu8CommandList)
 
     SSI__vSetEnable(ST7735_SSI, SSI_enENABLE_STOP);
     SSI__vSetClockConfig(ST7735_SSI, SSI_enCLOCK_SYSCLK);
-    SSI__enSetConfig(ST7735_SSI, SSI_enMODE_MASTER, &pstControlConfigReg, &pstFrameControlConfigReg, 8000000UL, &pstLineConfigReg);
+    SSI__enSetConfig(ST7735_SSI, SSI_enMODE_MASTER, &pstControlConfigReg, &pstFrameControlConfigReg, 25000000UL, &pstLineConfigReg);
     SSI__vSetEnable(ST7735_SSI, SSI_enENABLE_START);
 
     SSI__vEnInterruptVector(SSI_enMODULE_2, SSI_enPRI0);

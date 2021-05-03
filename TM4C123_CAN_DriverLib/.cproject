@@ -38,6 +38,7 @@
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.GCC.1668182536" name="Enable support for GCC extensions (DEPRECATED) (--gcc)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.GCC" value="true" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.DEFINE.424692097" name="Pre-define NAME (--define, -D)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.compilerID.DEFINE" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="ccs=&quot;ccs&quot;"/>
+									<listOptionValue builtIn="false" value="Opt_Check"/>
 									<listOptionValue builtIn="false" value="__DEBUG__"/>
 									<listOptionValue builtIn="false" value="PART_TM4C123GH6PM"/>
 								</option>
@@ -95,7 +96,7 @@
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.exeLinker.inputType__GEN_CMDS.963581096" name="Generated Linker Command Files" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.exeLinker.inputType__GEN_CMDS"/>
 							</tool>
 							<tool id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.hex.940728154" name="Arm Hex Utility" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.hex">
-								<option id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.hex.TOOL_ENABLE.1767945878" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.hex.TOOL_ENABLE" value="true" valueType="boolean"/>
+								<option id="com.ti.ccstudio.buildDefinitions.TMS470_20.2.hex.TOOL_ENABLE.1767945878" name="Enable tool" superClass="com.ti.ccstudio.buildDefinitions.TMS470_20.2.hex.TOOL_ENABLE" value="true" valueType="boolean"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
