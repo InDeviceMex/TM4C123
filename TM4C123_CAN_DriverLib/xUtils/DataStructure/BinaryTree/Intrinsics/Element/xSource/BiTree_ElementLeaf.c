@@ -26,16 +26,16 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Element/xHeader/BiTree_ElementRight.h>
 #include <xUtils/Standard/Standard.h>
 
-BiTree_nSTATUS BiTree__enIsElementLeaf(const BiTreeElement_TypeDef* const psElement)
+BiTree_nSTATUS BiTree__enIsElementLeaf(const BiTreeElement_TypeDef* const pstElement)
 {
-    BiTreeElement_TypeDef* psLeftNodeReg = (BiTreeElement_TypeDef*) 0UL;
-    BiTreeElement_TypeDef* psRightNodeReg = (BiTreeElement_TypeDef*) 0UL;
+    BiTreeElement_TypeDef* pstLeftNodeReg = (BiTreeElement_TypeDef*) 0UL;
+    BiTreeElement_TypeDef* pstRightNodeReg = (BiTreeElement_TypeDef*) 0UL;
     BiTree_nSTATUS enStatusReg = BiTree_enSTATUS_ERROR;
 
-    psLeftNodeReg = BiTree__psGetElementLeftNode(psElement);
-    psRightNodeReg = BiTree__psGetElementRightNode(psElement);
+    pstLeftNodeReg = BiTree__pstGetElementLeftNode(pstElement);
+    pstRightNodeReg = BiTree__pstGetElementRightNode(pstElement);
 
-    if(((uint32_t) 0UL == (uint32_t) psLeftNodeReg) && ((uint32_t) 0UL == (uint32_t) psRightNodeReg))
+    if(((uint32_t) 0UL == (uint32_t) pstLeftNodeReg) && ((uint32_t) 0UL == (uint32_t) pstRightNodeReg))
     {
         enStatusReg = BiTree_enSTATUS_OK;
     }

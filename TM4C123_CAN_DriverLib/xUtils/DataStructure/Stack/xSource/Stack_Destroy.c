@@ -24,7 +24,7 @@
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Destroy.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 
-void Stack__vDestroy(Stack_TypeDef* psStack)
+void Stack__vDestroy(Stack_TypeDef* pstStack)
 {
-    SLinkedList__vDestroy( (SLinkedList_TypeDef*) psStack);
+    SLinkedList__vDestroy( (SLinkedList_TypeDef*) pstStack);
 }

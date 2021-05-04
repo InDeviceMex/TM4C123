@@ -27,7 +27,7 @@
 
 #include <xApplication/GameShip/Player/xHeader/Player_Struct.h>
 
-Player_TypeDef* Player__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg, uint32_t u32LifesArg, uint32_t u32SubLifesArg);
+Player_TypeDef* Player__pstConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg, uint32_t u32LifesArg, uint32_t u32SubLifesArg);
 void Player__vDestructor(void* pvPlayerArg);
 
 #endif /* XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_CONSTRUCTOR_H_ */

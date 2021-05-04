@@ -26,12 +26,12 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/xHeader/CDLinkedList_Struct.h>
 
- CDLinkedList_nSTATUS CDLinkedList__enRemove(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psElement, void** pvData);
- CDLinkedList_nSTATUS CDLinkedList__enRemoveNext(CDLinkedList_TypeDef* psList, const CDLinkedListElement_TypeDef* psElement, void** pvData);
- CDLinkedList_nSTATUS CDLinkedList__enRemovePrevious(CDLinkedList_TypeDef* psList, const CDLinkedListElement_TypeDef* psElement, void** pvData);
- CDLinkedList_nSTATUS CDLinkedList__enRemoveBegin(CDLinkedList_TypeDef* psList, void** pvData);
- CDLinkedList_nSTATUS CDLinkedList__enRemoveEnd(CDLinkedList_TypeDef* psList, void** pvData);
- CDLinkedList_nSTATUS  CDLinkedList__enRemovePos(CDLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData);
+ CDLinkedList_nSTATUS CDLinkedList__enRemove(CDLinkedList_TypeDef* pstList, CDLinkedListElement_TypeDef* pstElement, void** pvData);
+ CDLinkedList_nSTATUS CDLinkedList__enRemoveNext(CDLinkedList_TypeDef* pstList, const CDLinkedListElement_TypeDef* pstElement, void** pvData);
+ CDLinkedList_nSTATUS CDLinkedList__enRemovePrevious(CDLinkedList_TypeDef* pstList, const CDLinkedListElement_TypeDef* pstElement, void** pvData);
+ CDLinkedList_nSTATUS CDLinkedList__enRemoveBegin(CDLinkedList_TypeDef* pstList, void** pvData);
+ CDLinkedList_nSTATUS CDLinkedList__enRemoveEnd(CDLinkedList_TypeDef* pstList, void** pvData);
+ CDLinkedList_nSTATUS  CDLinkedList__enRemovePos(CDLinkedList_TypeDef* pstList, uint32_t u32Position, void** pvData);
 
 
 

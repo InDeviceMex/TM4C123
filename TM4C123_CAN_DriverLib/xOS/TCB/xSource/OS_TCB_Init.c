@@ -24,13 +24,13 @@
 #include <xOS/TCB/xHeader/OS_TCB_Init.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Init.h>
 
-OS_TCB_TypeDef* OS_TCB__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
+OS_TCB_TypeDef* OS_TCB__pstInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
-    return (OS_TCB_TypeDef*)SLinkedList__psInit(pfvDestroyElementDataArg);
+    return (OS_TCB_TypeDef*)SLinkedList__pstInit(pfvDestroyElementDataArg);
 }
 
-OS_TCB_nSTATUS OS_TCB__enInit(OS_TCB_TypeDef* psTCB, void (*pfvDestroyElementDataArg) (void *DataContainer))
+OS_TCB_nSTATUS OS_TCB__enInit(OS_TCB_TypeDef* pstTCB, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
-    return (OS_TCB_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) psTCB, pfvDestroyElementDataArg);
+    return (OS_TCB_nSTATUS) SLinkedList__enInit( (SLinkedList_TypeDef*) pstTCB, pfvDestroyElementDataArg);
 }
 

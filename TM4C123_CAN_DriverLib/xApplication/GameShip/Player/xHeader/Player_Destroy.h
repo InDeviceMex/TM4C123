@@ -27,6 +27,6 @@
 
 #include <xApplication/GameShip/Player/xHeader/Player_Struct.h>
 
-uint32_t Player__u32Destroy(Player_TypeDef* psPlayerArg);
+uint32_t Player__u32Destroy(Player_TypeDef* pstPlayerArg);
 
 #endif /* XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_DESTROY_H_ */

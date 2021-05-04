@@ -39,10 +39,10 @@ TIMER_nSTATUS TIMER__enSetMode_ReloadMatch(TIMER_nMODULE enModule, TIMER_nMODE e
     return enReturn;
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode, uint64_t u64Reload, uint64_t u64Match)
+TIMER_nSTATUS TIMER__enSetModeStruct_ReloadMatch(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* pstMode, uint64_t u64Reload, uint64_t u64Match)
 {
     TIMER_nSTATUS enReturn = TIMER_enSTATUS_ERROR;
-    enReturn = TIMER__enSetModeStruct(enModule, psMode);
+    enReturn = TIMER__enSetModeStruct(enModule, pstMode);
     if(TIMER_enSTATUS_OK == enReturn)
     {
         TIMER__vSetReload(enModule, u64Reload);

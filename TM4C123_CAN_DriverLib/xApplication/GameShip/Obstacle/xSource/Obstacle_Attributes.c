@@ -23,22 +23,22 @@
  */
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Attributes.h>
 
-uint32_t Obstacle__u32GetXPos(const Obstacle_TypeDef* psObstacleArg)
+uint32_t Obstacle__u32GetXPos(const Obstacle_TypeDef* pstObstacleArg)
 {
-    return psObstacleArg->u32Xpos;
+    return pstObstacleArg->u32Xpos;
 }
 
-void Obstacle__vSetXPos(Obstacle_TypeDef* psObstacleArg, uint32_t u32XPosArg)
+void Obstacle__vSetXPos(Obstacle_TypeDef* pstObstacleArg, uint32_t u32XPosArg)
 {
-    psObstacleArg->u32Xpos= u32XPosArg;
+    pstObstacleArg->u32Xpos= u32XPosArg;
 }
 
-uint32_t Obstacle__u32GetYPos(const Obstacle_TypeDef* psObstacleArg)
+uint32_t Obstacle__u32GetYPos(const Obstacle_TypeDef* pstObstacleArg)
 {
-    return psObstacleArg->u32Ypos;
+    return pstObstacleArg->u32Ypos;
 }
 
-void Obstacle__vSetYPos(Obstacle_TypeDef* psObstacleArg, uint32_t u32YPosArg)
+void Obstacle__vSetYPos(Obstacle_TypeDef* pstObstacleArg, uint32_t u32YPosArg)
 {
-    psObstacleArg->u32Ypos= u32YPosArg;
+    pstObstacleArg->u32Ypos= u32YPosArg;
 }

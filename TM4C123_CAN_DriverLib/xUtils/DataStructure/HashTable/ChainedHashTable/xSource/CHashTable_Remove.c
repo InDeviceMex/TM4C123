@@ -30,12 +30,12 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/SLinkedList_Element.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Remove.h>
 
-CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void** pvData)
+CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* pstCHashTable, void** pvData)
 {
-    SLinkedList_TypeDef *psList = (SLinkedList_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElement = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psPreviousElement = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElementNext = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedList_TypeDef *pstList = (SLinkedList_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElement = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstPreviousElement = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElementNext = (SLinkedListElement_TypeDef*) 0UL;
     void *pvElementData = (void*) 0UL;
 
     uint32_t u32BucketNum = 0UL;
@@ -44,27 +44,27 @@ CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void**
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
     SLinkedList_nSTATUS enRemoveResult = SLinkedList_enSTATUS_ERROR;
 
-    if(((uint32_t) 0UL != (uint32_t) psCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData) )
+    if(((uint32_t) 0UL != (uint32_t) pstCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData) )
     {
-        u32BucketsSize = psCHashTable->u32Buckets;
-        u32BucketNum = psCHashTable->pfu32HashFunction(*pvData);
+        u32BucketsSize = pstCHashTable->u32Buckets;
+        u32BucketNum = pstCHashTable->pfu32HashFunction(*pvData);
         u32BucketNum %= u32BucketsSize;
 
-        psList = psCHashTable->psTable;
-        psList += u32BucketNum;
-        psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t) 0UL != (uint32_t) psElement)
+        pstList = pstCHashTable->pstTable;
+        pstList += u32BucketNum;
+        pstElement = SLinkedList__pstGetHead(pstList);
+        while((uint32_t) 0UL != (uint32_t) pstElement)
         {
-            pvElementData = SLinkedList__pvGetElementData(psElement);
-            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData, (const void*)pvElementData);
+            pvElementData = SLinkedList__pvGetElementData(pstElement);
+            enMatchResult = (CHashTable_nSTATUS) pstCHashTable->pfu32Match((const void*)*pvData, (const void*)pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
-                enRemoveResult = SLinkedList__enRemoveNext(psList, psPreviousElement, pvData);
+                enRemoveResult = SLinkedList__enRemoveNext(pstList, pstPreviousElement, pvData);
                 if(SLinkedList_enSTATUS_OK == enRemoveResult)
                 {
-                    u32SizeReg = CHashTable__u32GetSize(psCHashTable);
+                    u32SizeReg = CHashTable__u32GetSize(pstCHashTable);
                     u32SizeReg--;
-                    CHashTable__vSetSize(psCHashTable, u32SizeReg);
+                    CHashTable__vSetSize(pstCHashTable, u32SizeReg);
                     break;
                 }
                 else
@@ -73,9 +73,9 @@ CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void**
                     break;
                 }
             }
-            psPreviousElement = psElement;
-            psElementNext = SLinkedList__psGetElementNextNode(psElement);
-            psElement = psElementNext;
+            pstPreviousElement = pstElement;
+            pstElementNext = SLinkedList__pstGetElementNextNode(pstElement);
+            pstElement = pstElementNext;
         }
     }
     return enMatchResult;

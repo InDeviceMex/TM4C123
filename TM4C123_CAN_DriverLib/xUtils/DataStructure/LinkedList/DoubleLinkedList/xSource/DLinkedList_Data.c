@@ -30,47 +30,47 @@
 
 
 
- void* DLinkedList__pvGetNodeDataPos(const DLinkedList_TypeDef* psList, uint32_t u32Position)
+ void* DLinkedList__pvGetNodeDataPos(const DLinkedList_TypeDef* pstList, uint32_t u32Position)
  {
-     DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL;
+     DLinkedListElement_TypeDef* pstElement = (DLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t) 0UL != (uint32_t) psList)
+     if((uint32_t) 0UL != (uint32_t) pstList)
      {
-         psElement = DLinkedList__psGetNodePos(psList, u32Position);
-         if((uint32_t) 0UL != (uint32_t) psElement)
+         pstElement = DLinkedList__pstGetNodePos(pstList, u32Position);
+         if((uint32_t) 0UL != (uint32_t) pstElement)
          {
-             pvElementData = DLinkedList__pvGetElementData(psElement);
+             pvElementData = DLinkedList__pvGetElementData(pstElement);
          }
      }
      return pvElementData;
  }
 
 
- void* DLinkedList__pvGetNodeDataEnd(const DLinkedList_TypeDef* psList)
+ void* DLinkedList__pvGetNodeDataEnd(const DLinkedList_TypeDef* pstList)
  {
-     DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL;
+     DLinkedListElement_TypeDef* pstElement = (DLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t) 0UL != (uint32_t) psList)
+     if((uint32_t) 0UL != (uint32_t) pstList)
      {
-         psElement = DLinkedList__psGetNodeEnd(psList);
-         if((uint32_t) 0UL != (uint32_t) psElement)
+         pstElement = DLinkedList__pstGetNodeEnd(pstList);
+         if((uint32_t) 0UL != (uint32_t) pstElement)
          {
-             pvElementData = DLinkedList__pvGetElementData(psElement);
+             pvElementData = DLinkedList__pvGetElementData(pstElement);
          }
      }
      return pvElementData;
  }
 
- void* DLinkedList__pvGetNodeDataBegin(const DLinkedList_TypeDef* psList)
+ void* DLinkedList__pvGetNodeDataBegin(const DLinkedList_TypeDef* pstList)
  {
-     DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL;
+     DLinkedListElement_TypeDef* pstElement = (DLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t) 0UL != (uint32_t) psList)
+     if((uint32_t) 0UL != (uint32_t) pstList)
      {
-         psElement = DLinkedList__psGetNodeBegin(psList);
-         if((uint32_t) 0UL != (uint32_t) psElement)
+         pstElement = DLinkedList__pstGetNodeBegin(pstList);
+         if((uint32_t) 0UL != (uint32_t) pstElement)
          {
-             pvElementData = DLinkedList__pvGetElementData(psElement);
+             pvElementData = DLinkedList__pvGetElementData(pstElement);
          }
      }
      return pvElementData;

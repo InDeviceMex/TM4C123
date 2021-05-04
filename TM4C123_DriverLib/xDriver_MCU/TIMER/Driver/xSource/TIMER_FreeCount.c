@@ -42,8 +42,8 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
     TIMER_nALT_MODE enAltModeVar = TIMER_enALT_MODE_UNDEF;
     TIMER_nCOUNT_DIR enDirectionVar = TIMER_enCOUNT_DIR_UNDEF;
 
-    TIMER_Count64_TypeDef sFreeCount64Config = {0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL};
-    TIMER_Count32_TypeDef sFreeCount32Config = {0UL, 0UL, 0UL, 0UL};
+    TIMER_Count64_TypeDef stFreeCount64Config = {0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL};
+    TIMER_Count32_TypeDef stFreeCount32Config = {0UL, 0UL, 0UL, 0UL};
 
     static uint32_t TimerValue = 0UL;
     static uint32_t u32TimerValue = 0UL;
@@ -66,12 +66,12 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                 {
                     case TIMER_enCONFIG_WIDE:
                     case TIMER_enCONFIG_RTC:
-                        sFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET;
-                        sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
-                        sFreeCount32Config.u32CountShiftRight = 0UL;
-                        sFreeCount32Config.pu32CountValue = &TimerValue;
+                        stFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET;
+                        stFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
+                        stFreeCount32Config.u32CountShiftRight = 0UL;
+                        stFreeCount32Config.pu32CountValue = &TimerValue;
 
-                        TIMER_enGet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                        TIMER_enGet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount32Config);
                         *pu64FreeCount = (uint64_t) TimerValue;
                     break;
 
@@ -80,11 +80,11 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                         enAltModeVar = TIMER__enGetAltMode(enModule);
                         enDirectionVar = TIMER__enGetCountDir(enModule);
 
-                        sFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
-                        sFreeCount32Config.u32CountMask = 0xFFFFFFUL;
-                        sFreeCount32Config.u32CountShiftRight = 0UL;
-                        sFreeCount32Config.pu32CountValue = &TimerValue;
-                        TIMER_enGet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                        stFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                        stFreeCount32Config.u32CountMask = 0xFFFFFFUL;
+                        stFreeCount32Config.u32CountShiftRight = 0UL;
+                        stFreeCount32Config.pu32CountValue = &TimerValue;
+                        TIMER_enGet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount32Config);
 
                         /*One shot or Periodic*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
@@ -109,19 +109,19 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                 {
                     case TIMER_enCONFIG_WIDE:
 
-                        sFreeCount64Config.u32CountHighRegister = GPTM_TBV_OFFSET;
-                        sFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
-                        sFreeCount64Config.u32CountHighShiftRight = 0UL;
-                        sFreeCount64Config.u32CountHighShiftLeft = 32UL;
+                        stFreeCount64Config.u32CountHighRegister = GPTM_TBV_OFFSET;
+                        stFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
+                        stFreeCount64Config.u32CountHighShiftRight = 0UL;
+                        stFreeCount64Config.u32CountHighShiftLeft = 32UL;
 
-                        sFreeCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET;
-                        sFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
-                        sFreeCount64Config.u32CountLowShiftRight = 0UL;
-                        sFreeCount64Config.u32CountLowShiftLeft = 0UL;
+                        stFreeCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET;
+                        stFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
+                        stFreeCount64Config.u32CountLowShiftRight = 0UL;
+                        stFreeCount64Config.u32CountLowShiftLeft = 0UL;
 
-                        sFreeCount64Config.pu64CountValue = pu64FreeCount;
+                        stFreeCount64Config.pu64CountValue = pu64FreeCount;
 
-                        TIMER_enGetCount64Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
+                        TIMER_enGetCount64Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount64Config);
                     break;
 
                     case TIMER_enCONFIG_RTC:
@@ -134,33 +134,33 @@ TIMER_nSTATUS TIMER__enGetFreeCount(TIMER_nMODULE enModule, uint64_t* pu64FreeCo
                         enAltModeVar = TIMER__enGetAltMode(enModule);
                         enDirectionVar = TIMER__enGetCountDir(enModule);
 
-                        sFreeCount64Config.u32CountHighShiftRight = 0UL;
-                        sFreeCount64Config.u32CountLowShiftRight = 0UL;
-                        sFreeCount64Config.u32CountLowShiftLeft = 0UL;
-                        sFreeCount64Config.pu64CountValue = pu64FreeCount;
+                        stFreeCount64Config.u32CountHighShiftRight = 0UL;
+                        stFreeCount64Config.u32CountLowShiftRight = 0UL;
+                        stFreeCount64Config.u32CountLowShiftLeft = 0UL;
+                        stFreeCount64Config.pu64CountValue = pu64FreeCount;
                         /*Prescaler*/
                         /*One shot and periodic Down, no PWM no Capture*/
                         if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                         {
-                            sFreeCount64Config.u32CountHighRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
-                            sFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
-                            sFreeCount64Config.u32CountHighShiftLeft = 16UL;
+                            stFreeCount64Config.u32CountHighRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                            stFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
+                            stFreeCount64Config.u32CountHighShiftLeft = 16UL;
 
-                            sFreeCount64Config.u32CountLowRegister = GPTM_TAPV_OFFSET + (4UL * u32SubModule);
-                            sFreeCount64Config.u32CountLowMask = 0xFFFFUL;
+                            stFreeCount64Config.u32CountLowRegister = GPTM_TAPV_OFFSET + (4UL * u32SubModule);
+                            stFreeCount64Config.u32CountLowMask = 0xFFFFUL;
                         }
                         /*Time Extension*/
                         /*PWM, capture, One shot UP or periodic UP*/
                         else
                         {
-                            sFreeCount64Config.u32CountHighRegister = GPTM_TAPV_OFFSET + (4UL * u32SubModule);
-                            sFreeCount64Config.u32CountHighMask = 0xFFFFUL;
-                            sFreeCount64Config.u32CountHighShiftLeft = 32UL;
+                            stFreeCount64Config.u32CountHighRegister = GPTM_TAPV_OFFSET + (4UL * u32SubModule);
+                            stFreeCount64Config.u32CountHighMask = 0xFFFFUL;
+                            stFreeCount64Config.u32CountHighShiftLeft = 32UL;
 
-                            sFreeCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
-                            sFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
+                            stFreeCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                            stFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
                         }
-                        TIMER_enGetCount64Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
+                        TIMER_enGetCount64Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount64Config);
                     break;
                     default:
                     break;
@@ -179,8 +179,8 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule, uint64_t u64Count)
     TIMER_nALT_MODE enAltModeVar = TIMER_enALT_MODE_UNDEF;
     TIMER_nCOUNT_DIR enDirectionVar = TIMER_enCOUNT_DIR_UNDEF;
 
-    TIMER_Count64_TypeDef sFreeCount64Config = {0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL};
-    TIMER_Count32_TypeDef sFreeCount32Config = {0UL, 0UL, 0UL, 0UL};
+    TIMER_Count64_TypeDef stFreeCount64Config = {0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL, 0UL};
+    TIMER_Count32_TypeDef stFreeCount32Config = {0UL, 0UL, 0UL, 0UL};
 
     static uint64_t u64TimerValue = 0ULL;
     static uint32_t TimerValue = 0UL;
@@ -202,11 +202,11 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule, uint64_t u64Count)
                 case TIMER_enCONFIG_WIDE:
                 case TIMER_enCONFIG_RTC:
                     TimerValue = (uint32_t) u64Count;
-                    sFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET;
-                    sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
-                    sFreeCount32Config.u32CountShiftRight = 0UL;
-                    sFreeCount32Config.pu32CountValue = &TimerValue;
-                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                    stFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET;
+                    stFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
+                    stFreeCount32Config.u32CountShiftRight = 0UL;
+                    stFreeCount32Config.pu32CountValue = &TimerValue;
+                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount32Config);
                 break;
 
                 case TIMER_enCONFIG_INDIVIDUAL:
@@ -215,16 +215,16 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule, uint64_t u64Count)
                     enDirectionVar = TIMER__enGetCountDir(enModule);
 
                     TimerValue = (uint32_t) u64Count;
-                    sFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
-                    sFreeCount32Config.u32CountMask = 0xFFFFUL;
-                    sFreeCount32Config.u32CountShiftRight = 0UL;
-                    sFreeCount32Config.pu32CountValue = &TimerValue;
+                    stFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                    stFreeCount32Config.u32CountMask = 0xFFFFUL;
+                    stFreeCount32Config.u32CountShiftRight = 0UL;
+                    stFreeCount32Config.pu32CountValue = &TimerValue;
                     /*One shot or Periodic*/
                     if((TIMER_enALT_MODE_CC == enAltModeVar) && (TIMER_enSUB_MODE_CAPTURE != enSubModeVar) && (TIMER_enCOUNT_DIR_DOWN == enDirectionVar))
                     {
-                        sFreeCount32Config.u32CountShiftRight = 8UL;
+                        stFreeCount32Config.u32CountShiftRight = 8UL;
                     }
-                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount32Config);
                 break;
                 default:
                 break;
@@ -237,29 +237,29 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule, uint64_t u64Count)
                 case TIMER_enCONFIG_WIDE:
                 case TIMER_enCONFIG_RTC:
                     u64TimerValue = u64Count;
-                    sFreeCount64Config.u32CountHighRegister = GPTM_TBV_OFFSET;
-                    sFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
-                    sFreeCount64Config.u32CountHighShiftRight = 32UL;
-                    sFreeCount64Config.u32CountHighShiftLeft = 0UL;
+                    stFreeCount64Config.u32CountHighRegister = GPTM_TBV_OFFSET;
+                    stFreeCount64Config.u32CountHighMask = 0xFFFFFFFFUL;
+                    stFreeCount64Config.u32CountHighShiftRight = 32UL;
+                    stFreeCount64Config.u32CountHighShiftLeft = 0UL;
 
-                    sFreeCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET;
-                    sFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
-                    sFreeCount64Config.u32CountLowShiftRight = 0UL;
-                    sFreeCount64Config.u32CountLowShiftLeft = 0UL;
+                    stFreeCount64Config.u32CountLowRegister = GPTM_TAV_OFFSET;
+                    stFreeCount64Config.u32CountLowMask = 0xFFFFFFFFUL;
+                    stFreeCount64Config.u32CountLowShiftRight = 0UL;
+                    stFreeCount64Config.u32CountLowShiftLeft = 0UL;
 
-                    sFreeCount64Config.pu64CountValue = &u64TimerValue;
+                    stFreeCount64Config.pu64CountValue = &u64TimerValue;
 
-                    TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount64Config);
+                    TIMER_vSet2Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount64Config);
                 break;
                 case TIMER_enCONFIG_INDIVIDUAL:
                     enSubModeVar = TIMER__enGetSubMode(enModule);
                     enAltModeVar = TIMER__enGetAltMode(enModule);
                     enDirectionVar = TIMER__enGetCountDir(enModule);
 
-                    sFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
-                    sFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
-                    sFreeCount32Config.u32CountShiftRight = 0UL;
-                    sFreeCount32Config.pu32CountValue = &TimerValue;
+                    stFreeCount32Config.u32CountRegister = GPTM_TAV_OFFSET + (4UL * u32SubModule);
+                    stFreeCount32Config.u32CountMask = 0xFFFFFFFFUL;
+                    stFreeCount32Config.u32CountShiftRight = 0UL;
+                    stFreeCount32Config.pu32CountValue = &TimerValue;
 
                     /*Prescaler*/
                     /*One shot and periodic Down, no PWM no Capture*/
@@ -269,7 +269,7 @@ void TIMER__vSetFreeRunningCount(TIMER_nMODULE enModule, uint64_t u64Count)
                     }
                     u64Count &= 0xFFFFFFFFUL;
                     TimerValue = (uint32_t) u64Count;
-                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &sFreeCount32Config);
+                    TIMER_vSet1Count32Generic((TIMER_nSIZE) u32ModuleSize, (TIMER_nMODULE_NUM) u32ModuleNumber, &stFreeCount32Config);
                 break;
 
                 default:

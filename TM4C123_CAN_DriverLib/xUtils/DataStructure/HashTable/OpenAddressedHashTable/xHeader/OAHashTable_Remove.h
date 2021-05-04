@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Struct.h>
 
-OAHashTable_nSTATUS OAHashTable__enRemove(OAHashTable_TypeDef* psOAHashTable, void** pvData);
+OAHashTable_nSTATUS OAHashTable__enRemove(OAHashTable_TypeDef* pstOAHashTable, void** pvData);
 
 
 

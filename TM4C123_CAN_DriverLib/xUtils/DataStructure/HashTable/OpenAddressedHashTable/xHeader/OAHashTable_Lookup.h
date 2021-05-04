@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Struct.h>
 
-OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* psOAHashTable, void** pvData);
-void* OAHashTable__pvLookup(const OAHashTable_TypeDef* psOAHashTable, const void* const* pvData);
+OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* pstOAHashTable, void** pvData);
+void* OAHashTable__pvLookup(const OAHashTable_TypeDef* pstOAHashTable, const void* const* pvData);
 
 
 

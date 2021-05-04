@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
-BiTreeElement_TypeDef* BiTree__psGetElementLeftNode(const BiTreeElement_TypeDef* const psElement);
-void BiTree__vSetElementLeftNode(BiTreeElement_TypeDef* psElement, BiTreeElement_TypeDef* psLeftElement);
+BiTreeElement_TypeDef* BiTree__pstGetElementLeftNode(const BiTreeElement_TypeDef* const pstElement);
+void BiTree__vSetElementLeftNode(BiTreeElement_TypeDef* pstElement, BiTreeElement_TypeDef* pstLeftElement);
 
 
 

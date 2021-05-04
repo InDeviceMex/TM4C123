@@ -27,6 +27,6 @@
 
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Struct.h>
 
-void Obstacle__vErase(const Obstacle_TypeDef* psObstacleArg);
+void Obstacle__vErase(const Obstacle_TypeDef* pstObstacleArg);
 
 #endif /* XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_ERASE_H_ */

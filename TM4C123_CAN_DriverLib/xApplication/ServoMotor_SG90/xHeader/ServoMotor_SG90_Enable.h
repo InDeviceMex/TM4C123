@@ -27,8 +27,8 @@
 #include <xApplication/ServoMotor_SG90/xHeader/ServoMotor_SG90_Enum.h>
 
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* const psServoMotor);
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enDisable(const ServoMoto_SG90_Typedef* const psServoMotor);
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* const pstServoMotor);
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enDisable(const ServoMoto_SG90_Typedef* const pstServoMotor);
 
 
 #endif /* XAPPLICATION_SERVOMOTOR_SG90_XHEADER_SERVOMOTOR_SG90_ENABLE_H_ */

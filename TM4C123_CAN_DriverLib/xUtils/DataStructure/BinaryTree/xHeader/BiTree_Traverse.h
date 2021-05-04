@@ -27,9 +27,9 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/SingleLinkedList.h>
 
-BiTree_nSTATUS BiTree__enTraversePreOrder(const BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered );
-BiTree_nSTATUS BiTree__enTraverseInOrder(const BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered );
-BiTree_nSTATUS BiTree__enTraversePostOrder(const BiTreeElement_TypeDef* psNode, SLinkedList_TypeDef* psListOrdered );
+BiTree_nSTATUS BiTree__enTraversePreOrder(const BiTreeElement_TypeDef* pstNode, SLinkedList_TypeDef* pstListOrdered );
+BiTree_nSTATUS BiTree__enTraverseInOrder(const BiTreeElement_TypeDef* pstNode, SLinkedList_TypeDef* pstListOrdered );
+BiTree_nSTATUS BiTree__enTraversePostOrder(const BiTreeElement_TypeDef* pstNode, SLinkedList_TypeDef* pstListOrdered );
 
 
 

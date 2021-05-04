@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
-CSLinkedListElement_TypeDef* CSLinkedList__psGetTail(const CSLinkedList_TypeDef*  const psList);
-void CSLinkedList__vSetTail(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psTailArg);
-CSLinkedList_nSTATUS CSLinkedList__enIsTail(const CSLinkedList_TypeDef*  const psList, const CSLinkedListElement_TypeDef* const psElement);
+CSLinkedListElement_TypeDef* CSLinkedList__pstGetTail(const CSLinkedList_TypeDef*  const pstList);
+void CSLinkedList__vSetTail(CSLinkedList_TypeDef* pstList, CSLinkedListElement_TypeDef* pstTailArg);
+CSLinkedList_nSTATUS CSLinkedList__enIsTail(const CSLinkedList_TypeDef*  const pstList, const CSLinkedListElement_TypeDef* const pstElement);
 
 
 

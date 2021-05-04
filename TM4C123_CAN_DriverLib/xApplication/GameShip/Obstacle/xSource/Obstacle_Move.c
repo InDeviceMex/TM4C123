@@ -39,19 +39,19 @@ uint32_t Obstacle__u32GetRandPosY(void)
     return ((uint32_t) rand() % (FRAME_ROW_WORKING_MAX - ((3UL * FRAME_ROW_WORKING_MAX)/4UL))) + FRAME_ROW_WORKING_INIT ;
 }
 
-void Obstacle__vSetNewPos(Obstacle_TypeDef* psObstacleArg)
+void Obstacle__vSetNewPos(Obstacle_TypeDef* pstObstacleArg)
 {
-    psObstacleArg->u32Xpos = Obstacle__u32GetRandPosX() ;
-    psObstacleArg->u32Ypos = FRAME_ROW_WORKING_INIT;
+    pstObstacleArg->u32Xpos = Obstacle__u32GetRandPosX() ;
+    pstObstacleArg->u32Ypos = FRAME_ROW_WORKING_INIT;
 }
 
-void Obstacle__vMove(Obstacle_TypeDef* psObstacleArg)
+void Obstacle__vMove(Obstacle_TypeDef* pstObstacleArg)
 {
-    Obstacle__vErase(psObstacleArg);
-    psObstacleArg->u32Ypos++;
-    if(psObstacleArg->u32Ypos > FRAME_ROW_WORKING_MAX - 1UL)
+    Obstacle__vErase(pstObstacleArg);
+    pstObstacleArg->u32Ypos++;
+    if(pstObstacleArg->u32Ypos > FRAME_ROW_WORKING_MAX - 1UL)
     {
-        Obstacle__vSetNewPos(psObstacleArg);
+        Obstacle__vSetNewPos(pstObstacleArg);
     }
-    Obstacle__vDraw(psObstacleArg);
+    Obstacle__vDraw(pstObstacleArg);
 }

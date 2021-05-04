@@ -27,8 +27,8 @@
 
 #include <xOS/TCB/xHeader/OS_TCB_Defines.h>
 
-uint32_t OS_TCB__u32GetSize(const OS_TCB_TypeDef* const psTCB);
-OS_TCB_nSTATUS OS_TCB__enIsEmpty(const OS_TCB_TypeDef* const psTCB);
+uint32_t OS_TCB__u32GetSize(const OS_TCB_TypeDef* const pstTCB);
+OS_TCB_nSTATUS OS_TCB__enIsEmpty(const OS_TCB_TypeDef* const pstTCB);
 
 
 #endif /* XOS_TCB_XHEADER_OS_TCB_SIZE_H_ */

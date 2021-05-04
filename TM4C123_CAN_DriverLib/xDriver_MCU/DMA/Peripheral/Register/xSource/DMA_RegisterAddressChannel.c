@@ -28,15 +28,15 @@
 
 #if defined (__TI_ARM__ )
 
-#pragma DATA_SECTION(DMA__sChannel, ".dma")
-#pragma DATA_SECTION(DMA__sChannelAlt, ".dmaalt")
+#pragma DATA_SECTION(DMA__stChannel, ".dma")
+#pragma DATA_SECTION(DMA__stChannelAlt, ".dmaalt")
 
-volatile DMACHANNEL_TypeDef DMA__sChannel[DMACH_MAX];
-volatile DMACHANNEL_TypeDef DMA__sChannelAlt[DMACH_MAX];
+volatile DMACHANNEL_TypeDef DMA__stChannel[DMACH_MAX];
+volatile DMACHANNEL_TypeDef DMA__stChannelAlt[DMACH_MAX];
 
 #elif defined (__GNUC__ )
 
-__attribute__((section(".dma"))) volatile DMACHANNEL_TypeDef DMA__sChannel[DMACH_MAX];
-__attribute__((section(".dmaalt"))) volatile DMACHANNEL_TypeDef DMA__sChannelAlt[DMACH_MAX];
+__attribute__((section(".dma"))) volatile DMACHANNEL_TypeDef DMA__stChannel[DMACH_MAX];
+__attribute__((section(".dmaalt"))) volatile DMACHANNEL_TypeDef DMA__stChannelAlt[DMACH_MAX];
 
 #endif

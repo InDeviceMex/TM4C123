@@ -23,17 +23,17 @@
  */
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/xHeader/SLinkedList_ElementNextNode.h>
 
-SLinkedListElement_TypeDef* SLinkedList__psGetElementNextNode(const SLinkedListElement_TypeDef* const psElement)
+SLinkedListElement_TypeDef* SLinkedList__pstGetElementNextNode(const SLinkedListElement_TypeDef* const pstElement)
 {
-    SLinkedListElement_TypeDef* psNextElementReg = (SLinkedListElement_TypeDef*)0UL;
-    psNextElementReg = psElement->psNextNode;
+    SLinkedListElement_TypeDef* pstNextElementReg = (SLinkedListElement_TypeDef*)0UL;
+    pstNextElementReg = pstElement->pstNextNode;
 
-    return psNextElementReg;
+    return pstNextElementReg;
 }
 
-void SLinkedList__vSetElementNextNode(SLinkedListElement_TypeDef* psElement, SLinkedListElement_TypeDef* psNextElement)
+void SLinkedList__vSetElementNextNode(SLinkedListElement_TypeDef* pstElement, SLinkedListElement_TypeDef* pstNextElement)
 {
-    psElement->psNextNode = psNextElement;
+    pstElement->pstNextNode = pstNextElement;
 }
 
 

@@ -27,45 +27,45 @@
 #include <xDriver_MCU/DMA/App/CH_Config/xHeader/DMA_CH_ConfigStruct.h>
 #include <xDriver_MCU/DMA/Driver/DMA_Driver.h>
 
-void DMA_CH__vSetConfigStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef psConfig)
+void DMA_CH__vSetConfigStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef pstConfig)
 {
-        DMA_CH__vSetControlStructure(enDMAChannel, psConfig.enControlStructure);
-        DMA_CH__vSetPriority(enDMAChannel, psConfig.enChannelPriority);
-        DMA_CH__vSetEncoder(enDMAChannel, psConfig.enEncoder);
-        DMA_CH__vSetPeripheralEnable(enDMAChannel, psConfig.enPeripheralEnable);
-        DMA_CH__vSetRequestType(enDMAChannel, psConfig.enReqType);
+        DMA_CH__vSetControlStructure(enDMAChannel, pstConfig.enControlStructure);
+        DMA_CH__vSetPriority(enDMAChannel, pstConfig.enChannelPriority);
+        DMA_CH__vSetEncoder(enDMAChannel, pstConfig.enEncoder);
+        DMA_CH__vSetPeripheralEnable(enDMAChannel, pstConfig.enPeripheralEnable);
+        DMA_CH__vSetRequestType(enDMAChannel, pstConfig.enReqType);
 }
 
-void DMA_CH__vGetConfig(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef* psConfig)
+void DMA_CH__vGetConfig(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef* pstConfig)
 {
-    psConfig->enControlStructure = DMA_CH__enGetControlStructure(enDMAChannel);
-    psConfig->enChannelPriority = DMA_CH__enGetPriority(enDMAChannel);
-    psConfig->enEncoder = DMA_CH__enGetEncoder(enDMAChannel);
-    psConfig->enPeripheralEnable = DMA_CH__enGetPeripheralEnable(enDMAChannel);
-    psConfig->enReqType = DMA_CH__enGetRequestType(enDMAChannel);
+    pstConfig->enControlStructure = DMA_CH__enGetControlStructure(enDMAChannel);
+    pstConfig->enChannelPriority = DMA_CH__enGetPriority(enDMAChannel);
+    pstConfig->enEncoder = DMA_CH__enGetEncoder(enDMAChannel);
+    pstConfig->enPeripheralEnable = DMA_CH__enGetPeripheralEnable(enDMAChannel);
+    pstConfig->enReqType = DMA_CH__enGetRequestType(enDMAChannel);
 }
 
-DMA_CONFIG_Typedef* DMA_CH__psGetConfig(DMA_nCH_MODULE enDMAChannel)
+DMA_CONFIG_Typedef* DMA_CH__pstGetConfig(DMA_nCH_MODULE enDMAChannel)
 {
-    DMA_CONFIG_Typedef* psConfig = 0UL;
+    DMA_CONFIG_Typedef* pstConfig = 0UL;
     #if defined (__TI_ARM__ )
-    psConfig = (DMA_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) sizeof(DMA_CONFIG_Typedef));
+    pstConfig = (DMA_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) sizeof(DMA_CONFIG_Typedef));
     #elif defined (__GNUC__ )
-    psConfig = (DMA_CONFIG_Typedef*) malloc(sizeof(DMA_CONFIG_Typedef));
+    pstConfig = (DMA_CONFIG_Typedef*) malloc(sizeof(DMA_CONFIG_Typedef));
     #endif
-    if(0UL != (uint32_t) psConfig)
+    if(0UL != (uint32_t) pstConfig)
     {
-        psConfig->enControlStructure = DMA_CH__enGetControlStructure(enDMAChannel);
-        psConfig->enChannelPriority = DMA_CH__enGetPriority(enDMAChannel);
-        psConfig->enEncoder = DMA_CH__enGetEncoder(enDMAChannel);
-        psConfig->enPeripheralEnable = DMA_CH__enGetPeripheralEnable(enDMAChannel);
-        psConfig->enReqType = DMA_CH__enGetRequestType(enDMAChannel);
+        pstConfig->enControlStructure = DMA_CH__enGetControlStructure(enDMAChannel);
+        pstConfig->enChannelPriority = DMA_CH__enGetPriority(enDMAChannel);
+        pstConfig->enEncoder = DMA_CH__enGetEncoder(enDMAChannel);
+        pstConfig->enPeripheralEnable = DMA_CH__enGetPeripheralEnable(enDMAChannel);
+        pstConfig->enReqType = DMA_CH__enGetRequestType(enDMAChannel);
     }
-    return psConfig;
+    return pstConfig;
 }
 
-void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* psConfig)
+void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* pstConfig)
 {
-    free(psConfig);
-    psConfig = (DMA_CONFIG_Typedef*) 0UL;
+    free(pstConfig);
+    pstConfig = (DMA_CONFIG_Typedef*) 0UL;
 }

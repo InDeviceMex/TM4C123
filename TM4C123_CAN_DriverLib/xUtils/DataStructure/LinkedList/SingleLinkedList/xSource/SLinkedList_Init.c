@@ -25,36 +25,36 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Init.h>
 #include <stdlib.h>
 
-SLinkedList_TypeDef* SLinkedList__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
+SLinkedList_TypeDef* SLinkedList__pstInit(void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
-    SLinkedList_TypeDef *psList = 0;
+    SLinkedList_TypeDef *pstList = 0;
 #if defined (__TI_ARM__ )
-    psList = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) sizeof(SLinkedList_TypeDef));
+    pstList = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) sizeof(SLinkedList_TypeDef));
 #elif defined (__GNUC__ )
-    psList = (SLinkedList_TypeDef*) malloc(sizeof(SLinkedList_TypeDef));
+    pstList = (SLinkedList_TypeDef*) malloc(sizeof(SLinkedList_TypeDef));
 #endif
-    if((uint32_t) 0UL != (uint32_t) psList)
+    if((uint32_t) 0UL != (uint32_t) pstList)
     {
-        psList->u32Size = 0UL;
-        psList->pfvDestroy = &free;
-        psList->pfvDestroyElementData = pfvDestroyElementDataArg;
-        psList->psHead = (SLinkedListElement_TypeDef*)  0UL;
-        psList->psTail = (SLinkedListElement_TypeDef*)  0UL;
+        pstList->u32Size = 0UL;
+        pstList->pfvDestroy = &free;
+        pstList->pfvDestroyElementData = pfvDestroyElementDataArg;
+        pstList->pstHead = (SLinkedListElement_TypeDef*)  0UL;
+        pstList->pstTail = (SLinkedListElement_TypeDef*)  0UL;
     }
-    return psList;
+    return pstList;
 }
 
-SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* psList, void (*pfvDestroyElementDataArg) (void *DataContainer))
+SLinkedList_nSTATUS SLinkedList__enInit(SLinkedList_TypeDef* pstList, void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
-    if((uint32_t) 0UL != (uint32_t) psList)
+    if((uint32_t) 0UL != (uint32_t) pstList)
     {
         enStatus = SLinkedList_enSTATUS_OK;
-        psList->u32Size = 0UL;
-        psList->pfvDestroy = (void (*) (void* List))0UL;
-        psList->pfvDestroyElementData = pfvDestroyElementDataArg;
-        psList->psHead = (SLinkedListElement_TypeDef*)  0UL;
-        psList->psTail = (SLinkedListElement_TypeDef*)  0UL;
+        pstList->u32Size = 0UL;
+        pstList->pfvDestroy = (void (*) (void* List))0UL;
+        pstList->pfvDestroyElementData = pfvDestroyElementDataArg;
+        pstList->pstHead = (SLinkedListElement_TypeDef*)  0UL;
+        pstList->pstTail = (SLinkedListElement_TypeDef*)  0UL;
     }
     return enStatus;
 }

@@ -29,56 +29,56 @@
 #include <stdlib.h>
 
 
-BiTreeElement_TypeDef* BiTree__psInsertRight(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psElement, void* pvData)
+BiTreeElement_TypeDef* BiTree__pstInsertRight(BiTree_TypeDef* pstTree, BiTreeElement_TypeDef* pstElement, void* pvData)
 {
-     BiTreeElement_TypeDef* psNewElement = (BiTreeElement_TypeDef*) 0UL ;
-     BiTreeElement_TypeDef* psElementRight = (BiTreeElement_TypeDef*) 0UL ;
-     BiTreeElement_TypeDef** psElementPosition = (BiTreeElement_TypeDef**) 0UL ;
+     BiTreeElement_TypeDef* pstNewElement = (BiTreeElement_TypeDef*) 0UL ;
+     BiTreeElement_TypeDef* pstElementRight = (BiTreeElement_TypeDef*) 0UL ;
+     BiTreeElement_TypeDef** pstElementPosition = (BiTreeElement_TypeDef**) 0UL ;
      uint32_t u32SizeReg = 0U;
 
-     if(((uint32_t) 0UL != (uint32_t) psTree))
+     if(((uint32_t) 0UL != (uint32_t) pstTree))
      {
-         u32SizeReg = BiTree__u32GetSize(psTree);
+         u32SizeReg = BiTree__u32GetSize(pstTree);
          /*Insert at the root if the Tree is empty*/
-         if((uint32_t) 0UL == (uint32_t) psElement)
+         if((uint32_t) 0UL == (uint32_t) pstElement)
          {
              if((uint32_t) 0UL == (uint32_t) u32SizeReg)
              {
-                 psElementPosition = &psTree->psRoot;
+                 pstElementPosition = &pstTree->pstRoot;
              }
          }
          /*Insertion at the end of the branch*/
          else
          {
-             psElementRight = BiTree__psGetElementRightNode(psElement);
-             if((uint32_t) 0UL == (uint32_t) psElementRight)
+             pstElementRight = BiTree__pstGetElementRightNode(pstElement);
+             if((uint32_t) 0UL == (uint32_t) pstElementRight)
              {
-                 psElementPosition = &psElement->psRightNode;
+                 pstElementPosition = &pstElement->pstRightNode;
              }
          }
 
         #if defined (__TI_ARM__ )
-         psNewElement = (BiTreeElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(BiTreeElement_TypeDef));
+         pstNewElement = (BiTreeElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(BiTreeElement_TypeDef));
         #elif defined (__GNUC__ )
-         psNewElement = (BiTreeElement_TypeDef*) malloc(sizeof(BiTreeElement_TypeDef));
+         pstNewElement = (BiTreeElement_TypeDef*) malloc(sizeof(BiTreeElement_TypeDef));
         #endif
 
-        if((uint32_t) 0UL != (uint32_t) psNewElement)
+        if((uint32_t) 0UL != (uint32_t) pstNewElement)
         {
 
-            BiTree__vSetElementData(psNewElement, pvData);
-            BiTree__vSetElementRightNode(psNewElement, (BiTreeElement_TypeDef*) 0UL);
-            BiTree__vSetElementRightNode(psNewElement, (BiTreeElement_TypeDef*) 0UL);
-            if((uint32_t) 0UL != (uint32_t) psElementPosition)
+            BiTree__vSetElementData(pstNewElement, pvData);
+            BiTree__vSetElementRightNode(pstNewElement, (BiTreeElement_TypeDef*) 0UL);
+            BiTree__vSetElementRightNode(pstNewElement, (BiTreeElement_TypeDef*) 0UL);
+            if((uint32_t) 0UL != (uint32_t) pstElementPosition)
             {
-                *psElementPosition = psNewElement;
+                *pstElementPosition = pstNewElement;
             }
 
             u32SizeReg++;
-            BiTree__vSetSize(psTree, u32SizeReg);
+            BiTree__vSetSize(pstTree, u32SizeReg);
         }
     }
-    return psNewElement;
+    return pstNewElement;
 }
 
 

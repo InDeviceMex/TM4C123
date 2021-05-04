@@ -26,10 +26,10 @@
 #include <xUtils/DataStructure/HashTable/ChainedHashTable/xHeader/CHashTable_Size.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Add.h>
 
-CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* psCHashTable, void* pvData)
+CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* pstCHashTable, void* pvData)
 {
-    SLinkedList_TypeDef *psList = (SLinkedList_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElement = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedList_TypeDef *pstList = (SLinkedList_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElement = (SLinkedListElement_TypeDef*) 0UL;
 
     void *pvDataTemp = (void*) 0UL;
     uint32_t u32BucketNum = 0UL;
@@ -37,23 +37,23 @@ CHashTable_nSTATUS CHashTable__enInsert(CHashTable_TypeDef* psCHashTable, void* 
     uint32_t u32SizeReg = 0UL;
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
 
-    if((uint32_t) 0UL != (uint32_t) psCHashTable)
+    if((uint32_t) 0UL != (uint32_t) pstCHashTable)
     {
         pvDataTemp = (void*)pvData;
-        enMatchResult = CHashTable__enLookup(psCHashTable, &pvDataTemp);
+        enMatchResult = CHashTable__enLookup(pstCHashTable, &pvDataTemp);
         if(CHashTable_enSTATUS_ERROR != enMatchResult)
         {
-            u32BucketsSize = psCHashTable->u32Buckets;
-            u32BucketNum = psCHashTable->pfu32HashFunction(pvData);
+            u32BucketsSize = pstCHashTable->u32Buckets;
+            u32BucketNum = pstCHashTable->pfu32HashFunction(pvData);
             u32BucketNum %= u32BucketsSize;
-            psList = psCHashTable->psTable;
-            psList += u32BucketNum;
-            psElement = SLinkedList__psAddBegin(psList, pvData);
-            if((uint32_t) 0UL != (uint32_t) psElement)
+            pstList = pstCHashTable->pstTable;
+            pstList += u32BucketNum;
+            pstElement = SLinkedList__pstAddBegin(pstList, pvData);
+            if((uint32_t) 0UL != (uint32_t) pstElement)
             {
-                u32SizeReg = CHashTable__u32GetSize(psCHashTable);
+                u32SizeReg = CHashTable__u32GetSize(pstCHashTable);
                 u32SizeReg++;
-                CHashTable__vSetSize(psCHashTable, u32SizeReg);
+                CHashTable__vSetSize(pstCHashTable, u32SizeReg);
                 enMatchResult = CHashTable_enSTATUS_OK;
             }
         }

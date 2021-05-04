@@ -28,7 +28,7 @@
 #include <xApplication/GameShip/Shot/xHeader/Shot_Struct.h>
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 
-uint32_t Shot__u32Move(Shot_TypeDef* psShotArg);
-uint32_t Shot__u32CheckToLimit(DLinkedList_TypeDef* psShotDLinkedListArg);
+uint32_t Shot__u32Move(Shot_TypeDef* pstShotArg);
+uint32_t Shot__u32CheckToLimit(DLinkedList_TypeDef* pstShotDLinkedListArg);
 
 #endif /* XAPPLICATION_GAMESHIP_SHOT_XHEADER_SHOT_MOVE_H_ */

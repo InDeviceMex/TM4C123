@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
-void SLinkedList__vDestroy(SLinkedList_TypeDef* psList);
+void SLinkedList__vDestroy(SLinkedList_TypeDef* pstList);
 
 
 

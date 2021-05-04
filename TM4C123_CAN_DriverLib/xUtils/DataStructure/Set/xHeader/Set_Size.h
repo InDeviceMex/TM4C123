@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-uint32_t Set__u32GetSize(const Set_TypeDef* const psSet);
-Set_nSTATUS Set__enIsEmpty(const Set_TypeDef* const psSet);
+uint32_t Set__u32GetSize(const Set_TypeDef* const pstSet);
+Set_nSTATUS Set__enIsEmpty(const Set_TypeDef* const pstSet);
 
 
 

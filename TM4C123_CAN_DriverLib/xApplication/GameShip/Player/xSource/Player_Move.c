@@ -29,43 +29,43 @@
 #include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
 #include <xApplication/EDUMKII/EDUMKII.h>
 
-void Player__vMove(Player_TypeDef* psPlayerArg)
+void Player__vMove(Player_TypeDef* pstPlayerArg)
 {
     uint32_t u32JoystickXValue = 0UL;
     uint32_t u32JoystickYValue = 0UL;
     EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
 
     EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
-    Player__vErase(psPlayerArg);
+    Player__vErase(pstPlayerArg);
     /*to Left*/
-    if((u32JoystickXValue <= 1100UL) && (psPlayerArg->u32Xpos > FRAME_COLUMN_WORKING_INIT))
+    if((u32JoystickXValue <= 1100UL) && (pstPlayerArg->u32Xpos > FRAME_COLUMN_WORKING_INIT))
     {
-        psPlayerArg->u32Xpos--;
+        pstPlayerArg->u32Xpos--;
     }
     /*to right*/
-    if(((u32JoystickXValue >= 3000UL) && (u32JoystickXValue <= 4096UL)) &&  (psPlayerArg->u32Xpos < (FRAME_COLUMN_WORKING_MAX - psPlayerArg->u32WidthPlayer)))
+    if(((u32JoystickXValue >= 3000UL) && (u32JoystickXValue <= 4096UL)) &&  (pstPlayerArg->u32Xpos < (FRAME_COLUMN_WORKING_MAX - pstPlayerArg->u32WidthPlayer)))
     {
-        psPlayerArg->u32Xpos++;
+        pstPlayerArg->u32Xpos++;
     }
 
     /*to Down*/
-    if((u32JoystickYValue <= 1100UL) && (psPlayerArg->u32Ypos < (FRAME_ROW_WORKING_MAX - psPlayerArg->u32HeightPlayer)))
+    if((u32JoystickYValue <= 1100UL) && (pstPlayerArg->u32Ypos < (FRAME_ROW_WORKING_MAX - pstPlayerArg->u32HeightPlayer)))
     {
-        psPlayerArg->u32Ypos++;
+        pstPlayerArg->u32Ypos++;
     }
     /*to Up*/
-    if(((u32JoystickYValue >= 3000UL) && (u32JoystickYValue <= 4096UL)) && (psPlayerArg->u32Ypos > FRAME_ROW_WORKING_INIT))
+    if(((u32JoystickYValue >= 3000UL) && (u32JoystickYValue <= 4096UL)) && (pstPlayerArg->u32Ypos > FRAME_ROW_WORKING_INIT))
     {
-        psPlayerArg->u32Ypos--;
+        pstPlayerArg->u32Ypos--;
     }
 
     if(EDUMKII_enJOYSTICK_PRESS == enJoystickSelectValue)
     {
-        if(0UL != psPlayerArg->u32SubLifesCurrent)
+        if(0UL != pstPlayerArg->u32SubLifesCurrent)
         {
-            psPlayerArg->u32SubLifesCurrent--;
+            pstPlayerArg->u32SubLifesCurrent--;
         }
     }
-    Player__vDraw(psPlayerArg);
-    Player__vDrawLifes(psPlayerArg);
+    Player__vDraw(pstPlayerArg);
+    Player__vDrawLifes(pstPlayerArg);
 }

@@ -31,10 +31,10 @@
 #include <xDriver_MCU/SSI/Driver/FrameControl/xHeader/SSI_Polarity.h>
 
 void SSI__vSetFormatControl(SSI_nMODULE enModule, SSI_nFORMAT enFormatArg, SSI_nLENGTH enLengthDataArg, SSI_nCLOCK_PHASE enClockPhaseArg, SSI_nCLOCK_POLARITY enClockPolarityArg);
-void SSI__vSetFormatControlStruct(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef sFormatControl);
-void SSI__vSetFormatControlStructPointer(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef* psFormatControl);
+void SSI__vSetFormatControlStruct(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef stFormatControl);
+void SSI__vSetFormatControlStructPointer(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef* pstFormatControl);
 void SSI__vSetClockAndFormatControl(SSI_nMODULE enModule, SSI_nFORMAT enFormatArg, SSI_nLENGTH enLengthDataArg, SSI_nCLOCK_PHASE enClockPhaseArg, SSI_nCLOCK_POLARITY enClockPolarityArg, uint32_t u32ClockArg);
-void SSI__vSetClockAndFormatControlStruct(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef sFormatControl, uint32_t u32ClockArg);
-void SSI__vSetClockAndFormatControlStructPointer(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef* psFormatControl, uint32_t u32ClockArg);
+void SSI__vSetClockAndFormatControlStruct(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef stFormatControl, uint32_t u32ClockArg);
+void SSI__vSetClockAndFormatControlStructPointer(SSI_nMODULE enModule, const SSI_FRAME_CONTROL_TypeDef* pstFormatControl, uint32_t u32ClockArg);
 
 #endif /* XDRIVER_MCU_SSI_DRIVER_FRAMECONTROL_SSI_FRAMECONTROL_H_ */

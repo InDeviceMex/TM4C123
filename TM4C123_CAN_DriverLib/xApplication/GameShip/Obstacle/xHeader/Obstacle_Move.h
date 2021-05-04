@@ -30,7 +30,7 @@
 uint32_t Obstacle__u32GetRandPosX(void);
 uint32_t Obstacle__u32GetRandPosY(void);
 
-void Obstacle__vMove(Obstacle_TypeDef* psObstacleArg);
-void Obstacle__vSetNewPos(Obstacle_TypeDef* psObstacleArg);
+void Obstacle__vMove(Obstacle_TypeDef* pstObstacleArg);
+void Obstacle__vSetNewPos(Obstacle_TypeDef* pstObstacleArg);
 
 #endif /* XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_MOVE_H_ */

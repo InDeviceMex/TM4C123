@@ -35,7 +35,7 @@
 
 void EDUMKII_Microphone_vInit(void)
 {
-    ADC_SAMPLE_CONFIG_Typedef sADC0SampleConfig = {
+    ADC_SAMPLE_CONFIG_Typedef stADC0SampleConfig = {
      ADC_enSEQ_INPUT_0,
      ADC_enSEQ_INPUT_DIFF_DIS,
      ADC_enSEQ_INPUT_ENDED_DIS,
@@ -86,10 +86,10 @@ void EDUMKII_Microphone_vInit(void)
     ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_0, ADC_enSEQ_TRIGGER_SOFTWARE);
 
 
-    sADC0SampleConfig.enInput = EDUMKII_MICROPHONE_INPUT;
-    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_ENA;
-    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_ENA;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_0, ADC_en_MUX_0, &sADC0SampleConfig);
+    stADC0SampleConfig.enInput = EDUMKII_MICROPHONE_INPUT;
+    stADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_ENA;
+    stADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_ENA;
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_0, ADC_en_MUX_0, &stADC0SampleConfig);
 
     ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_0, ADC_enPRI1);
     ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_0, ADC_enSEQ_ENABLE_ENA);

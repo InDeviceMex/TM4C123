@@ -29,6 +29,6 @@
 #include <xDriver_MCU/WDT/Peripheral/xHeader/WDT_Enum.h>
 
 WDT_nSTATUS WDT__enSetMode_Load(WDT_nMODULE enModule, WDT_nMODE enMode, uint32_t u32Load);
-WDT_nSTATUS WDT__enSetModeStruct_Load(WDT_nMODULE enModule, const WDT_MODE_Typedef* psMode, uint32_t u32Load);
+WDT_nSTATUS WDT__enSetModeStruct_Load(WDT_nMODULE enModule, const WDT_MODE_Typedef* pstMode, uint32_t u32Load);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_APP_WDT_MODELOAD_WDT_MODELOAD_H_ */

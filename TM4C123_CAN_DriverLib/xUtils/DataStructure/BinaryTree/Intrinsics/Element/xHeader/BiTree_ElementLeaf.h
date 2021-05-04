@@ -27,7 +27,7 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
-BiTree_nSTATUS BiTree__enIsElementLeaf(const BiTreeElement_TypeDef* const psElement);
+BiTree_nSTATUS BiTree__enIsElementLeaf(const BiTreeElement_TypeDef* const pstElement);
 
 
 

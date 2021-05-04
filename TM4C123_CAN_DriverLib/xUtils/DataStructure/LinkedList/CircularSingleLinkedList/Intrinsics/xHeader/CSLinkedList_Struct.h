@@ -35,7 +35,7 @@ typedef enum
 typedef struct CSLinkedListElement
 {
         void* pvDataContainer;
-        struct CSLinkedListElement *psNextNode;
+        struct CSLinkedListElement *pstNextNode;
 }CSLinkedListElement_TypeDef;
 
 typedef struct CSLinkedList
@@ -44,8 +44,8 @@ typedef struct CSLinkedList
         uint32_t (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
         void (*pfvDestroyElementData) (void *DataContainer);
         void (*pfvDestroy) (void* List);
-        CSLinkedListElement_TypeDef *psHead;
-        CSLinkedListElement_TypeDef *psTail;
+        CSLinkedListElement_TypeDef *pstHead;
+        CSLinkedListElement_TypeDef *pstTail;
 }CSLinkedList_TypeDef;
 
 

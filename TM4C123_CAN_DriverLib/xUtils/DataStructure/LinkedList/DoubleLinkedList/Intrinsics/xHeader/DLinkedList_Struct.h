@@ -35,8 +35,8 @@ typedef enum
 typedef struct DLinkedListElement
 {
         void* pvDataContainer;
-        struct DLinkedListElement *psPreviousNode;
-        struct DLinkedListElement *psNextNode;
+        struct DLinkedListElement *pstPreviousNode;
+        struct DLinkedListElement *pstNextNode;
 }DLinkedListElement_TypeDef;
 
 typedef struct DLinkedList
@@ -45,8 +45,8 @@ typedef struct DLinkedList
         uint32_t (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
         void (*pfvDestroyElementData) (void *DataContainer);
         void (*pfvDestroy) (void* List);
-        DLinkedListElement_TypeDef *psHead;
-        DLinkedListElement_TypeDef *psTail;
+        DLinkedListElement_TypeDef *pstHead;
+        DLinkedListElement_TypeDef *pstTail;
 }DLinkedList_TypeDef;
 
 

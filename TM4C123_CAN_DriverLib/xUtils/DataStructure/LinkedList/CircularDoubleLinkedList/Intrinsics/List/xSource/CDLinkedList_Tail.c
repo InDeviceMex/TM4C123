@@ -24,22 +24,22 @@
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/List/xHeader/CDLinkedList_Tail.h>
 #include <stdlib.h>
 
-CDLinkedListElement_TypeDef* CDLinkedList__psGetTail(const CDLinkedList_TypeDef*  const psList)
+CDLinkedListElement_TypeDef* CDLinkedList__pstGetTail(const CDLinkedList_TypeDef*  const pstList)
 {
-    CDLinkedListElement_TypeDef* psTailReg = (CDLinkedListElement_TypeDef*)0U;
-    psTailReg = psList->psTail;
-    return psTailReg;
+    CDLinkedListElement_TypeDef* pstTailReg = (CDLinkedListElement_TypeDef*)0U;
+    pstTailReg = pstList->pstTail;
+    return pstTailReg;
 }
 
-void CDLinkedList__vSetTail(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psTailArg)
+void CDLinkedList__vSetTail(CDLinkedList_TypeDef* pstList, CDLinkedListElement_TypeDef* pstTailArg)
 {
-    psList->psTail = psTailArg;
+    pstList->pstTail = pstTailArg;
 }
 
-CDLinkedList_nSTATUS CDLinkedList__enIsTail(const CDLinkedListElement_TypeDef* const psElement)
+CDLinkedList_nSTATUS CDLinkedList__enIsTail(const CDLinkedListElement_TypeDef* const pstElement)
 {
     CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
-    if ((uint32_t) 0UL == (uint32_t) (psElement->psNextNode))
+    if ((uint32_t) 0UL == (uint32_t) (pstElement->pstNextNode))
     {
         enStatus = CDLinkedList_enSTATUS_OK;
     }

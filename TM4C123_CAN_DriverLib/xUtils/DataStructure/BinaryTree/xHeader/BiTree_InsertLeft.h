@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
-BiTreeElement_TypeDef* BiTree__psInsertLeft(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psElement, void* pvData);
+BiTreeElement_TypeDef* BiTree__pstInsertLeft(BiTree_TypeDef* pstTree, BiTreeElement_TypeDef* pstElement, void* pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_BINARYTREE_XHEADER_BITREE_INSERTLEFT_H_ */

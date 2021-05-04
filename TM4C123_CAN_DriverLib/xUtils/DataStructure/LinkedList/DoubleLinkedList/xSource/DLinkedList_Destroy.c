@@ -29,41 +29,41 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/List/xHeader/DLinkedList_Tail.h>
 #include <stdlib.h>
 
-void DLinkedList__vDestroy(DLinkedList_TypeDef* psList)
+void DLinkedList__vDestroy(DLinkedList_TypeDef* pstList)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psTailElement = (DLinkedListElement_TypeDef*) 0UL;
+     DLinkedListElement_TypeDef* pstTailElement = (DLinkedListElement_TypeDef*) 0UL;
      void * pvDataElement = (void*)0UL;
      uint32_t u32SizeReg = 0UL;
      void (*pfvListDestroy) (void* List) = (void (*) (void* List) )0UL;
 
-     if((DLinkedList_TypeDef*)0 != psList)
+     if((DLinkedList_TypeDef*)0 != pstList)
      {
          enStatus = DLinkedList_enSTATUS_OK;
-         u32SizeReg = DLinkedList__u32GetSize(psList);
-         pfvListDestroy = psList->pfvDestroy;
+         u32SizeReg = DLinkedList__u32GetSize(pstList);
+         pfvListDestroy = pstList->pfvDestroy;
          while (u32SizeReg> 0UL)
          {
-             psTailElement = DLinkedList__psGetTail(psList);
-             enStatus = DLinkedList__enRemove(psList, psTailElement, (void **) & pvDataElement);
-             if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) psList->pfvDestroyElementData))
+             pstTailElement = DLinkedList__pstGetTail(pstList);
+             enStatus = DLinkedList__enRemove(pstList, pstTailElement, (void **) & pvDataElement);
+             if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) pstList->pfvDestroyElementData))
              {
-                 psList->pfvDestroyElementData(pvDataElement);
+                 pstList->pfvDestroyElementData(pvDataElement);
              }
-             u32SizeReg = DLinkedList__u32GetSize(psList);
+             u32SizeReg = DLinkedList__u32GetSize(pstList);
          }
 
-         psList->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
-         psList->pfvDestroy = (void (*) (void* List)) 0UL;
-         psList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
-         psList->psHead = (DLinkedListElement_TypeDef *) 0UL;
-         psList->psTail = (DLinkedListElement_TypeDef *) 0UL;
-         psList->u32Size = 0UL;
+         pstList->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
+         pstList->pfvDestroy = (void (*) (void* List)) 0UL;
+         pstList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
+         pstList->pstHead = (DLinkedListElement_TypeDef *) 0UL;
+         pstList->pstTail = (DLinkedListElement_TypeDef *) 0UL;
+         pstList->u32Size = 0UL;
 
          if((DLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) pfvListDestroy))
          {
-             pfvListDestroy(psList);
-             psList = (DLinkedList_TypeDef*)0UL;
+             pfvListDestroy(pstList);
+             pstList = (DLinkedList_TypeDef*)0UL;
          }
      }
  }

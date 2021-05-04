@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/HashTable/ChainedHashTable/xHeader/CHashTable_Struct.h>
 
-CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* psCHashTable, void** pvData);
+CHashTable_nSTATUS CHashTable__enRemove(CHashTable_TypeDef* pstCHashTable, void** pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_REMOVE_H_ */

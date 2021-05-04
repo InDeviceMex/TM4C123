@@ -27,49 +27,49 @@
 #include <xDriver_MCU/TIMER/Peripheral/TIMER_Peripheral.h>
 #include <xDriver_MCU/TIMER/Driver/Intrinsics/Primitives/TIMER_Primitives.h>
 
-TIMER_nSTATUS TIMER_enGet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount)
+TIMER_nSTATUS TIMER_enGet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* pstCount)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
     uint32_t u32Reg = 0UL;
     uint32_t u32TimerBase = 0UL;
-    if((0UL != (uint32_t) psCount->pu32CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) pstCount->pu32CountValue) && (0UL != (uint32_t) pstCount))
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-        u32TimerBase += psCount->u32CountRegister;
+        u32TimerBase += pstCount->u32CountRegister;
 
         u32Reg = *(volatile uint32_t*) (u32TimerBase);
 
-        if(0xFFFFFFFFUL != psCount->u32CountMask)
+        if(0xFFFFFFFFUL != pstCount->u32CountMask)
         {
-            u32Reg >>= psCount->u32CountShiftRight;
-            u32Reg &= psCount->u32CountMask;
+            u32Reg >>= pstCount->u32CountShiftRight;
+            u32Reg &= pstCount->u32CountMask;
         }
-        *psCount->pu32CountValue = u32Reg;
+        *pstCount->pu32CountValue = u32Reg;
     }
     return enStatus;
 }
 
-void TIMER_vSet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount)
+void TIMER_vSet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* pstCount)
 {
     uint32_t u32Reg = 0UL;
     uint32_t u32TimerBase = 0UL;
-    if((0UL != (uint32_t) psCount->pu32CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) pstCount->pu32CountValue) && (0UL != (uint32_t) pstCount))
     {
-        u32Reg = *psCount->pu32CountValue;
+        u32Reg = *pstCount->pu32CountValue;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-        u32TimerBase += psCount->u32CountRegister;
+        u32TimerBase += pstCount->u32CountRegister;
 
-        u32Reg >>= psCount->u32CountShiftRight;
-        u32Reg &= psCount->u32CountMask;
+        u32Reg >>= pstCount->u32CountShiftRight;
+        u32Reg &= pstCount->u32CountMask;
 
         *(volatile uint32_t*) (u32TimerBase) = u32Reg;
     }
 }
 
-TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
+TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* pstCount)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
 
@@ -83,40 +83,40 @@ TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE
     uint32_t u32TimerRegisterHigh = 0UL;
     uint32_t u32TimerRegisterLow = 0UL;
 
-    if((0UL != (uint32_t) psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) pstCount->pu64CountValue) && (0UL != (uint32_t) pstCount))
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-        u32TimerRegisterHigh = u32TimerBase + psCount->u32CountHighRegister;
-        u32TimerRegisterLow = u32TimerBase + psCount->u32CountLowRegister;
+        u32TimerRegisterHigh = u32TimerBase + pstCount->u32CountHighRegister;
+        u32TimerRegisterLow = u32TimerBase + pstCount->u32CountLowRegister;
 
         u32RegHigh = *(volatile uint32_t*) (u32TimerRegisterHigh);
         u32RegLow = *(volatile uint32_t*) (u32TimerRegisterLow);
 
-        if(0xFFFFFFFFUL != psCount->u32CountHighMask)
+        if(0xFFFFFFFFUL != pstCount->u32CountHighMask)
         {
-            u32RegHigh >>= psCount->u32CountHighShiftRight;
-            u32RegHigh &= psCount->u32CountHighMask;
+            u32RegHigh >>= pstCount->u32CountHighShiftRight;
+            u32RegHigh &= pstCount->u32CountHighMask;
         }
-        if(0xFFFFFFFFUL != psCount->u32CountLowMask)
+        if(0xFFFFFFFFUL != pstCount->u32CountLowMask)
         {
-            u32RegLow >>= psCount->u32CountLowShiftRight;
-            u32RegLow &= psCount->u32CountLowMask;
+            u32RegLow >>= pstCount->u32CountLowShiftRight;
+            u32RegLow &= pstCount->u32CountLowMask;
         }
 
         u64RegHigh = u32RegHigh;
-        u64RegHigh <<= psCount->u32CountHighShiftLeft;
+        u64RegHigh <<= pstCount->u32CountHighShiftLeft;
         u64RegLow = u32RegLow;
-        u64RegLow <<= psCount->u32CountLowShiftLeft;
+        u64RegLow <<= pstCount->u32CountLowShiftLeft;
 
-        *psCount->pu64CountValue = u64RegHigh;
-        *psCount->pu64CountValue |= u64RegLow;
+        *pstCount->pu64CountValue = u64RegHigh;
+        *pstCount->pu64CountValue |= u64RegLow;
     }
     return enStatus;
 }
 
-void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
+void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* pstCount)
 {
 
     uint64_t u64Reg = 0ULL;
@@ -131,29 +131,29 @@ void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMod
     uint32_t u32TimerRegisterHigh = 0UL;
     uint32_t u32TimerRegisterLow = 0UL;
 
-    if((0UL != (uint32_t) psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) pstCount->pu64CountValue) && (0UL != (uint32_t) pstCount))
     {
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-        u32TimerRegisterHigh = u32TimerBase + psCount->u32CountHighRegister;
-        u32TimerRegisterLow = u32TimerBase + psCount->u32CountLowRegister;
+        u32TimerRegisterHigh = u32TimerBase + pstCount->u32CountHighRegister;
+        u32TimerRegisterLow = u32TimerBase + pstCount->u32CountLowRegister;
 
-        u64Reg = *psCount->pu64CountValue;
+        u64Reg = *pstCount->pu64CountValue;
 
         u64RegHigh = u64Reg;
-        u64RegHigh >>= psCount->u32CountHighShiftRight;
+        u64RegHigh >>= pstCount->u32CountHighShiftRight;
         u32RegHigh = (uint32_t) u64RegHigh;
-        u32RegHigh &= psCount->u32CountHighMask;
+        u32RegHigh &= pstCount->u32CountHighMask;
         u64RegHigh = (uint64_t) u32RegHigh;
-        u64RegHigh <<= psCount->u32CountHighShiftLeft;
+        u64RegHigh <<= pstCount->u32CountHighShiftLeft;
         u32RegHigh = (uint32_t) u64RegHigh;
 
         u64RegLow = u64Reg;
-        u64RegLow >>= psCount->u32CountLowShiftRight;
+        u64RegLow >>= pstCount->u32CountLowShiftRight;
         u32RegLow = (uint32_t) u64RegLow;
-        u32RegLow &= psCount->u32CountLowMask;
+        u32RegLow &= pstCount->u32CountLowMask;
         u64RegLow = (uint64_t) u32RegLow;
-        u64RegLow <<= psCount->u32CountLowShiftLeft;
+        u64RegLow <<= pstCount->u32CountLowShiftLeft;
         u32RegLow = (uint32_t) u64RegLow;
 
         *(volatile uint32_t*) (u32TimerRegisterHigh) = u32RegHigh;
@@ -161,7 +161,7 @@ void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enMod
     }
 }
 
-TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount)
+TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* pstCount)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
 
@@ -176,13 +176,13 @@ TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_
     uint32_t u32TimerRegisterHigh = 0UL;
     uint32_t u32TimerRegisterLow = 0UL;
 
-    if((0UL != (uint32_t) psCount->pu64CountValue) && (0UL != (uint32_t) psCount))
+    if((0UL != (uint32_t) pstCount->pu64CountValue) && (0UL != (uint32_t) pstCount))
     {
         enStatus = TIMER_enSTATUS_OK;
         u32TimerBase = TIMER_BLOCK_BASE[(uint32_t) enModuleSize][(uint32_t) enModuleNumber];
 
-        u32TimerRegisterHigh = u32TimerBase + psCount->u32CountHighRegister;
-        u32TimerRegisterLow = u32TimerBase + psCount->u32CountLowRegister;
+        u32TimerRegisterHigh = u32TimerBase + pstCount->u32CountHighRegister;
+        u32TimerRegisterLow = u32TimerBase + pstCount->u32CountLowRegister;
 
         do
         {
@@ -191,24 +191,24 @@ TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_
             u32RegHigh2 = *(volatile uint32_t*) (u32TimerRegisterHigh);
         }while(u32RegHigh != u32RegHigh2);
 
-        if(0xFFFFFFFFUL != psCount->u32CountHighMask)
+        if(0xFFFFFFFFUL != pstCount->u32CountHighMask)
         {
-            u32RegHigh >>= psCount->u32CountHighShiftRight;
-            u32RegHigh &= psCount->u32CountHighMask;
+            u32RegHigh >>= pstCount->u32CountHighShiftRight;
+            u32RegHigh &= pstCount->u32CountHighMask;
         }
-        if(0xFFFFFFFFUL != psCount->u32CountLowMask)
+        if(0xFFFFFFFFUL != pstCount->u32CountLowMask)
         {
-            u32RegLow >>= psCount->u32CountLowShiftRight;
-            u32RegLow &= psCount->u32CountLowMask;
+            u32RegLow >>= pstCount->u32CountLowShiftRight;
+            u32RegLow &= pstCount->u32CountLowMask;
         }
 
         u64RegHigh = u32RegHigh;
-        u64RegHigh <<= psCount->u32CountHighShiftLeft;
+        u64RegHigh <<= pstCount->u32CountHighShiftLeft;
         u64RegLow = u32RegLow;
-        u64RegLow <<= psCount->u32CountLowShiftLeft;
+        u64RegLow <<= pstCount->u32CountLowShiftLeft;
 
-        *psCount->pu64CountValue = u64RegHigh;
-        *psCount->pu64CountValue |= u64RegLow;
+        *pstCount->pu64CountValue = u64RegHigh;
+        *pstCount->pu64CountValue |= u64RegLow;
     }
     return enStatus;
 }

@@ -26,12 +26,12 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
- CSLinkedListElement_TypeDef*  CSLinkedList__psGetNodePos(const CSLinkedList_TypeDef* psList, uint32_t u32Position);
- CSLinkedListElement_TypeDef*  CSLinkedList__psGetNodeEnd(const CSLinkedList_TypeDef* psList);
- CSLinkedListElement_TypeDef*  CSLinkedList__psGetNodeBegin(const CSLinkedList_TypeDef* psList);
+ CSLinkedListElement_TypeDef*  CSLinkedList__pstGetNodePos(const CSLinkedList_TypeDef* pstList, uint32_t u32Position);
+ CSLinkedListElement_TypeDef*  CSLinkedList__pstGetNodeEnd(const CSLinkedList_TypeDef* pstList);
+ CSLinkedListElement_TypeDef*  CSLinkedList__pstGetNodeBegin(const CSLinkedList_TypeDef* pstList);
 
- uint32_t CSLinkedList__u32GetNNode(const CSLinkedList_TypeDef* psList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength);
- uint32_t CSLinkedList__u32GetAllNode(const CSLinkedList_TypeDef* psList, const void** pvData, uint32_t u32MaxLength);
+ uint32_t CSLinkedList__u32GetNNode(const CSLinkedList_TypeDef* pstList, const void** pvData, uint32_t u32Nodes, uint32_t u32MaxLength);
+ uint32_t CSLinkedList__u32GetAllNode(const CSLinkedList_TypeDef* pstList, const void** pvData, uint32_t u32MaxLength);
 
 
 

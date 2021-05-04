@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Struct.h>
 
-uint32_t OAHashTable__u32GetSize(const OAHashTable_TypeDef* const psOAHashTable);
-void OAHashTable__vSetSize(OAHashTable_TypeDef*  psOAHashTable, uint32_t u32SizeArg);
+uint32_t OAHashTable__u32GetSize(const OAHashTable_TypeDef* const pstOAHashTable);
+void OAHashTable__vSetSize(OAHashTable_TypeDef*  pstOAHashTable, uint32_t u32SizeArg);
 
 
 

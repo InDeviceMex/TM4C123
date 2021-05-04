@@ -23,17 +23,17 @@
  */
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Size.h>
 
-uint32_t OAHashTable__u32GetSize(const OAHashTable_TypeDef* const psOAHashTable)
+uint32_t OAHashTable__u32GetSize(const OAHashTable_TypeDef* const pstOAHashTable)
 {
     uint32_t u32SizeReg = 0UL;
-    u32SizeReg = psOAHashTable->u32Size;
+    u32SizeReg = pstOAHashTable->u32Size;
     return u32SizeReg;
 
 }
 
-void OAHashTable__vSetSize(OAHashTable_TypeDef*  psOAHashTable, uint32_t u32SizeArg)
+void OAHashTable__vSetSize(OAHashTable_TypeDef*  pstOAHashTable, uint32_t u32SizeArg)
 {
-    psOAHashTable->u32Size = u32SizeArg;
+    pstOAHashTable->u32Size = u32SizeArg;
 }
 
 

@@ -27,8 +27,8 @@
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Struct.h>
 
-uint32_t Stack__u32GetSize(const Stack_TypeDef* const psStack);
-Stack_nSTATUS Stack__enIsEmpty(const Stack_TypeDef* const psStack);
+uint32_t Stack__u32GetSize(const Stack_TypeDef* const pstStack);
+Stack_nSTATUS Stack__enIsEmpty(const Stack_TypeDef* const pstStack);
 
 
 

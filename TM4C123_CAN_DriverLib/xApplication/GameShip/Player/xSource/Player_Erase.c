@@ -24,9 +24,9 @@
 #include <xApplication/GameShip/Player/xHeader/Player_Erase.h>
 #include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
 
-void Player__vErase(const Player_TypeDef* psPlayerArg)
+void Player__vErase(const Player_TypeDef* pstPlayerArg)
 {
-    GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos, "     ");
-    GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos + 1UL, "     ");
-    GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos + 2UL, "     ");
+    GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos, "     ");
+    GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos + 1UL, "     ");
+    GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos + 2UL, "     ");
 }

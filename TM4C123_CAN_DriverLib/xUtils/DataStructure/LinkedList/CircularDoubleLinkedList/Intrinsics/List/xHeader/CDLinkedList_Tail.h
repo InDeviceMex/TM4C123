@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/xHeader/CDLinkedList_Struct.h>
 
-CDLinkedListElement_TypeDef* CDLinkedList__psGetTail(const CDLinkedList_TypeDef*  const psList);
-void CDLinkedList__vSetTail(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psTailArg);
-CDLinkedList_nSTATUS CDLinkedList__enIsTail(const CDLinkedListElement_TypeDef* const psElement);
+CDLinkedListElement_TypeDef* CDLinkedList__pstGetTail(const CDLinkedList_TypeDef*  const pstList);
+void CDLinkedList__vSetTail(CDLinkedList_TypeDef* pstList, CDLinkedListElement_TypeDef* pstTailArg);
+CDLinkedList_nSTATUS CDLinkedList__enIsTail(const CDLinkedListElement_TypeDef* const pstElement);
 
 
 

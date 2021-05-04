@@ -24,9 +24,9 @@
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Dequeue.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Remove.h>
 
-Queue_nSTATUS Queue__enDequeue(Queue_TypeDef* psQueue, void** pvData)
+Queue_nSTATUS Queue__enDequeue(Queue_TypeDef* pstQueue, void** pvData)
 {
-    return (Queue_nSTATUS ) SLinkedList__enRemoveBegin((SLinkedList_TypeDef*) psQueue, pvData);
+    return (Queue_nSTATUS ) SLinkedList__enRemoveBegin((SLinkedList_TypeDef*) pstQueue, pvData);
 }
 
 

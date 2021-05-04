@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-Set_nSTATUS Set__enIsSubset(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
+Set_nSTATUS Set__enIsSubset(const Set_TypeDef* pstSet1, const Set_TypeDef* pstSet2);
 
 #endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_SUBSET_H_ */

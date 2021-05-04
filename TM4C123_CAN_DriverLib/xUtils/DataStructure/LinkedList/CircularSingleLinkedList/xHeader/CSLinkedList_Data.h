@@ -27,9 +27,9 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
-void*  CSLinkedList__pvGetNodeDataPos(const CSLinkedList_TypeDef* psList, uint32_t u32Position);
-void*  CSLinkedList__pvGetNodeDataEnd(const CSLinkedList_TypeDef* psList);
-void*  CSLinkedList__pvGetNodeDataBegin(const CSLinkedList_TypeDef* psList);
+void*  CSLinkedList__pvGetNodeDataPos(const CSLinkedList_TypeDef* pstList, uint32_t u32Position);
+void*  CSLinkedList__pvGetNodeDataEnd(const CSLinkedList_TypeDef* pstList);
+void*  CSLinkedList__pvGetNodeDataBegin(const CSLinkedList_TypeDef* pstList);
 
 
 

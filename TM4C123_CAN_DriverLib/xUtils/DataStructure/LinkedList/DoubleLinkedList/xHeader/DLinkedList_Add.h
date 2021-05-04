@@ -26,11 +26,11 @@
 
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/xHeader/DLinkedList_Struct.h>
 
- DLinkedListElement_TypeDef* DLinkedList__psAddNext(DLinkedList_TypeDef* psList, DLinkedListElement_TypeDef* psElement, void* pvData);
- DLinkedListElement_TypeDef* DLinkedList__psAddPrevious(DLinkedList_TypeDef* psList, DLinkedListElement_TypeDef* psElement, void* pvData);
- DLinkedListElement_TypeDef*  DLinkedList__psAddEnd(DLinkedList_TypeDef* psList, void* pvData);
- DLinkedListElement_TypeDef*  DLinkedList__psAddBegin(DLinkedList_TypeDef* psList, void* pvData);
- DLinkedListElement_TypeDef*  DLinkedList__psAddPos(DLinkedList_TypeDef* psList, uint32_t u32Position, void* pvData);
+ DLinkedListElement_TypeDef* DLinkedList__pstAddNext(DLinkedList_TypeDef* pstList, DLinkedListElement_TypeDef* pstElement, void* pvData);
+ DLinkedListElement_TypeDef* DLinkedList__pstAddPrevious(DLinkedList_TypeDef* pstList, DLinkedListElement_TypeDef* pstElement, void* pvData);
+ DLinkedListElement_TypeDef*  DLinkedList__pstAddEnd(DLinkedList_TypeDef* pstList, void* pvData);
+ DLinkedListElement_TypeDef*  DLinkedList__pstAddBegin(DLinkedList_TypeDef* pstList, void* pvData);
+ DLinkedListElement_TypeDef*  DLinkedList__pstAddPos(DLinkedList_TypeDef* pstList, uint32_t u32Position, void* pvData);
 
 
 

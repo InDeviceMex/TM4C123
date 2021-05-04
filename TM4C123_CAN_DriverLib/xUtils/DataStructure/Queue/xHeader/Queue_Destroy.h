@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Struct.h>
 
-void Queue__vDestroy(Queue_TypeDef* psQueue);
+void Queue__vDestroy(Queue_TypeDef* pstQueue);
 
 
 

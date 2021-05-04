@@ -24,7 +24,7 @@
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Draw.h>
 #include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
 
-void Obstacle__vDraw(const Obstacle_TypeDef* psObstacleArg)
+void Obstacle__vDraw(const Obstacle_TypeDef* pstObstacleArg)
 {
-    GraphTerm__u32Printf(UART_enMODULE_0, psObstacleArg->u32Xpos, psObstacleArg->u32Ypos,            "O");
+    GraphTerm__u32Printf(UART_enMODULE_0, pstObstacleArg->u32Xpos, pstObstacleArg->u32Ypos,            "O");
 }

@@ -25,7 +25,7 @@
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Lookup.h>
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Size.h>
 
-OAHashTable_nSTATUS OAHashTable__enInsert(OAHashTable_TypeDef* psOAHashTable, void* pvData)
+OAHashTable_nSTATUS OAHashTable__enInsert(OAHashTable_TypeDef* pstOAHashTable, void* pvData)
 {
     void **pvElementData = (void**) 0UL;
     uint32_t u32PositionNum = 0UL;
@@ -38,33 +38,33 @@ OAHashTable_nSTATUS OAHashTable__enInsert(OAHashTable_TypeDef* psOAHashTable, vo
     OAHashTable_nSTATUS enLookup = OAHashTable_enSTATUS_ERROR;
     OAHashTable_nSTATUS enStatus = OAHashTable_enSTATUS_ERROR;
 
-    if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) pstOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
-        u32PositionSize = psOAHashTable->u32Positions;
-        u32SizeReg = OAHashTable__u32GetSize(psOAHashTable);
+        u32PositionSize = pstOAHashTable->u32Positions;
+        u32SizeReg = OAHashTable__u32GetSize(pstOAHashTable);
         if(u32SizeReg != u32PositionSize)
         {
             pvTemp = pvData;
-            enLookup = OAHashTable__enLookup(psOAHashTable, &pvTemp);
+            enLookup = OAHashTable__enLookup(pstOAHashTable, &pvTemp);
             if(OAHashTable_enSTATUS_OK != enLookup)
             {
-                pvVacatedReg = psOAHashTable->pvVacated;
+                pvVacatedReg = pstOAHashTable->pvVacated;
                 for(u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
                 {
-                    u32PositionNum = psOAHashTable->pfu32HashFunction1(pvData);
-                    u32Position2Num = psOAHashTable->pfu32HashFunction2(pvData);
+                    u32PositionNum = pstOAHashTable->pfu32HashFunction1(pvData);
+                    u32Position2Num = pstOAHashTable->pfu32HashFunction2(pvData);
                     u32Position2Num *= u32Iteration;
                     u32PositionNum += u32Position2Num;
                     u32PositionNum %= u32PositionSize;
 
-                    pvElementData = psOAHashTable->pvTable;
+                    pvElementData = pstOAHashTable->pvTable;
                     pvElementData += u32PositionNum;
                     if(((uint32_t) 0UL == (uint32_t) (*pvElementData)) || ((uint32_t) (*pvElementData) == (uint32_t) pvVacatedReg))
                     {
                         enStatus = OAHashTable_enSTATUS_OK;
                         *pvElementData = pvTemp;
                         u32SizeReg++;
-                        OAHashTable__vSetSize(psOAHashTable, u32SizeReg);
+                        OAHashTable__vSetSize(pstOAHashTable, u32SizeReg);
                         break;
                     }
                 }

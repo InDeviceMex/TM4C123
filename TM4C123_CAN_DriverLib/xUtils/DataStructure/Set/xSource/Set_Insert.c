@@ -25,18 +25,18 @@
 #include <xUtils/DataStructure/Set/xHeader/Set_Member.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Add.h>
 
-Set_nSTATUS Set__enInsert(Set_TypeDef* psSet, void* pvData)
+Set_nSTATUS Set__enInsert(Set_TypeDef* pstSet, void* pvData)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SLinkedListElement_TypeDef* psMember = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef* psMemberSet = (SLinkedListElement_TypeDef*) 0UL;
-    if((uint32_t) 0UL != (uint32_t) psSet)
+    SLinkedListElement_TypeDef* pstMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef* pstMemberSet = (SLinkedListElement_TypeDef*) 0UL;
+    if((uint32_t) 0UL != (uint32_t) pstSet)
     {
-        psMemberSet = Set__psIsMember(psSet, pvData);
-        if((uint32_t) 0UL == (uint32_t) psMemberSet)
+        pstMemberSet = Set__pstIsMember(pstSet, pvData);
+        if((uint32_t) 0UL == (uint32_t) pstMemberSet)
         {
-            psMember = SLinkedList__psAddEnd((SLinkedList_TypeDef*)psSet, pvData);
-            if((uint32_t) 0UL != (uint32_t) psMember)
+            pstMember = SLinkedList__pstAddEnd((SLinkedList_TypeDef*)pstSet, pvData);
+            if((uint32_t) 0UL != (uint32_t) pstMember)
             {
                 enStatus = Set_enSTATUS_OK;
             }

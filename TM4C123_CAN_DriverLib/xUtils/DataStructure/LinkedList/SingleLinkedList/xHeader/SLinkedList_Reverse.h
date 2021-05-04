@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
- SLinkedList_nSTATUS SLinkedList__enReverse(SLinkedList_TypeDef* psList);
+ SLinkedList_nSTATUS SLinkedList__enReverse(SLinkedList_TypeDef* pstList);
 
 
 

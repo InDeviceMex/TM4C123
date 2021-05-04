@@ -25,7 +25,7 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 #include <stdlib.h>
 
-Obstacle_TypeDef* Obstacle__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
+Obstacle_TypeDef* Obstacle__pstConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
 {
     Obstacle_TypeDef* ObstacleHandle = 0UL;
 
@@ -45,36 +45,36 @@ Obstacle_TypeDef* Obstacle__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosA
 
 void Obstacle__vDestructor(void* pvObstacleArg)
 {
-    Obstacle_TypeDef* psObstacleArg = (Obstacle_TypeDef*) pvObstacleArg;
-    if(0UL != (uint32_t) psObstacleArg)
+    Obstacle_TypeDef* pstObstacleArg = (Obstacle_TypeDef*) pvObstacleArg;
+    if(0UL != (uint32_t) pstObstacleArg)
     {
-        psObstacleArg->u32Xpos = 0UL;
-        psObstacleArg->u32Ypos = 0UL;
-        free(psObstacleArg);
-        psObstacleArg = (Obstacle_TypeDef*) 0UL;
+        pstObstacleArg->u32Xpos = 0UL;
+        pstObstacleArg->u32Ypos = 0UL;
+        free(pstObstacleArg);
+        pstObstacleArg = (Obstacle_TypeDef*) 0UL;
     }
 }
 
-DLinkedList_TypeDef* Obstacle__psInitList(void)
+DLinkedList_TypeDef* Obstacle__pstInitList(void)
 {
-    DLinkedList_TypeDef* psObstacleDLinkedList = (DLinkedList_TypeDef*) 0UL;
-    psObstacleDLinkedList = DLinkedList__psInit(&Obstacle__vDestructor);
-    return psObstacleDLinkedList;
+    DLinkedList_TypeDef* pstObstacleDLinkedList = (DLinkedList_TypeDef*) 0UL;
+    pstObstacleDLinkedList = DLinkedList__pstInit(&Obstacle__vDestructor);
+    return pstObstacleDLinkedList;
 }
 
-void Obstacle__vDestroyList(DLinkedList_TypeDef* psObstacleDLinkedListArg)
+void Obstacle__vDestroyList(DLinkedList_TypeDef* pstObstacleDLinkedListArg)
 {
-    DLinkedList__vDestroy(psObstacleDLinkedListArg);
+    DLinkedList__vDestroy(pstObstacleDLinkedListArg);
 }
 
-DLinkedListElement_TypeDef* Obstacle__psAddElement(DLinkedList_TypeDef* psObstacleDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg)
+DLinkedListElement_TypeDef* Obstacle__pstAddElement(DLinkedList_TypeDef* pstObstacleDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg)
 {
-    DLinkedListElement_TypeDef* psNewObstacleElement = (DLinkedListElement_TypeDef*) 0UL;
-    Obstacle_TypeDef* psNewObstacle = (Obstacle_TypeDef*) 0UL;
-    psNewObstacle = Obstacle__psConstructor(u32XPosArg, u32YPosArg);
-    if(0UL != (uint32_t) psNewObstacle)
+    DLinkedListElement_TypeDef* pstNewObstacleElement = (DLinkedListElement_TypeDef*) 0UL;
+    Obstacle_TypeDef* pstNewObstacle = (Obstacle_TypeDef*) 0UL;
+    pstNewObstacle = Obstacle__pstConstructor(u32XPosArg, u32YPosArg);
+    if(0UL != (uint32_t) pstNewObstacle)
     {
-        psNewObstacleElement = DLinkedList__psAddEnd(psObstacleDLinkedListArg,  (void*) psNewObstacle);
+        pstNewObstacleElement = DLinkedList__pstAddEnd(pstObstacleDLinkedListArg,  (void*) pstNewObstacle);
     }
-    return psNewObstacleElement;
+    return pstNewObstacleElement;
 }

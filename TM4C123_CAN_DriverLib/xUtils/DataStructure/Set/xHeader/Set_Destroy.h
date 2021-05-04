@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-void Set__vDestroy(Set_TypeDef* psSet);
+void Set__vDestroy(Set_TypeDef* pstSet);
 
 #endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_DESTROY_H_ */

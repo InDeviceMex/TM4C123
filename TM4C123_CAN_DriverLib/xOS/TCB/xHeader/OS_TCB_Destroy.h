@@ -27,6 +27,6 @@
 
 #include <xOS/TCB/xHeader/OS_TCB_Defines.h>
 
-void OS_TCB__vDestroy(OS_TCB_TypeDef* psTCB);
+void OS_TCB__vDestroy(OS_TCB_TypeDef* pstTCB);
 
 #endif /* XOS_TCB_XHEADER_OS_TCB_DESTROY_H_ */

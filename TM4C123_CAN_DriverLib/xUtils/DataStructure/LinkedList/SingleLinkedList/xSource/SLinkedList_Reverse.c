@@ -29,25 +29,25 @@
 #include <stdlib.h>
 
 
- SLinkedList_nSTATUS SLinkedList__enReverse(SLinkedList_TypeDef* psList)
+ SLinkedList_nSTATUS SLinkedList__enReverse(SLinkedList_TypeDef* pstList)
  {
      SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
-     SLinkedListElement_TypeDef* psPreviousElement = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psNextElement = (SLinkedListElement_TypeDef*) 0UL ;
-     SLinkedListElement_TypeDef* psHeadElement = (SLinkedListElement_TypeDef*) 0UL ;
-     if(((uint32_t) 0UL != (uint32_t) psList))
+     SLinkedListElement_TypeDef* pstPreviousElement = (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* pstNextElement = (SLinkedListElement_TypeDef*) 0UL ;
+     SLinkedListElement_TypeDef* pstHeadElement = (SLinkedListElement_TypeDef*) 0UL ;
+     if(((uint32_t) 0UL != (uint32_t) pstList))
      {
-         psHeadElement = SLinkedList__psGetHead(psList);
-         SLinkedList__vSetTail(psList, psHeadElement);
-         while((uint32_t) 0UL != (uint32_t) psHeadElement)
+         pstHeadElement = SLinkedList__pstGetHead(pstList);
+         SLinkedList__vSetTail(pstList, pstHeadElement);
+         while((uint32_t) 0UL != (uint32_t) pstHeadElement)
          {
-             psNextElement = SLinkedList__psGetElementNextNode(psHeadElement);
-             SLinkedList__vSetElementNextNode(psHeadElement, psPreviousElement);
-             psPreviousElement = psHeadElement;
-             psHeadElement = psNextElement;
+             pstNextElement = SLinkedList__pstGetElementNextNode(pstHeadElement);
+             SLinkedList__vSetElementNextNode(pstHeadElement, pstPreviousElement);
+             pstPreviousElement = pstHeadElement;
+             pstHeadElement = pstNextElement;
          }
-         psHeadElement = psPreviousElement;
-         SLinkedList__vSetHead(psList, psHeadElement);
+         pstHeadElement = pstPreviousElement;
+         SLinkedList__vSetHead(pstList, pstHeadElement);
      }
      return enStatus;
  }

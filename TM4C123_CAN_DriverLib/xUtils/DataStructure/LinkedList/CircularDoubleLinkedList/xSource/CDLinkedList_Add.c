@@ -29,162 +29,162 @@
 #include <stdlib.h>
 
 
- CDLinkedListElement_TypeDef* CDLinkedList__psAddNext(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psElement, void* pvData)
+ CDLinkedListElement_TypeDef* CDLinkedList__pstAddNext(CDLinkedList_TypeDef* pstList, CDLinkedListElement_TypeDef* pstElement, void* pvData)
 {
-     CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psElementTemp = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psElementNextNode = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psHeadNode = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstElementTemp = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstElementNextNode = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstHeadNode = (CDLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0U;
-     if(((uint32_t) 0UL != (uint32_t) psList))
+     if(((uint32_t) 0UL != (uint32_t) pstList))
      {
-         u32SizeReg = CDLinkedList__u32GetSize(psList);
-         if(((uint32_t) 0UL != (uint32_t) psElement) || (0UL == u32SizeReg))
+         u32SizeReg = CDLinkedList__u32GetSize(pstList);
+         if(((uint32_t) 0UL != (uint32_t) pstElement) || (0UL == u32SizeReg))
          {
             #if defined (__TI_ARM__ )
-             psNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedListElement_TypeDef));
+             pstNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedListElement_TypeDef));
             #elif defined (__GNUC__ )
-             psNewElement = (CDLinkedListElement_TypeDef*) malloc(sizeof(CDLinkedListElement_TypeDef));
+             pstNewElement = (CDLinkedListElement_TypeDef*) malloc(sizeof(CDLinkedListElement_TypeDef));
             #endif
 
-            if((uint32_t) 0UL != (uint32_t) psNewElement)
+            if((uint32_t) 0UL != (uint32_t) pstNewElement)
             {
-                CDLinkedList__vSetElementData(psNewElement, pvData);
+                CDLinkedList__vSetElementData(pstNewElement, pvData);
 
                 if(0UL == u32SizeReg)
                 {
-                    CDLinkedList__vSetHead(psList, psNewElement);
-                    psElementTemp = psNewElement;
-                    CDLinkedList__vSetElementNextNode(psNewElement, psElementTemp );
-                    CDLinkedList__vSetElementPreviousNode(psNewElement, psElementTemp );
+                    CDLinkedList__vSetHead(pstList, pstNewElement);
+                    pstElementTemp = pstNewElement;
+                    CDLinkedList__vSetElementNextNode(pstNewElement, pstElementTemp );
+                    CDLinkedList__vSetElementPreviousNode(pstNewElement, pstElementTemp );
 
-                    CDLinkedList__vSetTail(psList, psNewElement);
+                    CDLinkedList__vSetTail(pstList, pstNewElement);
                 }
                 else
                 {
-                    psHeadNode = CDLinkedList__psGetHead(psList);
-                    psElementNextNode = CDLinkedList__psGetElementNextNode(psElement);
+                    pstHeadNode = CDLinkedList__pstGetHead(pstList);
+                    pstElementNextNode = CDLinkedList__pstGetElementNextNode(pstElement);
 
-                    CDLinkedList__vSetElementNextNode(psNewElement, psElementNextNode );
-                    CDLinkedList__vSetElementPreviousNode(psNewElement, psElement);
-                    if((uint32_t) psHeadNode == (uint32_t) psElementNextNode)
+                    CDLinkedList__vSetElementNextNode(pstNewElement, pstElementNextNode );
+                    CDLinkedList__vSetElementPreviousNode(pstNewElement, pstElement);
+                    if((uint32_t) pstHeadNode == (uint32_t) pstElementNextNode)
                     {
-                        CDLinkedList__vSetTail(psList, psNewElement);
+                        CDLinkedList__vSetTail(pstList, pstNewElement);
                     }
 
-                    CDLinkedList__vSetElementPreviousNode(psElementNextNode, psNewElement);
-                    CDLinkedList__vSetElementNextNode(psElement, psNewElement);
+                    CDLinkedList__vSetElementPreviousNode(pstElementNextNode, pstNewElement);
+                    CDLinkedList__vSetElementNextNode(pstElement, pstNewElement);
                 }
 
                 u32SizeReg++;
-                CDLinkedList__vSetSize(psList, u32SizeReg);
+                CDLinkedList__vSetSize(pstList, u32SizeReg);
             }
         }
     }
-    return psNewElement;
+    return pstNewElement;
 }
 
- CDLinkedListElement_TypeDef* CDLinkedList__psAddPrevious(CDLinkedList_TypeDef* psList, CDLinkedListElement_TypeDef* psElement, void* pvData)
+ CDLinkedListElement_TypeDef* CDLinkedList__pstAddPrevious(CDLinkedList_TypeDef* pstList, CDLinkedListElement_TypeDef* pstElement, void* pvData)
  {
-      CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
-      CDLinkedListElement_TypeDef* psElementTemp = (CDLinkedListElement_TypeDef*) 0UL ;
-      CDLinkedListElement_TypeDef* psElementPreviousNode = (CDLinkedListElement_TypeDef*) 0UL ;
-      CDLinkedListElement_TypeDef* psTailNode = (CDLinkedListElement_TypeDef*) 0UL ;
+      CDLinkedListElement_TypeDef* pstNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
+      CDLinkedListElement_TypeDef* pstElementTemp = (CDLinkedListElement_TypeDef*) 0UL ;
+      CDLinkedListElement_TypeDef* pstElementPreviousNode = (CDLinkedListElement_TypeDef*) 0UL ;
+      CDLinkedListElement_TypeDef* pstTailNode = (CDLinkedListElement_TypeDef*) 0UL ;
       uint32_t u32SizeReg = 0U;
-      if(((uint32_t) 0UL != (uint32_t) psList))
+      if(((uint32_t) 0UL != (uint32_t) pstList))
       {
-          u32SizeReg = CDLinkedList__u32GetSize(psList);
-          if(((uint32_t) 0UL != (uint32_t) psElement) || (0UL == u32SizeReg))
+          u32SizeReg = CDLinkedList__u32GetSize(pstList);
+          if(((uint32_t) 0UL != (uint32_t) pstElement) || (0UL == u32SizeReg))
           {
              #if defined (__TI_ARM__ )
-              psNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedListElement_TypeDef));
+              pstNewElement = (CDLinkedListElement_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CDLinkedListElement_TypeDef));
              #elif defined (__GNUC__ )
-              psNewElement = (CDLinkedListElement_TypeDef*) malloc(sizeof(CDLinkedListElement_TypeDef));
+              pstNewElement = (CDLinkedListElement_TypeDef*) malloc(sizeof(CDLinkedListElement_TypeDef));
              #endif
 
-             if((uint32_t) 0UL != (uint32_t) psNewElement)
+             if((uint32_t) 0UL != (uint32_t) pstNewElement)
              {
-                 CDLinkedList__vSetElementData(psNewElement, pvData);
+                 CDLinkedList__vSetElementData(pstNewElement, pvData);
 
                  if(0UL == u32SizeReg)
                  {
-                     CDLinkedList__vSetHead(psList, psNewElement);
-                     psElementTemp = psNewElement;
-                     CDLinkedList__vSetElementNextNode(psNewElement, psElementTemp );
-                     CDLinkedList__vSetElementPreviousNode(psNewElement, psElementTemp );
+                     CDLinkedList__vSetHead(pstList, pstNewElement);
+                     pstElementTemp = pstNewElement;
+                     CDLinkedList__vSetElementNextNode(pstNewElement, pstElementTemp );
+                     CDLinkedList__vSetElementPreviousNode(pstNewElement, pstElementTemp );
 
-                     CDLinkedList__vSetTail(psList, psNewElement);
+                     CDLinkedList__vSetTail(pstList, pstNewElement);
                  }
                  else
                  {
-                     psTailNode = CDLinkedList__psGetTail(psList);
-                     psElementPreviousNode = CDLinkedList__psGetElementPreviousNode(psElement);
+                     pstTailNode = CDLinkedList__pstGetTail(pstList);
+                     pstElementPreviousNode = CDLinkedList__pstGetElementPreviousNode(pstElement);
 
-                     CDLinkedList__vSetElementNextNode(psNewElement, psElement );
-                     CDLinkedList__vSetElementPreviousNode(psNewElement, psElementPreviousNode);
+                     CDLinkedList__vSetElementNextNode(pstNewElement, pstElement );
+                     CDLinkedList__vSetElementPreviousNode(pstNewElement, pstElementPreviousNode);
 
-                     if((uint32_t) psTailNode == (uint32_t) psElementPreviousNode)
+                     if((uint32_t) pstTailNode == (uint32_t) pstElementPreviousNode)
                      {
-                         CDLinkedList__vSetHead(psList, psNewElement);
+                         CDLinkedList__vSetHead(pstList, pstNewElement);
                      }
 
-                     CDLinkedList__vSetElementNextNode(psElementPreviousNode, psNewElement);
-                     CDLinkedList__vSetElementPreviousNode(psElement, psNewElement);
+                     CDLinkedList__vSetElementNextNode(pstElementPreviousNode, pstNewElement);
+                     CDLinkedList__vSetElementPreviousNode(pstElement, pstNewElement);
                  }
 
                  }
                  u32SizeReg++;
-                 CDLinkedList__vSetSize(psList, u32SizeReg);
+                 CDLinkedList__vSetSize(pstList, u32SizeReg);
          }
      }
-     return psNewElement;
+     return pstNewElement;
  }
 
- CDLinkedListElement_TypeDef*  CDLinkedList__psAddEnd(CDLinkedList_TypeDef* psList, void* pvData)
+ CDLinkedListElement_TypeDef*  CDLinkedList__pstAddEnd(CDLinkedList_TypeDef* pstList, void* pvData)
  {
-     CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psEndElement = (CDLinkedListElement_TypeDef*) 0UL;
-     if(((uint32_t) 0UL != (uint32_t) psList))
+     CDLinkedListElement_TypeDef* pstNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstEndElement = (CDLinkedListElement_TypeDef*) 0UL;
+     if(((uint32_t) 0UL != (uint32_t) pstList))
      {
-         psEndElement = CDLinkedList__psGetTail(psList);
-         psNewElement = CDLinkedList__psAddNext(psList, psEndElement, pvData);
+         pstEndElement = CDLinkedList__pstGetTail(pstList);
+         pstNewElement = CDLinkedList__pstAddNext(pstList, pstEndElement, pvData);
      }
-     return psNewElement;
+     return pstNewElement;
  }
 
- CDLinkedListElement_TypeDef*  CDLinkedList__psAddBegin(CDLinkedList_TypeDef* psList, void* pvData)
+ CDLinkedListElement_TypeDef*  CDLinkedList__pstAddBegin(CDLinkedList_TypeDef* pstList, void* pvData)
  {
-     CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psBeginElement = (CDLinkedListElement_TypeDef*) 0UL;
-     if(((uint32_t) 0UL != (uint32_t) psList))
+     CDLinkedListElement_TypeDef* pstNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstBeginElement = (CDLinkedListElement_TypeDef*) 0UL;
+     if(((uint32_t) 0UL != (uint32_t) pstList))
      {
-         psBeginElement = CDLinkedList__psGetHead(psList);
-         psNewElement = CDLinkedList__psAddPrevious(psList, psBeginElement, pvData);
+         pstBeginElement = CDLinkedList__pstGetHead(pstList);
+         pstNewElement = CDLinkedList__pstAddPrevious(pstList, pstBeginElement, pvData);
      }
-     return psNewElement;
+     return pstNewElement;
  }
 
- CDLinkedListElement_TypeDef*  CDLinkedList__psAddPos(CDLinkedList_TypeDef* psList, uint32_t u32Position, void* pvData)
+ CDLinkedListElement_TypeDef*  CDLinkedList__pstAddPos(CDLinkedList_TypeDef* pstList, uint32_t u32Position, void* pvData)
  {
-     CDLinkedListElement_TypeDef* psNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
-     CDLinkedListElement_TypeDef* psElement = (CDLinkedListElement_TypeDef*) 0UL;
+     CDLinkedListElement_TypeDef* pstNewElement = (CDLinkedListElement_TypeDef*) 0UL ;
+     CDLinkedListElement_TypeDef* pstElement = (CDLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
      uint32_t u32SizeForward = 0UL;
      uint32_t u32SizeBackward = 0UL;
      uint32_t u32SizeOptimum = 0UL;
      uint32_t u32Direction = 0UL;
-     if(((uint32_t) 0UL != (uint32_t) psList))
+     if(((uint32_t) 0UL != (uint32_t) pstList))
      {
-         u32SizeList = CDLinkedList__u32GetSize(psList);
+         u32SizeList = CDLinkedList__u32GetSize(pstList);
          if(u32Position <= u32SizeList)
          {
              if(0UL == u32Position) /*Add Head*/
              {
-                 psNewElement = CDLinkedList__psAddBegin(psList, pvData);
+                 pstNewElement = CDLinkedList__pstAddBegin(pstList, pvData);
              }
              else if(u32Position == u32SizeList) /*Add Tail*/
              {
-                 psNewElement = CDLinkedList__psAddEnd(psList, pvData);
+                 pstNewElement = CDLinkedList__pstAddEnd(pstList, pvData);
              }
              else
              {
@@ -205,29 +205,29 @@
 
                  if(u32Direction == 0UL) /*Forward*/
                  {
-                     psElement = CDLinkedList__psGetHead(psList);
+                     pstElement = CDLinkedList__pstGetHead(pstList);
                      u32SizeOptimum --;
                      while(0UL != u32SizeOptimum)
                      {
-                         psElement = CDLinkedList__psGetElementNextNode(psElement);
+                         pstElement = CDLinkedList__pstGetElementNextNode(pstElement);
                          u32SizeOptimum--;
                      }
-                     psNewElement = CDLinkedList__psAddNext(psList, psElement, pvData);
+                     pstNewElement = CDLinkedList__pstAddNext(pstList, pstElement, pvData);
                  }
                  else /*Backward*/
                  {
-                     psElement = CDLinkedList__psGetTail(psList);
+                     pstElement = CDLinkedList__pstGetTail(pstList);
                      u32SizeOptimum--;
                      while(0UL != u32SizeOptimum)
                      {
-                         psElement = CDLinkedList__psGetElementPreviousNode(psElement);
+                         pstElement = CDLinkedList__pstGetElementPreviousNode(pstElement);
                          u32SizeOptimum--;
                      }
-                     psNewElement = CDLinkedList__psAddPrevious(psList, psElement, pvData);
+                     pstNewElement = CDLinkedList__pstAddPrevious(pstList, pstElement, pvData);
                  }
              }
          }
      }
-     return psNewElement;
+     return pstNewElement;
  }
 

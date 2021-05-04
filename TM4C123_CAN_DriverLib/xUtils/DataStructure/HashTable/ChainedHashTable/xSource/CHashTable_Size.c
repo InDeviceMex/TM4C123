@@ -23,17 +23,17 @@
  */
 #include <xUtils/DataStructure/HashTable/ChainedHashTable/xHeader/CHashTable_Size.h>
 
-uint32_t CHashTable__u32GetSize(const CHashTable_TypeDef* const psCHashTable)
+uint32_t CHashTable__u32GetSize(const CHashTable_TypeDef* const pstCHashTable)
 {
     uint32_t u32SizeReg = 0UL;
-    u32SizeReg = psCHashTable->u32Size;
+    u32SizeReg = pstCHashTable->u32Size;
     return u32SizeReg;
 
 }
 
-void CHashTable__vSetSize(CHashTable_TypeDef*  psCHashTable, uint32_t u32SizeArg)
+void CHashTable__vSetSize(CHashTable_TypeDef*  pstCHashTable, uint32_t u32SizeArg)
 {
-    psCHashTable->u32Size = u32SizeArg;
+    pstCHashTable->u32Size = u32SizeArg;
 }
 
 

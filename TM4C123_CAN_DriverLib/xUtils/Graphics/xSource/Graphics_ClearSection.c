@@ -24,7 +24,7 @@
 
 #include <xUtils/Graphics/xHeader/Graphics_ClearSection.h>
 
-void Graphics__vClearSection (void (*pfvCallback)(Graphics_Layer_TypeDef* restrict psLayerArg, Graphics_DIMENSIONS_TypeDef sDimensionsArg, uint32_t  u32Color), Graphics_Layer_TypeDef* restrict psLayerArg, Graphics_DIMENSIONS_TypeDef sDimensionsArg, uint32_t  u32Color)
+void Graphics__vClearSection (void (*pfvCallback)(Graphics_Layer_TypeDef* restrict pstLayerArg, Graphics_DIMENSIONS_TypeDef stDimensionsArg, uint32_t  u32Color), Graphics_Layer_TypeDef* restrict pstLayerArg, Graphics_DIMENSIONS_TypeDef stDimensionsArg, uint32_t  u32Color)
 {
     Graphics_nSTATUS enStatus = Graphics_enSTATUS_OK;
     uint32_t u32StatusWidth = 0UL;
@@ -35,14 +35,14 @@ void Graphics__vClearSection (void (*pfvCallback)(Graphics_Layer_TypeDef* restri
     uint32_t u32WidthTotalReg = 0UL;
     uint32_t u32CoordXReg= 0UL;
     uint32_t u32CoordYReg = 0UL;
-    if(0UL != (uint32_t) psLayerArg)
+    if(0UL != (uint32_t) pstLayerArg)
     {
-        u32HeightReg = sDimensionsArg.u32Height;
-        u32WidthReg = sDimensionsArg.u32Width;
-        u32HeightTotalReg = psLayerArg->u32HeightTotal;
-        u32WidthTotalReg = psLayerArg->u32WidthTotal;
-        u32CoordXReg = sDimensionsArg.u32CoordX_Initial;
-        u32CoordYReg = sDimensionsArg.u32CoordY_Initial;
+        u32HeightReg = stDimensionsArg.u32Height;
+        u32WidthReg = stDimensionsArg.u32Width;
+        u32HeightTotalReg = pstLayerArg->u32HeightTotal;
+        u32WidthTotalReg = pstLayerArg->u32WidthTotal;
+        u32CoordXReg = stDimensionsArg.u32CoordX_Initial;
+        u32CoordYReg = stDimensionsArg.u32CoordY_Initial;
         u32StatusHeight = (uint32_t) Graphics__enCheckParams(u32HeightReg,  u32CoordYReg, u32HeightTotalReg);
         u32StatusWidth = (uint32_t) Graphics__enCheckParams(u32WidthReg,  u32CoordXReg, u32WidthTotalReg);
 
@@ -51,7 +51,7 @@ void Graphics__vClearSection (void (*pfvCallback)(Graphics_Layer_TypeDef* restri
 
         if(Graphics_enSTATUS_OK == enStatus)
         {
-            pfvCallback(psLayerArg, sDimensionsArg, u32Color);
+            pfvCallback(pstLayerArg, stDimensionsArg, u32Color);
         }
     }
 }

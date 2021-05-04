@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Struct.h>
 
-void Stack__vDestroy(Stack_TypeDef* psStack);
+void Stack__vDestroy(Stack_TypeDef* pstStack);
 
 #endif /* XUTILS_DATASTRUCTURE_STACK_XHEADER_STACK_DESTROY_H_ */

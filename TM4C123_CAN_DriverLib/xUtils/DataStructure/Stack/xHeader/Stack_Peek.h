@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Struct.h>
 
-uint32_t Stack__u32GetNMember(const Stack_TypeDef* psStack, const void** pvData, uint32_t u32Members, uint32_t u32MaxSize);
-uint32_t Stack__u32GetAllMember(const Stack_TypeDef* psStack, const void** pvData, uint32_t u32MaxSize);
-void * Stack__pvPeek(const Stack_TypeDef* const psStack);
+uint32_t Stack__u32GetNMember(const Stack_TypeDef* pstStack, const void** pvData, uint32_t u32Members, uint32_t u32MaxSize);
+uint32_t Stack__u32GetAllMember(const Stack_TypeDef* pstStack, const void** pvData, uint32_t u32MaxSize);
+void * Stack__pvPeek(const Stack_TypeDef* const pstStack);
 
 
 

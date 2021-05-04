@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-Set_nSTATUS Set__enRemove(Set_TypeDef* psSet, void** pvData);
+Set_nSTATUS Set__enRemove(Set_TypeDef* pstSet, void** pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_REMOVE_H_ */

@@ -29,37 +29,37 @@
 #include <stdlib.h>
 
 
- DLinkedList_nSTATUS DLinkedList__enReverse(DLinkedList_TypeDef* psList)
+ DLinkedList_nSTATUS DLinkedList__enReverse(DLinkedList_TypeDef* pstList)
  {
      DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-     DLinkedListElement_TypeDef* psNextElement = (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psNextNextElement = (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psNextPreviousElement = (DLinkedListElement_TypeDef*) 0UL ;
-     DLinkedListElement_TypeDef* psElement = (DLinkedListElement_TypeDef*) 0UL ;
-     if(((uint32_t) 0UL != (uint32_t) psList))
+     DLinkedListElement_TypeDef* pstNextElement = (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* pstNextNextElement = (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* pstNextPreviousElement = (DLinkedListElement_TypeDef*) 0UL ;
+     DLinkedListElement_TypeDef* pstElement = (DLinkedListElement_TypeDef*) 0UL ;
+     if(((uint32_t) 0UL != (uint32_t) pstList))
      {
-         psElement = DLinkedList__psGetHead(psList);
-         DLinkedList__vSetTail(psList, psElement);
-         if((uint32_t) 0UL != (uint32_t) psElement)
+         pstElement = DLinkedList__pstGetHead(pstList);
+         DLinkedList__vSetTail(pstList, pstElement);
+         if((uint32_t) 0UL != (uint32_t) pstElement)
          {
-             psNextElement = DLinkedList__psGetElementNextNode(psElement);
-             if((uint32_t) 0UL != (uint32_t) psNextElement)
+             pstNextElement = DLinkedList__pstGetElementNextNode(pstElement);
+             if((uint32_t) 0UL != (uint32_t) pstNextElement)
              {
                  enStatus = DLinkedList_enSTATUS_OK;
-                 DLinkedList__vSetElementNextNode(psElement, (DLinkedListElement_TypeDef*)0UL);
-                 DLinkedList__vSetElementPreviousNode(psElement, psNextElement);
+                 DLinkedList__vSetElementNextNode(pstElement, (DLinkedListElement_TypeDef*)0UL);
+                 DLinkedList__vSetElementPreviousNode(pstElement, pstNextElement);
 
-                 while((uint32_t) 0UL != (uint32_t) psNextElement)
+                 while((uint32_t) 0UL != (uint32_t) pstNextElement)
                  {
-                     psNextNextElement = DLinkedList__psGetElementNextNode(psNextElement);
-                     DLinkedList__vSetElementPreviousNode(psNextElement, psNextNextElement);
-                     DLinkedList__vSetElementNextNode(psNextElement, psElement);
-                     psNextPreviousElement = DLinkedList__psGetElementPreviousNode(psNextElement);
+                     pstNextNextElement = DLinkedList__pstGetElementNextNode(pstNextElement);
+                     DLinkedList__vSetElementPreviousNode(pstNextElement, pstNextNextElement);
+                     DLinkedList__vSetElementNextNode(pstNextElement, pstElement);
+                     pstNextPreviousElement = DLinkedList__pstGetElementPreviousNode(pstNextElement);
 
-                     psElement = psNextElement;
-                     psNextElement = psNextPreviousElement;
+                     pstElement = pstNextElement;
+                     pstNextElement = pstNextPreviousElement;
                  }
-                 DLinkedList__vSetHead(psList, psElement);
+                 DLinkedList__vSetHead(pstList, pstElement);
              }
          }
      }

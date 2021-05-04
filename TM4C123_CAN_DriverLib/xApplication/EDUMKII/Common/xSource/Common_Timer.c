@@ -30,19 +30,19 @@
 
 void EDUMKII_Common_vTimerInit(void)
 {
-    TIMER_EXTRAMODE_Typedef psExtraMode;
+    TIMER_EXTRAMODE_Typedef pstExtraMode;
     static uint32_t u32Init = 0UL;
     if(0UL == u32Init)
     {
-        psExtraMode.enWaitTrigger = TIMER_enWAIT_NOTRIGGER;
-        psExtraMode.enPWMInterrupt = TIMER_enPWM_INT_DIS;
-        psExtraMode.enEventInterrupt = TIMER_enEVENT_INT_DIS;
-        psExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
-        psExtraMode.enStall = TIMER_enSTALL_FREEZE;
-        psExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
-        psExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_ENA;
+        pstExtraMode.enWaitTrigger = TIMER_enWAIT_NOTRIGGER;
+        pstExtraMode.enPWMInterrupt = TIMER_enPWM_INT_DIS;
+        pstExtraMode.enEventInterrupt = TIMER_enEVENT_INT_DIS;
+        pstExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
+        pstExtraMode.enStall = TIMER_enSTALL_FREEZE;
+        pstExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
+        pstExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_ENA;
 
-        TIMER__enSetExtraModeStruct(TIMER_enT5A, &psExtraMode);
+        TIMER__enSetExtraModeStruct(TIMER_enT5A, &pstExtraMode);
         TIMER__enSetMode_Reload(TIMER_enT5A, TIMER_enMODE_PERIODIC_INDIVIDUAL_UP, 800000U-1U);
         TIMER__vSetEnable(TIMER_enT5A, TIMER_enENABLE_START);
         u32Init = 1UL;

@@ -24,17 +24,17 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Element/xHeader/BiTree_ElementData.h>
 #include <stdlib.h>
 
-void* BiTree__pvGetElementData(const BiTreeElement_TypeDef* const psElement)
+void* BiTree__pvGetElementData(const BiTreeElement_TypeDef* const pstElement)
 {
     void* pvDataReg = (void*)0UL;
-    pvDataReg = psElement->pvDataContainer;
+    pvDataReg = pstElement->pvDataContainer;
 
     return pvDataReg;
 }
 
-void BiTree__vSetElementData(BiTreeElement_TypeDef* psElement, void* pvDataArg)
+void BiTree__vSetElementData(BiTreeElement_TypeDef* pstElement, void* pvDataArg)
 {
-    psElement->pvDataContainer = pvDataArg;
+    pstElement->pvDataContainer = pvDataArg;
 }
 
 

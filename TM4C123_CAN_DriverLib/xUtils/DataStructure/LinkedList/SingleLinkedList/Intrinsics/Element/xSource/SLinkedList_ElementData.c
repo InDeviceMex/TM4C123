@@ -24,17 +24,17 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/xHeader/SLinkedList_ElementData.h>
 #include <stdlib.h>
 
-void* SLinkedList__pvGetElementData(const SLinkedListElement_TypeDef* const psElement)
+void* SLinkedList__pvGetElementData(const SLinkedListElement_TypeDef* const pstElement)
 {
     void* pvDataReg = (void*)0UL;
-    pvDataReg = psElement->pvDataContainer;
+    pvDataReg = pstElement->pvDataContainer;
 
     return pvDataReg;
 }
 
-void SLinkedList__vSetElementData(SLinkedListElement_TypeDef* psElement, void* pvDataArg)
+void SLinkedList__vSetElementData(SLinkedListElement_TypeDef* pstElement, void* pvDataArg)
 {
-    psElement->pvDataContainer = pvDataArg;
+    pstElement->pvDataContainer = pvDataArg;
 }
 
 

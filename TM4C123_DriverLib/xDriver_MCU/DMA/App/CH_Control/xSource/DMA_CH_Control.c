@@ -27,84 +27,84 @@
 #include <xDriver_MCU/DMA/App/CH_Control/xHeader/DMA_CH_ControlStruct.h>
 #include <xDriver_MCU/DMA/Driver/DMA_Driver.h>
 
-void DMA_CH__vSetPrimaryControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef psControl)
+void DMA_CH__vSetPrimaryControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef pstControl)
 {
-    DMA_CH__vSetControlStruct(enDMAChannel, DMA_enCH_CTL_PRIMARY, psControl);
+    DMA_CH__vSetControlStruct(enDMAChannel, DMA_enCH_CTL_PRIMARY, pstControl);
 }
 
-void DMA_CH__vSetAlternateControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef psControl)
+void DMA_CH__vSetAlternateControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef pstControl)
 {
-        DMA_CH__vSetControlStruct(enDMAChannel, DMA_enCH_CTL_ALTERNATE, psControl);
+        DMA_CH__vSetControlStruct(enDMAChannel, DMA_enCH_CTL_ALTERNATE, pstControl);
 }
 
-void DMA_CH__vSetControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure, DMA_CONTROL_Typedef psControl)
+void DMA_CH__vSetControlStruct(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure, DMA_CONTROL_Typedef pstControl)
 {
-        DMA_CH__vSetTransferMode(enDMAChannel, enChannelStructure, psControl.enTransferMode);
-        DMA_CH__vSetBurst(enDMAChannel, enChannelStructure, psControl.enUseBurst);
-        DMA_CH__vSetTransferSize(enDMAChannel, enChannelStructure, psControl.u32TransferSize);
-        DMA_CH__vSetBurstSize(enDMAChannel, enChannelStructure, psControl.enBurstSize);
-        DMA_CH__vSetSourceSize(enDMAChannel, enChannelStructure, psControl.enSourceSize);
-        DMA_CH__vSetSourceIncrement(enDMAChannel, enChannelStructure, psControl.enSourceInc);
-        DMA_CH__vSetDestinationSize(enDMAChannel, enChannelStructure, psControl.enDestSize);
-        DMA_CH__vSetDestinationIncrement(enDMAChannel, enChannelStructure, psControl.enDestInc);
+        DMA_CH__vSetTransferMode(enDMAChannel, enChannelStructure, pstControl.enTransferMode);
+        DMA_CH__vSetBurst(enDMAChannel, enChannelStructure, pstControl.enUseBurst);
+        DMA_CH__vSetTransferSize(enDMAChannel, enChannelStructure, pstControl.u32TransferSize);
+        DMA_CH__vSetBurstSize(enDMAChannel, enChannelStructure, pstControl.enBurstSize);
+        DMA_CH__vSetSourceSize(enDMAChannel, enChannelStructure, pstControl.enSourceSize);
+        DMA_CH__vSetSourceIncrement(enDMAChannel, enChannelStructure, pstControl.enSourceInc);
+        DMA_CH__vSetDestinationSize(enDMAChannel, enChannelStructure, pstControl.enDestSize);
+        DMA_CH__vSetDestinationIncrement(enDMAChannel, enChannelStructure, pstControl.enDestInc);
 }
 
-DMA_nSTATUS DMA_CH__enGetPrimaryControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* psControl)
+DMA_nSTATUS DMA_CH__enGetPrimaryControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* pstControl)
 {
     DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
-    enSTATus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_PRIMARY, psControl);
+    enSTATus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_PRIMARY, pstControl);
     return enSTATus;
 }
 
-DMA_nSTATUS DMA_CH__enGetAlternateControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* psControl)
+DMA_nSTATUS DMA_CH__enGetAlternateControl(DMA_nCH_MODULE enDMAChannel, DMA_CONTROL_Typedef* pstControl)
 {
     DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
-    enSTATus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE, psControl);
+    enSTATus = DMA_CH__enGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE, pstControl);
     return enSTATus;
 }
 
-DMA_nSTATUS DMA_CH__enGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure, DMA_CONTROL_Typedef* psControl)
+DMA_nSTATUS DMA_CH__enGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure, DMA_CONTROL_Typedef* pstControl)
 {
     DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
 
-      if(0UL != (uint32_t) psControl)
+      if(0UL != (uint32_t) pstControl)
       {
-          psControl->enTransferMode = DMA_CH__enGetTransferMode(enDMAChannel, enChannelStructure);
-          psControl->enUseBurst = DMA_CH__enGetBurst(enDMAChannel, enChannelStructure);
-          psControl->u32TransferSize = DMA_CH__u32GetTransferSize(enDMAChannel, enChannelStructure);
-          psControl->enBurstSize = DMA_CH__enGetBurstSize(enDMAChannel, enChannelStructure);
-          psControl->enSourceSize = DMA_CH__enGetSourceSize(enDMAChannel, enChannelStructure);
-          psControl->enSourceInc = DMA_CH__enGetSourceIncrement(enDMAChannel, enChannelStructure);
-          psControl->enDestSize = DMA_CH__enGetDestinationSize(enDMAChannel, enChannelStructure);
-          psControl->enDestInc = DMA_CH__enGetDestinationIncrement(enDMAChannel, enChannelStructure);
+          pstControl->enTransferMode = DMA_CH__enGetTransferMode(enDMAChannel, enChannelStructure);
+          pstControl->enUseBurst = DMA_CH__enGetBurst(enDMAChannel, enChannelStructure);
+          pstControl->u32TransferSize = DMA_CH__u32GetTransferSize(enDMAChannel, enChannelStructure);
+          pstControl->enBurstSize = DMA_CH__enGetBurstSize(enDMAChannel, enChannelStructure);
+          pstControl->enSourceSize = DMA_CH__enGetSourceSize(enDMAChannel, enChannelStructure);
+          pstControl->enSourceInc = DMA_CH__enGetSourceIncrement(enDMAChannel, enChannelStructure);
+          pstControl->enDestSize = DMA_CH__enGetDestinationSize(enDMAChannel, enChannelStructure);
+          pstControl->enDestInc = DMA_CH__enGetDestinationIncrement(enDMAChannel, enChannelStructure);
       }
       return enSTATus;
 }
 
-DMA_CONTROL_Typedef* DMA_CH__psGetPrimaryControl(DMA_nCH_MODULE enDMAChannel)
+DMA_CONTROL_Typedef* DMA_CH__pstGetPrimaryControl(DMA_nCH_MODULE enDMAChannel)
 {
-    return DMA_CH__psGetControl(enDMAChannel, DMA_enCH_CTL_PRIMARY);
+    return DMA_CH__pstGetControl(enDMAChannel, DMA_enCH_CTL_PRIMARY);
 }
 
-DMA_CONTROL_Typedef* DMA_CH__psGetAlternateControl(DMA_nCH_MODULE enDMAChannel)
+DMA_CONTROL_Typedef* DMA_CH__pstGetAlternateControl(DMA_nCH_MODULE enDMAChannel)
 {
-    return DMA_CH__psGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE);
+    return DMA_CH__pstGetControl(enDMAChannel, DMA_enCH_CTL_ALTERNATE);
 }
 
-DMA_CONTROL_Typedef* DMA_CH__psGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure)
+DMA_CONTROL_Typedef* DMA_CH__pstGetControl(DMA_nCH_MODULE enDMAChannel, DMA_nCH_CTL enChannelStructure)
 {
-    DMA_CONTROL_Typedef* psControl = 0UL;
+    DMA_CONTROL_Typedef* pstControl = 0UL;
     #if defined (__TI_ARM__ )
-    psControl = (DMA_CONTROL_Typedef*) memalign( (size_t) 4, (size_t) sizeof(DMA_CONTROL_Typedef));
+    pstControl = (DMA_CONTROL_Typedef*) memalign( (size_t) 4, (size_t) sizeof(DMA_CONTROL_Typedef));
     #elif defined (__GNUC__ )
-    psControl = (DMA_CONTROL_Typedef*) malloc(sizeof(DMA_CONTROL_Typedef));
+    pstControl = (DMA_CONTROL_Typedef*) malloc(sizeof(DMA_CONTROL_Typedef));
     #endif
-    DMA_CH__enGetControl(enDMAChannel, enChannelStructure, psControl);
-    return psControl;
+    DMA_CH__enGetControl(enDMAChannel, enChannelStructure, pstControl);
+    return pstControl;
 }
 
-void DMA_CH__vDeleteControlStruct(DMA_CONTROL_Typedef* psControl)
+void DMA_CH__vDeleteControlStruct(DMA_CONTROL_Typedef* pstControl)
 {
-    free(psControl);
-    psControl = (DMA_CONTROL_Typedef*) 0UL;
+    free(pstControl);
+    pstControl = (DMA_CONTROL_Typedef*) 0UL;
 }

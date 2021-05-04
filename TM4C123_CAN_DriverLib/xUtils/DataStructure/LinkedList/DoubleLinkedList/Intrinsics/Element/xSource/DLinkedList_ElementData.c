@@ -24,17 +24,17 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/Element/xHeader/DLinkedList_ElementData.h>
 #include <stdlib.h>
 
-void* DLinkedList__pvGetElementData(const DLinkedListElement_TypeDef* const psElement)
+void* DLinkedList__pvGetElementData(const DLinkedListElement_TypeDef* const pstElement)
 {
     void* pvDataReg = (void*)0UL;
-    pvDataReg = psElement->pvDataContainer;
+    pvDataReg = pstElement->pvDataContainer;
 
     return pvDataReg;
 }
 
-void DLinkedList__vSetElementData(DLinkedListElement_TypeDef* psElement, void* pvDataArg)
+void DLinkedList__vSetElementData(DLinkedListElement_TypeDef* pstElement, void* pvDataArg)
 {
-    psElement->pvDataContainer = pvDataArg;
+    pstElement->pvDataContainer = pvDataArg;
 }
 
 

@@ -31,20 +31,20 @@
 
 #include <xDriver_MCU/SSI/SSI.h>
 
-void ST7735__vSetWorkingAreaWrapper(ST7735_Layer_Typedef* restrict enLayerArg, ST7735_DIMENSIONS_Typedef sDimesionsArg, uint32_t u32Color);
+void ST7735__vSetWorkingAreaWrapper(ST7735_Layer_Typedef* restrict enLayerArg, ST7735_DIMENSIONS_Typedef stDimesionsArg, uint32_t u32Color);
 
 uint8_t ST7735_u8ColStart = 2U;
 uint8_t ST7735_u8RowStart = 3U;
 
-void ST7735__vSetWorkingAreaWrapper(ST7735_Layer_Typedef* restrict enLayerArg, ST7735_DIMENSIONS_Typedef sDimesionsArg, uint32_t u32Color)
+void ST7735__vSetWorkingAreaWrapper(ST7735_Layer_Typedef* restrict enLayerArg, ST7735_DIMENSIONS_Typedef stDimesionsArg, uint32_t u32Color)
 {
-    uint32_t u32PosY = sDimesionsArg.u32CoordY[0];
-    uint32_t u32PosX = sDimesionsArg.u32CoordX[0];
-    uint32_t u32PosYTotal = sDimesionsArg.u32CoordY[0];
-    uint32_t u32PosXTotal = sDimesionsArg.u32CoordX[0];
+    uint32_t u32PosY = stDimesionsArg.u32CoordY[0];
+    uint32_t u32PosX = stDimesionsArg.u32CoordX[0];
+    uint32_t u32PosYTotal = stDimesionsArg.u32CoordY[0];
+    uint32_t u32PosXTotal = stDimesionsArg.u32CoordX[0];
     (void) u32Color;
-    u32PosYTotal += sDimesionsArg.u32Height;
-    u32PosXTotal += sDimesionsArg.u32Width;
+    u32PosYTotal += stDimesionsArg.u32Height;
+    u32PosXTotal += stDimesionsArg.u32Width;
     u32PosX += ST7735_u8ColStart;
     u32PosY += ST7735_u8RowStart;
     u32PosXTotal += ST7735_u8ColStart;
@@ -66,8 +66,8 @@ void ST7735__vSetWorkingAreaWrapper(ST7735_Layer_Typedef* restrict enLayerArg, S
     ST7735__u32WriteCommand(ST7735_enCOMMAND_RAMWR);
 }
 
-void ST7735__vSetWorkingArea(ST7735_Layer_Typedef* restrict enLayerArg, ST7735_DIMENSIONS_Typedef sDimesionsArg)
+void ST7735__vSetWorkingArea(ST7735_Layer_Typedef* restrict enLayerArg, ST7735_DIMENSIONS_Typedef stDimesionsArg)
 {
-    Graphics__vClearSection(&ST7735__vSetWorkingAreaWrapper,enLayerArg, sDimesionsArg, 0UL);
+    Graphics__vClearSection(&ST7735__vSetWorkingAreaWrapper,enLayerArg, stDimesionsArg, 0UL);
 }
 

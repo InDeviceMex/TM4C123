@@ -28,10 +28,10 @@
 #include <xDriver_MCU/TIMER/Peripheral/xHeader/TIMER_Enum.h>
 
 TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode);
-TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode);
+TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* pstMode);
 
 TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule);
-TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode);
-TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule);
+TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* pstMode);
+TIMER_MODE_Typedef* TIMER__pstGetMode(TIMER_nMODULE enModule);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_TIMER_TIMER_APP_TIMER_MODE_TIMER_MODE_H_ */

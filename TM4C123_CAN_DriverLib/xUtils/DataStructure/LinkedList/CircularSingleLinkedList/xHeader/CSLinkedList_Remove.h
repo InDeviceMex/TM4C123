@@ -26,10 +26,10 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
- CSLinkedList_nSTATUS CSLinkedList__enRemoveNext(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psElement, void** pvData);
- CSLinkedList_nSTATUS CSLinkedList__enRemove(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psElement, void** pvData);
- CSLinkedList_nSTATUS CSLinkedList__enRemoveBegin(CSLinkedList_TypeDef* psList, void** pvData);
- CSLinkedList_nSTATUS CSLinkedList__enRemoveEnd(CSLinkedList_TypeDef* psList, void** pvData);
- CSLinkedList_nSTATUS  CSLinkedList__enRemovePos(CSLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData);
+ CSLinkedList_nSTATUS CSLinkedList__enRemoveNext(CSLinkedList_TypeDef* pstList, CSLinkedListElement_TypeDef* pstElement, void** pvData);
+ CSLinkedList_nSTATUS CSLinkedList__enRemove(CSLinkedList_TypeDef* pstList, CSLinkedListElement_TypeDef* pstElement, void** pvData);
+ CSLinkedList_nSTATUS CSLinkedList__enRemoveBegin(CSLinkedList_TypeDef* pstList, void** pvData);
+ CSLinkedList_nSTATUS CSLinkedList__enRemoveEnd(CSLinkedList_TypeDef* pstList, void** pvData);
+ CSLinkedList_nSTATUS  CSLinkedList__enRemovePos(CSLinkedList_TypeDef* pstList, uint32_t u32Position, void** pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_CIRCULARSINGLELINKEDLIST_XHEADER_CIRCULARSLINKEDLIST_REMOVE_H_ */

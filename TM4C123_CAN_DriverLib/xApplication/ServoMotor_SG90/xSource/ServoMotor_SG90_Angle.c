@@ -26,7 +26,7 @@
 #include <xUtils/Standard/Standard.h>
 
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef* const psServoMotor, int8_t s8Angle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef* const pstServoMotor, int8_t s8Angle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
@@ -35,12 +35,12 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef*
     uint32_t u32ServoMinCount = 0U;
     uint32_t u32DegreeCountVar = 0U;
     int32_t s32AngleAbsolute = 90; /*Center*/
-    if(0UL != (uint32_t) psServoMotor)
+    if(0UL != (uint32_t) pstServoMotor)
     {
-        u32ServoMinCount = psServoMotor->u32MinCount;
-        enTimerModuleVar = psServoMotor->enTimerModule;
+        u32ServoMinCount = pstServoMotor->u32MinCount;
+        enTimerModuleVar = pstServoMotor->enTimerModule;
         u32Count = u32ServoMinCount;/*1 ms min value*/
-        u32DegreeCountVar = psServoMotor->u32DegreeCount;
+        u32DegreeCountVar = pstServoMotor->u32DegreeCount;
         if((s8Angle >= -90) && (s8Angle <= 90))
         {
             s32AngleAbsolute += (int32_t) s8Angle;
@@ -53,7 +53,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef*
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_Typedef* const psServoMotor, uint8_t u8Angle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_Typedef* const pstServoMotor, uint8_t u8Angle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
@@ -62,12 +62,12 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_
     uint32_t u32ServoMinCount = 0;
     uint32_t u32DegreeCountVar = 0U;
     uint32_t u32AngleAbsolute = 0U; /*Lowest*/
-    if(0UL != (uint32_t) psServoMotor)
+    if(0UL != (uint32_t) pstServoMotor)
     {
-        u32ServoMinCount = psServoMotor->u32MinCount;
-        enTimerModuleVar = psServoMotor->enTimerModule;
+        u32ServoMinCount = pstServoMotor->u32MinCount;
+        enTimerModuleVar = pstServoMotor->enTimerModule;
         u32Count = u32ServoMinCount;/*1 ms min value*/
-        u32DegreeCountVar = psServoMotor->u32DegreeCount;
+        u32DegreeCountVar = pstServoMotor->u32DegreeCount;
         if(u8Angle <= 180U)
         {
             u32AngleAbsolute = (uint32_t) u8Angle;
@@ -80,7 +80,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typedef* const psServoMotor, float32_t fAngle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typedef* const pstServoMotor, float32_t fAngle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
@@ -89,12 +89,12 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typ
     uint32_t u32ServoMinCount = 0;
     float32_t fDegreeCountVar = 0.0f;
     float32_t fAngleAbsolute = 90.0f; /*Center*/
-    if(0UL != (uint32_t) psServoMotor)
+    if(0UL != (uint32_t) pstServoMotor)
     {
-        u32ServoMinCount = psServoMotor->u32MinCount;
-        enTimerModuleVar = psServoMotor->enTimerModule;
+        u32ServoMinCount = pstServoMotor->u32MinCount;
+        enTimerModuleVar = pstServoMotor->enTimerModule;
         u32Count = u32ServoMinCount;/*1 ms min value*/
-        fDegreeCountVar = psServoMotor->fDegreeCount;
+        fDegreeCountVar = pstServoMotor->fDegreeCount;
         if((-90.0f <= fAngle) && (90.0f >= fAngle))
         {
             fAngleAbsolute += fAngle;
@@ -107,7 +107,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typ
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_SG90_Typedef* const psServoMotor, float32_t fAngle)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_SG90_Typedef* const pstServoMotor, float32_t fAngle)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
@@ -116,12 +116,12 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_
     uint32_t u32ServoMinCount = 0U;
     float32_t fDegreeCountVar = 0.0f;
     float32_t fAngleAbsolute = 0.0f; /*Lowest*/
-    if(0UL != (uint32_t) psServoMotor)
+    if(0UL != (uint32_t) pstServoMotor)
     {
-        u32ServoMinCount = psServoMotor->u32MinCount;
-        enTimerModuleVar = psServoMotor->enTimerModule;
+        u32ServoMinCount = pstServoMotor->u32MinCount;
+        enTimerModuleVar = pstServoMotor->enTimerModule;
         u32Count = u32ServoMinCount;/*1 ms min value*/
-        fDegreeCountVar = psServoMotor->fDegreeCount;
+        fDegreeCountVar = pstServoMotor->fDegreeCount;
         if(fAngle <= 180.0)
         {
             fAngleAbsolute = fAngle;

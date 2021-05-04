@@ -26,11 +26,11 @@
 
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/xHeader/SLinkedList_Struct.h>
 
- SLinkedList_nSTATUS SLinkedList__enRemoveNext(SLinkedList_TypeDef* psList, SLinkedListElement_TypeDef* psElement, void** pvData);
- SLinkedList_nSTATUS SLinkedList__enRemove(SLinkedList_TypeDef* psList, SLinkedListElement_TypeDef* psElement, void** pvData);
- SLinkedList_nSTATUS SLinkedList__enRemoveBegin(SLinkedList_TypeDef* psList, void** pvData);
- SLinkedList_nSTATUS SLinkedList__enRemoveEnd(SLinkedList_TypeDef* psList, void** pvData);
- SLinkedList_nSTATUS  SLinkedList__enRemovePos(SLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData);
+ SLinkedList_nSTATUS SLinkedList__enRemoveNext(SLinkedList_TypeDef* pstList, SLinkedListElement_TypeDef* pstElement, void** pvData);
+ SLinkedList_nSTATUS SLinkedList__enRemove(SLinkedList_TypeDef* pstList, SLinkedListElement_TypeDef* pstElement, void** pvData);
+ SLinkedList_nSTATUS SLinkedList__enRemoveBegin(SLinkedList_TypeDef* pstList, void** pvData);
+ SLinkedList_nSTATUS SLinkedList__enRemoveEnd(SLinkedList_TypeDef* pstList, void** pvData);
+ SLinkedList_nSTATUS  SLinkedList__enRemovePos(SLinkedList_TypeDef* pstList, uint32_t u32Position, void** pvData);
 
 
 

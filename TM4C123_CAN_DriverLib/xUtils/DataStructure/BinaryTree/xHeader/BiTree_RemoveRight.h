@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
- BiTree_nSTATUS BiTree__enRemoveRight(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psElement);
+ BiTree_nSTATUS BiTree__enRemoveRight(BiTree_TypeDef* pstTree, BiTreeElement_TypeDef* pstElement);
 
 #endif /* XUTILS_DATASTRUCTURE_BINARYTREE_XHEADER_BITREE_REMOVERIGHT_H_ */

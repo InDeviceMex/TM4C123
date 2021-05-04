@@ -25,17 +25,17 @@
 #include <stdlib.h>
 
 
-uint32_t CDLinkedList__u32GetSize(const CDLinkedList_TypeDef* const psList)
+uint32_t CDLinkedList__u32GetSize(const CDLinkedList_TypeDef* const pstList)
 {
     uint32_t u32SizeReg = 0UL;
-    u32SizeReg = psList->u32Size;
+    u32SizeReg = pstList->u32Size;
     return u32SizeReg;
 
 }
 
-void CDLinkedList__vSetSize(CDLinkedList_TypeDef*  psList, uint32_t u32SizeArg)
+void CDLinkedList__vSetSize(CDLinkedList_TypeDef*  pstList, uint32_t u32SizeArg)
 {
-    psList->u32Size = u32SizeArg;
+    pstList->u32Size = u32SizeArg;
 }
 
 

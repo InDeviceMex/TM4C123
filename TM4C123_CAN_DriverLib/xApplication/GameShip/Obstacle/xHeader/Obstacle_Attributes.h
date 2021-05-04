@@ -27,10 +27,10 @@
 
 #include <xApplication/GameShip/Obstacle/xHeader/Obstacle_Struct.h>
 
-uint32_t Obstacle__u32GetXPos(const Obstacle_TypeDef* psObstacleArg);
-void Obstacle__vSetXPos(Obstacle_TypeDef* psObstacleArg, uint32_t u32XPosArg);
+uint32_t Obstacle__u32GetXPos(const Obstacle_TypeDef* pstObstacleArg);
+void Obstacle__vSetXPos(Obstacle_TypeDef* pstObstacleArg, uint32_t u32XPosArg);
 
-uint32_t Obstacle__u32GetYPos(const Obstacle_TypeDef* psObstacleArg);
-void Obstacle__vSetYPos(Obstacle_TypeDef* psObstacleArg, uint32_t u32YPosArg);
+uint32_t Obstacle__u32GetYPos(const Obstacle_TypeDef* pstObstacleArg);
+void Obstacle__vSetYPos(Obstacle_TypeDef* pstObstacleArg, uint32_t u32YPosArg);
 
 #endif /* XAPPLICATION_GAMESHIP_OBSTACLE_XHEADER_ASTEROID_ATTRIBUTES_H_ */

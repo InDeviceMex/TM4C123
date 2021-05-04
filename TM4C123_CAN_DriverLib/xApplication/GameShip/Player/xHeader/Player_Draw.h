@@ -27,7 +27,7 @@
 
 #include <xApplication/GameShip/Player/xHeader/Player_Struct.h>
 
-void Player__vDraw(const Player_TypeDef* psPlayerArg);
-void Player__vDrawLifes(const Player_TypeDef* psPlayerArg);
+void Player__vDraw(const Player_TypeDef* pstPlayerArg);
+void Player__vDrawLifes(const Player_TypeDef* pstPlayerArg);
 
 #endif /* XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_DRAW_H_ */

@@ -27,101 +27,101 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 #include <stdlib.h>
 
-CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* psCHashTable, uint32_t u32BucketsNum, uint32_t (*pfu32FunctionArg) (const void *pcvKey),
+CHashTable_nSTATUS CHashTable__enInit(CHashTable_TypeDef* pstCHashTable, uint32_t u32BucketsNum, uint32_t (*pfu32FunctionArg) (const void *pcvKey),
                                                                        uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2), void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
     SLinkedList_nSTATUS enLinkedStatus = SLinkedList_enSTATUS_ERROR;
-    SLinkedList_TypeDef* psList = (SLinkedList_TypeDef*)0UL;
+    SLinkedList_TypeDef* pstList = (SLinkedList_TypeDef*)0UL;
     uint32_t u32Position = 0UL;
 
-    if((uint32_t) 0UL != (uint32_t) psCHashTable)
+    if((uint32_t) 0UL != (uint32_t) pstCHashTable)
     {
-        psCHashTable->u32Size = 0UL;
-        psCHashTable->pfu32HashFunction = pfu32FunctionArg;
-        psCHashTable->pfu32Match = pfu32MatchArg;
-        psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
-        psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
+        pstCHashTable->u32Size = 0UL;
+        pstCHashTable->pfu32HashFunction = pfu32FunctionArg;
+        pstCHashTable->pfu32Match = pfu32MatchArg;
+        pstCHashTable->pfvDestroy = (void (*) (void* List))0UL;
+        pstCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
     #if defined (__TI_ARM__ )
-        psCHashTable->psTable = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
+        pstCHashTable->pstTable = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #elif defined (__GNUC__ )
-        psCHashTable->psTable = (SLinkedList_TypeDef*) malloc((size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
+        pstCHashTable->pstTable = (SLinkedList_TypeDef*) malloc((size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #endif
-        if((uint32_t) 0UL != (uint32_t) (psCHashTable->psTable))
+        if((uint32_t) 0UL != (uint32_t) (pstCHashTable->pstTable))
         {
             enLinkedStatus = SLinkedList_enSTATUS_OK;
 
-            psList = psCHashTable->psTable;
+            pstList = pstCHashTable->pstTable;
             for(u32Position = 0UL; u32Position<u32BucketsNum; u32Position++)
             {
-                enLinkedStatus = SLinkedList__enInit(psList, pfvDestroyElementDataArg);
+                enLinkedStatus = SLinkedList__enInit(pstList, pfvDestroyElementDataArg);
                 if(SLinkedList_enSTATUS_OK != enLinkedStatus)
                 {
                     break;
                 }
-                psList += 1UL;
+                pstList += 1UL;
             }
-            psCHashTable->u32Buckets = u32Position;
+            pstCHashTable->u32Buckets = u32Position;
             if(SLinkedList_enSTATUS_OK != enLinkedStatus)
             {
-                CHashTable__vDestroy(psCHashTable);
+                CHashTable__vDestroy(pstCHashTable);
             }
         }
     }
     return (CHashTable_nSTATUS) enLinkedStatus;
 }
 
-CHashTable_TypeDef* CHashTable__psInit(uint32_t u32BucketsNum, uint32_t (*pfu32FunctionArg) (const void *pcvKey),
+CHashTable_TypeDef* CHashTable__pstInit(uint32_t u32BucketsNum, uint32_t (*pfu32FunctionArg) (const void *pcvKey),
                                                                        uint32_t (*pfu32MatchArg) (const void *pcvKey1, const void *pcvKey2),void (*pfvDestroyElementDataArg) (void *DataContainer))
 {
-    CHashTable_TypeDef *psCHashTable = 0;
-    SLinkedList_TypeDef* psList = (SLinkedList_TypeDef*)0UL;
+    CHashTable_TypeDef *pstCHashTable = 0;
+    SLinkedList_TypeDef* pstList = (SLinkedList_TypeDef*)0UL;
     SLinkedList_nSTATUS enLinkedStatus = SLinkedList_enSTATUS_ERROR;
     uint32_t u32Position = 0UL;
 
 #if defined (__TI_ARM__ )
-    psCHashTable = (CHashTable_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CHashTable_TypeDef));
+    pstCHashTable = (CHashTable_TypeDef*) memalign((size_t) 4, (size_t) sizeof(CHashTable_TypeDef));
 #elif defined (__GNUC__ )
-    psCHashTable = (CHashTable_TypeDef*) malloc(sizeof(CHashTable_TypeDef));
+    pstCHashTable = (CHashTable_TypeDef*) malloc(sizeof(CHashTable_TypeDef));
 #endif
-    if((uint32_t) 0UL != (uint32_t) psCHashTable)
+    if((uint32_t) 0UL != (uint32_t) pstCHashTable)
     {
-        psCHashTable->u32Size = 0UL;
-        psCHashTable->pfu32HashFunction = pfu32FunctionArg;
-        psCHashTable->pfu32Match = pfu32MatchArg;
-        psCHashTable->pfvDestroy = (void (*) (void* List))0UL;
-        psCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
+        pstCHashTable->u32Size = 0UL;
+        pstCHashTable->pfu32HashFunction = pfu32FunctionArg;
+        pstCHashTable->pfu32Match = pfu32MatchArg;
+        pstCHashTable->pfvDestroy = (void (*) (void* List))0UL;
+        pstCHashTable->pfvDestroyElementData = pfvDestroyElementDataArg;
 
     #if defined (__TI_ARM__ )
-        psCHashTable->psTable = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
+        pstCHashTable->pstTable = (SLinkedList_TypeDef*) memalign((size_t) 4, (size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #elif defined (__GNUC__ )
-        psCHashTable->psTable = (SLinkedList_TypeDef*) malloc((size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
+        pstCHashTable->pstTable = (SLinkedList_TypeDef*) malloc((size_t) (u32BucketsNum * sizeof(SLinkedList_TypeDef)));
     #endif
-        if((uint32_t) 0UL != (uint32_t) (psCHashTable->psTable))
+        if((uint32_t) 0UL != (uint32_t) (pstCHashTable->pstTable))
         {
             enLinkedStatus = SLinkedList_enSTATUS_OK;
-            psList = psCHashTable->psTable;
+            pstList = pstCHashTable->pstTable;
             for(u32Position = 0UL; u32Position<u32BucketsNum; u32Position++)
             {
-                enLinkedStatus = SLinkedList__enInit(psList, pfvDestroyElementDataArg);
+                enLinkedStatus = SLinkedList__enInit(pstList, pfvDestroyElementDataArg);
                 if(SLinkedList_enSTATUS_OK != enLinkedStatus)
                 {
                     break;
                 }
-                psList += 1UL;
+                pstList += 1UL;
             }
-            psCHashTable->u32Buckets = u32Position;
+            pstCHashTable->u32Buckets = u32Position;
             if(SLinkedList_enSTATUS_OK != enLinkedStatus)
             {
-                CHashTable__vDestroy(psCHashTable);
+                CHashTable__vDestroy(pstCHashTable);
             }
         }
         else
         {
-            CHashTable__vDestroy(psCHashTable);
+            CHashTable__vDestroy(pstCHashTable);
         }
     }
-    return psCHashTable;
+    return pstCHashTable;
 }
 
 

@@ -27,71 +27,71 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/SLinkedList_List.h>
 
 
-CHashTable_nSTATUS CHashTable__enLookup(const CHashTable_TypeDef* psCHashTable, void** pvData)
+CHashTable_nSTATUS CHashTable__enLookup(const CHashTable_TypeDef* pstCHashTable, void** pvData)
 {
-    SLinkedList_TypeDef *psList = (SLinkedList_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElement = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElementNext = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedList_TypeDef *pstList = (SLinkedList_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElement = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElementNext = (SLinkedListElement_TypeDef*) 0UL;
     void *pvElementData = (void*) 0UL;
     uint32_t u32BucketNum = 0UL;
     uint32_t u32BucketsSize = 0UL;
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
-    if(((uint32_t) 0UL != (uint32_t) psCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) pstCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
-        u32BucketsSize = psCHashTable->u32Buckets;
-        u32BucketNum = psCHashTable->pfu32HashFunction(* pvData);
+        u32BucketsSize = pstCHashTable->u32Buckets;
+        u32BucketNum = pstCHashTable->pfu32HashFunction(* pvData);
         u32BucketNum %= u32BucketsSize;
 
-        psList = psCHashTable->psTable;
-        psList += u32BucketNum;
-        psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t) 0UL != (uint32_t) psElement)
+        pstList = pstCHashTable->pstTable;
+        pstList += u32BucketNum;
+        pstElement = SLinkedList__pstGetHead(pstList);
+        while((uint32_t) 0UL != (uint32_t) pstElement)
         {
-            pvElementData = SLinkedList__pvGetElementData(psElement);
-            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match((const void*)*pvData, (const void*)pvElementData);
+            pvElementData = SLinkedList__pvGetElementData(pstElement);
+            enMatchResult = (CHashTable_nSTATUS) pstCHashTable->pfu32Match((const void*)*pvData, (const void*)pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
                 *pvData = pvElementData;
                 break;
             }
-            psElementNext = SLinkedList__psGetElementNextNode(psElement);
-            psElement = psElementNext;
+            pstElementNext = SLinkedList__pstGetElementNextNode(pstElement);
+            pstElement = pstElementNext;
         }
     }
     return enMatchResult;
 }
 
 
-void* CHashTable__pvLookup(const CHashTable_TypeDef* psCHashTable, const void* const* pvData)
+void* CHashTable__pvLookup(const CHashTable_TypeDef* pstCHashTable, const void* const* pvData)
 {
-    SLinkedList_TypeDef *psList = (SLinkedList_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElement = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psElementNext = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedList_TypeDef *pstList = (SLinkedList_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElement = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstElementNext = (SLinkedListElement_TypeDef*) 0UL;
     void *pvElementData = (void*) 0UL;
     void *pvElementReturn = (void*) 0UL;
     uint32_t u32BucketNum = 0UL;
     uint32_t u32BucketSize = 0UL;
     CHashTable_nSTATUS enMatchResult = CHashTable_enSTATUS_ERROR;
-    if(((uint32_t) 0UL != (uint32_t) psCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) pstCHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
-        u32BucketSize = psCHashTable->u32Buckets;
-        u32BucketNum = psCHashTable->pfu32HashFunction(* pvData);
+        u32BucketSize = pstCHashTable->u32Buckets;
+        u32BucketNum = pstCHashTable->pfu32HashFunction(* pvData);
         u32BucketNum %= u32BucketSize;
 
-        psList = psCHashTable->psTable;
-        psList += u32BucketNum;
-        psElement = SLinkedList__psGetHead(psList);
-        while((uint32_t) 0UL != (uint32_t) psElement)
+        pstList = pstCHashTable->pstTable;
+        pstList += u32BucketNum;
+        pstElement = SLinkedList__pstGetHead(pstList);
+        while((uint32_t) 0UL != (uint32_t) pstElement)
         {
-            pvElementData = SLinkedList__pvGetElementData(psElement);
-            enMatchResult = (CHashTable_nSTATUS) psCHashTable->pfu32Match(*pvData, pvElementData);
+            pvElementData = SLinkedList__pvGetElementData(pstElement);
+            enMatchResult = (CHashTable_nSTATUS) pstCHashTable->pfu32Match(*pvData, pvElementData);
             if(CHashTable_enSTATUS_OK == enMatchResult)
             {
                 pvElementReturn = pvElementData;
                 break;
             }
-            psElementNext = SLinkedList__psGetElementNextNode(psElement);
-            psElement = psElementNext;
+            pstElementNext = SLinkedList__pstGetElementNextNode(pstElement);
+            pstElement = pstElementNext;
         }
     }
     return pvElementReturn;

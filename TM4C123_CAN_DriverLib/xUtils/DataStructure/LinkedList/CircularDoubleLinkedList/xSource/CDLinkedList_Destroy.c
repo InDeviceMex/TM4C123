@@ -32,41 +32,41 @@
 
 #include <stdlib.h>
 
-void CDLinkedList__vDestroy(CDLinkedList_TypeDef* psList)
+void CDLinkedList__vDestroy(CDLinkedList_TypeDef* pstList)
  {
      CDLinkedList_nSTATUS enStatus = CDLinkedList_enSTATUS_ERROR;
-     CDLinkedListElement_TypeDef* psTailElement = (CDLinkedListElement_TypeDef*) 0UL;
+     CDLinkedListElement_TypeDef* pstTailElement = (CDLinkedListElement_TypeDef*) 0UL;
      void * pvDataElement = (void*)0UL;
      uint32_t u32SizeReg = 0UL;
      void (*pfvListDestroy) (void* List) = (void (*) (void* List) )0UL;
 
-     if((CDLinkedList_TypeDef*)0 != psList)
+     if((CDLinkedList_TypeDef*)0 != pstList)
      {
          enStatus = CDLinkedList_enSTATUS_OK;
-         u32SizeReg = CDLinkedList__u32GetSize(psList);
-         pfvListDestroy = psList->pfvDestroy;
+         u32SizeReg = CDLinkedList__u32GetSize(pstList);
+         pfvListDestroy = pstList->pfvDestroy;
          while (u32SizeReg> 0UL)
          {
-             psTailElement = CDLinkedList__psGetTail(psList);
-             enStatus = CDLinkedList__enRemove(psList, psTailElement, (void **) & pvDataElement);
-             if((CDLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) psList->pfvDestroyElementData))
+             pstTailElement = CDLinkedList__pstGetTail(pstList);
+             enStatus = CDLinkedList__enRemove(pstList, pstTailElement, (void **) & pvDataElement);
+             if((CDLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) pstList->pfvDestroyElementData))
              {
-                 psList->pfvDestroyElementData(pvDataElement);
+                 pstList->pfvDestroyElementData(pvDataElement);
              }
-             u32SizeReg = CDLinkedList__u32GetSize(psList);
+             u32SizeReg = CDLinkedList__u32GetSize(pstList);
          }
 
-         psList->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
-         psList->pfvDestroy = (void (*) (void* List)) 0UL;
-         psList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
-         psList->psHead = (CDLinkedListElement_TypeDef *) 0UL;
-         psList->psTail = (CDLinkedListElement_TypeDef *) 0UL;
-         psList->u32Size = 0UL;
+         pstList->pfu32Match = (uint32_t (*) (const void *pcvKey1, const void *pcvKey2)) 0UL;
+         pstList->pfvDestroy = (void (*) (void* List)) 0UL;
+         pstList->pfvDestroyElementData = (void (*) (void* DataContainer)) 0UL;
+         pstList->pstHead = (CDLinkedListElement_TypeDef *) 0UL;
+         pstList->pstTail = (CDLinkedListElement_TypeDef *) 0UL;
+         pstList->u32Size = 0UL;
 
          if((CDLinkedList_enSTATUS_OK == enStatus ) && ( (uint32_t) 0 != (uint32_t) pfvListDestroy))
          {
-             pfvListDestroy(psList);
-             psList = (CDLinkedList_TypeDef*)0UL;
+             pfvListDestroy(pstList);
+             pstList = (CDLinkedList_TypeDef*)0UL;
          }
 
      }

@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/xHeader/CDLinkedList_Struct.h>
 
- void*  CDLinkedList__pvGetNodeDataPos(const CDLinkedList_TypeDef* psList, uint32_t u32Position);
- void*  CDLinkedList__pvGetNodeDataEnd(const CDLinkedList_TypeDef* psList);
- void*  CDLinkedList__pvGetNodeDataBegin(const CDLinkedList_TypeDef* psList);
+ void*  CDLinkedList__pvGetNodeDataPos(const CDLinkedList_TypeDef* pstList, uint32_t u32Position);
+ void*  CDLinkedList__pvGetNodeDataEnd(const CDLinkedList_TypeDef* pstList);
+ void*  CDLinkedList__pvGetNodeDataBegin(const CDLinkedList_TypeDef* pstList);
 
 
 

@@ -23,17 +23,17 @@
  */
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Element/xHeader/BiTree_ElementRight.h>
 
-BiTreeElement_TypeDef* BiTree__psGetElementRightNode(const BiTreeElement_TypeDef* const psElement)
+BiTreeElement_TypeDef* BiTree__pstGetElementRightNode(const BiTreeElement_TypeDef* const pstElement)
 {
-    BiTreeElement_TypeDef* psRightElementReg = (BiTreeElement_TypeDef*)0UL;
-    psRightElementReg = psElement->psRightNode;
+    BiTreeElement_TypeDef* pstRightElementReg = (BiTreeElement_TypeDef*)0UL;
+    pstRightElementReg = pstElement->pstRightNode;
 
-    return psRightElementReg;
+    return pstRightElementReg;
 }
 
-void BiTree__vSetElementRightNode(BiTreeElement_TypeDef* psElement, BiTreeElement_TypeDef* psRightElement)
+void BiTree__vSetElementRightNode(BiTreeElement_TypeDef* pstElement, BiTreeElement_TypeDef* pstRightElement)
 {
-    psElement->psRightNode = psRightElement;
+    pstElement->pstRightNode = pstRightElement;
 }
 
 

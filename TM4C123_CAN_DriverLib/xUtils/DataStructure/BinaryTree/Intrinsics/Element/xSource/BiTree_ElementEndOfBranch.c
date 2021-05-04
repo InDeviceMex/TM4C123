@@ -26,11 +26,11 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Element/xHeader/BiTree_ElementRight.h>
 #include <xUtils/Standard/Standard.h>
 
-BiTree_nSTATUS BiTree__enIsElementEndOfBranch(const BiTreeElement_TypeDef* const psElement)
+BiTree_nSTATUS BiTree__enIsElementEndOfBranch(const BiTreeElement_TypeDef* const pstElement)
 {
     BiTree_nSTATUS enStatusReg = BiTree_enSTATUS_ERROR;
 
-    if((uint32_t) 0UL == (uint32_t) psElement)
+    if((uint32_t) 0UL == (uint32_t) pstElement)
     {
         enStatusReg = BiTree_enSTATUS_OK;
     }

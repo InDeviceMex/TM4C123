@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
-uint32_t CSLinkedList__u32GetSize(const CSLinkedList_TypeDef* const psList);
-void CSLinkedList__vSetSize(CSLinkedList_TypeDef*  psList, uint32_t u32SizeArg);
+uint32_t CSLinkedList__u32GetSize(const CSLinkedList_TypeDef* const pstList);
+void CSLinkedList__vSetSize(CSLinkedList_TypeDef*  pstList, uint32_t u32SizeArg);
 
 
 

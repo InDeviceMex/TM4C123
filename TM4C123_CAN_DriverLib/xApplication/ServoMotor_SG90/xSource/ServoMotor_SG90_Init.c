@@ -31,12 +31,12 @@
 #define SERVO_MAXFREC (1111U) /*900 us*/
 #define SERVO_MINFREC (500U) /*2000 us*/
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMotor, TIMER_nMODULE enTimerModuleParam, GPIO_nDIGITAL_FUNCTION enGpioDigitalParam, uint32_t u32MinTime, uint32_t u32MaxTime)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* pstServoMotor, TIMER_nMODULE enTimerModuleParam, GPIO_nDIGITAL_FUNCTION enGpioDigitalParam, uint32_t u32MinTime, uint32_t u32MaxTime)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     GPIO_nSTATUS enGPIOStatus = GPIO_enSTATUS_ERROR;
     TIMER_nSTATUS enTIMERStatus = TIMER_enSTATUS_ERROR;
-    TIMER_EXTRAMODE_Typedef psExtraMode;
+    TIMER_EXTRAMODE_Typedef pstExtraMode;
     uint32_t u32SysFreq = 0U;
     uint32_t u32ServoFreq = 0U;
     uint32_t u32ServoMaxPulse = 0U;
@@ -48,7 +48,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
     uint32_t u32MaxFrec = 1000000U;
     float32_t fDegreeCountVar = 0.0f;
 
-    if((0UL != (uint32_t) psServoMotor) && (0UL != u32MinTime) && (0UL != u32MaxTime))
+    if((0UL != (uint32_t) pstServoMotor) && (0UL != u32MinTime) && (0UL != u32MaxTime))
     {
         if(u32MinTime>u32MaxTime)
         {
@@ -58,36 +58,36 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* psServoMo
         }
         u32MaxFrec /= u32MinTime;
         u32MinFrec /= u32MaxTime;
-        psServoMotor->enGpioDigital = enGpioDigitalParam;
-        psServoMotor->enTimerModule = enTimerModuleParam;
+        pstServoMotor->enGpioDigital = enGpioDigitalParam;
+        pstServoMotor->enTimerModule = enTimerModuleParam;
 
         u32SysFreq = SYSCTL__u32GetClock();
         u32ServoFreq = u32SysFreq/SERVO_FREC;
         u32ServoMaxPulse = u32SysFreq/u32MaxFrec;
         u32ServoMinPulse = u32SysFreq/u32MinFrec;
         u32ServoMinCount = u32ServoFreq-u32ServoMaxPulse;
-        psServoMotor->u32MinCount = u32ServoMinCount;
-        psServoMotor->u32DeltaCount = u32ServoMinPulse - u32ServoMaxPulse;
-        psServoMotor->u32DegreeCount = psServoMotor->u32DeltaCount;
-        u32DegreeCountVar = psServoMotor->u32DeltaCount;
+        pstServoMotor->u32MinCount = u32ServoMinCount;
+        pstServoMotor->u32DeltaCount = u32ServoMinPulse - u32ServoMaxPulse;
+        pstServoMotor->u32DegreeCount = pstServoMotor->u32DeltaCount;
+        u32DegreeCountVar = pstServoMotor->u32DeltaCount;
         fDegreeCountVar = (float32_t) u32DegreeCountVar;
-        psServoMotor->fDegreeCount = fDegreeCountVar;
-        psServoMotor->u32DegreeCount /= 180U;
-        psServoMotor->fDegreeCount /= 180.0f;
+        pstServoMotor->fDegreeCount = fDegreeCountVar;
+        pstServoMotor->u32DegreeCount /= 180U;
+        pstServoMotor->fDegreeCount /= 180.0f;
 
         enGPIOStatus = GPIO__enSetDigitalConfig(enGpioDigitalParam, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
         if(GPIO_enSTATUS_OK == enGPIOStatus)
         {
-            psExtraMode.enWaitTrigger = TIMER_enWAIT_NOTRIGGER;
-            psExtraMode.enUpdateInterval = TIMER_enUPDATE_INTERVAL_TIMEOUT;
-            psExtraMode.enPWMInterrupt = TIMER_enPWM_INT_DIS;
-            psExtraMode.enEventInterrupt = TIMER_enEVENT_INT_DIS;
-            psExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
-            psExtraMode.enStall = TIMER_enSTALL_FREEZE;
-            psExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
-            psExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_DIS;
+            pstExtraMode.enWaitTrigger = TIMER_enWAIT_NOTRIGGER;
+            pstExtraMode.enUpdateInterval = TIMER_enUPDATE_INTERVAL_TIMEOUT;
+            pstExtraMode.enPWMInterrupt = TIMER_enPWM_INT_DIS;
+            pstExtraMode.enEventInterrupt = TIMER_enEVENT_INT_DIS;
+            pstExtraMode.enUpdateMatch = TIMER_enUPDATE_MATCH_TIMEOUT;
+            pstExtraMode.enStall = TIMER_enSTALL_FREEZE;
+            pstExtraMode.enRTCStall = TIMER_enRTC_STALL_FREEZE;
+            pstExtraMode.enADCTrigger = TIMER_enADC_TRIGGER_DIS;
 
-            enTIMERStatus = TIMER__enSetExtraModeStruct(enTimerModuleParam, &psExtraMode);
+            enTIMERStatus = TIMER__enSetExtraModeStruct(enTimerModuleParam, &pstExtraMode);
             if(TIMER_enSTATUS_OK == enTIMERStatus)
             {
                 enTIMERStatus = TIMER__enSetMode_ReloadMatch(enTimerModuleParam, TIMER_enMODE_PWM_INDIVIDUAL_HIGH_POSITIVE_DOWN, (uint64_t) u32ServoFreq, (uint64_t) u32ServoMinCount);

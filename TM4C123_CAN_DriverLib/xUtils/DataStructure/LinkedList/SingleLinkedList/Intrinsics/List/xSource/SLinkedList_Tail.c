@@ -24,22 +24,22 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/xHeader/SLinkedList_Tail.h>
 #include <stdlib.h>
 
-SLinkedListElement_TypeDef* SLinkedList__psGetTail(const SLinkedList_TypeDef*  const psList)
+SLinkedListElement_TypeDef* SLinkedList__pstGetTail(const SLinkedList_TypeDef*  const pstList)
 {
-    SLinkedListElement_TypeDef* psTailReg = (SLinkedListElement_TypeDef*)0U;
-    psTailReg = psList->psTail;
-    return psTailReg;
+    SLinkedListElement_TypeDef* pstTailReg = (SLinkedListElement_TypeDef*)0U;
+    pstTailReg = pstList->pstTail;
+    return pstTailReg;
 }
 
-void SLinkedList__vSetTail(SLinkedList_TypeDef* psList, SLinkedListElement_TypeDef* psTailArg)
+void SLinkedList__vSetTail(SLinkedList_TypeDef* pstList, SLinkedListElement_TypeDef* pstTailArg)
 {
-    psList->psTail = psTailArg;
+    pstList->pstTail = pstTailArg;
 }
 
-SLinkedList_nSTATUS SLinkedList__enIsTail(const SLinkedListElement_TypeDef* const psElement)
+SLinkedList_nSTATUS SLinkedList__enIsTail(const SLinkedListElement_TypeDef* const pstElement)
 {
     SLinkedList_nSTATUS enStatus = SLinkedList_enSTATUS_ERROR;
-    if ((uint32_t) 0UL == (uint32_t) (psElement->psNextNode))
+    if ((uint32_t) 0UL == (uint32_t) (pstElement->pstNextNode))
     {
         enStatus = SLinkedList_enSTATUS_OK;
     }

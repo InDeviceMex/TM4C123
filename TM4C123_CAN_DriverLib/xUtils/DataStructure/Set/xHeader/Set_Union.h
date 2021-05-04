@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-Set_nSTATUS Set__enUnion(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
-Set_TypeDef* Set__psUnion(Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
+Set_nSTATUS Set__enUnion(Set_TypeDef* pstNewSet, Set_TypeDef* pstSet1, const Set_TypeDef* pstSet2);
+Set_TypeDef* Set__pstUnion(Set_TypeDef* pstSet1, const Set_TypeDef* pstSet2);
 
 #endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_UNION_H_ */

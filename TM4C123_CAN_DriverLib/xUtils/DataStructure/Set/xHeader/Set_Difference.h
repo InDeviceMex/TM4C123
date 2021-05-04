@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-Set_nSTATUS Set__enDifference(Set_TypeDef* psNewSet, Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
-Set_TypeDef* Set__psDifference(Set_TypeDef* psSet1, const Set_TypeDef* psSet2);
+Set_nSTATUS Set__enDifference(Set_TypeDef* pstNewSet, Set_TypeDef* pstSet1, const Set_TypeDef* pstSet2);
+Set_TypeDef* Set__pstDifference(Set_TypeDef* pstSet1, const Set_TypeDef* pstSet2);
 
 #endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_DIFFERENCE_H_ */

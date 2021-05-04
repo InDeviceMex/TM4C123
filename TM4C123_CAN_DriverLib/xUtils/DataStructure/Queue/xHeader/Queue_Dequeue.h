@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Struct.h>
 
-Queue_nSTATUS Queue__enDequeue(Queue_TypeDef* psQueue, void** pvData);
+Queue_nSTATUS Queue__enDequeue(Queue_TypeDef* pstQueue, void** pvData);
 
 
 

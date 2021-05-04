@@ -25,7 +25,7 @@
 
 #include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
 
-void Shot__vDraw(const Shot_TypeDef* psShotArg)
+void Shot__vDraw(const Shot_TypeDef* pstShotArg)
 {
-    GraphTerm__u32Printf(UART_enMODULE_0, psShotArg->u32Xpos, psShotArg->u32Ypos,            "*");
+    GraphTerm__u32Printf(UART_enMODULE_0, pstShotArg->u32Xpos, pstShotArg->u32Ypos,            "*");
 }

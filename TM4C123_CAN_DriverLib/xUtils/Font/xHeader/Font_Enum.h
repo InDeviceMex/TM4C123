@@ -53,7 +53,7 @@ typedef struct
 typedef struct
 {
   char *pcString;
-  FONT_TypeDef *psFont;
+  FONT_TypeDef *pstFont;
   uint16_t u16PosX;
   uint16_t u16PosY;
   uint16_t u16ColorFG;

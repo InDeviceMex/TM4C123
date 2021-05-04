@@ -44,7 +44,7 @@ typedef volatile struct
 typedef struct GraphicsLayer_TypeDef Graphics_Layer_TypeDef;
 struct GraphicsLayer_TypeDef
 {
-    FONT_TypeDef* psFontType;
+    FONT_TypeDef* pstFontType;
     char* pcString;
 
     uint32_t u32WidthTotal;

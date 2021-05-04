@@ -48,11 +48,11 @@ typedef struct
         uint32_t* pu32CountValue;
 }TIMER_Count32_TypeDef;
 
-TIMER_nSTATUS TIMER_enGet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount);
-void TIMER_vSet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* psCount);
-TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount);
-void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount);
-TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* psCount);
+TIMER_nSTATUS TIMER_enGet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* pstCount);
+void TIMER_vSet1Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count32_TypeDef* pstCount);
+TIMER_nSTATUS TIMER_enGet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* pstCount);
+void TIMER_vSet2Count32Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* pstCount);
+TIMER_nSTATUS TIMER_enGetCount64Generic(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber, const TIMER_Count64_TypeDef* pstCount);
 uint64_t  TIMER_u64GetCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber);
 uint64_t  TIMER_u64GetFreeCount_RTC(TIMER_nSIZE enModuleSize, TIMER_nMODULE_NUM enModuleNumber);
 

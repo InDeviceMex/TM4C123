@@ -27,6 +27,6 @@
 
 #include <xApplication/GameShip/Player/xHeader/Player_Struct.h>
 
-void Player__vErase(const Player_TypeDef* psPlayerArg);
+void Player__vErase(const Player_TypeDef* pstPlayerArg);
 
 #endif /* XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_ERASE_H_ */

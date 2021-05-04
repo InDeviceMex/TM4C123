@@ -67,16 +67,16 @@ UART_nPARITY_STICK UART__enGetParityStick(UART_nMODULE enModule)
     return (UART_nPARITY_STICK) u32Reg;
 }
 
-void UART__vSetParityConfigStruct(UART_nMODULE enModule, const UART_PARITY_TypeDef sParityConfig)
+void UART__vSetParityConfigStruct(UART_nMODULE enModule, const UART_PARITY_TypeDef stParityConfig)
 {
-    UART__vSetParityConfig(enModule, sParityConfig.enParity, sParityConfig.enParityType, sParityConfig.enParityStick);
+    UART__vSetParityConfig(enModule, stParityConfig.enParity, stParityConfig.enParityType, stParityConfig.enParityStick);
 }
 
-void UART__vSetParityConfigStructPointer(UART_nMODULE enModule, const UART_PARITY_TypeDef* psParityConfig)
+void UART__vSetParityConfigStructPointer(UART_nMODULE enModule, const UART_PARITY_TypeDef* pstParityConfig)
 {
-    if((uint32_t) 0UL != (uint32_t) psParityConfig)
+    if((uint32_t) 0UL != (uint32_t) pstParityConfig)
     {
-        UART__vSetParityConfig(enModule, psParityConfig->enParity, psParityConfig->enParityType, psParityConfig->enParityStick);
+        UART__vSetParityConfig(enModule, pstParityConfig->enParity, pstParityConfig->enParityType, pstParityConfig->enParityStick);
     }
 }
 

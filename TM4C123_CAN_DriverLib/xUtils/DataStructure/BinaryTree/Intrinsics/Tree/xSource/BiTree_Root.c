@@ -24,24 +24,24 @@
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/Tree/xHeader/BiTree_Root.h>
 #include <stdlib.h>
 
-BiTreeElement_TypeDef* BiTree__psGetRoot(const BiTree_TypeDef*  const psTree)
+BiTreeElement_TypeDef* BiTree__pstGetRoot(const BiTree_TypeDef*  const pstTree)
 {
-    BiTreeElement_TypeDef* psRootReg = (BiTreeElement_TypeDef*)0U;
-    psRootReg = psTree->psRoot;
-    return psRootReg;
+    BiTreeElement_TypeDef* pstRootReg = (BiTreeElement_TypeDef*)0U;
+    pstRootReg = pstTree->pstRoot;
+    return pstRootReg;
 }
 
-void BiTree__vSetRoot(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psRootArg)
+void BiTree__vSetRoot(BiTree_TypeDef* pstTree, BiTreeElement_TypeDef* pstRootArg)
 {
-    psTree->psRoot = psRootArg;
+    pstTree->pstRoot = pstRootArg;
 }
 
-BiTree_nSTATUS BiTree__enIsRoot(const BiTree_TypeDef* const psTree, const BiTreeElement_TypeDef* const psElement)
+BiTree_nSTATUS BiTree__enIsRoot(const BiTree_TypeDef* const pstTree, const BiTreeElement_TypeDef* const pstElement)
 {
     BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
-    BiTreeElement_TypeDef* psTreeRoot = (BiTreeElement_TypeDef*)0UL;
-    psTreeRoot = BiTree__psGetRoot(psTree);
-    if ((uint32_t) psElement == (uint32_t) (psTreeRoot))
+    BiTreeElement_TypeDef* pstTreeRoot = (BiTreeElement_TypeDef*)0UL;
+    pstTreeRoot = BiTree__pstGetRoot(pstTree);
+    if ((uint32_t) pstElement == (uint32_t) (pstTreeRoot))
     {
         enStatus = BiTree_enSTATUS_OK;
     }

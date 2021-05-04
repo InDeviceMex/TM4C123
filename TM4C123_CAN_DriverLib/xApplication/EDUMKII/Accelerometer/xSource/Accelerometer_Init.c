@@ -35,7 +35,7 @@
 
 void EDUMKII_Accelerometer_vInit(void)
 {
-    ADC_SAMPLE_CONFIG_Typedef sADC0SampleConfig = {
+    ADC_SAMPLE_CONFIG_Typedef stADC0SampleConfig = {
      ADC_enSEQ_INPUT_0, ADC_enSEQ_INPUT_DIFF_DIS, ADC_enSEQ_INPUT_ENDED_DIS, ADC_enSEQ_INPUT_INT_DIS, ADC_enSEQ_INPUT_TEMP_DIS, ADC_enSEQ_INPUT_DIR_SAMPLE, ADC_en_COMPARATOR_0
     };
 
@@ -70,19 +70,19 @@ void EDUMKII_Accelerometer_vInit(void)
     ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_2, ADC_enSEQ_ENABLE_DIS);
     ADC__vSetSequencerTrigger(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enSEQ_TRIGGER_SOFTWARE);
 
-    sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_X_INPUT;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_0, &sADC0SampleConfig);
+    stADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_X_INPUT;
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_0, &stADC0SampleConfig);
 
-    sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Y_INPUT;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_1, &sADC0SampleConfig);
+    stADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Y_INPUT;
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_1, &stADC0SampleConfig);
 
-    sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_2, &sADC0SampleConfig);
+    stADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_2, &stADC0SampleConfig);
 
-    sADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
-    sADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_ENA;
-    sADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_ENA;
-    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_3, &sADC0SampleConfig);
+    stADC0SampleConfig.enInput = EDUMKII_ACCEL_AXIS_Z_INPUT;
+    stADC0SampleConfig.enInterrupt = ADC_enSEQ_INPUT_INT_ENA;
+    stADC0SampleConfig.enEnded = ADC_enSEQ_INPUT_ENDED_ENA;
+    ADC__enSetSampleConfigGpio(ADC_enMODULE_0, ADC_enSEQ_2, ADC_en_MUX_3, &stADC0SampleConfig);
 
     ADC__vEnInterruptVector(ADC_enMODULE_0, ADC_enSEQ_2, ADC_enPRI1);
     ADC__vSetSequencerEnable(ADC_enMODULE_0, ADC_enSEQMASK_2, ADC_enSEQ_ENABLE_ENA);

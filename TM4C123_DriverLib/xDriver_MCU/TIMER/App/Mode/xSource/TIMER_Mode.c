@@ -30,20 +30,20 @@
 TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
 {
     TIMER_nSTATUS enReturn = TIMER_enSTATUS_ERROR;
-    TIMER_MODE_Typedef* psMode = TIMER__psCreateModeStruct(enMode);
+    TIMER_MODE_Typedef* pstMode = TIMER__pstCreateModeStruct(enMode);
 
-    if(0UL != (uint32_t) psMode)
+    if(0UL != (uint32_t) pstMode)
     {
-        TIMER__vSetConfiguration(enModule, psMode->enConfig);
-        TIMER__vSetSubMode(enModule, psMode->enSubMode);
-        TIMER__vSetEdgeMode(enModule, psMode->enEdgeMode);
-        TIMER__vSetAltMode(enModule, psMode->enAltMode);
-        TIMER__vSetCountDir(enModule, psMode->enDirection);
-        TIMER__vSetSnapShot(enModule, psMode->enSnapShot);
-        TIMER__vSetPWMOutputInit(enModule, psMode->enPWMOutInit);
-        TIMER__vSetEdgeEvent(enModule, psMode->enEdgeEvent);
-        TIMER__vSetPWMOutputLevel(enModule, psMode->enPWMOut);
-        TIMER__vDeleteModeStruct(psMode);
+        TIMER__vSetConfiguration(enModule, pstMode->enConfig);
+        TIMER__vSetSubMode(enModule, pstMode->enSubMode);
+        TIMER__vSetEdgeMode(enModule, pstMode->enEdgeMode);
+        TIMER__vSetAltMode(enModule, pstMode->enAltMode);
+        TIMER__vSetCountDir(enModule, pstMode->enDirection);
+        TIMER__vSetSnapShot(enModule, pstMode->enSnapShot);
+        TIMER__vSetPWMOutputInit(enModule, pstMode->enPWMOutInit);
+        TIMER__vSetEdgeEvent(enModule, pstMode->enEdgeEvent);
+        TIMER__vSetPWMOutputLevel(enModule, pstMode->enPWMOut);
+        TIMER__vDeleteModeStruct(pstMode);
         enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
@@ -53,20 +53,20 @@ TIMER_nSTATUS TIMER__enSetMode(TIMER_nMODULE enModule, TIMER_nMODE enMode)
 
 }
 
-TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* psMode)
+TIMER_nSTATUS TIMER__enSetModeStruct(TIMER_nMODULE enModule, const TIMER_MODE_Typedef* pstMode)
 {
     TIMER_nSTATUS enReturn = TIMER_enSTATUS_ERROR;
-    if(0UL != (uint32_t) psMode)
+    if(0UL != (uint32_t) pstMode)
     {
-        TIMER__vSetConfiguration(enModule, psMode->enConfig);
-        TIMER__vSetSubMode(enModule, psMode->enSubMode);
-        TIMER__vSetEdgeMode(enModule, psMode->enEdgeMode);
-        TIMER__vSetAltMode(enModule, psMode->enAltMode);
-        TIMER__vSetCountDir(enModule, psMode->enDirection);
-        TIMER__vSetSnapShot(enModule, psMode->enSnapShot);
-        TIMER__vSetPWMOutputInit(enModule, psMode->enPWMOutInit);
-        TIMER__vSetEdgeEvent(enModule, psMode->enEdgeEvent);
-        TIMER__vSetPWMOutputLevel(enModule, psMode->enPWMOut);
+        TIMER__vSetConfiguration(enModule, pstMode->enConfig);
+        TIMER__vSetSubMode(enModule, pstMode->enSubMode);
+        TIMER__vSetEdgeMode(enModule, pstMode->enEdgeMode);
+        TIMER__vSetAltMode(enModule, pstMode->enAltMode);
+        TIMER__vSetCountDir(enModule, pstMode->enDirection);
+        TIMER__vSetSnapShot(enModule, pstMode->enSnapShot);
+        TIMER__vSetPWMOutputInit(enModule, pstMode->enPWMOutInit);
+        TIMER__vSetEdgeEvent(enModule, pstMode->enEdgeEvent);
+        TIMER__vSetPWMOutputLevel(enModule, pstMode->enPWMOut);
         enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
@@ -115,36 +115,36 @@ TIMER_nMODE TIMER__enGetMode(TIMER_nMODULE enModule)
     return enMode;
 }
 
-TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* psMode)
+TIMER_nSTATUS TIMER__enGetModeStruct(TIMER_nMODULE enModule, TIMER_MODE_Typedef* pstMode)
 {
     TIMER_nSTATUS enStatus = TIMER_enSTATUS_ERROR;
-    if(0UL != (uint32_t) psMode)
+    if(0UL != (uint32_t) pstMode)
     {
-        psMode->enConfig = TIMER__enGetConfiguration(enModule);
-        psMode->enSubMode = TIMER__enGetSubMode(enModule);
-        psMode->enEdgeMode = TIMER__enGetEdgeMode(enModule);
-        psMode->enAltMode = TIMER__enGetAltMode(enModule);
-        psMode->enDirection = TIMER__enGetCountDir(enModule);
-        psMode->enSnapShot = TIMER__enGetSnapShot(enModule);
-        psMode->enPWMOutInit = TIMER__enGetPWMOutputInit(enModule);
-        psMode->enEdgeEvent = TIMER__enGetEdgeEvent(enModule);
-        psMode->enPWMOut = TIMER__enGetPWMOutputLevel(enModule);
+        pstMode->enConfig = TIMER__enGetConfiguration(enModule);
+        pstMode->enSubMode = TIMER__enGetSubMode(enModule);
+        pstMode->enEdgeMode = TIMER__enGetEdgeMode(enModule);
+        pstMode->enAltMode = TIMER__enGetAltMode(enModule);
+        pstMode->enDirection = TIMER__enGetCountDir(enModule);
+        pstMode->enSnapShot = TIMER__enGetSnapShot(enModule);
+        pstMode->enPWMOutInit = TIMER__enGetPWMOutputInit(enModule);
+        pstMode->enEdgeEvent = TIMER__enGetEdgeEvent(enModule);
+        pstMode->enPWMOut = TIMER__enGetPWMOutputLevel(enModule);
         enStatus = TIMER_enSTATUS_OK;
     }
     return enStatus;
 }
 
-TIMER_MODE_Typedef* TIMER__psGetMode(TIMER_nMODULE enModule)
+TIMER_MODE_Typedef* TIMER__pstGetMode(TIMER_nMODULE enModule)
 {
-    TIMER_MODE_Typedef* psMode = 0UL;
+    TIMER_MODE_Typedef* pstMode = 0UL;
     #if defined (__TI_ARM__ )
-    psMode = (TIMER_MODE_Typedef*) memalign((size_t) 4, (size_t) sizeof(TIMER_MODE_Typedef));
+    pstMode = (TIMER_MODE_Typedef*) memalign((size_t) 4, (size_t) sizeof(TIMER_MODE_Typedef));
     #elif defined (__GNUC__ )
-    psMode = (TIMER_MODE_Typedef*) malloc(sizeof(TIMER_MODE_Typedef));
+    pstMode = (TIMER_MODE_Typedef*) malloc(sizeof(TIMER_MODE_Typedef));
     #endif
-    if(0UL != (uint32_t) psMode)
+    if(0UL != (uint32_t) pstMode)
     {
-        TIMER__enGetModeStruct(enModule, psMode);
+        TIMER__enGetModeStruct(enModule, pstMode);
     }
-    return psMode;
+    return pstMode;
 }

@@ -29,62 +29,62 @@
 #include <stdlib.h>
 
 
- CSLinkedList_nSTATUS CSLinkedList__enRemoveNext(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psElement, void** pvData)
+ CSLinkedList_nSTATUS CSLinkedList__enRemoveNext(CSLinkedList_TypeDef* pstList, CSLinkedListElement_TypeDef* pstElement, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
-     CSLinkedListElement_TypeDef* psOldElement = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psTailNode = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psHeadElement = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psElementNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psElementNextNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstOldElement = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstTailNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstHeadElement = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstElementNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstElementNextNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
-     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
+     if(((uint32_t) 0UL != (uint32_t) pstList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         u32SizeReg = CSLinkedList__u32GetSize(psList);
+         u32SizeReg = CSLinkedList__u32GetSize(pstList);
          if(0UL != u32SizeReg)
          {
 
              enStatus = CSLinkedList_enSTATUS_OK;
 
-             if((uint32_t) 0UL == (uint32_t) psElement) /* Remove Head*/
+             if((uint32_t) 0UL == (uint32_t) pstElement) /* Remove Head*/
              {
-                 psElement = CSLinkedList__psGetTail(psList);
+                 pstElement = CSLinkedList__pstGetTail(pstList);
              }
 
-             psElementNextNode = CSLinkedList__psGetElementNextNode(psElement);
-             *pvData = CSLinkedList__pvGetElementData(psElementNextNode);
-             psOldElement = psElementNextNode;
+             pstElementNextNode = CSLinkedList__pstGetElementNextNode(pstElement);
+             *pvData = CSLinkedList__pvGetElementData(pstElementNextNode);
+             pstOldElement = pstElementNextNode;
 
-             if((uint32_t) psElement == (uint32_t) psElementNextNode) /*Remove Last element*/
+             if((uint32_t) pstElement == (uint32_t) pstElementNextNode) /*Remove Last element*/
              {
-                 CSLinkedList__vSetTail(psList, (CSLinkedListElement_TypeDef*)0UL);
-                 CSLinkedList__vSetHead(psList, (CSLinkedListElement_TypeDef*)0UL);
+                 CSLinkedList__vSetTail(pstList, (CSLinkedListElement_TypeDef*)0UL);
+                 CSLinkedList__vSetHead(pstList, (CSLinkedListElement_TypeDef*)0UL);
              }
              else
              {
-                 psElementNextNextNode = CSLinkedList__psGetElementNextNode(psElementNextNode);
-                 CSLinkedList__vSetElementNextNode(psElement, psElementNextNextNode);
+                 pstElementNextNextNode = CSLinkedList__pstGetElementNextNode(pstElementNextNode);
+                 CSLinkedList__vSetElementNextNode(pstElement, pstElementNextNextNode);
 
-                 psHeadElement = CSLinkedList__psGetHead(psList);
-                 psTailNode = CSLinkedList__psGetTail(psList);
-                 if((uint32_t) psElementNextNode == (uint32_t) psHeadElement)
+                 pstHeadElement = CSLinkedList__pstGetHead(pstList);
+                 pstTailNode = CSLinkedList__pstGetTail(pstList);
+                 if((uint32_t) pstElementNextNode == (uint32_t) pstHeadElement)
                  {
-                     CSLinkedList__vSetHead(psList, psElementNextNextNode);
+                     CSLinkedList__vSetHead(pstList, pstElementNextNextNode);
                  }
-                 if((uint32_t) psElementNextNode == (uint32_t) psTailNode)
+                 if((uint32_t) pstElementNextNode == (uint32_t) pstTailNode)
                  {
-                     CSLinkedList__vSetTail(psList, psElement);
+                     CSLinkedList__vSetTail(pstList, pstElement);
                  }
              }
 
-             CSLinkedList__vSetElementNextNode(psOldElement,  (CSLinkedListElement_TypeDef *) 0UL);
-             CSLinkedList__vSetElementData(psOldElement,  (void *) 0UL);
-             free(psOldElement);
-             psOldElement = (CSLinkedListElement_TypeDef*) 0UL;
+             CSLinkedList__vSetElementNextNode(pstOldElement,  (CSLinkedListElement_TypeDef *) 0UL);
+             CSLinkedList__vSetElementData(pstOldElement,  (void *) 0UL);
+             free(pstOldElement);
+             pstOldElement = (CSLinkedListElement_TypeDef*) 0UL;
 
              u32SizeReg--;
-             CSLinkedList__vSetSize(psList, u32SizeReg);
+             CSLinkedList__vSetSize(pstList, u32SizeReg);
          }
      }
      return enStatus;
@@ -92,74 +92,74 @@
 
 
 
- CSLinkedList_nSTATUS CSLinkedList__enRemove(CSLinkedList_TypeDef* psList, CSLinkedListElement_TypeDef* psElement, void** pvData)
+ CSLinkedList_nSTATUS CSLinkedList__enRemove(CSLinkedList_TypeDef* pstList, CSLinkedListElement_TypeDef* pstElement, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
-     CSLinkedListElement_TypeDef* psOldElement = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psHeadNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psHeadElement = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psTailElement = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psElementNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
-     CSLinkedListElement_TypeDef* psElementNextNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
-     void* psElementNextNodeData = (void*) 0UL ;
-     void* psElementNodeData = (void*) 0UL ;
+     CSLinkedListElement_TypeDef* pstOldElement = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstHeadNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstHeadElement = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstTailElement = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstElementNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     CSLinkedListElement_TypeDef* pstElementNextNextNode = (CSLinkedListElement_TypeDef*) 0UL ;
+     void* pstElementNextNodeData = (void*) 0UL ;
+     void* pstElementNodeData = (void*) 0UL ;
      uint32_t u32SizeReg = 0UL;
 
-     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
+     if(((uint32_t) 0UL != (uint32_t) pstList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         u32SizeReg = CSLinkedList__u32GetSize(psList);
+         u32SizeReg = CSLinkedList__u32GetSize(pstList);
          if(0UL != u32SizeReg)
          {
-             if((uint32_t) 0UL == (uint32_t) psElement)
+             if((uint32_t) 0UL == (uint32_t) pstElement)
              {
                  enStatus = CSLinkedList_enSTATUS_OK;
-                 psHeadElement = CSLinkedList__psGetHead(psList);
+                 pstHeadElement = CSLinkedList__pstGetHead(pstList);
 
-                 psHeadNextNode = CSLinkedList__psGetElementNextNode(psHeadElement);
-                 *pvData = CSLinkedList__pvGetElementData(psHeadElement);
-                 psOldElement = psHeadElement;
+                 pstHeadNextNode = CSLinkedList__pstGetElementNextNode(pstHeadElement);
+                 *pvData = CSLinkedList__pvGetElementData(pstHeadElement);
+                 pstOldElement = pstHeadElement;
 
-                 if((uint32_t) psHeadElement == (uint32_t) psHeadNextNode) /*Remove Last element*/
+                 if((uint32_t) pstHeadElement == (uint32_t) pstHeadNextNode) /*Remove Last element*/
                  {
-                     CSLinkedList__vSetHead(psList, (CSLinkedListElement_TypeDef*) 0UL);
-                     CSLinkedList__vSetTail(psList, (CSLinkedListElement_TypeDef*) 0UL);
+                     CSLinkedList__vSetHead(pstList, (CSLinkedListElement_TypeDef*) 0UL);
+                     CSLinkedList__vSetTail(pstList, (CSLinkedListElement_TypeDef*) 0UL);
                  }
                  else
                  {
-                     psTailElement = CSLinkedList__psGetTail(psList);
-                     CSLinkedList__vSetHead(psList, psHeadNextNode);
-                     CSLinkedList__vSetElementNextNode(psTailElement, psHeadNextNode);
+                     pstTailElement = CSLinkedList__pstGetTail(pstList);
+                     CSLinkedList__vSetHead(pstList, pstHeadNextNode);
+                     CSLinkedList__vSetElementNextNode(pstTailElement, pstHeadNextNode);
                  }
 
              }
              else
              {
-                 psTailElement = CSLinkedList__psGetTail(psList);
-                 if(((uint32_t) psElement != (uint32_t) psTailElement) || (1UL == u32SizeReg))
+                 pstTailElement = CSLinkedList__pstGetTail(pstList);
+                 if(((uint32_t) pstElement != (uint32_t) pstTailElement) || (1UL == u32SizeReg))
                  {
 
                      enStatus = CSLinkedList_enSTATUS_OK;
 
-                     psElementNextNode = CSLinkedList__psGetElementNextNode(psElement);
-                     psElementNextNodeData = CSLinkedList__pvGetElementData(psElementNextNode);
-                     psElementNodeData = CSLinkedList__pvGetElementData(psElement);
-                     *pvData = psElementNodeData;
-                     psOldElement = psElementNextNode;
+                     pstElementNextNode = CSLinkedList__pstGetElementNextNode(pstElement);
+                     pstElementNextNodeData = CSLinkedList__pvGetElementData(pstElementNextNode);
+                     pstElementNodeData = CSLinkedList__pvGetElementData(pstElement);
+                     *pvData = pstElementNodeData;
+                     pstOldElement = pstElementNextNode;
 
-                     psElementNextNextNode = CSLinkedList__psGetElementNextNode(psElementNextNode);
-                     if((uint32_t) psElementNextNode == (uint32_t) psElementNextNextNode) /*Last node*/
+                     pstElementNextNextNode = CSLinkedList__pstGetElementNextNode(pstElementNextNode);
+                     if((uint32_t) pstElementNextNode == (uint32_t) pstElementNextNextNode) /*Last node*/
                      {
-                         CSLinkedList__vSetHead(psList, (CSLinkedListElement_TypeDef*) 0UL);
-                         CSLinkedList__vSetTail(psList, (CSLinkedListElement_TypeDef*) 0UL);
+                         CSLinkedList__vSetHead(pstList, (CSLinkedListElement_TypeDef*) 0UL);
+                         CSLinkedList__vSetTail(pstList, (CSLinkedListElement_TypeDef*) 0UL);
                      }
                      else
                      {
-                         CSLinkedList__vSetElementNextNode(psElement, psElementNextNextNode);
-                         CSLinkedList__vSetElementData(psElement, psElementNextNodeData);
+                         CSLinkedList__vSetElementNextNode(pstElement, pstElementNextNextNode);
+                         CSLinkedList__vSetElementData(pstElement, pstElementNextNodeData);
 
-                         if((uint32_t) psTailElement == (uint32_t) psElementNextNode)
+                         if((uint32_t) pstTailElement == (uint32_t) pstElementNextNode)
                          {
-                             CSLinkedList__vSetTail(psList, psElement);
+                             CSLinkedList__vSetTail(pstList, pstElement);
                          }
                      }
                  }
@@ -167,76 +167,76 @@
 
              if(CSLinkedList_enSTATUS_OK == enStatus)
              {
-                 CSLinkedList__vSetElementNextNode(psOldElement,  (CSLinkedListElement_TypeDef *) 0UL);
-                 CSLinkedList__vSetElementData(psOldElement,  (void *) 0UL);
-                 free(psOldElement);
-                 psOldElement = (CSLinkedListElement_TypeDef*) 0UL;
+                 CSLinkedList__vSetElementNextNode(pstOldElement,  (CSLinkedListElement_TypeDef *) 0UL);
+                 CSLinkedList__vSetElementData(pstOldElement,  (void *) 0UL);
+                 free(pstOldElement);
+                 pstOldElement = (CSLinkedListElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
-                 CSLinkedList__vSetSize(psList, u32SizeReg);
+                 CSLinkedList__vSetSize(pstList, u32SizeReg);
              }
          }
      }
      return enStatus;
  }
 
- CSLinkedList_nSTATUS  CSLinkedList__enRemoveEnd(CSLinkedList_TypeDef* psList, void** pvData)
+ CSLinkedList_nSTATUS  CSLinkedList__enRemoveEnd(CSLinkedList_TypeDef* pstList, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
-     CSLinkedListElement_TypeDef* psEndElement = (CSLinkedListElement_TypeDef*) 0UL;
+     CSLinkedListElement_TypeDef* pstEndElement = (CSLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
+     if(((uint32_t) 0UL != (uint32_t) pstList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         u32SizeList = CSLinkedList__u32GetSize(psList);
+         u32SizeList = CSLinkedList__u32GetSize(pstList);
          if(1UL <  u32SizeList)
          {
              u32SizeList--;
-             psEndElement = CSLinkedList__psGetHead(psList);
+             pstEndElement = CSLinkedList__pstGetHead(pstList);
              u32SizeList--;
              while(0UL != u32SizeList)
              {
-                 psEndElement = CSLinkedList__psGetElementNextNode(psEndElement);
+                 pstEndElement = CSLinkedList__pstGetElementNextNode(pstEndElement);
                  u32SizeList--;
              }
          }
-         enStatus = CSLinkedList__enRemoveNext(psList, psEndElement, pvData);
+         enStatus = CSLinkedList__enRemoveNext(pstList, pstEndElement, pvData);
      }
      return enStatus;
  }
 
- CSLinkedList_nSTATUS  CSLinkedList__enRemoveBegin(CSLinkedList_TypeDef* psList, void** pvData)
+ CSLinkedList_nSTATUS  CSLinkedList__enRemoveBegin(CSLinkedList_TypeDef* pstList, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
-     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
+     if(((uint32_t) 0UL != (uint32_t) pstList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         enStatus = CSLinkedList__enRemoveNext(psList, (CSLinkedListElement_TypeDef*) 0UL, pvData);
+         enStatus = CSLinkedList__enRemoveNext(pstList, (CSLinkedListElement_TypeDef*) 0UL, pvData);
      }
      return enStatus;
  }
 
 
 
- CSLinkedList_nSTATUS  CSLinkedList__enRemovePos(CSLinkedList_TypeDef* psList, uint32_t u32Position, void** pvData)
+ CSLinkedList_nSTATUS  CSLinkedList__enRemovePos(CSLinkedList_TypeDef* pstList, uint32_t u32Position, void** pvData)
  {
      CSLinkedList_nSTATUS enStatus = CSLinkedList_enSTATUS_ERROR;
-     CSLinkedListElement_TypeDef* psElement = (CSLinkedListElement_TypeDef*) 0UL;
+     CSLinkedListElement_TypeDef* pstElement = (CSLinkedListElement_TypeDef*) 0UL;
      uint32_t u32SizeList = 0UL;
-     if(((uint32_t) 0UL != (uint32_t) psList) && ((uint32_t) 0UL != (uint32_t) pvData))
+     if(((uint32_t) 0UL != (uint32_t) pstList) && ((uint32_t) 0UL != (uint32_t) pvData))
      {
-         u32SizeList = CSLinkedList__u32GetSize(psList);
+         u32SizeList = CSLinkedList__u32GetSize(pstList);
          if(u32Position < u32SizeList)
          {
              if(0UL != u32Position)
              {
-                 psElement = CSLinkedList__psGetHead(psList);
+                 pstElement = CSLinkedList__pstGetHead(pstList);
                  u32Position--;
                  while(0UL != u32Position)
                  {
-                     psElement = CSLinkedList__psGetElementNextNode(psElement);
+                     pstElement = CSLinkedList__pstGetElementNextNode(pstElement);
                      u32Position--;
                  }
              }
-             enStatus = CSLinkedList__enRemoveNext(psList, psElement, pvData);
+             enStatus = CSLinkedList__enRemoveNext(pstList, pstElement, pvData);
          }
      }
      return enStatus;

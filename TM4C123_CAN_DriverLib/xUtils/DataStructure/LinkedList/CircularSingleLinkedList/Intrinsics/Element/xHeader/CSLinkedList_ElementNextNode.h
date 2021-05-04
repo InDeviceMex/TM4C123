@@ -28,8 +28,8 @@
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/xHeader/CSLinkedList_Struct.h>
 
 
-CSLinkedListElement_TypeDef* CSLinkedList__psGetElementNextNode(const CSLinkedListElement_TypeDef* const psElement);
-void CSLinkedList__vSetElementNextNode(CSLinkedListElement_TypeDef* psElement, CSLinkedListElement_TypeDef* psNextElement);
+CSLinkedListElement_TypeDef* CSLinkedList__pstGetElementNextNode(const CSLinkedListElement_TypeDef* const pstElement);
+void CSLinkedList__vSetElementNextNode(CSLinkedListElement_TypeDef* pstElement, CSLinkedListElement_TypeDef* pstNextElement);
 
 
 

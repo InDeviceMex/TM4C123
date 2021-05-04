@@ -25,14 +25,14 @@
 #include <xApplication/ServoMotor_SG90/xHeader/ServoMotor_SG90_Enable.h>
 #include <xDriver_MCU/TIMER/TIMER.h>
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* const psServoMotor)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* const pstServoMotor)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
-    if(0UL != (uint32_t) psServoMotor)
+    if(0UL != (uint32_t) pstServoMotor)
     {
 
-        enTimerModuleVar = psServoMotor->enTimerModule;
+        enTimerModuleVar = pstServoMotor->enTimerModule;
         TIMER__vSetEnable(enTimerModuleVar, TIMER_enENABLE_START);
         enServoStatus = ServoMoto_SG90_enOK;
 
@@ -40,14 +40,14 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enEnable(const ServoMoto_SG90_Typedef* c
     return enServoStatus;
 }
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enDisable(const ServoMoto_SG90_Typedef* const psServoMotor)
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enDisable(const ServoMoto_SG90_Typedef* const pstServoMotor)
 {
     ServoMoto_SG90_nSTATUS enServoStatus = ServoMoto_SG90_enERROR;
     TIMER_nMODULE enTimerModuleVar = TIMER_enMODULE_UNDEF;
-    if(0UL != (uint32_t) psServoMotor)
+    if(0UL != (uint32_t) pstServoMotor)
     {
 
-      enTimerModuleVar = psServoMotor->enTimerModule;
+      enTimerModuleVar = pstServoMotor->enTimerModule;
         TIMER__vSetEnable(enTimerModuleVar, TIMER_enENABLE_STOP);
         enServoStatus = ServoMoto_SG90_enOK;
 

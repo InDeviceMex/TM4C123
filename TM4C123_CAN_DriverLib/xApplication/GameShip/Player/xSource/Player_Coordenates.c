@@ -23,54 +23,54 @@
  */
  #include <xApplication/GameShip/Player/xHeader/Player_Coordenates.h>
 
-uint32_t Player__u32GetXPos(const Player_TypeDef* psPlayerArg)
+uint32_t Player__u32GetXPos(const Player_TypeDef* pstPlayerArg)
 {
-    return psPlayerArg->u32Xpos;
+    return pstPlayerArg->u32Xpos;
 }
 
-void Player__vSetXPos(Player_TypeDef* psPlayerArg, uint32_t u32XPosArg)
+void Player__vSetXPos(Player_TypeDef* pstPlayerArg, uint32_t u32XPosArg)
 {
-    psPlayerArg->u32Xpos= u32XPosArg;
+    pstPlayerArg->u32Xpos= u32XPosArg;
 }
 
-uint32_t Player__u32GetYPos(const Player_TypeDef* psPlayerArg)
+uint32_t Player__u32GetYPos(const Player_TypeDef* pstPlayerArg)
 {
-    return psPlayerArg->u32Ypos;
+    return pstPlayerArg->u32Ypos;
 }
 
-void Player__vSetYPos(Player_TypeDef* psPlayerArg, uint32_t u32YPosArg)
+void Player__vSetYPos(Player_TypeDef* pstPlayerArg, uint32_t u32YPosArg)
 {
-    psPlayerArg->u32Ypos= u32YPosArg;
-}
-
-
-uint32_t Player__u32GetWidth(const Player_TypeDef* psPlayerArg)
-{
-    return psPlayerArg->u32WidthPlayer;
-}
-
-uint32_t Player__u32GetHeight(const Player_TypeDef* psPlayerArg)
-{
-    return psPlayerArg->u32HeightPlayer;
+    pstPlayerArg->u32Ypos= u32YPosArg;
 }
 
 
-uint32_t Player__u32GetSubLifes(const Player_TypeDef* psPlayerArg)
+uint32_t Player__u32GetWidth(const Player_TypeDef* pstPlayerArg)
 {
-    return psPlayerArg->u32SubLifesCurrent;
+    return pstPlayerArg->u32WidthPlayer;
 }
 
-void Player__vSetSubLifes(Player_TypeDef* psPlayerArg, uint32_t u32SubLifesArg)
+uint32_t Player__u32GetHeight(const Player_TypeDef* pstPlayerArg)
 {
-    psPlayerArg->u32SubLifesCurrent = u32SubLifesArg;
+    return pstPlayerArg->u32HeightPlayer;
 }
 
-uint32_t Player__u32GetLifes(const Player_TypeDef* psPlayerArg)
+
+uint32_t Player__u32GetSubLifes(const Player_TypeDef* pstPlayerArg)
 {
-    return psPlayerArg->u32LifesCurrent;
+    return pstPlayerArg->u32SubLifesCurrent;
 }
 
-void Player__vSetLifes(Player_TypeDef* psPlayerArg, uint32_t u32LifesArg)
+void Player__vSetSubLifes(Player_TypeDef* pstPlayerArg, uint32_t u32SubLifesArg)
 {
-    psPlayerArg->u32LifesCurrent = u32LifesArg;
+    pstPlayerArg->u32SubLifesCurrent = u32SubLifesArg;
+}
+
+uint32_t Player__u32GetLifes(const Player_TypeDef* pstPlayerArg)
+{
+    return pstPlayerArg->u32LifesCurrent;
+}
+
+void Player__vSetLifes(Player_TypeDef* pstPlayerArg, uint32_t u32LifesArg)
+{
+    pstPlayerArg->u32LifesCurrent = u32LifesArg;
 }

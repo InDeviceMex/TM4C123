@@ -25,17 +25,17 @@
 #include <stdlib.h>
 
 
-uint32_t SLinkedList__u32GetSize(const SLinkedList_TypeDef* const psList)
+uint32_t SLinkedList__u32GetSize(const SLinkedList_TypeDef* const pstList)
 {
     uint32_t u32SizeReg = 0UL;
-    u32SizeReg = psList->u32Size;
+    u32SizeReg = pstList->u32Size;
     return u32SizeReg;
 
 }
 
-void SLinkedList__vSetSize(SLinkedList_TypeDef*  psList, uint32_t u32SizeArg)
+void SLinkedList__vSetSize(SLinkedList_TypeDef*  pstList, uint32_t u32SizeArg)
 {
-    psList->u32Size = u32SizeArg;
+    pstList->u32Size = u32SizeArg;
 }
 
 

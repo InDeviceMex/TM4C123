@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Struct.h>
 
-Stack_nSTATUS Stack__enPush(Stack_TypeDef* psStack, void* pvData);
+Stack_nSTATUS Stack__enPush(Stack_TypeDef* pstStack, void* pvData);
 
 
 #endif /* XUTILS_DATASTRUCTURE_STACK_XHEADER_STACK_PUSH_H_ */

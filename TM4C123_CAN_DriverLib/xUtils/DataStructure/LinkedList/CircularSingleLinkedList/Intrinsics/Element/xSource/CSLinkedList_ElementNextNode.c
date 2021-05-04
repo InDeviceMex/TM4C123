@@ -23,17 +23,17 @@
  */
 #include <xUtils/DataStructure/LinkedList/CircularSingleLinkedList/Intrinsics/Element/xHeader/CSLinkedList_ElementNextNode.h>
 
-CSLinkedListElement_TypeDef* CSLinkedList__psGetElementNextNode(const CSLinkedListElement_TypeDef* const psElement)
+CSLinkedListElement_TypeDef* CSLinkedList__pstGetElementNextNode(const CSLinkedListElement_TypeDef* const pstElement)
 {
-    CSLinkedListElement_TypeDef* psNextElementReg = (CSLinkedListElement_TypeDef*)0UL;
-    psNextElementReg = psElement->psNextNode;
+    CSLinkedListElement_TypeDef* pstNextElementReg = (CSLinkedListElement_TypeDef*)0UL;
+    pstNextElementReg = pstElement->pstNextNode;
 
-    return psNextElementReg;
+    return pstNextElementReg;
 }
 
-void CSLinkedList__vSetElementNextNode(CSLinkedListElement_TypeDef* psElement, CSLinkedListElement_TypeDef* psNextElement)
+void CSLinkedList__vSetElementNextNode(CSLinkedListElement_TypeDef* pstElement, CSLinkedListElement_TypeDef* pstNextElement)
 {
-    psElement->psNextNode = psNextElement;
+    pstElement->pstNextNode = pstNextElement;
 }
 
 

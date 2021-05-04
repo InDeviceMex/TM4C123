@@ -26,19 +26,19 @@
 #include <xUtils/DataStructure/Set/xHeader/Set_Subset.h>
 
 
-Set_nSTATUS Set__enIsEqual(const Set_TypeDef* psSet1, const Set_TypeDef* psSet2)
+Set_nSTATUS Set__enIsEqual(const Set_TypeDef* pstSet1, const Set_TypeDef* pstSet2)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
     uint32_t u32Size1 = 0UL;
     uint32_t u32Size2 = 0UL;
 
-    if(((uint32_t) 0UL != (uint32_t) psSet1) && ((uint32_t) 0UL != (uint32_t) psSet2))
+    if(((uint32_t) 0UL != (uint32_t) pstSet1) && ((uint32_t) 0UL != (uint32_t) pstSet2))
     {
-        u32Size1 = Set__u32GetSize(psSet1);
-        u32Size2 = Set__u32GetSize(psSet2);
+        u32Size1 = Set__u32GetSize(pstSet1);
+        u32Size2 = Set__u32GetSize(pstSet2);
         if(u32Size1 == u32Size2)
         {
-            enStatus = Set__enIsSubset(psSet1, psSet2);
+            enStatus = Set__enIsSubset(pstSet1, pstSet2);
         }
     }
     return enStatus;

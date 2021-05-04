@@ -36,8 +36,8 @@ typedef enum
 typedef struct BiTreeElement
 {
         void* pvDataContainer;
-        struct BiTreeElement *psLeftNode;
-        struct BiTreeElement *psRightNode;
+        struct BiTreeElement *pstLeftNode;
+        struct BiTreeElement *pstRightNode;
 }BiTreeElement_TypeDef;
 
 typedef struct BiTree
@@ -46,7 +46,7 @@ typedef struct BiTree
         uint32_t (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
         void (*pfvDestroyElementData) (void *DataContainer);
         void (*pfvDestroy) (void* List);
-        BiTreeElement_TypeDef *psRoot;
+        BiTreeElement_TypeDef *pstRoot;
 }BiTree_TypeDef;
 
 

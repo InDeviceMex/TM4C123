@@ -24,9 +24,9 @@
 #include <xOS/TCB/xHeader/OS_TCB_Destroy.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Destroy.h>
 
-void OS_TCB__vDestroy(OS_TCB_TypeDef* psTCB)
+void OS_TCB__vDestroy(OS_TCB_TypeDef* pstTCB)
 {
-    SLinkedList__vDestroy( (SLinkedList_TypeDef*) psTCB);
+    SLinkedList__vDestroy( (SLinkedList_TypeDef*) pstTCB);
 }
 
 

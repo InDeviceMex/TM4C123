@@ -26,8 +26,8 @@
 
 #include <xUtils/DataStructure/LinkedList/CircularDoubleLinkedList/Intrinsics/xHeader/CDLinkedList_Struct.h>
 
-uint32_t CDLinkedList__u32GetSize(const CDLinkedList_TypeDef* const psList);
-void CDLinkedList__vSetSize(CDLinkedList_TypeDef*  psList, uint32_t u32SizeArg);
+uint32_t CDLinkedList__u32GetSize(const CDLinkedList_TypeDef* const pstList);
+void CDLinkedList__vSetSize(CDLinkedList_TypeDef*  pstList, uint32_t u32SizeArg);
 
 
 

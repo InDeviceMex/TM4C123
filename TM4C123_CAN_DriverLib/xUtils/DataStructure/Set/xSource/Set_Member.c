@@ -27,134 +27,134 @@
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/Element/SLinkedList_Element.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/Intrinsics/List/SLinkedList_List.h>
 
-SetMember_TypeDef* Set__psIsMember(const Set_TypeDef* psSet, const void* pvData)
+SetMember_TypeDef* Set__pstIsMember(const Set_TypeDef* pstSet, const void* pvData)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
-    if((uint32_t) 0UL != (uint32_t) psSet)
+    if((uint32_t) 0UL != (uint32_t) pstSet)
     {
-        psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
-        while((uint32_t) 0UL != (uint32_t) psMember)
+        pstMember = SLinkedList__pstGetHead((const SLinkedList_TypeDef*)pstSet);
+        while((uint32_t) 0UL != (uint32_t) pstMember)
         {
-            pvDataMember = SLinkedList__pvGetElementData(psMember);
-            if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(pvData, pvDataMember))
+            pvDataMember = SLinkedList__pvGetElementData(pstMember);
+            if(Set_enSTATUS_OK == (Set_nSTATUS)pstSet->pfu32Match(pvData, pvDataMember))
             {
                 enStatus = Set_enSTATUS_OK;
                 break;
             }
-            psMemberTemp = SLinkedList__psGetElementNextNode(psMember);
-            psMember = psMemberTemp;
+            pstMemberTemp = SLinkedList__pstGetElementNextNode(pstMember);
+            pstMember = pstMemberTemp;
         }
 
         if(Set_enSTATUS_OK != enStatus)
         {
-            psMember = (SLinkedListElement_TypeDef*) 0UL;
+            pstMember = (SLinkedListElement_TypeDef*) 0UL;
         }
     }
-    return psMember;
+    return pstMember;
 }
 
-uint32_t Set__u32GetNMember(const Set_TypeDef* psSet, const void** pvData, uint32_t u32Members, uint32_t u32MaxSize)
+uint32_t Set__u32GetNMember(const Set_TypeDef* pstSet, const void** pvData, uint32_t u32Members, uint32_t u32MaxSize)
 {
     uint32_t u32SizeReg = 0UL;
 
-    if(((uint32_t) 0UL != (uint32_t) psSet) && ((uint32_t) 0UL != (uint32_t) pvData ) && (0UL != u32Members ) && (0UL != u32MaxSize ))
+    if(((uint32_t) 0UL != (uint32_t) pstSet) && ((uint32_t) 0UL != (uint32_t) pvData ) && (0UL != u32Members ) && (0UL != u32MaxSize ))
     {
-        u32SizeReg = SLinkedList__u32GetNNode((const SLinkedList_TypeDef*)psSet, pvData, u32Members, u32MaxSize);
+        u32SizeReg = SLinkedList__u32GetNNode((const SLinkedList_TypeDef*)pstSet, pvData, u32Members, u32MaxSize);
     }
     return u32SizeReg;
 }
 
-uint32_t Set__u32GetAllMember(const Set_TypeDef* psSet, const void** pvData, uint32_t u32MaxSize)
+uint32_t Set__u32GetAllMember(const Set_TypeDef* pstSet, const void** pvData, uint32_t u32MaxSize)
 {
     uint32_t u32SizeReg = 0UL;
 
-    if(((uint32_t) 0UL != (uint32_t) psSet) && ((uint32_t) 0UL != (uint32_t) pvData ) && ((uint32_t) 0UL != u32MaxSize ))
+    if(((uint32_t) 0UL != (uint32_t) pstSet) && ((uint32_t) 0UL != (uint32_t) pvData ) && ((uint32_t) 0UL != u32MaxSize ))
     {
-        u32SizeReg = SLinkedList__u32GetAllNode((const SLinkedList_TypeDef*)psSet, pvData, u32MaxSize);
+        u32SizeReg = SLinkedList__u32GetAllNode((const SLinkedList_TypeDef*)pstSet, pvData, u32MaxSize);
     }
     return u32SizeReg;
 }
 
-SetMember_TypeDef* Set__psGetMember(const Set_TypeDef* psSet, uint32_t u32Position, const void** pvData)
+SetMember_TypeDef* Set__pstGetMember(const Set_TypeDef* pstSet, uint32_t u32Position, const void** pvData)
 {
-    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMember = (SLinkedListElement_TypeDef*) 0UL;
 
-    if(((uint32_t) 0UL != (uint32_t) psSet) && ((uint32_t) 0UL != (uint32_t) pvData ))
+    if(((uint32_t) 0UL != (uint32_t) pstSet) && ((uint32_t) 0UL != (uint32_t) pvData ))
     {
 
-        psMember = SLinkedList__psGetNodePos((const SLinkedList_TypeDef*) psSet, u32Position);
+        pstMember = SLinkedList__pstGetNodePos((const SLinkedList_TypeDef*) pstSet, u32Position);
 
-        if((uint32_t) 0UL != (uint32_t) psMember)
+        if((uint32_t) 0UL != (uint32_t) pstMember)
         {
-            *pvData = SLinkedList__pvGetElementData(psMember);
+            *pvData = SLinkedList__pvGetElementData(pstMember);
         }
     }
-    return (SetMember_TypeDef*) psMember;
+    return (SetMember_TypeDef*) pstMember;
 }
 
-SetMember_TypeDef* Set__psGetMemberHead(const Set_TypeDef* psSet, const void** pvData)
+SetMember_TypeDef* Set__pstGetMemberHead(const Set_TypeDef* pstSet, const void** pvData)
 {
-    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMember = (SLinkedListElement_TypeDef*) 0UL;
 
-    if(((uint32_t) 0UL != (uint32_t) psSet) && ((uint32_t) 0UL != (uint32_t) pvData ))
+    if(((uint32_t) 0UL != (uint32_t) pstSet) && ((uint32_t) 0UL != (uint32_t) pvData ))
     {
 
-        psMember = SLinkedList__psGetNodePos((const SLinkedList_TypeDef*) psSet, 0UL);
+        pstMember = SLinkedList__pstGetNodePos((const SLinkedList_TypeDef*) pstSet, 0UL);
 
-        if((uint32_t) 0UL != (uint32_t) psMember)
+        if((uint32_t) 0UL != (uint32_t) pstMember)
         {
-            *pvData = SLinkedList__pvGetElementData(psMember);
+            *pvData = SLinkedList__pvGetElementData(pstMember);
         }
     }
-    return (SetMember_TypeDef*) psMember;
+    return (SetMember_TypeDef*) pstMember;
 }
 
-SetMember_TypeDef* Set__psGetMemberNext(const SetMember_TypeDef* psMember, const void** pvData)
+SetMember_TypeDef* Set__pstGetMemberNext(const SetMember_TypeDef* pstMember, const void** pvData)
 {
-    SLinkedListElement_TypeDef *psMemberReg = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMemberReg = (SLinkedListElement_TypeDef*) 0UL;
 
-    if(((uint32_t) 0UL != (uint32_t) psMember) && ((uint32_t) 0UL != (uint32_t) pvData ))
+    if(((uint32_t) 0UL != (uint32_t) pstMember) && ((uint32_t) 0UL != (uint32_t) pvData ))
     {
 
-        psMemberReg = SLinkedList__psGetElementNextNode(psMember);
+        pstMemberReg = SLinkedList__pstGetElementNextNode(pstMember);
 
-        if((uint32_t) 0UL != (uint32_t) psMemberReg)
+        if((uint32_t) 0UL != (uint32_t) pstMemberReg)
         {
-            *pvData = SLinkedList__pvGetElementData(psMemberReg);
+            *pvData = SLinkedList__pvGetElementData(pstMemberReg);
         }
     }
-    return (SetMember_TypeDef*) psMemberReg;
+    return (SetMember_TypeDef*) pstMemberReg;
 }
 
-Set_nSTATUS Set__enIsMember(const Set_TypeDef* psSet, const void* pvData)
+Set_nSTATUS Set__enIsMember(const Set_TypeDef* pstSet, const void* pvData)
 {
     Set_nSTATUS enStatus = Set_enSTATUS_ERROR;
-    SLinkedListElement_TypeDef *psMember = (SLinkedListElement_TypeDef*) 0UL;
-    SLinkedListElement_TypeDef *psMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMember = (SLinkedListElement_TypeDef*) 0UL;
+    SLinkedListElement_TypeDef *pstMemberTemp = (SLinkedListElement_TypeDef*) 0UL;
     void* pvDataMember = (void*)0UL;
 
-    if((uint32_t) 0UL != (uint32_t) psSet)
+    if((uint32_t) 0UL != (uint32_t) pstSet)
     {
-        psMember = SLinkedList__psGetHead((const SLinkedList_TypeDef*)psSet);
-        while((uint32_t) 0UL != (uint32_t) psMember)
+        pstMember = SLinkedList__pstGetHead((const SLinkedList_TypeDef*)pstSet);
+        while((uint32_t) 0UL != (uint32_t) pstMember)
         {
-            pvDataMember = SLinkedList__pvGetElementData(psMember);
-            if(Set_enSTATUS_OK == (Set_nSTATUS)psSet->pfu32Match(pvData, pvDataMember))
+            pvDataMember = SLinkedList__pvGetElementData(pstMember);
+            if(Set_enSTATUS_OK == (Set_nSTATUS)pstSet->pfu32Match(pvData, pvDataMember))
             {
                 enStatus = Set_enSTATUS_OK;
                 break;
             }
-            psMemberTemp = SLinkedList__psGetElementNextNode(psMember);
-            psMember = psMemberTemp;
+            pstMemberTemp = SLinkedList__pstGetElementNextNode(pstMember);
+            pstMember = pstMemberTemp;
         }
 
         if(Set_enSTATUS_OK != enStatus)
         {
-            psMember = (SLinkedListElement_TypeDef*) 0UL;
+            pstMember = (SLinkedListElement_TypeDef*) 0UL;
         }
     }
     return enStatus;

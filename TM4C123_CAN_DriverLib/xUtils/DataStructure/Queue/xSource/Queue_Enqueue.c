@@ -24,12 +24,12 @@
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Enqueue.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Add.h>
 
-Queue_nSTATUS Queue__enEnqueue(Queue_TypeDef* psQueue, void* pvData)
+Queue_nSTATUS Queue__enEnqueue(Queue_TypeDef* pstQueue, void* pvData)
 {
     Queue_nSTATUS enStatus = Queue_enSTATUS_ERROR;
-    SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
-    psNewElement = SLinkedList__psAddEnd((SLinkedList_TypeDef*) psQueue, pvData);
-    if(0UL != (uint32_t) psNewElement)
+    SLinkedListElement_TypeDef* pstNewElement = (SLinkedListElement_TypeDef*) 0UL ;
+    pstNewElement = SLinkedList__pstAddEnd((SLinkedList_TypeDef*) pstQueue, pvData);
+    if(0UL != (uint32_t) pstNewElement)
     {
         enStatus = Queue_enSTATUS_OK;
     }

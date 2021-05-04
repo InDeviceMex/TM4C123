@@ -25,7 +25,7 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 #include <stdlib.h>
 
-Shot_TypeDef* Shot__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
+Shot_TypeDef* Shot__pstConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
 {
     Shot_TypeDef* ShotHandle = 0UL;
 
@@ -45,36 +45,36 @@ Shot_TypeDef* Shot__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg)
 
 void Shot__vDestructor(void* pvShotArg)
 {
-    Shot_TypeDef* psShotArg = (Shot_TypeDef*) pvShotArg;
-    if(0UL != (uint32_t) psShotArg)
+    Shot_TypeDef* pstShotArg = (Shot_TypeDef*) pvShotArg;
+    if(0UL != (uint32_t) pstShotArg)
     {
-        psShotArg->u32Xpos = 0UL;
-        psShotArg->u32Ypos = 0UL;
-        free(psShotArg);
-        psShotArg = (Shot_TypeDef*) 0UL;
+        pstShotArg->u32Xpos = 0UL;
+        pstShotArg->u32Ypos = 0UL;
+        free(pstShotArg);
+        pstShotArg = (Shot_TypeDef*) 0UL;
     }
 }
 
-DLinkedList_TypeDef* Shot__psInitList(void)
+DLinkedList_TypeDef* Shot__pstInitList(void)
 {
-    DLinkedList_TypeDef* psShotDLinkedList = (DLinkedList_TypeDef*) 0UL;
-    psShotDLinkedList = DLinkedList__psInit(&Shot__vDestructor);
-    return psShotDLinkedList;
+    DLinkedList_TypeDef* pstShotDLinkedList = (DLinkedList_TypeDef*) 0UL;
+    pstShotDLinkedList = DLinkedList__pstInit(&Shot__vDestructor);
+    return pstShotDLinkedList;
 }
 
-void Shot__vDestroyList(DLinkedList_TypeDef* psShotDLinkedListArg)
+void Shot__vDestroyList(DLinkedList_TypeDef* pstShotDLinkedListArg)
 {
-    DLinkedList__vDestroy(psShotDLinkedListArg);
+    DLinkedList__vDestroy(pstShotDLinkedListArg);
 }
 
-DLinkedListElement_TypeDef* Shot__psAddElement(DLinkedList_TypeDef* psShotDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg)
+DLinkedListElement_TypeDef* Shot__pstAddElement(DLinkedList_TypeDef* pstShotDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg)
 {
-    DLinkedListElement_TypeDef* psNewShotElement = (DLinkedListElement_TypeDef*) 0UL;
-    Shot_TypeDef* psNewShot = (Shot_TypeDef*) 0UL;
-    psNewShot = Shot__psConstructor(u32XPosArg, u32YPosArg);
-    if(0UL != (uint32_t) psNewShot)
+    DLinkedListElement_TypeDef* pstNewShotElement = (DLinkedListElement_TypeDef*) 0UL;
+    Shot_TypeDef* pstNewShot = (Shot_TypeDef*) 0UL;
+    pstNewShot = Shot__pstConstructor(u32XPosArg, u32YPosArg);
+    if(0UL != (uint32_t) pstNewShot)
     {
-        psNewShotElement = DLinkedList__psAddEnd(psShotDLinkedListArg,  (void*) psNewShot);
+        pstNewShotElement = DLinkedList__pstAddEnd(pstShotDLinkedListArg,  (void*) pstNewShot);
     }
-    return psNewShotElement;
+    return pstNewShotElement;
 }

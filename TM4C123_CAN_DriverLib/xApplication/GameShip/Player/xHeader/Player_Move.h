@@ -27,6 +27,6 @@
 
 #include <xApplication/GameShip/Player/xHeader/Player_Struct.h>
 
-void Player__vMove(Player_TypeDef* psPlayerArg);
+void Player__vMove(Player_TypeDef* pstPlayerArg);
 
 #endif /* XAPPLICATION_GAMESHIP_PLAYER_XHEADER_PLAYER_MOVE_H_ */

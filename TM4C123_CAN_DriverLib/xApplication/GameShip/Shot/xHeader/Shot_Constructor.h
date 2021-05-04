@@ -27,12 +27,12 @@
 #include <xApplication/GameShip/Shot/xHeader/Shot_Struct.h>
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 
-Shot_TypeDef* Shot__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg);
+Shot_TypeDef* Shot__pstConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg);
 void Shot__vDestructor(void* pvShotArg);
 
-DLinkedList_TypeDef* Shot__psInitList(void);
-void Shot__vDestroyList(DLinkedList_TypeDef* psShotDLinkedListArg);
+DLinkedList_TypeDef* Shot__pstInitList(void);
+void Shot__vDestroyList(DLinkedList_TypeDef* pstShotDLinkedListArg);
 
-DLinkedListElement_TypeDef* Shot__psAddElement(DLinkedList_TypeDef* psShotDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg);
+DLinkedListElement_TypeDef* Shot__pstAddElement(DLinkedList_TypeDef* pstShotDLinkedListArg, uint32_t u32XPosArg, uint32_t u32YPosArg);
 
 #endif /* XAPPLICATION_GAMESHIP_SHOT_XHEADER_SHOT_CONSTRUCTOR_H_ */

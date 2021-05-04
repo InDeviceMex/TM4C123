@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Struct.h>
 
-Stack_nSTATUS Stack__enPop(Stack_TypeDef* psStack, void** pvData);
+Stack_nSTATUS Stack__enPop(Stack_TypeDef* pstStack, void** pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_STACK_XHEADER_STACK_POP_H_ */

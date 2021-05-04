@@ -23,7 +23,7 @@
  */
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Lookup.h>
 
-OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* psOAHashTable, void** pvData)
+OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* pstOAHashTable, void** pvData)
 {
     void **pvElementData = (void**) 0UL;
     uint32_t u32PositionNum = 0UL;
@@ -32,18 +32,18 @@ OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* psOAHashTab
     uint32_t u32Iteration = 0UL;
     OAHashTable_nSTATUS enMatchResult = OAHashTable_enSTATUS_ERROR;
 
-    if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) pstOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
-        u32PositionSize = psOAHashTable->u32Positions;
+        u32PositionSize = pstOAHashTable->u32Positions;
         for(u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
         {
-            u32PositionNum = psOAHashTable->pfu32HashFunction1(* pvData);
-            u32Position2Num = psOAHashTable->pfu32HashFunction2(*pvData);
+            u32PositionNum = pstOAHashTable->pfu32HashFunction1(* pvData);
+            u32Position2Num = pstOAHashTable->pfu32HashFunction2(*pvData);
             u32Position2Num *= u32Iteration;
             u32PositionNum += u32Position2Num;
             u32PositionNum %= u32PositionSize;
 
-            pvElementData = psOAHashTable->pvTable;
+            pvElementData = pstOAHashTable->pvTable;
             pvElementData += u32PositionNum;
             if((uint32_t) 0UL == (uint32_t) (*pvElementData))
             {
@@ -51,7 +51,7 @@ OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* psOAHashTab
             }
             else
             {
-                enMatchResult = (OAHashTable_nSTATUS) psOAHashTable->pfu32Match((*pvElementData), *pvData);
+                enMatchResult = (OAHashTable_nSTATUS) pstOAHashTable->pfu32Match((*pvElementData), *pvData);
                 if(OAHashTable_enSTATUS_OK == enMatchResult)
                 {
                     *pvData = *pvElementData;
@@ -64,7 +64,7 @@ OAHashTable_nSTATUS OAHashTable__enLookup(const OAHashTable_TypeDef* psOAHashTab
 }
 
 
-void* OAHashTable__pvLookup(const OAHashTable_TypeDef* psOAHashTable, const void* const* pvData)
+void* OAHashTable__pvLookup(const OAHashTable_TypeDef* pstOAHashTable, const void* const* pvData)
 {
     void **pvElementData = (void**) 0UL;
     void *pvElementReturn = (void*) 0UL;
@@ -74,18 +74,18 @@ void* OAHashTable__pvLookup(const OAHashTable_TypeDef* psOAHashTable, const void
     uint32_t u32Iteration = 0UL;
     OAHashTable_nSTATUS enMatchResult = OAHashTable_enSTATUS_ERROR;
 
-    if(((uint32_t) 0UL != (uint32_t) psOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
+    if(((uint32_t) 0UL != (uint32_t) pstOAHashTable) && ((uint32_t) 0UL != (uint32_t) pvData)  )
     {
-        u32PositionSize = psOAHashTable->u32Positions;
+        u32PositionSize = pstOAHashTable->u32Positions;
         for(u32Iteration = 0UL; u32Iteration < u32PositionSize; u32Iteration++)
         {
-            u32PositionNum = psOAHashTable->pfu32HashFunction1(* pvData);
-            u32Position2Num = psOAHashTable->pfu32HashFunction2(*pvData);
+            u32PositionNum = pstOAHashTable->pfu32HashFunction1(* pvData);
+            u32Position2Num = pstOAHashTable->pfu32HashFunction2(*pvData);
             u32Position2Num *= u32Iteration;
             u32PositionNum += u32Position2Num;
             u32PositionNum %= u32PositionSize;
 
-            pvElementData = psOAHashTable->pvTable;
+            pvElementData = pstOAHashTable->pvTable;
             pvElementData += u32PositionNum;
             if((uint32_t) 0UL == (uint32_t) (*pvElementData))
             {
@@ -93,7 +93,7 @@ void* OAHashTable__pvLookup(const OAHashTable_TypeDef* psOAHashTable, const void
             }
             else
             {
-                enMatchResult = (OAHashTable_nSTATUS) psOAHashTable->pfu32Match((*pvElementData), *pvData);
+                enMatchResult = (OAHashTable_nSTATUS) pstOAHashTable->pfu32Match((*pvElementData), *pvData);
                 if(OAHashTable_enSTATUS_OK == enMatchResult)
                 {
                     pvElementReturn = *pvElementData;

@@ -27,19 +27,19 @@
 #include <xDriver_MCU/TIMER/App/Mode/xHeader/TIMER_ModeStruct.h>
 #include <xDriver_MCU/TIMER/Driver/TIMER_Driver.h>
 
-TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EXTRAMODE_Typedef* psExtraMode)
+TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EXTRAMODE_Typedef* pstExtraMode)
 {
     TIMER_nSTATUS enReturn = TIMER_enSTATUS_ERROR;
-    if(0UL != (uint32_t) psExtraMode)
+    if(0UL != (uint32_t) pstExtraMode)
     {
-        TIMER__vSetWaitTrigger(enModule, psExtraMode->enWaitTrigger);
-        TIMER__vSetUpdateIntervalMode(enModule, psExtraMode->enUpdateInterval);
-        TIMER__vSetPWMInterrupt(enModule, psExtraMode->enPWMInterrupt);
-        TIMER__vSetMatchEventInterrupt(enModule, psExtraMode->enEventInterrupt);
-        TIMER__vSetUpdateMatchMode(enModule, psExtraMode->enUpdateMatch);
-        TIMER__vSetStall(enModule, psExtraMode->enStall);
-        TIMER__vSetRTCStall(enModule, psExtraMode->enRTCStall);
-        TIMER__vSetADCTrigger(enModule, psExtraMode->enADCTrigger);
+        TIMER__vSetWaitTrigger(enModule, pstExtraMode->enWaitTrigger);
+        TIMER__vSetUpdateIntervalMode(enModule, pstExtraMode->enUpdateInterval);
+        TIMER__vSetPWMInterrupt(enModule, pstExtraMode->enPWMInterrupt);
+        TIMER__vSetMatchEventInterrupt(enModule, pstExtraMode->enEventInterrupt);
+        TIMER__vSetUpdateMatchMode(enModule, pstExtraMode->enUpdateMatch);
+        TIMER__vSetStall(enModule, pstExtraMode->enStall);
+        TIMER__vSetRTCStall(enModule, pstExtraMode->enRTCStall);
+        TIMER__vSetADCTrigger(enModule, pstExtraMode->enADCTrigger);
         enReturn = TIMER_enSTATUS_OK;
     }
     return enReturn;
@@ -50,43 +50,43 @@ TIMER_nSTATUS TIMER__enSetExtraModeStruct(TIMER_nMODULE enModule, const TIMER_EX
 
 }
 
-void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* psExtraMode)
+void TIMER__vGetExtraMode(TIMER_nMODULE enModule, TIMER_EXTRAMODE_Typedef* pstExtraMode)
 {
-    if(0UL != (uint32_t) psExtraMode)
+    if(0UL != (uint32_t) pstExtraMode)
     {
-        psExtraMode->enWaitTrigger = TIMER__enGetWaitTrigger(enModule);
-        psExtraMode->enUpdateInterval = TIMER__enGetUpdateIntervalMode(enModule);
-        psExtraMode->enPWMInterrupt = TIMER__enGetPWMInterrupt(enModule);
-        psExtraMode->enEventInterrupt = TIMER__enGetMatchEventInterrupt(enModule);
-        psExtraMode->enUpdateMatch = TIMER__enGetUpdateMatchMode(enModule);
-        psExtraMode->enStall = TIMER__enGetStall(enModule);
-        psExtraMode->enRTCStall = TIMER__enGetRTCStall(enModule);
-        psExtraMode->enADCTrigger = TIMER__enGetADCTrigger(enModule);
+        pstExtraMode->enWaitTrigger = TIMER__enGetWaitTrigger(enModule);
+        pstExtraMode->enUpdateInterval = TIMER__enGetUpdateIntervalMode(enModule);
+        pstExtraMode->enPWMInterrupt = TIMER__enGetPWMInterrupt(enModule);
+        pstExtraMode->enEventInterrupt = TIMER__enGetMatchEventInterrupt(enModule);
+        pstExtraMode->enUpdateMatch = TIMER__enGetUpdateMatchMode(enModule);
+        pstExtraMode->enStall = TIMER__enGetStall(enModule);
+        pstExtraMode->enRTCStall = TIMER__enGetRTCStall(enModule);
+        pstExtraMode->enADCTrigger = TIMER__enGetADCTrigger(enModule);
     }
 }
 
 
 
-TIMER_EXTRAMODE_Typedef* TIMER__psGetExtraMode(TIMER_nMODULE enModule)
+TIMER_EXTRAMODE_Typedef* TIMER__pstGetExtraMode(TIMER_nMODULE enModule)
 {
-    TIMER_EXTRAMODE_Typedef* psExtraMode = 0UL;
+    TIMER_EXTRAMODE_Typedef* pstExtraMode = 0UL;
     #if defined (__TI_ARM__ )
-    psExtraMode = (TIMER_EXTRAMODE_Typedef*) memalign((size_t) 4, (size_t) sizeof(TIMER_EXTRAMODE_Typedef));
+    pstExtraMode = (TIMER_EXTRAMODE_Typedef*) memalign((size_t) 4, (size_t) sizeof(TIMER_EXTRAMODE_Typedef));
     #elif defined (__GNUC__ )
-    psExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc((size_t) sizeof(TIMER_EXTRAMODE_Typedef));
+    pstExtraMode = (TIMER_EXTRAMODE_Typedef*) malloc((size_t) sizeof(TIMER_EXTRAMODE_Typedef));
     #endif
 
-    if(0UL != (uint32_t) psExtraMode)
+    if(0UL != (uint32_t) pstExtraMode)
     {
-        psExtraMode->enWaitTrigger = TIMER__enGetWaitTrigger(enModule);
-        psExtraMode->enUpdateInterval = TIMER__enGetUpdateIntervalMode(enModule);
-        psExtraMode->enPWMInterrupt = TIMER__enGetPWMInterrupt(enModule);
-        psExtraMode->enEventInterrupt = TIMER__enGetMatchEventInterrupt(enModule);
-        psExtraMode->enUpdateMatch = TIMER__enGetUpdateMatchMode(enModule);
-        psExtraMode->enStall = TIMER__enGetStall(enModule);
-        psExtraMode->enRTCStall = TIMER__enGetRTCStall(enModule);
-        psExtraMode->enADCTrigger = TIMER__enGetADCTrigger(enModule);
+        pstExtraMode->enWaitTrigger = TIMER__enGetWaitTrigger(enModule);
+        pstExtraMode->enUpdateInterval = TIMER__enGetUpdateIntervalMode(enModule);
+        pstExtraMode->enPWMInterrupt = TIMER__enGetPWMInterrupt(enModule);
+        pstExtraMode->enEventInterrupt = TIMER__enGetMatchEventInterrupt(enModule);
+        pstExtraMode->enUpdateMatch = TIMER__enGetUpdateMatchMode(enModule);
+        pstExtraMode->enStall = TIMER__enGetStall(enModule);
+        pstExtraMode->enRTCStall = TIMER__enGetRTCStall(enModule);
+        pstExtraMode->enADCTrigger = TIMER__enGetADCTrigger(enModule);
     }
-    return psExtraMode;
+    return pstExtraMode;
 
 }

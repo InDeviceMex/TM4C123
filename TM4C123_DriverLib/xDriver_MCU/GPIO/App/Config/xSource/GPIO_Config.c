@@ -30,29 +30,29 @@
 GPIO_nSTATUS GPIO__enSetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_nCONFIG enConfigParam)
 {
     GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
-    GPIO_CONFIG_Typedef *psConfig = GPIO__psCreateConfigStruct(enConfigParam);
+    GPIO_CONFIG_Typedef *pstConfig = GPIO__pstCreateConfigStruct(enConfigParam);
 
-    if(0UL != (uint32_t) psConfig)
+    if(0UL != (uint32_t) pstConfig)
     {
-        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
-        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
-        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
-        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
-        GPIO__vDeleteConfigStruct(psConfig);
+        GPIO__vSetResistorMode(enPort, enPin, pstConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, pstConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, pstConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, pstConfig->enDrive);
+        GPIO__vDeleteConfigStruct(pstConfig);
         enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
 }
 
-GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin, const GPIO_CONFIG_Typedef *psConfig)
+GPIO_nSTATUS GPIO__enSetConfigStruct(GPIO_nPORT enPort, GPIO_nPIN enPin, const GPIO_CONFIG_Typedef *pstConfig)
 {
     GPIO_nSTATUS enReturn = GPIO_enSTATUS_ERROR;
-    if(0UL != (uint32_t) psConfig)
+    if(0UL != (uint32_t) pstConfig)
     {
-        GPIO__vSetResistorMode(enPort, enPin, psConfig->enResistorMode);
-        GPIO__vSetOutputMode(enPort, enPin, psConfig->enOutputMode);
-        GPIO__vSetDirection(enPort, enPin, psConfig->enDirection);
-        GPIO__vSetDrive(enPort, enPin, psConfig->enDrive);
+        GPIO__vSetResistorMode(enPort, enPin, pstConfig->enResistorMode);
+        GPIO__vSetOutputMode(enPort, enPin, pstConfig->enOutputMode);
+        GPIO__vSetDirection(enPort, enPin, pstConfig->enDirection);
+        GPIO__vSetDrive(enPort, enPin, pstConfig->enDrive);
         enReturn = GPIO_enSTATUS_OK;
     }
     return enReturn;
@@ -87,32 +87,32 @@ GPIO_nCONFIG GPIO__enGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
     return enConfig;
 }
 
-void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_CONFIG_Typedef *psConfig)
+void GPIO__vGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin, GPIO_CONFIG_Typedef *pstConfig)
 {
-    if(0UL != (uint32_t) psConfig)
+    if(0UL != (uint32_t) pstConfig)
     {
-        psConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
-        psConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
-        psConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
-        psConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
+        pstConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
+        pstConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
+        pstConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
+        pstConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
     }
 }
 
-GPIO_CONFIG_Typedef* GPIO__psGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
+GPIO_CONFIG_Typedef* GPIO__pstGetConfig(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    GPIO_CONFIG_Typedef *psConfig = 0UL;
+    GPIO_CONFIG_Typedef *pstConfig = 0UL;
 #if defined (__TI_ARM__ )
-    psConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef)));
+    pstConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef)));
 #elif defined (__GNUC__ )
-    psConfig = (GPIO_CONFIG_Typedef*) malloc((size_t) sizeof(GPIO_CONFIG_Typedef));
+    pstConfig = (GPIO_CONFIG_Typedef*) malloc((size_t) sizeof(GPIO_CONFIG_Typedef));
     #endif
 
-    if(0UL != (uint32_t) psConfig)
+    if(0UL != (uint32_t) pstConfig)
     {
-        psConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
-        psConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
-        psConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
-        psConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
+        pstConfig->enResistorMode = GPIO__enGetResistorMode(enPort, enPin);
+        pstConfig->enOutputMode = GPIO__enGetOutputMode(enPort, enPin);
+        pstConfig->enDirection = GPIO__enGetDirection(enPort, enPin);
+        pstConfig->enDrive = GPIO__enGetDrive(enPort, enPin);
     }
-    return psConfig;
+    return pstConfig;
 }

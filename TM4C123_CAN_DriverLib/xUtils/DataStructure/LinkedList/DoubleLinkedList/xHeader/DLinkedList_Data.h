@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/Intrinsics/xHeader/DLinkedList_Struct.h>
 
- void*  DLinkedList__pvGetNodeDataPos(const DLinkedList_TypeDef* psList, uint32_t u32Position);
- void*  DLinkedList__pvGetNodeDataEnd(const DLinkedList_TypeDef* psList);
- void*  DLinkedList__pvGetNodeDataBegin(const DLinkedList_TypeDef* psList);
+ void*  DLinkedList__pvGetNodeDataPos(const DLinkedList_TypeDef* pstList, uint32_t u32Position);
+ void*  DLinkedList__pvGetNodeDataEnd(const DLinkedList_TypeDef* pstList);
+ void*  DLinkedList__pvGetNodeDataBegin(const DLinkedList_TypeDef* pstList);
 
 
 

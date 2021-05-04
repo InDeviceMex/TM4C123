@@ -27,8 +27,8 @@
 
 #include <xUtils/DataStructure/Queue/xHeader/Queue_Struct.h>
 
-uint32_t Queue__u32GetSize(const Queue_TypeDef* const psQueue);
-Queue_nSTATUS Queue__enIsEmpty(const Queue_TypeDef* const psQueue);
+uint32_t Queue__u32GetSize(const Queue_TypeDef* const pstQueue);
+Queue_nSTATUS Queue__enIsEmpty(const Queue_TypeDef* const pstQueue);
 
 
 

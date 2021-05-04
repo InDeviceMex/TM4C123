@@ -26,6 +26,6 @@
 
 #include <xUtils/DataStructure/Set/xHeader/Set_Struct.h>
 
-Set_nSTATUS Set__enInsert(Set_TypeDef* psSet, void* pvData);
+Set_nSTATUS Set__enInsert(Set_TypeDef* pstSet, void* pvData);
 
 #endif /* XUTILS_DATASTRUCTURE_SET_XHEADER_SET_INSERT_H_ */

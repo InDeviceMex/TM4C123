@@ -27,7 +27,7 @@
 
 #include <xOS/TCB/xHeader/OS_TCB_Defines.h>
 
-OS_TCB_TypeDef* OS_TCB__psInit(void (*pfvDestroyElementDataArg) (void *DataContainer));
-OS_TCB_nSTATUS OS_TCB__enInit(OS_TCB_TypeDef* psTCB, void (*pfvDestroyElementDataArg) (void *DataContainer));
+OS_TCB_TypeDef* OS_TCB__pstInit(void (*pfvDestroyElementDataArg) (void *DataContainer));
+OS_TCB_nSTATUS OS_TCB__enInit(OS_TCB_TypeDef* pstTCB, void (*pfvDestroyElementDataArg) (void *DataContainer));
 
 #endif /* XOS_TCB_XHEADER_OS_TCB_INIT_H_ */

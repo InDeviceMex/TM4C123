@@ -31,53 +31,53 @@
 #include <xUtils/DataStructure/LinkedList/DoubleLinkedList/DoubleLinkedList.h>
 #include <stdlib.h>
 
-uint32_t Shot__u32Move(Shot_TypeDef* psShotArg)
+uint32_t Shot__u32Move(Shot_TypeDef* pstShotArg)
 {
     uint32_t u32State = 0UL;
-    Shot__vErase(psShotArg);
-    psShotArg->u32Ypos--;
-    if(psShotArg->u32Ypos <= FRAME_ROW_WORKING_INIT)
+    Shot__vErase(pstShotArg);
+    pstShotArg->u32Ypos--;
+    if(pstShotArg->u32Ypos <= FRAME_ROW_WORKING_INIT)
     {
         u32State = 1UL;
     }
     else
     {
-        Shot__vDraw(psShotArg);
+        Shot__vDraw(pstShotArg);
     }
     return u32State;
 }
 
-uint32_t Shot__u32CheckToLimit(DLinkedList_TypeDef* psShotDLinkedListArg)
+uint32_t Shot__u32CheckToLimit(DLinkedList_TypeDef* pstShotDLinkedListArg)
 {
     uint32_t u32DeletedCant = 0UL;
     uint32_t u32DeleteShot = 0UL;
-    Shot_TypeDef* psShotGeneric = (Shot_TypeDef*) 0UL;
-    DLinkedListElement_TypeDef* psShotIterator = (DLinkedListElement_TypeDef*) 0UL;
-    DLinkedListElement_TypeDef* psShotIteratorTemp = (DLinkedListElement_TypeDef*) 0UL;
-    DLinkedListElement_TypeDef* psShotDeletedPointer = (DLinkedListElement_TypeDef*) 0UL;
-    static DLinkedListElement_TypeDef sShotDeleted = {0UL};
+    Shot_TypeDef* pstShotGeneric = (Shot_TypeDef*) 0UL;
+    DLinkedListElement_TypeDef* pstShotIterator = (DLinkedListElement_TypeDef*) 0UL;
+    DLinkedListElement_TypeDef* pstShotIteratorTemp = (DLinkedListElement_TypeDef*) 0UL;
+    DLinkedListElement_TypeDef* pstShotDeletedPointer = (DLinkedListElement_TypeDef*) 0UL;
+    static DLinkedListElement_TypeDef stShotDeleted = {0UL};
     DLinkedList_nSTATUS enStatus = DLinkedList_enSTATUS_ERROR;
-    psShotDeletedPointer = &sShotDeleted;
+    pstShotDeletedPointer = &stShotDeleted;
 
-    psShotIterator = DLinkedList__psGetHead(psShotDLinkedListArg);
-    while(0UL != (uint32_t) psShotIterator)
+    pstShotIterator = DLinkedList__pstGetHead(pstShotDLinkedListArg);
+    while(0UL != (uint32_t) pstShotIterator)
     {
-        psShotGeneric = (Shot_TypeDef*) DLinkedList__pvGetElementData(psShotIterator);
-        u32DeleteShot = Shot__u32Move(psShotGeneric);
+        pstShotGeneric = (Shot_TypeDef*) DLinkedList__pvGetElementData(pstShotIterator);
+        u32DeleteShot = Shot__u32Move(pstShotGeneric);
         if(1UL == u32DeleteShot)
         {
-            psShotIteratorTemp = DLinkedList__psGetElementNextNode(psShotIterator);
-            enStatus = DLinkedList__enRemove(psShotDLinkedListArg, psShotIterator, (void**) &psShotDeletedPointer);
+            pstShotIteratorTemp = DLinkedList__pstGetElementNextNode(pstShotIterator);
+            enStatus = DLinkedList__enRemove(pstShotDLinkedListArg, pstShotIterator, (void**) &pstShotDeletedPointer);
             if(DLinkedList_enSTATUS_OK == enStatus)
             {
                 u32DeletedCant++;
-                Shot__vDestructor(psShotDeletedPointer);
+                Shot__vDestructor(pstShotDeletedPointer);
             }
-            psShotIterator = psShotIteratorTemp;
+            pstShotIterator = pstShotIteratorTemp;
         }
         else
         {
-            psShotIterator = DLinkedList__psGetElementNextNode(psShotIterator);
+            pstShotIterator = DLinkedList__pstGetElementNextNode(pstShotIterator);
         }
     }
     return u32DeletedCant;

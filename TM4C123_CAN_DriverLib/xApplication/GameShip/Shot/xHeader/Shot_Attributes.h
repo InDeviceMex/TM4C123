@@ -26,11 +26,11 @@
 
 #include <xApplication/GameShip/Shot/xHeader/Shot_Struct.h>
 
-uint32_t Shot__u32GetXPos(const Shot_TypeDef* psShotArg);
-void Shot__vSetXPos(Shot_TypeDef* psShotArg, uint32_t u32XPosArg);
+uint32_t Shot__u32GetXPos(const Shot_TypeDef* pstShotArg);
+void Shot__vSetXPos(Shot_TypeDef* pstShotArg, uint32_t u32XPosArg);
 
-uint32_t Shot__u32GetYPos(const Shot_TypeDef* psShotArg);
-void Shot__vSetYPos(Shot_TypeDef* psShotArg, uint32_t u32YPosArg);
+uint32_t Shot__u32GetYPos(const Shot_TypeDef* pstShotArg);
+void Shot__vSetYPos(Shot_TypeDef* pstShotArg, uint32_t u32YPosArg);
 
 
 

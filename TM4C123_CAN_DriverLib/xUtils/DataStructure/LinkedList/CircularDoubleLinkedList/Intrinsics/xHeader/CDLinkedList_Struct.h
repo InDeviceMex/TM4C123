@@ -35,8 +35,8 @@ typedef enum
 typedef struct CDLinkedListElement
 {
         void* pvDataContainer;
-        struct CDLinkedListElement *psPreviousNode;
-        struct CDLinkedListElement *psNextNode;
+        struct CDLinkedListElement *pstPreviousNode;
+        struct CDLinkedListElement *pstNextNode;
 }CDLinkedListElement_TypeDef;
 
 typedef struct CDLinkedList
@@ -45,8 +45,8 @@ typedef struct CDLinkedList
         uint32_t (*pfu32Match) (const void *pcvKey1, const void *pcvKey2);
         void (*pfvDestroyElementData) (void *DataContainer);
         void (*pfvDestroy) (void* List);
-        CDLinkedListElement_TypeDef *psHead;
-        CDLinkedListElement_TypeDef *psTail;
+        CDLinkedListElement_TypeDef *pstHead;
+        CDLinkedListElement_TypeDef *pstTail;
 }CDLinkedList_TypeDef;
 
 

@@ -26,9 +26,9 @@
 
 #include <xUtils/DataStructure/BinaryTree/Intrinsics/xHeader/BiTree_Struct.h>
 
-BiTreeElement_TypeDef* BiTree__psGetRoot(const BiTree_TypeDef*  const psTree);
-void BiTree__vSetRoot(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psRootArg);
-BiTree_nSTATUS BiTree__enIsRoot(const BiTree_TypeDef* const psTree, const BiTreeElement_TypeDef* const psElement);
+BiTreeElement_TypeDef* BiTree__pstGetRoot(const BiTree_TypeDef*  const pstTree);
+void BiTree__vSetRoot(BiTree_TypeDef* pstTree, BiTreeElement_TypeDef* pstRootArg);
+BiTree_nSTATUS BiTree__enIsRoot(const BiTree_TypeDef* const pstTree, const BiTreeElement_TypeDef* const pstElement);
 
 
 

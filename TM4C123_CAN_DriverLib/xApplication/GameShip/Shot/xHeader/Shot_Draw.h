@@ -27,6 +27,6 @@
 
 #include <xApplication/GameShip/Shot/xHeader/Shot_Struct.h>
 
-void Shot__vDraw(const Shot_TypeDef* psShotArg);
+void Shot__vDraw(const Shot_TypeDef* pstShotArg);
 
 #endif /* XAPPLICATION_GAMESHIP_SHOT_XHEADER_SHOT_DRAW_H_ */

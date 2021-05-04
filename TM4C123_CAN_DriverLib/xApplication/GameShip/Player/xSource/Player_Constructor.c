@@ -24,7 +24,7 @@
 #include <xApplication/GameShip/Player/xHeader/Player_Constructor.h>
 #include <stdlib.h>
 
-Player_TypeDef* Player__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg, uint32_t u32LifesArg, uint32_t u32SubLifesArg)
+Player_TypeDef* Player__pstConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg, uint32_t u32LifesArg, uint32_t u32SubLifesArg)
 {
     Player_TypeDef* PlayerHandle = 0UL;
 
@@ -50,18 +50,18 @@ Player_TypeDef* Player__psConstructor(uint32_t u32XPosArg, uint32_t u32YPosArg, 
 
 void Player__vDestructor(void* pvPlayerArg)
 {
-    Player_TypeDef* psPlayerArg = (Player_TypeDef*) pvPlayerArg;
-    if(0UL != (uint32_t) psPlayerArg)
+    Player_TypeDef* pstPlayerArg = (Player_TypeDef*) pvPlayerArg;
+    if(0UL != (uint32_t) pstPlayerArg)
     {
-        psPlayerArg->u32Xpos = 0UL;
-        psPlayerArg->u32Ypos = 0UL;
-        psPlayerArg->u32WidthPlayer = 0UL;
-        psPlayerArg->u32HeightPlayer = 0UL;
-        psPlayerArg->u32SubLifesTotal = 0UL;
-        psPlayerArg->u32SubLifesCurrent = 0UL;
-        psPlayerArg->u32LifesTotal = 0UL;
-        psPlayerArg->u32LifesCurrent = 0UL;
-        free(psPlayerArg);
-        psPlayerArg = (Player_TypeDef*) 0UL;
+        pstPlayerArg->u32Xpos = 0UL;
+        pstPlayerArg->u32Ypos = 0UL;
+        pstPlayerArg->u32WidthPlayer = 0UL;
+        pstPlayerArg->u32HeightPlayer = 0UL;
+        pstPlayerArg->u32SubLifesTotal = 0UL;
+        pstPlayerArg->u32SubLifesCurrent = 0UL;
+        pstPlayerArg->u32LifesTotal = 0UL;
+        pstPlayerArg->u32LifesCurrent = 0UL;
+        free(pstPlayerArg);
+        pstPlayerArg = (Player_TypeDef*) 0UL;
     }
 }

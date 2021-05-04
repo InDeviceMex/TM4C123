@@ -29,47 +29,47 @@
 
 
 
- void* CDLinkedList__pvGetNodeDataPos(const CDLinkedList_TypeDef* psList, uint32_t u32Position)
+ void* CDLinkedList__pvGetNodeDataPos(const CDLinkedList_TypeDef* pstList, uint32_t u32Position)
  {
-     CDLinkedListElement_TypeDef* psElement = (CDLinkedListElement_TypeDef*) 0UL;
+     CDLinkedListElement_TypeDef* pstElement = (CDLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t) 0UL != (uint32_t) psList)
+     if((uint32_t) 0UL != (uint32_t) pstList)
      {
-         psElement = CDLinkedList__psGetNodePos(psList, u32Position);
-         if((uint32_t) 0UL != (uint32_t) psElement)
+         pstElement = CDLinkedList__pstGetNodePos(pstList, u32Position);
+         if((uint32_t) 0UL != (uint32_t) pstElement)
          {
-             pvElementData = CDLinkedList__pvGetElementData(psElement);
+             pvElementData = CDLinkedList__pvGetElementData(pstElement);
          }
      }
      return pvElementData;
  }
 
 
- void* CDLinkedList__pvGetNodeDataEnd(const CDLinkedList_TypeDef* psList)
+ void* CDLinkedList__pvGetNodeDataEnd(const CDLinkedList_TypeDef* pstList)
  {
-     CDLinkedListElement_TypeDef* psElement = (CDLinkedListElement_TypeDef*) 0UL;
+     CDLinkedListElement_TypeDef* pstElement = (CDLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t) 0UL != (uint32_t) psList)
+     if((uint32_t) 0UL != (uint32_t) pstList)
      {
-         psElement = CDLinkedList__psGetNodeEnd(psList);
-         if((uint32_t) psElement != (uint32_t) 0UL)
+         pstElement = CDLinkedList__pstGetNodeEnd(pstList);
+         if((uint32_t) pstElement != (uint32_t) 0UL)
          {
-             pvElementData = CDLinkedList__pvGetElementData(psElement);
+             pvElementData = CDLinkedList__pvGetElementData(pstElement);
          }
      }
      return pvElementData;
  }
 
- void* CDLinkedList__pvGetNodeDataBegin(const CDLinkedList_TypeDef* psList)
+ void* CDLinkedList__pvGetNodeDataBegin(const CDLinkedList_TypeDef* pstList)
  {
-     CDLinkedListElement_TypeDef* psElement = (CDLinkedListElement_TypeDef*) 0UL;
+     CDLinkedListElement_TypeDef* pstElement = (CDLinkedListElement_TypeDef*) 0UL;
      void* pvElementData = (void*) 0UL;
-     if((uint32_t) 0UL != (uint32_t) psList)
+     if((uint32_t) 0UL != (uint32_t) pstList)
      {
-         psElement = CDLinkedList__psGetNodeBegin(psList);
-         if((uint32_t) psElement != (uint32_t) 0UL)
+         pstElement = CDLinkedList__pstGetNodeBegin(pstList);
+         if((uint32_t) pstElement != (uint32_t) 0UL)
          {
-             pvElementData = CDLinkedList__pvGetElementData(psElement);
+             pvElementData = CDLinkedList__pvGetElementData(pstElement);
          }
      }
      return pvElementData;

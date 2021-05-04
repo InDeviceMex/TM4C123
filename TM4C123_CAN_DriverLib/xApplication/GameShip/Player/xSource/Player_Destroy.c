@@ -31,28 +31,28 @@
 
 #include <xUtils/Conversion/Conversion_String/Conversion_String.h>
 
-uint32_t Player__u32Destroy(Player_TypeDef* psPlayerArg)
+uint32_t Player__u32Destroy(Player_TypeDef* pstPlayerArg)
 {
     uint32_t u32GameOver = 0UL;
-    if(0UL == psPlayerArg->u32SubLifesCurrent)
+    if(0UL == pstPlayerArg->u32SubLifesCurrent)
     {
-        Player__vErase(psPlayerArg);
-        GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos,            "  *  ");
-        GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos + 1UL, " *** ");
-        GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos + 2UL, "  *  ");
+        Player__vErase(pstPlayerArg);
+        GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos,            "  *  ");
+        GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos + 1UL, " *** ");
+        GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos + 2UL, "  *  ");
         SysTick__vDelayUs(200000.0f);
 
-        Player__vErase(psPlayerArg);
-        GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos,            "* * *");
-        GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos + 1UL, " *** ");
-        GraphTerm__u32Printf(UART_enMODULE_0, psPlayerArg->u32Xpos, psPlayerArg->u32Ypos + 2UL, "* * *");
+        Player__vErase(pstPlayerArg);
+        GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos,            "* * *");
+        GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos + 1UL, " *** ");
+        GraphTerm__u32Printf(UART_enMODULE_0, pstPlayerArg->u32Xpos, pstPlayerArg->u32Ypos + 2UL, "* * *");
         SysTick__vDelayUs(200000.0f);
-        if(0UL != psPlayerArg->u32LifesCurrent)
+        if(0UL != pstPlayerArg->u32LifesCurrent)
         {
-        psPlayerArg->u32LifesCurrent--;
-        psPlayerArg->u32SubLifesCurrent = psPlayerArg->u32SubLifesTotal;
-        Player__vDrawLifes(psPlayerArg);
-        Player__vDraw(psPlayerArg);
+        pstPlayerArg->u32LifesCurrent--;
+        pstPlayerArg->u32SubLifesCurrent = pstPlayerArg->u32SubLifesTotal;
+        Player__vDrawLifes(pstPlayerArg);
+        Player__vDraw(pstPlayerArg);
         }
         else
         {

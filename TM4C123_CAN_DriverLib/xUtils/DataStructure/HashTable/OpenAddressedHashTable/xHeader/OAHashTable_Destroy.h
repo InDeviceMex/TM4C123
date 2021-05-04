@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/HashTable/OpenAddressedHashTable/xHeader/OAHashTable_Struct.h>
 
-void OAHashTable__vDestroy(OAHashTable_TypeDef* psOAHashTable);
+void OAHashTable__vDestroy(OAHashTable_TypeDef* pstOAHashTable);
 
 
 

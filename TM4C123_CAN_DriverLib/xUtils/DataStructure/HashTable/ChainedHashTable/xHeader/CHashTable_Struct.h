@@ -41,7 +41,7 @@ typedef struct CHashTable {
     void (*pfvDestroyElementData) (void *DataContainer);
     void (*pfvDestroy) (void* Hash);
     uint32_t u32Size;
-    SLinkedList_TypeDef *psTable;
+    SLinkedList_TypeDef *pstTable;
 } CHashTable_TypeDef;
 
 #endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_STRUCT_H_ */

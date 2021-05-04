@@ -25,12 +25,12 @@
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Push.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Add.h>
 
-Stack_nSTATUS Stack__enPush(Stack_TypeDef* psStack, void* pvData)
+Stack_nSTATUS Stack__enPush(Stack_TypeDef* pstStack, void* pvData)
 {
     Stack_nSTATUS enStatus = Stack_enSTATUS_ERROR;
-    SLinkedListElement_TypeDef* psNewElement = (SLinkedListElement_TypeDef*) 0UL ;
-    psNewElement = SLinkedList__psAddBegin((SLinkedList_TypeDef*) psStack, pvData);
-    if(0UL != (uint32_t) psNewElement)
+    SLinkedListElement_TypeDef* pstNewElement = (SLinkedListElement_TypeDef*) 0UL ;
+    pstNewElement = SLinkedList__pstAddBegin((SLinkedList_TypeDef*) pstStack, pvData);
+    if(0UL != (uint32_t) pstNewElement)
     {
         enStatus = Stack_enSTATUS_OK;
     }

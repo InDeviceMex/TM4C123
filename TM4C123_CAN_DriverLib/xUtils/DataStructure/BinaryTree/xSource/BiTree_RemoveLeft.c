@@ -30,45 +30,45 @@
 #include <stdlib.h>
 
 
- BiTree_nSTATUS BiTree__enRemoveLeft(BiTree_TypeDef* psTree, BiTreeElement_TypeDef* psElement)
+ BiTree_nSTATUS BiTree__enRemoveLeft(BiTree_TypeDef* pstTree, BiTreeElement_TypeDef* pstElement)
  {
      BiTree_nSTATUS enStatus = BiTree_enSTATUS_ERROR;
-     BiTreeElement_TypeDef** psElementPosition = (BiTreeElement_TypeDef**) 0UL ;
+     BiTreeElement_TypeDef** pstElementPosition = (BiTreeElement_TypeDef**) 0UL ;
      void (*pfvDestroyData) (void *DataContainer) = (void (*) (void *DataContainer)) 0UL;
      uint32_t u32SizeReg = 0UL;
 
-     if((uint32_t) 0UL != (uint32_t) psTree)
+     if((uint32_t) 0UL != (uint32_t) pstTree)
      {
-         u32SizeReg = BiTree__u32GetSize(psTree);
+         u32SizeReg = BiTree__u32GetSize(pstTree);
          if(0UL != u32SizeReg)
          {
 
-             if((uint32_t) 0UL == (uint32_t) psElement)
+             if((uint32_t) 0UL == (uint32_t) pstElement)
              {
-                 psElementPosition = &psTree->psRoot;
+                 pstElementPosition = &pstTree->pstRoot;
              }
              else
              {
-                 psElementPosition = &psElement->psLeftNode;
+                 pstElementPosition = &pstElement->pstLeftNode;
              }
 
-             if((uint32_t) 0UL != (uint32_t) *psElementPosition)
+             if((uint32_t) 0UL != (uint32_t) *pstElementPosition)
              {
                  enStatus = BiTree_enSTATUS_OK;
 
-                 BiTree__enRemoveLeft(psTree,*psElementPosition);
-                 BiTree__enRemoveRight(psTree,*psElementPosition);
-                 pfvDestroyData = psTree->pfvDestroyElementData;
+                 BiTree__enRemoveLeft(pstTree,*pstElementPosition);
+                 BiTree__enRemoveRight(pstTree,*pstElementPosition);
+                 pfvDestroyData = pstTree->pfvDestroyElementData;
                  if((uint32_t) 0UL != (uint32_t) pfvDestroyData)
                  {
-                     pfvDestroyData((*psElementPosition)->pvDataContainer);
+                     pfvDestroyData((*pstElementPosition)->pvDataContainer);
                  }
 
-                 free(*psElementPosition);
-                 *psElementPosition = (BiTreeElement_TypeDef*) 0UL;
+                 free(*pstElementPosition);
+                 *pstElementPosition = (BiTreeElement_TypeDef*) 0UL;
 
                  u32SizeReg--;
-                 BiTree__vSetSize(psTree, u32SizeReg);
+                 BiTree__vSetSize(pstTree, u32SizeReg);
              }
          }
      }

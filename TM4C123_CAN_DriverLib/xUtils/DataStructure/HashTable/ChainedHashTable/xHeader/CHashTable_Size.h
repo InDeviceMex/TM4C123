@@ -26,7 +26,7 @@
 
 #include <xUtils/DataStructure/HashTable/ChainedHashTable/xHeader/CHashTable_Struct.h>
 
-uint32_t CHashTable__u32GetSize(const CHashTable_TypeDef* const psCHashTable);
-void CHashTable__vSetSize(CHashTable_TypeDef*  psCHashTable, uint32_t u32SizeArg);
+uint32_t CHashTable__u32GetSize(const CHashTable_TypeDef* const pstCHashTable);
+void CHashTable__vSetSize(CHashTable_TypeDef*  pstCHashTable, uint32_t u32SizeArg);
 
 #endif /* XUTILS_DATASTRUCTURE_HASHTABLE_CHAINEDHASHTABLE_XHEADER_CHASHTABLE_SIZE_H_ */

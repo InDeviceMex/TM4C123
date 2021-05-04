@@ -24,9 +24,9 @@
 #include <xUtils/DataStructure/Stack/xHeader/Stack_Pop.h>
 #include <xUtils/DataStructure/LinkedList/SingleLinkedList/xHeader/SLinkedList_Remove.h>
 
-Stack_nSTATUS Stack__enPop(Stack_TypeDef* psStack, void** pvData)
+Stack_nSTATUS Stack__enPop(Stack_TypeDef* pstStack, void** pvData)
 {
-    return (Stack_nSTATUS ) SLinkedList__enRemoveBegin((SLinkedList_TypeDef*) psStack, pvData);
+    return (Stack_nSTATUS ) SLinkedList__enRemoveBegin((SLinkedList_TypeDef*) pstStack, pvData);
 }
 
 
