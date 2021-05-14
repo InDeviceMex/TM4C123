@@ -1,6 +1,6 @@
 /**
  *
- * @file SYSCTL_Bus.h
+ * @file SYSCTL_GPIOBus.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *

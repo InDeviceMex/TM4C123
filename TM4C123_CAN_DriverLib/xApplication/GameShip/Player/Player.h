@@ -1,6 +1,6 @@
 /**
  *
- * @file Ship.h
+ * @file Player.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
