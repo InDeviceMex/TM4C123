@@ -25,6 +25,6 @@
 #define XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_INTRINSICS_LCD1602_DELAY_H_
 
 #include <xUtils/Standard/Standard.h>
-void    LCD1602__vDelay(float32_t fDelay);
+void    LCD1602__vDelay(float32_t f32Delay);
 
 #endif /* XAPPLICATION_LCD1602_ADAPTIVE_HEADER_LCD1602_INTRINSICS_LCD1602_DELAY_H_ */

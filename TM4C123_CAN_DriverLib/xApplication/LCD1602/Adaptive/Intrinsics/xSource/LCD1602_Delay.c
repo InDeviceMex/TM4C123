@@ -25,9 +25,9 @@
 
 #include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
 
-void LCD1602__vDelay(float32_t fDelay)
+void LCD1602__vDelay(float32_t f32Delay)
 {
-    SysTick__vDelayUs(fDelay);
+    SysTick__vDelayUs(f32Delay);
 }
 
 

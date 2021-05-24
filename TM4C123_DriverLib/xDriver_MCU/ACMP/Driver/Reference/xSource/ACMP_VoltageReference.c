@@ -28,59 +28,59 @@
 #include <xDriver_MCU/ACMP/Driver/Reference/xHeader/ACMP_ReferenceRange.h>
 #include <xDriver_MCU/ACMP/Peripheral/ACMP_Peripheral.h>
 
-float32_t ACMP__fSetVoltageReference(ACMP_nMODULE enModule, float32_t fVoltageReferencePorcentage)
+float32_t ACMP__f32SetVoltageReference(ACMP_nMODULE enModule, float32_t f32VoltageReferencePorcentage)
 {
-    float32_t fVoltageProcentage1 = 0.0f;
-    float32_t fVoltageProcentage2 = 0.0f;
-    float32_t fVoltageProcentageDecimal1 = 0.0f;
-    float32_t fVoltageProcentageDecimal2 = 0.0f;
-    float32_t fVoltageCurrent = 0.0f;
+    float32_t f32VoltageProcentage1 = 0.0f;
+    float32_t f32VoltageProcentage2 = 0.0f;
+    float32_t f32VoltageProcentageDecimal1 = 0.0f;
+    float32_t f32VoltageProcentageDecimal2 = 0.0f;
+    float32_t f32VoltageCurrent = 0.0f;
     uint32_t u32VoltageProcentageInteger1 = 0UL;
     uint32_t u32VoltageProcentageInteger2 = 0UL;
     uint32_t u32VoltageStep = 0UL;
     ACMP_nREFERENCE_RANGE enVoltageRange = ACMP_enREFERENCE_RANGE_HIGH;
-    if(74.82f < fVoltageReferencePorcentage)
+    if(74.82f < f32VoltageReferencePorcentage)
     {
-        fVoltageReferencePorcentage = 74.82f;
+        f32VoltageReferencePorcentage = 74.82f;
     }
 
-    if(fVoltageReferencePorcentage >= 23.81f)
+    if(f32VoltageReferencePorcentage >= 23.81f)
     {
         /*Low range formula*/
-        fVoltageProcentage1 = fVoltageReferencePorcentage;
-        fVoltageProcentage1 -= 100.0f/4.2f;
-        fVoltageProcentage1 *= 29.4f;
-        fVoltageProcentage1 /= 100.0f;
+        f32VoltageProcentage1 = f32VoltageReferencePorcentage;
+        f32VoltageProcentage1 -= 100.0f/4.2f;
+        f32VoltageProcentage1 *= 29.4f;
+        f32VoltageProcentage1 /= 100.0f;
 
-        u32VoltageProcentageInteger1 = (uint32_t) fVoltageProcentage1;
-        fVoltageProcentageDecimal1 = fVoltageProcentage1;
-        fVoltageProcentageDecimal1 -= (float32_t) u32VoltageProcentageInteger1;
-        if(0.5f < fVoltageProcentageDecimal1)
+        u32VoltageProcentageInteger1 = (uint32_t) f32VoltageProcentage1;
+        f32VoltageProcentageDecimal1 = f32VoltageProcentage1;
+        f32VoltageProcentageDecimal1 -= (float32_t) u32VoltageProcentageInteger1;
+        if(0.5f < f32VoltageProcentageDecimal1)
         {
-            fVoltageProcentage1 += 0.5f;
+            f32VoltageProcentage1 += 0.5f;
 
-            u32VoltageProcentageInteger1 = (uint32_t) fVoltageProcentage1;
-            fVoltageProcentageDecimal1 = 1.0f - fVoltageProcentageDecimal1;
+            u32VoltageProcentageInteger1 = (uint32_t) f32VoltageProcentage1;
+            f32VoltageProcentageDecimal1 = 1.0f - f32VoltageProcentageDecimal1;
         }
 
         /*High Range formula*/
-        fVoltageProcentage2 = fVoltageReferencePorcentage;
-        fVoltageProcentage2 *= 22.12f;
-        fVoltageProcentage2 /= 100.0f;
+        f32VoltageProcentage2 = f32VoltageReferencePorcentage;
+        f32VoltageProcentage2 *= 22.12f;
+        f32VoltageProcentage2 /= 100.0f;
 
-        u32VoltageProcentageInteger2 = (uint32_t) fVoltageProcentage2;
-        fVoltageProcentageDecimal2 = fVoltageProcentage2;
-        fVoltageProcentageDecimal2 -= (float32_t) u32VoltageProcentageInteger2;
-        if(0.5f < fVoltageProcentageDecimal2)
+        u32VoltageProcentageInteger2 = (uint32_t) f32VoltageProcentage2;
+        f32VoltageProcentageDecimal2 = f32VoltageProcentage2;
+        f32VoltageProcentageDecimal2 -= (float32_t) u32VoltageProcentageInteger2;
+        if(0.5f < f32VoltageProcentageDecimal2)
         {
-            fVoltageProcentage2 += 0.5f;
+            f32VoltageProcentage2 += 0.5f;
 
-            u32VoltageProcentageInteger2 = (uint32_t) fVoltageProcentage2;
-            fVoltageProcentageDecimal2 = 1.0f - fVoltageProcentageDecimal2;
+            u32VoltageProcentageInteger2 = (uint32_t) f32VoltageProcentage2;
+            f32VoltageProcentageDecimal2 = 1.0f - f32VoltageProcentageDecimal2;
         }
 
 
-        if(fVoltageProcentageDecimal2 > fVoltageProcentageDecimal1)
+        if(f32VoltageProcentageDecimal2 > f32VoltageProcentageDecimal1)
         {
             u32VoltageStep = u32VoltageProcentageInteger1;
             enVoltageRange = ACMP_enREFERENCE_RANGE_HIGH;
@@ -91,15 +91,15 @@ float32_t ACMP__fSetVoltageReference(ACMP_nMODULE enModule, float32_t fVoltageRe
             enVoltageRange = ACMP_enREFERENCE_RANGE_LOW;
         }
     }
-    else if(fVoltageReferencePorcentage > 0.0f)
+    else if(f32VoltageReferencePorcentage > 0.0f)
     {
         /*High Range formula*/
-        fVoltageProcentage2 = fVoltageReferencePorcentage;
-        fVoltageProcentage2 *= 22.12f;
-        fVoltageProcentage2 /= 100.0f;
-        fVoltageProcentage2 += 0.5f;
+        f32VoltageProcentage2 = f32VoltageReferencePorcentage;
+        f32VoltageProcentage2 *= 22.12f;
+        f32VoltageProcentage2 /= 100.0f;
+        f32VoltageProcentage2 += 0.5f;
 
-        u32VoltageProcentageInteger2 = (uint32_t) fVoltageProcentage2;
+        u32VoltageProcentageInteger2 = (uint32_t) f32VoltageProcentage2;
 
         u32VoltageStep = u32VoltageProcentageInteger2;
         enVoltageRange = ACMP_enREFERENCE_RANGE_LOW;
@@ -122,14 +122,14 @@ float32_t ACMP__fSetVoltageReference(ACMP_nMODULE enModule, float32_t fVoltageRe
         ACMP__vSetReferenceEncoder(enModule, 0UL);
         ACMP__vSetReferenceEnable(enModule, ACMP_enREFERENCE_DIS);
     }
-    fVoltageCurrent =  ACMP__fGetVoltageReference(enModule);
-    return fVoltageCurrent;
+    f32VoltageCurrent =  ACMP__f32GetVoltageReference(enModule);
+    return f32VoltageCurrent;
 }
 
-float32_t ACMP__fGetVoltageReference(ACMP_nMODULE enModule)
+float32_t ACMP__f32GetVoltageReference(ACMP_nMODULE enModule)
 {
-    float32_t fVoltagePorcentage = 0.0f;
-    float32_t fVoltagePorcentageInit = 0.0f;
+    float32_t f32VoltagePorcentage = 0.0f;
+    float32_t f32VoltagePorcentageInit = 0.0f;
     uint32_t u32EncoderValueReg = 0xFFFFFFFFUL;
     ACMP_nREFERENCE_RANGE enVoltageRange = ACMP_enREFERENCE_RANGE_UNDEF;
     ACMP_nREFERENCE enVoltageEnable = ACMP_enREFERENCE_UNDEF;
@@ -141,24 +141,24 @@ float32_t ACMP__fGetVoltageReference(ACMP_nMODULE enModule)
         enVoltageRange = ACMP__enGetReferenceRange(enModule);
         if(ACMP_enREFERENCE_RANGE_LOW == enVoltageRange)
         {
-            fVoltagePorcentage = (float32_t) u32EncoderValueReg;
-            fVoltagePorcentage *= 100.0f;
-            fVoltagePorcentage /= 22.12f;
+            f32VoltagePorcentage = (float32_t) u32EncoderValueReg;
+            f32VoltagePorcentage *= 100.0f;
+            f32VoltagePorcentage /= 22.12f;
         }
         else
         {
-            fVoltagePorcentageInit = 100.0f;
-            fVoltagePorcentageInit /= 4.2f;
+            f32VoltagePorcentageInit = 100.0f;
+            f32VoltagePorcentageInit /= 4.2f;
 
-            fVoltagePorcentage = (float32_t) u32EncoderValueReg;
-            fVoltagePorcentage *= 100.0f;
-            fVoltagePorcentage /= 29.4f;
+            f32VoltagePorcentage = (float32_t) u32EncoderValueReg;
+            f32VoltagePorcentage *= 100.0f;
+            f32VoltagePorcentage /= 29.4f;
 
-            fVoltagePorcentage += fVoltagePorcentageInit;
+            f32VoltagePorcentage += f32VoltagePorcentageInit;
         }
     }
 
-    return fVoltagePorcentage;
+    return f32VoltagePorcentage;
 }
 
 

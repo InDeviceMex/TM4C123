@@ -268,13 +268,13 @@ int32_t Conv__s32String2UInt(const char* pcString, uint64_t* u64NumUnsigned )
 
 
 
-int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t* pfConversion)
+int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t* pf32Conversion)
 {
-    float32_t fNumberInteger = 0.0;
-    float32_t fNumberDecimal = 0.0;
-    float32_t fNumberAuxilar = 1.0;
-    float32_t fNumberDecimalAdded = 0.0;
-    float32_t fNumberFinal = 0.0;
+    float32_t f32NumberInteger = 0.0;
+    float32_t f32NumberDecimal = 0.0;
+    float32_t f32NumberAuxilar = 1.0;
+    float32_t f32NumberDecimalAdded = 0.0;
+    float32_t f32NumberFinal = 0.0;
     int32_t s32Sign = 0;
     int32_t s32FindDot = 0;
     int8_t s8DecimalsActual = 0;
@@ -306,19 +306,19 @@ int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t
         {
             if(s32FindDot == 0)
             {
-                fNumberInteger *= 10.0f;
+                f32NumberInteger *= 10.0f;
                 u8ValueAux = (uint8_t) *pcString;
                 u8ValueAux -= (uint8_t) '0';
-                fNumberInteger += (float32_t) u8ValueAux;
+                f32NumberInteger += (float32_t) u8ValueAux;
             }
             else
             {
-                fNumberAuxilar /= 10.0f;
+                f32NumberAuxilar /= 10.0f;
                 u8ValueAux = (uint8_t) *pcString;
                 u8ValueAux -= (uint8_t) '0';
-                fNumberDecimal = (float32_t) u8ValueAux;
-                fNumberDecimal *= fNumberAuxilar;
-                fNumberDecimalAdded += fNumberDecimal;
+                f32NumberDecimal = (float32_t) u8ValueAux;
+                f32NumberDecimal *= f32NumberAuxilar;
+                f32NumberDecimalAdded += f32NumberDecimal;
                 s8DecimalsActual++;
             }
             s32Length++;
@@ -332,7 +332,7 @@ int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t
             {
                 if(((uint8_t) *pcStringBack >= (uint8_t) '0') && ((uint8_t) *pcStringBack <= (uint8_t) '9'))
                 {
-                    fNumberInteger /= 10.0f;
+                    f32NumberInteger /= 10.0f;
                 }
                 if(*pcStringBack == '-')
                 {
@@ -343,14 +343,14 @@ int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t
             {
                 if(((uint8_t) *pcStringBack >= (uint8_t) '0') && ((uint8_t) *pcStringBack <= (uint8_t) '9'))
                 {
-                    fNumberAuxilar *= (float32_t) 10;
+                    f32NumberAuxilar *= 10.0f;
                     pcStringAux = pcString;
                     pcStringAux -= 1U;
                     u8ValueAux = (uint8_t) *pcStringAux;
                     u8ValueAux -= (uint8_t) '0';
-                    fNumberDecimal = (float32_t) u8ValueAux;
-                    fNumberDecimal *= fNumberAuxilar;
-                    fNumberDecimalAdded -= fNumberDecimal;
+                    f32NumberDecimal = (float32_t) u8ValueAux;
+                    f32NumberDecimal *= f32NumberAuxilar;
+                    f32NumberDecimalAdded -= f32NumberDecimal;
                     s8DecimalsActual--;
                 }
                 else if(*pcStringBack == '.')
@@ -370,13 +370,13 @@ int32_t Conv__s32String2Float(const char* pcString, int8_t s8Decimals, float32_t
 
         pcString += 1U;
     }
-    fNumberFinal = fNumberInteger+fNumberDecimalAdded;
+    f32NumberFinal = f32NumberInteger+f32NumberDecimalAdded;
 
     if(s32Sign == 1)
     {
-        fNumberFinal *= (float32_t) (-1);
+        f32NumberFinal *= (float32_t) (-1);
     }
-    *pfConversion = fNumberFinal;
+    *pf32Conversion = f32NumberFinal;
     return s32Length;
 }
 

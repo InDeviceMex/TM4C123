@@ -26,11 +26,11 @@
 
 #include <xApplication/ServoMotor_SG90/xHeader/ServoMotor_SG90_Enum.h>
 
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_SG90_Typedef* const pstServoMotor, float32_t fAngle);
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsoluteFloat(const ServoMoto_SG90_Typedef* const pstServoMotor, float32_t f32Angle);
 ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleAbsolute(const ServoMoto_SG90_Typedef* const pstServoMotor, uint8_t u8Angle);
 
 ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngle(const ServoMoto_SG90_Typedef* const pstServoMotor, int8_t s8Angle);
-ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typedef* const pstServoMotor, float32_t fAngle);
+ServoMoto_SG90_nSTATUS ServoMotor_SG90__enSetAngleFloat(const ServoMoto_SG90_Typedef* const pstServoMotor, float32_t f32Angle);
 
 
 

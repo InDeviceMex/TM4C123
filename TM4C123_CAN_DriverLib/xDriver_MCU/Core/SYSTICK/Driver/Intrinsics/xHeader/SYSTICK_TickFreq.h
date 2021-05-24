@@ -11,7 +11,7 @@
 #include <xUtils/Standard/Standard.h>
 
 void SysTick__vClearTickFreq(void);
-void SysTick__vSetTickFreq(float32_t fTick);
-float32_t SysTick__fGetTickFreq(void);
+void SysTick__vSetTickFreq(float32_t f32Tick);
+float32_t SysTick__f32GetTickFreq(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_DRIVER_SYSTICK_TICKFREQ_H_ */

@@ -34,8 +34,8 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
 {
     UART_nSTATUS enStatus = UART_enSTATUS_OK;
     UART_nCLOCK enUartClock = UART_enCLOCK_UNDEF;
-    float32_t fBaudRateDivisor = 0.0f;
-    float32_t fBaudRateFractional = 0.0f;
+    float32_t f32BaudRateDivisor = 0.0f;
+    float32_t f32BaudRateFractional = 0.0f;
     uint32_t u32BaudRateFractional = 0UL;
     uint32_t u32BaudRateFractional2 = 0UL;
     uint32_t u32BaudRateInteger = 0UL;
@@ -50,17 +50,17 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
         u32CurrentClock = SYSCTL__u32GetClock();
     }
 
-    fBaudRateDivisor = (float32_t) u32CurrentClock;
-    fBaudRateDivisor /= (float32_t) u32BaudRateArg;
-    fBaudRateDivisor /= 8.0f;
+    f32BaudRateDivisor = (float32_t) u32CurrentClock;
+    f32BaudRateDivisor /= (float32_t) u32BaudRateArg;
+    f32BaudRateDivisor /= 8.0f;
 
     /*get uart mode*/
     enUartMode = UART__enGetSMART(enModule);
-    if((65535.0f < fBaudRateDivisor) || (UART_enSMART_ENA == enUartMode))
+    if((65535.0f < f32BaudRateDivisor) || (UART_enSMART_ENA == enUartMode))
     {
-        fBaudRateDivisor /= 2.0f; /*HSE feature*/
+        f32BaudRateDivisor /= 2.0f; /*HSE feature*/
         /*Set HSE to 16 */
-        if(65535.0f < fBaudRateDivisor)
+        if(65535.0f < f32BaudRateDivisor)
         {
             enStatus = UART_enSTATUS_ERROR;
         }
@@ -72,25 +72,25 @@ UART_nSTATUS UART__enSetBaudRate(UART_nMODULE enModule, uint32_t u32BaudRateArg)
 
     if(UART_enSTATUS_OK == enStatus)
     {
-        u32BaudRateInteger = (uint32_t) fBaudRateDivisor;
+        u32BaudRateInteger = (uint32_t) f32BaudRateDivisor;
 
-        fBaudRateFractional = fBaudRateDivisor;
-        fBaudRateFractional -= (float32_t) u32BaudRateInteger;
-        fBaudRateFractional *= 64.0f;
-        fBaudRateFractional += 0.5f;
+        f32BaudRateFractional = f32BaudRateDivisor;
+        f32BaudRateFractional -= (float32_t) u32BaudRateInteger;
+        f32BaudRateFractional *= 64.0f;
+        f32BaudRateFractional += 0.5f;
 
-        u32BaudRateFractional = (uint32_t) fBaudRateFractional;
+        u32BaudRateFractional = (uint32_t) f32BaudRateFractional;
         if(UART_enHIGH_SPEED_ENA == enHSEValue)
         {
-            fBaudRateDivisor /= 2.0f;
-            u32BaudRateInteger2 = (uint32_t) fBaudRateDivisor;
+            f32BaudRateDivisor /= 2.0f;
+            u32BaudRateInteger2 = (uint32_t) f32BaudRateDivisor;
 
-            fBaudRateFractional = fBaudRateDivisor;
-            fBaudRateFractional -= (float32_t) u32BaudRateInteger2;
-            fBaudRateFractional *= 64.0f;
-            fBaudRateFractional += 0.5f;
+            f32BaudRateFractional = f32BaudRateDivisor;
+            f32BaudRateFractional -= (float32_t) u32BaudRateInteger2;
+            f32BaudRateFractional *= 64.0f;
+            f32BaudRateFractional += 0.5f;
 
-            u32BaudRateFractional2 = (uint32_t) fBaudRateFractional;
+            u32BaudRateFractional2 = (uint32_t) f32BaudRateFractional;
 
             if(u32BaudRateFractional2 < u32BaudRateFractional)
             {
@@ -112,9 +112,9 @@ uint32_t UART__u32GetBaudRate(UART_nMODULE enModule)
     UART_nCLOCK enUartClock = UART_enCLOCK_UNDEF;
     UART_nHIGH_SPEED enHSEValue = UART_enHIGH_SPEED_UNDEF;
     uint32_t u32BaudRate = 0UL;
-    float32_t fBaudRate = 0.0f;
-    float32_t fBaudRateDivisor = 0.0f;
-    float32_t fBaudRateFractional = 0.0f;
+    float32_t f32BaudRate = 0.0f;
+    float32_t f32BaudRateDivisor = 0.0f;
+    float32_t f32BaudRateFractional = 0.0f;
     uint32_t u32BaudRateFractional = 0UL;
     uint32_t u32BaudRateInteger = 0UL;
     uint32_t u32HSEDivider= 8UL;
@@ -135,17 +135,17 @@ uint32_t UART__u32GetBaudRate(UART_nMODULE enModule)
         }
 
         u32BaudRateInteger = UART__u32GetBaudRateIntegerPart(enModule);
-        fBaudRateDivisor = (float32_t) u32BaudRateInteger;
+        f32BaudRateDivisor = (float32_t) u32BaudRateInteger;
         u32BaudRateFractional = UART__u32GetBaudRateFractionalPart(enModule);
-        fBaudRateFractional = (float32_t) u32BaudRateFractional;
-        fBaudRateFractional /= 64.0f;
+        f32BaudRateFractional = (float32_t) u32BaudRateFractional;
+        f32BaudRateFractional /= 64.0f;
 
-        fBaudRateDivisor += fBaudRateFractional;
-        fBaudRateDivisor *= (float32_t) u32HSEDivider;
-        fBaudRate = (float32_t) u32CurrentClock;
-        fBaudRate /= fBaudRateDivisor;
+        f32BaudRateDivisor += f32BaudRateFractional;
+        f32BaudRateDivisor *= (float32_t) u32HSEDivider;
+        f32BaudRate = (float32_t) u32CurrentClock;
+        f32BaudRate /= f32BaudRateDivisor;
 
-        u32BaudRate = (uint32_t) fBaudRate;
+        u32BaudRate = (uint32_t) f32BaudRate;
     }
     return u32BaudRate;
 }

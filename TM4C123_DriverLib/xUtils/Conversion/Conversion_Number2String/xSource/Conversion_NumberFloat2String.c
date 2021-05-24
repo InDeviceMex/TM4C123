@@ -31,7 +31,7 @@
 
 
 #define FLOAT_PRECISION_MAX (14U)
-CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, float64_t dValue, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags, uint32_t u32Prec)
+CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBufferOut, float64_t f64Value, uint32_t u32Index, uint32_t u32MaxLenght, uint32_t* pu32BufOutLenght, uint32_t u32Width, uint32_t u32flags, uint32_t u32Prec)
 {
   char pvBufferIn[CONV_enBUFFER_SIZE_FLOAT];
   char* cFni = "fni";
@@ -39,27 +39,27 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
   char* cCorrect = 0U;
   size_t szLength = 0U;
   uint32_t  u32LengthIn = 0U;
-  float64_t dDiff = 0.0;
+  float64_t f64Diff = 0.0;
   uint32_t u32Negative = 0U;
   CONV_nSTATUS enStatus = CONV_enSTATUS_ERROR;
   int64_t s64ValueComplete = 0;
-  float64_t dValueTemp = 0.0;
+  float64_t f64ValueTemp = 0.0;
   uint64_t u64ValueTemp = 0U;
   int64_t s64ValueTemp = 0;
-  float64_t dValueTemp2 = 0.0;
+  float64_t f64ValueTemp2 = 0.0;
   uint64_t u64Fractional = 0U;
   uint64_t u64DiffCompare = 0U;
   uint64_t u64DiffCompare2 = 0U;
   uint32_t u32Counter = 0U;
   /* powers of 10*/
-  static const float64_t dPow10[FLOAT_PRECISION_MAX] = { 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, 10000000.0, 100000000.0, 1000000000.0, 10000000000.0, 100000000000.0, 1000000000000.0, 10000000000000.0  };
+  static const float64_t f64Pow10[FLOAT_PRECISION_MAX] = { 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, 10000000.0, 100000000.0, 1000000000.0, 10000000000.0, 100000000000.0, 1000000000000.0, 10000000000000.0  };
 
   /* test for special values*/
-  if (dValue < -DBL_MAX)
+  if (f64Value < -DBL_MAX)
   {
       enStatus = Conv__enOutInversion(pvfOut, pcBufferOut, "fni-", u32Index, u32MaxLenght, 4U, pu32BufOutLenght, u32Width, u32flags);
   }
-  else if (dValue > DBL_MAX)
+  else if (f64Value > DBL_MAX)
   {
       if (0U != (u32flags & (uint32_t) CONV_enFLAGS_PLUS))
       {
@@ -79,17 +79,17 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
        * test for very large values
        * standard printf behavior is to print EVERY s64ValueComplete number digit -- which could be 100s of characters overflowing your buffers == bad
        */
-      if ((dValue > CONV_MAX_VALUE_FLOAT) || (dValue < -CONV_MAX_VALUE_FLOAT))
+      if ((f64Value > CONV_MAX_VALUE_FLOAT) || (f64Value < -CONV_MAX_VALUE_FLOAT))
       {
-          enStatus = Conv__enNumber2String_Exponential(pvfOut, pcBufferOut, dValue, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
+          enStatus = Conv__enNumber2String_Exponential(pvfOut, pcBufferOut, f64Value, u32Index, u32MaxLenght, pu32BufOutLenght, u32Width, u32flags, u32Prec);
       }
       else
       {
           /* test for u32Negative*/
-          if (0.0 > dValue )
+          if (0.0 > f64Value )
           {
             u32Negative = 1U;
-            dValue = - dValue;
+            f64Value = - f64Value;
           }
 
           /* set default precision, if not set explicitly*/
@@ -105,27 +105,27 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
             u32Prec--;
           }
 
-          s64ValueComplete = (int64_t) dValue;
-          dValueTemp2 = (float64_t) s64ValueComplete;
-          dValueTemp = dValue;
-          dValueTemp -= dValueTemp2;
-          dValueTemp *= dPow10[u32Prec];
+          s64ValueComplete = (int64_t) f64Value;
+          f64ValueTemp2 = (float64_t) s64ValueComplete;
+          f64ValueTemp = f64Value;
+          f64ValueTemp -= f64ValueTemp2;
+          f64ValueTemp *= f64Pow10[u32Prec];
 
-          u64Fractional = (uint64_t) dValueTemp;
-          dDiff = dValueTemp;
-          dDiff -= (float64_t) u64Fractional;
+          u64Fractional = (uint64_t) f64ValueTemp;
+          f64Diff = f64ValueTemp;
+          f64Diff -= (float64_t) u64Fractional;
 
-          if (0.5 < dDiff )
+          if (0.5 < f64Diff )
           {
             u64Fractional++;
             /* handle rollover, e.g. case 0.99 with u32Prec 1 is 1.0*/
-            if (u64Fractional >= (uint64_t) dPow10[u32Prec])
+            if (u64Fractional >= (uint64_t) f64Pow10[u32Prec])
             {
               u64Fractional = 0U;
               s64ValueComplete++;
             }
           }
-          else if (0.5 > dDiff )
+          else if (0.5 > f64Diff )
           {
           }
           else if ((0U == u64Fractional ) || (0U != (u64Fractional & 1U)))
@@ -137,9 +137,9 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
 
           if (0U == u32Prec )
           {
-            dDiff = dValue;
-            dDiff -= (float64_t) s64ValueComplete;
-            if(0.5 > dDiff)
+            f64Diff = f64Value;
+            f64Diff -= (float64_t) s64ValueComplete;
+            if(0.5 > f64Diff)
             {
                 u64DiffCompare = 0U;
             }
@@ -148,7 +148,7 @@ CONV_nSTATUS Conv__enNumber2String_Float(CONV_OUT_TypeDef pvfOut, char* pcBuffer
                 u64DiffCompare = 1U;
             }
 
-            if(0.5 < dDiff)
+            if(0.5 < f64Diff)
             {
                 u64DiffCompare2 = 1U;
             }

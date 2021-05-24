@@ -1236,7 +1236,7 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(const char* pcString, uint8_t* pu8Colum
     int64_t s64ValueARGInteger = 0;
     uint64_t u64ValueARGInteger = 0U;
     char cValueARGChar = 0;
-    float64_t fValueARGFloat = 0;
+    float64_t f64ValueARGFloat = 0;
     void*   vValueARGPointer = 0;
     char cNumberConv[40] = {0UL};
     char* pcStringAux = 0;
@@ -1308,8 +1308,8 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(const char* pcString, uint8_t* pu8Colum
                     case 'F':
                     case 'f':
                         cNumberConversion = cNumberConv;
-                        fValueARGFloat = (float64_t) va_arg(ap, float64_t);
-                        Conv__u8Float2String((float64_t) fValueARGFloat, 0U, 1U, 2,3, cNumberConversion);
+                        f64ValueARGFloat = (float64_t) va_arg(ap, float64_t);
+                        Conv__u8Float2String((float64_t) f64ValueARGFloat, 0U, 1U, 2,3, cNumberConversion);
                         break;
                     case 'c':
                         cNumberConversion = cNumberConv;
@@ -1327,8 +1327,8 @@ LCD1602_nSTATUS LCD1602__enPrintfSection(const char* pcString, uint8_t* pu8Colum
                         {
                         case 'f':
                             cNumberConversion = cNumberConv;
-                            fValueARGFloat = (float64_t) va_arg(ap, float64_t);
-                            Conv__u8Float2String((float64_t) fValueARGFloat, 0U, 1U, 2,5, cNumberConversion);
+                            f64ValueARGFloat = (float64_t) va_arg(ap, float64_t);
+                            Conv__u8Float2String((float64_t) f64ValueARGFloat, 0U, 1U, 2,5, cNumberConversion);
                             break;
                         case 'l':
                             pcStringAux++;
@@ -1418,7 +1418,7 @@ LCD1602_nSTATUS LCD1602__enPrintf(const char* pcString, uint8_t* pu8Column, uint
     int64_t s64ValueARGInteger = 0;
     uint64_t u64ValueARGInteger = 0U;
     char cValueARGChar = 0;
-    float64_t fValueARGFloat = 0;
+    float64_t f64ValueARGFloat = 0;
     void*   vValueARGPointer = 0;
     char cNumberConv[30] = {0UL};
     char* cNumberConversion = 0;
@@ -1556,8 +1556,8 @@ LCD1602_nSTATUS LCD1602__enPrintf(const char* pcString, uint8_t* pu8Column, uint
                         case 'F':
                         case 'f':
                             cNumberConversion = cNumberConv;
-                            fValueARGFloat = (float64_t) va_arg(ap, float64_t);
-                            Conv__u8Float2String((float64_t) fValueARGFloat, 0U, 1U, (int32_t) 2, (int32_t) 3, cNumberConversion);
+                            f64ValueARGFloat = (float64_t) va_arg(ap, float64_t);
+                            Conv__u8Float2String((float64_t) f64ValueARGFloat, 0U, 1U, (int32_t) 2, (int32_t) 3, cNumberConversion);
                             break;
                         case 'c':
                             cNumberConversion = cNumberConv;
@@ -1575,8 +1575,8 @@ LCD1602_nSTATUS LCD1602__enPrintf(const char* pcString, uint8_t* pu8Column, uint
                             {
                             case 'f':
                                 cNumberConversion = cNumberConv;
-                                fValueARGFloat = (float64_t) va_arg(ap, float64_t);
-                                Conv__u8Float2String((float64_t) fValueARGFloat, 0U, 1U, 2,5, cNumberConversion);
+                                f64ValueARGFloat = (float64_t) va_arg(ap, float64_t);
+                                Conv__u8Float2String((float64_t) f64ValueARGFloat, 0U, 1U, 2,5, cNumberConversion);
                                 break;
                             case 'l':
                                 pcString++;

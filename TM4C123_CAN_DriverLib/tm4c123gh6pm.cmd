@@ -55,6 +55,7 @@ SECTIONS
     .ramcode:	> SRAM_CODE
     .data   :   > SRAM_VARIABLE
     .bss    :   > SRAM_VARIABLE
+    .ppdata :   > SRAM_VARIABLE
     .sysmem :   > SRAM_DINAMIC
     .stack  :   > SRAM_STACK
 

@@ -51,12 +51,12 @@ uint16_t u16LightExp= 0U;
 
 int32_t main(void)
 {
-    float32_t fTimeSystickStart_Task1 = 0.0f;
-    float32_t fTimeSystickEnd_Task1 = 0.0f;
-    float32_t fTimeSystickStart_Task2 = 0.0f;
-    float32_t fTimeSystickEnd_Task2 = 0.0f;
-    float32_t fTimeSystickStart_Task3 = 0.0f;
-    float32_t fTimeSystickEnd_Task3 = 0.0f;
+    float32_t f32TimeSystickStart_Task1 = 0.0f;
+    float32_t f32TimeSystickEnd_Task1 = 0.0f;
+    float32_t f32TimeSystickStart_Task2 = 0.0f;
+    float32_t f32TimeSystickEnd_Task2 = 0.0f;
+    float32_t f32TimeSystickStart_Task3 = 0.0f;
+    float32_t f32TimeSystickEnd_Task3 = 0.0f;
     uint32_t u32FlagTask3 = 0UL;
     uint32_t u32StateTask3 = 0UL;
     EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
@@ -95,19 +95,19 @@ int32_t main(void)
     */
     while(1UL)
     {
-        fTimeSystickEnd_Task1 = SysTick__fGetTimeUs();
-        if(fTimeSystickEnd_Task1>=fTimeSystickStart_Task1)
+        f32TimeSystickEnd_Task1 = SysTick__f32GetTimeUs();
+        if(f32TimeSystickEnd_Task1>=f32TimeSystickStart_Task1)
         {
-            fTimeSystickEnd_Task1 = (fTimeSystickEnd_Task1 - fTimeSystickStart_Task1);
+            f32TimeSystickEnd_Task1 = (f32TimeSystickEnd_Task1 - f32TimeSystickStart_Task1);
         }
         else
         {
-            fTimeSystickEnd_Task1 = (fTimeSystickStart_Task1 - fTimeSystickEnd_Task1);
+            f32TimeSystickEnd_Task1 = (f32TimeSystickStart_Task1 - f32TimeSystickEnd_Task1);
         }
-        if(fTimeSystickEnd_Task1 >= 180000.0f)
+        if(f32TimeSystickEnd_Task1 >= 180000.0f)
         {
 
-            fTimeSystickStart_Task1 = SysTick__fGetTimeUs();
+            f32TimeSystickStart_Task1 = SysTick__f32GetTimeUs();
 
             enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
             EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
@@ -117,7 +117,7 @@ int32_t main(void)
             enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
             enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
 
-            f32Time = fTimeSystickStart_Task1;
+            f32Time = f32TimeSystickStart_Task1;
             f32Time /= 1000000.0f;
 
             GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 5UL,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 1", f32Time, DEBUG_HEADER_PARAMS);
@@ -133,25 +133,25 @@ int32_t main(void)
             u32LcdPosY = u32LcdPosYCurrent;
         }
 
-        fTimeSystickEnd_Task2 = SysTick__fGetTimeUs();
-        if(fTimeSystickEnd_Task2 >= fTimeSystickStart_Task2)
+        f32TimeSystickEnd_Task2 = SysTick__f32GetTimeUs();
+        if(f32TimeSystickEnd_Task2 >= f32TimeSystickStart_Task2)
         {
-            fTimeSystickEnd_Task2 = (fTimeSystickEnd_Task2 - fTimeSystickStart_Task2);
+            f32TimeSystickEnd_Task2 = (f32TimeSystickEnd_Task2 - f32TimeSystickStart_Task2);
         }
         else
         {
-            fTimeSystickEnd_Task2 = (fTimeSystickStart_Task2 - fTimeSystickEnd_Task2);
+            f32TimeSystickEnd_Task2 = (f32TimeSystickStart_Task2 - f32TimeSystickEnd_Task2);
         }
-        if(fTimeSystickEnd_Task2 >= 700000.0f)
+        if(f32TimeSystickEnd_Task2 >= 700000.0f)
         {
-            fTimeSystickStart_Task2 = SysTick__fGetTimeUs();
+            f32TimeSystickStart_Task2 = SysTick__f32GetTimeUs();
 
             EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
             EDUMKII_Microphone_vSample( &u32MicrophoneValue);
 
 
 
-            f32Time = fTimeSystickStart_Task2;
+            f32Time = f32TimeSystickStart_Task2;
             f32Time /= 1000000.0f;
 
             GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 6UL,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 2", f32Time, DEBUG_HEADER_PARAMS);
@@ -181,7 +181,7 @@ int32_t main(void)
 
         if(0UL == u32StateTask3)
         {
-            fTimeSystickStart_Task3 = SysTick__fGetTimeUs();
+            f32TimeSystickStart_Task3 = SysTick__f32GetTimeUs();
             I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit1, 3UL);
             I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL,pu8LightSensorReceive1, 2UL);
             I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, &pu8LightSensorTransmit1[3UL], 3UL);

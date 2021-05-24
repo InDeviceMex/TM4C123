@@ -37,26 +37,26 @@ I2C_nSTATUS I2C_Master__enSetFrequency(I2C_nMODULE enModule, uint32_t u32Frequen
 {
     I2C_nSTATUS enStatus = I2C_enSTATUS_ERROR;
     uint32_t u32SysFrec = 0UL;
-    float32_t fSysFrec = 0.0f;
+    float32_t f32SysFrec = 0.0f;
     if((0UL < u32FrequencyArg) && (3333333UL >= u32FrequencyArg))
     {
         u32SysFrec = SYSCTL__u32GetClock();
-        fSysFrec = (float32_t) u32SysFrec;
-        fSysFrec /= 2.0f;
+        f32SysFrec = (float32_t) u32SysFrec;
+        f32SysFrec /= 2.0f;
         /*High Speed*/
         if(1000000UL < u32FrequencyArg)
         {
-            fSysFrec /= (float32_t) (SCL_LP_HS + SCL_HP_HS);
+            f32SysFrec /= (float32_t) (SCL_LP_HS + SCL_HP_HS);
         }
         /*other speed*/
         else
         {
-            fSysFrec /= (float32_t) (SCL_LP + SCL_HP);
+            f32SysFrec /= (float32_t) (SCL_LP + SCL_HP);
 
         }
-        fSysFrec /= (float32_t) u32FrequencyArg;
-        fSysFrec += 0.5f;
-        u32SysFrec = (uint32_t) fSysFrec;
+        f32SysFrec /= (float32_t) u32FrequencyArg;
+        f32SysFrec += 0.5f;
+        u32SysFrec = (uint32_t) f32SysFrec;
         if((0UL < u32SysFrec) && ( (I2C_MTPR_TPR_MASK + 1UL) >= u32SysFrec))
         {
             enStatus = I2C_enSTATUS_OK;
@@ -84,7 +84,7 @@ uint32_t I2C_Master__u32GetFrequency(I2C_nMODULE enModule)
     I2C_nHIGHSPEED enHighSpeed = I2C_enHIGHSPEED_UNDEF;
     uint32_t u32SysFrec = 0UL;
     uint32_t u32Period = 0UL;
-    float32_t fSysFrec = 0.0f;
+    float32_t f32SysFrec = 0.0f;
 
     enHighSpeed = I2C_Master__enGetHighSpeedPeriod(enModule);
     if(I2C_enHIGHSPEED_UNDEF != enHighSpeed)
@@ -92,18 +92,18 @@ uint32_t I2C_Master__u32GetFrequency(I2C_nMODULE enModule)
         u32SysFrec = SYSCTL__u32GetClock();
         u32Period = I2C_Master__u32GetTimerPeriod(enModule);
         u32Period += 1UL;
-        fSysFrec = (float32_t) u32SysFrec;
-        fSysFrec /= 2.0f;
+        f32SysFrec = (float32_t) u32SysFrec;
+        f32SysFrec /= 2.0f;
         if(I2C_enHIGHSPEED_DIS != enHighSpeed)
         {
-            fSysFrec /= (float32_t) (SCL_LP_HS + SCL_HP_HS);
+            f32SysFrec /= (float32_t) (SCL_LP_HS + SCL_HP_HS);
         }
         else
         {
-            fSysFrec /= (float32_t) (SCL_LP + SCL_HP);
+            f32SysFrec /= (float32_t) (SCL_LP + SCL_HP);
         }
-        fSysFrec /= (float32_t) u32Period;
-        u32SysFrec = (uint32_t) fSysFrec;
+        f32SysFrec /= (float32_t) u32Period;
+        u32SysFrec = (uint32_t) f32SysFrec;
     }
 
     return u32SysFrec;

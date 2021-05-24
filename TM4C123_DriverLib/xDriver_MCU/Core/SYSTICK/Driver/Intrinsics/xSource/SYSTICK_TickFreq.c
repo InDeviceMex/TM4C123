@@ -6,19 +6,19 @@
  */
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_TickFreq.h>
 
-static float32_t SysTick_fTickFreq = 0.0f;
+static float32_t SysTick_f32TickFreq = 0.0f;
 
 void SysTick__vClearTickFreq(void)
 {
-    SysTick_fTickFreq = 0.0f;
+    SysTick_f32TickFreq = 0.0f;
 }
 
-void SysTick__vSetTickFreq(float32_t fTick)
+void SysTick__vSetTickFreq(float32_t f32Tick)
 {
-    SysTick_fTickFreq = fTick;
+    SysTick_f32TickFreq = f32Tick;
 }
 
-float32_t SysTick__fGetTickFreq(void)
+float32_t SysTick__f32GetTickFreq(void)
 {
-    return SysTick_fTickFreq;
+    return SysTick_f32TickFreq;
 }

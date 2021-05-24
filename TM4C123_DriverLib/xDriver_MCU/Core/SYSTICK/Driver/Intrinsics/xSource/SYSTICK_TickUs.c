@@ -6,19 +6,19 @@
  */
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_TickUs.h>
 
-static  float32_t SysTick_fUsTick = 1.0f;
+static  float32_t SysTick_f32UsTick = 1.0f;
 
 void SysTick__vClearTickUs(void)
 {
-    SysTick_fUsTick = 1.0f;
+    SysTick_f32UsTick = 1.0f;
 }
 
-void SysTick__vSetTickUs(float32_t fTick)
+void SysTick__vSetTickUs(float32_t f32Tick)
 {
-    SysTick_fUsTick = fTick;
+    SysTick_f32UsTick = f32Tick;
 }
 
-float32_t SysTick__fGetTickUs(void)
+float32_t SysTick__f32GetTickUs(void)
 {
-    return (float32_t) SysTick_fUsTick;
+    return (float32_t) SysTick_f32UsTick;
 }

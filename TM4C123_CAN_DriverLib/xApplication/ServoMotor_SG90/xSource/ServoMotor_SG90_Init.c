@@ -46,7 +46,7 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* pstServoM
     uint32_t u32Reg = 0U;
     uint32_t u32MinFrec = 1000000U;
     uint32_t u32MaxFrec = 1000000U;
-    float32_t fDegreeCountVar = 0.0f;
+    float32_t f32DegreeCountVar = 0.0f;
 
     if((0UL != (uint32_t) pstServoMotor) && (0UL != u32MinTime) && (0UL != u32MaxTime))
     {
@@ -70,10 +70,10 @@ ServoMoto_SG90_nSTATUS ServoMotor_SG90__enInit(ServoMoto_SG90_Typedef* pstServoM
         pstServoMotor->u32DeltaCount = u32ServoMinPulse - u32ServoMaxPulse;
         pstServoMotor->u32DegreeCount = pstServoMotor->u32DeltaCount;
         u32DegreeCountVar = pstServoMotor->u32DeltaCount;
-        fDegreeCountVar = (float32_t) u32DegreeCountVar;
-        pstServoMotor->fDegreeCount = fDegreeCountVar;
+        f32DegreeCountVar = (float32_t) u32DegreeCountVar;
+        pstServoMotor->f32DegreeCount = f32DegreeCountVar;
         pstServoMotor->u32DegreeCount /= 180U;
-        pstServoMotor->fDegreeCount /= 180.0f;
+        pstServoMotor->f32DegreeCount /= 180.0f;
 
         enGPIOStatus = GPIO__enSetDigitalConfig(enGpioDigitalParam, GPIO_enCONFIG_OUTPUT_2MA_PUSHPULL);
         if(GPIO_enSTATUS_OK == enGPIOStatus)

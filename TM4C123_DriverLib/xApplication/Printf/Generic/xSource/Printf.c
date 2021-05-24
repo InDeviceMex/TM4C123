@@ -32,7 +32,7 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
 
   uint32_t u32lteration = 0U;
 
-  float64_t  dDoubleArgument = 0;
+  float64_t  f64DoubleArgument = 0;
   uintptr_t pvPointerArgument = 0U;
   int32_t  s32WidthArgument = 0;
   int32_t  s32PrecisionArgument = 0;
@@ -367,8 +367,8 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
         {
             u32Flags |= (uint32_t) CONV_enFLAGS_UPPERCASE;
         }
-        dDoubleArgument = (float64_t) va_arg(vaList, float64_t);
-        Conv__enNumber2String_Float(pvfOut, pcBuffer, dDoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
+        f64DoubleArgument = (float64_t) va_arg(vaList, float64_t);
+        Conv__enNumber2String_Float(pvfOut, pcBuffer, f64DoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
         u32Index = u32LengthOut;
 
         pcFormat += 1U;
@@ -386,8 +386,8 @@ uint32_t vsnprintf__u32UserGeneric(CONV_OUT_TypeDef pvfOut, char* pcBuffer, cons
             u32Flags |= (uint32_t) CONV_enFLAGS_UPPERCASE;
         }
 
-        dDoubleArgument = (float64_t) va_arg(vaList, float64_t);
-        Conv__enNumber2String_Exponential(pvfOut, pcBuffer, dDoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
+        f64DoubleArgument = (float64_t) va_arg(vaList, float64_t);
+        Conv__enNumber2String_Exponential(pvfOut, pcBuffer, f64DoubleArgument, u32Index, u32MaxLength, &u32LengthOut, u32Width, u32Flags, u32Precision);
         u32Index = u32LengthOut;
         pcFormat += 1U;
         break;

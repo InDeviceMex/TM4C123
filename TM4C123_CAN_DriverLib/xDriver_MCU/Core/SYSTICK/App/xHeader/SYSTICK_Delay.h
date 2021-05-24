@@ -10,6 +10,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-void SysTick__vDelayUs(float32_t fTimeUs);
+void SysTick__vDelayUs(float32_t f32TimeUs);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_APP_SYSTICK_DELAY_H_ */

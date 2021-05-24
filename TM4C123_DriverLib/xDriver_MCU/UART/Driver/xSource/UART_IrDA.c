@@ -40,18 +40,18 @@ uint32_t UART__u32GetIrDALowPowerDivider(UART_nMODULE enModule)
 
 void UART__vEnIrDALowPowerFrequency(UART_nMODULE enModule)
 {
-    float32_t fDivider = 0.0f;
+    float32_t f32Divider = 0.0f;
     uint32_t u32Divider = SYSCTL__u32GetClock();
-    fDivider = (float32_t) u32Divider;
-    fDivider /= 1843200.0f; /*IrDA Low Power frequency*/
-    fDivider += 0.5f;
-    u32Divider = (uint32_t) fDivider;
+    f32Divider = (float32_t) u32Divider;
+    f32Divider /= 1843200.0f; /*IrDA Low Power frequency*/
+    f32Divider += 0.5f;
+    u32Divider = (uint32_t) f32Divider;
     UART__vSetIrDALowPowerDivider(enModule, u32Divider);
 }
 
 uint32_t UART__u32GetIrDALowPowerFrequency(UART_nMODULE enModule)
 {
-    float32_t fDivider = 0.0f;
+    float32_t f32Divider = 0.0f;
     uint32_t u32Result = 0UL;
     uint32_t u32sysClock= 0UL;
     uint32_t u32Divider = 0UL;
@@ -59,8 +59,8 @@ uint32_t UART__u32GetIrDALowPowerFrequency(UART_nMODULE enModule)
     u32sysClock= SYSCTL__u32GetClock();
     u32Divider = UART__u32GetIrDALowPowerDivider(enModule);
 
-    fDivider = (float32_t) u32sysClock;
-    fDivider /= (float32_t) u32Divider;
-    u32Result = (uint32_t) fDivider;
+    f32Divider = (float32_t) u32sysClock;
+    f32Divider /= (float32_t) u32Divider;
+    u32Result = (uint32_t) f32Divider;
     return u32Result;
 }

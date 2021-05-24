@@ -10,22 +10,22 @@
 #include <xDriver_MCU/Core/SYSTICK/Driver/Intrinsics/xHeader/SYSTICK_TickCount.h>
 #include <xDriver_MCU/Core/SYSTICK/Driver/xHeader/SYSTICK_TickAccumulated.h>
 
- void SysTick__vDelayUs(float32_t fTimeUs)
+ void SysTick__vDelayUs(float32_t f32TimeUs)
 {
     uint64_t u64CountInitial = SysTick__u64GetTickAccumulated();
-    float32_t fCount = 0.0f;
-    float32_t fUsTick = 0.0f;
+    float32_t f32Count = 0.0f;
+    float32_t f32UsTick = 0.0f;
     uint64_t u64CountDelta = 0ULL;
     uint64_t u64CountCurrent = 0ULL;
     uint64_t u64CountMax = 0ULL;
     uint64_t u64Count = 0ULL;
 
-    fUsTick = SysTick__fGetTickUs();
-    if(fUsTick >= 0.0f)
+    f32UsTick = SysTick__f32GetTickUs();
+    if(f32UsTick >= 0.0f)
     {
-        fCount = fTimeUs / fUsTick;
+        f32Count = f32TimeUs / f32UsTick;
     }
-    u64CountMax = (uint64_t) fCount;
+    u64CountMax = (uint64_t) f32Count;
     u64CountMax *= (uint64_t) SysTick__u32GetTickCount();
 
     u64CountDelta = SysTick__u64GetTickAccumulated();

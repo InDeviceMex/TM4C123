@@ -10,6 +10,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-float32_t SysTick__fGetTimeUs(void);
+float32_t SysTick__f32GetTimeUs(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_DRIVER_SYSTICK_TIMEUS_H_ */
