@@ -1,12 +1,5 @@
 
 
-/*Standard Libraries*/
-#include <xUtils/Standard/Standard.h>
-#include "stdlib.h"
-#include "stdarg.h"
-#include "math.h"
-#include <string.h>
-
 /*MCU Drivers*/
 #include <xDriver_MCU/xDriver_MCU.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>

@@ -45,6 +45,7 @@ SECTIONS
     .dtor: > FLASH_CODE
 
     .const  :   > FLASH_CONST
+    .rodata  :   > FLASH_CONST
     .cinit  :   > FLASH_CONST
     .pinit  :   > FLASH_CONST
     .preinit_array: > FLASH_CONST
