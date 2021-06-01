@@ -25,9 +25,7 @@
 #ifndef XDRIVER_MCU_UART_APP_UART_APP_H_
 #define XDRIVER_MCU_UART_APP_UART_APP_H_
 
-#include <xDriver_MCU/UART/App/GraphicTerminal/GraphicTerminal.h>
 #include <xDriver_MCU/UART/App/xHeader/UART_Init.h>
 #include <xDriver_MCU/UART/App/xHeader/UART_Config.h>
-#include <xDriver_MCU/UART/App/xHeader/UART_Printf.h>
 
 #endif /* XDRIVER_MCU_UART_APP_UART_APP_H_ */
