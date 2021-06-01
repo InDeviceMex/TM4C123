@@ -59,6 +59,8 @@ encoding//Debug/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbandin
 encoding//Debug/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Debug/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Debug/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Common/xSource/subdir_rules.mk=UTF-8
 encoding//Debug/xDriver_MCU/Common/xSource/subdir_vars.mk=UTF-8
 encoding//Debug/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8
@@ -446,6 +448,8 @@ encoding//Debug__GNU/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitb
 encoding//Debug__GNU/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__GNU/xDriver_MCU/Common/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__GNU/xDriver_MCU/Common/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__GNU/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8
@@ -833,6 +837,8 @@ encoding//Debug__TICLANG/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_
 encoding//Debug__TICLANG/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Debug__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Debug__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TICLANG/xDriver_MCU/Common/xSource/subdir_rules.mk=UTF-8
 encoding//Debug__TICLANG/xDriver_MCU/Common/xSource/subdir_vars.mk=UTF-8
 encoding//Debug__TICLANG/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8
@@ -1219,6 +1225,8 @@ encoding//Release/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitband
 encoding//Release/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Release/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Release/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Release/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Release/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Release/xDriver_MCU/Common/xSource/subdir_rules.mk=UTF-8
 encoding//Release/xDriver_MCU/Common/xSource/subdir_vars.mk=UTF-8
 encoding//Release/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8
@@ -1606,6 +1614,8 @@ encoding//Release__GNU/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bi
 encoding//Release__GNU/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Release__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Release__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Release__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Release__GNU/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Release__GNU/xDriver_MCU/Common/xSource/subdir_rules.mk=UTF-8
 encoding//Release__GNU/xDriver_MCU/Common/xSource/subdir_vars.mk=UTF-8
 encoding//Release__GNU/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8
@@ -1993,6 +2003,8 @@ encoding//Release__TICLANG/xDriver_MCU/ADC/Peripheral/Register/RegisterPeriphera
 encoding//Release__TICLANG/xDriver_MCU/ADC/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Release__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_rules.mk=UTF-8
 encoding//Release__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/xSource/subdir_vars.mk=UTF-8
+encoding//Release__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_rules.mk=UTF-8
+encoding//Release__TICLANG/xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xSource/subdir_vars.mk=UTF-8
 encoding//Release__TICLANG/xDriver_MCU/Common/xSource/subdir_rules.mk=UTF-8
 encoding//Release__TICLANG/xDriver_MCU/Common/xSource/subdir_vars.mk=UTF-8
 encoding//Release__TICLANG/xDriver_MCU/Core/FPU/Driver/xSource/subdir_rules.mk=UTF-8

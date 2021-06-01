@@ -40,10 +40,10 @@
 #define CAN_IFnDA1_R_DATA0_BIT    ((uint32_t) 0UL)
 #define CAN_IFnDA1_R_DATA1_BIT    ((uint32_t) 8UL)
 
-#define CAN_IFnDA1_R_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
-#define CAN_IFnDA1_R_DATA01_MASK    ((uint32_t) 0x0000FFFFUL)
-#define CAN_IFnDA1_R_DATA0_MASK    ((uint32_t) 0x000000FFUL)
-#define CAN_IFnDA1_R_DATA1_MASK    ((uint32_t) 0x0000FFUL)
+#define CAN_IFnDA1_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnDA1_DATA01_MASK    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnDA1_DATA0_MASK    ((uint32_t) 0x000000FFUL)
+#define CAN_IFnDA1_DATA1_MASK    ((uint32_t) 0x0000FFUL)
 /*--------*/
 
 
