@@ -27,6 +27,6 @@
 
 #include <xDriver_MCU/CAN/Peripheral/Register/RegisterDefines/CAN_RegisterDefines.h>
 #include <xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral/CAN_RegisterPeripheral.h>
-/*#include <xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/CAN_RegisterPeripheral_Bitbanding.h>*/
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/CAN_RegisterPeripheral_Bitbanding.h>
 
 #endif /* XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_CAN_REGISTER_H_ */

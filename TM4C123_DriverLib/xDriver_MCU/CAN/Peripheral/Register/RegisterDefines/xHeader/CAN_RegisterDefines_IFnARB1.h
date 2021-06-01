@@ -31,7 +31,7 @@
 ************************************ 16-17 IFnARB1 *********************************************
 ******************************************************************************************/
 /*--------*/
-#define CAN_IFnARB1_R_ID_ARB    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnARB1_R_ID_MASK    ((uint32_t) 0x0000FFFFUL)
 #define CAN_IFnARB1_R_ID_BIT    ((uint32_t) 0UL)
 #define CAN_IFnARB1_R_ID_EX_ID0    ((uint32_t) 0x00000001UL)
 #define CAN_IFnARB1_R_ID_EX_ID1    ((uint32_t) 0x00000002UL)
@@ -50,7 +50,7 @@
 #define CAN_IFnARB1_R_ID_EX_ID14    ((uint32_t) 0x00004000UL)
 #define CAN_IFnARB1_R_ID_EX_ID15    ((uint32_t) 0x00008000UL)
 
-#define CAN_IFnARB1_ID_ARB    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnARB1_ID_MASK    ((uint32_t) 0x0000FFFFUL)
 #define CAN_IFnARB1_ID_EX_ID0    ((uint32_t) 0x00000001UL)
 #define CAN_IFnARB1_ID_EX_ID1    ((uint32_t) 0x00000002UL)
 #define CAN_IFnARB1_ID_EX_ID2    ((uint32_t) 0x00000004UL)

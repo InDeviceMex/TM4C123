@@ -121,4 +121,37 @@
 #define CAN_IFnMCTL_UMASK_USE    ((uint32_t) 0x00000001UL)
 /*--------*/
 
+/*--------*/
+#define CAN_IFnMCTL_R_INTPND_MASK    ((uint32_t) 0x00002000UL)
+#define CAN_IFnMCTL_R_INTPND_BIT    ((uint32_t) 13UL)
+#define CAN_IFnMCTL_R_INTPND_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define CAN_IFnMCTL_R_INTPND_OCCUR    ((uint32_t) 0x00002000UL)
+
+#define CAN_IFnMCTL_INTPND_MASK    ((uint32_t) 0x00000001UL)
+#define CAN_IFnMCTL_INTPND_NOOCCUR    ((uint32_t) 0x00000000UL)
+#define CAN_IFnMCTL_INTPND_OCCUR    ((uint32_t) 0x00000001UL)
+/*--------*/
+
+/*--------*/
+#define CAN_IFnMCTL_R_MSGLST_MASK    ((uint32_t) 0x00004000UL)
+#define CAN_IFnMCTL_R_MSGLST_BIT    ((uint32_t) 14UL)
+#define CAN_IFnMCTL_R_MSGLST_NOLOST    ((uint32_t) 0x00000000UL)
+#define CAN_IFnMCTL_R_MSGLST_LOST    ((uint32_t) 0x00004000UL)
+
+#define CAN_IFnMCTL_MSGLST_MASK    ((uint32_t) 0x00000001UL)
+#define CAN_IFnMCTL_MSGLST_NOLOST    ((uint32_t) 0x00000000UL)
+#define CAN_IFnMCTL_MSGLST_LOST    ((uint32_t) 0x00000001UL)
+/*--------*/
+
+/*--------*/
+#define CAN_IFnMCTL_R_NEWDAT_MASK    ((uint32_t) 0x00008000UL)
+#define CAN_IFnMCTL_R_NEWDAT_BIT    ((uint32_t) 15UL)
+#define CAN_IFnMCTL_R_NEWDAT_NO    ((uint32_t) 0x00000000UL)
+#define CAN_IFnMCTL_R_NEWDAT_NEW    ((uint32_t) 0x00008000UL)
+
+#define CAN_IFnMCTL_NEWDAT_MASK    ((uint32_t) 0x00000001UL)
+#define CAN_IFnMCTL_NEWDAT_NO    ((uint32_t) 0x00000000UL)
+#define CAN_IFnMCTL_NEWDAT_NEW    ((uint32_t) 0x00000001UL)
+/*--------*/
+
 #endif /* XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_REGISTERDEFINES_XHEADER_CAN_REGISTERDEFINES_IFNMCTL_H_ */
