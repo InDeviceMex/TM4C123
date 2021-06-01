@@ -40,10 +40,10 @@
 #define CAN_IFnDB2_R_DATA6_BIT    ((uint32_t) 0UL)
 #define CAN_IFnDB2_R_DATA7_BIT    ((uint32_t) 8UL)
 
-#define CAN_IFnDB2_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
-#define CAN_IFnDB2_DATA67_MASK    ((uint32_t) 0x0000FFFFUL)
-#define CAN_IFnDB2_DATA6_MASK    ((uint32_t) 0x000000FFUL)
-#define CAN_IFnDB2_DATA7_MASK    ((uint32_t) 0x0000FFUL)
+#define CAN_IFnDB2_R_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnDB2_R_DATA67_MASK    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnDB2_R_DATA6_MASK    ((uint32_t) 0x000000FFUL)
+#define CAN_IFnDB2_R_DATA7_MASK    ((uint32_t) 0x0000FFUL)
 /*--------*/
 
 

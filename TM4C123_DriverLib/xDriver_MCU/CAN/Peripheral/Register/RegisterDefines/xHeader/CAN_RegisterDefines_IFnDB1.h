@@ -40,10 +40,10 @@
 #define CAN_IFnDB1_R_DATA4_BIT    ((uint32_t) 0UL)
 #define CAN_IFnDB1_R_DATA5_BIT    ((uint32_t) 8UL)
 
-#define CAN_IFnDB1_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
-#define CAN_IFnDB1_DATA45_MASK    ((uint32_t) 0x0000FFFFUL)
-#define CAN_IFnDB1_DATA4_MASK    ((uint32_t) 0x000000FFUL)
-#define CAN_IFnDB1_DATA5_MASK    ((uint32_t) 0x0000FFUL)
+#define CAN_IFnDB1_R_DATA_MASK    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnDB1_R_DATA45_MASK    ((uint32_t) 0x0000FFFFUL)
+#define CAN_IFnDB1_R_DATA4_MASK    ((uint32_t) 0x000000FFUL)
+#define CAN_IFnDB1_R_DATA5_MASK    ((uint32_t) 0x0000FFUL)
 /*--------*/
 
 

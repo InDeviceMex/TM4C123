@@ -26,7 +26,7 @@
 #define XDRIVER_MCU_CAN_PERIPHERAL_REGISTER_REGISTERPERIPHERAL_BITBANDING_CAN_REGISTERPERIPHERAL_BITBANDING_H_
 
 #include <xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/CAN_RegisterPeripheral_Bitbanding_Module0.h>
-/*#include <xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/CAN_RegisterPeripheral_Bitbanding_Module1.h>*/
+#include <xDriver_MCU/CAN/Peripheral/Register/RegisterPeripheral_Bitbanding/xHeader/CAN_RegisterPeripheral_Bitbanding_Module1.h>
 
 #define CAN_BITBANDING    ((CANS_BITBANDING_TypeDef*) (CAN_BITBANDING_BASE + (CAN_OFFSET * 32UL)))
 

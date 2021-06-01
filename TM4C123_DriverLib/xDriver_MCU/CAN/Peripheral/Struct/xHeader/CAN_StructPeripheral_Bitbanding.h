@@ -197,7 +197,7 @@ typedef volatile struct
 
     BITBANDING_CANMESSAGE_TypeDef MESSAGE [32UL];
 
-    const uint32_t reserved2 [934UL * 32UL];
+    const uint32_t reserved1 [934UL * 32UL];
 }CAN_BITBANDING_TypeDef;
 
 
