@@ -31,8 +31,6 @@
 /**/
 /*******************************************************************************/
 void ResetISR(void);
-static void NmiSR(void);
-static void FaultISR(void);
 static void IntDefaultHandler(void);
 
 
@@ -65,15 +63,16 @@ static uint32_t pui32Stack[0x00000600UL >> 2UL] __attribute__((section(".stack")
 /**/
 /*******************************************************************************/
 __attribute__ ((section(".intvecs")))
-void (* const g_pfnVectors[0x00000400UL >> 2UL])(void) =
+void (* const g_pfnVectors[155UL])(void) =
 {
     (void (*)(void))((uint32_t)pui32Stack + sizeof(pui32Stack)),
                                             /* The initial stack pointer*/
-    ResetISR,                               /* The reset handler*/
-    NmiSR,                                  /* The NMI handler*/
-    FaultISR,                               /* The hard fault handler*/
+    &ResetISR,                               /* The reset handler*/
+    &IntDefaultHandler,                      /* The NMI handler*/
+    &IntDefaultHandler,                      /* The hard fault handler*/
     &IntDefaultHandler,                      /* The MPU fault handler*/
     &IntDefaultHandler,                      /* The bus fault handler*/
+    &IntDefaultHandler,                      /* The usage fault handler*/
     &IntDefaultHandler,                      /* The usage fault handler*/
     0,                                      /* Reserved*/
     0,                                      /* Reserved*/
@@ -296,51 +295,12 @@ ResetISR(void)
     /* float32_ting-point registers (which will fault if float32_ting-point is not*/
     /* enabled).  Any configuration of the float32_ting-point unit using DriverLib*/
     /* APIs must be done here prior to the float32_ting-point unit being enabled.*/
+    FPU_CPACR_R = FPU_CPACR_R_CP10_FULL | FPU_CPACR_R_CP11_FULL;
+
     /**/
     /* Call the application's entry point.*/
     /**/
-    FPU_CPACR_R = FPU_CPACR_R_CP10_FULL | FPU_CPACR_R_CP11_FULL;
     main();
-}
-
-/*******************************************************************************/
-/**/
-/* This is the code that gets called when the processor receives a NMI.  This*/
-/* simply enters an infinite loop, preserving the system state for examination*/
-/* by a debugger.*/
-/**/
-/*******************************************************************************/
-static void
-NmiSR(void)
-{
-    /**/
-    /* Enter an infinite loop.*/
-    /**/
-    while(1U)
-    {
-    }
-}
-
-/*******************************************************************************/
-/**/
-/* This is the code that gets called when the processor receives a fault*/
-/* interrupt.  This simply enters an infinite loop, preserving the system state*/
-/* for examination by a debugger.*/
-/**/
-/*******************************************************************************/
-static void
-FaultISR(void)
-{
-    volatile int a = 1;
-    /**/
-    /* Enter an infinite loop.*/
-    /**/
-    while(a)
-    {
-    }
-    __asm("NOP \n");
-    a++;
-
 }
 
 /*******************************************************************************/

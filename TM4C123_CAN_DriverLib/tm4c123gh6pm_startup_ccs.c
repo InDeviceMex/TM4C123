@@ -23,7 +23,7 @@
 /*******************************************************************************/
 
 #include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/xDriver_MCU.h>
+
 /*******************************************************************************/
 /**/
 /* Forward declaration of the default fault handlers.*/
@@ -31,7 +31,6 @@
 /*******************************************************************************/
 void ResetISR(void);
 static void IntDefaultHandler(void);
-
 
 /*******************************************************************************/
 /**/
@@ -63,23 +62,23 @@ extern uint32_t __STACK_TOP;
 /**/
 /*******************************************************************************/
 #pragma DATA_SECTION(g_pfnVectors, ".intvecs")
-void (*const g_pfnVectors[155])(void) =
+void (*const g_pfnVectors[155UL])(void) =
 {
     (void (*)(void))((uint32_t) &__STACK_TOP),
-                                            /* The initial stack pointer*/
+                                             /* The initial stack pointer*/
     &ResetISR,                               /* The reset handler*/
-    &IntDefaultHandler,                    /* The NMI handler*/
-    &IntDefaultHandler,                               /* The hard fault handler*/
+    &IntDefaultHandler,                      /* The NMI handler*/
+    &IntDefaultHandler,                      /* The hard fault handler*/
     &IntDefaultHandler,                      /* The MPU fault handler*/
     &IntDefaultHandler,                      /* The bus fault handler*/
     &IntDefaultHandler,                      /* The usage fault handler*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* SVCall handler*/
     &IntDefaultHandler,                      /* Debug monitor handler*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* The PendSV handler*/
     &IntDefaultHandler,                      /* The SysTick handler*/
     &IntDefaultHandler,                      /* GPIO Port A*/
@@ -123,9 +122,9 @@ void (*const g_pfnVectors[155])(void) =
     &IntDefaultHandler,                      /* Quadrature Encoder 1*/
     &IntDefaultHandler,                      /* CAN0*/
     &IntDefaultHandler,                      /* CAN1*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    &IntDefaultHandler,                      /* ernate*/
+    &IntDefaultHandler,                      /* Ethernet*/
+    0,                                       /* Reserved*/
+    &IntDefaultHandler,                      /* Hibernate*/
     &IntDefaultHandler,                      /* USB0*/
     &IntDefaultHandler,                      /* PWM Generator 3*/
     &IntDefaultHandler,                      /* uDMA Software Transfer*/
@@ -134,8 +133,8 @@ void (*const g_pfnVectors[155])(void) =
     &IntDefaultHandler,                      /* ADC1 Sequence 1*/
     &IntDefaultHandler,                      /* ADC1 Sequence 2*/
     &IntDefaultHandler,                      /* ADC1 Sequence 3*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* GPIO Port J*/
     &IntDefaultHandler,                      /* GPIO Port K*/
     &IntDefaultHandler,                      /* GPIO Port L*/
@@ -146,34 +145,34 @@ void (*const g_pfnVectors[155])(void) =
     &IntDefaultHandler,                      /* UART5 Rx and Tx*/
     &IntDefaultHandler,                      /* UART6 Rx and Tx*/
     &IntDefaultHandler,                      /* UART7 Rx and Tx*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* I2C2 Master and Slave*/
     &IntDefaultHandler,                      /* I2C3 Master and Slave*/
     &IntDefaultHandler,                      /* Timer 4 subtimer A*/
     &IntDefaultHandler,                      /* Timer 4 subtimer B*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* Timer 5 subtimer A*/
     &IntDefaultHandler,                      /* Timer 5 subtimer B*/
     &IntDefaultHandler,                      /* Wide Timer 0 subtimer A*/
@@ -189,15 +188,15 @@ void (*const g_pfnVectors[155])(void) =
     &IntDefaultHandler,                      /* Wide Timer 5 subtimer A*/
     &IntDefaultHandler,                      /* Wide Timer 5 subtimer B*/
     &IntDefaultHandler,                      /* FPU (SYSEXC)*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* I2C4 Master and Slave*/
     &IntDefaultHandler,                      /* I2C5 Master and Slave*/
     &IntDefaultHandler,                      /* GPIO Port M*/
     &IntDefaultHandler,                      /* GPIO Port N*/
     &IntDefaultHandler,                      /* Quadrature Encoder 2*/
-    0,                                      /* Reserved*/
-    0,                                      /* Reserved*/
+    0,                                       /* Reserved*/
+    0,                                       /* Reserved*/
     &IntDefaultHandler,                      /* GPIO Port P (Summary or P0)*/
     &IntDefaultHandler,                      /* GPIO Port P1*/
     &IntDefaultHandler,                      /* GPIO Port P2*/
