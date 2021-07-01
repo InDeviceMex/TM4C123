@@ -70,6 +70,7 @@ int32_t main(void)
     float32_t f32Time = 0.0f;
 
     MAIN_vInitSystem();
+    SYSCTL_BITBANDING->RCGC_Bit[2UL].P3 = 1UL;
     MAIN_vInitEDUMKII();
     ST7735__vInitRModel(ST7735_enINITFLAGS_GREEN);
     GraphTerm__vClearScreen(UART_enMODULE_0);

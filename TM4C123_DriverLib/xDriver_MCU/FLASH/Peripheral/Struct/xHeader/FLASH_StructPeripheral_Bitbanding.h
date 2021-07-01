@@ -65,12 +65,13 @@ typedef volatile struct
         volatile uint32_t FMC2 [32UL];
         BITBANDING_FMC2_TypeDef FMC2_Bit;
     };
+    const uint32_t reserved1 [3UL * 32UL];
     union
     {
         volatile uint32_t FWBVAL [32UL];
         BITBANDING_FWBVAL_TypeDef FWBVAL_Bit;
     };
-    const uint32_t reserved1 [51UL * 32UL];
+    const uint32_t reserved2 [51UL * 32UL];
     union
     {
         volatile uint32_t FWBn [32UL][32UL];
@@ -78,7 +79,7 @@ typedef volatile struct
     };
 
 
-    const uint32_t reserved2 [912UL * 32UL];
+    const uint32_t reserved3 [912UL * 32UL];
     union
     {
         volatile const uint32_t FSIZE [32UL];
@@ -86,10 +87,10 @@ typedef volatile struct
     };
     union
     {
-        volatile const uint32_t ZE [32UL];
-        BITBANDING_SSIZE_TypeDef ZE_Bit;
+        volatile const uint32_t SSIZE [32UL];
+        BITBANDING_SSIZE_TypeDef SSIZE_Bit;
     };
-    const uint32_t reserved3 [2UL * 32UL];
+    const uint32_t reserved4 [1UL * 32UL];
     union
     {
         volatile const uint32_t ROMSWMAP [32UL];
