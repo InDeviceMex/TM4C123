@@ -25,7 +25,6 @@
 #ifndef XDRIVER_MCU_FLASH_DRIVER_XHEADER_FLASH_INITPROCESS_H_
 #define XDRIVER_MCU_FLASH_DRIVER_XHEADER_FLASH_INITPROCESS_H_
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
 #if defined (__TI_ARM__ )

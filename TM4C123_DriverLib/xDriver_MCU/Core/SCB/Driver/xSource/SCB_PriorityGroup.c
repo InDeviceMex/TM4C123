@@ -33,18 +33,17 @@ void SCB__vSetPriorityGroup(SCB_nPRIGROUP enGroup)
     u32Reg = MCU__u32CheckParams( (uint32_t) enGroup, (uint32_t) SCB_enPRIGROUP_MAX);
     u32Reg <<= SCB_AIRCR_R_PRIGROUP_BIT;
     u32Reg |= SCB_AIRCR_R_VECTKEY_WRITE;
-    SCB_vBarrier();
-    MCU__vWriteRegister(SCB_BASE, SCB_AIRCR_OFFSET, u32Reg, (SCB_AIRCR_R_VECTKEY_MASK | SCB_AIRCR_R_PRIGROUP_MASK), 0UL);
-    SCB_vBarrier();
+    MCU__vDataSyncBarrier();
+    MCU__vWriteRegister(SCB_BASE, SCB_AIRCR_OFFSET, u32Reg,
+                        (SCB_AIRCR_R_VECTKEY_MASK | SCB_AIRCR_R_PRIGROUP_MASK),
+                        0UL);
+    MCU__vDataSyncBarrier();
 }
 
 SCB_nPRIGROUP SCB__enGetPriorityGroup(void)
 {
     SCB_nPRIGROUP enReturn = SCB_enPRIGROUP_ERROR;
-    uint32_t u32Reg = 0UL;
-
-    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_AIRCR_OFFSET, SCB_AIRCR_PRIGROUP_MASK, SCB_AIRCR_R_PRIGROUP_BIT);
-    enReturn = (SCB_nPRIGROUP) u32Reg;
-
-    return enReturn;
+    enReturn = (SCB_nPRIGROUP) MCU__u32ReadRegister(SCB_BASE, SCB_AIRCR_OFFSET,
+                                            SCB_AIRCR_PRIGROUP_MASK, SCB_AIRCR_R_PRIGROUP_BIT);
+    return (enReturn);
 }

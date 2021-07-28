@@ -57,5 +57,5 @@ uint32_t DMA_CH__u32GetConfigGeneric(DMA_nCH_MODULE enChannel, uint32_t u32Regis
     {
         u32Result = u32Reg;
     }
-    return u32Result;
+    return (u32Result);
 }

@@ -8,7 +8,6 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WRITEINTRINSICS_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DRIVER_FLASH_WRITEINTRINSICS_H_
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/FLASH/Peripheral/xHeader/FLASH_Enum.h>
 
 #if defined (__TI_ARM__ )

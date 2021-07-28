@@ -24,7 +24,6 @@
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRegister/xHeader/DMA_InterruptRegisterIRQVector.h>
 
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/DMA_InterruptRoutine.h>
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
@@ -38,6 +37,6 @@ void DMA__vRegisterIRQVectorHandler(void (*pfIrqVectorHandler) (void),DMA_nVECTO
     {
         u32Vector = MCU__u32CheckParams((uint32_t) enVector, (uint32_t) DMA_enVECTOR_MAX);
         enSCBVector = SCB_enVECISR_DMA[u32Vector];
-        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, &DMA__pvIRQVectorHandler[(uint32_t) u32Vector], enSCBVector);
+        SCB__vRegisterIRQVectorHandler(pfIrqVectorHandler, DMA__pvfGetIRQVectorHandlerPointer((DMA_nVECTOR) u32Vector), enSCBVector);
     }
 }

@@ -11,6 +11,4 @@
 #include <xDriver_MCU/Core/FPU/Peripheral/Register/xHeader/FPU_RegisterDefines.h>
 #include <xDriver_MCU/Core/FPU/Peripheral/Register/xHeader/FPU_RegisterPeripheral.h>
 
-void FPU_vBlocking(void);
-
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FPU_FPU_PERIPHERAL_FPU_REGISTER_H_ */

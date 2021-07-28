@@ -52,14 +52,14 @@ uint32_t DMA_CH__u32GetPrimarySourceEndAddress(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_SRCENDP_OFFSET, 0xFFFFFFFFUL, 0UL);
-    return u32Reg;
+    return (u32Reg);
 }
 
 uint32_t DMA_CH__u32GetAlternateSourceEndAddress(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_SRCENDP_OFFSET, 0xFFFFFFFFUL, 0UL);
-    return u32Reg;
+    return (u32Reg);
 }
 
 uint32_t DMA_CH__u32GetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
@@ -73,7 +73,7 @@ uint32_t DMA_CH__u32GetSourceEndAddress(DMA_nCH_MODULE enChannel, DMA_nCH_CTL en
     {
         u32Reg = DMA_CH__u32GetAlternateSourceEndAddress(enChannel);
     }
-    return u32Reg;
+    return (u32Reg);
 }
 
 

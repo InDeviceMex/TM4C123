@@ -28,6 +28,7 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 
 void SCB__vSetSleepMode(SCB_nSleepDeep enSleepMode);
+void SCB__vDeepSleepMode(void);
 SCB_nSleepDeep SCB__enGetSleepMode(void);
 
 void SCB__vSetSLEEPONEXIT(SCB_nSLEEPONEXIT enSleepMode);

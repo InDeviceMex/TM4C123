@@ -48,5 +48,5 @@ GPIO_nDIGITAL GPIO__enGetDigital(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDIGITAL enFeature = GPIO_enDIGITAL_UNDEF;
     enFeature = (GPIO_nDIGITAL) GPIO__u32GetGeneric(enPort, GPIO_DEN_OFFSET, enPin);
-    return enFeature;
+    return (enFeature);
 }

@@ -23,4 +23,18 @@
  */
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/FLASH_InterruptRoutine.h>
 
-void (*FLASH__pvIRQVectorHandler) (void)= { &FLASH__vIRQVectorHandler};
+static void (*FLASH__pvIRQVectorHandler[1UL]) (void) =
+{
+    &FLASH__vIRQVectorHandler
+};
+
+void (*FLASH__pvfGetIRQVectorHandler(void))(void)
+{
+
+    return (FLASH__pvIRQVectorHandler[0UL]);
+}
+
+void (**FLASH__pvfGetIRQVectorHandlerPointer(void))(void)
+{
+    return ((void(**)(void)) &FLASH__pvIRQVectorHandler[0UL]);
+}

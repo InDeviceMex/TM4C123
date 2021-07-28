@@ -63,21 +63,21 @@ uint32_t DMA_CH__u32GetPrimaryControlWorld(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32GetPrimaryControlGeneric(enChannel, 0xFFFFFFFFUL, 0UL);
-    return u32Reg;
+    return (u32Reg);
 }
 
 uint32_t DMA_CH__u32GetAlternateControlWorld(DMA_nCH_MODULE enChannel)
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32GetAlternateControlGeneric(enChannel, 0xFFFFFFFFUL, 0UL);
-    return u32Reg;
+    return (u32Reg);
 }
 
 uint32_t DMA_CH__u32GetControlWorld(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure)
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32GetControlGeneric(enChannel, enChannelStructure, 0xFFFFFFFFUL, 0UL);
-    return u32Reg;
+    return (u32Reg);
 }
 
 void DMA_CH__vGetPrimaryControlWorld(DMA_nCH_MODULE enChannel, DMACHCTL_TypeDef* pstChannelControlWorld)

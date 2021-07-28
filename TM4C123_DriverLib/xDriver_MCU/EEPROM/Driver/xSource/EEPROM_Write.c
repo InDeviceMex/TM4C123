@@ -10,9 +10,9 @@
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
-static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address, uint32_t u32VariableType);
+static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address, EEPROM_nVARIABLE enVariableType);
 
-static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address, uint32_t u32VariableType)
+static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address, EEPROM_nVARIABLE enVariableType)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     uint32_t u32MaxAddress = 0UL;
@@ -50,9 +50,9 @@ static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address,
 
         if(EEPROM_enOK == enReturn)
         {
-            switch(u32VariableType)
+            switch(enVariableType)
             {
-            case 0UL:
+            case EEPROM_enVARIABLE_BYTE:
                 u8DataReg = (uint8_t) u32Data;
 
                 u32Pos = u32Address;
@@ -65,7 +65,7 @@ static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address,
                 MCU__vWriteRegister(EEPROM_BASE, EEPROM_EERDWR_OFFSET, u32DataAux, EEPROM_EERDWR_VALUE_MASK, EEPROM_EERDWR_R_VALUE_BIT);
                 enReturn = EEPROM__enWait();
             break;
-            case 1UL:
+            case EEPROM_enVARIABLE_HALFWORD:
                 u16DataReg = (uint16_t) u32Data;
 
                 u32Pos = u32Address;
@@ -79,7 +79,7 @@ static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address,
                 MCU__vWriteRegister(EEPROM_BASE, EEPROM_EERDWR_OFFSET, u32DataAux, EEPROM_EERDWR_VALUE_MASK, EEPROM_EERDWR_R_VALUE_BIT);
                 enReturn = EEPROM__enWait();
             break;
-            case 2UL:
+            case EEPROM_enVARIABLE_WORD:
                 u32DataReg = (uint32_t) u32Data;
 
                 u32Pos = 0UL;
@@ -103,21 +103,21 @@ static EEPROM_nSTATUS EEPROM__enWriteAux (uint32_t u32Data, uint32_t u32Address,
 EEPROM_nSTATUS EEPROM__enWriteHalfWorld (uint16_t u16Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    enReturn = EEPROM__enWriteAux ( (uint32_t) u16Data, u32Address, 1UL);
+    enReturn = EEPROM__enWriteAux ( (uint32_t) u16Data, u32Address, EEPROM_enVARIABLE_HALFWORD);
     return enReturn;
 }
 
 EEPROM_nSTATUS EEPROM__enWriteWorld (uint32_t u32Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    enReturn = EEPROM__enWriteAux ( (uint32_t) u32Data, u32Address, 2UL);
+    enReturn = EEPROM__enWriteAux ( (uint32_t) u32Data, u32Address, EEPROM_enVARIABLE_WORD);
     return enReturn;
 }
 
 EEPROM_nSTATUS EEPROM__enWriteByte(uint8_t u8Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    enReturn = EEPROM__enWriteAux ( (uint32_t) u8Data, u32Address, 0UL);
+    enReturn = EEPROM__enWriteAux ( (uint32_t) u8Data, u32Address, EEPROM_enVARIABLE_BYTE);
     return enReturn;
 }
 

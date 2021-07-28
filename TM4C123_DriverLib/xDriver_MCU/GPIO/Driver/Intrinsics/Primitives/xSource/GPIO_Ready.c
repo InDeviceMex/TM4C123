@@ -54,5 +54,5 @@ GPIO_nREADY GPIO__enIsReady(GPIO_nPORT enPort)
 #else
     GPIO_nREADY enReady = GPIO_enREADY;
 #endif
-    return enReady;
+    return (enReady);
 }

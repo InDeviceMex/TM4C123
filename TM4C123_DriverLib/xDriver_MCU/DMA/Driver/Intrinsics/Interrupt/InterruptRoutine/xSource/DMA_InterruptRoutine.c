@@ -23,6 +23,19 @@
  */
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/DMA_InterruptRoutine.h>
 
-#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
+void (*DMA__pvIRQVectorHandler[(uint32_t) DMA_enVECTOR_MAX]) (void)=
+{
+  &DMA_SW__vIRQVectorHandler,
+  &DMA_ERROR__vIRQVectorHandler
+};
 
-void (*DMA__pvIRQVectorHandler[(uint32_t) DMA_enVECTOR_MAX]) (void)= { &DMA_SW__vIRQVectorHandler, &DMA_ERROR__vIRQVectorHandler};
+void (*DMA__pvfGetIRQVectorHandler(DMA_nVECTOR enDmaVector))(void)
+{
+
+    return (DMA__pvIRQVectorHandler[(uint32_t) enDmaVector]);
+}
+
+void (**DMA__pvfGetIRQVectorHandlerPointer(DMA_nVECTOR enDmaVector))(void)
+{
+    return ((void(**)(void)) &DMA__pvIRQVectorHandler[(uint32_t) enDmaVector]);
+}

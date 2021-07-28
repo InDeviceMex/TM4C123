@@ -60,5 +60,5 @@ DMA_nREADY DMA__enIsReady(DMA_nMODULE enModule)
 #else
     DMA_nREADY enReady = DMA_enREADY;
 #endif
-    return enReady;
+    return (enReady);
 }

@@ -29,11 +29,11 @@
 
 void DMA_CH__vSetConfigStruct(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef pstConfig)
 {
-        DMA_CH__vSetControlStructure(enDMAChannel, pstConfig.enControlStructure);
-        DMA_CH__vSetPriority(enDMAChannel, pstConfig.enChannelPriority);
-        DMA_CH__vSetEncoder(enDMAChannel, pstConfig.enEncoder);
-        DMA_CH__vSetPeripheralEnable(enDMAChannel, pstConfig.enPeripheralEnable);
-        DMA_CH__vSetRequestType(enDMAChannel, pstConfig.enReqType);
+    DMA_CH__vSetControlStructure(enDMAChannel, pstConfig.enControlStructure);
+    DMA_CH__vSetPriority(enDMAChannel, pstConfig.enChannelPriority);
+    DMA_CH__vSetEncoder(enDMAChannel, pstConfig.enEncoder);
+    DMA_CH__vSetPeripheralEnable(enDMAChannel, pstConfig.enPeripheralEnable);
+    DMA_CH__vSetRequestType(enDMAChannel, pstConfig.enReqType);
 }
 
 void DMA_CH__vGetConfig(DMA_nCH_MODULE enDMAChannel, DMA_CONFIG_Typedef* pstConfig)
@@ -61,7 +61,7 @@ DMA_CONFIG_Typedef* DMA_CH__pstGetConfig(DMA_nCH_MODULE enDMAChannel)
         pstConfig->enPeripheralEnable = DMA_CH__enGetPeripheralEnable(enDMAChannel);
         pstConfig->enReqType = DMA_CH__enGetRequestType(enDMAChannel);
     }
-    return pstConfig;
+    return (pstConfig);
 }
 
 void DMA_CH__vDeleteConfigStruct(DMA_CONFIG_Typedef* pstConfig)

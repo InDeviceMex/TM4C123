@@ -26,6 +26,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_STRUCT_GPIO_STRUCTPERIPHERAL_BITBANDING_H_
 
 #include <xDriver_MCU/GPIO/Peripheral/Struct/xHeader/GPIO_StructRegister_Bitbanding.h>
+#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
 
 typedef volatile struct
 {

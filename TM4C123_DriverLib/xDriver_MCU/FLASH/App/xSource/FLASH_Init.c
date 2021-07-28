@@ -30,9 +30,11 @@ FLASH_nSTATUS FLASH__enInit (void)
     /*
      * Process Status
      */
-    FLASH_nSTATUS enReturn = FLASH_enERROR;
+    FLASH_nSTATUS enReturn = FLASH_enOK;
+    void (*pfIrqVectorHandler) (void) = (void (*) (void)) 0UL;
 
-    FLASH__vRegisterIRQVectorHandler( &FLASH__vIRQVectorHandler);
+    pfIrqVectorHandler = FLASH__pvfGetIRQVectorHandler();
+    FLASH__vRegisterIRQVectorHandler( pfIrqVectorHandler);
     /*
      * To return the final Function status,
      * if FLASH__enWait ends correctly all the process is OK

@@ -29,20 +29,13 @@
 #define MPU_FLASH_CODE_ADDR    (0x00000000UL)
 #define MPU_FLASH_CODE_SIZE    (18UL-1UL)
 
-void MPU_vBlocking(void);
-
-void MPU_vBlocking(void)
-{
-  {
-    __asm(" DSB");
-    __asm(" ISB");
-  }
-}
-
+/**
+ * TODO: Move this feature to xApplication_MCU level, this is application specific
+ */
 void MPU__vInit(void)
 {
     uint32_t u32AddressBit = 0UL;
-    MPU_vBlocking();
+    MCU__vBlocking();
 
     MCU__vWriteRegister(MPU_BASE, MPU_CTRL_OFFSET, 0UL, MPU_CTRL_ENABLE_MASK, MPU_CTRL_R_ENABLE_BIT);
 
@@ -118,5 +111,5 @@ void MPU__vInit(void)
 
     MCU__vWriteRegister(MPU_BASE, MPU_CTRL_OFFSET, MPU_CTRL_R_ENABLE_ENA | MPU_CTRL_R_PRIVDEFENA_ENA , MPU_CTRL_ENABLE_MASK | MPU_CTRL_R_PRIVDEFENA_MASK, 0UL);
 
-    MPU_vBlocking();
+    MCU__vBlocking();
 }

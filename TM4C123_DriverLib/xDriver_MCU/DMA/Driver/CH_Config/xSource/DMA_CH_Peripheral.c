@@ -55,5 +55,5 @@ DMA_nCH_PERIPHERAL DMA_CH__enGetPeripheralEnable(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_PERIPHERAL enPeripheral = DMA_enCH_PERIPHERAL_UNDEF;
     enPeripheral = (DMA_nCH_PERIPHERAL) DMA_CH__u32GetConfigGeneric(enChannel, DMA_REQMASKSET_OFFSET);
-    return enPeripheral;
+    return (enPeripheral);
 }

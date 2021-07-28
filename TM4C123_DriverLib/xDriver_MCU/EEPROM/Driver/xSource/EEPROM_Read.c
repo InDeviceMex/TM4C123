@@ -10,9 +10,9 @@
 #include <xDriver_MCU/EEPROM/Driver/Intrinsics/EEPROM_Intrinsics.h>
 #include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 
-EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u32VariableType);
+EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, EEPROM_nVARIABLE enVariableType);
 
-EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u32VariableType)
+EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, EEPROM_nVARIABLE enVariableType)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
     EEPROM_nREADY enReady = EEPROM_enNOREADY;
@@ -55,9 +55,9 @@ EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u3
 
                 if(EEPROM_enOK == enReturn)
                 {
-                    switch(u32VariableType)
+                    switch(enVariableType)
                     {
-                        case 0UL:
+                        case EEPROM_enVARIABLE_BYTE:
 
                             u32OffsetData = u32Address;
                             u32OffsetData &= 3UL;
@@ -67,7 +67,7 @@ EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u3
                             pu8DataAux += u32OffsetData;
                             *pu8Data = *pu8DataAux;
                         break;
-                        case 1UL:
+                        case EEPROM_enVARIABLE_HALFWORD:
 
                             u32OffsetData = u32Address;
                             u32OffsetData >>= 1UL;
@@ -78,7 +78,7 @@ EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u3
                             pu16DataAux += u32OffsetData;
                             *pu16Data = *pu16DataAux;
                         break;
-                        case 2UL:
+                        case EEPROM_enVARIABLE_WORD:
 
                             u32OffsetData = 0UL;
 
@@ -101,20 +101,20 @@ EEPROM_nSTATUS EEPROM__enReadAux (void* pvData, uint32_t u32Address, uint32_t u3
 EEPROM_nSTATUS EEPROM__enReadWorld (uint32_t *pu32Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    enReturn = EEPROM__enReadAux ( (void*) pu32Data, u32Address, 2UL);
+    enReturn = EEPROM__enReadAux ( (void*) pu32Data, u32Address, EEPROM_enVARIABLE_WORD);
     return enReturn;
 }
 
 EEPROM_nSTATUS EEPROM__enReadHalfWorld (uint16_t *pu16Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    enReturn = EEPROM__enReadAux ( (void*) pu16Data, u32Address, 1UL);
+    enReturn = EEPROM__enReadAux ( (void*) pu16Data, u32Address, EEPROM_enVARIABLE_HALFWORD);
     return enReturn;
 }
 
 EEPROM_nSTATUS EEPROM__enReadByte (uint8_t *pu8Data, uint32_t u32Address)
 {
     EEPROM_nSTATUS enReturn = EEPROM_enERROR;
-    enReturn = EEPROM__enReadAux ( (void*) pu8Data, u32Address, 0UL);
+    enReturn = EEPROM__enReadAux ( (void*) pu8Data, u32Address, EEPROM_enVARIABLE_BYTE);
     return enReturn;
 }

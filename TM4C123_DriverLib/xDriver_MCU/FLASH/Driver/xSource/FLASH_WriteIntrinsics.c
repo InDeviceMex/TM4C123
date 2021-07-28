@@ -10,14 +10,16 @@
 #include <xDriver_MCU/FLASH/Peripheral/FLASH_Peripheral.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Wait.h>
 #include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_InitProcess.h>
+#include <xDriver_MCU/FLASH/Driver/xHeader/FLASH_Size.h>
 
 FLASH_nSTATUS FLASH__enWrite(uint32_t u32Data, uint32_t u32Address)
 {
     FLASH_nSTATUS enReturn = FLASH_enERROR;
     uint32_t u32Value = 0UL;
+    uint32_t u32FlashSize = FLASH__u32GetSize();
 
     u32Address &= ~(uint32_t) 0x3UL;
-    if(u32Address < FLASH_ADDRESS_MAX)
+    if(u32Address < u32FlashSize)
     {
         u32Value = *((uint32_t*) u32Address);
         if(0xFFFFFFFFUL == u32Value)
@@ -39,12 +41,13 @@ FLASH_nSTATUS FLASH__enWriteBuf(const uint32_t* pu32Data, uint32_t u32Address, u
     uint32_t u32Offset = 0UL;
     uint32_t u32CountMax = 0UL;
     uint32_t *pu32Address = 0UL;
+    uint32_t u32FlashSize = FLASH__u32GetSize();
 
     u32CountActual = (u32Address & 0x7FUL) >> 2UL;
     u32CountMax = u32CountActual + u32Count;
     u32Address &= ~(uint32_t) 0x7FUL;
 
-    if((u32Address < FLASH_ADDRESS_MAX) && (u32CountMax <= 32UL) && (0UL != u32Count) )
+    if((u32Address < u32FlashSize) && (u32CountMax <= 32UL) && (0UL != u32Count) )
     {
         MCU__vWriteRegister(FLASH_BASE, FLASH_FMA_OFFSET, u32Address, FLASH_FMA_R_OFFSET_MASK, 0UL);
         u32RegisterOffset = FLASH_FWBn_OFFSET;

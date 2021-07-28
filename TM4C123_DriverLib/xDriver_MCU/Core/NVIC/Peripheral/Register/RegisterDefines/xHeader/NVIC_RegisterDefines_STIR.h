@@ -33,7 +33,7 @@
 
 /*----------*/
 #define NVIC_STIR_R_INTID_MASK    ((uint32_t) 0x000000FFUL)
-#define NVIC_STIR_R_INTID_BIT    (0UL)
+#define NVIC_STIR_R_INTID_BIT    ((uint32_t) 0UL)
 #define NVIC_STIR_R_INTID_GPIOA    ((uint32_t) 0x00000000UL)
 #define NVIC_STIR_R_INTID_GPIOB    ((uint32_t) 0x00000001UL)
 #define NVIC_STIR_R_INTID_GPIOC    ((uint32_t) 0x00000002UL)

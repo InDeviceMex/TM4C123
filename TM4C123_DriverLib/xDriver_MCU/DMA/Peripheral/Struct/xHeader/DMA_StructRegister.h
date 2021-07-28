@@ -30,11 +30,11 @@
 typedef volatile struct
 {
     volatile const uint32_t MASTEN :1;
-             const uint32_t reserved :3;
+    const uint32_t reserved :3;
     volatile const uint32_t STATE :4;
-             const uint32_t reserved1:8;
+    const uint32_t reserved1:8;
     volatile const uint32_t DMACHANS :5;
-             const uint32_t reserved2:11;
+    const uint32_t reserved2:11;
 }DMASTAT_TypeDef;
 
 typedef volatile struct
@@ -45,8 +45,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    const uint32_t reserved :10;
-    volatile uint32_t ADDR :22;
+    volatile uint32_t ADDR :32;
 }DMACTLBASE_TypeDef;
 
 typedef volatile struct

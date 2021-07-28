@@ -35,5 +35,5 @@ GPIO_nDIR GPIO__enGetDirection(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDIR enFeature = GPIO_enDIR_UNDEF;
     enFeature = (GPIO_nDIR) GPIO__u32GetGeneric(enPort, GPIO_DIR_OFFSET, enPin);
-    return enFeature;
+    return (enFeature);
 }

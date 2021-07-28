@@ -26,7 +26,7 @@
 #include <xDriver_MCU/Common/MCU_Common.h>
 #include <xDriver_MCU/Core/NVIC/Peripheral/NVIC_Peripheral.h>
 
-inline uint32_t NVIC__u32ReadRegister(NVIC_nSTIR enIRQ, uint32_t u32RegisterOffset)
+uint32_t NVIC__u32ReadRegister(NVIC_nSTIR enIRQ, uint32_t u32RegisterOffset)
 {
     uint32_t u32Reg = 0UL;
     uint32_t u32IsrIndex = 0UL;
@@ -40,5 +40,5 @@ inline uint32_t NVIC__u32ReadRegister(NVIC_nSTIR enIRQ, uint32_t u32RegisterOffs
     u32RegisterOffset += u32IsrIndex;
     u32Reg = MCU__u32ReadRegister(NVIC_BASE, u32RegisterOffset, 0x1UL, u32IsrBit);
 
-    return u32Reg;
+    return (u32Reg);
 }

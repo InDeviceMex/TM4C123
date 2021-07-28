@@ -12,15 +12,13 @@
 FPU_nAUTO_PRESERVATION FPU__enGetAutoPreservation(void)
 {
     FPU_nAUTO_PRESERVATION enReturn = FPU_enAUTO_PRESERVATION_DIS;
-    uint32_t u32Reg = 0UL;
-
-    u32Reg = MCU__u32ReadRegister(FPU_BASE, FPU_FPCCR_OFFSET, FPU_FPCCR_ASPEN_MASK, FPU_FPCCR_R_ASPEN_BIT);
-    enReturn = (FPU_nAUTO_PRESERVATION) u32Reg;
-
-    return (FPU_nAUTO_PRESERVATION) enReturn;
+    enReturn = (FPU_nAUTO_PRESERVATION) MCU__u32ReadRegister(FPU_BASE, FPU_FPCCR_OFFSET,
+                                                             FPU_FPCCR_ASPEN_MASK, FPU_FPCCR_R_ASPEN_BIT);
+    return (enReturn);
 }
 
 void FPU__vSetAutoPreservation(FPU_nAUTO_PRESERVATION enAuto)
 {
-    MCU__vWriteRegister(FPU_BASE, FPU_FPCCR_OFFSET, (uint32_t) enAuto, FPU_FPCCR_ASPEN_MASK, FPU_FPCCR_R_ASPEN_BIT);
+    MCU__vWriteRegister(FPU_BASE, FPU_FPCCR_OFFSET, (uint32_t) enAuto,
+                        FPU_FPCCR_ASPEN_MASK, FPU_FPCCR_R_ASPEN_BIT);
 }

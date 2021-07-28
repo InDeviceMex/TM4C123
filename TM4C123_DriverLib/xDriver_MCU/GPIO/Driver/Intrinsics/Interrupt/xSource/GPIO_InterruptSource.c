@@ -28,19 +28,16 @@
 
 void GPIO__vEnInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    enPin &= GPIO_enPIN_ALL;
     GPIO__vWriteRegister(enPort, GPIO_IM_OFFSET, (uint32_t) enPin, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vDisInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    enPin &= GPIO_enPIN_ALL;
     GPIO__vWriteRegister(enPort, GPIO_IM_OFFSET, 0UL, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vClearInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
-    enPin &= GPIO_enPIN_ALL;
     GPIO__vWriteRegister(enPort, GPIO_ICR_OFFSET, (uint32_t) enPin, (uint32_t) enPin, 0UL);
 }
 
@@ -49,8 +46,6 @@ GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPi
     GPIO_nSTATUS enStatusRead = GPIO_enSTATUS_UNDEF;
     GPIO_nINT_STATUS enStatus = GPIO_enINT_STATUS_UNDEF;
     uint32_t u32Reg = 0UL;
-
-    enPin &= GPIO_enPIN_ALL;
 
     enStatusRead = GPIO__enReadRegister(enPort, GPIO_RIS_OFFSET, &u32Reg, (uint32_t) enPin, 0UL);
     if(GPIO_enSTATUS_ERROR != enStatusRead)
@@ -64,5 +59,5 @@ GPIO_nINT_STATUS GPIO__enStatusInterruptSource(GPIO_nPORT enPort, GPIO_nPIN enPi
             enStatus = GPIO_enINT_NOOCCUR;
         }
     }
-    return enStatus;
+    return (enStatus);
 }

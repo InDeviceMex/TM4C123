@@ -35,19 +35,19 @@ typedef volatile struct
     const uint32_t reserved :13;
     const volatile uint32_t COUNTFLAG :1;
     const uint32_t reserved1 :15;
-}SysTick_CSR_TypeDef;
+}SYSTICK_CSR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t RELOAD :24;
     const uint32_t reserved :8;
-}SysTick_RVR_TypeDef;
+}SYSTICK_RVR_TypeDef;
 
 typedef volatile struct
 {
     volatile uint32_t CURRENT :24;
     const uint32_t reserved :8;
-}SysTick_CVR_TypeDef;
+}SYSTICK_CVR_TypeDef;
 
 typedef volatile struct
 {
@@ -55,6 +55,6 @@ typedef volatile struct
     uint32_t reserved :6;
     volatile const uint32_t SKEW :1;
     volatile const uint32_t NOREF :1;
-}SysTick_CR_TypeDef;
+}SYSTICK_CR_TypeDef;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_STRUCT_SYSTICK_STRUCTREGISTER_H_ */

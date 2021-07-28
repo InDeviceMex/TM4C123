@@ -38,6 +38,26 @@ uint32_t MCU__u32CheckParams_RAM(uint32_t u32Module, uint32_t u32ModuleMax) __at
 
 #endif
 
-uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax);
+#if defined (__TI_ARM__ )
+    #pragma CHECK_MISRA("-8.5")
+#endif
 
+inline uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax);
+
+
+inline uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax)
+{
+#if !defined(Opt_Check)
+    if((u32ModuleMax <= u32Module) && (0UL != u32ModuleMax))
+    {
+        u32ModuleMax--;
+        u32Module = u32ModuleMax;
+    }
+#endif
+    return (u32Module);
+}
+
+#if defined (__TI_ARM__ )
+    #pragma RESET_MISRA("8.5")
+#endif
 #endif /* XDRIVER_MCU_COMMON_XHEADER_MCU_CHECKPARAMS_H_ */

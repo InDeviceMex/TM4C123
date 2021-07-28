@@ -35,5 +35,5 @@ uint32_t DMA__u32GetChannelControlPointer(void)
 {
     uint32_t u32Reg = 0UL;
     DMA__enReadRegister(DMA_CTLBASE_OFFSET, &u32Reg, DMA_CTLBASE_R_ADDR_MASK, 0UL);
-    return u32Reg;
+    return (u32Reg);
 }

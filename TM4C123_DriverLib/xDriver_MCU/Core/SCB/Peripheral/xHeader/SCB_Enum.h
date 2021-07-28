@@ -27,8 +27,6 @@
 
 #include <xUtils/Standard/Standard.h>
 
-
-#define SCB_FLASH_MAX ((uint32_t) 0x00010000UL)
 #define SCB_VECTOR_TABLE_SIZE ((uint32_t) 0x00000100UL)
 
 typedef enum

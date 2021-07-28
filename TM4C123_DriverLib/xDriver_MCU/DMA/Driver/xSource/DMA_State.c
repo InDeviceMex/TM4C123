@@ -30,12 +30,12 @@ DMA_nSTATE DMA__enGetModuleState(void)
 {
     DMA_nSTATE enModuleState = DMA_enSTATE_UNDEF;
     DMA__enReadRegister(DMA_STAT_OFFSET, (uint32_t*) &enModuleState, DMA_STAT_STATE_MASK, DMA_STAT_R_STATE_BIT);
-    return enModuleState;
+    return (enModuleState);
 }
 
 uint32_t DMA__u32GetModulechannels(void)
 {
     DMA_nCH_MODULE enModuleChannels = DMA_enCH_MODULE_UNDEF;
     DMA__enReadRegister(DMA_STAT_OFFSET, (uint32_t*) &enModuleChannels, DMA_STAT_DMACHANS_MASK, DMA_STAT_R_DMACHANS_BIT);
-    return enModuleChannels;
+    return (enModuleChannels);
 }

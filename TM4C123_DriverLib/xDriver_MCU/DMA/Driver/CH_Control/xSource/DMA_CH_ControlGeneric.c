@@ -52,14 +52,14 @@ uint32_t DMA_CH__u32GetPrimaryControlGeneric(DMA_nCH_MODULE enChannel, uint32_t 
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMACH_BASE, (uint32_t) enChannel, DMACH_CHCTL_OFFSET, u32MaskFeature, u32BitFeature);
-    return u32Reg;
+    return (u32Reg);
 }
 
 uint32_t DMA_CH__u32GetAlternateControlGeneric(DMA_nCH_MODULE enChannel, uint32_t u32MaskFeature, uint32_t u32BitFeature)
 {
     uint32_t u32Reg = 0UL;
     u32Reg = DMA_CH__u32ReadRegister( (uint32_t) DMAALTCH_BASE, (uint32_t) enChannel, DMACH_CHCTL_OFFSET, u32MaskFeature, u32BitFeature);
-    return u32Reg;
+    return (u32Reg);
 }
 
 uint32_t DMA_CH__u32GetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enChannelStructure, uint32_t u32MaskFeature, uint32_t u32BitFeature)
@@ -73,5 +73,5 @@ uint32_t DMA_CH__u32GetControlGeneric(DMA_nCH_MODULE enChannel, DMA_nCH_CTL enCh
     {
         u32Reg = DMA_CH__u32GetAlternateControlGeneric(enChannel, u32MaskFeature, u32BitFeature);
     }
-    return u32Reg;
+    return (u32Reg);
 }

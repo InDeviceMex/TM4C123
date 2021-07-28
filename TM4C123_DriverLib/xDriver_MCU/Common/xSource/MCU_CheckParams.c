@@ -23,24 +23,14 @@
  */
 #include <xDriver_MCU/Common/xHeader/MCU_CheckParams.h>
 
-uint32_t MCU__u32CheckParams(uint32_t u32Module, uint32_t u32ModuleMax)
-{
-#if !defined(Opt_Check)
-    if((u32ModuleMax <= u32Module) && (0UL != u32ModuleMax))
-    {
-        u32Module = u32ModuleMax - 1UL;
-    }
-#endif
-    return u32Module;
-}
-
 uint32_t MCU__u32CheckParams_RAM(uint32_t u32Module, uint32_t u32ModuleMax)
 {
 #if !defined(Opt_Check)
     if((u32ModuleMax <= u32Module) && (0UL != u32ModuleMax))
     {
-        u32Module = u32ModuleMax - 1UL;
+        u32ModuleMax--;
+        u32Module = u32ModuleMax;
     }
 #endif
-    return u32Module;
+    return (u32Module);
 }

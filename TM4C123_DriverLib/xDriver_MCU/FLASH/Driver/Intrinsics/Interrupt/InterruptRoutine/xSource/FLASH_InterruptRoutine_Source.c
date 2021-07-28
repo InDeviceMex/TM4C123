@@ -38,3 +38,13 @@ static void FLASH_vIRQSourceHandler_Dummy(void)
 {
     while(1UL){}
 }
+
+void (*FLASH__pvfGetIRQSourceHandler(FLASH_nINTERRUPT enInterruptSourceArg))(void)
+{
+    return (FLASH__vIRQSourceHandler[(uint32_t) enInterruptSourceArg]);
+}
+
+void (**FLASH__pvfGetIRQSourceHandlerPointer(FLASH_nINTERRUPT enInterruptSourceArg))(void)
+{
+    return ((void(**)(void)) &FLASH__vIRQSourceHandler[(uint32_t) enInterruptSourceArg]);
+}

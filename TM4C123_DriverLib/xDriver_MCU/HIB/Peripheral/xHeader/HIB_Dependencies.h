@@ -9,7 +9,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_HIB_HIB_PERIPHERAL_HIB_DEPENDENCIES_H_
 
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xApplication_MCU/Core/SCB/SCB.h>
 
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 

@@ -26,7 +26,9 @@
 #define XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_FLASH_INTERRUPTROUTINE_H_
 
 #include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Vector.h>
+#include <xDriver_MCU/FLASH/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/FLASH_InterruptRoutine_Source.h>
 
-extern void (*FLASH__pvIRQVectorHandler) (void);
+void (*FLASH__pvfGetIRQVectorHandler(void))(void);
+void (**FLASH__pvfGetIRQVectorHandlerPointer(void))(void);
 
 #endif /* XDRIVER_MCU_FLASH_DRIVER_INTRINSICS_INTERRUPT_INTERRUPTROUTINE_FLASH_INTERRUPTROUTINE_H_ */

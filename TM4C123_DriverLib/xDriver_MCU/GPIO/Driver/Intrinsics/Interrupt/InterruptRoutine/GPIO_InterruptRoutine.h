@@ -33,6 +33,7 @@
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Vector_GPIOE.h>
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/GPIO_InterruptRoutine_Vector_GPIOF.h>
 
-extern void (*GPIO__pvIRQVectorHandler[(uint32_t) GPIO_enPORT_MAX]) (void);
+void (*GPIO__pvfGetIRQVectorHandler(GPIO_nPORT enGPIOPort))(void);
+void (**GPIO__pvfGetIRQVectorHandlerPointer(GPIO_nPORT enGPIOPort))(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_DRIVER_GPIO_INTRINSICS_GPIO_INTERRUPT_GPIO_INTERRUPTROUTINE_GPIO_INTERRUPTROUTINE_H_ */

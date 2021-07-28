@@ -42,7 +42,7 @@ GPIO_nLEVEL GPIO__enGetIntLevel(GPIO_nPORT enPort, GPIO_nPIN enPin)
     {
         enFeature = (GPIO_nLEVEL) GPIO__u32GetGeneric(enPort, GPIO_IEV_OFFSET, enPin);
     }
-    return enFeature;
+    return (enFeature);
 }
 
 

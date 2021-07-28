@@ -45,8 +45,7 @@ typedef volatile struct
 
 typedef volatile struct
 {
-    const uint32_t reserved [10UL];
-    volatile uint32_t ADDR [22UL];
+    volatile uint32_t ADDR [32UL];
 }BITBANDING_DMACTLBASE_TypeDef;
 
 typedef volatile struct

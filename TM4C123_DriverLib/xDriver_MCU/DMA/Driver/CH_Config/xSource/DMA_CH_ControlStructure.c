@@ -55,5 +55,5 @@ DMA_nCH_CTL DMA_CH__enGetControlStructure(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_CTL enChannelControlStructure = DMA_enCH_CTL_UNDEF;
     enChannelControlStructure = (DMA_nCH_CTL) DMA_CH__u32GetConfigGeneric(enChannel, DMA_ALTSET_OFFSET);
-    return enChannelControlStructure;
+    return (enChannelControlStructure);
 }

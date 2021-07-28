@@ -12,16 +12,14 @@
 FPU_nHALF_PRECISION FPU__enGetHalfPrecision(void)
 {
     FPU_nHALF_PRECISION enReturn = FPU_enHALF_PRECISION_IEEE;
-    uint32_t u32Reg = 0UL;
-
-    u32Reg = MCU__u32ReadRegister(FPU_BASE, FPU_FPDSCR_OFFSET, FPU_FPDSCR_AHP_MASK, FPU_FPDSCR_R_AHP_BIT);
-    enReturn = (FPU_nHALF_PRECISION) u32Reg;
-
-    return (FPU_nHALF_PRECISION) enReturn;
+    enReturn = (FPU_nHALF_PRECISION) MCU__u32ReadRegister(FPU_BASE, FPU_FPDSCR_OFFSET,
+                                                          FPU_FPDSCR_AHP_MASK, FPU_FPDSCR_R_AHP_BIT);
+    return (enReturn);
 }
 
 /*ToDo use the correct register. FPSCR instead FPDSCR*/
 void FPU__vSetHalfPrecision(FPU_nHALF_PRECISION enHalfPrecision)
 {
-    MCU__vWriteRegister(FPU_BASE, FPU_FPDSCR_OFFSET, (uint32_t) enHalfPrecision, FPU_FPDSCR_AHP_MASK, FPU_FPDSCR_R_AHP_BIT);
+    MCU__vWriteRegister(FPU_BASE, FPU_FPDSCR_OFFSET, (uint32_t) enHalfPrecision,
+                        FPU_FPDSCR_AHP_MASK, FPU_FPDSCR_R_AHP_BIT);
 }

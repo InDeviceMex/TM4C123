@@ -33,7 +33,9 @@ float32_t ACMP__f32SetVoltageReference(ACMP_nMODULE enModule, float32_t f32Volta
     float32_t f32VoltageProcentage1 = 0.0f;
     float32_t f32VoltageProcentage2 = 0.0f;
     float32_t f32VoltageProcentageDecimal1 = 0.0f;
+    float32_t f32VoltageProcentageDecimal1Temp = 0.0f;
     float32_t f32VoltageProcentageDecimal2 = 0.0f;
+    float32_t f32VoltageProcentageDecimal2Temp = 0.0f;
     float32_t f32VoltageCurrent = 0.0f;
     uint32_t u32VoltageProcentageInteger1 = 0UL;
     uint32_t u32VoltageProcentageInteger2 = 0UL;
@@ -60,7 +62,9 @@ float32_t ACMP__f32SetVoltageReference(ACMP_nMODULE enModule, float32_t f32Volta
             f32VoltageProcentage1 += 0.5f;
 
             u32VoltageProcentageInteger1 = (uint32_t) f32VoltageProcentage1;
-            f32VoltageProcentageDecimal1 = 1.0f - f32VoltageProcentageDecimal1;
+            f32VoltageProcentageDecimal1Temp = 1.0f;
+            f32VoltageProcentageDecimal1Temp -= f32VoltageProcentageDecimal1;
+            f32VoltageProcentageDecimal1 = f32VoltageProcentageDecimal1Temp;
         }
 
         /*High Range formula*/
@@ -76,7 +80,9 @@ float32_t ACMP__f32SetVoltageReference(ACMP_nMODULE enModule, float32_t f32Volta
             f32VoltageProcentage2 += 0.5f;
 
             u32VoltageProcentageInteger2 = (uint32_t) f32VoltageProcentage2;
-            f32VoltageProcentageDecimal2 = 1.0f - f32VoltageProcentageDecimal2;
+            f32VoltageProcentageDecimal2Temp = 1.0f;
+            f32VoltageProcentageDecimal2Temp -= f32VoltageProcentageDecimal2;
+            f32VoltageProcentageDecimal2 = f32VoltageProcentageDecimal2Temp;
         }
 
 

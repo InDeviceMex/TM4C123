@@ -48,5 +48,5 @@ GPIO_nALT_FUNCTION GPIO__enGetAltFunction(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nALT_FUNCTION enFeature = GPIO_enALT_FUNCTION_UNDEF;
     enFeature = (GPIO_nALT_FUNCTION) GPIO__u32GetGeneric(enPort, GPIO_AFSEL_OFFSET, enPin);
-    return enFeature;
+    return (enFeature);
 }

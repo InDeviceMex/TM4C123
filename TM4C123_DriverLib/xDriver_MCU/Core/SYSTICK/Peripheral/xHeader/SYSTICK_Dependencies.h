@@ -9,8 +9,6 @@
 #define XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_DEPENDENCIES_H_
 
 #include <xDriver_MCU/Core/SCB/SCB.h>
-#include <xDriver_MCU/SYSCTL/SYSCTL.h>
-
-#include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
+#include <xApplication_MCU/Core/SCB/SCB.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_DEPENDENCIES_H_ */

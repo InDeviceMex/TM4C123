@@ -23,14 +23,21 @@
  */
 #include <xDriver_MCU/DMA/App/xHeader/DMA_Init.h>
 
-#include <xUtils/Standard/Standard.h>
 #include <xDriver_MCU/DMA/Driver/DMA_Driver.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
 
 void DMA__vInit(void)
 {
-    DMA__vRegisterIRQVectorHandler( &DMA_SW__vIRQVectorHandler, DMA_enVECTOR_SW);
-    DMA__vRegisterIRQVectorHandler( &DMA_ERROR__vIRQVectorHandler, DMA_enVECTOR_ERROR);
+    void (*pfIrqVectorHandler) (void) = (void (*) (void)) 0UL;
+
+    DMA__vSetReady(DMA_enMODULE_0);
+
+    pfIrqVectorHandler = DMA__pvfGetIRQVectorHandler(DMA_enVECTOR_SW);
+    DMA__vRegisterIRQVectorHandler( pfIrqVectorHandler, DMA_enVECTOR_SW);
+
+    pfIrqVectorHandler = DMA__pvfGetIRQVectorHandler(DMA_enVECTOR_ERROR);
+    DMA__vRegisterIRQVectorHandler( pfIrqVectorHandler, DMA_enVECTOR_ERROR);
+
     DMA__vSetChannelControlPointer( (uint32_t) DMA__stChannel);
     DMA__vSetModuleEnable(DMA_enENABLE_ENA);
 }

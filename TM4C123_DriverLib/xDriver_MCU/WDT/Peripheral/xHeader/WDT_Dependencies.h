@@ -26,7 +26,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_WDT_WDT_PERIPHERAL_WDT_DEPENDENCIES_H_
 
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xApplication_MCU/Core/SCB/SCB.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 

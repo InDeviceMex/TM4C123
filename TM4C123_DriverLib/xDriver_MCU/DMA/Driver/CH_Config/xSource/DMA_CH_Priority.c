@@ -55,5 +55,5 @@ DMA_nCH_PRIO DMA_CH__enGetPriority(DMA_nCH_MODULE enChannel)
 {
     DMA_nCH_PRIO enChannelPrio = DMA_enCH_PRIO_UNDEF;
     enChannelPrio = (DMA_nCH_PRIO) DMA_CH__u32GetConfigGeneric(enChannel, DMA_PRIOSET_OFFSET);
-    return enChannelPrio;
+    return (enChannelPrio);
 }

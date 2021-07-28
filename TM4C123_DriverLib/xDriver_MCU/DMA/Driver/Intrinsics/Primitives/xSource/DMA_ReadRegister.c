@@ -37,5 +37,5 @@ DMA_nSTATUS DMA__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32Featur
         enStatus = DMA_enSTATUS_OK;
         *pu32FeatureValue = MCU__u32ReadRegister(DMA_BASE, u32OffsetRegister, u32MaskFeature, u32BitFeature);
     }
-    return enStatus;
+    return (enStatus);
 }

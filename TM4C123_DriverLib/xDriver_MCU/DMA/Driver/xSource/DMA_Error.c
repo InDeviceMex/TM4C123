@@ -35,5 +35,5 @@ DMA_nERROR DMA__enGetModuleError(void)
 {
     DMA_nERROR enModuleError = DMA_enSTATUS_ERROR_UNDEF;
     DMA__enReadRegister(DMA_ERRCLR_OFFSET, (uint32_t*) &enModuleError, DMA_ERRCLR_ERRCLR_MASK, DMA_ERRCLR_R_ERRCLR_BIT);
-    return enModuleError;
+    return (enModuleError);
 }

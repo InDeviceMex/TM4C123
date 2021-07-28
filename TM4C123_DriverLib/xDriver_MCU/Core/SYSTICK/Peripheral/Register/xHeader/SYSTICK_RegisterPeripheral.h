@@ -28,30 +28,30 @@
 #include <xDriver_MCU/Core/SYSTICK/Peripheral/Struct/xHeader/SYSTICK_StructPeripheral.h>
 #include <xDriver_MCU/Core/SYSTICK/Peripheral/Register/xHeader/SYSTICK_RegisterAddress.h>
 
-#define SysTick    ((SysTick_TypeDef*) (SysTick_BASE))
+#define SYSTICK    ((SYSTICK_TypeDef*) (SYSTICK_BASE))
 
 /*********************************************************************************************
 ************************************** 1 CSR **********************************************
 *********************************************************************************************/
-#define SysTick_CSR    ((SysTick_CSR_TypeDef*) (SysTick_BASE + SysTick_CSR_OFFSET))
-#define SysTick_CSR_R    (*((volatile uint32_t*) (SysTick_BASE + SysTick_CSR_OFFSET)))
+#define SYSTICK_CSR    ((SYSTICK_CSR_TypeDef*) (SYSTICK_BASE + SYSTICK_CSR_OFFSET))
+#define SYSTICK_CSR_R    (*((volatile uint32_t*) (SYSTICK_BASE + SYSTICK_CSR_OFFSET)))
 
 /*********************************************************************************************
 ************************************** 2 LOAD **********************************************
 *********************************************************************************************/
-#define SysTick_RVR    ((SysTick_RVR_TypeDef*) (SysTick_BASE + SysTick_RVR_OFFSET))
-#define SysTick_RVR_R    (*((volatile uint32_t*) (SysTick_BASE + SysTick_RVR_OFFSET)))
+#define SYSTICK_RVR    ((SYSTICK_RVR_TypeDef*) (SYSTICK_BASE + SYSTICK_RVR_OFFSET))
+#define SYSTICK_RVR_R    (*((volatile uint32_t*) (SYSTICK_BASE + SYSTICK_RVR_OFFSET)))
 
 /*********************************************************************************************
 **************************************** 3 VAL **********************************************
 ***********************************************************************************************/
-#define SysTick_CVR    ((SysTick_CVR_TypeDef*) (SysTick_BASE + SysTick_CVR_OFFSET))
-#define SysTick_CVR_R    (*((volatile uint32_t*) (SysTick_BASE + SysTick_CVR_OFFSET)))
+#define SYSTICK_CVR    ((SYSTICK_CVR_TypeDef*) (SYSTICK_BASE + SYSTICK_CVR_OFFSET))
+#define SYSTICK_CVR_R    (*((volatile uint32_t*) (SYSTICK_BASE + SYSTICK_CVR_OFFSET)))
 
 /*********************************************************************************************
 **************************************** 3 CR **********************************************
 ***********************************************************************************************/
-#define SysTick_CR    ((SysTick_CR_TypeDef*) (SysTick_BASE + SysTick_CR_OFFSET))
-#define SysTick_CR_R    (*((volatile uint32_t*) (SysTick_BASE + SysTick_CR_OFFSET)))
+#define SYSTICK_CR    ((SYSTICK_CR_TypeDef*) (SYSTICK_BASE + SYSTICK_CR_OFFSET))
+#define SYSTICK_CR_R    (*((volatile uint32_t*) (SYSTICK_BASE + SYSTICK_CR_OFFSET)))
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SYSTICK_SYSTICK_PERIPHERAL_SYSTICK_REGISTER_SYSTICK_REGISTERPERIPHERAL_H_ */

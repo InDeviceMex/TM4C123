@@ -28,16 +28,14 @@
 
 void SCB__vSetStackAligment(SCB_nAlignment enAlign)
 {
-    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, (uint32_t) enAlign, SCB_CCR_STKALIGN_MASK, SCB_CCR_R_STKALIGN_BIT);
+    MCU__vWriteRegister(SCB_BASE, SCB_CCR_OFFSET, (uint32_t) enAlign,
+                        SCB_CCR_STKALIGN_MASK, SCB_CCR_R_STKALIGN_BIT);
 }
 
 SCB_nAlignment SCB__enGetStackAligment(void)
 {
     SCB_nAlignment enReturn = SCB_enALIGN_ERROR;
-    uint32_t u32Reg = 0UL;
-
-    u32Reg = MCU__u32ReadRegister(SCB_BASE, SCB_CCR_OFFSET, SCB_CCR_STKALIGN_MASK, SCB_CCR_R_STKALIGN_BIT);
-    enReturn = (SCB_nAlignment) u32Reg;
-
-    return enReturn;
+    enReturn = (SCB_nAlignment) MCU__u32ReadRegister(SCB_BASE, SCB_CCR_OFFSET,
+                                     SCB_CCR_STKALIGN_MASK, SCB_CCR_R_STKALIGN_BIT);
+    return (enReturn);
 }

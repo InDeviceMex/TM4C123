@@ -23,7 +23,7 @@
  */
 #include <xDriver_MCU/Core/SCB/Driver/Exception/SCB_Exception.h>
 
-inline void SCB__vEnableExceptions(void)
+void SCB__vEnableAllExceptions(void)
 {
     SCB_UsageFault__vEnable();
     SCB_BusFault__vEnable();

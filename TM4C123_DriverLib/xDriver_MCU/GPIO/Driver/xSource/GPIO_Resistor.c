@@ -71,5 +71,5 @@ GPIO_nRESMODE GPIO__enGetResistorMode(GPIO_nPORT enPort, GPIO_nPIN enPin)
     }
     else{}
 
-    return enResistorType;
+    return (enResistorType);
 }

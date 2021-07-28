@@ -28,18 +28,12 @@
 
 inline void GPIO__vSetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t u32Data)
 {
-    uint32_t u32Pin = 0UL;
-    u32Pin = (uint32_t) enPin;
-    u32Pin &= (uint32_t) GPIO_enPIN_ALL;
-    GPIO__vWriteRegister(enPort, GPIO_DATA_OFFSET, u32Data, u32Pin, 0UL);
+    GPIO__vWriteRegister(enPort, GPIO_DATA_OFFSET, u32Data, (uint32_t) enPin, 0UL);
 }
 
 inline GPIO_nSTATUS GPIO__enGetData(GPIO_nPORT enPort, GPIO_nPIN enPin, uint32_t* pu32Feature)
 {
     GPIO_nSTATUS enStatus = GPIO_enSTATUS_UNDEF;
-    uint32_t u32Pin = 0UL;
-    u32Pin = (uint32_t) enPin;
-    u32Pin &= (uint32_t) GPIO_enPIN_ALL;
-    enStatus = GPIO__enReadRegister(enPort, GPIO_DATA_OFFSET, pu32Feature, u32Pin, 0UL);
-    return enStatus;
+    enStatus = GPIO__enReadRegister(enPort, GPIO_DATA_OFFSET, pu32Feature, (uint32_t) enPin, 0UL);
+    return (enStatus);
 }

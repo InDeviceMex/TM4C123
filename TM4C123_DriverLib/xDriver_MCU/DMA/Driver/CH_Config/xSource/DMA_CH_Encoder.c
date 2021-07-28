@@ -90,7 +90,7 @@ DMA_nCH_ENCODER DMA_CH__enGetEncoder(DMA_nCH_MODULE enChannel)
     {
         enChannelEncoder = (DMA_nCH_ENCODER) u32Encoder;
     }
-    return enChannelEncoder;
+    return (enChannelEncoder);
 }
 
 DMA_nCHSRC DMA_CH__enGetEncoderDefine(DMA_nCH_MODULE enChannel)
@@ -108,5 +108,5 @@ DMA_nCHSRC DMA_CH__enGetEncoderDefine(DMA_nCH_MODULE enChannel)
     u32EncoderChannel = (uint32_t) enChannel;
     u32EncoderChannel |= u32Encoder;
     enEncoderChannel = (DMA_nCHSRC) u32EncoderChannel;
-    return enEncoderChannel;
+    return (enEncoderChannel);
 }

@@ -25,11 +25,9 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 #define XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_
 
-#include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 #include <xUtils/Standard/Standard.h>
 
 void SCB__vSetVectorOffset(uint32_t u32Offset);
-
-extern void (*SCB__pfnVectors[SCB_VECTOR_TABLE_SIZE]) (void);
+uint32_t SCB__u32GetVectorOffset(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_VECTOROFFSET_H_ */

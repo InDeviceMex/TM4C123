@@ -64,7 +64,6 @@
 #define NVIC_ICER2_NVIC_RES82_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
-
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES83_MASK    ((uint32_t) 0x00000008UL)
 #define NVIC_ICER2_R_NVIC_RES83_BIT    (3UL)
@@ -131,7 +130,6 @@
 #define NVIC_ICER2_NVIC_RES88_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
 
-
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES89_MASK    ((uint32_t) 0x00000200UL)
 #define NVIC_ICER2_R_NVIC_RES89_BIT    (9UL)
@@ -142,7 +140,6 @@
 #define NVIC_ICER2_NVIC_RES89_DIS    ((uint32_t) 0x00000000UL)
 #define NVIC_ICER2_NVIC_RES89_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
-
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES90_MASK    ((uint32_t) 0x00000400UL)
@@ -176,7 +173,6 @@
 #define NVIC_ICER2_NVIC_RES92_DIS    ((uint32_t) 0x00000000UL)
 #define NVIC_ICER2_NVIC_RES92_ENA    ((uint32_t) 0x00000001UL)
 /*----------*/
-
 
 /*----------*/
 #define NVIC_ICER2_R_NVIC_RES93_MASK    ((uint32_t) 0x00002000UL)

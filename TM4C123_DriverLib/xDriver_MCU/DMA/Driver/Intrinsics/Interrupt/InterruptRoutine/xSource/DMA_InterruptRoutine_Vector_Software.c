@@ -25,7 +25,6 @@
 
 #include <xDriver_MCU/DMA/Driver/Intrinsics/Interrupt/InterruptRoutine/xHeader/DMA_InterruptRoutine_Source.h>
 #include <xDriver_MCU/DMA/Peripheral/DMA_Peripheral.h>
-#include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Dependencies.h>
 
 void DMA_SW__vIRQVectorHandler(void)
 {

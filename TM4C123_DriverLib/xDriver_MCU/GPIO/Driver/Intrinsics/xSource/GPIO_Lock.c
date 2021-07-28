@@ -40,5 +40,5 @@ GPIO_nLOCK GPIO__enIsLocked(GPIO_nPORT enPort)
 {
     GPIO_nLOCK enReg = GPIO_enLOCK_UNDEF;
     GPIO__enReadRegister(enPort, GPIO_LOCK_OFFSET, (uint32_t*) &enReg, GPIO_LOCK_R_LOCK_LOCK, 0UL);
-    return enReg;
+    return (enReg);
 }

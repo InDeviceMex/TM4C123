@@ -1,6 +1,6 @@
 /**
  *
- * @file SCB_SysTick.h
+ * @file SCB_SYSTICK.h
  * @copyright
  * @verbatim InDeviceMex 2020 @endverbatim
  *
@@ -27,11 +27,11 @@
 
 #include <xDriver_MCU/Core/SCB/Peripheral/xHeader/SCB_Enum.h>
 
-void SCB_SysTick__vSetPending(void);
-void SCB_SysTick__vClearPending(void);
-SCB_nPENDSTATE SCB_SysTick__enGetPending(void);
+void SCB_SYSTICK__vSetPending(void);
+void SCB_SYSTICK__vClearPending(void);
+SCB_nPENDSTATE SCB_SYSTICK__enGetPending(void);
 
-void SCB_SysTick__vSetPriority(SCB_nSHPR enSysTickPriority);
-SCB_nSHPR SCB_SysTick__enGetPriority(void);
+void SCB_SYSTICK__vSetPriority(SCB_nSHPR enSYSTICKPriority);
+SCB_nSHPR SCB_SYSTICK__enGetPriority(void);
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_DRIVER_SCB_SYSTICK_H_ */

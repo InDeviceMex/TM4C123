@@ -35,7 +35,7 @@ GPIO_nSENSE GPIO__enGetIntSense(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nSENSE enFeature = GPIO_enSENSE_UNDEF;
     enFeature = (GPIO_nSENSE) GPIO__u32GetGeneric(enPort, GPIO_IS_OFFSET, enPin);
-    return enFeature;
+    return (enFeature);
 }
 
 

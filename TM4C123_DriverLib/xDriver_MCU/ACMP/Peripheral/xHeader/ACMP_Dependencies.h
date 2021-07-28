@@ -25,7 +25,7 @@
 #define XDRIVER_MCU_ACMP_PERIPHERAL_XHEADER_ACMP_DEPENDENCIES_H_
 
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xApplication_MCU/Core/SCB/SCB.h>
 
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 #include <xDriver_MCU/GPIO/GPIO.h>

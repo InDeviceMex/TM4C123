@@ -29,24 +29,26 @@
 void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig, GPIO_CONFIG_Typedef *pstConfig)
 {
     uint32_t u32Reg = 0UL;
+    uint32_t u32Config = 0UL;
     if(0UL != (uint32_t) pstConfig)
     {
-        u32Reg = (uint32_t) enConfig;
+        u32Config = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 0UL;
         u32Reg &= 0x3UL;
         pstConfig->enResistorMode = (GPIO_nRESMODE) u32Reg;
 
-        u32Reg = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 4UL;
         u32Reg &= 0x1UL;
         pstConfig->enOutputMode = (GPIO_nOUTMODE) u32Reg;
 
-        u32Reg = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 8UL;
         u32Reg &= 0x1UL;
         pstConfig->enDirection = (GPIO_nDIR) u32Reg;
 
-        u32Reg = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 16UL;
         u32Reg &= 0x0103U;
         pstConfig->enDrive = (GPIO_nDRIVE) u32Reg;
@@ -56,6 +58,7 @@ void GPIO__vCreateConfigStructPointer(GPIO_nCONFIG enConfig, GPIO_CONFIG_Typedef
 GPIO_CONFIG_Typedef* GPIO__pstCreateConfigStruct(GPIO_nCONFIG enConfig)
 {
     uint32_t u32Reg = 0UL;
+    uint32_t u32Config = 0UL;
     GPIO_CONFIG_Typedef *pstConfig = 0UL;
 #if defined (__TI_ARM__ )
     pstConfig = (GPIO_CONFIG_Typedef*) memalign( (size_t) 4, (size_t) (sizeof(GPIO_CONFIG_Typedef)));
@@ -65,22 +68,23 @@ GPIO_CONFIG_Typedef* GPIO__pstCreateConfigStruct(GPIO_nCONFIG enConfig)
 
     if(0UL != (uint32_t) pstConfig)
     {
-        u32Reg = (uint32_t) enConfig;
+        u32Config = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 0UL;
         u32Reg &= 0x3UL;
         pstConfig->enResistorMode = (GPIO_nRESMODE) u32Reg;
 
-        u32Reg = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 4UL;
         u32Reg &= 0x1UL;
         pstConfig->enOutputMode = (GPIO_nOUTMODE) u32Reg;
 
-        u32Reg = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 8UL;
         u32Reg &= 0x1UL;
         pstConfig->enDirection = (GPIO_nDIR) u32Reg;
 
-        u32Reg = (uint32_t) enConfig;
+        u32Reg = u32Config;
         u32Reg >>= 16UL;
         u32Reg &= 0x0103U;
         pstConfig->enDrive = (GPIO_nDRIVE) u32Reg;

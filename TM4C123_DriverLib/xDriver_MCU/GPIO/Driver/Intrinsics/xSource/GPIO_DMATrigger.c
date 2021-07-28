@@ -45,5 +45,5 @@ GPIO_nDMA_TRIGGER GPIO__enGetDMATrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nDMA_TRIGGER enFeature = GPIO_enDMA_TRIGGER_UNDEF;
     enFeature = (GPIO_nDMA_TRIGGER) GPIO__u32GetGeneric(enPort, GPIO_DMACTL_OFFSET, enPin);
-    return enFeature;
+    return (enFeature);
 }

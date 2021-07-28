@@ -28,7 +28,7 @@
 
 DMA_nSTATUS DMA_CH__enCreateControlStructPointer(uint32_t u32ControlWorld, DMA_CONTROL_Typedef* pstControl)
 {
-    DMA_nSTATUS enSTATus = DMA_enSTATUS_ERROR;
+    DMA_nSTATUS enSTATUS = DMA_enSTATUS_ERROR;
     if(0UL != (uint32_t) pstControl)
     {
         pstControl->enTransferMode = (DMA_nCH_MODE) ((u32ControlWorld >> DMAALTCH_CHCTL_R_XFERMODE_BIT) & DMAALTCH_CHCTL_XFERMODE_MASK);
@@ -40,7 +40,7 @@ DMA_nSTATUS DMA_CH__enCreateControlStructPointer(uint32_t u32ControlWorld, DMA_C
         pstControl->enDestSize = (DMA_nCH_DST_SIZE) ((u32ControlWorld >> DMAALTCH_CHCTL_R_DSTSIZE_BIT) & DMAALTCH_CHCTL_DSTSIZE_MASK);
         pstControl->enDestInc = (DMA_nCH_DST_INC) ((u32ControlWorld >> DMAALTCH_CHCTL_R_DSTINC_BIT) & DMAALTCH_CHCTL_DSTINC_MASK);
     }
-    return enSTATus;
+    return (enSTATUS);
 }
 
 DMA_CONTROL_Typedef* DMA_CH__pstCreateControlStruct(uint32_t u32ControlWorld)
@@ -52,5 +52,5 @@ DMA_CONTROL_Typedef* DMA_CH__pstCreateControlStruct(uint32_t u32ControlWorld)
     pstControl = (DMA_CONTROL_Typedef*) malloc( (size_t) sizeof(DMA_CONTROL_Typedef));
     #endif
     DMA_CH__enCreateControlStructPointer(u32ControlWorld, pstControl);
-    return pstControl;
+    return (pstControl);
 }

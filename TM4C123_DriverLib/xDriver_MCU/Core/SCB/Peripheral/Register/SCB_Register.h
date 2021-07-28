@@ -28,6 +28,4 @@
 #include <xDriver_MCU/Core/SCB/Peripheral/Register/RegisterDefines/SCB_RegisterDefines.h>
 #include <xDriver_MCU/Core/SCB/Peripheral/Register/xHeader/SCB_RegisterPeripheral.h>
 
-void SCB_vBarrier(void);
-
 #endif /* XDRIVER_MCU_DRIVER_HEADER_SCB_SCB_PERIPHERAL_SCB_REGISTER_H_ */

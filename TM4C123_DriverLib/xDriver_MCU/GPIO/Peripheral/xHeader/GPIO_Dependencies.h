@@ -26,7 +26,7 @@
 #define XDRIVER_MCU_DRIVER_HEADER_GPIO_GPIO_PERIPHERAL_GPIO_DEPENDENCIES_H_
 
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xApplication_MCU/Core/SCB/SCB.h>
 
 #include <xDriver_MCU/SYSCTL/SYSCTL.h>
 

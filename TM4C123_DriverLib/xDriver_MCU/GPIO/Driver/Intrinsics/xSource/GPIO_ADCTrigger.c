@@ -45,5 +45,5 @@ GPIO_nADC_TRIGGER GPIO__enGetADCTrigger(GPIO_nPORT enPort, GPIO_nPIN enPin)
 {
     GPIO_nADC_TRIGGER enFeature = GPIO_enADC_TRIGGER_UNDEF;
     enFeature = (GPIO_nADC_TRIGGER) GPIO__u32GetGeneric(enPort, GPIO_ADCCTL_OFFSET, enPin);
-    return enFeature;
+    return (enFeature);
 }

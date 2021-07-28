@@ -28,13 +28,11 @@
 
 void GPIO__vEnGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO_nPIN enPin)
 {
-    enPin &= (uint32_t) GPIO_enPIN_ALL;
     GPIO__vWriteRegister(enPort, u32RegisterOffset, (uint32_t) enPin, (uint32_t) enPin, 0UL);
 }
 
 void GPIO__vDisGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO_nPIN enPin)
 {
-    enPin &= (uint32_t) GPIO_enPIN_ALL;
     GPIO__vWriteRegister(enPort, u32RegisterOffset, 0UL, (uint32_t) enPin, 0UL);
 }
 
@@ -69,5 +67,5 @@ uint32_t GPIO__u32GetGeneric(GPIO_nPORT enPort, uint32_t u32RegisterOffset, GPIO
             u32Feature = 0UL;
         }
     }
-    return u32Feature;
+    return (u32Feature);
 }

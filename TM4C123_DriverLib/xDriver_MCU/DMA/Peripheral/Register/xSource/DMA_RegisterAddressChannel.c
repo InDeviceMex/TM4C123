@@ -23,8 +23,6 @@
  */
 #include <xDriver_MCU/DMA/Peripheral/Register/xHeader/DMA_RegisterAddressChannel.h>
 
-#include <xUtils/Standard/Standard.h>
-#include <xDriver_MCU/DMA/Peripheral/Struct/xHeader/DMA_StructPeripheralChannel.h>
 
 #if defined (__TI_ARM__ )
 

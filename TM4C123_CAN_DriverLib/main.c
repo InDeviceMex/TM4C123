@@ -2,6 +2,7 @@
 
 /*MCU Drivers*/
 #include <xDriver_MCU/xDriver_MCU.h>
+#include <xApplication_MCU/xApplication_MCU.h>
 #include <xDriver_MCU/UART/Peripheral/UART_Peripheral.h>
 
 /*Utils Libraries*/
@@ -44,12 +45,12 @@ uint16_t u16LightExp= 0U;
 
 int32_t main(void)
 {
-    float32_t f32TimeSystickStart_Task1 = 0.0f;
-    float32_t f32TimeSystickEnd_Task1 = 0.0f;
-    float32_t f32TimeSystickStart_Task2 = 0.0f;
-    float32_t f32TimeSystickEnd_Task2 = 0.0f;
-    float32_t f32TimeSystickStart_Task3 = 0.0f;
-    float32_t f32TimeSystickEnd_Task3 = 0.0f;
+    float32_t f32TimeSYSTICKStart_Task1 = 0.0f;
+    float32_t f32TimeSYSTICKEnd_Task1 = 0.0f;
+    float32_t f32TimeSYSTICKStart_Task2 = 0.0f;
+    float32_t f32TimeSYSTICKEnd_Task2 = 0.0f;
+    float32_t f32TimeSYSTICKStart_Task3 = 0.0f;
+    float32_t f32TimeSYSTICKEnd_Task3 = 0.0f;
     uint32_t u32FlagTask3 = 0UL;
     uint32_t u32StateTask3 = 0UL;
     EDUMKII_nJOYSTICK enJoystickSelectValue = (EDUMKII_nJOYSTICK) 0UL;
@@ -89,19 +90,19 @@ int32_t main(void)
     */
     while(1UL)
     {
-        f32TimeSystickEnd_Task1 = SysTick__f32GetTimeUs();
-        if(f32TimeSystickEnd_Task1>=f32TimeSystickStart_Task1)
+        f32TimeSYSTICKEnd_Task1 = (float32_t) SYSTICK__u64GetTimeUs();
+        if(f32TimeSYSTICKEnd_Task1>=f32TimeSYSTICKStart_Task1)
         {
-            f32TimeSystickEnd_Task1 = (f32TimeSystickEnd_Task1 - f32TimeSystickStart_Task1);
+            f32TimeSYSTICKEnd_Task1 = (f32TimeSYSTICKEnd_Task1 - f32TimeSYSTICKStart_Task1);
         }
         else
         {
-            f32TimeSystickEnd_Task1 = (f32TimeSystickStart_Task1 - f32TimeSystickEnd_Task1);
+            f32TimeSYSTICKEnd_Task1 = (f32TimeSYSTICKStart_Task1 - f32TimeSYSTICKEnd_Task1);
         }
-        if(f32TimeSystickEnd_Task1 >= 180000.0f)
+        if(f32TimeSYSTICKEnd_Task1 >= 180000.0f)
         {
 
-            f32TimeSystickStart_Task1 = SysTick__f32GetTimeUs();
+            f32TimeSYSTICKStart_Task1 = (float32_t) SYSTICK__u64GetTimeUs();
 
             enButtonState = EDUMKII_Button_enRead(EDUMKII_enBUTTON_ALL);
             EDUMKII_Joystick_vSample( &u32JoystickXValue, &u32JoystickYValue, &enJoystickSelectValue);
@@ -111,7 +112,7 @@ int32_t main(void)
             enButton1State = (EDUMKII_nBUTTON_STATE) ((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_1);
             enButton2State = (EDUMKII_nBUTTON_STATE) (((uint32_t) enButtonState & (uint32_t) EDUMKII_enBUTTON_2) >> 1UL);
 
-            f32Time = f32TimeSystickStart_Task1;
+            f32Time = f32TimeSYSTICKStart_Task1;
             f32Time /= 1000000.0f;
 
             GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 5UL,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 1", f32Time, DEBUG_HEADER_PARAMS);
@@ -127,25 +128,25 @@ int32_t main(void)
             u32LcdPosY = u32LcdPosYCurrent;
         }
 
-        f32TimeSystickEnd_Task2 = SysTick__f32GetTimeUs();
-        if(f32TimeSystickEnd_Task2 >= f32TimeSystickStart_Task2)
+        f32TimeSYSTICKEnd_Task2 = (float32_t) SYSTICK__u64GetTimeUs();
+        if(f32TimeSYSTICKEnd_Task2 >= f32TimeSYSTICKStart_Task2)
         {
-            f32TimeSystickEnd_Task2 = (f32TimeSystickEnd_Task2 - f32TimeSystickStart_Task2);
+            f32TimeSYSTICKEnd_Task2 = (f32TimeSYSTICKEnd_Task2 - f32TimeSYSTICKStart_Task2);
         }
         else
         {
-            f32TimeSystickEnd_Task2 = (f32TimeSystickStart_Task2 - f32TimeSystickEnd_Task2);
+            f32TimeSYSTICKEnd_Task2 = (f32TimeSYSTICKStart_Task2 - f32TimeSYSTICKEnd_Task2);
         }
-        if(f32TimeSystickEnd_Task2 >= 700000.0f)
+        if(f32TimeSYSTICKEnd_Task2 >= 700000.0f)
         {
-            f32TimeSystickStart_Task2 = SysTick__f32GetTimeUs();
+            f32TimeSYSTICKStart_Task2 = (float32_t) SYSTICK__u64GetTimeUs();
 
             EDUMKII_Accelerometer_vSample( &s32AccelerometerXValue, &s32AccelerometerYValue, &s32AccelerometerZValue);
             EDUMKII_Microphone_vSample( &u32MicrophoneValue);
 
 
 
-            f32Time = f32TimeSystickStart_Task2;
+            f32Time = f32TimeSYSTICKStart_Task2;
             f32Time /= 1000000.0f;
 
             GraphTerm__u32Printf(UART_enMODULE_0, 0UL, 6UL,"[%.3f] "DEBUG_HEADER_STRING"Testing Task 2", f32Time, DEBUG_HEADER_PARAMS);
@@ -175,7 +176,7 @@ int32_t main(void)
 
         if(0UL == u32StateTask3)
         {
-            f32TimeSystickStart_Task3 = SysTick__f32GetTimeUs();
+            f32TimeSYSTICKStart_Task3 = (float32_t) SYSTICK__u64GetTimeUs();
             I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit1, 3UL);
             I2C_Master_enTransmitReceive(I2C_enMODULE_1, 0x44UL, pu8LightSensorTransmit3, 1UL,pu8LightSensorReceive1, 2UL);
             I2C_Master_enTransmitMultiByte(I2C_enMODULE_1, 0x44UL, &pu8LightSensorTransmit1[3UL], 3UL);
@@ -217,7 +218,7 @@ void MAIN_vInitSystem(void)
     MPU__vInit();
     NVIC__vDeInitInterrupts();
     SYSCTL__vDeInitClockGates();
-    MCU__vEnGlobalInterrupt();
+    MCU__enEnGlobalInterrupt();
     SCB__vInit();
     FLASH__enInit();
     SYSEXC__vInit((SYSEXC_nINT) ((uint32_t) SYSEXC_enINT_INVALID | (uint32_t) SYSEXC_enINT_DIV0 | (uint32_t) SYSEXC_enINT_OVERFLOW | (uint32_t) SYSEXC_enINT_UNDERFLOW),SYSEXC_enPRI7);
@@ -267,7 +268,7 @@ void MAIN_vInitSystem(void)
 #endif
     EEPROM__enInit();
     u32Clock = SYSCTL__u32GetClock();
-    SysTick__enInitUs(((float32_t) u32Clock / 8000.0f),SCB_enSHPR0);
+    SYSTICK__enInitUs((u32Clock / 8000UL),SYSTICK_enPRI0);
     GPIO__vInit();
     TIMER__vInit();
     DMA__vInit();

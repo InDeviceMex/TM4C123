@@ -23,8 +23,6 @@
  */
 #include <xDriver_MCU/GPIO/Driver/Intrinsics/Interrupt/InterruptRoutine/GPIO_InterruptRoutine.h>
 
-#include <xDriver_MCU/GPIO/Peripheral/xHeader/GPIO_Enum.h>
-
 void (*GPIO__pvIRQVectorHandler[(uint32_t) GPIO_enPORT_MAX])(void)=
 {
     &GPIOA__vIRQVectorHandler,
@@ -34,3 +32,13 @@ void (*GPIO__pvIRQVectorHandler[(uint32_t) GPIO_enPORT_MAX])(void)=
     &GPIOE__vIRQVectorHandler,
     &GPIOF__vIRQVectorHandler
 };
+
+void (*GPIO__pvfGetIRQVectorHandler(GPIO_nPORT enGPIOPort))(void)
+{
+    return (GPIO__pvIRQVectorHandler[(uint32_t) enGPIOPort]);
+}
+
+void (**GPIO__pvfGetIRQVectorHandlerPointer(GPIO_nPORT enGPIOPort))(void)
+{
+    return ((void(**)(void)) &GPIO__pvIRQVectorHandler[(uint32_t) enGPIOPort]);
+}

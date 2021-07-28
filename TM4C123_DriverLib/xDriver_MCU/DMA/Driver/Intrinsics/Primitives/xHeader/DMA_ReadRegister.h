@@ -26,7 +26,6 @@
 #define XDRIVER_MCU_DMA_DRIVER_INTRINSICS_PRIMITIVES_XHEADER_DMA_READREGISTER_H_
 
 #include <xDriver_MCU/DMA/Peripheral/xHeader/DMA_Enum.h>
-#include <xUtils/Standard/Standard.h>
 
 DMA_nSTATUS DMA__enReadRegister(uint32_t u32OffsetRegister, uint32_t* pu32FeatureValue, uint32_t u32MaskFeature, uint32_t u32BitFeature);
 

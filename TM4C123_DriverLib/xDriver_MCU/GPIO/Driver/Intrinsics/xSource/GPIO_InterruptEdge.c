@@ -58,7 +58,7 @@ GPIO_nEDGE GPIO__enGetIntEdge(GPIO_nPORT enPort, GPIO_nPIN enPin)
         }
         enFeature = (GPIO_nEDGE) u32Feature;
     }
-    return enFeature;
+    return (enFeature);
 }
 
 

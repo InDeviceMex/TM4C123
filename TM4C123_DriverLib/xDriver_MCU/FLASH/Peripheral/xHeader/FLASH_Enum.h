@@ -8,6 +8,8 @@
 #ifndef XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_ENUM_H_
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_ENUM_H_
 
+#include <xUtils/Standard/Standard.h>
+
 typedef enum
 {
     FLASH_enOK = 0UL,
@@ -60,5 +62,18 @@ typedef enum
     FLASH_enPRI_MIN = 7UL,
     FLASH_enDEFAULT = 0xFFFFFFFFUL,
 }FLASH_nPRIORITY;
+
+typedef enum
+{
+    FLASH_enVARIABLE_BYTE = 0UL,
+    FLASH_enVARIABLE_HALFWORD = 1UL,
+    FLASH_enVARIABLE_WORD = 2UL,
+}FLASH_nVARIABLE;
+
+typedef enum
+{
+    FLASH_enCONSTANT_OFF = 0UL,
+    FLASH_enCONSTANT_ON = 1UL,
+}FLASH_nCONSTANT;
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_ENUM_H_ */

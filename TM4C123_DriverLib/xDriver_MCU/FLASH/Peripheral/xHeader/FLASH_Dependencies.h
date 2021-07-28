@@ -9,9 +9,8 @@
 #define XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DEPENDENCIES_H_
 
 #include <xDriver_MCU/Core/NVIC/NVIC.h>
-#include <xDriver_MCU/Core/SCB/SCB.h>
+#include <xApplication_MCU/Core/SCB/SCB.h>
 
-#include <xDriver_MCU/EEPROM/Peripheral/EEPROM_Peripheral.h>
 #include <xDriver_MCU/SYSCTL/Peripheral/SYSCTL_Peripheral.h>
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_FLASH_FLASH_DEPENDENCIES_H_ */
