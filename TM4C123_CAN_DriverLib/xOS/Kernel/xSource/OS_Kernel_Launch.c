@@ -22,13 +22,13 @@
  * Mar 23, 2021        indevicemex    1.0         initial Version@endverbatim
  */
 #include<xOS/Kernel/xHeader/OS_Kernel_Launch.h>
-#include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
+#include <xApplication_MCU/Core/SYSTICK/SYSTICK.h>
 
 void OS_Kernel_Schedule(void);
 
 void OS_Kernel__vLaunch(uint32_t u32Ticks)
 {
-    SysTick__enInitTickVector(u32Ticks, SCB_enSHPR7, SysTick_enSYSCLK, &OS_Kernel_Schedule);
+    SYSTICK__enInitTickVector(u32Ticks, SYSTICK_enPRI7, SYSTICK_enSYSCLK, &OS_Kernel_Schedule);
 }
 
 void OS_Kernel_Schedule(void)

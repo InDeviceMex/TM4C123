@@ -22,12 +22,12 @@
  * 18 feb. 2021     vyldram    1.0         initial Version@endverbatim
  */
 #include <xApplication/ST7735/xHeader/ST7735_Delay.h>
-#include <xDriver_MCU/Core/SYSTICK/SYSTICK.h>
+#include <xApplication_MCU/Core/SYSTICK/SYSTICK.h>
 
 void ST7735__vDelay1ms(uint32_t u32DelayArg)
 {
     u32DelayArg *= 1000UL;
-    SysTick__vDelayUs((float32_t) u32DelayArg);
+    SYSTICK__vDelayUs(u32DelayArg);
 }
 
 
