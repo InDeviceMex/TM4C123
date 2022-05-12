@@ -23,11 +23,42 @@
  */
 #include <xDriver_MCU/Common/xHeader/MCU_SpecialIntructions.h>
 
-__attribute__((naked)) uint32_t MCU__u32GetCounLeadingZeros(uint32_t u32Value)
+__attribute__((naked))
+uint32_t MCU__u32GetCounLeadingZeros(uint32_t u32Value)
 {
-    {__asm(" clz     r1, r0\n");}
-    {__asm(" mov     r0, r1\n");}
-    {__asm(" bx      lr\n");}
+    __asm volatile(
+          " clz     r0, r0\n"
+          " bx      lr\n");
     return (0UL);
 }
+
+__attribute__((naked))
+uint8_t MCU__u8ReverseByte(uint8_t u8Value)
+{
+    __asm volatile(
+          " rbit     r0, r0\n"
+          " lsr     r0, r0, #24\n"
+          " bx      lr\n");
+    return (0UL);
+}
+
+__attribute__((naked))
+uint16_t MCU__u16ReverseHalfWorld(uint16_t u16Value)
+{
+    __asm volatile(
+          " rbit     r0, r0\n"
+          " lsr     r0, r0, #16\n"
+          " bx      lr\n");
+    return (0UL);
+}
+
+__attribute__((naked))
+uint32_t MCU__u32ReverseWorld(uint32_t u32Value)
+{
+    __asm volatile(
+          " rbit     r0, r0\n"
+          " bx      lr\n");
+    return (0UL);
+}
+
 

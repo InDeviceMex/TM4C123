@@ -44,6 +44,7 @@
 #include <xDriver_MCU/CAN/CAN.h>
 #include <xDriver_MCU/ACMP/ACMP.h>
 #include <xDriver_MCU/QEI/QEI.h>
+#include <xDriver_MCU/PWM/PWM.h>
 
 
 #endif /* XDRIVER_MCU_DRIVER_HEADER_DRIVER_H_ */

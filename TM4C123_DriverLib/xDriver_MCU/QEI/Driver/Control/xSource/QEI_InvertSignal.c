@@ -30,11 +30,11 @@ void QEI__vSetInvertSignals(QEI_nMODULE enModule, QEI_nSIGNAL enSignalsArg, QEI_
 {
     if(QEI_enINVERT_DIS == enInvertSignalsArg)
     {
-        QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enSignalsArg, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
+        QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, 0UL, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
     }
     else
     {
-        QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, 0UL, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
+        QEI__vWriteRegister(enModule, QEI_CTL_OFFSET, (uint32_t) enSignalsArg, (uint32_t) enSignalsArg, QEI_CTL_R_INVA_BIT);
     }
 }
 

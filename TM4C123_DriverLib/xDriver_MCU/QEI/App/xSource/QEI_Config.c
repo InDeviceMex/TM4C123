@@ -58,10 +58,10 @@ QEI_nSTATUS QEI__enSetConfig(QEI_nMODULE enModule, const QEI_CONTROL_TypeDef* ps
 
         if(QEI_enRESET_INDEX == pstControlConfig->enResetMode)
         {
-            GPIO__enSetDigitalConfig(QEI_enGpioInput[u32Signal[IDX_SIGNAL]][(uint32_t) enModuleFilter][IDX_SIGNAL], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
+            GPIO__enSetDigitalConfig(QEI_enGpioInput[u32Signal[IDX_SIGNAL]][(uint32_t) enModuleFilter][IDX_SIGNAL], GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLDOWN);
         }
-        GPIO__enSetDigitalConfig(QEI_enGpioInput[u32Signal[PHA_SIGNAL]][(uint32_t) enModuleFilter][PHA_SIGNAL], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
-        GPIO__enSetDigitalConfig(QEI_enGpioInput[u32Signal[PHB_SIGNAL]][(uint32_t) enModuleFilter][PHB_SIGNAL], GPIO_enCONFIG_INPUT_2MA_OPENDRAIN);
+        GPIO__enSetDigitalConfig(QEI_enGpioInput[u32Signal[PHA_SIGNAL]][(uint32_t) enModuleFilter][PHA_SIGNAL], GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLDOWN);
+        GPIO__enSetDigitalConfig(QEI_enGpioInput[u32Signal[PHB_SIGNAL]][(uint32_t) enModuleFilter][PHB_SIGNAL], GPIO_enCONFIG_INPUT_2MA_PUSHPULL_PULLDOWN);
 
         if(QEI_enINVERT_ENA == pstSignalConfig->enPhAInvert)
         {
@@ -109,11 +109,13 @@ QEI_nSTATUS QEI__enSetConfig(QEI_nMODULE enModule, const QEI_CONTROL_TypeDef* ps
             QEI__vSetInputFilterCount(enModuleFilter, pstControlConfig->enInputFilterCount);
         }
 
+        QEI__vSetMaxPosition(enModuleFilter, u32MaxPositionArg);
+        QEI__vSetLoadTimer(enModuleFilter, u32TimerLoad);
+
         QEI__vSetEnable(enModuleFilter, pstControlConfig->enEnableModule);
 
         QEI__vSetPosition(enModuleFilter, u32InitialPosArg);
-        QEI__vSetMaxPosition(enModuleFilter, u32MaxPositionArg);
-        QEI__vSetLoadTimer(enModuleFilter, u32TimerLoad);
+
         enReturn = QEI_enSTATUS_OK;
     }
     return enReturn;

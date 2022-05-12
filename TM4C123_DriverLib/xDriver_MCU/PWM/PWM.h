@@ -25,7 +25,6 @@
 #ifndef XDRIVER_MCU_PWM_PWM_H_
 #define XDRIVER_MCU_PWM_PWM_H_
 
-#include <xDriver_MCU/PWM/App/PWM_App.h>
 #include <xDriver_MCU/PWM/Driver/PWM_Driver.h>
 
 #endif /* XDRIVER_MCU_PWM_PWM_H_ */

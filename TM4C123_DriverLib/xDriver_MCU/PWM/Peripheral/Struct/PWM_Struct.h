@@ -25,7 +25,7 @@
 #ifndef XDRIVER_MCU_PWM_PERIPHERAL_STRUCT_PWM_STRUCT_H_
 #define XDRIVER_MCU_PWM_PERIPHERAL_STRUCT_PWM_STRUCT_H_
 
-#include <xDriver_MCU/PWM/Peripheral/Struct/StructPeripheral/PWM_StructPeripheral.h>
-#include <xDriver_MCU/PWM/Peripheral/Struct/StructPeripheral_Bitbanding/PWM_StructPeripheral_Bitbanding.h>
+#include <xDriver_MCU/PWM/Peripheral/Struct/xHeader/PWM_StructPeripheral.h>
+#include <xDriver_MCU/PWM/Peripheral/Struct/xHeader/PWM_StructPeripheral_Bitbanding.h>
 
 #endif /* XDRIVER_MCU_PWM_PERIPHERAL_STRUCT_PWM_STRUCT_H_ */

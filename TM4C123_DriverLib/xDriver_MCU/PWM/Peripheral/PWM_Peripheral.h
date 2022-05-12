@@ -26,7 +26,6 @@
 #define XDRIVER_MCU_PWM_PERIPHERAL_PWM_PERIPHERAL_H_
 
 #include <xDriver_MCU/PWM/Peripheral/Register/PWM_Register.h>
-#include <xDriver_MCU/PWM/Peripheral/xHeader/PWM_Dependencies.h>
 #include <xDriver_MCU/PWM/Peripheral/xHeader/PWM_Enum.h>
 
 #endif /* XDRIVER_MCU_PWM_PERIPHERAL_PWM_PERIPHERAL_H_ */
